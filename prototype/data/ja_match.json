@@ -3815,5 +3815,3648 @@
    ]
   ],
   "checked": "2026-11-04"
+ },
+ "swsh12.5-160": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "E1-016",
+    null
+   ],
+   [
+    "web1-025",
+    null
+   ],
+   [
+    "E4-033",
+    null
+   ],
+   [
+    "neo1-036",
+    null
+   ],
+   [
+    "PCG1-037",
+    null
+   ],
+   [
+    "PCG7-041",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ex8-102": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "SM7-109",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "xy7-94": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "neo1-072",
+    null
+   ],
+   [
+    "E3-090",
+    136
+   ],
+   [
+    "PCG4-090",
+    136
+   ],
+   [
+    "SM8-108",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "xy2-100": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "neo4-025",
+    null
+   ],
+   [
+    "PCG8-032",
+    null
+   ],
+   [
+    "web1-042",
+    null
+   ],
+   [
+    "PCG9-052",
+    null
+   ],
+   [
+    "SM3H-058",
+    null
+   ],
+   [
+    "E1-071",
+    135
+   ],
+   [
+    "E5-089",
+    135
+   ],
+   [
+    "VS1-097",
+    null
+   ],
+   [
+    "E1-103",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "neo3-66": {
+  "status": "trovata",
+  "tcgdex": null,
+  "dist": 69,
+  "tried": [
+   [
+    "E1-012",
+    null
+   ],
+   [
+    "neo3-022",
+    null
+   ],
+   [
+    "PCG2-023",
+    null
+   ],
+   [
+    "E5-026",
+    null
+   ],
+   [
+    "PMCG5-028",
+    null
+   ],
+   [
+    "PCG1-034",
+    null
+   ],
+   [
+    "web1-035",
+    null
+   ],
+   [
+    "PMCG6-037",
+    null
+   ],
+   [
+    "PCG7-043",
+    null
+   ],
+   [
+    "/pokemon/awakening-legends-japanese/shining-magikarp-129",
+    69
+   ]
+  ],
+  "ja_name": null,
+  "no": "129",
+  "set": "Awakening Legends",
+  "tot": null,
+  "rarity": null,
+  "ill": "Ken Sugimori",
+  "img": null,
+  "tc": {
+   "id": 130128,
+   "url": "/pokemon/awakening-legends-japanese/shining-magikarp-129",
+   "set": "Awakening Legends",
+   "type": "base"
+  },
+  "via": "tcgcharts",
+  "checked": "2026-11-04"
+ },
+ "g1-RC28": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG4-013",
+    null
+   ],
+   [
+    "E4-016",
+    null
+   ],
+   [
+    "E4-017",
+    null
+   ],
+   [
+    "PCG6-018",
+    null
+   ],
+   [
+    "neo4-019",
+    null
+   ],
+   [
+    "VS1-089",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "dc1-6": {
+  "status": "trovata",
+  "tcgdex": "CP1-006",
+  "dist": 13,
+  "tried": [
+   [
+    "CP1-006",
+    13
+   ],
+   [
+    "PCG6-028",
+    null
+   ]
+  ],
+  "ja_name": "アクア団のカイオーガEX",
+  "no": "006",
+  "set": "マグマ団VSアクア団 ダブルクライシス",
+  "tot": 34,
+  "rarity": "Double rare",
+  "ill": "nagimiso",
+  "img": null,
+  "tc": {
+   "id": 123899,
+   "url": "/pokemon/magma-gang-vs-aqua-gang-double-crisis-japanese/team-aquas-kyogre-ex-6",
+   "set": "Magma Gang VS Aqua Gang: Double Crisis",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
+ },
+ "bw1-115": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "E1-016",
+    null
+   ],
+   [
+    "web1-025",
+    null
+   ],
+   [
+    "E4-033",
+    null
+   ],
+   [
+    "neo1-036",
+    null
+   ],
+   [
+    "PCG1-037",
+    null
+   ],
+   [
+    "PCG7-041",
+    null
+   ],
+   [
+    "S12a-205",
+    114
+   ],
+   [
+    "SV-P-260",
+    109
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "me02-106": {
+  "status": "trovata",
+  "tcgdex": "SV-P-192",
+  "dist": 14,
+  "tried": [
+   [
+    "E1-029",
+    null
+   ],
+   [
+    "PCG7-038",
+    126
+   ],
+   [
+    "PCG6-059",
+    null
+   ],
+   [
+    "PCG3-059",
+    null
+   ],
+   [
+    "E4-062",
+    null
+   ],
+   [
+    "SV-P-192",
+    14
+   ]
+  ],
+  "ja_name": "ニャース",
+  "no": "192",
+  "set": "スカーレット&バイオレット プロモカード",
+  "tot": 0,
+  "rarity": "Promo",
+  "ill": "Uninori",
+  "img": null,
+  "tc": {
+   "id": 115245,
+   "url": "/pokemon/scarlet-violet-promos-japanese/meowth-192",
+   "set": "Scarlet & Violet Promos",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
+ },
+ "xy9-114": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG7-008",
+    null
+   ],
+   [
+    "neo3-023",
+    127
+   ],
+   [
+    "PCG7-024",
+    null
+   ],
+   [
+    "PCG2-024",
+    null
+   ],
+   [
+    "E5-027",
+    null
+   ],
+   [
+    "E5-028",
+    null
+   ],
+   [
+    "PCG1-035",
+    150
+   ],
+   [
+    "VS1-048",
+    null
+   ],
+   [
+    "SM4A-056",
+    null
+   ],
+   [
+    "VS1-098",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "bw11-19": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "neo4-025",
+    null
+   ],
+   [
+    "PCG8-032",
+    null
+   ],
+   [
+    "web1-042",
+    null
+   ],
+   [
+    "PCG9-052",
+    null
+   ],
+   [
+    "SM3H-058",
+    133
+   ],
+   [
+    "E1-071",
+    146
+   ],
+   [
+    "E5-089",
+    null
+   ],
+   [
+    "VS1-097",
+    null
+   ],
+   [
+    "E1-103",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "xy7-21": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG7-008",
+    null
+   ],
+   [
+    "neo3-023",
+    null
+   ],
+   [
+    "PCG7-024",
+    null
+   ],
+   [
+    "PCG2-024",
+    null
+   ],
+   [
+    "E5-027",
+    146
+   ],
+   [
+    "E5-028",
+    null
+   ],
+   [
+    "PCG1-035",
+    133
+   ],
+   [
+    "VS1-048",
+    123
+   ],
+   [
+    "SM4A-056",
+    122
+   ],
+   [
+    "VS1-098",
+    125
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "g1-RC6": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG4-013",
+    null
+   ],
+   [
+    "E4-016",
+    null
+   ],
+   [
+    "E4-017",
+    null
+   ],
+   [
+    "PCG6-018",
+    null
+   ],
+   [
+    "neo4-019",
+    null
+   ],
+   [
+    "VS1-089",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "me01-187": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "SM3N-038",
+    134
+   ],
+   [
+    "PCG6-050",
+    null
+   ],
+   [
+    "SM3N-055",
+    117
+   ],
+   [
+    "SM3N-061",
+    null
+   ],
+   [
+    "M1S-092",
+    134
+   ],
+   [
+    "SM8b-092",
+    133
+   ],
+   [
+    "SM8b-237",
+    121
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "g1-RC5": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "neo4-025",
+    null
+   ],
+   [
+    "PCG8-032",
+    null
+   ],
+   [
+    "web1-042",
+    null
+   ],
+   [
+    "PCG9-052",
+    null
+   ],
+   [
+    "SM3H-058",
+    112
+   ],
+   [
+    "E1-071",
+    139
+   ],
+   [
+    "E5-089",
+    null
+   ],
+   [
+    "VS1-097",
+    null
+   ],
+   [
+    "E1-103",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "sm115-9": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "neo4-025",
+    null
+   ],
+   [
+    "PCG8-032",
+    null
+   ],
+   [
+    "web1-042",
+    null
+   ],
+   [
+    "PCG9-052",
+    127
+   ],
+   [
+    "SM3H-058",
+    137
+   ],
+   [
+    "E1-071",
+    null
+   ],
+   [
+    "MC-085",
+    115
+   ],
+   [
+    "E5-089",
+    null
+   ],
+   [
+    "VS1-097",
+    136
+   ],
+   [
+    "E1-103",
+    null
+   ],
+   [
+    "MC-766",
+    120
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ex15-100": {
+  "status": "trovata",
+  "tcgdex": "PCG9-052",
+  "dist": 73,
+  "tried": [
+   [
+    "SM9-013",
+    142
+   ],
+   [
+    "neo4-025",
+    null
+   ],
+   [
+    "PCG8-032",
+    null
+   ],
+   [
+    "web1-042",
+    null
+   ],
+   [
+    "PCG9-052",
+    73
+   ],
+   [
+    "SM3H-058",
+    null
+   ],
+   [
+    "E1-071",
+    null
+   ],
+   [
+    "E5-089",
+    null
+   ],
+   [
+    "VS1-097",
+    null
+   ],
+   [
+    "E1-103",
+    null
+   ]
+  ],
+  "ja_name": "カリザードスター（デルタ種）",
+  "no": "052",
+  "set": "さいはての攻防",
+  "tot": 68,
+  "rarity": "Shiny rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 127984,
+   "url": "/pokemon/offense-and-defense-of-the-furthest-ends-japanese/charizard-52",
+   "set": "Offense and Defense of the Furthest Ends",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
+ },
+ "ex13-104": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "E1-016",
+    137
+   ],
+   [
+    "web1-025",
+    null
+   ],
+   [
+    "E4-033",
+    null
+   ],
+   [
+    "neo1-036",
+    null
+   ],
+   [
+    "PCG1-037",
+    null
+   ],
+   [
+    "PCG7-041",
+    142
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ex7-107": {
+  "status": "trovata",
+  "tcgdex": "PCG3-033",
+  "dist": 32,
+  "tried": [
+   [
+    "PCG8-021",
+    null
+   ],
+   [
+    "PCG3-033",
+    32
+   ]
+  ],
+  "ja_name": "マッドキップスター",
+  "no": "033",
+  "set": "ロケット団の逆襲",
+  "tot": 84,
+  "rarity": "Shiny rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 128440,
+   "url": "/pokemon/rocket-gang-strikes-back-japanese/mudkip-33",
+   "set": "Rocket Gang Strikes Back",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
+ },
+ "ex13-102": {
+  "status": "trovata",
+  "tcgdex": "PCG7-008",
+  "dist": 50,
+  "tried": [
+   [
+    "PCG7-008",
+    50
+   ],
+   [
+    "neo3-023",
+    null
+   ],
+   [
+    "PCG7-024",
+    null
+   ],
+   [
+    "PCG2-024",
+    null
+   ],
+   [
+    "E5-027",
+    null
+   ],
+   [
+    "E5-028",
+    null
+   ],
+   [
+    "PCG1-035",
+    null
+   ],
+   [
+    "VS1-048",
+    null
+   ],
+   [
+    "SM4A-056",
+    null
+   ],
+   [
+    "VS1-098",
+    null
+   ]
+  ],
+  "ja_name": "ギャラドススター（デルタ種）",
+  "no": "008",
+  "set": "ホロンの幻影",
+  "tot": 52,
+  "rarity": "Shiny rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 128083,
+   "url": "/pokemon/holon-phantom-japanese/gyarados-8",
+   "set": "Holon Phantom",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
+ },
+ "ex7-109": {
+  "status": "trovata",
+  "tcgdex": "PCG3-011",
+  "dist": 54,
+  "tried": [
+   [
+    "PCG8-005",
+    null
+   ],
+   [
+    "PCG3-011",
+    54
+   ]
+  ],
+  "ja_name": "Treecko Star",
+  "no": "011",
+  "set": "ロケット団の逆襲",
+  "tot": 84,
+  "rarity": "Shiny rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 128418,
+   "url": "/pokemon/rocket-gang-strikes-back-japanese/treecko-11",
+   "set": "Rocket Gang Strikes Back",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
+ },
+ "ecard3-H30": {
+  "status": "trovata",
+  "tcgdex": "E4-071",
+  "dist": 42,
+  "tried": [
+   [
+    "neo2-040",
+    121
+   ],
+   [
+    "E2-067",
+    null
+   ],
+   [
+    "E2-068",
+    106
+   ],
+   [
+    "PCG6-069",
+    null
+   ],
+   [
+    "SM1M-069",
+    null
+   ],
+   [
+    "E4-071",
+    42
+   ],
+   [
+    "E4-072",
+    69
+   ],
+   [
+    "VS1-091",
+    null
+   ],
+   [
+    "PCG4-091",
+    null
+   ]
+  ],
+  "ja_name": "Umbreon",
+  "no": "071",
+  "set": "裂けた大地",
+  "tot": 88,
+  "rarity": "Rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 129391,
+   "url": "/pokemon/split-earth-japanese/umbreon-71",
+   "set": "Split Earth",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
+ },
+ "ex11-111": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "SM7-050",
+    120
+   ],
+   [
+    "PCG6-056",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ex16-100": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG4-013",
+    null
+   ],
+   [
+    "E4-016",
+    null
+   ],
+   [
+    "E4-017",
+    null
+   ],
+   [
+    "PCG6-018",
+    null
+   ],
+   [
+    "neo4-019",
+    null
+   ],
+   [
+    "VS1-089",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ex11-112": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG6-028",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ex10-105": {
+  "status": "trovata",
+  "tcgdex": "E3-090",
+  "dist": 29,
+  "tried": [
+   [
+    "neo1-072",
+    null
+   ],
+   [
+    "E3-090",
+    29
+   ],
+   [
+    "PCG4-090",
+    29
+   ],
+   [
+    "SM8-108",
+    null
+   ]
+  ],
+  "ja_name": "ルギア",
+  "no": "090",
+  "set": "海からの風",
+  "tot": 87,
+  "rarity": "Secret Rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 128391,
+   "url": "/pokemon/golden-sky-silvery-ocean-japanese/lugia-ex-90",
+   "set": "Golden Sky, Silvery Ocean",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
+ },
+ "hgss3-86": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "neo2-040",
+    122
+   ],
+   [
+    "E2-067",
+    null
+   ],
+   [
+    "E2-068",
+    135
+   ],
+   [
+    "PCG6-069",
+    null
+   ],
+   [
+    "SM1M-069",
+    null
+   ],
+   [
+    "E4-071",
+    127
+   ],
+   [
+    "E4-072",
+    134
+   ],
+   [
+    "VS1-091",
+    null
+   ],
+   [
+    "PCG4-091",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ecard2-H29": {
+  "status": "trovata",
+  "tcgdex": "E2-068",
+  "dist": 61,
+  "tried": [
+   [
+    "neo2-040",
+    130
+   ],
+   [
+    "E2-067",
+    null
+   ],
+   [
+    "E2-068",
+    61
+   ],
+   [
+    "PCG6-069",
+    null
+   ],
+   [
+    "SM1M-069",
+    null
+   ],
+   [
+    "E4-071",
+    99
+   ],
+   [
+    "E4-072",
+    108
+   ],
+   [
+    "VS1-091",
+    null
+   ],
+   [
+    "PCG4-091",
+    null
+   ]
+  ],
+  "ja_name": "Umbreon -068/092",
+  "no": "068",
+  "set": "地図にない町",
+  "tot": 92,
+  "rarity": "Holo Rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 129569,
+   "url": "/pokemon/the-town-on-no-map-japanese/umbreon-68",
+   "set": "The Town on No Map",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
+ },
+ "ecard3-149": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "neo3-011",
+    null
+   ],
+   [
+    "PCG4-020",
+    null
+   ],
+   [
+    "SM3H-059",
+    125
+   ],
+   [
+    "E4-091",
+    83
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ex11-113": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG6-040",
+    null
+   ],
+   [
+    "PCG2-044",
+    null
+   ],
+   [
+    "SM2L-059",
+    null
+   ],
+   [
+    "PCG6-075",
+    null
+   ],
+   [
+    "S6K-087",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "hgss4-94": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "VS1-021",
+    null
+   ],
+   [
+    "PCG5-040",
+    131
+   ],
+   [
+    "E5-043",
+    null
+   ],
+   [
+    "E5-044",
+    126
+   ],
+   [
+    "web1-047",
+    null
+   ],
+   [
+    "PCG1-048",
+    null
+   ],
+   [
+    "neo4-066",
+    null
+   ],
+   [
+    "E1-085",
+    135
+   ],
+   [
+    "E1-117",
+    146
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ex16-101": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "VS1-030",
+    null
+   ],
+   [
+    "PCG4-034",
+    null
+   ],
+   [
+    "E4-036",
+    null
+   ],
+   [
+    "E4-037",
+    null
+   ],
+   [
+    "PCG6-038",
+    null
+   ],
+   [
+    "neo4-043",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ex12-91": {
+  "status": "trovata",
+  "tcgdex": "PCG5-059",
+  "dist": 23,
+  "tried": [
+   [
+    "PCG5-059",
+    23
+   ]
+  ],
+  "ja_name": "レジロックスター",
+  "no": "059",
+  "set": "まぼろしの森",
+  "tot": 86,
+  "rarity": "Shiny rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 128274,
+   "url": "/pokemon/mirage-forest-japanese/regirock-59",
+   "set": "Mirage Forest",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
+ },
+ "hgss3-81": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "neo2-029",
+    130
+   ],
+   [
+    "PCG4-041",
+    null
+   ],
+   [
+    "E2-045",
+    null
+   ],
+   [
+    "E2-046",
+    null
+   ],
+   [
+    "PCG6-049",
+    123
+   ],
+   [
+    "VS1-056",
+    138
+   ],
+   [
+    "neo4-067",
+    null
+   ],
+   [
+    "SM1S-068",
+    123
+   ],
+   [
+    "VS1-076",
+    136
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "hgss4-97": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG9-015",
+    127
+   ],
+   [
+    "PCG5-041",
+    null
+   ],
+   [
+    "E1-087",
+    114
+   ],
+   [
+    "E1-119",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "sv08.5-156": {
+  "status": "nessuna",
+  "detail": "1 dello stesso illustratore, nessuna con la stessa illustrazione",
+  "tried": [
+   [
+    "SM1p-064",
+    136
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "swsh7-205": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "SM5S-073",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "gym2-2": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PMCG4-017",
+    null
+   ],
+   [
+    "neo4-025",
+    null
+   ],
+   [
+    "PMCG6-032",
+    null
+   ],
+   [
+    "PCG8-032",
+    null
+   ],
+   [
+    "web1-042",
+    null
+   ],
+   [
+    "PCG9-052",
+    null
+   ],
+   [
+    "SM3H-058",
+    null
+   ],
+   [
+    "E1-071",
+    null
+   ],
+   [
+    "E5-089",
+    null
+   ],
+   [
+    "VS1-097",
+    null
+   ],
+   [
+    "E1-103",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "hgss4-92": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG8-004",
+    null
+   ],
+   [
+    "neo4-013",
+    null
+   ],
+   [
+    "neo3-036",
+    null
+   ],
+   [
+    "PCG3-071",
+    null
+   ],
+   [
+    "S6K-084",
+    118
+   ],
+   [
+    "E5-091",
+    133
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ex14-4": {
+  "status": "trovata",
+  "tcgdex": "PCG8-032",
+  "dist": 37,
+  "tried": [
+   [
+    "S12a-015",
+    117
+   ],
+   [
+    "neo4-025",
+    null
+   ],
+   [
+    "PCG8-032",
+    37
+   ],
+   [
+    "web1-042",
+    null
+   ],
+   [
+    "PCG9-052",
+    127
+   ],
+   [
+    "SM3H-058",
+    null
+   ],
+   [
+    "E1-071",
+    null
+   ],
+   [
+    "E5-089",
+    null
+   ],
+   [
+    "VS1-097",
+    null
+   ],
+   [
+    "E1-103",
+    null
+   ]
+  ],
+  "ja_name": "カリザード（デルタ種）",
+  "no": "032",
+  "set": "きせきの結晶",
+  "tot": 75,
+  "rarity": "Holo Rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 128032,
+   "url": "/pokemon/miracle-crystal-japanese/charizard-32",
+   "set": "Miracle Crystal",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
+ },
+ "xy10-119": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "neo2-040",
+    null
+   ],
+   [
+    "E2-067",
+    null
+   ],
+   [
+    "E2-068",
+    null
+   ],
+   [
+    "PCG6-069",
+    null
+   ],
+   [
+    "SM1M-069",
+    null
+   ],
+   [
+    "E4-071",
+    null
+   ],
+   [
+    "E4-072",
+    null
+   ],
+   [
+    "VS1-091",
+    126
+   ],
+   [
+    "PCG4-091",
+    126
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "dp3-3": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "neo4-025",
+    null
+   ],
+   [
+    "PCG8-032",
+    null
+   ],
+   [
+    "web1-042",
+    null
+   ],
+   [
+    "PCG9-052",
+    null
+   ],
+   [
+    "SM3H-058",
+    135
+   ],
+   [
+    "E1-071",
+    130
+   ],
+   [
+    "E5-089",
+    null
+   ],
+   [
+    "VS1-097",
+    null
+   ],
+   [
+    "E1-103",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "dp5-98": {
+  "status": "nessuna",
+  "detail": "1 dello stesso illustratore, nessuna con la stessa illustrazione",
+  "tried": [
+   [
+    "SM5M-073",
+    110
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ex3-94": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG7-014",
+    null
+   ],
+   [
+    "PCG9-023",
+    119
+   ],
+   [
+    "PCG6-042",
+    null
+   ],
+   [
+    "PCG2-066",
+    null
+   ],
+   [
+    "SM11-109",
+    126
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "sv07-148": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG8-018",
+    null
+   ],
+   [
+    "M-P-103",
+    117
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "swsh7-209": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "SM5M-073",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "bw11-RC7": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "E1-016",
+    null
+   ],
+   [
+    "web1-025",
+    null
+   ],
+   [
+    "E4-033",
+    null
+   ],
+   [
+    "neo1-036",
+    null
+   ],
+   [
+    "PMCG5-036",
+    null
+   ],
+   [
+    "PCG1-037",
+    null
+   ],
+   [
+    "PCG7-041",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "sv04.5-233": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG6-050",
+    116
+   ],
+   [
+    "SM3N-061",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ecard3-H11": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG4-018",
+    null
+   ],
+   [
+    "E2-019",
+    null
+   ],
+   [
+    "PCG3-021",
+    null
+   ],
+   [
+    "neo2-041",
+    null
+   ],
+   [
+    "neo3-044",
+    123
+   ],
+   [
+    "E5-069",
+    null
+   ],
+   [
+    "E2-070",
+    null
+   ],
+   [
+    "E5-070",
+    null
+   ],
+   [
+    "E2-071",
+    null
+   ],
+   [
+    "VS1-092",
+    112
+   ],
+   [
+    "neo4-229",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ecard2-H22": {
+  "status": "trovata",
+  "tcgdex": "E3-053",
+  "dist": 73,
+  "tried": [
+   [
+    "PCG6-025",
+    null
+   ],
+   [
+    "PCG4-042",
+    125
+   ],
+   [
+    "PCG3-044",
+    125
+   ],
+   [
+    "neo1-049",
+    null
+   ],
+   [
+    "E3-052",
+    105
+   ],
+   [
+    "E3-053",
+    73
+   ],
+   [
+    "neo4-061",
+    null
+   ]
+  ],
+  "ja_name": "スローキング",
+  "no": "053",
+  "set": "海からの風",
+  "tot": 87,
+  "rarity": "Holo Rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 129464,
+   "url": "/pokemon/wind-from-the-sea-japanese/slowking-53",
+   "set": "Wind from the Sea",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
+ },
+ "swsh7-180": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "neo2-029",
+    null
+   ],
+   [
+    "PCG4-041",
+    null
+   ],
+   [
+    "E2-045",
+    null
+   ],
+   [
+    "E2-046",
+    null
+   ],
+   [
+    "PCG6-049",
+    null
+   ],
+   [
+    "VS1-056",
+    134
+   ],
+   [
+    "neo4-067",
+    null
+   ],
+   [
+    "SM1S-068",
+    null
+   ],
+   [
+    "VS1-076",
+    124
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ex8-108": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "neo3-029",
+    null
+   ],
+   [
+    "E4-038",
+    null
+   ],
+   [
+    "E4-039",
+    null
+   ],
+   [
+    "PCG4-039",
+    null
+   ],
+   [
+    "VS1-094",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "swsh3-20": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "neo4-025",
+    128
+   ],
+   [
+    "PCG8-032",
+    null
+   ],
+   [
+    "web1-042",
+    null
+   ],
+   [
+    "PCG9-052",
+    null
+   ],
+   [
+    "SM3H-058",
+    null
+   ],
+   [
+    "E1-071",
+    null
+   ],
+   [
+    "MC-085",
+    141
+   ],
+   [
+    "E5-089",
+    null
+   ],
+   [
+    "VS1-097",
+    null
+   ],
+   [
+    "E1-103",
+    null
+   ],
+   [
+    "MC-766",
+    116
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "neo4-108": {
+  "status": "trovata",
+  "tcgdex": null,
+  "dist": 56,
+  "tried": [
+   [
+    "neo2-018",
+    null
+   ],
+   [
+    "PCG7-021",
+    null
+   ],
+   [
+    "PCG5-054",
+    null
+   ],
+   [
+    "E4-057",
+    null
+   ],
+   [
+    "E4-058",
+    null
+   ],
+   [
+    "VS1-069",
+    null
+   ],
+   [
+    "neo4-080",
+    null
+   ],
+   [
+    "E4-090",
+    null
+   ],
+   [
+    "/pokemon/darkness-and-to-light-japanese/shining-kabutops-141",
+    56
+   ]
+  ],
+  "ja_name": null,
+  "no": "141",
+  "set": "Darkness, and to Light...",
+  "tot": null,
+  "rarity": null,
+  "ill": "Hironobu Yoshida",
+  "img": null,
+  "tc": {
+   "id": 130073,
+   "url": "/pokemon/darkness-and-to-light-japanese/shining-kabutops-141",
+   "set": "Darkness, and to Light...",
+   "type": "base"
+  },
+  "via": "tcgcharts",
+  "checked": "2026-11-04"
+ },
+ "hgss4-95": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "web1-048",
+    null
+   ],
+   [
+    "PCG5-049",
+    132
+   ],
+   [
+    "E5-052",
+    null
+   ],
+   [
+    "E5-053",
+    null
+   ],
+   [
+    "SM2p-061",
+    132
+   ],
+   [
+    "neo4-077",
+    null
+   ],
+   [
+    "VS1-081",
+    null
+   ],
+   [
+    "E1-089",
+    136
+   ],
+   [
+    "E1-121",
+    114
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "hgss3-10": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "neo2-040",
+    141
+   ],
+   [
+    "E2-067",
+    null
+   ],
+   [
+    "E2-068",
+    132
+   ],
+   [
+    "PCG6-069",
+    null
+   ],
+   [
+    "SM1M-069",
+    null
+   ],
+   [
+    "E4-071",
+    130
+   ],
+   [
+    "E4-072",
+    131
+   ],
+   [
+    "VS1-091",
+    null
+   ],
+   [
+    "PCG4-091",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "bw11-114": {
+  "status": "nessuna",
+  "detail": "6 dello stesso illustratore, nessuna con la stessa illustrazione",
+  "tried": [
+   [
+    "SV11W-017",
+    135
+   ],
+   [
+    "M2a-029",
+    134
+   ],
+   [
+    "SM6a-060",
+    122
+   ],
+   [
+    "MC-126",
+    131
+   ],
+   [
+    "SV11W-160",
+    131
+   ],
+   [
+    "SV11W-174",
+    104
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ecard3-H10": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG7-008",
+    null
+   ],
+   [
+    "neo3-023",
+    null
+   ],
+   [
+    "PCG7-024",
+    null
+   ],
+   [
+    "PCG2-024",
+    null
+   ],
+   [
+    "E5-027",
+    81
+   ],
+   [
+    "E5-028",
+    null
+   ],
+   [
+    "PCG1-035",
+    134
+   ],
+   [
+    "VS1-048",
+    116
+   ],
+   [
+    "SM4A-056",
+    127
+   ],
+   [
+    "VS1-098",
+    122
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ex16-6": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PMCG4-017",
+    null
+   ],
+   [
+    "neo4-025",
+    null
+   ],
+   [
+    "PMCG6-032",
+    null
+   ],
+   [
+    "PCG8-032",
+    null
+   ],
+   [
+    "web1-042",
+    null
+   ],
+   [
+    "PCG9-052",
+    null
+   ],
+   [
+    "SM3H-058",
+    137
+   ],
+   [
+    "E1-071",
+    118
+   ],
+   [
+    "E5-089",
+    null
+   ],
+   [
+    "VS1-097",
+    null
+   ],
+   [
+    "E1-103",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "neo4-106": {
+  "status": "trovata",
+  "tcgdex": null,
+  "dist": 73,
+  "tried": [
+   [
+    "PCG8-004",
+    136
+   ],
+   [
+    "neo4-013",
+    null
+   ],
+   [
+    "neo3-036",
+    null
+   ],
+   [
+    "PCG3-071",
+    null
+   ],
+   [
+    "S6K-084",
+    null
+   ],
+   [
+    "E5-091",
+    null
+   ],
+   [
+    "/pokemon/darkness-and-to-light-japanese/shining-celebi-251",
+    73
+   ]
+  ],
+  "ja_name": null,
+  "no": "251",
+  "set": "Darkness, and to Light...",
+  "tot": null,
+  "rarity": null,
+  "ill": "Hironobu Yoshida",
+  "img": null,
+  "tc": {
+   "id": 130006,
+   "url": "/pokemon/darkness-and-to-light-japanese/shining-celebi-251",
+   "set": "Darkness, and to Light...",
+   "type": "base"
+  },
+  "via": "tcgcharts",
+  "checked": "2026-11-04"
+ },
+ "neo4-111": {
+  "status": "trovata",
+  "tcgdex": null,
+  "dist": 65,
+  "tried": [
+   [
+    "neo2-021",
+    null
+   ],
+   [
+    "neo3-025",
+    null
+   ],
+   [
+    "VS1-027",
+    null
+   ],
+   [
+    "E4-034",
+    null
+   ],
+   [
+    "E4-035",
+    null
+   ],
+   [
+    "web1-036",
+    null
+   ],
+   [
+    "PCG1-038",
+    null
+   ],
+   [
+    "PCG7-042",
+    null
+   ],
+   [
+    "neo4-047",
+    null
+   ],
+   [
+    "VS1-053",
+    null
+   ],
+   [
+    "SM10a-064",
+    null
+   ],
+   [
+    "SM3p-079",
+    135
+   ],
+   [
+    "E1-081",
+    null
+   ],
+   [
+    "E1-113",
+    null
+   ],
+   [
+    "/pokemon/darkness-and-to-light-japanese/shining-raichu-26",
+    65
+   ]
+  ],
+  "ja_name": null,
+  "no": "26",
+  "set": "Darkness, and to Light...",
+  "tot": null,
+  "rarity": null,
+  "ill": "Hironobu Yoshida",
+  "img": null,
+  "tc": {
+   "id": 130040,
+   "url": "/pokemon/darkness-and-to-light-japanese/shining-raichu-26",
+   "set": "Darkness, and to Light...",
+   "type": "base"
+  },
+  "via": "tcgcharts",
+  "checked": "2026-11-04"
+ },
+ "ex3-93": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG7-010",
+    null
+   ],
+   [
+    "PCG9-014",
+    123
+   ],
+   [
+    "PCG6-041",
+    123
+   ],
+   [
+    "PCG2-065",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ex15-91": {
+  "status": "trovata",
+  "tcgdex": "PCG9-004",
+  "dist": 64,
+  "tried": [
+   [
+    "PCG9-004",
+    64
+   ],
+   [
+    "web1-038",
+    null
+   ],
+   [
+    "PCG6-039",
+    null
+   ],
+   [
+    "VS1-049",
+    null
+   ],
+   [
+    "SM6a-062",
+    null
+   ],
+   [
+    "E1-094",
+    null
+   ],
+   [
+    "neo4-094",
+    null
+   ],
+   [
+    "VS1-100",
+    null
+   ],
+   [
+    "SM11-112",
+    125
+   ],
+   [
+    "E1-126",
+    null
+   ]
+  ],
+  "ja_name": "ドラゴナイトex（デルタ種）",
+  "no": "004",
+  "set": "さいはての攻防",
+  "tot": 68,
+  "rarity": "Holo Rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 127936,
+   "url": "/pokemon/offense-and-defense-of-the-furthest-ends-japanese/dragonite-ex-4",
+   "set": "Offense and Defense of the Furthest Ends",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
+ },
+ "xy6-105": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "SM7-068",
+    124
+   ],
+   [
+    "M6-095",
+    null
+   ],
+   [
+    "SM8b-098",
+    123
+   ],
+   [
+    "SM12a-100",
+    126
+   ],
+   [
+    "SM7-101",
+    128
+   ],
+   [
+    "SM7-109",
+    null
+   ],
+   [
+    "SM8b-240",
+    129
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ex7-105": {
+  "status": "trovata",
+  "tcgdex": "PCG3-069",
+  "dist": 75,
+  "tried": [
+   [
+    "neo3-021",
+    null
+   ],
+   [
+    "E2-030",
+    null
+   ],
+   [
+    "E2-031",
+    null
+   ],
+   [
+    "PCG4-032",
+    null
+   ],
+   [
+    "PCG3-069",
+    75
+   ],
+   [
+    "VS1-096",
+    null
+   ],
+   [
+    "SM8-106",
+    null
+   ]
+  ],
+  "ja_name": "Rocket's Suicune Ex",
+  "no": "069",
+  "set": "ロケット団の逆襲",
+  "tot": 84,
+  "rarity": "Holo Rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 128476,
+   "url": "/pokemon/rocket-gang-strikes-back-japanese/rockets-suicune-ex-69",
+   "set": "Rocket Gang Strikes Back",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
+ },
+ "dp6-14": {
+  "status": "nessuna",
+  "detail": "1 dello stesso illustratore, nessuna con la stessa illustrazione",
+  "tried": [
+   [
+    "SM7-109",
+    125
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "me02.5-295": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG9-004",
+    null
+   ],
+   [
+    "web1-038",
+    null
+   ],
+   [
+    "PCG6-039",
+    null
+   ],
+   [
+    "VS1-049",
+    null
+   ],
+   [
+    "SM6a-062",
+    null
+   ],
+   [
+    "E1-094",
+    null
+   ],
+   [
+    "neo4-094",
+    null
+   ],
+   [
+    "VS1-100",
+    null
+   ],
+   [
+    "SM11-112",
+    118
+   ],
+   [
+    "M2a-126",
+    119
+   ],
+   [
+    "E1-126",
+    120
+   ],
+   [
+    "M2a-250",
+    147
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "me02-098": {
+  "status": "trovata",
+  "tcgdex": "M2-085",
+  "dist": 75,
+  "tried": [
+   [
+    "M2-085",
+    75
+   ]
+  ],
+  "ja_name": "ポッチャマ",
+  "no": "085",
+  "set": "インフェルノX",
+  "tot": 80,
+  "rarity": "Illustration rare",
+  "ill": "Jiro Sasumo",
+  "img": null,
+  "tc": {
+   "id": 111410,
+   "url": "/pokemon/inferno-x-japanese/piplup-85",
+   "set": "Inferno X",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
+ },
+ "hgss3-84": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "VS1-013",
+    131
+   ],
+   [
+    "neo2-045",
+    null
+   ],
+   [
+    "PCG3-066",
+    null
+   ],
+   [
+    "E3-074",
+    129
+   ],
+   [
+    "E3-075",
+    125
+   ],
+   [
+    "SM6b-082",
+    107
+   ],
+   [
+    "neo4-083",
+    null
+   ],
+   [
+    "PCG4-096",
+    139
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "me03-094": {
+  "status": "trovata",
+  "tcgdex": "M3-086",
+  "dist": 37,
+  "tried": [
+   [
+    "E1-028",
+    134
+   ],
+   [
+    "neo1-063",
+    null
+   ],
+   [
+    "PCG1-065",
+    null
+   ],
+   [
+    "M3-086",
+    37
+   ]
+  ],
+  "ja_name": "ピッピ",
+  "no": "086",
+  "set": "ムニキスゼロ",
+  "tot": 80,
+  "rarity": "Illustration rare",
+  "ill": "Cona Nitanda",
+  "img": null,
+  "tc": {
+   "id": 133847,
+   "url": "/pokemon/nihil-zero-japanese/clefairy-86",
+   "set": "ムニキスゼロ",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
+ },
+ "ex6-108": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "VS1-021",
+    133
+   ],
+   [
+    "PCG5-040",
+    null
+   ],
+   [
+    "E5-043",
+    null
+   ],
+   [
+    "E5-044",
+    null
+   ],
+   [
+    "web1-047",
+    118
+   ],
+   [
+    "PCG1-048",
+    null
+   ],
+   [
+    "neo4-066",
+    null
+   ],
+   [
+    "E1-085",
+    114
+   ],
+   [
+    "E1-117",
+    115
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ex6-105": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "neo4-025",
+    null
+   ],
+   [
+    "PCG8-032",
+    null
+   ],
+   [
+    "web1-042",
+    null
+   ],
+   [
+    "PCG9-052",
+    null
+   ],
+   [
+    "SM3H-058",
+    null
+   ],
+   [
+    "E1-071",
+    124
+   ],
+   [
+    "E5-089",
+    132
+   ],
+   [
+    "VS1-097",
+    null
+   ],
+   [
+    "E1-103",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "col1-15": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "neo1-072",
+    123
+   ],
+   [
+    "E3-090",
+    null
+   ],
+   [
+    "PCG4-090",
+    null
+   ],
+   [
+    "SM8-108",
+    135
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "col1-4": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "neo2-029",
+    121
+   ],
+   [
+    "PCG4-041",
+    null
+   ],
+   [
+    "E2-045",
+    null
+   ],
+   [
+    "E2-046",
+    null
+   ],
+   [
+    "PCG6-049",
+    102
+   ],
+   [
+    "VS1-056",
+    135
+   ],
+   [
+    "neo4-067",
+    null
+   ],
+   [
+    "SM1S-068",
+    140
+   ],
+   [
+    "VS1-076",
+    143
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ex6-112": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG8-003",
+    null
+   ],
+   [
+    "web1-041",
+    null
+   ],
+   [
+    "E1-065",
+    122
+   ],
+   [
+    "E1-097",
+    127
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "col1-22": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "neo2-040",
+    115
+   ],
+   [
+    "E2-067",
+    null
+   ],
+   [
+    "E2-068",
+    154
+   ],
+   [
+    "PCG6-069",
+    null
+   ],
+   [
+    "SM1M-069",
+    null
+   ],
+   [
+    "E4-071",
+    136
+   ],
+   [
+    "E4-072",
+    139
+   ],
+   [
+    "VS1-091",
+    null
+   ],
+   [
+    "PCG4-091",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ex6-109": {
+  "status": "trovata",
+  "tcgdex": "PCG1-035",
+  "dist": 36,
+  "tried": [
+   [
+    "PCG7-008",
+    null
+   ],
+   [
+    "neo3-023",
+    115
+   ],
+   [
+    "PCG7-024",
+    null
+   ],
+   [
+    "PCG2-024",
+    null
+   ],
+   [
+    "E5-027",
+    null
+   ],
+   [
+    "E5-028",
+    null
+   ],
+   [
+    "PCG1-035",
+    36
+   ],
+   [
+    "VS1-048",
+    null
+   ],
+   [
+    "SM4A-056",
+    null
+   ],
+   [
+    "VS1-098",
+    null
+   ]
+  ],
+  "ja_name": "Gyarados Ex",
+  "no": "035",
+  "set": "伝説の飛翔",
+  "tot": 82,
+  "rarity": "Holo Rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 128609,
+   "url": "/pokemon/flight-of-legends-japanese/gyarados-ex-35",
+   "set": "Flight of Legends",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
+ },
+ "ex6-104": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "web1-044",
+    null
+   ],
+   [
+    "VS1-046",
+    null
+   ],
+   [
+    "PCG8-049",
+    null
+   ],
+   [
+    "SM9b-064",
+    null
+   ],
+   [
+    "E1-076",
+    null
+   ],
+   [
+    "E1-108",
+    114
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "swsh6-201": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG8-045",
+    null
+   ],
+   [
+    "SM7-106",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "g1-RC29": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "E1-016",
+    null
+   ],
+   [
+    "web1-025",
+    null
+   ],
+   [
+    "SM3p-029",
+    null
+   ],
+   [
+    "E4-033",
+    null
+   ],
+   [
+    "neo1-036",
+    null
+   ],
+   [
+    "PCG1-037",
+    null
+   ],
+   [
+    "PCG7-041",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "sv07-143": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG8-001",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "xy2-69": {
+  "status": "trovata",
+  "tcgdex": "E5-089",
+  "dist": 34,
+  "tried": [
+   [
+    "SM3H-011",
+    136
+   ],
+   [
+    "S12a-014",
+    130
+   ],
+   [
+    "neo4-025",
+    null
+   ],
+   [
+    "PCG8-032",
+    null
+   ],
+   [
+    "web1-042",
+    null
+   ],
+   [
+    "SM3H-052",
+    106
+   ],
+   [
+    "PCG9-052",
+    null
+   ],
+   [
+    "SM3H-058",
+    null
+   ],
+   [
+    "E1-071",
+    124
+   ],
+   [
+    "E5-089",
+    34
+   ],
+   [
+    "VS1-097",
+    null
+   ],
+   [
+    "E1-103",
+    null
+   ],
+   [
+    "SM8b-209",
+    112
+   ]
+  ],
+  "ja_name": "カリザード",
+  "no": "089",
+  "set": "神秘なる山",
+  "tot": 88,
+  "rarity": "Secret Rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 124378,
+   "url": "/pokemon/wild-blaze-japanese/m-charizard-ex-89",
+   "set": "Wild Blaze",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
+ },
+ "ecard3-H31": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG4-025",
+    null
+   ],
+   [
+    "E4-026",
+    null
+   ],
+   [
+    "E4-027",
+    null
+   ],
+   [
+    "PCG6-030",
+    null
+   ],
+   [
+    "neo4-034",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "sv08-239": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG7-010",
+    null
+   ],
+   [
+    "PCG9-014",
+    117
+   ],
+   [
+    "PCG6-041",
+    131
+   ],
+   [
+    "PCG2-065",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "swsh8-269": {
+  "status": "trovata",
+  "tcgdex": "E1-119",
+  "dist": 27,
+  "tried": [
+   [
+    "PCG9-015",
+    null
+   ],
+   [
+    "PCG5-041",
+    null
+   ],
+   [
+    "E1-087",
+    null
+   ],
+   [
+    "E1-119",
+    27
+   ],
+   [
+    "S8-119",
+    27
+   ]
+  ],
+  "ja_name": "ミュー",
+  "no": "119",
+  "set": "基本拡張パック",
+  "tot": 128,
+  "rarity": "Holo Rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 116985,
+   "url": "/pokemon/fusion-arts-japanese/mew-vmax-119",
+   "set": "Fusion Arts",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
+ },
+ "g1-RC32": {
+  "status": "nessuna",
+  "detail": "1 dello stesso illustratore, nessuna con la stessa illustrazione",
+  "tried": [
+   [
+    "SM1p-064",
+    129
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "sv10.5b-171": {
+  "status": "trovata",
+  "tcgdex": "SV-P-288",
+  "dist": 36,
+  "tried": [
+   [
+    "SV-P-288",
+    36
+   ]
+  ],
+  "ja_name": "ビクティニ",
+  "no": "288",
+  "set": "スカーレット&バイオレット プロモカード",
+  "tot": 0,
+  "rarity": "Promo",
+  "ill": "5ban Graphics",
+  "img": null,
+  "tc": {
+   "id": 115331,
+   "url": "/pokemon/scarlet-violet-promos-japanese/victini-288",
+   "set": "Scarlet & Violet Promos",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
+ },
+ "col1-20": {
+  "status": "nessuna",
+  "detail": "1 dello stesso illustratore, nessuna con la stessa illustrazione",
+  "tried": [
+   [
+    "SM7-109",
+    127
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "sv08.5-150": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "SM5M-073",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "swsh7-184": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "SM1p-064",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ecard3-H20": {
+  "status": "trovata",
+  "tcgdex": "E5-019",
+  "dist": 44,
+  "tried": [
+   [
+    "E5-018",
+    null
+   ],
+   [
+    "E5-019",
+    44
+   ],
+   [
+    "PCG1-024",
+    116
+   ],
+   [
+    "web1-043",
+    114
+   ]
+  ],
+  "ja_name": "モルトレス",
+  "no": "019",
+  "set": "神秘なる山",
+  "tot": 88,
+  "rarity": "Holo Rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 129248,
+   "url": "/pokemon/mysterious-mountains-japanese/moltres-19",
+   "set": "Mysterious Mountains",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
+ },
+ "sv08.5-144": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "SM5S-073",
+    null
+   ],
+   [
+    "S12a-210",
+    123
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "sm3.5-56": {
+  "status": "trovata",
+  "tcgdex": "SM3p-057",
+  "dist": 34,
+  "tried": [
+   [
+    "SM3p-057",
+    34
+   ],
+   [
+    "SM7-109",
+    null
+   ]
+  ],
+  "ja_name": "ひかるレックウザ",
+  "no": "057",
+  "set": "ひかる伝説",
+  "tot": 72,
+  "rarity": "Shiny Ultra Rare",
+  "ill": "Naoki Saito",
+  "img": "https://www.pokemon-card.com/assets/images/card_images/large/SM3p/034053_P_HIKARUREKKUUZA.jpg",
+  "tc": {
+   "id": 121780,
+   "url": "/pokemon/shining-legends-japanese/shining-rayquaza-57",
+   "set": "Shining Legends",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
+ },
+ "sv03.5-201": {
+  "status": "trovata",
+  "tcgdex": "SV2a-203",
+  "dist": 25,
+  "tried": [
+   [
+    "PCG8-033",
+    null
+   ],
+   [
+    "web1-037",
+    null
+   ],
+   [
+    "E4-042",
+    null
+   ],
+   [
+    "E4-043",
+    null
+   ],
+   [
+    "E1-084",
+    131
+   ],
+   [
+    "E1-116",
+    124
+   ],
+   [
+    "SV2a-203",
+    25
+   ]
+  ],
+  "ja_name": "フーディンex",
+  "no": "203",
+  "set": "ポケモンカード151",
+  "tot": 165,
+  "rarity": "Special illustration rare",
+  "ill": "Shinya Komatsu",
+  "img": "https://assets.tcgdex.net/ja/SV/SV2a/203/high.webp",
+  "tc": {
+   "id": 114529,
+   "url": "/pokemon/pokemon-card-151-japanese/alakazam-ex-203",
+   "set": "Pokémon Card 151",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
+ },
+ "sv06-188": {
+  "status": "trovata",
+  "tcgdex": "SV5a-078",
+  "dist": 18,
+  "tried": [
+   [
+    "neo2-049",
+    148
+   ],
+   [
+    "E2-058",
+    null
+   ],
+   [
+    "E4-065",
+    null
+   ],
+   [
+    "PCG6-073",
+    null
+   ],
+   [
+    "SV5a-078",
+    18
+   ],
+   [
+    "PCG4-079",
+    null
+   ],
+   [
+    "SV2a-133",
+    120
+   ]
+  ],
+  "ja_name": "イーブイ",
+  "no": "078",
+  "set": "クリムゾンヘイズ",
+  "tot": 66,
+  "rarity": null,
+  "ill": "Narumi Sato",
+  "img": "https://assets.tcgdex.net/ja/SV/SV5a/078/high.webp",
+  "tc": {
+   "id": 113325,
+   "url": "/pokemon/crimson-haze-japanese/eevee-78",
+   "set": "Crimson Haze",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
+ },
+ "sv08.5-155": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "neo2-029",
+    null
+   ],
+   [
+    "PCG4-041",
+    128
+   ],
+   [
+    "E2-045",
+    135
+   ],
+   [
+    "E2-046",
+    null
+   ],
+   [
+    "PCG6-049",
+    null
+   ],
+   [
+    "VS1-056",
+    null
+   ],
+   [
+    "neo4-067",
+    null
+   ],
+   [
+    "SM1S-068",
+    null
+   ],
+   [
+    "VS1-076",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "xy8-163": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG6-019",
+    121
+   ],
+   [
+    "PCG3-064",
+    126
+   ],
+   [
+    "neo4-068",
+    null
+   ],
+   [
+    "SM3p-080",
+    null
+   ],
+   [
+    "SM3p-082",
+    null
+   ],
+   [
+    "E1-086",
+    107
+   ],
+   [
+    "E1-118",
+    99
+   ],
+   [
+    "M2a-237",
+    120
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "sv10.5w-172": {
+  "status": "trovata",
+  "tcgdex": "SV-P-288",
+  "dist": 35,
+  "tried": [
+   [
+    "SV-P-288",
+    35
+   ]
+  ],
+  "ja_name": "ビクティニ",
+  "no": "288",
+  "set": "スカーレット&バイオレット プロモカード",
+  "tot": 0,
+  "rarity": "Promo",
+  "ill": "5ban Graphics",
+  "img": null,
+  "tc": {
+   "id": 115331,
+   "url": "/pokemon/scarlet-violet-promos-japanese/victini-288",
+   "set": "Scarlet & Violet Promos",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
+ },
+ "neo4-6": {
+  "status": "trovata",
+  "tcgdex": null,
+  "dist": 67,
+  "tried": [
+   [
+    "VS1-021",
+    128
+   ],
+   [
+    "S6K-027",
+    116
+   ],
+   [
+    "PCG5-040",
+    null
+   ],
+   [
+    "E5-043",
+    null
+   ],
+   [
+    "E5-044",
+    null
+   ],
+   [
+    "web1-047",
+    null
+   ],
+   [
+    "PCG1-048",
+    null
+   ],
+   [
+    "neo4-066",
+    null
+   ],
+   [
+    "E1-085",
+    null
+   ],
+   [
+    "E1-117",
+    null
+   ],
+   [
+    "/pokemon/darkness-and-to-light-japanese/dark-gengar-94",
+    67
+   ]
+  ],
+  "ja_name": null,
+  "no": "94",
+  "set": "Darkness, and to Light...",
+  "tot": null,
+  "rarity": null,
+  "ill": "Aya Kusube",
+  "img": null,
+  "tc": {
+   "id": 130059,
+   "url": "/pokemon/darkness-and-to-light-japanese/dark-gengar-94",
+   "set": "Darkness, and to Light...",
+   "type": "base"
+  },
+  "via": "tcgcharts",
+  "checked": "2026-11-04"
+ },
+ "xy2-108": {
+  "status": "trovata",
+  "tcgdex": "E5-089",
+  "dist": 25,
+  "tried": [
+   [
+    "SM3H-011",
+    135
+   ],
+   [
+    "S12a-014",
+    135
+   ],
+   [
+    "neo4-025",
+    null
+   ],
+   [
+    "PCG8-032",
+    null
+   ],
+   [
+    "web1-042",
+    null
+   ],
+   [
+    "SM3H-052",
+    107
+   ],
+   [
+    "PCG9-052",
+    null
+   ],
+   [
+    "SM3H-058",
+    null
+   ],
+   [
+    "E1-071",
+    131
+   ],
+   [
+    "E5-089",
+    25
+   ],
+   [
+    "VS1-097",
+    null
+   ],
+   [
+    "E1-103",
+    null
+   ],
+   [
+    "SM8b-209",
+    121
+   ]
+  ],
+  "ja_name": "カリザード",
+  "no": "089",
+  "set": "神秘なる山",
+  "tot": 88,
+  "rarity": "Secret Rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 124378,
+   "url": "/pokemon/wild-blaze-japanese/m-charizard-ex-89",
+   "set": "Wild Blaze",
+   "type": "base"
+  },
+  "checked": "2026-11-04"
  }
 }
