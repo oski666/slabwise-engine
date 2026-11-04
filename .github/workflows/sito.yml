@@ -64,7 +64,6 @@ jobs:
       - name: Sales (base + Alt + tcgcharts, D82)
         run: PYTHONPATH=. python scripts/build_sales.py data/raw/sales_base.csv data/raw/alt data/raw/sales_all.csv data/raw/tcgcharts
       - name: Indices with the long history (D149, protocol §29)
-        if: github.event_name != 'workflow_dispatch'   # 4 Nov (GitHub minutes): once a day; extra builds keep the morning's indices
         continue-on-error: true          # if it fails, yesterday's index_full.json stays
         timeout-minutes: 40
         run: |
