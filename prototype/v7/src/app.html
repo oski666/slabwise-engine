@@ -451,7 +451,7 @@ function viewJa(id) {
       </div>
       <div class="tile q"><div class="qhead"><span class="qn">2</span><h2>${tx("Perché un prezzo a parte?", "Why a separate price?")}</h2></div>
         <p class="muted">${tx("La stampa giapponese è una carta diversa da quella inglese: set, numero e tiratura sono suoi, e chi colleziona le paga in modo diverso. Per questo non copiamo il prezzo inglese: ", "The Japanese printing is a different card from the English one: its set, number and print run are its own, and collectors price them differently. So we do not copy the English price: ")}${en ? tx(`quello della <a href="#c-${en.id}">stampa inglese</a> resta sulla sua scheda.`, `the <a href="#c-${en.id}">English printing</a> keeps its own on its page.`) : tx("aspettiamo le sue vendite.", "we wait for its own sales.")}</p>
-        <p class="note">${tx("Fonte dei dati", "Data source")}: ${esc(j.source || "TCGdex")}.</p>
+        ${/tcgdex|pokemon-card/i.test(j.source || "TCGdex") ? `<p class="note">${tx("Fonte dei dati", "Data source")}: ${esc(j.source || "TCGdex")}.</p>` : ""}
       </div>
     </div>
   </div></div>`;

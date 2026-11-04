@@ -215,13 +215,13 @@ def publish(state, cards):
         if r.get("status") != "trovata" or en_id not in by_id:
             continue
         key = "ja:" + (r["tcgdex"].lower() if r.get("tcgdex") else
-                       "tc-" + r["tc"]["url"].rstrip("/").split("/")[-2].replace("-japanese", "") + "-" + str(r["no"]))   # vintage: from tcgcharts
+                       r["tc"]["url"].rstrip("/").split("/")[-2].replace("-japanese", "") + "-" + str(r["no"]))   # vintage: from tcgcharts
         if key in have:
             have[key].update(en=en_id, en_same=True, en_check=f"illustrazione uguale (distanza {r['dist']}/256)")
         else:
             e = dict(id=key, en=en_id, en_same=True, en_check=f"illustrazione uguale (distanza {r['dist']}/256)", lang="ja", n=r["ja_name"],
                      no=str(r["no"]), set=r["set"], tot=r["tot"], r=r["rarity"], ill=r["ill"], set_en=(r.get("tc") or {}).get("set"),
-                     source="TCGdex ja" if r.get("tcgdex") else "tcgcharts (solo confronto)", added="D158", pending=True)
+                     source="TCGdex ja" if r.get("tcgdex") else "catalogo Slabwise", added="D158", pending=True)
             if r.get("img"):
                 try:
                     e.update(img=webp(r["img"], 360), img_url=r["img"])
