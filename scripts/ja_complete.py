@@ -98,6 +98,17 @@ def tc_search(en_name, no):
     return out
 
 
+def tc_card(it):
+    """tcgcharts id, page, set of a search hit (the detail page gives the id the sales API wants)."""
+    cid = it.get("id")
+    if not cid:
+        try:
+            cid = (cr.get(cr.TCG + it["url"].replace("/pokemon/", "/api/pokemon/card-detail/", 1)).get("card") or {}).get("id")
+        except Exception:
+            cid = None
+    return dict(id=cid, url=it["url"], set=it.get("set"), type="base") if cid else None
+
+
 def match(c, hires):
     en = dex(f"/en/cards/{urllib.parse.quote(c['id'])}")
     if en is None:
@@ -156,7 +167,7 @@ def match(c, hires):
     return dict(status="trovata", tcgdex=d["id"], dist=dist, tried=tried, ja_name=d.get("name"), no=d.get("localId"),
                 set=(d.get("set") or {}).get("name"), tot=((d.get("set") or {}).get("cardCount") or {}).get("official"),
                 rarity=d.get("rarity"), ill=d.get("illustrator"), img=show,
-                tc=dict(id=tc["id"], url=tc["url"], set=tc.get("set"), type="base") if tc else None)
+                tc=tc_card(tc) if tc else None)
 
 
 def main():
@@ -166,9 +177,12 @@ def main():
     done_en = {x["en"] for x in ja if x.get("en_same")}
     state = j(STATE, {})
     todo = [c for c in cards if "/" not in c["id"] and c["id"] not in done_en and not is_promo(c["id"])
-            and state.get(c["id"], {}).get("status") not in ("trovata", "nessuna", "senza_pokedex", "senza_immagine")][:MAX]
+            and (state.get(c["id"], {}).get("status") not in ("trovata", "nessuna", "senza_pokedex", "senza_immagine")
+                 or (state[c["id"]]["status"] == "trovata" and not state[c["id"]].get("tc") and not NO_TC))][:MAX]
     print(f"{len(todo)} carte inglesi da abbinare", flush=True)
     for c in todo:
+        if not NO_TC and not tc_ok:                                   # tcgcharts stopped answering: the rest waits
+            break
         try:
             r = match(c, hires)
         except Exception as e:
@@ -194,18 +208,18 @@ def publish(state, cards):
         key = "ja:" + r["tcgdex"].lower()
         if key in have:
             have[key].update(en=en_id, en_same=True, en_check=f"illustrazione uguale (distanza {r['dist']}/256)")
-            continue
-        e = dict(id=key, en=en_id, en_same=True, en_check=f"illustrazione uguale (distanza {r['dist']}/256)", lang="ja", n=r["ja_name"],
-                 no=str(r["no"]), set=r["set"], tot=r["tot"], r=r["rarity"], ill=r["ill"], set_en=(r.get("tc") or {}).get("set"),
-                 source="TCGdex ja", added="D158", pending=True)
-        if r.get("img"):
-            try:
-                e.update(img=webp(r["img"], 360), img_url=r["img"])
-            except Exception:
-                pass
-        ja.append(e)
-        have[key] = e
-        n_new += 1
+        else:
+            e = dict(id=key, en=en_id, en_same=True, en_check=f"illustrazione uguale (distanza {r['dist']}/256)", lang="ja", n=r["ja_name"],
+                     no=str(r["no"]), set=r["set"], tot=r["tot"], r=r["rarity"], ill=r["ill"], set_en=(r.get("tc") or {}).get("set"),
+                     source="TCGdex ja", added="D158", pending=True)
+            if r.get("img"):
+                try:
+                    e.update(img=webp(r["img"], 360), img_url=r["img"])
+                except Exception:
+                    pass
+            ja.append(e)
+            have[key] = e
+            n_new += 1
         if r.get("tc") and key not in queue:
             en = by_id[en_id]
             queue[key] = dict(id=key, lang="ja", tcgdex=r["tcgdex"], en=en_id, en_same=True, name=f"{en['n']} (giapponese)", ja_name=r["ja_name"],

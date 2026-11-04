@@ -175,61 +175,366 @@
   "checked": "2026-11-04"
  },
  "base1-1": {
-  "status": "errore",
-  "detail": "TCGdex non risponde",
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG8-033",
+    133
+   ],
+   [
+    "PMCG4-035",
+    null
+   ],
+   [
+    "web1-037",
+    97
+   ],
+   [
+    "E4-042",
+    null
+   ],
+   [
+    "E4-043",
+    95
+   ],
+   [
+    "PMCG1-049",
+    114
+   ],
+   [
+    "PMCG6-053",
+    null
+   ],
+   [
+    "E1-084",
+    112
+   ],
+   [
+    "E1-116",
+    117
+   ]
+  ],
   "checked": "2026-11-04"
  },
  "base1-8": {
-  "status": "da_riprovare",
-  "detail": "servono le immagini di tcgcharts",
-  "tried": [],
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "web1-048",
+    null
+   ],
+   [
+    "PCG5-049",
+    116
+   ],
+   [
+    "E5-052",
+    null
+   ],
+   [
+    "E5-053",
+    null
+   ],
+   [
+    "PMCG1-057",
+    122
+   ],
+   [
+    "SM2p-061",
+    130
+   ],
+   [
+    "PMCG6-061",
+    130
+   ],
+   [
+    "neo4-077",
+    null
+   ],
+   [
+    "VS1-081",
+    null
+   ],
+   [
+    "E1-089",
+    122
+   ],
+   [
+    "E1-121",
+    102
+   ]
+  ],
   "checked": "2026-11-04"
  },
  "base1-58": {
-  "status": "da_riprovare",
-  "detail": "servono le immagini di tcgcharts",
-  "tried": [],
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "E1-016",
+    null
+   ],
+   [
+    "web1-025",
+    null
+   ],
+   [
+    "E4-033",
+    null
+   ],
+   [
+    "PMCG1-035",
+    109
+   ],
+   [
+    "neo1-036",
+    null
+   ],
+   [
+    "PCG1-037",
+    null
+   ],
+   [
+    "PCG7-041",
+    null
+   ]
+  ],
   "checked": "2026-11-04"
  },
  "base2-11": {
-  "status": "da_riprovare",
-  "detail": "servono le immagini di tcgcharts",
-  "tried": [],
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG9-001",
+    135
+   ],
+   [
+    "PMCG2-047",
+    113
+   ],
+   [
+    "E5-062",
+    null
+   ],
+   [
+    "PCG3-062",
+    null
+   ],
+   [
+    "PCG1-074",
+    89
+   ]
+  ],
   "checked": "2026-11-04"
  },
  "base3-5": {
-  "status": "da_riprovare",
-  "detail": "servono le immagini di tcgcharts",
-  "tried": [],
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "VS1-021",
+    null
+   ],
+   [
+    "PMCG3-031",
+    null
+   ],
+   [
+    "PCG5-040",
+    100
+   ],
+   [
+    "E5-043",
+    null
+   ],
+   [
+    "E5-044",
+    129
+   ],
+   [
+    "web1-047",
+    null
+   ],
+   [
+    "PCG1-048",
+    null
+   ],
+   [
+    "neo4-066",
+    null
+   ],
+   [
+    "E1-085",
+    114
+   ],
+   [
+    "E1-117",
+    107
+   ]
+  ],
   "checked": "2026-11-04"
  },
  "base3-4": {
-  "status": "da_riprovare",
-  "detail": "servono le immagini di tcgcharts",
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
   "tried": [
+   [
+    "PCG9-004",
+    112
+   ],
+   [
+    "web1-038",
+    null
+   ],
+   [
+    "PCG6-039",
+    null
+   ],
+   [
+    "PMCG3-043",
+    null
+   ],
+   [
+    "VS1-049",
+    null
+   ],
+   [
+    "SM6a-062",
+    null
+   ],
+   [
+    "E1-094",
+    135
+   ],
+   [
+    "neo4-094",
+    135
+   ],
+   [
+    "VS1-100",
+    null
+   ],
    [
     "SM11-112",
     139
+   ],
+   [
+    "E1-126",
+    null
    ]
   ],
   "checked": "2026-11-04"
  },
  "base5-4": {
-  "status": "da_riprovare",
-  "detail": "servono le immagini di tcgcharts",
-  "tried": [],
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PMCG4-017",
+    null
+   ],
+   [
+    "neo4-025",
+    null
+   ],
+   [
+    "PMCG6-032",
+    null
+   ],
+   [
+    "PCG8-032",
+    null
+   ],
+   [
+    "web1-042",
+    87
+   ],
+   [
+    "PCG9-052",
+    null
+   ],
+   [
+    "SM3H-058",
+    null
+   ],
+   [
+    "E1-071",
+    null
+   ],
+   [
+    "E5-089",
+    null
+   ],
+   [
+    "VS1-097",
+    null
+   ],
+   [
+    "E1-103",
+    null
+   ]
+  ],
   "checked": "2026-11-04"
  },
  "neo1-9": {
-  "status": "da_riprovare",
-  "detail": "servono le immagini di tcgcharts",
-  "tried": [],
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "neo1-072",
+    136
+   ],
+   [
+    "E3-090",
+    null
+   ],
+   [
+    "PCG4-090",
+    null
+   ],
+   [
+    "SM8-108",
+    118
+   ]
+  ],
   "checked": "2026-11-04"
  },
  "neo3-14": {
-  "status": "da_riprovare",
-  "detail": "servono le immagini di tcgcharts",
-  "tried": [],
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "neo3-021",
+    null
+   ],
+   [
+    "E2-030",
+    129
+   ],
+   [
+    "E2-031",
+    null
+   ],
+   [
+    "PCG4-032",
+    125
+   ],
+   [
+    "PCG3-069",
+    129
+   ],
+   [
+    "VS1-096",
+    102
+   ],
+   [
+    "SM8-106",
+    125
+   ]
+  ],
   "checked": "2026-11-04"
  },
  "gym2-1": {
