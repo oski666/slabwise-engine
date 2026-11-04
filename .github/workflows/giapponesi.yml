@@ -1,0 +1,40 @@
+# D158: give every English catalogue card its Japanese printing (same illustration). Resumable: the state is in
+# prototype/data/ja_match.json and is committed even when the run stops half way (e.g. tcgcharts answering 503).
+name: Giapponesi
+on:
+  workflow_dispatch:
+    inputs:
+      max:
+        description: "Carte inglesi da esaminare in questo giro"
+        default: "60"
+permissions:
+  contents: write
+concurrency:
+  group: raccolta-tcgcharts
+  cancel-in-progress: false
+jobs:
+  match:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - name: Private data (D163)
+        uses: ./.github/actions/private-data
+        with:
+          mode: pull
+          token: ${{ secrets.DATA_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Match
+        timeout-minutes: 280
+        run: |
+          pip install -q numpy pillow
+          PYTHONPATH=. python scripts/ja_complete.py --max ${{ github.event.inputs.max || '60' }}
+      - name: Save
+        if: always()
+        run: |
+          git config user.name "slabwise-bot"
+          git config user.email "slabwise-bot@users.noreply.github.com"
+          git add prototype/data/ja_match.json prototype/data/cards_ja.json prototype/data/candidates_queue.json
+          git diff --cached --quiet || { git commit -m "Stampe giapponesi: abbinamento del $(date -u '+%F %H:%M') (D158)"; git pull --rebase --autostash -q && git push; }
