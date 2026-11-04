@@ -139,7 +139,8 @@ def add_ja(key, row):
                 open(p, "wb").write(b)
 
     try:                                    # a failure half way (e.g. tcgcharts 503) leaves nothing behind
-        c = cr.get(f"{cr.TCGDEX}/ja/cards/{urllib.parse.quote(row['tcgdex'])}")
+        c = cr.get(f"{cr.TCGDEX}/ja/cards/{urllib.parse.quote(row['tcgdex'])}") if row.get("tcgdex") else \
+            dict(name=row.get("ja_name") or row.get("name"), localId=row.get("no"), set=dict(name=row.get("set")))   # D158: vintage, from tcgcharts
         s = c.get("set") or {}
         entry = dict(id=key, en=row["en"], en_same=row.get("en_same"), en_check=row.get("en_check"), lang="ja", n=c.get("name"), no=str(c.get("localId")), set=s.get("name"),
                      tot=(s.get("cardCount") or {}).get("official"), r=c.get("rarity"), ill=c.get("illustrator"),

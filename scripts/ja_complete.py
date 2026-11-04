@@ -148,6 +148,15 @@ def match(c, hires):
         tried.append([d["id"], dist])
         if dist is not None and dist <= ART_MAX and (best is None or dist < best[1]):
             best = (d, dist, show, tc_items)
+    if not best and any(d_ is None for _, d_ in tried) and tc_ok:
+        # vintage Japanese sets (no numbers on the cards): tcgcharts numbers them by Pokedex number; compare its pictures
+        items = tc_search(en.get("name") or c["n"], str(en["dexId"][0])) or []
+        scored = [(art_distance(load_img(it["image"].replace("-small.", "-medium.")), en_im), it) for it in items if it.get("image")]
+        scored = sorted([x for x in scored if x[0] is not None and x[0] <= ART_MAX], key=lambda x: x[0])
+        if scored:
+            dist, it = scored[0]
+            return dict(status="trovata", tcgdex=None, dist=dist, tried=tried + [[it["url"], dist]], ja_name=None, no=it.get("cardNumber"),
+                        set=it.get("set"), tot=None, rarity=None, ill=en.get("illustrator"), img=None, tc=tc_card(it), via="tcgcharts")
     if not best:
         if need_tc:
             return dict(status="da_riprovare", detail="servono le immagini di tcgcharts", tried=tried)
@@ -205,13 +214,14 @@ def publish(state, cards):
     for en_id, r in state.items():
         if r.get("status") != "trovata" or en_id not in by_id:
             continue
-        key = "ja:" + r["tcgdex"].lower()
+        key = "ja:" + (r["tcgdex"].lower() if r.get("tcgdex") else
+                       "tc-" + r["tc"]["url"].rstrip("/").split("/")[-2].replace("-japanese", "") + "-" + str(r["no"]))   # vintage: from tcgcharts
         if key in have:
             have[key].update(en=en_id, en_same=True, en_check=f"illustrazione uguale (distanza {r['dist']}/256)")
         else:
             e = dict(id=key, en=en_id, en_same=True, en_check=f"illustrazione uguale (distanza {r['dist']}/256)", lang="ja", n=r["ja_name"],
                      no=str(r["no"]), set=r["set"], tot=r["tot"], r=r["rarity"], ill=r["ill"], set_en=(r.get("tc") or {}).get("set"),
-                     source="TCGdex ja", added="D158", pending=True)
+                     source="TCGdex ja" if r.get("tcgdex") else "tcgcharts (solo confronto)", added="D158", pending=True)
             if r.get("img"):
                 try:
                     e.update(img=webp(r["img"], 360), img_url=r["img"])
