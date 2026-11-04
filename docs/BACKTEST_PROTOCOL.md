@@ -536,3 +536,22 @@ Se J1–J4 passano, il sito prende gli indici (generale, ere, set, Giappone) dal
 Solo riportato: quante delle 23 carte fermate il 4 novembre passano il controllo d'ingresso con la v1.17. Se T1–T5 passano, la v1.17 si adotta e T6 diventa obbligatoria come S6 per la v1.15. Se no, la v1.15 resta e le carte in forte rialzo aspettano.
 
 **Esito §30 (4 novembre 2026): T2 non superato, la v1.17 non si adotta.** T1 sì: R1 0 voci su 908 con entrambe le versioni (`sales_all` ricostruito oggi). **T2 no**: E2r 3 voci con la v1.17 contro 1 con la v1.15 (in più dp5-98 PSA 9, stima 22.055 $ contro 12.100 $ delle vendite recenti; hgss3-10 PSA 10, 110.225 $ contro 50.400 $): su due carte del catalogo il salto porta la stima oltre il mercato. T3 sì: fase R su `sales_tc` (15.471 vendite) v1.17 meno v1.15 −0,01 punti [−0,04; +0,04]. T4 sì: copertura R4 80,4%. T5 interrotto dopo 12 lavori su 23 (inutile dopo T2). Solo riportato: delle 23 carte fermate il 4 novembre, con la v1.17 ne passano 5 invece di 2 (in più dp2-17, ex12-5, ex4-94). Diagnosi del poco effetto: i salti vengono riconosciuti (es. col1-SL10 alla settimana 191, J = 0,27), ma in molte carte è salito soprattutto il PSA 9 rispetto agli altri voti (Rayquaza Call of Legends: PSA 9 da circa 3 a circa 8 volte il PSA 8), e il salto di livello non cambia la scala dei voti. Il codice resta, spento (`jump=False`); un nuovo tentativo si registra solo con un'idea nuova.
+
+## 31. Quante voci nel paniere: 10, 15 o 20 per era, 30 o 60 per il generale (registrato il 4 novembre 2026, prima del codice; D167)
+
+**Domanda (Oscar).** "Non è un po' riduttivo contare solo 10 carte per indice? Cosa succederebbe raddoppiandole?" Il 4 novembre ogni era ha almeno 28 combinazioni carta e voto con 6 o più vendite in 13 settimane (Vintage 171, Contemporanea 157, Classica 140, Moderna 92, Di mezzo 73, Giappone 28); la 20ª voce ne ha almeno 20.
+
+**Varianti.** Stesso algoritmo (§29: peso uguale, concatenato, ribilanciamento ogni 13 settimane, almeno 6 vendite credibili, tutto lo storico); cambia solo il numero massimo di voci: K = 10 (oggi), 15, 20 per gli indici d'era e Giappone; 30 (oggi) e 60 per il generale. Indici di set invariati (10).
+
+**Misure** (coppie di rivendite dello stesso cert, stesso voto, come J2–J3 del §29; per il generale tutte le coppie inglesi contro l'indice generale):
+- Q1: riduzione dell'errore quadratico sulle coppie (J3);
+- Q2: pendenza (J2) e intervallo al 95% per carta;
+- Q3: rumore: mediana di |variazione settimanale in log| dell'indice, media sulle ere.
+
+| # | Criterio, per una variante contro l'attuale (10 o 30) | Soglia |
+|---|---|---|
+| Q1 | riduzione dell'errore | non più bassa di quella attuale meno 0,01 |
+| Q2 | pendenza | tra 0,70 e 1,30, estremo inferiore dell'intervallo oltre 0,30 |
+| Q3 | rumore | non oltre quello attuale più 10% |
+
+Si adotta la K più grande che passa Q1–Q3 (prima 20, poi 15; per il generale 60). Se nessuna passa, resta 10 (30). Lo script è `scripts/index_k_test.py`, che gira sul workflow `prova-indici.yml`; risultati in `results/index_k/summary.json`.
