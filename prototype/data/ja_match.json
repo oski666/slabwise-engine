@@ -905,5 +905,522 @@
    ]
   ],
   "checked": "2026-11-04"
+ },
+ "base2-11": {
+  "status": "trovata",
+  "tcgdex": null,
+  "dist": 79,
+  "tried": [
+   [
+    "PCG9-001",
+    135
+   ],
+   [
+    "PMCG2-047",
+    113
+   ],
+   [
+    "E5-062",
+    null
+   ],
+   [
+    "PCG3-062",
+    null
+   ],
+   [
+    "PCG1-074",
+    89
+   ],
+   [
+    "/pokemon/jungle-japanese/snorlax-143",
+    79
+   ]
+  ],
+  "ja_name": null,
+  "no": "143",
+  "set": "Jungle",
+  "tot": null,
+  "rarity": null,
+  "ill": "Ken Sugimori",
+  "img": null,
+  "tc": {
+   "id": 130821,
+   "url": "/pokemon/jungle-japanese/snorlax-143",
+   "set": "Jungle",
+   "type": "base"
+  },
+  "via": "tcgcharts",
+  "checked": "2026-11-04"
+ },
+ "base3-5": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "VS1-021",
+    null
+   ],
+   [
+    "PMCG3-031",
+    null
+   ],
+   [
+    "PCG5-040",
+    100
+   ],
+   [
+    "E5-043",
+    null
+   ],
+   [
+    "E5-044",
+    129
+   ],
+   [
+    "web1-047",
+    null
+   ],
+   [
+    "PCG1-048",
+    null
+   ],
+   [
+    "neo4-066",
+    null
+   ],
+   [
+    "E1-085",
+    114
+   ],
+   [
+    "E1-117",
+    107
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "base3-4": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG9-004",
+    112
+   ],
+   [
+    "web1-038",
+    null
+   ],
+   [
+    "PCG6-039",
+    null
+   ],
+   [
+    "PMCG3-043",
+    null
+   ],
+   [
+    "VS1-049",
+    null
+   ],
+   [
+    "SM6a-062",
+    null
+   ],
+   [
+    "E1-094",
+    135
+   ],
+   [
+    "neo4-094",
+    135
+   ],
+   [
+    "VS1-100",
+    null
+   ],
+   [
+    "SM11-112",
+    139
+   ],
+   [
+    "E1-126",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "base5-4": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PMCG4-017",
+    null
+   ],
+   [
+    "neo4-025",
+    null
+   ],
+   [
+    "PMCG6-032",
+    null
+   ],
+   [
+    "PCG8-032",
+    null
+   ],
+   [
+    "web1-042",
+    87
+   ],
+   [
+    "PCG9-052",
+    null
+   ],
+   [
+    "SM3H-058",
+    null
+   ],
+   [
+    "E1-071",
+    null
+   ],
+   [
+    "E5-089",
+    null
+   ],
+   [
+    "VS1-097",
+    null
+   ],
+   [
+    "E1-103",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "neo1-9": {
+  "status": "trovata",
+  "tcgdex": null,
+  "dist": 73,
+  "tried": [
+   [
+    "neo1-072",
+    136
+   ],
+   [
+    "E3-090",
+    null
+   ],
+   [
+    "PCG4-090",
+    null
+   ],
+   [
+    "SM8-108",
+    118
+   ],
+   [
+    "/pokemon/gold-silver-to-a-new-world-japanese/lugia-249",
+    73
+   ]
+  ],
+  "ja_name": null,
+  "no": "249",
+  "set": "Gold, Silver, to a New World...",
+  "tot": null,
+  "rarity": null,
+  "ill": "Hironobu Yoshida",
+  "img": null,
+  "tc": {
+   "id": 130309,
+   "url": "/pokemon/gold-silver-to-a-new-world-japanese/lugia-249",
+   "set": "Gold, Silver, to a New World...",
+   "type": "base"
+  },
+  "via": "tcgcharts",
+  "checked": "2026-11-04"
+ },
+ "neo3-14": {
+  "status": "trovata",
+  "tcgdex": null,
+  "dist": 60,
+  "tried": [
+   [
+    "neo3-021",
+    null
+   ],
+   [
+    "E2-030",
+    129
+   ],
+   [
+    "E2-031",
+    null
+   ],
+   [
+    "PCG4-032",
+    125
+   ],
+   [
+    "PCG3-069",
+    129
+   ],
+   [
+    "VS1-096",
+    102
+   ],
+   [
+    "SM8-106",
+    125
+   ],
+   [
+    "/pokemon/awakening-legends-japanese/suicune-245",
+    60
+   ]
+  ],
+  "ja_name": null,
+  "no": "245",
+  "set": "Awakening Legends",
+  "tot": null,
+  "rarity": null,
+  "ill": "Ken Sugimori",
+  "img": null,
+  "tc": {
+   "id": 130127,
+   "url": "/pokemon/awakening-legends-japanese/suicune-245",
+   "set": "Awakening Legends",
+   "type": "base"
+  },
+  "via": "tcgcharts",
+  "checked": "2026-11-04"
+ },
+ "gym2-1": {
+  "status": "trovata",
+  "tcgdex": null,
+  "dist": 76,
+  "tried": [
+   [
+    "E2-016",
+    null
+   ],
+   [
+    "E5-016",
+    null
+   ],
+   [
+    "PCG5-016",
+    null
+   ],
+   [
+    "E2-017",
+    null
+   ],
+   [
+    "E5-017",
+    null
+   ],
+   [
+    "PMCG1-019",
+    null
+   ],
+   [
+    "neo4-021",
+    null
+   ],
+   [
+    "PCG1-021",
+    null
+   ],
+   [
+    "web1-023",
+    null
+   ],
+   [
+    "PMCG6-034",
+    null
+   ],
+   [
+    "/pokemon/challenge-from-the-darkness-japanese/blaines-arcanine-59",
+    76
+   ]
+  ],
+  "ja_name": null,
+  "no": "59",
+  "set": "Challenge from the Darkness",
+  "tot": null,
+  "rarity": null,
+  "ill": "Ken Sugimori",
+  "img": null,
+  "tc": {
+   "id": 130376,
+   "url": "/pokemon/challenge-from-the-darkness-japanese/blaines-arcanine-59",
+   "set": "Challenge from the Darkness",
+   "type": "base"
+  },
+  "via": "tcgcharts",
+  "checked": "2026-11-04"
+ },
+ "gym2-13": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG7-008",
+    null
+   ],
+   [
+    "neo3-023",
+    null
+   ],
+   [
+    "PCG7-024",
+    null
+   ],
+   [
+    "PCG2-024",
+    null
+   ],
+   [
+    "E5-027",
+    null
+   ],
+   [
+    "E5-028",
+    null
+   ],
+   [
+    "PMCG5-035",
+    null
+   ],
+   [
+    "PCG1-035",
+    null
+   ],
+   [
+    "PMCG6-040",
+    null
+   ],
+   [
+    "VS1-048",
+    null
+   ],
+   [
+    "SM4A-056",
+    null
+   ],
+   [
+    "VS1-098",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "base1-16": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PMCG3-026",
+    null
+   ],
+   [
+    "E2-037",
+    null
+   ],
+   [
+    "E2-038",
+    103
+   ],
+   [
+    "PMCG1-042",
+    null
+   ],
+   [
+    "PCG1-043",
+    null
+   ],
+   [
+    "web1-046",
+    121
+   ],
+   [
+    "PCG3-063",
+    123
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "base1-6": {
+  "status": "trovata",
+  "tcgdex": null,
+  "dist": 68,
+  "tried": [
+   [
+    "PCG7-008",
+    null
+   ],
+   [
+    "neo3-023",
+    null
+   ],
+   [
+    "PCG7-024",
+    null
+   ],
+   [
+    "PCG2-024",
+    null
+   ],
+   [
+    "E5-027",
+    115
+   ],
+   [
+    "E5-028",
+    null
+   ],
+   [
+    "PMCG1-034",
+    null
+   ],
+   [
+    "PCG1-035",
+    122
+   ],
+   [
+    "VS1-048",
+    110
+   ],
+   [
+    "SM4A-056",
+    125
+   ],
+   [
+    "VS1-098",
+    112
+   ],
+   [
+    "/pokemon/expansion-pack-japanese/gyarados-130",
+    68
+   ]
+  ],
+  "ja_name": null,
+  "no": "130",
+  "set": "Expansion Pack",
+  "tot": null,
+  "rarity": null,
+  "ill": "Mitsuhiro Arita",
+  "img": null,
+  "tc": {
+   "id": 131021,
+   "url": "/pokemon/expansion-pack-japanese/gyarados-130",
+   "set": "Expansion Pack",
+   "type": "base"
+  },
+  "via": "tcgcharts",
+  "checked": "2026-11-04"
  }
 }
