@@ -279,6 +279,28 @@ for e, name in enumerate(series_names):
 _TCP = json.load(open(tc_cards)) if os.path.exists(tc_cards) else {}
 for c in out_cards:
     c["psa_total"] = (_TCP.get(c["id"]) or {}).get("psa_population")
+# D165: price for rarity (PSA only): log PSA 10 value on log PSA 10 population, the card's distance from the line
+_rr = []
+for c in out_cards:
+    g10 = next((g for g in c["grades"] if g["grade"] == 10), None)
+    try:
+        pop10 = float(g10["pop"]) if g10 and g10.get("pop") else 0
+    except (TypeError, ValueError):
+        pop10 = 0
+    if g10 and pop10 > 0 and g10["sales90"] and not g10.get("off"):
+        _rr.append((c, np.log(pop10), np.log(g10["value"])))
+rarity_fit = None
+if len(_rr) >= 30:
+    _x = np.array([r[1] for r in _rr]); _y = np.array([r[2] for r in _rr])
+    _b, _a = np.polyfit(_x, _y, 1)
+    _res = _y - (_a + _b * _x)
+    for (c, lx, _), e in zip(_rr, _res):
+        c["rarity"] = dict(x=round(float(np.exp(e)), 3), pop10=int(round(float(np.exp(lx)))))
+    _ja = [e for (c, _, _), e in zip(_rr, _res) if c["lang"] == "ja"]
+    _en = [e for (c, _, _), e in zip(_rr, _res) if c["lang"] != "ja"]
+    rarity_fit = dict(n=len(_rr), slope=round(float(_b), 3), r2=round(float(np.corrcoef(_x, _y)[0, 1] ** 2), 3),
+                      n_ja=len(_ja), ja_vs_en=round(float(np.exp(np.mean(_ja) - np.mean(_en))), 3) if _ja and _en else None)
+    print("prezzo per rarità", rarity_fit)
 index_all = publish(aidx, 0, "generale", "Generale")
 _set_label = {}
 for c in cards:
@@ -337,7 +359,7 @@ if os.path.exists(_if) and not os.environ.get("SLABWISE_TC_HISTORY") and os.envi
         print("index_full.json ha gruppi diversi da quelli di oggi: indici senza storico")
 _ih = os.path.join(HERE, "data", "index_history.json")       # D138: rebuilt index history, only once §27 passed
 index_history = json.load(open(_ih)) if os.path.exists(_ih) else None
-res = dict(real=True, engine=ENGINE, deals_asof=deals_asof, deal_stats=deal_stats, ja_pending=ja_pending, indexes=indexes, index_history=index_history, index_all=index_all, index_sets=index_sets, index_base=(index_source["base"] if index_source else wk(index_base_w)), index_source=index_source, asof=str(asof), eur_rate=EUR, eur_rate_date=rate_date, cards=out_cards, rollups=rollups, pulse=pulse,
+res = dict(real=True, rarity_fit=rarity_fit, engine=ENGINE, deals_asof=deals_asof, deal_stats=deal_stats, ja_pending=ja_pending, indexes=indexes, index_history=index_history, index_all=index_all, index_sets=index_sets, index_base=(index_source["base"] if index_source else wk(index_base_w)), index_source=index_source, asof=str(asof), eur_rate=EUR, eur_rate_date=rate_date, cards=out_cards, rollups=rollups, pulse=pulse,
            params={k: v for k, v in params.__dict__.items()}, n_sales=int(len(clean)), n_removed=int(len(removed)), venues=venues,
            venue_gaps={v: round(float(lvm.offs[k]), 4) for k, v in enumerate(("ebay", "auction", "fixed"))},
            note="Dati veri: vendite concluse eBay (anche tramite Alt e tcgcharts), Goldin e Fanatics Collect (dal 2023). "
