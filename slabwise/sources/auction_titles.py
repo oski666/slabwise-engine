@@ -109,8 +109,9 @@ if _os.path.exists(_JA_EXTRA):
         JA_CATALOGUE.setdefault(_k, (_name, _no, _tot, _setre))
 JP_CHARS = re.compile(r"[\u3040-\u30ff\u4e00-\u9fff]")
 JA_EXCLUDE = re.compile(
-    r"\blot\b|\(\d+\)|まとめ|セット売り|未開封|box|ボックス|パック|\bpack\b|sealed|signed|サイン|proxy|プロキシ|"
-    r"\bbgs\b|\bcgc\b|\bsgc\b|\bars\b|korean|chinese|韓国|中国|簡体|繁体")
+    r"\blot\b|\(\d+\)|まとめ|セット売り|未開封|box|ボックス|(?<!拡張)パック|(?<!expansion )\bpack\b|sealed|signed|サイン|proxy|プロキシ|"
+    r"\bbgs\b|\bcgc\b|\bsgc\b|\bars\b|korean|chinese|韓国|中国|簡体|繁体"
+    r"|no\W*rarity|マークなし")                  # D158/D166: No Rarity is a variant of its own, not the regular printing
 NUM_TOT = re.compile(r"0*(\d+)\s*/\s*0*(\d+)")
 
 
@@ -124,7 +125,7 @@ def match_japanese(title: str):
     if JA_EXCLUDE.search(t):
         return None, "esclusa (lotto, sigillato, firmata, altro grader...)"
     pairs = {(int(a), int(b)) for a, b in NUM_TOT.findall(t)}
-    nums = {int(x) for x in re.findall(r"#\s*0*(\d+)", t)}
+    nums = {int(x) for x in re.findall(r"#\s*0*(\d+)", t)} | {int(x) for x in re.findall(r"\bno\.?\s*0*(\d+)\b", t)}   # D158: vintage "No. 006"
     hits = [k for k, (name, no, tot, setre) in JA_CATALOGUE.items() if re.search(name, t)
             and ((no, tot) in pairs or (no in nums and setre and re.search(setre, t)))]
     if len(hits) != 1:

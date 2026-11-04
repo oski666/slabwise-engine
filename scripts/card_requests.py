@@ -120,6 +120,13 @@ def check(req, catalogue_ids):
     return measure(it, key, GRAIL_MIN_SALES if grail else MIN_SALES)
 
 
+JA_SET_ALIAS = {"expansion pack": r"base\W*set|basic", "jungle": r"jungle", "mystery fossils": r"fossil",
+                "rocket gang": r"rocket", "gold silver to new world": r"neo\W*genesis|gold\W*silver",
+                "crossing ruins": r"neo\W*discovery", "awakening legends": r"neo\W*revelation",
+                "darkness to light": r"neo\W*destiny", "challenge from darkness": r"gym\W*challenge|challenge\W*from",
+                "leaders stadium": r"gym\W*heroes|leaders?\W*stadium"}
+
+
 def ja_entry(en_name, ja_name, no, tot, set_en):
     """Title matcher entry for a Japanese counterpart (D134): English or Japanese name, number/total or #number + set."""
     alts = [name_re(en_name)]
@@ -128,6 +135,9 @@ def ja_entry(en_name, ja_name, no, tot, set_en):
         alts.append(re.escape(m.group(1)) + r"\s?" + m.group(2) if m else re.escape(ja_name.lower()))
     words = [w for w in re.findall(r"[a-z0-9]+", (set_en or "").lower()) if w not in ("the", "of", "and", "pokemon", "card", "japanese")]
     setre = r"\b" + r"\W*".join(map(re.escape, words)) + r"\b" if words else None
+    alias = JA_SET_ALIAS.get(" ".join(words))              # D158: vintage Japanese sets go by their English names in titles
+    if alias:
+        setre = r"\b(?:" + alias + (("|" + setre[2:-2]) if setre else "") + r")\b"
     return ["|".join(dict.fromkeys(alts)), int(no) if str(no).isdigit() else -1, int(tot) if str(tot or "").isdigit() else -1, setre]
 
 

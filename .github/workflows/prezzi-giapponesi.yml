@@ -1,0 +1,61 @@
+# D158: the Japanese printings found by the matching get their sales checked (D97) and, when they pass, their sales
+# and the engine gate (add_batch.py), in batches of 8 with a pause (tcgcharts answers 503 to long bursts).
+name: Prezzi giapponesi
+on:
+  workflow_dispatch: {}
+  workflow_run:
+    workflows: ["Giapponesi"]
+    types: [completed]
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: raccolta-tcgcharts
+  cancel-in-progress: false
+jobs:
+  prices:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - name: Private data (D163)
+        uses: ./.github/actions/private-data
+        with:
+          mode: pull
+          token: ${{ secrets.DATA_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check and add, 8 at a time
+        timeout-minutes: 270
+        run: |
+          pip install -q numpy pandas scipy pillow
+          python scripts/ja_due.py > /tmp/batches.txt
+          echo "gruppi: $(wc -l < /tmp/batches.txt)"
+          first=1
+          while read -r ids; do
+            [ -n "$ids" ] || continue
+            [ $first = 1 ] || sleep 420
+            first=0
+            PYTHONPATH=. python scripts/add_batch.py $ids | tee -a /tmp/add.log || true
+          done < /tmp/batches.txt
+      - name: Save the private data (D163)
+        if: always()
+        uses: ./.github/actions/private-data
+        with:
+          mode: push
+          token: ${{ secrets.DATA_TOKEN }}
+          message: "Prezzi giapponesi: dati grezzi"
+      - name: Save and rebuild
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "slabwise-bot"
+          git config user.email "slabwise-bot@users.noreply.github.com"
+          git add prototype/data/requests_status.json prototype/data/cards_ja.json prototype/data/candidates_queue.json data/catalogue_ja_extra.json 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Prezzi giapponesi: controllo del $(date -u '+%F %H:%M') (D158)"
+            git pull --rebase --autostash -q && git push
+            gh workflow run sito.yml -R "$GITHUB_REPOSITORY"
+          fi
