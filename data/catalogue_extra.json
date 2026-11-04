@@ -1825,5 +1825,50 @@
    2025,
    2026
   ]
+ ],
+ "swsh6-177": [
+  "galarian moltres v",
+  "\\bchilling\\W*(?:(?:of|the|and)\\W*)?reign\\b",
+  177,
+  [
+   2021,
+   2022
+  ]
+ ],
+ "xy8-164": [
+  "mewtwo ex",
+  "\\bbreakthrough\\b",
+  164,
+  [
+   2015,
+   2016
+  ]
+ ],
+ "swsh8-245": [
+  "celebi v",
+  "\\bfusion\\W*(?:(?:of|the|and)\\W*)?strike\\b",
+  245,
+  [
+   2021,
+   2022
+  ]
+ ],
+ "bw11-RC22": [
+  "reshiram",
+  "\\blegendary\\W*(?:(?:of|the|and)\\W*)?treasures\\b",
+  "rc22",
+  [
+   2013,
+   2014
+  ]
+ ],
+ "neo3-8": [
+  "houndoom",
+  "\\bneo\\W*(?:(?:of|the|and)\\W*)?revelation\\b",
+  8,
+  [
+   2001,
+   2002
+  ]
  ]
 }
