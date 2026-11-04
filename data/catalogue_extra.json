@@ -1762,5 +1762,68 @@
    2025,
    2026
   ]
+ ],
+ "xy8-163": [
+  "mewtwo ex",
+  "\\bbreakthrough\\b",
+  163,
+  [
+   2015,
+   2016
+  ]
+ ],
+ "sv10.5w-172": [
+  "victini",
+  "\\bwhite\\W*(?:(?:of|the|and)\\W*)?flare\\b",
+  172,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "neo4-6": [
+  "dark gengar",
+  "\\bneo\\W*(?:(?:of|the|and)\\W*)?destiny\\b",
+  6,
+  [
+   2002,
+   2003
+  ]
+ ],
+ "xy2-108": [
+  "m charizard ex",
+  "\\bflashfire\\b",
+  108,
+  [
+   2014,
+   2015
+  ]
+ ],
+ "sv10.5b-166": [
+  "zekrom ex",
+  "\\bblack\\W*(?:(?:of|the|and)\\W*)?bolt\\b",
+  166,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "sm11-218": [
+  "slowpoke \\& psyduck gx",
+  "\\bunified\\W*(?:(?:of|the|and)\\W*)?minds\\b",
+  218,
+  [
+   2019,
+   2020
+  ]
+ ],
+ "me01-178": [
+  "mega gardevoir ex",
+  "\\bmega\\W*(?:(?:of|the|and)\\W*)?evolution\\b",
+  178,
+  [
+   2025,
+   2026
+  ]
  ]
 }
