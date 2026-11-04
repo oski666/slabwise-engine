@@ -1708,5 +1708,59 @@
    2003,
    2004
   ]
+ ],
+ "smp-SM82": [
+  "shining lugia",
+  "\\bpromo",
+  "sm82",
+  [
+   2017,
+   2018
+  ]
+ ],
+ "sv08.5-144": [
+  "leafeon ex",
+  "\\bprismatic\\W*(?:(?:of|the|and)\\W*)?evolutions\\b",
+  144,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "sm3.5-56": [
+  "shining rayquaza",
+  "\\bshining\\W*(?:(?:of|the|and)\\W*)?legends\\b",
+  56,
+  [
+   2017,
+   2018
+  ]
+ ],
+ "sv03.5-201": [
+  "alakazam ex",
+  "\\b151\\b",
+  201,
+  [
+   2023,
+   2024
+  ]
+ ],
+ "sv06-188": [
+  "eevee",
+  "\\btwilight\\W*(?:(?:of|the|and)\\W*)?masquerade\\b",
+  188,
+  [
+   2024,
+   2025
+  ]
+ ],
+ "sv08.5-155": [
+  "espeon ex",
+  "\\bprismatic\\W*(?:(?:of|the|and)\\W*)?evolutions\\b",
+  155,
+  [
+   2025,
+   2026
+  ]
  ]
 }
