@@ -1,0 +1,94 @@
+# The owner's ok on the candidate cards (D118): ticking a box in a "candidate" issue adds that card with the same
+# steps and engine gate as every other card (scripts/add_batch.py), rebuilds the site and answers in the issue.
+name: Approva candidate
+on:
+  issues:
+    types: [edited]
+  workflow_dispatch:                     # by hand: cards to add, or (gate_only) cards to put through the engine gate again
+    inputs:
+      ids:
+        description: "Carte separate da spazi"
+        required: true
+      gate_only:
+        description: "Solo i controlli del motore su carte già nel catalogo"
+        default: "false"
+permissions:
+  contents: write
+  issues: write
+  actions: write
+concurrency:
+  group: raccolta-tcgcharts
+  cancel-in-progress: false
+jobs:
+  add:
+    if: github.event_name == 'workflow_dispatch' || (contains(github.event.issue.labels.*.name, 'candidate') && github.event.sender.login == github.repository_owner)
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Private data (D163)
+        uses: ./.github/actions/private-data
+        with:
+          mode: pull
+          token: ${{ secrets.DATA_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Ticked cards not handled yet
+        id: ids
+        env:
+          BODY: ${{ github.event.issue.body }}
+          INPUT_IDS: ${{ github.event.inputs.ids }}
+        run: |
+          if [ -n "$INPUT_IDS" ]; then echo "ids=$INPUT_IDS" >> "$GITHUB_OUTPUT"; echo "carte: $INPUT_IDS"; exit 0; fi
+          ids=$(printf '%s\n' "$BODY" | grep -oP '^- \[[xX]\] `\K[^`]+(?=`)' | tr '\n' ' ')
+          if printf '%s\n' "$BODY" | grep -qP '^- \[[xX]\] `TUTTE`'; then     # D122: one tick for every ready card
+            ids=$(printf '%s\n' "$BODY" | grep -oP '^- \[[ xX]\] `\K[^`]+(?=`)' | grep -v '^TUTTE$' | tr '\n' ' ')
+          fi
+          ids=$(echo $ids | tr ' ' '\n' | grep -v '^TUTTE$' | tr '\n' ' ')
+          echo "ids=$ids" >> "$GITHUB_OUTPUT"
+          echo "carte spuntate: $ids"
+      - name: Add with the engine gate
+        if: steps.ids.outputs.ids != ''
+        run: |
+          pip install -q numpy pandas scipy pillow
+          set -o pipefail                  # a crash must fail the job, not be hidden by tee (4 November)
+          PYTHONPATH=. python scripts/add_batch.py ${{ steps.ids.outputs.ids }} ${{ github.event.inputs.gate_only == 'true' && '--gate-only' || '' }} | tee /tmp/add.log
+          python scripts/fetch_missing_images.py || echo "immagini: qualcuna manca ancora"     # D151: every card gets a picture
+      - name: Save the private data (D163)
+        if: steps.ids.outputs.ids != ''
+        uses: ./.github/actions/private-data
+        with:
+          mode: push
+          token: ${{ secrets.DATA_TOKEN }}
+          message: "Approvazione: dati grezzi"
+      - name: Save, rebuild, answer
+        if: steps.ids.outputs.ids != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BODY: ${{ github.event.issue.body }}
+          N: ${{ github.event.issue.number }}
+          IDS: ${{ steps.ids.outputs.ids }}
+        run: |
+          git config user.name "slabwise-bot"
+          git config user.email "slabwise-bot@users.noreply.github.com"
+          git add prototype/data/requests_status.json prototype/data/cards.json prototype/data/images.json prototype/data/hires.json data/catalogue_extra.json prototype/data/cards_ja.json
+          [ -f data/catalogue_ja_extra.json ] && git add data/catalogue_ja_extra.json
+          git diff --cached --quiet || { git commit -m "Candidate approvate: ${{ steps.ids.outputs.ids }}"; git pull --rebase --autostash -q && git push; gh workflow run sito.yml -R "$GITHUB_REPOSITORY"; }
+          python - <<'PY'
+          import json, os, re
+          st = json.load(open("prototype/data/requests_status.json"))
+          body = os.environ["BODY"]
+          def mark(m):
+              cid = m.group(1); s = st.get(cid if cid.startswith("ja:") else "en:" + cid, {})
+              tag = "✅ aggiunta" if s.get("status") == "aggiunta" else f"❌ {s.get('status', 'non aggiunta')} {s.get('detail', '')}".strip()
+              return f"- [x] ~~`{cid}`~~ {tag} ·"
+          ids = set(os.environ["IDS"].split())
+          body = re.sub(r"^- \[[ xX]\] `TUTTE`.*$", "- [x] ~~`TUTTE`~~", body, flags=re.M)
+          body = re.sub(r"^- \[[ xX]\] `([^`]+)`", lambda m: mark(m) if m.group(1) in ids else m.group(0), body, flags=re.M)
+          open("/tmp/body.md", "w").write(body)
+          PY
+          [ -n "$N" ] || { echo "lanciato a mano: nessuna issue da aggiornare"; exit 0; }
+          gh issue edit "$N" -R "$GITHUB_REPOSITORY" --body-file /tmp/body.md
+          { echo "Risultato:"; echo '```'; tail -15 /tmp/add.log; echo '```'; echo "Il sito si sta ricostruendo: tra qualche minuto le carte aggiunte sono online, con prezzi, occasioni e offerte."; } > /tmp/comment.md
+          gh issue comment "$N" -R "$GITHUB_REPOSITORY" --body-file /tmp/comment.md

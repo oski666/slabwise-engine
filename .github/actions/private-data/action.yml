@@ -1,0 +1,46 @@
+# D163: the raw source data (tcgcharts, Alt, base sales, certs) lives in the private repository slabwise-data, not in
+# this public one. "pull" copies it into the workspace at the same paths; "push" saves the changed files back.
+name: Private data
+description: Pull or push the raw source data kept in oski666/slabwise-data
+inputs:
+  mode:
+    description: pull or push
+    required: true
+  token:
+    description: fine-grained token with Contents read/write on slabwise-data (secret DATA_TOKEN)
+    required: true
+  message:
+    description: commit message for push
+    default: "Dati grezzi aggiornati"
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env:
+        TOKEN: ${{ inputs.token }}
+        MODE: ${{ inputs.mode }}
+        MSG: ${{ inputs.message }}
+      run: |
+        set -euo pipefail
+        PATHS=$(grep -v '^#' .github/private-paths.txt | sed '/^$/d')
+        URL="https://x-access-token:${TOKEN}@github.com/oski666/slabwise-data.git"
+        if [ "$MODE" = pull ]; then
+          rm -rf /tmp/pd && git clone -q --depth 1 "$URL" /tmp/pd
+          for p in $PATHS; do
+            if [ -e "/tmp/pd/$p" ]; then mkdir -p "$(dirname "$p")"; cp -a "/tmp/pd/$p" "$(dirname "$p")/"; fi
+          done
+          echo "dati privati scaricati"
+        else
+          [ -d /tmp/pd ] || git clone -q --depth 1 "$URL" /tmp/pd
+          for p in $PATHS; do
+            if [ -e "$p" ]; then mkdir -p "/tmp/pd/$(dirname "$p")"; rm -rf "/tmp/pd/$p"; cp -a "$p" "/tmp/pd/$(dirname "$p")/"; fi
+          done
+          cd /tmp/pd
+          git config user.name "slabwise-bot"
+          git config user.email "slabwise-bot@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then echo "dati privati: niente da salvare"; exit 0; fi
+          git commit -q -m "$MSG"
+          for i in 1 2 3; do git pull -q --rebase && git push -q && echo "dati privati salvati" && exit 0; sleep 5; done
+          echo "dati privati: push non riuscito"; exit 1
+        fi

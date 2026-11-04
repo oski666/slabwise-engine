@@ -1,0 +1,7 @@
+/home/claude/slabwise-engine/slabwise/sources/csv_sales.py:24: DtypeWarning: Columns (0: best_offer_hidden, 1: excluded) have mixed types. Specify dtype option on import or set low_memory=False.
+  raw = pd.read_csv(path)
+/home/claude/slabwise-engine/scripts/real_r1.py:47: DtypeWarning: Columns (0: best_offer_hidden, 1: excluded) have mixed types. Specify dtype option on import or set low_memory=False.
+  raw = pd.read_csv(path)
+E2: 0 voci lontane dalle proprie vendite: []
+auction offset -0.089
+gap_start=True venue_gaps=True R1: 0 voci su 216: []

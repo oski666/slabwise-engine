@@ -1,0 +1,41 @@
+/home/claude/slabwise-engine/slabwise/sources/csv_sales.py:24: DtypeWarning: Columns (0: best_offer_hidden, 1: excluded) have mixed types. Specify dtype option on import or set low_memory=False.
+  raw = pd.read_csv(path)
+coverage fit []
+params {'q_L': 0.0012, 'q_d': 0.0001, 'sigma_e': 0.15, 'sigma_a': 0.08, 'sigma_q': 0.07, 'tau_f': 0.08, 'tau_s': 0.0, 'phi': 0.9, 'window': 156, 'max_obs': 80, 'iters': 8, 'card_drift': False, 'era_gaps': False, 'venue_gaps': True, 'gap_start': True, 'vol_halflife': 13.0, 'grade_keep': 15, 'roll_bound': 3.0} W 226 train 75
+/home/claude/slabwise-engine/slabwise/baselines.py:177: RuntimeWarning: All-NaN slice encountered
+  gaps = np.nanmedian(own[:, :-1] - own[:, 1:], axis=0)            # global ladder ratios
+offs [0.0, -0.0925, 0.0]
+{
+ "n_sales": 98861,
+ "ES": {
+  "Ultima vendita": 0.08701137698962924,
+  "tcgcharts (mediana a fasce)": 0.06899287148695166,
+  "PriceCharting (media pesata per età)": 0.11619704648736562,
+  "Card Ladder (ultima vendita × indice)": 0.08701137698962924,
+  "Slabwise v0 (regole, tipo TCGBerg)": 0.12440512122520886,
+  "Slabwise LVM": 0.06762719568445696
+ },
+ "R2": {
+  "passed": true,
+  "best_competitor": "tcgcharts (mediana a fasce)"
+ },
+ "R3": {
+  "alta (≥26)": {
+   "lvm": 0.06714550909824268,
+   "best": 0.06899287148695166,
+   "passed": true
+  },
+  "bassa (≤5)": {
+   "lvm": 0.18978271020385273,
+   "best": 0.1435549843376056,
+   "passed": false
+  },
+  "media (6-25)": {
+   "lvm": 0.17596829661636315,
+   "best": 0.16034265007517945,
+   "passed": false
+  }
+ },
+ "R3_passed": false,
+ "R4_coverage": 0.7187667533203185
+}

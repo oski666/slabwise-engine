@@ -1,0 +1,1930 @@
+{
+ "base1-4": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PMCG1-021",
+    null
+   ],
+   [
+    "neo4-025",
+    null
+   ],
+   [
+    "PCG8-032",
+    null
+   ],
+   [
+    "web1-042",
+    null
+   ],
+   [
+    "PCG9-052",
+    null
+   ],
+   [
+    "SM3H-058",
+    134
+   ],
+   [
+    "E1-071",
+    113
+   ],
+   [
+    "E5-089",
+    null
+   ],
+   [
+    "VS1-097",
+    null
+   ],
+   [
+    "E1-103",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "base1-2": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "web1-044",
+    null
+   ],
+   [
+    "VS1-046",
+    null
+   ],
+   [
+    "PCG8-049",
+    null
+   ],
+   [
+    "SM9b-064",
+    125
+   ],
+   [
+    "E1-076",
+    null
+   ],
+   [
+    "E1-108",
+    126
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "base1-15": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG8-003",
+    null
+   ],
+   [
+    "PMCG1-011",
+    null
+   ],
+   [
+    "web1-041",
+    null
+   ],
+   [
+    "E1-065",
+    null
+   ],
+   [
+    "E1-097",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "base1-10": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG6-019",
+    118
+   ],
+   [
+    "PMCG1-050",
+    null
+   ],
+   [
+    "PCG3-064",
+    105
+   ],
+   [
+    "neo4-068",
+    null
+   ],
+   [
+    "SM3p-080",
+    113
+   ],
+   [
+    "SM3p-082",
+    115
+   ],
+   [
+    "E1-086",
+    114
+   ],
+   [
+    "E1-118",
+    118
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "base1-3": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "E1-047",
+    105
+   ],
+   [
+    "E2-057",
+    99
+   ],
+   [
+    "PMCG1-068",
+    null
+   ],
+   [
+    "PCG1-069",
+    111
+   ],
+   [
+    "PCG4-078",
+    116
+   ],
+   [
+    "neo4-092",
+    null
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "base1-1": {
+  "status": "errore",
+  "detail": "TCGdex non risponde",
+  "checked": "2026-11-04"
+ },
+ "base1-8": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "base1-58": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "base2-11": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "base3-5": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "base3-4": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "SM11-112",
+    139
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "base5-4": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "neo1-9": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "neo3-14": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "gym2-1": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "gym2-13": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "base1-16": {
+  "status": "errore",
+  "detail": "TCGdex non risponde",
+  "checked": "2026-11-04"
+ },
+ "base1-6": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "base1-12": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "base1-14": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "base1-5": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "base1-7": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "base1-13": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "base3-10": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "SM9-029",
+    115
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "base3-2": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "SV10-022",
+    124
+   ],
+   [
+    "M2a-034",
+    122
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "base3-12": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "base2-12": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "base2-3": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "base5-3": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "SV2a-202",
+    98
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "neo4-107": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "neo3-65": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "neo4-109": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "swsh7-218": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "swsh7-189": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "swsh12-186": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "swsh9-154": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "SM6a-003",
+    131
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "sv03-223": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "sv08-238": {
+  "status": "trovata",
+  "tcgdex": "SV8-132",
+  "dist": 45,
+  "tried": [
+   [
+    "SV8-132",
+    45
+   ]
+  ],
+  "ja_name": "ピカチュウex",
+  "no": "132",
+  "set": "超電ブレイカー",
+  "tot": 106,
+  "rarity": "Special illustration rare",
+  "ill": "GIDORA",
+  "img": "https://assets.tcgdex.net/ja/SV/SV8/132/high.webp",
+  "tc": null,
+  "checked": "2026-11-04"
+ },
+ "sv02-269": {
+  "status": "senza_pokedex",
+  "detail": "carta Allenatore o Energia: per ora non cercata",
+  "checked": "2026-11-04"
+ },
+ "sv06-214": {
+  "status": "nessuna",
+  "detail": "19 carte giapponesi dello stesso Pokémon, nessuna dello stesso illustratore",
+  "checked": "2026-11-04"
+ },
+ "swsh4-188": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "SV8-033",
+    133
+   ],
+   [
+    "M2a-044",
+    135
+   ],
+   [
+    "S8b-046",
+    92
+   ],
+   [
+    "SV8-122",
+    142
+   ],
+   [
+    "SV8-136",
+    140
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "base5-5": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "SM11-112",
+    128
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ecard2-149": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "sm9-170": {
+  "status": "trovata",
+  "tcgdex": "SM9-105",
+  "dist": 29,
+  "tried": [
+   [
+    "SM9-105",
+    29
+   ]
+  ],
+  "ja_name": "ラティアス&ラティオスGX",
+  "no": "105",
+  "set": "タッグボルト",
+  "tot": 95,
+  "rarity": "Ultra Rare",
+  "ill": "Sanosuke Sakuma",
+  "img": "https://assets.tcgdex.net/ja/SM/SM9/105/high.webp",
+  "tc": null,
+  "checked": "2026-11-04"
+ },
+ "sv08.5-161": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "swsh8-271": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "swsh11-186": {
+  "status": "trovata",
+  "tcgdex": "S11-111",
+  "dist": 38,
+  "tried": [
+   [
+    "S11-111",
+    38
+   ]
+  ],
+  "ja_name": "ギラティナV",
+  "no": "111",
+  "set": "ロストアビス",
+  "tot": 100,
+  "rarity": "Ultra Rare",
+  "ill": "Shinji Kanda",
+  "img": "https://assets.tcgdex.net/ja/S/S11/111/high.webp",
+  "tc": null,
+  "checked": "2026-11-04"
+ },
+ "sm3.5-78": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "M2a-237",
+    125
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "bw8-136": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "swsh7-192": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "SM11-112",
+    132
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "sv03.5-200": {
+  "status": "trovata",
+  "tcgdex": "SV2a-202",
+  "dist": 42,
+  "tried": [
+   [
+    "SV2a-202",
+    42
+   ]
+  ],
+  "ja_name": "カメックスex",
+  "no": "202",
+  "set": "ポケモンカード151",
+  "tot": 165,
+  "rarity": "Special illustration rare",
+  "ill": "Mitsuhiro Arita",
+  "img": "https://assets.tcgdex.net/ja/SV/SV2a/202/high.webp",
+  "tc": null,
+  "checked": "2026-11-04"
+ },
+ "ex13-100": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "swsh7-194": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex15-101": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex13-103": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex14-100": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "SM8-015",
+    129
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ex13-16": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex10-113": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex10-115": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex10-114": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex16-102": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "me02.5-284": {
+  "status": "trovata",
+  "tcgdex": "M2a-240",
+  "dist": 22,
+  "tried": [
+   [
+    "M2a-240",
+    22
+   ]
+  ],
+  "ja_name": "メガゲンガーex",
+  "no": "240",
+  "set": "MEGAドリームex",
+  "tot": 193,
+  "rarity": "Special illustration rare",
+  "ill": "danciao",
+  "img": "https://www.pokemon-card.com/assets/images/card_images/large/M2a/050000_P_MGENGAEX.jpg",
+  "tc": null,
+  "checked": "2026-11-04"
+ },
+ "sv10-231": {
+  "status": "trovata",
+  "tcgdex": "SV10-125",
+  "dist": 25,
+  "tried": [
+   [
+    "SV10-125",
+    25
+   ]
+  ],
+  "ja_name": "ロケット団のミュウツーex",
+  "no": "125",
+  "set": "ロケット団の栄光",
+  "tot": 98,
+  "rarity": "Special illustration rare",
+  "ill": "Iwamoto05",
+  "img": "https://assets.tcgdex.net/ja/SV/SV10/125/high.webp",
+  "tc": null,
+  "checked": "2026-11-04"
+ },
+ "ex3-90": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "SM11-112",
+    143
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ex1-101": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "neo4-113": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "bw6-128": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "SM7-068",
+    144
+   ],
+   [
+    "SM8b-098",
+    143
+   ],
+   [
+    "SM12a-100",
+    142
+   ],
+   [
+    "SM7-101",
+    128
+   ],
+   [
+    "SM8b-240",
+    117
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "xy4-34": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ecard2-150": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "neo2-13": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "swsh3.5-79": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "SM3H-011",
+    141
+   ],
+   [
+    "S12a-014",
+    119
+   ],
+   [
+    "SM3H-052",
+    133
+   ],
+   [
+    "SM8b-209",
+    133
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "pl4-97": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "swsh7-212": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "xy9-123": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "swsh8-270": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "sm3-150": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "SM3H-011",
+    131
+   ],
+   [
+    "S12a-014",
+    131
+   ],
+   [
+    "SM3H-052",
+    125
+   ],
+   [
+    "SM8b-209",
+    97
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "sv10.5b-172": {
+  "status": "trovata",
+  "tcgdex": "SV11B-174",
+  "dist": 48,
+  "tried": [
+   [
+    "SV11B-037",
+    138
+   ],
+   [
+    "M2a-051",
+    138
+   ],
+   [
+    "SV11B-161",
+    135
+   ],
+   [
+    "SV11B-174",
+    48
+   ],
+   [
+    "MC-259",
+    136
+   ]
+  ],
+  "ja_name": "ゼクロムex",
+  "no": "174",
+  "set": "ブラックボルト",
+  "tot": 174,
+  "rarity": "Black White Rare",
+  "ill": "takuyoa",
+  "img": "https://www.pokemon-card.com/assets/images/card_images/large/SV11B/047998_P_ZEKUROMUEX.jpg",
+  "tc": null,
+  "checked": "2026-11-04"
+ },
+ "dp7-103": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "xy10-125": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "swsh3.5-74": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "MC-085",
+    114
+   ],
+   [
+    "MC-766",
+    141
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "sm9-53": {
+  "status": "trovata",
+  "tcgdex": "SM9-038",
+  "dist": 33,
+  "tried": [
+   [
+    "SM9-038",
+    33
+   ]
+  ],
+  "ja_name": "ゲンガー&ミミッキュGX",
+  "no": "038",
+  "set": "タッグボルト",
+  "tot": 95,
+  "rarity": "Double rare",
+  "ill": "Mitsuhiro Arita",
+  "img": "https://assets.tcgdex.net/ja/SM/SM9/038/high.webp",
+  "tc": null,
+  "checked": "2026-11-04"
+ },
+ "gym1-14": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "me02.5-290": {
+  "status": "trovata",
+  "tcgdex": "M2a-246",
+  "dist": 30,
+  "tried": [
+   [
+    "SM11-112",
+    136
+   ],
+   [
+    "M2a-232",
+    125
+   ],
+   [
+    "M2a-246",
+    30
+   ]
+  ],
+  "ja_name": "メガカイリューex",
+  "no": "246",
+  "set": "MEGAドリームex",
+  "tot": 193,
+  "rarity": "Special illustration rare",
+  "ill": "DOM",
+  "img": "https://www.pokemon-card.com/assets/images/card_images/large/M2a/050006_P_MKAIRIXYUEX.jpg",
+  "tc": null,
+  "checked": "2026-11-04"
+ },
+ "swsh12.5-160": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex8-102": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "xy7-94": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "xy2-100": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "neo3-66": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "g1-RC28": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "dc1-6": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "bw1-115": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "S12a-205",
+    114
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "me02-106": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "xy9-114": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "bw11-19": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "xy7-21": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "sm12-38": {
+  "status": "trovata",
+  "tcgdex": "SM11a-016",
+  "dist": 43,
+  "tried": [
+   [
+    "SM11a-016",
+    43
+   ]
+  ],
+  "ja_name": "カメックス&ポッチャマGX",
+  "no": "016",
+  "set": "リミックスバウト",
+  "tot": 64,
+  "rarity": "Double rare",
+  "ill": "Mitsuhiro Arita",
+  "img": "https://assets.tcgdex.net/ja/SM/SM11a/016/high.webp",
+  "tc": null,
+  "checked": "2026-11-04"
+ },
+ "g1-RC6": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "sm8-207": {
+  "status": "trovata",
+  "tcgdex": "SM8-100",
+  "dist": 46,
+  "tried": [
+   [
+    "SM8-072",
+    131
+   ],
+   [
+    "SM8-100",
+    46
+   ]
+  ],
+  "ja_name": "ルギアGX",
+  "no": "100",
+  "set": "超爆インパクト",
+  "tot": 95,
+  "rarity": "Ultra Rare",
+  "ill": "PLANETA Igarashi",
+  "img": "https://assets.tcgdex.net/ja/SM/SM8/100/high.webp",
+  "tc": null,
+  "checked": "2026-11-04"
+ },
+ "me01-187": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "SM3N-038",
+    134
+   ],
+   [
+    "SM3N-055",
+    117
+   ],
+   [
+    "M1S-092",
+    134
+   ],
+   [
+    "SM8b-092",
+    133
+   ],
+   [
+    "SM8b-237",
+    121
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "sm11-35": {
+  "status": "trovata",
+  "tcgdex": "SM11-011",
+  "dist": 25,
+  "tried": [
+   [
+    "SM11-011",
+    25
+   ],
+   [
+    "SM11-107",
+    115
+   ]
+  ],
+  "ja_name": "ヤドン&コダックGX",
+  "no": "011",
+  "set": "ミラクルツイン",
+  "tot": 94,
+  "rarity": "Double rare",
+  "ill": "Mitsuhiro Arita",
+  "img": "https://assets.tcgdex.net/ja/SM/SM11/011/high.webp",
+  "tc": null,
+  "checked": "2026-11-04"
+ },
+ "g1-RC5": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "sm115-9": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "MC-085",
+    115
+   ],
+   [
+    "MC-766",
+    120
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ex15-100": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "SM9-013",
+    142
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ex13-104": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex7-107": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex13-102": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex7-109": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ecard3-H30": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex11-111": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "SM7-050",
+    120
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ex16-100": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex11-112": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex10-105": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "hgss3-86": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ecard2-H29": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ecard3-149": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex11-113": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "hgss4-94": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex16-101": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex12-91": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "hgss3-81": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "hgss4-97": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "sv08.5-156": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "sv03.5-202": {
+  "status": "trovata",
+  "tcgdex": "SV2a-204",
+  "dist": 18,
+  "tried": [
+   [
+    "SV2a-204",
+    18
+   ]
+  ],
+  "ja_name": "サンダーex",
+  "no": "204",
+  "set": "ポケモンカード151",
+  "tot": 165,
+  "rarity": "Special illustration rare",
+  "ill": "Shiburingaru",
+  "img": "https://assets.tcgdex.net/ja/SV/SV2a/204/high.webp",
+  "tc": null,
+  "checked": "2026-11-04"
+ },
+ "swsh7-205": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "gym2-2": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "hgss4-92": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex14-4": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "S12a-015",
+    117
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "xy10-119": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "dp3-3": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "sm3.5-40": {
+  "status": "trovata",
+  "tcgdex": "SM3p-041",
+  "dist": 22,
+  "tried": [
+   [
+    "SM3p-041",
+    22
+   ]
+  ],
+  "ja_name": "ひかるミュウ",
+  "no": "041",
+  "set": "ひかる伝説",
+  "tot": 72,
+  "rarity": "Shiny Ultra Rare",
+  "ill": "Sanosuke Sakuma",
+  "img": "https://www.pokemon-card.com/assets/images/card_images/large/SM3p/034037_P_HIKARUMYUU.jpg",
+  "tc": null,
+  "checked": "2026-11-04"
+ },
+ "dp5-98": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex3-94": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "SM11-109",
+    126
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "swsh5-155": {
+  "status": "trovata",
+  "tcgdex": "S5I-077",
+  "dist": 52,
+  "tried": [
+   [
+    "S5I-077",
+    52
+   ]
+  ],
+  "ja_name": "バンギラスV",
+  "no": "077",
+  "set": "一撃マスター",
+  "tot": 70,
+  "rarity": "Ultra Rare",
+  "ill": "HYOGONOSUKE",
+  "img": "https://assets.tcgdex.net/ja/S/S5I/077/high.webp",
+  "tc": null,
+  "checked": "2026-11-04"
+ },
+ "sv07-148": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "swsh7-209": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "bw11-RC7": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "sv10.5w-173": {
+  "status": "trovata",
+  "tcgdex": "SV11W-174",
+  "dist": 48,
+  "tried": [
+   [
+    "SV11W-017",
+    161
+   ],
+   [
+    "M2a-029",
+    160
+   ],
+   [
+    "MC-126",
+    155
+   ],
+   [
+    "SV11W-160",
+    123
+   ],
+   [
+    "SV11W-174",
+    48
+   ]
+  ],
+  "ja_name": "レシラムex",
+  "no": "174",
+  "set": "ホワイトフレア",
+  "tot": 86,
+  "rarity": "Black White Rare",
+  "ill": "5ban Graphics",
+  "img": "https://www.pokemon-card.com/assets/images/card_images/large/SV11W/048086_P_RESHIRAMUEX.jpg",
+  "tc": null,
+  "checked": "2026-11-04"
+ },
+ "sv04.5-233": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ecard3-H11": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ecard2-H22": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "swsh7-180": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "sm9-113": {
+  "status": "trovata",
+  "tcgdex": "SM9-060",
+  "dist": 40,
+  "tried": [
+   [
+    "SM9-060",
+    40
+   ]
+  ],
+  "ja_name": "ラティアス&ラティオスGX",
+  "no": "060",
+  "set": "タッグボルト",
+  "tot": 95,
+  "rarity": "Double rare",
+  "ill": "Mitsuhiro Arita",
+  "img": "https://assets.tcgdex.net/ja/SM/SM9/060/high.webp",
+  "tc": null,
+  "checked": "2026-11-04"
+ },
+ "sv03.5-169": {
+  "status": "trovata",
+  "tcgdex": "SV2a-169",
+  "dist": 21,
+  "tried": [
+   [
+    "SV2a-169",
+    21
+   ]
+  ],
+  "ja_name": "リザード",
+  "no": "169",
+  "set": "ポケモンカード151",
+  "tot": 165,
+  "rarity": "Illustration rare",
+  "ill": "miki kudo",
+  "img": "https://assets.tcgdex.net/ja/SV/SV2a/169/high.webp",
+  "tc": null,
+  "checked": "2026-11-04"
+ },
+ "ex8-108": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "swsh3-20": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "MC-085",
+    141
+   ],
+   [
+    "MC-766",
+    116
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "neo4-108": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "hgss4-95": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "hgss3-10": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "bw11-114": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "SV11W-017",
+    135
+   ],
+   [
+    "M2a-029",
+    134
+   ],
+   [
+    "MC-126",
+    131
+   ],
+   [
+    "SV11W-160",
+    131
+   ],
+   [
+    "SV11W-174",
+    104
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ecard3-H10": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex16-6": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "neo4-106": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "sv03.5-170": {
+  "status": "trovata",
+  "tcgdex": "SV2a-170",
+  "dist": 43,
+  "tried": [
+   [
+    "SV2a-170",
+    43
+   ]
+  ],
+  "ja_name": "ゼニガメ",
+  "no": "170",
+  "set": "ポケモンカード151",
+  "tot": 165,
+  "rarity": "Illustration rare",
+  "ill": "Mitsuhiro Arita",
+  "img": "https://assets.tcgdex.net/ja/SV/SV2a/170/high.webp",
+  "tc": null,
+  "checked": "2026-11-04"
+ },
+ "neo4-111": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex3-93": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex15-91": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "SM11-112",
+    125
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "xy6-105": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "SM7-068",
+    124
+   ],
+   [
+    "SM8b-098",
+    123
+   ],
+   [
+    "SM12a-100",
+    126
+   ],
+   [
+    "SM7-101",
+    128
+   ],
+   [
+    "SM8b-240",
+    129
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "ex7-105": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "me01-133": {
+  "status": "trovata",
+  "tcgdex": "M1L-064",
+  "dist": 22,
+  "tried": [
+   [
+    "M1L-064",
+    22
+   ]
+  ],
+  "ja_name": "フシギダネ",
+  "no": "064",
+  "set": "メガブレイブ",
+  "tot": 63,
+  "rarity": "Illustration rare",
+  "ill": "mashu",
+  "img": "https://www.pokemon-card.com/assets/images/card_images/large/M1L/048421_P_FUSHIGIDANE.jpg",
+  "tc": null,
+  "checked": "2026-11-04"
+ },
+ "dp6-14": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "me02.5-295": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "SM11-112",
+    118
+   ],
+   [
+    "M2a-126",
+    119
+   ],
+   [
+    "M2a-250",
+    147
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "me02-098": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "hgss3-84": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "me03-094": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex6-108": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex6-105": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "col1-15": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "col1-4": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex6-112": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "col1-22": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex6-109": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ex6-104": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "swsh6-201": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "g1-RC29": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "sv10-232": {
+  "status": "nessuna",
+  "detail": "16 carte giapponesi dello stesso Pokémon, nessuna dello stesso illustratore",
+  "checked": "2026-11-04"
+ },
+ "sv07-143": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "xy2-69": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [
+   [
+    "SM3H-011",
+    136
+   ],
+   [
+    "S12a-014",
+    130
+   ],
+   [
+    "SM3H-052",
+    106
+   ],
+   [
+    "SM8b-209",
+    112
+   ]
+  ],
+  "checked": "2026-11-04"
+ },
+ "sv03.5-173": {
+  "status": "trovata",
+  "tcgdex": "SV2a-173",
+  "dist": 31,
+  "tried": [
+   [
+    "SV2a-173",
+    31
+   ]
+  ],
+  "ja_name": "ピカチュウ",
+  "no": "173",
+  "set": "ポケモンカード151",
+  "tot": 165,
+  "rarity": "Illustration rare",
+  "ill": "Hiroyuki Yamamoto",
+  "img": "https://assets.tcgdex.net/ja/SV/SV2a/173/high.webp",
+  "tc": null,
+  "checked": "2026-11-04"
+ },
+ "ecard3-H31": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "sv08-239": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "swsh8-269": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "me01-179": {
+  "status": "trovata",
+  "tcgdex": "M1L-088",
+  "dist": 11,
+  "tried": [
+   [
+    "M1L-088",
+    11
+   ]
+  ],
+  "ja_name": "メガルカリオex",
+  "no": "088",
+  "set": "メガブレイブ",
+  "tot": 63,
+  "rarity": "Special illustration rare",
+  "ill": "Atsushi Furusawa",
+  "img": "https://www.pokemon-card.com/assets/images/card_images/large/M1L/048445_P_MRUKARIOEX.jpg",
+  "tc": null,
+  "checked": "2026-11-04"
+ },
+ "g1-RC32": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "sv10.5b-171": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "col1-20": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "swsh11-180": {
+  "status": "trovata",
+  "tcgdex": "S11-106",
+  "dist": 47,
+  "tried": [
+   [
+    "S11-106",
+    47
+   ],
+   [
+    "SM11-110",
+    134
+   ]
+  ],
+  "ja_name": "プテラV",
+  "no": "106",
+  "set": "ロストアビス",
+  "tot": 100,
+  "rarity": "Ultra Rare",
+  "ill": "Nurikabe",
+  "img": "https://assets.tcgdex.net/ja/S/S11/106/high.webp",
+  "tc": null,
+  "checked": "2026-11-04"
+ },
+ "sv08.5-150": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "swsh7-184": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ },
+ "ecard3-H20": {
+  "status": "da_riprovare",
+  "detail": "servono le immagini di tcgcharts",
+  "tried": [],
+  "checked": "2026-11-04"
+ }
+}

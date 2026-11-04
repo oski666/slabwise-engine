@@ -1,0 +1,23 @@
+seed1_c10_A.json kappa 0.867 EV 0.0562 CA 0.735
+seed1_c15_A.json kappa 0.982 EV 0.0584 CA 0.737
+seed1_c15_B.json kappa 0.982 EV 0.0583 CA 0.737
+seed1_c15_A_alt.json kappa 0.829 EV 0.0736 CA 0.716
+seed1_c35_A.json kappa 0.926 EV 0.0624 CA 0.789
+seed1_c50_A.json kappa 0.73 EV 0.059 CA 0.683
+seed2_c0_A.json kappa 0.794 EV 0.0534 CA 0.81
+seed2_c10_A.json kappa 0.991 EV 0.0556 CA 0.795
+seed2_c15_A.json kappa 0.831 EV 0.0605 CA 0.77
+seed2_c15_A_alt.json kappa 0.902 EV 0.066 CA 0.757
+seed2_c15_B.json kappa 0.831 EV 0.0605 CA 0.77
+seed2_c35_A.json kappa 0.955 EV 0.0608 CA 0.743
+seed2_c50_A.json kappa 0.773 EV 0.0598 CA 0.741
+seed3_c0_A.json kappa 0.783 EV 0.0524 CA 0.801
+seed3_c10_A.json kappa 0.822 EV 0.0557 CA 0.777
+seed3_c15_A.json kappa 0.913 EV 0.0552 CA 0.804
+seed3_c15_A_alt.json kappa 0.88 EV 0.0692 CA 0.757
+seed3_c15_B.json kappa 0.913 EV 0.0552 CA 0.804
+seed3_c35_A.json kappa 0.84 EV 0.0573 CA 0.746
+seed3_c50_A.json kappa 0.778 EV 0.0601 CA 0.748
+seed4_c15_A.json kappa 0.865 EV 0.0536 CA 0.803
+seed5_c15_A.json kappa 1.123 EV 0.0574 CA 0.79
+FINE

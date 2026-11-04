@@ -1,0 +1,64 @@
+# Deal refresh (D112): every 6 hours during the day, fresh eBay listings against the values published this morning
+# (artifact of the last "Sito" run), then the page is published again. The engine does not run here.
+name: Occasioni
+on:                               # D116: started by the Cloudflare clock (orologio/worker.js)
+  workflow_dispatch: {}
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+jobs:
+  deals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      HAS_EBAY: ${{ secrets.EBAY_CLIENT_ID != '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Private data (D163)
+        uses: ./.github/actions/private-data
+        with:
+          mode: pull
+          token: ${{ secrets.DATA_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: pip install numpy scipy pandas pillow
+      - name: Values of this morning
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          id=$(gh run list -R "$GITHUB_REPOSITORY" -w Sito -s success -L 1 --json databaseId -q '.[0].databaseId')
+          gh run download "$id" -R "$GITHUB_REPOSITORY" -n site-data -D /tmp/sd
+          cp /tmp/sd/real.json prototype/data/real.json
+          cp /tmp/sd/pagella.json prototype/data/pagella.json 2>/dev/null || true
+      - name: Keys
+        env:
+          EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
+          EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
+          EPN_CAMPAIGN_ID: ${{ secrets.EPN_CAMPAIGN_ID }}
+        run: |
+          mkdir -p ~/.slabwise
+          printf '%s' "$EBAY_CLIENT_ID" > ~/.slabwise/ebay_client_id
+          printf '%s' "$EBAY_CLIENT_SECRET" > ~/.slabwise/ebay_client_secret
+          printf '%s' "$EPN_CAMPAIGN_ID" > ~/.slabwise/epn_campaign_id
+      - name: eBay listings and deals
+        if: env.HAS_EBAY == 'true'
+        run: |
+          PYTHONPATH=. python scripts/ebay_listings.py data/raw/ebay/listings.json
+          PYTHONPATH=. python scripts/deals_refresh.py prototype/data/real.json data/raw/ebay/listings.json
+      - name: Page
+        run: |
+          mkdir -p site
+          python prototype/v7/build.py real --split site
+          sed -i 's#<meta charset="utf-8">#<meta charset="utf-8">\n<meta name="robots" content="noindex">#' site/index.html
+          python social/reel-studio/build.py
+          sed 's#<meta charset="utf-8">#<meta charset="utf-8">\n<meta name="robots" content="noindex">#' social/reel-studio/studio.html > site/x/studio.html
+      - name: Publish on Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx --yes wrangler@3 pages deploy site --project-name=slabwise --branch=main --commit-dirty=true

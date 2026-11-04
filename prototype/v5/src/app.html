@@ -1,0 +1,398 @@
+<title>Slabwise</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@500;700;800;900&family=JetBrains+Mono:wght@600;700&display=swap">
+<style>
+__STYLE__
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#mercato" aria-label="Slabwise, mercato"><span class="mk"></span>slabwise</a>
+    <nav class="main" aria-label="Sezioni">
+      <a href="#mercato" data-nav="mercato">Mercato</a>
+      <a href="#settimana" data-nav="settimana">Settimana</a>
+      <a href="#deal" data-nav="deal">Deal</a>
+      <a href="#metodo" data-nav="metodo">Metodo</a>
+    </nav>
+    <div class="search" role="search">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Cerca uno slab…  ( / )" autocomplete="off" aria-label="Cerca una carta">
+      <div class="results" id="res" hidden></div>
+    </div>
+    <span class="sticker" title="Carte e immagini reali; vendite, popolazioni e annunci simulati">DEMO</span>
+    <button class="iconbtn" id="theme" aria-label="Cambia tema"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+  </div>
+</header>
+<nav class="mnav" aria-label="Sezioni">
+  <a href="#mercato" data-nav="mercato">Mercato</a><a href="#settimana" data-nav="settimana">Settimana</a><a href="#deal" data-nav="deal">Deal</a><a href="#metodo" data-nav="metodo">Metodo</a>
+</nav>
+<main id="app"></main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<footer><div class="wrap"><span>Slabwise · prototipo v5 "Promo TCG" · motore LVM v1.1 · con Slabby</span><span id="foot"></span></div></footer>
+
+<script>
+const D = __DATA__;
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const nf0 = new Intl.NumberFormat("it-IT", {maximumFractionDigits: 0});
+const nf1 = new Intl.NumberFormat("it-IT", {maximumFractionDigits: 1, minimumFractionDigits: 1});
+const usd = v => "$" + nf0.format(v);
+const usdK = v => v >= 1e9 ? "$" + nf1.format(v / 1e9) + " mld" : v >= 1e6 ? "$" + nf1.format(v / 1e6) + " mln" : usd(v);
+const eur = v => nf0.format(v) + " €";
+const pct = (v, s = true) => (s && v > 0 ? "+" : v < 0 ? "−" : "") + nf1.format(Math.abs(v * 100)) + "%";
+const halfw = g => (g.hi - g.lo) / 2 / g.value;
+const cardById = Object.fromEntries(D.cards.map(c => [c.id, c]));
+const gradeOf = (c, g) => c.grades.find(x => x.grade === g);
+const capOf = c => c.grades.reduce((s, g) => s + g.value * g.pop, 0);
+const dateIt = s => new Date(s + "T12:00:00").toLocaleDateString("it-IT", {day: "numeric", month: "short", year: "2-digit"});
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+$("#foot").textContent = "Dati dimostrativi al " + dateIt(D.asof) + " · carte e immagini TCGdex";
+
+(function () {
+  let t = null; try { t = localStorage.getItem("sw-theme"); } catch (e) {}
+  if (t) document.documentElement.dataset.theme = t;
+  $("#theme").onclick = () => {
+    const cur = document.documentElement.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    const nx = cur === "light" ? "dark" : "light";
+    document.documentElement.dataset.theme = nx;
+    try { localStorage.setItem("sw-theme", nx); } catch (e) {}
+  };
+})();
+function toast(msg) { const t = $("#toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove("on"), 2200); }
+
+/* doodles: tiny hand-drawn-style marks per era */
+const DOODLE = {
+  "Wizards of the Coast": `<svg class="doodle" viewBox="0 0 84 84"><path d="M42 8l9 22 24 2-18 15 6 23-21-13-21 13 6-23L9 32l24-2z" fill="var(--sun)" stroke="var(--edge)" stroke-width="3" stroke-linejoin="round"/></svg>`,
+  "Scarlatto e Violetto": `<svg class="doodle" viewBox="0 0 84 84"><circle cx="42" cy="42" r="30" fill="var(--coral)" stroke="var(--edge)" stroke-width="3"/><path d="M12 42h60" stroke="var(--edge)" stroke-width="3"/><circle cx="42" cy="42" r="9" fill="#fff" stroke="var(--edge)" stroke-width="3"/></svg>`,
+  "Spada e Scudo": `<svg class="doodle" viewBox="0 0 84 84"><path d="M42 10l26 10v20c0 18-12 28-26 34C28 68 16 58 16 40V20z" fill="var(--sky)" stroke="var(--edge)" stroke-width="3" stroke-linejoin="round"/></svg>`,
+  "Mega Evoluzione": `<svg class="doodle" viewBox="0 0 84 84"><path d="M48 6L18 46h20l-6 32 32-42H44z" fill="var(--brand)" stroke="var(--edge)" stroke-width="3" stroke-linejoin="round"/></svg>`,
+};
+const ICON = {
+  fork: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1d1640" stroke-width="2.6" stroke-linecap="round"><path d="M3 12h18M7 8v8M17 8v8"/><circle cx="12" cy="12" r="2.4" fill="#ffd23f"/></svg>`,
+  eye: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1d1640" stroke-width="2.6"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3" fill="#1d1640"/></svg>`,
+  euro: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1d1640" stroke-width="2.6" stroke-linecap="round"><path d="M18 6a7 7 0 1 0 0 12M4 10h9M4 14h9"/></svg>`,
+};
+
+/* components */
+function slab(c, g, w = 300, cls = "") {
+  return `<div class="stage"><div class="slab ${cls}" style="--w:${w}px" data-tilt>
+    <div class="lab"><div style="min-width:0"><div class="l1">${esc(c.name)}</div><div class="l2">${esc(c.set)} · #${esc(c.no)}${c.tot ? "/" + c.tot : ""}</div><div class="l3">SLABWISE · ${esc(c.id.toUpperCase())}</div></div>
+      <div class="gr"><b>PSA</b><strong>${g}</strong></div></div>
+    <div class="win">${c.img ? `<img src="${c.img}" alt="${esc(c.name)}, ${esc(c.set)}">` : `<div class="noimg">Immagine in arrivo</div>`}<div class="holo"></div><div class="glare"></div></div>
+  </div></div>`;
+}
+function fork(g, mini = false, span = 0.25) {
+  const pos = v => 50 + 50 * Math.log(v / g.value) / Math.log(1 + span);
+  const a = Math.max(0, pos(g.lo)), b = Math.min(100, pos(g.hi));
+  return `<div class="fork${mini ? " mini" : ""}" role="img" aria-label="Valore ${usd(g.value)}, forchetta all'80% da ${usd(g.lo)} a ${usd(g.hi)}">
+    <div class="track"><div class="band" style="left:${a}%;width:${b - a}%"></div><div class="pin" style="left:50%"></div></div>
+    ${mini ? "" : `<div class="ends"><span>${usd(g.lo)}</span><span>8 volte su 10 è qui dentro</span><span>${usd(g.hi)}</span></div>`}</div>`;
+}
+const probTag = p => `<span class="prob ${p >= 0.8 ? "hi" : p >= 0.4 ? "mid" : "lo"}">${Math.round(p * 100)}%</span>`;
+function ring(p) {
+  const r = 30, C = 2 * Math.PI * r, col = p >= 0.8 ? "var(--mint)" : p >= 0.4 ? "var(--sun)" : "var(--line)";
+  return `<div class="ring" role="img" aria-label="Probabilità di affare ${Math.round(p * 100)}%"><svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="${r}"/><circle class="f" cx="36" cy="36" r="${r}" fill="none" stroke="${col}" stroke-width="7" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${reduce ? C * (1 - p) : C}" data-off="${C * (1 - p)}"/></svg><b>${Math.round(p * 100)}%</b></div>`;
+}
+function receipt(d) {
+  return `<div class="receipt">
+    <div><span>Prezzo (${d.origin})</span><b>${eur(d.price_eur)}</b></div>
+    <div><span>Spedizione</span><b>${eur(d.ship_eur)}</b></div>
+    ${d.origin === "UE" ? `<div><span>IVA e dogana</span><b>niente (UE)</b></div>` : `<div><span>IVA import 22%</span><b>${eur(d.vat_eur)}</b></div><div><span>Sdoganamento</span><b>${eur(d.fee_eur)}</b></div>`}
+    <div class="tot"><span>Ti costa in Italia</span><b>${eur(d.landed_eur)}</b></div>
+    <div><span>Vale sul mercato</span><b>${eur(d.value_eur)}</b></div></div>`;
+}
+function dealRow(c, d, showCard) {
+  const sus = d.suspicious, top = d.p_deal >= 0.8;
+  return `<article class="deal tile hov${top ? " top" : sus ? " sus" : ""}">${top ? `<span class="sticker mint pop">Affare!</span>` : sus ? `<span class="sticker coral">Sospetto</span>` : ""}${ring(d.p_deal)}
+    <div style="min-width:0">${showCard ? `<a href="#c-${c.id}" style="text-decoration:none"><h3>${esc(c.name)} · PSA ${d.grade}</h3></a><div class="muted" style="font-size:15px">${esc(c.set)}</div>` : `<h3>PSA ${d.grade} · ${d.origin === "UE" ? "dall'UE" : "dagli USA"}</h3>`}
+      <div class="tags"><span class="tag">${d.cert ? "cert verificato" : "senza cert"}</span><span class="tag">chiede $${nf0.format(d.ask_usd)}</span></div>
+      <p class="muted" style="font-size:15px;margin-top:8px">${sus ? "Costa così poco rispetto al valore che probabilmente non è lo slab descritto." : top ? "Con spedizione, IVA e dogana vale comunque almeno il 10% più di quanto lo paghi." : "Dopo i costi per arrivare in Italia, il margine è troppo piccolo per esserne sicuri."}</p></div>
+    ${receipt(d)}</article>`;
+}
+
+/* views */
+const S = {g: 10, sort: "cap", dealMin: 0.5, dealOrigin: "tutti", cg: 10};
+function viewMarket() {
+  const fanIds = ["base1-4", "swsh7-215", "neo1-9"].filter(id => cardById[id]);
+  const totCap = D.rollups.reduce((s, r) => s + r.cap, 0);
+  return `<div class="wrap">
+  <section class="hero"><span class="spark s1"></span><span class="spark s2"></span><span class="spark s3"></span><span class="spark s4"></span>
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <span class="label">Valori per carte Pokémon graded</span>
+      <h1>Quanto vale il tuo <span class="mark">slab</span>?</h1>
+      <p class="lead">Te lo diciamo con una forchetta onesta, ti mostriamo il perché e ti diciamo se conviene comprarlo dall'Italia.</p>
+      <div class="promise">
+        <a class="tile" href="#c-swsh7-215"><span class="ico" style="background:var(--sun)">${ICON.fork}</span><span><b>La forchetta, sempre</b><br><span class="muted" style="font-size:15px">Più è corta, più siamo sicuri</span></span></a>
+        <a class="tile" href="#settimana"><span class="ico" style="background:var(--sky)">${ICON.eye}</span><span><b>Il perché, gratis</b><br><span class="muted" style="font-size:15px">Ogni vendita, vera o sospetta</span></span></a>
+        <a class="tile" href="#deal"><span class="ico" style="background:var(--mint)">${ICON.euro}</span><span><b>Affari in euro</b><br><span class="muted" style="font-size:15px">Spedizione, IVA e dogana comprese</span></span></a>
+      </div>
+    </div>
+    <div class="fan" aria-label="Tre slab in evidenza">${fanIds.map(id => `<a href="#c-${id}" aria-label="${esc(cardById[id].name)}">${slab(cardById[id], 10, 230)}</a>`).join("")}</div>
+  </section>
+
+  <section class="sec">
+    <div class="sechead"><div><span class="label">Le ere</span><h2>${usdK(totCap)} di slab che seguiamo</h2></div>
+      <p class="note" style="max-width:44ch">Valore × popolazione PSA. La barra dice quanto pesano le prime 3 carte dell'era.</p></div>
+    <div class="cols4">${D.rollups.map(r => `<div class="tile hov era">${DOODLE[r.series] || ""}
+      <span class="label" style="max-width:70%">${esc(r.series)}</span><span class="v num" data-count="${r.cap}" data-fmt="usdK">${usdK(r.cap)}</span>
+      <span class="${r.ch30 >= 0 ? "up" : "down"}" style="font-weight:800">${pct(r.ch30)} in 30 giorni</span>
+      <div class="bar"><i style="transform:scaleX(${r.top3})"></i></div>
+      <span class="note">Prime 3 carte: ${Math.round(r.top3 * 100)}% · ${r.n} ${r.n === 1 ? "carta" : "carte"}</span></div>`).join("")}</div>
+  </section>
+
+  <section class="sec">
+    <div class="sechead"><div><span class="label">La collezione</span><h2>Tutti gli slab</h2></div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <div class="chips" role="group" aria-label="Voto">${[10, 9, 8, 7].map(g => `<button class="chip" data-g="${g}" aria-pressed="${g === S.g}">PSA ${g}</button>`).join("")}</div>
+        <div class="chips" role="group" aria-label="Ordina">${[["cap", "Più preziosi"], ["ch30", "In salita"], ["sales", "Più venduti"], ["sure", "Più sicuri"]].map(([k, t]) => `<button class="chip" data-sort="${k}" aria-pressed="${S.sort === k}">${t}</button>`).join("")}</div>
+      </div></div>
+    <div class="grid" data-tour="grid">${tiles()}</div>
+  </section></div>`;
+}
+function tiles() {
+  const key = {cap: c => capOf(c), ch30: c => gradeOf(c, S.g).ch30, sales: c => gradeOf(c, S.g).sales90, sure: c => -halfw(gradeOf(c, S.g))}[S.sort];
+  return [...D.cards].sort((a, b) => key(b) - key(a)).map((c, i) => { const g = gradeOf(c, S.g); return `<a class="tile ctile" href="#c-${c.id}">
+    <span class="rank">${i + 1}</span>
+    <div class="thumb">${c.thumb || c.img ? `<img src="${c.thumb || c.img}" alt="" loading="lazy">` : `<span style="display:grid;place-items:center;height:100%;font:700 13px var(--display);color:#8b84b3;text-align:center;padding:6px">foto in arrivo</span>`}</div>
+    <div class="info"><h3>${esc(c.name)}</h3><span class="meta">${esc(c.set)} · PSA ${S.g}</span>
+      <div class="row"><span class="val num">${usd(g.value)}</span><span class="${g.ch30 >= 0 ? "up" : "down"}" style="font-weight:800;font-size:14px">${pct(g.ch30)}</span></div>
+      ${fork(g, true)}<span class="note">±${nf1.format(halfw(g) * 100)}% · ${g.sales90} vendite in 90 giorni</span></div></a>`; }).join("");
+}
+
+function viewCard(id) {
+  const c = cardById[id]; if (!c) return viewMarket();
+  const g = gradeOf(c, S.cg);
+  const sales = c.sales.filter(s => s.grade === g.grade);
+  const low = c.sales.filter(s => s.pgen < 0.5);
+  return `<div class="wrap">
+  <div class="crumbs"><a href="#mercato">Mercato</a> › ${esc(c.series)} › ${esc(c.set)} › ${esc(c.name)}</div>
+  <div class="cardpage">
+    <div class="leftcol">
+      ${slab(c, g.grade, 320, "bob")}
+      <div class="chips" role="group" aria-label="Voto">${c.grades.map(x => `<button class="chip" data-cg="${x.grade}" aria-pressed="${x.grade === g.grade}">PSA ${x.grade}</button>`).join("")}</div>
+      <p class="note" style="text-align:center">${esc(c.rarity || "")}${c.illustrator ? " · illustrazione di " + esc(c.illustrator) : ""}</p>
+    </div>
+    <div>
+      <div style="padding-bottom:20px"><span class="label">${esc(c.series)} · ${esc(c.set)} · #${esc(c.no)}${c.tot ? "/" + c.tot : ""}</span><h1 style="font-size:clamp(34px,4.6vw,52px);margin-top:4px">${esc(c.name)}</h1></div>
+
+      <div class="tile q"><div class="qhead"><span class="qn">1</span><h2>Quanto vale?</h2></div>
+        <div class="valuerow"><span class="big num" data-count="${g.value}" data-fmt="usd">${usd(g.value)}</span><span class="sticker ${g.ch30 >= 0 ? "mint" : "coral"}">${pct(g.ch30)} in 30 giorni</span><span class="muted" style="font-weight:700">≈ ${eur(g.value * D.eur_rate)}</span></div>
+        <div data-tour="fork">${fork(g)}</div>
+        <p class="muted">Una copia tipica in PSA ${g.grade}, venduta oggi su eBay. Con l'80% di probabilità vale tra ${usd(g.lo)} e ${usd(g.hi)}.</p>
+        <div class="facts"><div class="fact"><span>90 giorni</span><b class="${g.ch90 >= 0 ? "up" : "down"}">${pct(g.ch90)}</b></div><div class="fact"><span>Vendite 90g</span><b>${g.sales90}</b></div><div class="fact"><span>Popolazione</span><b>${nf0.format(g.pop)}</b></div><div class="fact"><span>Collezione</span><b>${usdK(g.value * g.pop)}</b></div></div>
+      </div>
+
+      <div class="tile q"><div class="qhead"><span class="qn">2</span><h2>Quanto ne siamo sicuri?</h2></div>
+        <div data-tour="chart">${chart(g, sales)}</div>
+        <div class="legend"><span><i style="background:var(--brand)"></i>Valore e forchetta</span><span><i style="background:var(--ink)"></i>Vendita vera</span><span><i style="background:var(--coral)"></i>Vendita poco credibile</span><span>Passa sopra un punto</span></div>
+        <div class="why">
+          <div class="tile"><b class="num" data-count="${c.sales.length - low.length}">${c.sales.length - low.length}</b><span class="muted" style="font-size:15px">vendite vere usate nell'ultimo anno</span></div>
+          <div class="tile"><b class="num" data-count="${low.length}">${low.length}</b><span class="muted" style="font-size:15px">vendite troppo strane per crederci</span></div>
+          <div class="tile"><b class="num" data-count="${c.excluded.length}">${c.excluded.length}</b><span class="muted" style="font-size:15px">record scartati prima: doppioni, lotti, Best Offer, cert sbagliati</span></div>
+        </div>
+        <details><summary>Apri tutte le vendite e le loro probabilità</summary>
+          <div class="tbl" style="margin-top:12px"><table><thead><tr><th>Data</th><th>Voto</th><th class="n">Prezzo</th><th>Dove</th><th>È vera?</th><th>Perché</th></tr></thead><tbody>
+          ${[...c.sales].reverse().slice(0, 40).map(s => `<tr><td>${dateIt(s.date)}</td><td>PSA ${s.grade}</td><td class="n">${usd(s.price)}</td><td>${s.venue}${s.cert ? " · cert" : ""}</td><td>${probTag(s.pgen)}</td><td class="muted" style="font-size:14px">${esc(s.why || "")}</td></tr>`).join("")}
+          ${c.excluded.slice(-10).reverse().map(s => `<tr><td>${dateIt(s.date)}</td><td>PSA ${s.grade}</td><td class="n">${usd(s.price)}</td><td>—</td><td><span class="prob lo">scartata</span></td><td class="muted" style="font-size:14px">${esc(s.why)}</td></tr>`).join("")}
+          </tbody></table></div></details>
+        <h3 style="font-size:20px">La scala dei voti</h3>
+        ${ladder(c, g.grade)}
+      </div>
+
+      <div class="tile q"><div class="qhead"><span class="qn">3</span><h2>Conviene comprarla dall'Italia?</h2></div>
+        ${c.deals.length ? `<div class="deals">${c.deals.slice(0, 4).map(d => dealRow(c, d, false)).join("")}</div>` : `<div class="empty">Nessun annuncio nelle ultime due settimane.</div>`}
+        <p class="note">Probabilità di affare = l'annuncio è davvero lo slab descritto × la copia vale almeno il 10% in più di quanto ti costa in Italia. Cambio dimostrativo 1 $ = ${D.eur_rate.toLocaleString("it-IT", {minimumFractionDigits: 2})} €.</p>
+      </div>
+    </div>
+  </div></div>`;
+}
+function chart(g, sales) {
+  const W = 720, H = 290, L = 8, R = 66, T = 14, B = 28;
+  const h = g.history, t0 = +new Date(h[0][0]), t1 = +new Date(h[h.length - 1][0]);
+  const pts = sales.filter(s => +new Date(s.date) >= t0);
+  const vals = h.flatMap(r => [r[2], r[3]]).concat(pts.map(s => s.price).filter(p => p > g.value / 4 && p < g.value * 4));
+  const lo = Math.min(...vals) * 0.92, hi = Math.max(...vals) * 1.06;
+  const x = t => L + (W - L - R) * (+new Date(t) - t0) / (t1 - t0 || 1);
+  const y = v => T + (H - T - B) * (1 - (Math.log(v) - Math.log(lo)) / (Math.log(hi) - Math.log(lo)));
+  const band = h.map(r => `${x(r[0])},${y(r[3])}`).join(" ") + " " + [...h].reverse().map(r => `${x(r[0])},${y(r[2])}`).join(" ");
+  let grid = "";
+  for (let i = 0; i <= 4; i++) { const v = Math.exp(Math.log(lo) + (Math.log(hi) - Math.log(lo)) * i / 4); grid += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--soft)" stroke-width="2" stroke-dasharray="2 7" stroke-linecap="round"/><text x="${W - R + 8}" y="${y(v) + 4}">${usd(v)}</text>`; }
+  [0, .5, 1].forEach(f => { const t = new Date(t0 + (t1 - t0) * f).toISOString().slice(0, 10); grid += `<text x="${x(t)}" y="${H - 6}" text-anchor="${f === 0 ? "start" : f === 1 ? "end" : "middle"}">${new Date(t).toLocaleDateString("it-IT", {month: "short", year: "numeric"})}</text>`; });
+  const dots = pts.map(s => { const vy = Math.min(Math.max(y(Math.min(Math.max(s.price, lo), hi)), T), H - B), ok = s.pgen >= 0.5;
+    return `<circle class="s${ok ? "" : " bad"}" cx="${x(s.date)}" cy="${vy}" r="5" fill="${ok ? "var(--ink)" : "var(--coral)"}" stroke="var(--paper)" stroke-width="1.5"><title>${dateIt(s.date)} · ${usd(s.price)} · vera al ${Math.round(s.pgen * 100)}%${s.why ? " · " + s.why : ""}</title></circle>`; }).join("");
+  const last = h[h.length - 1];
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Valore stimato con forchetta e vendite">${grid}
+    <polygon points="${band}" fill="var(--brand-soft)" stroke="var(--brand)" stroke-width="1.5" stroke-linejoin="round" opacity=".9"/>
+    <polyline points="${h.map(r => `${x(r[0])},${y(r[1])}`).join(" ")}" fill="none" stroke="var(--brand)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+    ${dots}<circle cx="${x(last[0])}" cy="${y(last[1])}" r="8" fill="var(--sun)" stroke="var(--edge)" stroke-width="2.5"/></svg>`;
+}
+function ladder(c, sel) {
+  const vals = c.grades.flatMap(g => [g.lo, g.hi]);
+  const lo = Math.min(...vals) * 0.85, hi = Math.max(...vals) * 1.1;
+  const p = v => 100 * (Math.log(v) - Math.log(lo)) / (Math.log(hi) - Math.log(lo));
+  return `<div class="ladder">${c.grades.map(g => `<div class="r${g.grade === sel ? " on" : ""}" data-cg="${g.grade}" role="button" tabindex="0" style="cursor:pointer" aria-label="Vedi PSA ${g.grade}"><span class="g">PSA ${g.grade}</span>
+    <div class="lt"><i style="left:${p(g.lo)}%;width:${p(g.hi) - p(g.lo)}%"></i><b style="left:${p(g.value)}%"></b></div>
+    <span class="num" style="text-align:right;font:700 18px var(--display)">${usd(g.value)}</span></div>`).join("")}</div>
+    <p class="note">Tutti i voti sono stimati insieme: una vendita di un PSA 9 aiuta anche a stimare il PSA 10.</p>`;
+}
+
+function viewWeek() {
+  const P = D.pulse, [from, to] = P.week.split("/");
+  const st = P.stories.map((s, i) => storyCard(s, i)).join("");
+  return `<div class="wrap"><section class="sec" style="padding-top:36px">
+    <div class="sechead"><div><span class="label">Settimana dal ${dateIt(from)} al ${dateIt(to)}</span><h2>Le 5 storie della settimana</h2>
+      <p class="muted" style="max-width:62ch;margin-top:8px">Tutto quello che serve per i reel di questa settimana, calcolato dal motore. Ogni storia ha il suo copione e un pulsante che copia i numeri per il Reel Studio.</p></div>
+      <button class="btn sun" id="copyAll">Copia i 5 copioni</button></div>
+    <div style="display:grid;gap:26px;margin-top:10px">${st}</div>
+  </section></div>`;
+}
+function storyText(s) {
+  const c = s.card ? cardById[s.card] : null;
+  const L = {
+    mover: [s.hook, `Valore oggi ${usd(s.value)}, forchetta ${usd(s.lo)}–${usd(s.hi)}.`, "Lo terresti o lo venderesti? Scrivilo nei commenti."],
+    deal: [s.hook, `In Italia ti costa ${eur(s.landed_eur)} e ne vale ${eur(s.value_eur)}${s.origin === "UE" ? ", senza dogana perché arriva dall'UE" : ""}.`, "Lo compreresti? Scrivilo nei commenti."],
+    caught: [s.hook, `Il valore di questo PSA ${s.grade} è ${usd(s.value)}: quella vendita era ${s.price < s.value ? "troppo bassa" : "troppo alta"}. Motivo: ${s.why}.`, "Per questo non guardiamo mai solo l'ultima vendita."],
+    ladder: [s.hook, `PSA 10 ${usd(s.v10)} contro PSA 9 ${usd(s.v9)}.`, "Lo manderesti a gradare? Scrivilo nei commenti."],
+    era: [s.hook, `Valore di collezione ${usdK(s.cap)}.`, "Quale era compreresti adesso?"],
+  }[s.kind];
+  return {hook: L[0], body: L[1], cta: L[2], card: c};
+}
+function storyCard(s, i) {
+  const t = storyText(s), c = t.card;
+  let visual = "";
+  if (c) visual = `<a href="#c-${c.id}" style="text-decoration:none">${slab(c, s.grade || 10, 150)}</a>`;
+  else visual = `<div style="width:140px">${DOODLE[s.series] || ""}</div>`;
+  const tag = {mover: ["sky", "Movimento"], deal: ["mint", "Deal"], caught: ["coral", "Smascherata"], ladder: ["", "Voti"], era: ["sky", "Era"]}[s.kind];
+  return `<article class="tile story"${i === 0 ? ' data-tour="story"' : ""}><span class="n">${i + 1}</span>
+    <div class="visual">${visual}</div>
+    <div style="display:grid;gap:10px;min-width:0"><span class="sticker ${tag[0]}" style="justify-self:start">${tag[1]}</span><p class="hook">${esc(t.hook)}</p><p class="muted">${esc(t.body)}</p></div>
+    <div style="display:grid;gap:12px">
+      <div class="script"><div><b>Gancio · 0–3 s</b>${esc(t.hook)}</div><div><b>Numeri · 3–15 s</b>${esc(t.body)}</div><div><b>Chiusura</b>${esc(t.cta)}</div></div>
+      ${s.reel ? `<button class="btn" data-copy="${i}">Copia per il Reel Studio</button>` : `<button class="btn ghost" data-copytext="${i}">Copia il copione</button>`}
+    </div></article>`;
+}
+
+function viewDeals() {
+  const all = D.cards.flatMap(c => c.deals.map(d => ({c, d})));
+  const list = all.filter(({d}) => d.p_deal >= S.dealMin && (S.dealOrigin === "tutti" || d.origin === S.dealOrigin)).sort((a, b) => b.d.p_deal - a.d.p_deal);
+  const sus = all.filter(({d}) => d.suspicious).length;
+  return `<div class="wrap"><section class="sec" style="padding-top:36px">
+    <div><span class="label">Deal · ultime due settimane</span><h2 style="font-size:clamp(28px,3.4vw,40px)">Affari veri, in euro</h2>
+      <p class="muted" style="max-width:62ch;margin-top:8px">Niente "sconti": ti diciamo quanto è probabile che sia davvero un affare dopo spedizione, IVA e dogana. ${sus} annunci erano troppo belli per essere veri.</p></div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap" data-tour="dealfilters">
+      <div class="chips" role="group" aria-label="Probabilità minima">${[[0.8, "Quasi sicuri"], [0.5, "Probabili"], [0, "Tutti"]].map(([v, t]) => `<button class="chip" data-min="${v}" aria-pressed="${S.dealMin === v}">${t}</button>`).join("")}</div>
+      <div class="chips" role="group" aria-label="Provenienza">${[["tutti", "Ovunque"], ["UE", "Dall'UE"], ["USA", "Dagli USA"]].map(([v, t]) => `<button class="chip" data-or="${v}" aria-pressed="${S.dealOrigin === v}">${t}</button>`).join("")}</div>
+    </div>
+    <div class="deals" style="margin-top:8px">${list.length ? list.slice(0, 40).map(({c, d}) => dealRow(c, d, true)).join("") : `<div class="tile empty">Nessun annuncio con questi filtri. Prova "Tutti".</div>`}</div>
+  </section></div>`;
+}
+
+function viewMethod() {
+  return `<div class="wrap"><section class="sec" style="padding-top:36px;gap:26px">
+    <div><span class="label">Metodo</span><h2 style="font-size:clamp(28px,3.4vw,40px)">Come facciamo i conti</h2>
+      <p class="muted" style="max-width:62ch;margin-top:8px">Ogni slab ha un valore che nessuno vede. Ogni vendita lo misura con un errore: rumore, copia più o meno bella, piattaforma, tempo, e a volte un falso. Il nostro modello mette tutto insieme e ti dice il valore di oggi e quanto ne è sicuro.</p></div>
+    <div class="cols4" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+      <div class="tile hov" style="padding:20px;display:grid;gap:8px"><span class="sticker sky" style="justify-self:start">1 · Chi è</span><h3>Prima capiamo cosa è stato venduto</h3><p class="muted">Doppioni, lotti, Best Offer e cert sbagliati escono prima di guardare il prezzo.</p></div>
+      <div class="tile hov" style="padding:20px;display:grid;gap:8px"><span class="sticker" style="justify-self:start">2 · Quanto</span><h3>Poi diamo un peso a ogni vendita</h3><p class="muted">Ogni vendita ha una probabilità di essere vera. Quelle vecchie contano meno, i voti si aiutano a vicenda.</p></div>
+      <div class="tile hov" style="padding:20px;display:grid;gap:8px"><span class="sticker mint" style="justify-self:start">3 · Conviene</span><h3>Infine guardiamo il tuo costo</h3><p class="muted">Un affare deve esserlo dopo spedizione, IVA e dogana, non solo sul prezzo.</p></div>
+    </div>
+    <div class="tile" style="padding:22px;display:grid;gap:10px"><span class="label">Messo alla prova su un mercato simulato</span>
+      <p style="font:600 20px var(--display)">Errore 5,8% contro 9,1% del miglior metodo pubblico · 86% di deal giusti contro circa il 30%.</p>
+      <p class="note">Risultati su dati simulati: la prova con vendite reali è il prossimo passo.</p></div>
+  </section></div>`;
+}
+
+/* router */
+function route() {
+  const h = (location.hash || "#mercato").slice(1);
+  let html, nav = h;
+  if (h.startsWith("c-")) { html = viewCard(h.slice(2)); nav = "mercato"; }
+  else if (h === "deal") html = viewDeals();
+  else if (h === "metodo") html = viewMethod();
+  else if (h === "settimana") html = viewWeek();
+  else { html = viewMarket(); nav = "mercato"; }
+  $("#app").innerHTML = html;
+  document.querySelectorAll("[data-nav]").forEach(a => a.dataset.nav === nav ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"));
+  document.querySelectorAll("h1, .sechead h2, .qhead h2").forEach(h => h.setAttribute("data-t", h.textContent));
+  bindTilt(); animateIn();
+  window.dispatchEvent(new CustomEvent("slabwise:view", {detail: h.startsWith("c-") ? "card" : ["deal", "metodo", "settimana"].includes(h) ? h : "mercato"}));
+}
+let lastHash = location.hash;
+window.addEventListener("hashchange", () => { if (location.hash !== lastHash && location.hash.startsWith("#c-")) S.cg = 10; lastHash = location.hash; route(); scrollTo({top: 0}); });
+
+document.addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === " ") && e.target.matches("[role=button][data-cg]")) { e.preventDefault(); e.target.click(); } });
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-g],[data-sort],[data-cg],[data-min],[data-or],[data-copy],[data-copytext],#copyAll");
+  if (!t) return;
+  if (t.dataset.g) { S.g = +t.dataset.g; route(); }
+  else if (t.dataset.sort) { S.sort = t.dataset.sort; route(); }
+  else if (t.dataset.cg) { S.cg = +t.dataset.cg; const y = scrollY; route(); scrollTo({top: y}); }
+  else if (t.dataset.min !== undefined) { S.dealMin = +t.dataset.min; route(); }
+  else if (t.dataset.or) { S.dealOrigin = t.dataset.or; route(); }
+  else if (t.dataset.copy !== undefined) { const s = D.pulse.stories[+t.dataset.copy]; const c = cardById[s.reel.card]; copy(JSON.stringify({slabwise: "reel", ...s.reel, name: c.name, set: c.set, no: c.no + (c.tot ? "/" + c.tot : "")}), "Copiato: incollalo nel Reel Studio"); }
+  else if (t.dataset.copytext !== undefined) { const x = storyText(D.pulse.stories[+t.dataset.copytext]); copy(`${x.hook}\n${x.body}\n${x.cta}`, "Copione copiato"); }
+  else if (t.id === "copyAll") copy(D.pulse.stories.map((s, i) => { const x = storyText(s); return `${i + 1}. ${x.hook}\n${x.body}\n${x.cta}`; }).join("\n\n"), "5 copioni copiati");
+});
+function copy(text, msg) {
+  const done = () => toast(msg);
+  try { navigator.clipboard.writeText(text).then(done, () => fallback(text, msg)); } catch (e) { fallback(text, msg); }
+}
+function fallback(text, msg) {
+  const ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); toast(msg); } catch (e) { toast("Seleziona e copia a mano"); }
+  setTimeout(() => ta.remove(), 50);
+}
+
+/* motion: slab tilt, count-up, ring fill — only transforms, only on view */
+function bindTilt() {
+  if (reduce) return;
+  document.querySelectorAll("[data-tilt]").forEach(el => {
+    const st = el.parentElement;
+    st.addEventListener("pointermove", e => {
+      const r = el.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+      el.style.transform = `rotateY(${px * 24}deg) rotateX(${-py * 18}deg) translateY(-6px)`;
+      el.style.setProperty("--gx", `${100 - (px + .5) * 100}%`);
+      el.style.setProperty("--hx", `${(px + .5) * 100}%`);
+      el.style.setProperty("--ho", `${.1 + Math.abs(px) * .4}`);
+    });
+    st.addEventListener("pointerleave", () => { el.style.transform = ""; el.style.setProperty("--ho", ".08"); el.style.setProperty("--gx", "130%"); });
+  });
+}
+const FMT = {usd, usdK, n: v => nf0.format(v)};
+function animateIn() {
+  const items = document.querySelectorAll("[data-count], .ring circle.f, .bar i");
+  if (reduce || !("IntersectionObserver" in window)) { document.querySelectorAll(".ring circle.f").forEach(c => c.style.strokeDashoffset = c.dataset.off); return; }
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return; io.unobserve(e.target); const el = e.target;
+    if (el.matches(".ring circle.f")) { requestAnimationFrame(() => el.style.strokeDashoffset = el.dataset.off); return; }
+    if (el.matches(".bar i")) { const s = el.style.transform; el.style.transform = "scaleX(0)"; requestAnimationFrame(() => requestAnimationFrame(() => el.style.transform = s)); return; }
+    const to = +el.dataset.count, f = FMT[el.dataset.fmt] || FMT.n, t0 = performance.now(), dur = 700;
+    const step = now => { const k = Math.min(1, (now - t0) / dur), e3 = 1 - Math.pow(1 - k, 3); el.textContent = f(to * e3); if (k < 1) requestAnimationFrame(step); else el.textContent = f(to); };
+    requestAnimationFrame(step);
+  }), {threshold: .3});
+  items.forEach(el => io.observe(el));
+}
+
+(function () {
+  const q = $("#q"), res = $("#res"); let sel = 0, hits = [];
+  const render = () => {
+    const s = q.value.trim().toLowerCase();
+    hits = s ? D.cards.filter(c => (c.name + " " + c.set + " " + c.no).toLowerCase().includes(s)).slice(0, 7) : [];
+    res.hidden = !hits.length;
+    res.innerHTML = hits.map((c, i) => `<a href="#c-${c.id}" class="${i === sel ? "on" : ""}">${c.thumb || c.img ? `<img src="${c.thumb || c.img}" alt="">` : ""}<span><b>${esc(c.name)}</b><br><small class="muted">${esc(c.set)} · ${usd(gradeOf(c, 10).value)} in PSA 10</small></span></a>`).join("");
+  };
+  q.addEventListener("input", () => { sel = 0; render(); });
+  q.addEventListener("keydown", e => {
+    if (e.key === "ArrowDown") { sel = Math.min(sel + 1, hits.length - 1); render(); e.preventDefault(); }
+    if (e.key === "ArrowUp") { sel = Math.max(sel - 1, 0); render(); e.preventDefault(); }
+    if (e.key === "Enter" && hits[sel]) { location.hash = "c-" + hits[sel].id; q.value = ""; res.hidden = true; q.blur(); }
+    if (e.key === "Escape") { q.value = ""; res.hidden = true; q.blur(); }
+  });
+  res.addEventListener("click", () => { q.value = ""; res.hidden = true; });
+  document.addEventListener("keydown", e => { if (e.key === "/" && document.activeElement !== q) { e.preventDefault(); q.focus(); } });
+  document.addEventListener("click", e => { if (!e.target.closest(".search")) res.hidden = true; });
+})();
+__SLABBY__
+route();
+</script>

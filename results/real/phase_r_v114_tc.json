@@ -1,0 +1,156 @@
+{
+ "n_sales": 14212,
+ "train_weeks": 65,
+ "weeks": 196,
+ "methods": [
+  "Ultima vendita",
+  "tcgcharts (mediana a fasce)",
+  "PriceCharting (media pesata per età)",
+  "Card Ladder (ultima vendita × indice)",
+  "Slabwise v0 (regole, tipo TCGBerg)",
+  "Slabwise LVM"
+ ],
+ "ES": {
+  "Ultima vendita": 0.09097177820572622,
+  "tcgcharts (mediana a fasce)": 0.0749013081731178,
+  "PriceCharting (media pesata per età)": 0.09034117133611952,
+  "Card Ladder (ultima vendita × indice)": 0.09077207528533426,
+  "Slabwise v0 (regole, tipo TCGBerg)": 0.09408106874486011,
+  "Slabwise LVM": 0.07252427944024431
+ },
+ "ES_bucket": {
+  "alta (≥26)": {
+   "n": 12709,
+   "Ultima vendita": 0.08700971032157412,
+   "tcgcharts (mediana a fasce)": 0.06966956555479076,
+   "PriceCharting (media pesata per età)": 0.08636878343286458,
+   "Card Ladder (ultima vendita × indice)": 0.08692804018388056,
+   "Slabwise v0 (regole, tipo TCGBerg)": 0.0877744147472157,
+   "Slabwise LVM": 0.06775729621206228
+  },
+  "bassa (≤5)": {
+   "n": 209,
+   "Ultima vendita": 0.15906469462968698,
+   "tcgcharts (mediana a fasce)": 0.15415067982725805,
+   "PriceCharting (media pesata per età)": 0.15082288973458446,
+   "Card Ladder (ultima vendita × indice)": 0.14244798045241014,
+   "Slabwise v0 (regole, tipo TCGBerg)": 0.21431548177900694,
+   "Slabwise LVM": 0.1561822609507173
+  },
+  "media (6-25)": {
+   "n": 1294,
+   "Ultima vendita": 0.14310084364067333,
+   "tcgcharts (mediana a fasce)": 0.1518892375497929,
+   "PriceCharting (media pesata per età)": 0.14338230614202763,
+   "Card Ladder (ultima vendita × indice)": 0.13362356701873734,
+   "Slabwise v0 (regole, tipo TCGBerg)": 0.17809088144802754,
+   "Slabwise LVM": 0.13593695081716817
+  }
+ },
+ "ES_venue": {
+  "auction": {
+   "n": 3658,
+   "Ultima vendita": 0.11778303565638293,
+   "tcgcharts (mediana a fasce)": 0.11778303565638293,
+   "PriceCharting (media pesata per età)": 0.13282029538027196,
+   "Card Ladder (ultima vendita × indice)": 0.1164913836787771,
+   "Slabwise v0 (regole, tipo TCGBerg)": 0.15650022943789743,
+   "Slabwise LVM": 0.10536722570835755
+  },
+  "ebay": {
+   "n": 10554,
+   "Ultima vendita": 0.08464256250641711,
+   "tcgcharts (mediana a fasce)": 0.06467567211921788,
+   "PriceCharting (media pesata per età)": 0.08028572016000357,
+   "Card Ladder (ultima vendita × indice)": 0.08422973402775291,
+   "Slabwise v0 (regole, tipo TCGBerg)": 0.07982602474351408,
+   "Slabwise LVM": 0.06362667900711294
+  }
+ },
+ "ES_lvm_venue_adjusted": 0.07182957738692197,
+ "ES_venue_adjusted": {
+  "auction": 0.10155847340880353,
+  "ebay": 0.06362667900711294
+ },
+ "R2": {
+  "passed": true,
+  "best_competitor": "tcgcharts (mediana a fasce)"
+ },
+ "R3": {
+  "alta (≥26)": {
+   "lvm": 0.06775729621206228,
+   "best": 0.06966956555479076,
+   "passed": true
+  },
+  "bassa (≤5)": {
+   "lvm": 0.1561822609507173,
+   "best": 0.14244798045241014,
+   "passed": false
+  },
+  "media (6-25)": {
+   "lvm": 0.13593695081716817,
+   "best": 0.13362356701873734,
+   "passed": true
+  }
+ },
+ "R3_passed": false,
+ "R4_coverage": 0.8113566000562905,
+ "quarters": [
+  {
+   "week": 105,
+   "n": 341,
+   "lvm": 0.09182239710685991,
+   "best": 0.08701137698963013,
+   "coverage": 0.9354838709677419,
+   "kappa": 1.0
+  },
+  {
+   "week": 118,
+   "n": 523,
+   "lvm": 0.09085900984752548,
+   "best": 0.08701137698963013,
+   "coverage": 0.904397705544933,
+   "kappa": 1.0
+  },
+  {
+   "week": 131,
+   "n": 593,
+   "lvm": 0.13330497078376524,
+   "best": 0.15415067982725805,
+   "coverage": 0.7723440134907251,
+   "kappa": 1.0
+  },
+  {
+   "week": 144,
+   "n": 378,
+   "lvm": 0.09565753653853815,
+   "best": 0.0899554132742395,
+   "coverage": 0.8862433862433863,
+   "kappa": 1.0
+  },
+  {
+   "week": 157,
+   "n": 605,
+   "lvm": 0.11559704537959359,
+   "best": 0.1325487259566671,
+   "coverage": 0.859504132231405,
+   "kappa": 1.0
+  },
+  {
+   "week": 170,
+   "n": 783,
+   "lvm": 0.10477790706136947,
+   "best": 0.09311730298058851,
+   "coverage": 0.8837803320561941,
+   "kappa": 1.0
+  },
+  {
+   "week": 183,
+   "n": 10959,
+   "lvm": 0.06478120035519286,
+   "best": 0.0669394826751093,
+   "coverage": 0.7955105392827813,
+   "kappa": 1.0
+  }
+ ]
+}

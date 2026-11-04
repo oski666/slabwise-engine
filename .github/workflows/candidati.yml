@@ -1,0 +1,82 @@
+# Candidate cards (D118, D122): after every collection the queue of the most valuable English cards we do not follow
+# yet is updated (new cards checked, waiting ones checked again each week) in one open issue for the owner.
+name: Candidate
+on:
+  workflow_run:
+    workflows: ["Raccolta tcgcharts"]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      checks:
+        description: "Controlli in questo giro (metà alle carte in attesa)"
+        default: "40"
+permissions:
+  contents: write
+  issues: write
+  actions: write
+concurrency:
+  group: raccolta-tcgcharts
+  cancel-in-progress: false
+jobs:
+  propose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: Private data (D163)
+        uses: ./.github/actions/private-data
+        with:
+          mode: pull
+          token: ${{ secrets.DATA_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Update the queue
+        run: |
+          pip install -q numpy pandas scipy pillow
+          PYTHONPATH=. python scripts/candidates.py /tmp/cand --top 600 --checks ${{ github.event.inputs.checks || '40' }} --fill 0
+      - name: Cards stopped by the engine, tried again each week (D157)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ids=$(python scripts/retry_gate.py 8)
+          [ -n "$ids" ] || { echo "nessuna carta da riprovare"; exit 0; }
+          echo "riprovo: $ids"
+          set -o pipefail
+          PYTHONPATH=. python scripts/add_batch.py $ids | tee /tmp/retry.log
+          python scripts/fetch_missing_images.py || echo "immagini: qualcuna manca ancora"
+          git config user.name "slabwise-bot"
+          git config user.email "slabwise-bot@users.noreply.github.com"
+          git add prototype/data/requests_status.json prototype/data/cards.json prototype/data/images.json prototype/data/hires.json data/catalogue_extra.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Carte fermate dal motore riprovate: $ids"
+            git pull --rebase --autostash -q && git push
+          fi
+          grep -q "carte aggiunte: ." /tmp/retry.log && touch /tmp/rebuild || true
+      - name: Save the private data (D163)
+        uses: ./.github/actions/private-data
+        with:
+          mode: push
+          token: ${{ secrets.DATA_TOKEN }}
+          message: "Carte riprovate: dati grezzi"
+      - name: Rebuild the site when cards came in (D157)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: '[ -f /tmp/rebuild ] && gh workflow run sito.yml -R "$GITHUB_REPOSITORY" || true'
+      - name: One issue for the owner
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "slabwise-bot"
+          git config user.email "slabwise-bot@users.noreply.github.com"
+          git add prototype/data/candidates_queue.json prototype/data/ja_scan.json
+          git diff --cached --quiet || { git commit -m "Coda delle carte del $(date -u +%F)"; git pull --rebase --autostash -q && git push; }
+          gh label create candidate --color 1f6feb --description "Carte proposte per il catalogo (D118)" --force -R "$GITHUB_REPOSITORY"
+          n=$(gh issue list -R "$GITHUB_REPOSITORY" --label candidate --state open --search "Coda delle carte in:title" --json number -q '.[0].number')
+          if [ -z "$n" ]; then
+            gh issue create -R "$GITHUB_REPOSITORY" --label candidate --title "Coda delle carte" --body-file /tmp/cand/issue.md
+          else
+            gh issue edit "$n" -R "$GITHUB_REPOSITORY" --body-file /tmp/cand/issue.md
+            new=$(cat /tmp/cand/new_ready.txt)
+            [ "$new" -gt 0 ] && gh issue comment "$n" -R "$GITHUB_REPOSITORY" --body "Nuove carte pronte: $new. Spuntale nella lista qui sopra."
+          fi

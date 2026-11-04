@@ -1,0 +1,56 @@
+# Collection from tcgcharts (D76, D77, D89), on GitHub's own machines: it does not use Claude.
+# Every day the newest page of sales of each card and grade (about 120 requests, one every 3 seconds);
+# on Mondays the full run with the card pages and the PSA populations.
+name: Raccolta tcgcharts
+on:                               # D116: started by the Cloudflare clock (orologio/worker.js)
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: raccolta-tcgcharts
+  cancel-in-progress: false
+jobs:
+  tcgcharts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Private data (D163)
+        uses: ./.github/actions/private-data
+        with:
+          mode: pull
+          token: ${{ secrets.DATA_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Collect
+        run: |
+          mkdir -p /tmp/tc
+          cp data/raw/tcgcharts/sales.json /tmp/tc/old_sales.json 2>/dev/null || true
+          if [ "$(date -u +%u)" = "1" ]; then
+            PYTHONPATH=. python scripts/tcgcharts.py /tmp/tc
+            cp /tmp/tc/cards.json data/raw/tcgcharts/cards.json
+            python scripts/pop_history.py data/raw/tcgcharts/cards.json data/raw/tcgcharts/pop_history.json
+          else
+            PYTHONPATH=. python scripts/tcgcharts.py /tmp/tc --recent
+          fi
+          python scripts/tcgcharts_accumulate.py /tmp/tc/old_sales.json /tmp/tc/sales.json data/raw/tcgcharts/sales.json
+      - name: Card requests (D97)
+        continue-on-error: true
+        run: |
+          PYTHONPATH=. python scripts/card_requests.py prototype/data/requests_status.json
+          pip install -q numpy pandas scipy pillow
+          PYTHONPATH=. python scripts/add_cards.py
+      - name: Save
+        run: |
+          git config user.name "slabwise-bot"
+          git config user.email "slabwise-bot@users.noreply.github.com"
+          git add prototype/data/requests_status.json prototype/data/cards.json prototype/data/images.json prototype/data/hires.json data/catalogue_extra.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "tcgcharts: raccolta del $(date -u +%F)"
+          git pull --rebase -q && git push
+      - name: Save the private data (D163)
+        uses: ./.github/actions/private-data
+        with:
+          mode: push
+          token: ${{ secrets.DATA_TOKEN }}
+          message: "tcgcharts: raccolta del giorno"

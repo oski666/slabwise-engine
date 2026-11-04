@@ -1,0 +1,21 @@
+results/log_*
+__pycache__/
+*.pyc
+.pytest_cache/
+prototype/v1/slabwise.html
+social/reel-studio/studio.html
+prototype/v2/slabwise.html
+prototype/v3/slabwise.html
+prototype/v4/slabwise.html
+prototype/v5/slabwise.html
+# D163: raw source data lives in the private repository slabwise-data (.github/private-paths.txt)
+data/raw/*
+!data/raw/era_map.json
+prototype/data/certs.json
+site/real.html
+results/run_all.out
+prototype/v6/slabwise.html
+prototype/v7/slabwise.html
+replica/reference/
+node_modules/
+.wrangler/

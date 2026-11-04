@@ -1,0 +1,554 @@
+<title>Slabwise</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: "il caveau di notte" (docs/DESIGN.md). Lo slab è l'unico oggetto che si muove; la forchetta accompagna ogni prezzo. Colonna 1180px, viste via #hash. */
+:root{
+  --bg:#0b0d1a; --bg2:#0f1226; --panel:#141834; --panel2:#1a1f42; --line:#272d5c; --line2:#343b73;
+  --fg:#eef0ff; --muted:#a3a8d4; --faint:#6e74a6;
+  --brand:#9d8cff; --brand-ink:#0b0d1a; --brand-soft:rgba(157,140,255,.16);
+  --up:#4fe3a1; --down:#ff6b81; --warn:#ffcc66;
+  --pearl:#f7f6fb; --pearl-ink:#14162b; --pearl-muted:#4b4f72;
+  --display:"Unbounded","Avenir Next",system-ui,sans-serif;
+  --body:"Hanken Grotesk","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+  --bg:#f4f3f8; --bg2:#eceaf4; --panel:#ffffff; --panel2:#f6f5fb; --line:#e2e1ee; --line2:#cfcde3;
+  --fg:#15172e; --muted:#5a5d7d; --faint:#8a8eb3;
+  --brand:#5b45e0; --brand-ink:#ffffff; --brand-soft:rgba(91,69,224,.10);
+  --up:#0d8a58; --down:#c42747; --warn:#a86b00; color-scheme:light}}
+:root[data-theme="light"]{
+  --bg:#f4f3f8; --bg2:#eceaf4; --panel:#ffffff; --panel2:#f6f5fb; --line:#e2e1ee; --line2:#cfcde3;
+  --fg:#15172e; --muted:#5a5d7d; --faint:#8a8eb3;
+  --brand:#5b45e0; --brand-ink:#ffffff; --brand-soft:rgba(91,69,224,.10);
+  --up:#0d8a58; --down:#c42747; --warn:#a86b00; color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 var(--body);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:-.02em;margin:0;text-wrap:balance}
+p{margin:0}
+.mono{font-family:var(--mono)}
+.num{font-variant-numeric:tabular-nums}
+.eyebrow{font:700 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.muted{color:var(--muted)}
+.up{color:var(--up)} .down{color:var(--down)}
+
+/* top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:20px;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font:800 21px var(--display);letter-spacing:-.03em;text-decoration:none}
+.logo .mk{width:16px;height:24px;border:3px solid currentColor;border-radius:4px;position:relative}
+.logo .mk::after{content:"";position:absolute;left:2px;right:2px;top:2px;height:4px;border-radius:1px;background:var(--brand)}
+nav{display:flex;gap:4px}
+nav a{text-decoration:none;font-weight:600;font-size:15px;color:var(--muted);padding:8px 12px;border-radius:8px}
+nav a[aria-current="page"]{color:var(--fg);background:var(--panel)}
+.search{margin-left:auto;position:relative;flex:0 1 320px}
+.search input{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 12px 9px 36px;color:var(--fg);font:500 15px var(--body)}
+.search svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--faint)}
+.search kbd{position:absolute;right:9px;top:50%;transform:translateY(-50%);font:600 11px var(--mono);color:var(--faint);border:1px solid var(--line2);border-radius:5px;padding:1px 6px}
+[hidden]{display:none!important}
+.results{position:absolute;top:calc(100% + 6px);left:0;right:0;background:var(--panel);border:1px solid var(--line2);border-radius:12px;padding:6px;box-shadow:0 20px 40px rgba(0,0,0,.35);display:flex;flex-direction:column}
+.results a{display:flex;gap:10px;align-items:center;padding:8px;border-radius:8px;text-decoration:none}
+.results a:hover,.results a.on{background:var(--panel2)}
+.results img{width:26px;height:36px;object-fit:cover;border-radius:3px}
+.iconbtn{background:transparent;border:1px solid var(--line);border-radius:9px;width:38px;height:38px;display:grid;place-items:center;cursor:pointer;color:var(--muted);flex:none}
+.demo-tag{font:700 10px var(--mono);letter-spacing:.12em;color:var(--warn);border:1px solid color-mix(in srgb,var(--warn) 45%,transparent);border-radius:999px;padding:3px 9px;white-space:nowrap}
+@media (max-width:820px){nav{display:none}.search{flex:1}.top .wrap{gap:10px}.demo-tag{display:none}}
+.mnav{display:none}
+@media (max-width:820px){.mnav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--panel);border-top:1px solid var(--line);padding:6px max(10px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(10px,env(safe-area-inset-left,0px))}
+ .mnav a{flex:1;text-align:center;text-decoration:none;font:600 12px var(--body);color:var(--muted);padding:8px 0;border-radius:8px}
+ .mnav a[aria-current="page"]{color:var(--fg);background:var(--panel2)}
+ main{padding-bottom:70px}}
+
+/* slab */
+.slab{--w:300px;width:var(--w);aspect-ratio:.6;position:relative;border-radius:calc(var(--w)*.05);transform-style:preserve-3d;
+ background:linear-gradient(155deg,rgba(255,255,255,.30),rgba(255,255,255,.06) 42%,rgba(255,255,255,.16));
+ box-shadow:inset 0 0 0 2px rgba(255,255,255,.55),inset 0 0 0 calc(var(--w)*.016) rgba(255,255,255,.07),0 30px 60px -20px rgba(0,0,0,.55),0 0 80px -10px var(--glow,rgba(157,140,255,.35));
+ transition:transform .25s ease-out}
+:root[data-theme="light"] .slab,.slab.light{box-shadow:inset 0 0 0 2px rgba(255,255,255,.9),0 30px 60px -24px rgba(30,30,80,.35),0 0 60px -10px var(--glow,rgba(91,69,224,.25));background:linear-gradient(155deg,#ffffff,#e9e8f3 45%,#f7f7fb)}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .slab{box-shadow:inset 0 0 0 2px rgba(255,255,255,.9),0 30px 60px -24px rgba(30,30,80,.35),0 0 60px -10px var(--glow,rgba(91,69,224,.25));background:linear-gradient(155deg,#ffffff,#e9e8f3 45%,#f7f7fb)}}
+.slab .lab{position:absolute;left:4%;right:4%;top:2.6%;height:16.5%;border-radius:calc(var(--w)*.02);background:linear-gradient(180deg,var(--pearl),#e6e7f3);color:var(--pearl-ink);overflow:hidden;display:grid;grid-template-columns:1fr auto;padding:0 5% 0 8%;align-items:center}
+.slab .lab::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3.2%;background:var(--brand)}
+.slab .l1{font:800 calc(var(--w)*.046) var(--body);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:-.01em}
+.slab .l2{font:600 calc(var(--w)*.034) var(--body);color:var(--pearl-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.slab .l3{font:700 calc(var(--w)*.03) var(--mono);color:var(--pearl-muted);letter-spacing:.06em;margin-top:2%}
+.slab .gr{text-align:right;line-height:1}
+.slab .gr b{display:block;font:700 calc(var(--w)*.032) var(--mono);color:var(--pearl-muted);letter-spacing:.12em}
+.slab .gr strong{display:block;font:800 calc(var(--w)*.13) var(--display);letter-spacing:-.05em}
+.slab .win{position:absolute;left:7%;right:7%;top:22%;bottom:4%;border-radius:calc(var(--w)*.025);background:#05060c;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)}
+.slab .win img{position:absolute;inset:3%;width:94%;height:94%;object-fit:contain}
+.slab .noimg{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:12%;font:600 calc(var(--w)*.04) var(--mono);color:#6e74a6}
+.slab .glare{position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.35) 48%,transparent 60%);background-size:250% 100%;background-position:var(--gx,120%) 0;mix-blend-mode:screen}
+.slab .holo{position:absolute;inset:0;pointer-events:none;mix-blend-mode:color-dodge;opacity:var(--ho,.10);background:repeating-linear-gradient(115deg,#ff6b81 0,#ffcc66 6%,#4fe3a1 12%,#5ab0ff 18%,#9d8cff 24%,#ff6b81 30%);background-size:300% 300%;background-position:var(--hx,50%) 50%}
+.stage{perspective:1600px;display:grid;place-items:center}
+@media (prefers-reduced-motion:no-preference){.slab.idle{animation:sway 9s ease-in-out infinite}}
+@keyframes sway{0%,100%{transform:rotateY(-9deg) rotateX(3deg)}50%{transform:rotateY(9deg) rotateX(-2deg)}}
+
+/* forchetta */
+.fork{display:grid;gap:6px;min-width:0}
+.fork .track{position:relative;height:8px;border-radius:4px;background:var(--line)}
+.fork .band{position:absolute;top:0;bottom:0;border-radius:4px;background:var(--brand-soft);box-shadow:inset 0 0 0 1.5px var(--brand)}
+.fork .mid{position:absolute;top:-4px;bottom:-4px;width:3px;margin-left:-1.5px;border-radius:2px;background:var(--brand)}
+.fork .ends{display:flex;justify-content:space-between;font:500 12px var(--mono);color:var(--muted)}
+.fork.mini{width:110px;flex:none}
+.fork.mini .track{height:6px}
+.fork.mini .mid{top:-3px;bottom:-3px}
+
+/* layout pieces */
+main{display:block}
+section{display:flex;flex-direction:column;gap:20px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px}
+.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;align-items:center;padding-block:56px 40px}
+.hero h1{font-size:clamp(34px,5.4vw,62px);line-height:1.02;font-weight:800;letter-spacing:-.035em}
+.hero h1 em{font-style:normal;color:var(--brand)}
+.hero .lead{font-size:19px;color:var(--muted);max-width:52ch}
+.claims{display:grid;gap:10px;margin-top:6px}
+.claims div{display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:15px}
+.claims>div>span{font:700 12px var(--mono);color:var(--brand);padding-top:2px}
+.hero .feature{display:grid;justify-items:center;gap:18px}
+.hero .feature .cap{width:min(320px,100%);text-align:center}
+@media (max-width:900px){.hero{grid-template-columns:1fr;gap:28px;padding-block:32px 24px}.hero .feature{order:-1}}
+.big{font:800 clamp(30px,4vw,44px)/1 var(--display);letter-spacing:-.04em}
+.cols4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+@media (max-width:900px){.cols4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.cols4{grid-template-columns:1fr}}
+.era{padding:18px;display:flex;flex-direction:column;gap:10px}
+.era .v{font:700 22px var(--display);letter-spacing:-.03em}
+.conc{height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.conc i{display:block;height:100%;background:var(--brand)}
+.sec{padding-block:28px}
+.sechead{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.sechead h2{font-size:clamp(22px,2.6vw,28px)}
+.note{font-size:13px;color:var(--faint)}
+
+/* table */
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th{font:700 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);white-space:nowrap}
+th button{all:unset;cursor:pointer}
+th button[aria-sort]::after{content:" ↓";color:var(--brand)}
+td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+tbody tr{cursor:pointer;transition:background .15s}
+tbody tr:hover{background:var(--panel2)}
+.cardcell{display:flex;align-items:center;gap:12px;min-width:220px}
+.cardcell img{width:34px;height:47px;object-fit:cover;border-radius:4px;box-shadow:0 0 0 1px var(--line2)}
+.cardcell .ph{width:34px;height:47px;border-radius:4px;box-shadow:inset 0 0 0 1px var(--line2);flex:none}
+.cardcell b{display:block;font-weight:700}
+.cardcell small{color:var(--muted);font-size:13px}
+td.n,th.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font:600 13px var(--body);border:1px solid var(--line2);background:transparent;border-radius:999px;padding:6px 12px;cursor:pointer;color:var(--muted)}
+.chip[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+
+/* card page */
+.crumbs{font:500 13px var(--mono);color:var(--faint);padding-top:24px}
+.crumbs a{text-decoration:none}
+.cardpage{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:48px;padding-block:20px 40px;align-items:start}
+@media (max-width:900px){.cardpage{grid-template-columns:1fr;gap:24px}}
+.leftcol{position:sticky;top:96px;display:grid;gap:18px;justify-items:center}
+@media (max-width:900px){.leftcol{position:static}}
+.q{display:flex;flex-direction:column;gap:16px;padding-block:8px 28px;border-bottom:1px solid var(--line)}
+.q:last-child{border-bottom:0}
+.qnum{font:700 12px var(--mono);color:var(--brand);letter-spacing:.1em}
+.valuerow{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.valuerow .big{font-size:clamp(40px,5.4vw,60px)}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:560px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fact{padding:12px 14px;border:1px solid var(--line);border-radius:12px;display:grid;gap:2px}
+.fact b{font:700 18px var(--mono);font-variant-numeric:tabular-nums}
+.fact span{font:600 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.chart{width:100%;height:auto;display:block}
+.chart text{fill:var(--faint);font:11px var(--mono)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.why{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:640px){.why{grid-template-columns:1fr}}
+.why div{padding:14px;border-radius:12px;background:var(--panel2);display:grid;gap:4px}
+.why b{font:700 26px var(--display);letter-spacing:-.03em}
+.prob{display:inline-flex;align-items:center;gap:6px;font:600 12px var(--mono);padding:3px 8px;border-radius:999px;white-space:nowrap}
+.prob.hi{color:var(--up);background:color-mix(in srgb,var(--up) 13%,transparent)}
+.prob.mid{color:var(--warn);background:color-mix(in srgb,var(--warn) 14%,transparent)}
+.prob.lo{color:var(--down);background:color-mix(in srgb,var(--down) 13%,transparent)}
+details summary{cursor:pointer;color:var(--brand);font-weight:600;list-style:none}
+details summary::-webkit-details-marker{display:none}
+.ladder{display:grid;gap:12px}
+.ladder .row{display:grid;grid-template-columns:64px minmax(0,1fr) 120px;gap:14px;align-items:center}
+.ladder .row.on .g{color:var(--brand)}
+.ladder .g{font:800 15px var(--display)}
+.ladder .lt{position:relative;height:10px}
+.ladder .lt i{position:absolute;top:0;bottom:0;border-radius:5px;background:var(--brand-soft);box-shadow:inset 0 0 0 1.5px var(--brand)}
+.ladder .lt b{position:absolute;top:-3px;bottom:-3px;width:3px;border-radius:2px;background:var(--brand)}
+@media (max-width:480px){.ladder .row{grid-template-columns:48px minmax(0,1fr) 92px}}
+
+/* deals */
+.deals{display:grid;gap:12px}
+.deal{display:grid;grid-template-columns:76px minmax(0,1fr) minmax(0,250px);gap:18px;padding:16px;align-items:center}
+@media (max-width:720px){.deal{grid-template-columns:64px minmax(0,1fr)}.deal .receipt{grid-column:1/-1}}
+.ring{width:72px;height:72px;position:relative}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring b{position:absolute;inset:0;display:grid;place-items:center;font:700 16px var(--mono)}
+.deal h3{font:700 16px var(--body);letter-spacing:0}
+.deal .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.tag{font:600 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line2);border-radius:6px;padding:2px 7px}
+.tag.warn{color:var(--warn);border-color:color-mix(in srgb,var(--warn) 50%,transparent)}
+.receipt{font:500 13px var(--mono);display:grid;gap:3px;padding:12px 14px;border-radius:10px;background:var(--panel2)}
+.receipt div{display:flex;justify-content:space-between;gap:10px}
+.receipt .tot{border-top:1px dashed var(--line2);padding-top:5px;margin-top:3px;font-weight:700;color:var(--fg)}
+.receipt span{color:var(--muted)}
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.empty{padding:28px;text-align:center;color:var(--muted)}
+
+/* method */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:820px){.steps{grid-template-columns:1fr}}
+.steps div{padding:20px;display:flex;flex-direction:column;gap:8px}
+.steps h3{font-size:18px}
+.steps p{color:var(--muted);font-size:15px}
+footer{border-top:1px solid var(--line);margin-top:40px}
+footer .wrap{padding-block:24px 40px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--faint)}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#mercato" aria-label="Slabwise, mercato"><span class="mk"></span>slabwise</a>
+    <nav aria-label="Sezioni">
+      <a href="#mercato" data-nav="mercato">Mercato</a>
+      <a href="#deal" data-nav="deal">Deal</a>
+      <a href="#metodo" data-nav="metodo">Metodo</a>
+    </nav>
+    <div class="search" role="search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Cerca uno slab" autocomplete="off" aria-label="Cerca una carta">
+      <kbd>/</kbd>
+      <div class="results" id="res" hidden></div>
+    </div>
+    <span class="demo-tag" title="Carte e immagini reali; vendite, popolazioni e annunci simulati">DEMO</span>
+    <button class="iconbtn" id="theme" aria-label="Cambia tema"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+  </div>
+</header>
+<nav class="mnav" aria-label="Sezioni">
+  <a href="#mercato" data-nav="mercato">Mercato</a><a href="#deal" data-nav="deal">Deal</a><a href="#metodo" data-nav="metodo">Metodo</a>
+</nav>
+<main id="app"></main>
+<footer><div class="wrap"><span>Slabwise · prototipo v2 · motore LVM v1.1</span><span id="foot"></span></div></footer>
+
+<script>
+const D = __DATA__;
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const nf0 = new Intl.NumberFormat("it-IT", {maximumFractionDigits: 0});
+const nf1 = new Intl.NumberFormat("it-IT", {maximumFractionDigits: 1, minimumFractionDigits: 1});
+const usd = v => "$" + nf0.format(v);
+const usdK = v => v >= 1e9 ? "$" + nf1.format(v / 1e9) + " mld" : v >= 1e6 ? "$" + nf1.format(v / 1e6) + " mln" : usd(v);
+const eur = v => nf0.format(v) + " €";
+const pct = (v, s = true) => (s && v > 0 ? "+" : v < 0 ? "−" : "") + nf1.format(Math.abs(v * 100)) + "%";
+const halfw = g => (g.hi - g.lo) / 2 / g.value;
+const cardById = Object.fromEntries(D.cards.map(c => [c.id, c]));
+const gradeOf = (c, g) => c.grades.find(x => x.grade === g);
+const capOf = c => c.grades.reduce((s, g) => s + g.value * g.pop, 0);
+const dateIt = s => new Date(s + "T12:00:00").toLocaleDateString("it-IT", {day: "numeric", month: "short", year: "2-digit"});
+$("#foot").textContent = "Dati dimostrativi al " + dateIt(D.asof) + " · carte e immagini TCGdex";
+
+/* theme toggle (per-viewer convenience) */
+(function () {
+  let t = null; try { t = localStorage.getItem("sw-theme"); } catch (e) {}
+  if (t) document.documentElement.dataset.theme = t;
+  $("#theme").onclick = () => {
+    const cur = document.documentElement.dataset.theme || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+    const nx = cur === "light" ? "dark" : "light";
+    document.documentElement.dataset.theme = nx;
+    try { localStorage.setItem("sw-theme", nx); } catch (e) {}
+  };
+})();
+
+/* components */
+function slab(c, g, w = 300, cls = "") {
+  return `<div class="stage"><div class="slab ${cls}" style="--w:${w}px" data-tilt>
+    <div class="lab"><div style="min-width:0"><div class="l1">${esc(c.name)}</div><div class="l2">${esc(c.set)} · #${esc(c.no)}${c.tot ? "/" + c.tot : ""}</div><div class="l3">SLABWISE · ${esc(c.id.toUpperCase())}</div></div>
+      <div class="gr"><b>PSA</b><strong>${g}</strong></div></div>
+    <div class="win">${c.img ? `<img src="${c.img}" alt="${esc(c.name)}, ${esc(c.set)}">` : `<div class="noimg">Immagine non disponibile</div>`}<div class="holo"></div><div class="glare"></div></div>
+  </div></div>`;
+}
+function fork(g, mini = false, span = 0.25) {
+  const pos = v => 50 + 50 * Math.log(v / g.value) / Math.log(1 + span);
+  const a = Math.max(0, pos(g.lo)), b = Math.min(100, pos(g.hi));
+  return `<div class="fork${mini ? " mini" : ""}" role="img" aria-label="Valore ${usd(g.value)}, forchetta all'80% da ${usd(g.lo)} a ${usd(g.hi)}">
+    <div class="track"><div class="band" style="left:${a}%;width:${b - a}%"></div><div class="mid" style="left:50%"></div></div>
+    ${mini ? "" : `<div class="ends"><span>${usd(g.lo)}</span><span>forchetta 80%</span><span>${usd(g.hi)}</span></div>`}</div>`;
+}
+function probTag(p, txt) {
+  const k = p >= 0.8 ? "hi" : p >= 0.4 ? "mid" : "lo";
+  return `<span class="prob ${k}">${txt ?? Math.round(p * 100) + "%"}</span>`;
+}
+function ring(p) {
+  const r = 30, C = 2 * Math.PI * r, col = p >= 0.8 ? "var(--up)" : p >= 0.4 ? "var(--warn)" : "var(--faint)";
+  return `<div class="ring" role="img" aria-label="Probabilità di affare ${Math.round(p * 100)}%"><svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="${r}" fill="none" stroke="var(--line)" stroke-width="7"/><circle cx="36" cy="36" r="${r}" fill="none" stroke="${col}" stroke-width="7" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C * (1 - p)}"/></svg><b>${Math.round(p * 100)}%</b></div>`;
+}
+function receipt(d) {
+  return `<div class="receipt">
+    <div><span>Prezzo (${d.origin})</span><b>${eur(d.price_eur)}</b></div>
+    <div><span>Spedizione</span><b>${eur(d.ship_eur)}</b></div>
+    ${d.origin === "UE" ? `<div><span>IVA e dogana</span><b>nessuna (UE)</b></div>` : `<div><span>IVA import 22%</span><b>${eur(d.vat_eur)}</b></div><div><span>Sdoganamento</span><b>${eur(d.fee_eur)}</b></div>`}
+    <div class="tot"><span>Costo in Italia</span><b>${eur(d.landed_eur)}</b></div>
+    <div><span>Valore di mercato</span><b>${eur(d.value_eur)}</b></div></div>`;
+}
+function dealRow(c, d, showCard) {
+  const sus = d.suspicious;
+  return `<article class="deal panel">${ring(d.p_deal)}
+    <div style="min-width:0">${showCard ? `<a href="#c-${c.id}" style="text-decoration:none"><h3>${esc(c.name)} · PSA ${d.grade}</h3></a><div class="muted" style="font-size:14px">${esc(c.set)}</div>` : `<h3>PSA ${d.grade} · annuncio ${d.origin === "UE" ? "dall'UE" : "dagli USA"}</h3>`}
+      <div class="tags"><span class="tag">${d.cert ? "cert verificato" : "senza cert"}</span><span class="tag">prezzo $${nf0.format(d.ask_usd)}</span>${sus ? `<span class="tag warn">troppo bello: sospetto</span>` : ""}</div>
+      <p class="muted" style="font-size:14px;margin-top:8px">${sus ? "Il prezzo è così basso rispetto al valore che probabilmente non è lo slab descritto (raw, falso o voto diverso)." : d.p_deal >= 0.8 ? "Alta probabilità che valga almeno il 10% in più di quanto chiede, considerando anche quanto possa variare la singola copia." : "Il prezzo è vicino al valore: non abbastanza per essere sicuri dell'affare."}</p></div>
+    ${receipt(d)}</article>`;
+}
+
+/* views */
+function viewMarket() {
+  const feat = cardById["swsh7-215"] || D.cards[0], fg = gradeOf(feat, 10);
+  const totCap = D.rollups.reduce((s, r) => s + r.cap, 0);
+  return `<div class="wrap">
+  <section class="hero">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <span class="eyebrow">Valori per carte Pokémon graded</span>
+      <h1>Quanto vale davvero <em>uno slab</em>.</h1>
+      <p class="lead">Un perito, non una borsa. Ogni valore arriva con la sua forchetta, ogni vendita con la probabilità di essere vera, ogni affare con il costo finale in Italia.</p>
+      <div class="claims">
+        <div><span>01</span><p><b>La forchetta, sempre.</b> <span class="muted">Più è stretta, più il valore è sicuro.</span></p></div>
+        <div><span>02</span><p><b>Il perché, gratis.</b> <span class="muted">Ogni vendita usata o scartata, con il motivo.</span></p></div>
+        <div><span>03</span><p><b>Deal in euro.</b> <span class="muted">Spedizione, IVA e dogana comprese.</span></p></div>
+      </div>
+    </div>
+    <div class="feature">
+      ${slab(feat, 10, 290, "idle")}
+      <a class="cap" href="#c-${feat.id}" style="text-decoration:none;display:grid;gap:10px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><span class="eyebrow">${esc(feat.name)} · PSA 10</span><span class="mono num ${fg.ch30 >= 0 ? "up" : "down"}" style="font-size:13px">${pct(fg.ch30)} 30g</span></div>
+        <div class="big num" style="text-align:left">${usd(fg.value)}</div>
+        ${fork(fg)}
+      </a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sechead"><div><span class="eyebrow">Valore di collezione per era</span><h2>${usdK(totCap)} di slab seguiti</h2></div>
+      <p class="note" style="max-width:46ch">Fair value × popolazione PSA delle carte che seguiamo. La barra indica quanto pesano le prime 3 carte dell'era. L'indice di prezzo per era arriva con il motore v1.2.</p></div>
+    <div class="cols4">${D.rollups.map(r => `<div class="panel era">
+      <span class="eyebrow">${esc(r.series)}</span><span class="v num">${usdK(r.cap)}</span>
+      <span class="mono num ${r.ch30 >= 0 ? "up" : "down"}" style="font-size:13px">${pct(r.ch30)} in 30 giorni</span>
+      <div class="conc" title="Peso delle prime 3 carte"><i style="width:${r.top3 * 100}%"></i></div>
+      <span class="note">Prime 3 carte: ${Math.round(r.top3 * 100)}% · ${r.n} ${r.n === 1 ? "carta seguita" : "carte seguite"}</span></div>`).join("")}</div>
+  </section>
+
+  <section class="sec">
+    <div class="sechead"><div><span class="eyebrow">Classifica</span><h2>Le carte che seguiamo</h2></div>
+      <div class="chips" role="group" aria-label="Voto mostrato">${[10, 9, 8].map(g => `<button class="chip" data-g="${g}" aria-pressed="${g === S.g}">PSA ${g}</button>`).join("")}</div></div>
+    <div class="panel tbl"><table>
+      <thead><tr><th>#</th><th>Carta</th>
+        <th class="n"><button data-sort="value" ${S.sort === "value" ? 'aria-sort="descending"' : ""}>Valore</button></th>
+        <th style="min-width:150px">Forchetta</th>
+        <th class="n"><button data-sort="ch30" ${S.sort === "ch30" ? 'aria-sort="descending"' : ""}>30 giorni</button></th>
+        <th class="n"><button data-sort="sales" ${S.sort === "sales" ? 'aria-sort="descending"' : ""}>Vendite 90g</button></th>
+        <th class="n"><button data-sort="cap" ${S.sort === "cap" ? 'aria-sort="descending"' : ""}>Collezione</button></th></tr></thead>
+      <tbody>${rankRows()}</tbody></table></div>
+  </section></div>`;
+}
+const S = {g: 10, sort: "cap", dealMin: 0.8, dealOrigin: "tutti"};
+function rankRows() {
+  const key = {value: c => gradeOf(c, S.g).value, ch30: c => gradeOf(c, S.g).ch30, sales: c => gradeOf(c, S.g).sales90, cap: capOf}[S.sort];
+  return [...D.cards].sort((a, b) => key(b) - key(a)).map((c, i) => { const g = gradeOf(c, S.g); return `<tr data-href="#c-${c.id}">
+    <td class="mono muted">${i + 1}</td>
+    <td><div class="cardcell">${c.thumb || c.img ? `<img src="${c.thumb || c.img}" alt="" loading="lazy">` : `<span class="ph"></span>`}<div><b>${esc(c.name)}</b><small>${esc(c.set)} · #${esc(c.no)}</small></div></div></td>
+    <td class="n">${usd(g.value)}</td>
+    <td><div style="display:flex;align-items:center;gap:10px">${fork(g, true)}<span class="mono muted" style="font-size:12px;white-space:nowrap">±${nf1.format(halfw(g) * 100)}%</span></div></td>
+    <td class="n ${g.ch30 >= 0 ? "up" : "down"}">${pct(g.ch30)}</td>
+    <td class="n">${g.sales90}</td>
+    <td class="n">${usdK(capOf(c))}</td></tr>`; }).join("");
+}
+
+function viewCard(id) {
+  const c = cardById[id]; if (!c) return viewMarket();
+  const g = gradeOf(c, S.cg || 10);
+  const sales = c.sales.filter(s => s.grade === g.grade);
+  const low = c.sales.filter(s => s.pgen < 0.5);
+  const deals = c.deals;
+  const fr = dateIt(g.history[0][0]);
+  return `<div class="wrap">
+  <div class="crumbs"><a href="#mercato">Mercato</a> / ${esc(c.series)} / ${esc(c.set)} / ${esc(c.name)}</div>
+  <div class="cardpage">
+    <div class="leftcol">
+      ${slab(c, g.grade, 330)}
+      <div class="chips" role="group" aria-label="Voto">${c.grades.map(x => `<button class="chip" data-cg="${x.grade}" aria-pressed="${x.grade === g.grade}">PSA ${x.grade}</button>`).join("")}</div>
+      <p class="note" style="text-align:center">${esc(c.rarity || "")}${c.illustrator ? " · illustrazione di " + esc(c.illustrator) : ""}</p>
+    </div>
+    <div>
+      <div style="padding-bottom:20px"><span class="eyebrow">${esc(c.series)} · ${esc(c.set)} · #${esc(c.no)}${c.tot ? "/" + c.tot : ""}</span><h1 style="font-size:clamp(28px,4vw,42px);margin-top:6px">${esc(c.name)}</h1></div>
+
+      <div class="q"><span class="qnum">1 · QUANTO VALE</span>
+        <div class="valuerow"><span class="big num">${usd(g.value)}</span><span class="mono num ${g.ch30 >= 0 ? "up" : "down"}">${pct(g.ch30)} in 30 giorni</span><span class="muted">≈ ${eur(g.value * D.eur_rate)}</span></div>
+        ${fork(g)}
+        <p class="muted" style="font-size:15px">Una copia tipica di questo slab in PSA ${g.grade}, venduta oggi su eBay. Con l'80% di probabilità il valore è tra ${usd(g.lo)} e ${usd(g.hi)}.</p>
+        <div class="facts"><div class="fact"><span>90 giorni</span><b class="${g.ch90 >= 0 ? "up" : "down"}">${pct(g.ch90)}</b></div><div class="fact"><span>Vendite 90g</span><b>${g.sales90}</b></div><div class="fact"><span>Popolazione</span><b>${nf0.format(g.pop)}</b></div><div class="fact"><span>Collezione</span><b>${usdK(g.value * g.pop)}</b></div></div>
+      </div>
+
+      <div class="q"><span class="qnum">2 · QUANTO NE SIAMO SICURI</span>
+        ${chart(g, sales)}
+        <div class="legend"><span><i style="background:var(--brand)"></i>Valore e forchetta</span><span><i style="background:var(--fg)"></i>Vendita genuina</span><span><i style="background:transparent;box-shadow:inset 0 0 0 2px var(--down)"></i>Vendita poco credibile</span></div>
+        <h3 style="font-size:18px;margin-top:8px">Perché questo prezzo</h3>
+        <div class="why">
+          <div><b class="num">${c.sales.length - low.length}</b><span class="muted" style="font-size:14px">vendite genuine usate nell'ultimo anno, tutti i voti</span></div>
+          <div><b class="num">${low.length}</b><span class="muted" style="font-size:14px">vendite con peso quasi nullo: troppo lontane dal valore per essere credibili</span></div>
+          <div><b class="num">${c.excluded.length}</b><span class="muted" style="font-size:14px">record esclusi prima del prezzo: duplicati, lotti, Best Offer, cert incoerenti</span></div>
+        </div>
+        <details><summary>Vedi le vendite e le probabilità</summary>
+          <div class="tbl" style="margin-top:12px"><table><thead><tr><th>Data</th><th>Voto</th><th class="n">Prezzo</th><th>Dove</th><th>Probabilità genuina</th><th>Motivo</th></tr></thead><tbody>
+          ${[...c.sales].reverse().slice(0, 40).map(s => `<tr style="cursor:default"><td class="mono">${dateIt(s.date)}</td><td class="mono">PSA ${s.grade}</td><td class="n">${usd(s.price)}</td><td>${s.venue}${s.cert ? ' · <span class="muted">cert</span>' : ""}</td><td>${probTag(s.pgen)}</td><td class="muted" style="font-size:14px">${esc(s.why || "")}</td></tr>`).join("")}
+          ${c.excluded.slice(-10).reverse().map(s => `<tr style="cursor:default"><td class="mono">${dateIt(s.date)}</td><td class="mono">PSA ${s.grade}</td><td class="n">${usd(s.price)}</td><td class="muted">—</td><td><span class="prob lo">escluso</span></td><td class="muted" style="font-size:14px">${esc(s.why)}</td></tr>`).join("")}
+          </tbody></table></div></details>
+        <h3 style="font-size:18px;margin-top:8px">Scala dei voti</h3>
+        ${ladder(c, g.grade)}
+      </div>
+
+      <div class="q"><span class="qnum">3 · CONVIENE COMPRARLA DALL'ITALIA</span>
+        ${deals.length ? `<div class="deals">${deals.slice(0, 4).map(d => dealRow(c, d, false)).join("")}</div>` : `<div class="empty panel">Nessun annuncio attivo nelle ultime due settimane.</div>`}
+        <p class="note">Probabilità di affare = probabilità che l'annuncio sia lo slab descritto × probabilità che la copia valga almeno il 10% più del prezzo. Cambio dimostrativo 1 $ = ${D.eur_rate.toLocaleString("it-IT", {minimumFractionDigits: 2})} €.</p>
+      </div>
+    </div>
+  </div></div>`;
+}
+function chart(g, sales) {
+  const W = 720, H = 300, L = 8, R = 64, T = 14, B = 26;
+  const h = g.history;
+  const t0 = new Date(h[0][0]).getTime(), t1 = new Date(h[h.length - 1][0]).getTime();
+  const pts = sales.filter(s => new Date(s.date).getTime() >= t0);
+  const vals = h.flatMap(r => [r[2], r[3]]).concat(pts.map(s => s.price).filter(p => p > g.value / 4 && p < g.value * 4));
+  let lo = Math.min(...vals) * 0.92, hi = Math.max(...vals) * 1.06;
+  const x = t => L + (W - L - R) * (new Date(t).getTime() - t0) / (t1 - t0 || 1);
+  const y = v => T + (H - T - B) * (1 - (Math.log(v) - Math.log(lo)) / (Math.log(hi) - Math.log(lo)));
+  const band = h.map(r => `${x(r[0])},${y(r[3])}`).join(" ") + " " + [...h].reverse().map(r => `${x(r[0])},${y(r[2])}`).join(" ");
+  const line = h.map(r => `${x(r[0])},${y(r[1])}`).join(" ");
+  let grid = "";
+  for (let i = 0; i <= 4; i++) { const v = Math.exp(Math.log(lo) + (Math.log(hi) - Math.log(lo)) * i / 4); grid += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-dasharray="3 5"/><text x="${W - R + 8}" y="${y(v) + 4}">${usd(v)}</text>`; }
+  [0, .25, .5, .75, 1].forEach(f => { const t = new Date(t0 + (t1 - t0) * f).toISOString().slice(0, 10); grid += `<text x="${x(t)}" y="${H - 6}" text-anchor="${f === 0 ? "start" : f === 1 ? "end" : "middle"}">${new Date(t).toLocaleDateString("it-IT", {month: "short", year: "2-digit"})}</text>`; });
+  const dots = pts.map(s => { const vy = Math.min(Math.max(y(Math.min(Math.max(s.price, lo), hi)), T), H - B); const genu = s.pgen >= 0.5;
+    return `<circle cx="${x(s.date)}" cy="${vy}" r="${genu ? 3.6 : 4.2}" fill="${genu ? "var(--fg)" : "none"}" stroke="${genu ? "none" : "var(--down)"}" stroke-width="2" opacity="${genu ? .75 : 1}"><title>${dateIt(s.date)} · ${usd(s.price)} · probabilità genuina ${Math.round(s.pgen * 100)}%</title></circle>`; }).join("");
+  const last = h[h.length - 1];
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Valore stimato con forchetta e vendite negli ultimi due anni">${grid}
+    <polygon points="${band}" fill="var(--brand-soft)" stroke="none"/>
+    <polyline points="${line}" fill="none" stroke="var(--brand)" stroke-width="2.4" stroke-linejoin="round"/>
+    ${dots}<circle cx="${x(last[0])}" cy="${y(last[1])}" r="5" fill="var(--brand)" stroke="var(--panel)" stroke-width="2"/></svg>`;
+}
+function ladder(c, sel) {
+  const vals = c.grades.flatMap(g => [g.lo, g.hi]);
+  const lo = Math.min(...vals) * 0.85, hi = Math.max(...vals) * 1.1;
+  const p = v => 100 * (Math.log(v) - Math.log(lo)) / (Math.log(hi) - Math.log(lo));
+  return `<div class="ladder">${c.grades.map(g => `<div class="row${g.grade === sel ? " on" : ""}"><span class="g">PSA ${g.grade}</span>
+    <div class="lt"><i style="left:${p(g.lo)}%;width:${p(g.hi) - p(g.lo)}%"></i><b style="left:${p(g.value)}%"></b></div>
+    <span class="mono num" style="text-align:right">${usd(g.value)}</span></div>`).join("")}</div>
+    <p class="note">Scala logaritmica: tutti i voti sono stimati insieme, quindi una vendita di un voto informa anche gli altri.</p>`;
+}
+
+function viewDeals() {
+  const all = D.cards.flatMap(c => c.deals.map(d => ({c, d})));
+  const list = all.filter(({d}) => d.p_deal >= S.dealMin && (S.dealOrigin === "tutti" || d.origin === S.dealOrigin)).sort((a, b) => b.d.p_deal - a.d.p_deal);
+  const sus = all.filter(({d}) => d.suspicious).length;
+  return `<div class="wrap"><section class="sec" style="padding-top:40px">
+    <div class="sechead"><div><span class="eyebrow">Deal · ultime due settimane</span><h2>Affari con probabilità, in euro</h2>
+      <p class="muted" style="max-width:62ch;margin-top:8px">Non mostriamo "sconti": mostriamo quanto è probabile che l'annuncio sia davvero un affare, dopo spedizione, IVA e dogana. ${sus} annunci sono stati riconosciuti come sospetti perché troppo convenienti.</p></div></div>
+    <div class="filters">
+      <div class="chips" role="group" aria-label="Probabilità minima">${[0.8, 0.5, 0].map(v => `<button class="chip" data-min="${v}" aria-pressed="${S.dealMin === v}">${v ? "≥ " + v * 100 + "%" : "Tutti"}</button>`).join("")}</div>
+      <div class="chips" role="group" aria-label="Provenienza">${["tutti", "UE", "USA"].map(v => `<button class="chip" data-or="${v}" aria-pressed="${S.dealOrigin === v}">${v === "tutti" ? "Ogni provenienza" : v}</button>`).join("")}</div>
+    </div>
+    <div class="deals">${list.length ? list.slice(0, 40).map(({c, d}) => dealRow(c, d, true)).join("") : `<div class="empty panel">Nessun annuncio con questi filtri.</div>`}</div>
+  </section></div>`;
+}
+
+function viewMethod() {
+  return `<div class="wrap"><section class="sec" style="padding-top:40px;gap:28px">
+    <div><span class="eyebrow">Metodo</span><h2 style="margin-top:6px">Un solo modello, al posto di una pila di regole</h2>
+      <p class="muted" style="max-width:66ch;margin-top:10px">Ogni slab ha un valore che nessuno vede. Ogni vendita lo misura con un errore: rumore, copia più o meno bella, piattaforma, tempo, a volte un falso. Il Modello a Valore Latente stima il valore di oggi da tutte le vendite insieme e dice quanto ne è sicuro.</p></div>
+    <div class="steps">
+      <div class="panel"><span class="qnum">IDENTITÀ</span><h3>Prima cosa, poi quanto</h3><p>Duplicati, lotti, Best Offer e cert incoerenti escono prima di guardare il prezzo. Il cert decide carta e voto reali.</p></div>
+      <div class="panel"><span class="qnum">VALORE</span><h3>Probabilità, non soglie</h3><p>Ogni vendita ha una probabilità di essere genuina. Le vendite vecchie pesano meno perché il mercato si è mosso; i voti di una carta si stimano insieme.</p></div>
+      <div class="panel"><span class="qnum">DEAL</span><h3>Contro la maledizione del vincitore</h3><p>Anche il prezzo chiesto è un indizio del valore. Un deal deve essere probabile, non solo scontato, e si misura in euro a casa tua.</p></div>
+    </div>
+    <div class="panel" style="padding:20px;display:grid;gap:10px"><span class="eyebrow">Backtest su mercato simulato · 5 semi</span>
+      <p><b>Errore sul valore 5,8%</b> contro 9,1% del miglior metodo pubblico · <b>deal giusti 86%</b> contro circa 30% · forchette che contengono il valore il 79% delle volte. 6 criteri pre-registrati su 7.</p>
+      <p class="note">Risultati su dati simulati, non ancora su vendite reali. Dettagli nel repository del progetto (docs/METHOD.md, results/REPORT.md).</p></div>
+  </section></div>`;
+}
+
+/* router */
+function route() {
+  const h = (location.hash || "#mercato").slice(1);
+  let html, nav = h;
+  if (h.startsWith("c-")) { html = viewCard(h.slice(2)); nav = "mercato"; }
+  else if (h === "deal") html = viewDeals();
+  else if (h === "metodo") html = viewMethod();
+  else { html = viewMarket(); nav = "mercato"; }
+  $("#app").innerHTML = html;
+  document.querySelectorAll("[data-nav]").forEach(a => a.toggleAttribute("aria-current", a.dataset.nav === nav) || a.dataset.nav === nav && a.setAttribute("aria-current", "page"));
+  document.querySelectorAll("[data-nav]").forEach(a => a.dataset.nav === nav ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"));
+  bindTilt();
+}
+let lastView = "";
+window.addEventListener("hashchange", () => { const v = location.hash; if (!v.startsWith("#c-") || v !== lastView) { S.cg = 10; } lastView = v; route(); window.scrollTo({top: 0}); });
+
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-g],[data-sort],[data-cg],[data-min],[data-or],tr[data-href]");
+  if (!t) return;
+  if (t.dataset.g) { S.g = +t.dataset.g; route(); }
+  else if (t.dataset.sort) { S.sort = t.dataset.sort; route(); }
+  else if (t.dataset.cg) { S.cg = +t.dataset.cg; const y = scrollY; route(); scrollTo({top: y}); }
+  else if (t.dataset.min !== undefined) { S.dealMin = +t.dataset.min; route(); }
+  else if (t.dataset.or) { S.dealOrigin = t.dataset.or; route(); }
+  else if (t.dataset.href) location.hash = t.dataset.href;
+});
+
+/* slab tilt: the only thing that moves */
+function bindTilt() {
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll("[data-tilt]").forEach(el => {
+    if (reduce) return;
+    const st = el.parentElement;
+    st.addEventListener("pointermove", e => {
+      const r = el.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+      el.classList.remove("idle");
+      el.style.transform = `rotateY(${px * 22}deg) rotateX(${-py * 16}deg)`;
+      el.style.setProperty("--gx", `${100 - (px + .5) * 100}%`);
+      el.style.setProperty("--hx", `${(px + .5) * 100}%`);
+      el.style.setProperty("--ho", `${.12 + Math.abs(px) * .35}`);
+    });
+    st.addEventListener("pointerleave", () => { el.style.transform = ""; el.style.setProperty("--ho", ".10"); });
+  });
+}
+
+/* search */
+(function () {
+  const q = $("#q"), res = $("#res");
+  let sel = 0, hits = [];
+  const render = () => {
+    const s = q.value.trim().toLowerCase();
+    hits = s ? D.cards.filter(c => (c.name + " " + c.set + " " + c.no).toLowerCase().includes(s)).slice(0, 7) : [];
+    res.hidden = !hits.length;
+    res.innerHTML = hits.map((c, i) => `<a href="#c-${c.id}" class="${i === sel ? "on" : ""}">${c.thumb || c.img ? `<img src="${c.thumb || c.img}" alt="">` : ""}<span><b>${esc(c.name)}</b><br><small class="muted">${esc(c.set)} · ${usd(gradeOf(c, 10).value)} in PSA 10</small></span></a>`).join("");
+  };
+  q.addEventListener("input", () => { sel = 0; render(); });
+  q.addEventListener("keydown", e => {
+    if (e.key === "ArrowDown") { sel = Math.min(sel + 1, hits.length - 1); render(); e.preventDefault(); }
+    if (e.key === "ArrowUp") { sel = Math.max(sel - 1, 0); render(); e.preventDefault(); }
+    if (e.key === "Enter" && hits[sel]) { location.hash = "c-" + hits[sel].id; q.value = ""; res.hidden = true; q.blur(); }
+    if (e.key === "Escape") { q.value = ""; res.hidden = true; q.blur(); }
+  });
+  res.addEventListener("click", () => { q.value = ""; res.hidden = true; });
+  document.addEventListener("keydown", e => { if (e.key === "/" && document.activeElement !== q) { e.preventDefault(); q.focus(); } });
+  document.addEventListener("click", e => { if (!e.target.closest(".search")) res.hidden = true; });
+})();
+
+route();
+</script>

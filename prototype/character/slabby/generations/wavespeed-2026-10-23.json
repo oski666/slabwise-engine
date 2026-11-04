@@ -1,0 +1,32 @@
+{
+  "code": 200,
+  "message": "success",
+  "data": {
+    "id": "7b786bf5512f4748858332f97daaf5b5",
+    "model": "bytedance/seedream-v5.0-pro/edit",
+    "input": {
+      "enable_base64_output": false,
+      "enable_sync_mode": false,
+      "images": [
+        "https://d2h7xmz5gqybh9.cloudfront.net/media/images/9f6c34b1-1ab3-4b8e-948c-fd12707ef52d.png"
+      ],
+      "output_format": "jpeg",
+      "prompt": "create a comprehensive and exhaustive character sheet for @image 1 . The ultimate purpose is having the complete profile to be animated html and css alater stage- the character should not change from the original reference; just add poses, color palette",
+      "prompt_optimization_mode": "standard",
+      "resolution": "2k"
+    },
+    "outputs": [
+      "https://d2h7xmz5gqybh9.cloudfront.net/output/9ba2823e-2db3-4f40-a969-0147212abd73.jpeg"
+    ],
+    "urls": {
+      "get": "https://api.wavespeed.ai/api/v3/predictions/7b786bf5512f4748858332f97daaf5b5/result"
+    },
+    "status": "completed",
+    "created_at": "2026-10-23T19:35:46.725426778Z",
+    "code": 0,
+    "error": "",
+    "timings": {
+      "inference": 245875
+    }
+  }
+}

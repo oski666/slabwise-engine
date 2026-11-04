@@ -1,0 +1,53 @@
+{
+ "asof": "2026-11-03",
+ "indices": [
+  "Mega Evoluzione",
+  "Scarlatto e Violetto",
+  "Spada e Scudo",
+  "Wizards of the Coast",
+  "set:base1",
+  "tutto"
+ ],
+ "starts": {
+  "Mega Evoluzione": "2026-04-03",
+  "Scarlatto e Violetto": "2023-10-06",
+  "Spada e Scudo": "2023-01-06",
+  "Wizards of the Coast": "2023-01-06",
+  "tutto": "2023-01-06",
+  "set:base1": "2023-01-06"
+ },
+ "pairs": 476,
+ "H4": {
+  "Mega Evoluzione": 0.8098421358352225,
+  "Scarlatto e Violetto": 0.6958659423788973,
+  "Spada e Scudo": 0.6303514201727791,
+  "Wizards of the Coast": 0.2483950671901174,
+  "tutto": 0.6885379656533205,
+  "set:base1": -0.0018344313787367148
+ },
+ "H2": {
+  "slope": 0.9914249525827582,
+  "ci95": [
+   0.7397154020531059,
+   1.1590813400389341
+  ],
+  "cards": 25
+ },
+ "H3": {
+  "mse_without": 0.11827494574111878,
+  "mse_with": 0.08323617846265467,
+  "reduction": 0.2962484324884601
+ },
+ "H1": {
+  "slope": 0.9452828898198081,
+  "corr": 0.7471268189294764,
+  "n": 25
+ },
+ "passed": {
+  "H1": true,
+  "H2": true,
+  "H3": true,
+  "H4": false
+ },
+ "H4_median": 0.6594446929130497
+}

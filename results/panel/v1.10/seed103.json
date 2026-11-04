@@ -1,0 +1,192 @@
+{
+ "names": [
+  "Ultima vendita",
+  "tcgcharts (mediana a fasce)",
+  "PriceCharting (media pesata per età)",
+  "Card Ladder (ultima vendita × indice)",
+  "Slabwise v0 (regole, tipo TCGBerg)",
+  "Slabwise LVM"
+ ],
+ "seconds": {
+  "Ultima vendita": 0.18607449531555176,
+  "tcgcharts (mediana a fasce)": 6.331185340881348,
+  "PriceCharting (media pesata per età)": 7.606268405914307,
+  "Card Ladder (ultima vendita × indice)": 0.34827423095703125,
+  "Slabwise v0 (regole, tipo TCGBerg)": 14.020999431610107,
+  "Slabwise LVM": 88.08166074752808
+ },
+ "EV": {
+  "Ultima vendita": 0.10475624406277673,
+  "tcgcharts (mediana a fasce)": 0.09386714251987627,
+  "PriceCharting (media pesata per età)": 0.08877040027535799,
+  "Card Ladder (ultima vendita × indice)": 0.10164826205681354,
+  "Slabwise v0 (regole, tipo TCGBerg)": 0.09090617872643847,
+  "Slabwise LVM": 0.05554001581885881
+ },
+ "EV_bucket": {
+  "Ultima vendita": {
+   "alta": 0.08258765664624423,
+   "media": 0.08655193827298513,
+   "bassa": 0.09805946069875304,
+   "rarissima": 0.12079353657289715
+  },
+  "tcgcharts (mediana a fasce)": {
+   "alta": 0.04037724270352916,
+   "media": 0.0668769866262644,
+   "bassa": 0.08875224450283792,
+   "rarissima": 0.12043849176765065
+  },
+  "PriceCharting (media pesata per età)": {
+   "alta": 0.048709993057549195,
+   "media": 0.05999518346882393,
+   "bassa": 0.08184500321736365,
+   "rarissima": 0.11788623020753086
+  },
+  "Card Ladder (ultima vendita × indice)": {
+   "alta": 0.082734802724993,
+   "media": 0.08525743974746502,
+   "bassa": 0.0959237810508844,
+   "rarissima": 0.11609977999549592
+  },
+  "Slabwise v0 (regole, tipo TCGBerg)": {
+   "alta": 0.037118180198941975,
+   "media": 0.052064789126428535,
+   "bassa": 0.08397680950290809,
+   "rarissima": 0.1377424001485541
+  },
+  "Slabwise LVM": {
+   "alta": 0.024750259872044822,
+   "media": 0.03535692192820772,
+   "bassa": 0.0504795706723149,
+   "rarissima": 0.07919379550734007
+  }
+ },
+ "RU": {
+  "Ultima vendita": 0.017707020707053545,
+  "tcgcharts (mediana a fasce)": 0.01922848924178533,
+  "PriceCharting (media pesata per età)": 0.01668598556187728,
+  "Card Ladder (ultima vendita × indice)": 0.020460832910641713,
+  "Slabwise v0 (regole, tipo TCGBerg)": 0.017299199642590857,
+  "Slabwise LVM": 0.017021990791452613
+ },
+ "CO": {
+  "Ultima vendita": 1.0,
+  "tcgcharts (mediana a fasce)": 1.0,
+  "PriceCharting (media pesata per età)": 1.0,
+  "Card Ladder (ultima vendita × indice)": 1.0,
+  "Slabwise v0 (regole, tipo TCGBerg)": 1.0,
+  "Slabwise LVM": 1.0
+ },
+ "ES": {
+  "Ultima vendita": 0.12590794633568425,
+  "tcgcharts (mediana a fasce)": 0.10817131395119706,
+  "PriceCharting (media pesata per età)": 0.10515058860364412,
+  "Card Ladder (ultima vendita × indice)": 0.12462880094717255,
+  "Slabwise v0 (regole, tipo TCGBerg)": 0.0990918051745151,
+  "Slabwise LVM": 0.0854904223347237
+ },
+ "RC": {
+  "Ultima vendita": 0.16888472848500768,
+  "tcgcharts (mediana a fasce)": 0.15108774738935749,
+  "PriceCharting (media pesata per età)": 0.22423917071183208,
+  "Card Ladder (ultima vendita × indice)": 0.1240511492482792,
+  "Slabwise v0 (regole, tipo TCGBerg)": 0.22884992464569365,
+  "Slabwise LVM": 0.05791428409895394
+ },
+ "IDX": [
+  0.7542587464031038,
+  0.5869303307254943,
+  0.591483416540631,
+  0.7158643416277644,
+  0.7137148951349848
+ ],
+ "FLOOD": {
+  "Ultima vendita": 0.12214874083962712,
+  "tcgcharts (mediana a fasce)": 0.06524534057303999,
+  "PriceCharting (media pesata per età)": 0.11630539775163129,
+  "Card Ladder (ultima vendita × indice)": 0.12214874083962712,
+  "Slabwise v0 (regole, tipo TCGBerg)": 0.13029247042047576,
+  "Slabwise LVM": 0.010438656623223519
+ },
+ "CA": 0.7919554446387927,
+ "CA_bucket": {
+  "alta": 0.8325443786982248,
+  "media": 0.7989108236895848,
+  "bassa": 0.7877837866081459,
+  "rarissima": 0.7891832566080302
+ },
+ "CA_seen": 0.7919554446387927,
+ "DEALS": {
+  "Ultima vendita": {
+   "flagged": 1938,
+   "precision": 0.24303405572755418,
+   "recall": 0.38480392156862747
+  },
+  "tcgcharts (mediana a fasce)": {
+   "flagged": 1782,
+   "precision": 0.2609427609427609,
+   "recall": 0.3799019607843137
+  },
+  "PriceCharting (media pesata per età)": {
+   "flagged": 1915,
+   "precision": 0.28407310704960836,
+   "recall": 0.4444444444444444
+  },
+  "Card Ladder (ultima vendita × indice)": {
+   "flagged": 1926,
+   "precision": 0.24714434060228452,
+   "recall": 0.3888888888888889
+  },
+  "Slabwise v0 (regole, tipo TCGBerg)": {
+   "flagged": 1671,
+   "precision": 0.2770795930580491,
+   "recall": 0.37826797385620914
+  },
+  "Slabwise LVM": {
+   "flagged": 255,
+   "precision": 0.8784313725490196,
+   "recall": 0.1830065359477124
+  }
+ },
+ "params": {
+  "q_L": 0.00029681928762289027,
+  "q_d": 2e-05,
+  "sigma_e": 0.0884239727056257,
+  "sigma_a": 0.08,
+  "sigma_q": 0.07,
+  "tau_f": 0.02,
+  "tau_s": 0.0,
+  "phi": 0.9,
+  "window": 156,
+  "max_obs": 80,
+  "iters": 8,
+  "card_drift": false,
+  "era_gaps": false,
+  "venue_gaps": true,
+  "gap_start": true,
+  "vol_halflife": 0.0,
+  "grade_keep": 15,
+  "roll_bound": 3.0
+ },
+ "seed": 103,
+ "contamination": 0.15,
+ "mode": "A",
+ "scenario": "base",
+ "TIERS": {
+  "Vendite fresche": {
+   "n": 43175,
+   "err_median": 0.03598412967277831,
+   "coverage": 0.8014128546612623
+  },
+  "Stimato": {
+   "n": 95924,
+   "err_median": 0.07140383323296784,
+   "coverage": 0.779919519619699
+  },
+  "Poco sicuro": {
+   "n": 14741,
+   "err_median": 0.20692181747761396,
+   "coverage": 0.825656332677566
+  }
+ }
+}

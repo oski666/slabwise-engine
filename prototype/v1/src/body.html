@@ -1,0 +1,423 @@
+<header class="top">
+  <div class="wrap nav">
+    <a class="logo" href="#market" aria-label="Slabwise"><span class="mark" aria-hidden="true"></span>slabwise</a>
+    <nav class="links" id="links"></nav>
+    <span class="demo-pill" id="demopill"></span>
+    <div class="search">
+      <input id="q" type="search" autocomplete="off">
+      <kbd>/</kbd>
+      <div class="results" id="qres" hidden></div>
+    </div>
+    <div class="lang" id="lang" role="group"></div>
+  </div>
+</header>
+<div class="ticker" id="ticker"><div class="tape" id="tape"></div></div>
+<main class="wrap" id="view"></main>
+<footer class="foot"><div class="wrap"><span id="foot1"></span><span id="foot2"></span></div></footer>
+
+<script>
+const CARDS = __CARDS__;
+const IMGS = __IMGS__;
+
+/* ================= lingua ================= */
+// Per aggiungere una lingua: una voce in LANGS e il terzo argomento di L(). Se manca, si usa l'inglese.
+const LANGS=[["it","IT","Italiano"],["en","EN","English"]];
+let LANG=(()=>{try{const s=localStorage.getItem("sw-lang");if(s&&LANGS.some(l=>l[0]===s))return s}catch(e){}return /^it/i.test(navigator.language||"")?"it":"en"})();
+const L=(it,en)=>LANG==="it"?it:en;
+const LOC=()=>LANG==="it"?"it-IT":"en-GB";
+const DEC=()=>LANG==="it"?",":".";
+const WHY={ // motivi delle vendite: chiave italiana interna -> testo per lingua
+  "Cert verificato":"Cert verified","Incluso":"Included","Duplicato: stesso cert":"Duplicate: same cert",
+  "Non è uno slab: carta raw":"Not a slab: raw card","Lotto di più carte":"Multi-card lot","Best Offer: prezzo reale nascosto":"Best Offer: real price hidden",
+  "Pagamento non confermato":"Payment not confirmed","Sotto il prezzo raw: incoerente":"Below raw price: incoherent","Sotto il grado inferiore: incoerente":"Below lower grade: incoherent",
+  "Troppo sotto il mercato":"Far below market","Alto ma confermato":"High but confirmed","Alto isolato: peso ridotto":"Isolated high: reduced weight"};
+const why=w=>{if(LANG==="it")return w;if(w.startsWith("Cert: in realtà "))return"Cert: actually "+w.slice(16);return WHY[w]||w};
+
+/* ================= dati demo deterministici ================= */
+function rng(str){let h=2166136261;for(const c of str){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return()=>{h^=h<<13;h^=h>>>17;h^=h<<5;return((h>>>0)%100000)/100000}}
+function gauss(r){let u=0,v=0;while(!u)u=r();while(!v)v=r();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)}
+const GRADES=["PSA 10","PSA 9","PSA 8","PSA 7"];
+const VINT=s=>/^(base|neo|gym)/.test(s);
+const MULT={v:[42,7,3.2,2.1],m:[2.6,1.25,0.95,0.8]};
+const POP={v:[[40,400],[400,2800],[700,3200],[600,2600]],m:[[2500,16000],[1200,6000],[300,1500],[80,500]]};
+const NSALES={v:[[5,11],[12,26],[14,30],[10,24]],m:[[28,55],[14,30],[6,14],[3,8]]};
+const PLAT=[["eBay US","US",44],["eBay DE","DE",11],["eBay IT","IT",8],["Fanatics Collect","US",15],["Goldin","US",8],["Catawiki","NL",14]];
+const SELLERS=["kanto_slabs","holo_haus","gradedgems_eu","pallet_town_cards","mint.mavens","rocket_vault","fossil_finds","sapporo_slabs"];
+function pick(r,arr){const tot=arr.reduce((a,x)=>a+x[2],0);let k=r()*tot;for(const x of arr){k-=x[2];if(k<=0)return x}return arr[0]}
+
+const cards=CARDS.map(c=>({...c,raw:c.cmt??c.cm7??c.cm30,img:IMGS[c.id]||null,v:VINT(c.sid)}));
+const byId=Object.fromEntries(cards.map(c=>[c.id,c]));
+
+let certSeq=81000000;
+for(const c of cards){
+  const r=rng(c.id+"g"),k=c.v?"v":"m";
+  const rawTrend=c.cm30?Math.max(-0.5,Math.min(0.8,(c.raw-c.cm30)/c.cm30)):0;
+  c.atoms=GRADES.map((g,i)=>{
+    const fv=c.raw*MULT[k][i]*(0.75+r()*0.6);
+    const [plo,phi]=POP[k][i],[nlo,nhi]=NSALES[k][i];
+    const drift=(rawTrend*2.2+(r()-0.45)*0.5);
+    const n=Math.round(nlo+r()*(nhi-nlo));
+    const sales=[];
+    for(let s=0;s<n;s++){
+      const age=Math.floor(Math.pow(r(),1.15)*180),p=pick(r,PLAT);
+      const truth=fv*Math.exp(-drift*age/365),price=truth*Math.exp(gauss(r)*(c.v?0.13:0.09));
+      sales.push({age,plat:p[0],cc:p[1],price,cert:(certSeq++),certOk:r()<0.62,certGrade:g,kind:"ok",seller:SELLERS[Math.floor(r()*SELLERS.length)]});
+    }
+    const bad=Math.max(2,Math.round(n*(0.14+r()*0.12)));
+    for(let b=0;b<bad;b++){
+      const age=Math.floor(r()*170),p=pick(r,PLAT),truth=fv*Math.exp(-drift*age/365),t=r();
+      let s={age,plat:p[0],cc:p[1],cert:(certSeq++),certOk:false,certGrade:g,seller:SELLERS[Math.floor(r()*SELLERS.length)]};
+      if(t<0.28){s.kind="ready";s.price=c.raw*(0.7+r()*0.8)}
+      else if(t<0.42){s.kind="lot";s.price=truth*(2.6+r()*2.4)}
+      else if(t<0.58){s.kind="bo";s.price=truth*(1.18+r()*0.25);s.plat="eBay US";s.cc="US"}
+      else if(t<0.72&&sales.length){const o=sales[Math.floor(r()*sales.length)];s={...o,kind:"dup",price:o.price*(0.93+r()*0.12),age:Math.max(0,o.age-Math.floor(r()*6))}}
+      else if(t<0.86){s.kind="wrong";s.certOk=true;const wg=1+Math.floor(r()*3);s.certGrade="PSA "+wg;s.price=truth*(0.06+r()*0.12)}
+      else{s.kind="unpaid";s.plat="Fanatics Collect";s.cc="US";s.price=truth*(1.05+r()*0.2)}
+      sales.push(s);
+    }
+    sales.sort((a,b)=>a.age-b.age);
+    return{g,i,card:c,pop:Math.round(plo+r()*(phi-plo)),sales,drift};
+  });
+}
+
+/* ================= pipeline di pulizia ================= */
+// titoli simulati come compaiono sui marketplace (dati, non interfaccia: restano in originale)
+const title=(s,a)=>{const c=a.card,base=`${c.set} ${c.n} #${c.no}`;
+  return{ready:`${base} ${a.g} READY? Mint, ungraded`,lot:`Lot x5 ${c.n} ${a.g} + bonus`,bo:`${base} ${a.g} Gem Mint · Best Offer accepted`,
+    dup:`${base} ${a.g} cert ${s.cert}`,wrong:`${base} PSA slab cert ${s.cert}`,unpaid:`${base} ${a.g} · auction ended`,ok:`${base} ${a.g} cert ${s.cert}`}[s.kind]};
+const median=a=>{if(!a.length)return NaN;const s=[...a].sort((x,y)=>x-y),m=s.length>>1;return s.length%2?s[m]:(s[m-1]+s[m])/2};
+const wmedian=(vals,w)=>{const z=vals.map((v,i)=>[v,w[i]]).sort((a,b)=>a[0]-b[0]);const tot=z.reduce((a,x)=>a+x[1],0);let acc=0;for(const [v,ww] of z){acc+=ww;if(acc>=tot/2)return v}return z.at(-1)?.[0]};
+
+function screen(a,asOf=0){
+  // fase 1: identità e annuncio. Dal più vecchio al più recente: tra due vendite con lo stesso cert resta l'originale
+  const seen=new Set(),out=[];
+  for(const s of a.sales.filter(x=>x.age>=asOf).sort((x,y)=>y.age-x.age)){
+    const o={...s,ttl:title(s,a),w:1,st:"ok",why:s.certOk?"Cert verificato":"Incluso"};
+    if(seen.has(s.cert)){o.st="no";o.why="Duplicato: stesso cert"}
+    else if(s.certOk&&s.certGrade!==a.g){o.st="no";o.why=`Cert: in realtà ${s.certGrade}`}
+    else if(/ready|ungraded|candidate/i.test(o.ttl)){o.st="no";o.why="Non è uno slab: carta raw"}
+    else if(/\blot\b|lotto|x\d/i.test(o.ttl)){o.st="no";o.why="Lotto di più carte"}
+    else if(s.kind==="bo"){o.st="no";o.why="Best Offer: prezzo reale nascosto"}
+    else if(s.kind==="unpaid"){o.st="no";o.why="Pagamento non confermato"}
+    seen.add(s.cert);out.push(o);
+  }
+  return out.sort((x,y)=>x.age-y.age);
+}
+function finish(a,list,lowerAnchor){
+  // fase 2: coerenza con la scala dei gradi, in rapporti. PSA 7 contro raw più largo: nel moderno un voto basso vale spesso meno di una raw perfetta
+  const floor=a.i===3?lowerAnchor*0.4:lowerAnchor*0.72;
+  for(const o of list)if(o.st==="ok"&&o.price<floor){o.st="no";o.why=a.i===3?"Sotto il prezzo raw: incoerente":"Sotto il grado inferiore: incoerente"}
+  // fase 3: recinto asimmetrico in log-prezzo
+  const ok=list.filter(o=>o.st==="ok"),lp=ok.map(o=>Math.log(o.price)),m=median(lp);
+  const mad=Math.max(0.12,median(lp.map(x=>Math.abs(x-m)))*1.4826);
+  for(const o of ok){const z=(Math.log(o.price)-m)/mad;
+    if(z<-3){o.st="no";o.why="Troppo sotto il mercato"}
+    else if(z>3){const corr=ok.some(p=>p!==o&&Math.abs(p.age-o.age)<=21&&(Math.log(p.price)-m)/mad>1.8);
+      if(corr){o.why="Alto ma confermato"}else{o.st="lo";o.w=0.35;o.why="Alto isolato: peso ridotto"}}}
+  const inc=list.filter(o=>o.st!=="no"),n=inc.length,hl=n>15?30:75;
+  const w=inc.map(o=>Math.exp(-o.age/hl)*(o.certOk?1.3:1)*o.w);
+  const fv=n?wmedian(inc.map(o=>o.price),w):NaN;
+  const last=n?Math.min(...inc.map(o=>o.age)):999;
+  const lps=inc.map(o=>Math.log(o.price)),mm=median(lps),disp=n?median(lps.map(x=>Math.abs(x-mm))):1;
+  const score=Math.round(Math.min(n/12,1)*30+(last<14?25:last<45?15:last<90?8:2)+(1-Math.min(disp/0.35,1))*25+(n?inc.filter(o=>o.certOk).length/n:0)*20);
+  return{fv,list,inc,score:Math.max(0,Math.min(100,score)),n};
+}
+function valueCard(c,asOf=0){
+  const res=[];let anchor=c.raw*Math.exp(-(c.cm30?((c.raw-c.cm30)/c.cm30):0)*asOf/30);
+  for(let i=3;i>=0;i--){const a=c.atoms[i];const r=finish(a,screen(a,asOf),anchor);res[i]=r;if(isFinite(r.fv))anchor=r.fv}
+  // riconciliazione della scala: regressione isotonica pesata sull'evidenza, in log-prezzi
+  const pts=res.map((r,i)=>({i,v:Math.log(r.fv),w:Math.max(5,r.score)})).reverse();
+  const blocks=[];for(const p of pts){blocks.push({v:p.v,w:p.w,ids:[p.i]});
+    while(blocks.length>1&&blocks.at(-1).v<=blocks.at(-2).v+0.03){const b=blocks.pop(),a2=blocks.pop();blocks.push({v:(a2.v*a2.w+b.v*b.w)/(a2.w+b.w),w:a2.w+b.w,ids:[...a2.ids,...b.ids]})}}
+  for(const b of blocks){if(b.ids.length<2)continue;
+    const ord=b.ids.sort((x,y)=>y-x);ord.forEach((id,k)=>{const nv=Math.exp(b.v+(k-(ord.length-1)/2)*0.04);if(Math.abs(nv/res[id].fv-1)>0.001){res[id].fv=nv;res[id].adj=true;res[id].score=Math.min(res[id].score,79)}})}
+  return res;
+}
+const EVL=s=>s>=80?L("Molto forte","Very strong"):s>=60?L("Forte","Strong"):s>=40?L("Moderata","Moderate"):s>=20?L("Limitata","Limited"):L("Scarsa","Sparse");
+for(const c of cards){
+  const now=valueCard(c,0),d7=valueCard(c,7),d30=valueCard(c,30);
+  const weeks=[...Array(13)].map((_,k)=>valueCard(c,(12-k)*7));
+  c.atoms.forEach((a,i)=>{Object.assign(a,now[i]);a.c7=a.fv/d7[i].fv-1;a.c30=a.fv/d30[i].fv-1;
+    a.series=weeks.map(w=>w[i].fv).map((v,k,arr)=>isFinite(v)?v:arr.find(isFinite));
+    a.cap=a.fv*a.pop;a.vol30=a.inc.filter(o=>o.age<=30).reduce((s,o)=>s+o.price,0);a.gem=null});
+  const tot=c.atoms.reduce((s,a)=>s+a.pop,0)*1.6;c.atoms[0].gem=c.atoms[0].pop/tot;
+  c.cap=c.atoms.reduce((s,a)=>s+a.cap,0);
+}
+const ATOMS=cards.flatMap(c=>c.atoms).sort((a,b)=>b.cap-a.cap);
+const TOTAL=ATOMS.reduce((s,a)=>s+a.cap,0),TOTPOP=ATOMS.reduce((s,a)=>s+a.pop,0);
+const ALLSALES=ATOMS.flatMap(a=>a.list),EXCL=ALLSALES.filter(o=>o.st==="no");
+
+const IDX=(()=>{const top=ATOMS.filter(a=>a.score>=40).slice(0,25);const w=top.map(a=>a.pop);
+  const lvl=[...Array(13)].map((_,k)=>top.reduce((s,a,i)=>s+a.series[k]*w[i],0));return lvl.map(v=>v/lvl[0]*1000)})();
+const FG=(()=>{const tr=ATOMS.filter(a=>a.score>=40);
+  const mom=median(tr.map(a=>a.c30)),breadth=tr.filter(a=>a.c30>0).length/tr.length;
+  const v30=tr.reduce((s,a)=>s+a.inc.filter(o=>o.age<=30).length,0),vprev=tr.reduce((s,a)=>s+a.inc.filter(o=>o.age>30&&o.age<=60).length,0);
+  const act=vprev?v30/vprev:1,off=IDX.at(-1)/Math.max(...IDX);
+  const f=[["mom",Math.max(0,Math.min(100,50+mom*250))],["breadth",breadth*100],["act",Math.max(0,Math.min(100,act*50))],["high",Math.max(0,Math.min(100,(off-0.8)*500))]];
+  return{v:Math.round(f.reduce((a,x)=>a+x[1],0)/4),f}})();
+const FGL=v=>v<25?L("Paura estrema","Extreme fear"):v<45?L("Paura","Fear"):v<56?L("Neutrale","Neutral"):v<75?L("Avidità","Greed"):L("Avidità estrema","Extreme greed");
+const FGF=k=>({mom:L("Momentum","Momentum"),breadth:L("Ampiezza","Breadth"),act:L("Attività","Activity"),high:L("Vicino ai massimi","Near highs")}[k]);
+
+const EU=new Set(["DE","IT","NL","FR","ES"]);
+const DEALS=(()=>{const out=[];let k=0;
+  for(const a of ATOMS){const r=rng(a.card.id+a.g+"L");if(r()>0.5||!isFinite(a.fv))continue;
+    const nl=1+Math.floor(r()*2);
+    for(let j=0;j<nl;j++){
+      const src=[["eBay US","US",30],["eBay DE","DE",22],["eBay IT","IT",14],["eBay FR","FR",8],["Catawiki","NL",14],["Goldin","US",12]];
+      const p=pick(r,src),price=a.fv*(0.6+r()*0.48),eu=EU.has(p[1]);
+      const ship=eu?(p[1]==="IT"?6+r()*5:9+r()*9):(24+r()*22);
+      const auction=p[0]==="Catawiki"||p[0]==="Goldin"||r()<0.3;
+      const ioss=!eu&&p[0].startsWith("eBay")&&price<=150;
+      const iva=eu?0:(price+ship)*0.22,fee=eu||ioss?0:12+Math.round(r()*8);
+      const premium=p[0]==="Goldin"?price*0.2:p[0]==="Catawiki"?price*0.09+3:0;
+      const landed=price+ship+iva+fee+premium,disc=1-landed/a.fv;
+      const fb=Math.round(96+r()*4*10)/10,certOk=r()<0.7;
+      const ends=auction?Math.floor(20+r()*60*30):null;
+      const sc=Math.round(Math.max(0,Math.min(100,disc*220+(a.score-40)*0.5+(certOk?10:0)+(fb>=99?6:0)+(ends&&ends<180?6:0))));
+      out.push({id:"L"+(k++),a,src:p[0],cc:p[1],eu,price,ship,iva,fee,premium,ioss,landed,disc,fb,certOk,auction,ends,sc,seller:SELLERS[Math.floor(r()*SELLERS.length)]});
+    }}
+  return out.sort((x,y)=>y.sc-x.sc)})();
+const GOOD=DEALS.filter(d=>d.disc>=0.12&&d.a.score>=40);
+
+/* ================= formato ================= */
+const fx=(n,d)=>n.toFixed(d).replace(".",DEC());
+const eur=(n,d)=>!isFinite(n)?"–":n>=1e9?"€"+fx(n/1e9,2)+L(" Mld","bn"):n>=1e6?"€"+fx(n/1e6,2)+L(" Mln","m"):n>=1e4&&!d?"€"+Math.round(n).toLocaleString(LOC()):"€"+n.toLocaleString(LOC(),{minimumFractionDigits:d?2:0,maximumFractionDigits:d?2:0});
+const eurs=n=>n>=1e6?"€"+fx(n/1e6,1)+"M":n>=1e3?"€"+fx(n/1e3,n>=1e4?0:1)+"k":"€"+Math.round(n);
+const int=n=>Math.round(n).toLocaleString(LOC());
+const pct=(n,s=1)=>(s&&n>0?"+":"")+fx(n*100,1)+"%";
+const chg=n=>{if(!isFinite(n))return`<span class="chg flat">–</span>`;const k=Math.abs(n)<0.0005?"flat":n>0?"up":"down";return`<span class="chg ${k}">${k==="up"?"▲":k==="down"?"▼":"·"} ${fx(Math.abs(n)*100,1)}%</span>`};
+const esc=s=>String(s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+const img=(c,cls="mini")=>c.img?`<img class="${cls}" src="${c.img}" alt="" loading="lazy">`:`<span class="${cls}" style="aspect-ratio:63/88;display:inline-block"></span>`;
+const ev=s=>`<span class="ev ${s<40?"lo":""}" title="${L("Evidenza vendite","Sales evidence")} ${s}/100"><i>${[20,40,60,80,100].map(t=>`<b class="${s>=t-19?"on":""}"></b>`).join("")}</i>${EVL(s)}</span>`;
+const code=c=>c.sid.toUpperCase().replace(/[^A-Z0-9]/g,"").slice(0,5);
+const ago=d=>d===0?L("oggi","today"):d===1?L("ieri","yesterday"):L(d+" giorni fa",d+" days ago");
+function spark(vals,w=110,h=32){const v=vals.filter(isFinite);if(v.length<2)return"";const lo=Math.min(...v),hi=Math.max(...v),sp=hi-lo||1;
+  const pts=v.map((x,i)=>[(i/(v.length-1))*(w-4)+2,h-3-((x-lo)/sp)*(h-6)]);const col=v.at(-1)>=v[0]?"var(--up)":"var(--down)";
+  const d=pts.map((p,i)=>(i?"L":"M")+p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" ");
+  return`<svg class="spark" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" aria-hidden="true"><path d="${d} L${w-2} ${h} L2 ${h}Z" fill="${col}" opacity=".12"/><path d="${d}" fill="none" stroke="${col}" stroke-width="1.6" stroke-linejoin="round"/><circle cx="${pts.at(-1)[0]}" cy="${pts.at(-1)[1]}" r="2.4" fill="${col}"/></svg>`}
+
+/* ================= cornice: menu, ricerca, piè di pagina, lingua ================= */
+function chrome(){
+  document.documentElement.lang=LANG;
+  document.getElementById("links").innerHTML=`<a href="#market" data-v="market">${L("Mercato","Market")}</a><a href="#deals" data-v="deals">Deal<span class="ct">${GOOD.length}</span></a><a href="#method" data-v="method">${L("Metodologia","Methodology")}</a>`;
+  const dp=document.getElementById("demopill");dp.textContent=L("Prototipo · dati demo","Prototype · demo data");dp.title=L("Valori graded, vendite e annunci sono simulati","Graded values, sales and listings are simulated");
+  q.placeholder=L("Cerca una carta","Search a card");q.setAttribute("aria-label",q.placeholder);
+  document.getElementById("ticker").setAttribute("aria-label",L("Quotazioni","Quotes"));
+  document.getElementById("foot1").textContent=L("Prototipo. Fair value, vendite, popolazioni e annunci sono simulati; immagini e prezzi raw di riferimento da TCGdex (22 ottobre 2026).","Prototype. Fair values, sales, populations and listings are simulated; images and reference raw prices from TCGdex (22 October 2026).");
+  document.getElementById("foot2").textContent=L("Costo reale calcolato per l'Italia. Non è consulenza finanziaria.","Landed cost calculated for Italy. Not financial advice.");
+  const lg=document.getElementById("lang");lg.setAttribute("aria-label",L("Lingua","Language"));
+  lg.innerHTML=LANGS.map(([k,s,n])=>`<button data-l="${k}" class="${k===LANG?"on":""}" title="${n}" aria-pressed="${k===LANG}">${s}</button>`).join("");
+  const it=ATOMS.slice(0,16).map(a=>`<a class="tk" href="#card-${a.card.id}">${img(a.card,"")}<b>${esc(a.card.n)}</b><span class="g">${code(a.card)} · ${a.g}</span><span class="num">${eurs(a.fv)}</span>${chg(a.c30)}</a>`).join("");
+  document.getElementById("tape").innerHTML=it+it;
+}
+const q=document.getElementById("q"),qres=document.getElementById("qres");let sel=0;
+function search(term,box){term=term.trim().toLowerCase();if(!term){box.hidden=true;return[]}
+  const h=cards.filter(c=>(c.n+" "+c.set+" "+c.no).toLowerCase().includes(term)).slice(0,7);
+  box.innerHTML=h.length?h.map((c,i)=>`<a href="#card-${c.id}" class="${i===sel?"sel":""}">${img(c,"")}<span><b>${esc(c.n)} #${c.no}</b><small>${esc(c.set)} · PSA 10 ${eurs(c.atoms[0].fv)}</small></span></a>`).join(""):`<div style="padding:10px;color:var(--muted);font-size:13px">${L(`Nessuna carta per “${esc(term)}” nel dataset demo (${cards.length} carte).`,`No card matches “${esc(term)}” in the demo dataset (${cards.length} cards).`)}</div>`;box.hidden=false;return h}
+q.addEventListener("input",()=>{sel=0;search(q.value,qres)});
+q.addEventListener("keydown",e=>{const h=[...qres.querySelectorAll("a")];if(e.key==="ArrowDown"){sel=Math.min(sel+1,h.length-1);search(q.value,qres);e.preventDefault()}if(e.key==="ArrowUp"){sel=Math.max(0,sel-1);search(q.value,qres);e.preventDefault()}if(e.key==="Enter"&&h[sel]){location.hash=h[sel].getAttribute("href");q.blur()}if(e.key==="Escape"){qres.hidden=true;q.blur()}});
+q.addEventListener("blur",()=>setTimeout(()=>qres.hidden=true,150));
+document.addEventListener("keydown",e=>{if(e.key==="/"&&!/INPUT|SELECT/.test(document.activeElement.tagName)){e.preventDefault();q.focus()}});
+document.getElementById("lang").addEventListener("click",e=>{const b=e.target.closest("button[data-l]");if(!b||b.dataset.l===LANG)return;LANG=b.dataset.l;try{localStorage.setItem("sw-lang",LANG)}catch(err){}chrome();route(true)});
+
+/* ================= grafici ================= */
+function gauge(v){const a=Math.PI*(1-v/100),cx=120,cy=112,R=92,x=cx+R*Math.cos(a),y=cy-R*Math.sin(a);
+  const seg=(f,t,col)=>{const a1=Math.PI*(1-f/100),a2=Math.PI*(1-t/100);return`<path d="M${cx+R*Math.cos(a1)} ${cy-R*Math.sin(a1)} A${R} ${R} 0 0 1 ${cx+R*Math.cos(a2)} ${cy-R*Math.sin(a2)}" stroke="${col}" stroke-width="14" fill="none"/>`};
+  return`<svg class="gauge" viewBox="0 0 240 132" width="100%" style="max-width:260px" role="img" aria-label="Fear and Greed ${v}">
+  ${seg(0,24.5,"var(--down)")}${seg(25.5,44.5,"color-mix(in srgb,var(--down) 55%,var(--warn))")}${seg(45.5,55.5,"var(--warn)")}${seg(56.5,74.5,"color-mix(in srgb,var(--up) 60%,var(--warn))")}${seg(75.5,100,"var(--up)")}
+  <line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="var(--fg)" stroke-width="3" stroke-linecap="round"/><circle cx="${cx}" cy="${cy}" r="7" fill="var(--fg)"/>
+  <text x="${cx}" y="${cy-28}" text-anchor="middle" font-size="30" font-weight="800">${v}</text></svg>`}
+function lineChart(vals,labels,{h=200,fmt=v=>Math.round(v).toLocaleString(LOC())}={}){
+  const w=640,p={l:56,r:12,t:12,b:24},lo0=Math.min(...vals),hi0=Math.max(...vals),sp=(hi0-lo0)||hi0*0.05,lo=lo0-sp*.12,hi=hi0+sp*.12;
+  const X=i=>p.l+(w-p.l-p.r)*i/(vals.length-1),Y=v=>p.t+(h-p.t-p.b)*(1-(v-lo)/(hi-lo));
+  const d=vals.map((v,i)=>(i?"L":"M")+X(i).toFixed(1)+" "+Y(v).toFixed(1)).join(" "),ticks=[0,1,2,3].map(k=>lo+(hi-lo)*k/3);
+  return`<svg class="chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="${L("Andamento dell'indice","Index trend")}"><defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#6ef0ff"/><stop offset=".5" stop-color="#9d8cff"/><stop offset="1" stop-color="#ff8ad8"/></linearGradient><linearGradient id="la" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#9d8cff" stop-opacity=".28"/><stop offset="1" stop-color="#9d8cff" stop-opacity="0"/></linearGradient></defs>
+  ${ticks.map(t=>`<line x1="${p.l}" x2="${w-p.r}" y1="${Y(t)}" y2="${Y(t)}" stroke="var(--line)"/><text x="${p.l-8}" y="${Y(t)+4}" text-anchor="end">${fmt(t)}</text>`).join("")}
+  ${labels.map(([i,t])=>`<text x="${X(i)}" y="${h-6}" text-anchor="middle">${t}</text>`).join("")}
+  <path d="${d} L${X(vals.length-1)} ${h-p.b} L${X(0)} ${h-p.b}Z" fill="url(#la)"/><path d="${d}" fill="none" stroke="url(#lg)" stroke-width="2.6" stroke-linejoin="round"/>
+  <circle cx="${X(vals.length-1)}" cy="${Y(vals.at(-1))}" r="5" fill="#ff8ad8"/></svg>`}
+function salesChart(a,range){
+  const w=660,h=270,p={l:62,r:14,t:14,b:26},Ls=a.list.filter(o=>o.age<=range);
+  const all=Ls.map(o=>o.price).concat([a.fv]).filter(isFinite);const lo=Math.log(Math.min(...all)*0.85),hi=Math.log(Math.max(...all)*1.15);
+  const X=age=>p.l+(w-p.l-p.r)*(1-age/range),Y=v=>p.t+(h-p.t-p.b)*(1-(Math.log(v)-lo)/(hi-lo));
+  const ticks=[0,1,2,3,4].map(k=>Math.exp(lo+(hi-lo)*k/4));
+  const ser=a.series.map((v,k)=>({age:(12-k)*7,v})).filter(o=>o.age<=range&&isFinite(o.v));
+  const fvp=ser.map((o,i)=>(i?"L":"M")+X(o.age).toFixed(1)+" "+Y(o.v).toFixed(1)).join(" ");
+  const days=range===30?[30,20,10,0]:range===90?[90,60,30,0]:[180,120,60,0];
+  const dots=Ls.map(o=>o.st==="no"
+    ?`<g><title>${esc(why(o.why))} · ${eur(o.price)}</title><path d="M${X(o.age)-4} ${Y(o.price)-4}l8 8M${X(o.age)+4} ${Y(o.price)-4}l-8 8" stroke="var(--down)" stroke-width="2" stroke-linecap="round"/></g>`
+    :`<circle cx="${X(o.age)}" cy="${Y(o.price)}" r="${o.st==="lo"?4:5}" fill="${o.st==="lo"?"var(--warn)":o.certOk?"#6ef0ff":"var(--accent)"}" stroke="var(--panel)" stroke-width="1.5"><title>${esc(why(o.why))} · ${eur(o.price)}</title></circle>`).join("");
+  return`<svg class="chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="${L("Vendite e fair value, scala logaritmica","Sales and fair value, log scale")}"><defs><linearGradient id="fvg" x1="0" x2="1"><stop offset="0" stop-color="#6ef0ff"/><stop offset=".55" stop-color="#9d8cff"/><stop offset="1" stop-color="#ff8ad8"/></linearGradient></defs>
+  ${ticks.map(t=>`<line x1="${p.l}" x2="${w-p.r}" y1="${Y(t)}" y2="${Y(t)}" stroke="var(--line)"/><text x="${p.l-8}" y="${Y(t)+4}" text-anchor="end">${eurs(t)}</text>`).join("")}
+  ${days.map(d=>`<text x="${X(d)}" y="${h-7}" text-anchor="middle">${d?"-"+d+L("g","d"):L("oggi","today")}</text>`).join("")}
+  ${fvp?`<path d="${fvp}" fill="none" stroke="url(#fvg)" stroke-width="3" stroke-linejoin="round" opacity=".95"/>`:""}${dots}</svg>`}
+
+/* ================= viste ================= */
+const V={};
+let sortKey="cap",sortDir=-1,gradeView=0;
+V.market=()=>{const best=GOOD[0];
+  return`
+  <section class="hero">
+    <div class="panel pad" style="display:grid;align-content:space-between;gap:18px;background:linear-gradient(150deg,var(--panel-2),var(--panel))">
+      <div>
+        <div class="eyebrow">${L("Carte Pokémon graded · costo reale in Italia","Graded Pokémon cards · landed cost in Italy")}</div>
+        <h1 style="margin-top:14px">${L(`Compra lo slab giusto, al <em class="holo">prezzo giusto</em>.`,`Buy the right slab at the <em class="holo">right price</em>.`)}</h1>
+        <p>${L("Fair value per ogni grado costruito solo da vendite verificate, con ogni vendita scartata mostrata e spiegata. E deal calcolati su quanto paghi davvero, IVA e spedizione comprese.","A fair value for every grade, built only from verified sales, with every rejected sale shown and explained. And deals measured on what you actually pay, VAT and shipping included.")}</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn" href="#deals">${L(`Vedi i ${GOOD.length} deal di oggi →`,`See today's ${GOOD.length} deals →`)}</a>
+        <a class="btn ghost" href="#method">${L("Leggi la metodologia","Read the methodology")}</a>
+      </div>
+    </div>
+    <div class="kpis">
+      <div class="panel kpi"><span class="eyebrow">${L("Market cap graded","Graded market cap")}</span><span class="big num">${eur(TOTAL)}</span><small>${L(`${int(TOTPOP)} slab PSA tracciati`,`${int(TOTPOP)} PSA slabs tracked`)}</small></div>
+      <div class="panel kpi"><span class="eyebrow">${L("Indice SW25","SW25 index")}</span><span class="big num">${fx(IDX.at(-1),1)}</span><small>${chg(IDX.at(-1)/IDX[0]-1)} ${L("in 12 settimane","over 12 weeks")}</small>${spark(IDX,150,30)}</div>
+      <a class="panel kpi" href="#method" style="grid-row:span 2;justify-items:center;text-align:center"><span class="eyebrow">Fear &amp; Greed</span>${gauge(FG.v)}<b style="font-family:var(--f-display);font-size:16px">${FGL(FG.v)}</b>
+        <div style="display:grid;gap:6px;width:100%;text-align:left">${FG.f.map(([k,v])=>`<div style="display:grid;grid-template-columns:1fr 34px;gap:8px;align-items:center;font-size:12px;color:var(--muted)"><span>${FGF(k)}<div class="meter" style="height:5px;margin-top:3px"><i style="width:${v}%"></i></div></span><span class="num" style="text-align:right">${Math.round(v)}</span></div>`).join("")}</div></a>
+      <div class="panel kpi"><span class="eyebrow">${L("Vendite scartate","Rejected sales")}</span><span class="big num" style="color:var(--down)">${int(EXCL.length)}</span><small>${L(`su ${int(ALLSALES.length)} registrate`,`of ${int(ALLSALES.length)} recorded`)} (${pct(EXCL.length/ALLSALES.length,0)})</small></div>
+    </div>
+  </section>
+  ${best?`<a class="panel pad" href="#deals" style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;border-color:transparent;background:linear-gradient(var(--panel),var(--panel)) padding-box,var(--holo) border-box;border:1.5px solid transparent">
+    <span class="eyebrow">${L("Miglior deal adesso","Best deal right now")}</span>${img(best.a.card)}<b>${esc(best.a.card.n)} #${best.a.card.no} · ${best.a.g}</b><span class="flag ${best.eu?"eu":""}">${best.cc}</span>
+    <span style="color:var(--muted)">${L("costo reale","landed cost")} <b class="num" style="color:var(--fg)">${eur(best.landed)}</b> ${L("contro fair value","vs fair value")} <b class="num" style="color:var(--fg)">${eur(best.a.fv)}</b></span><span class="save" style="margin-left:auto">${pct(-best.disc)}</span></a>`:""}
+  <div class="sec-h"><div><h2>${L("Classifica per market cap","Ranked by market cap")}</h2><p>${L("Fair value × popolazione. Clicca sulle colonne per ordinare.","Fair value × population. Click a column to sort.")}</p></div>
+    <div class="tabs" id="gtabs">${GRADES.map((g,i)=>`<button data-i="${i}" class="${i===gradeView?"on":""}">${g}</button>`).join("")}<button data-i="all" class="${gradeView==="all"?"on":""}">${L("Tutti","All")}</button></div></div>
+  <div class="panel scroll"><table class="tbl" id="rank"><thead></thead><tbody></tbody></table></div>`};
+V.market.after=()=>{
+  const cols=[["#","rank",0],[L("Carta","Card"),"name",0,"l"],[L("Grado","Grade"),"g",0],["Fair value","fv",1],[L("7g","7d"),"c7",1],[L("30g","30d"),"c30",1],["Market cap","cap",1],[L("Volume 30g","30d volume"),"vol30",1],["Pop.","pop",1],[L("Evidenza","Evidence"),"score",1],[L("12 settimane","12 weeks"),"sp",0]];
+  const draw=()=>{
+    let rows=(gradeView==="all"?[...ATOMS]:ATOMS.filter(a=>a.i===+gradeView)).filter(a=>isFinite(a.fv));
+    if(sortKey!=="cap"||sortDir!==-1)rows.sort((x,y)=>{const a=sortKey==="name"?x.card.n:x[sortKey],b=sortKey==="name"?y.card.n:y[sortKey];return(a>b?1:a<b?-1:0)*sortDir});
+    document.querySelector("#rank thead").innerHTML=`<tr>${cols.map(([t,k,s,c])=>`<th class="${c||""} ${s?"s":""} ${sortKey===k?"on":""}" data-k="${k}">${t}${sortKey===k?(sortDir<0?" ↓":" ↑"):""}</th>`).join("")}</tr>`;
+    document.querySelector("#rank tbody").innerHTML=rows.map((a,i)=>`<tr data-h="#card-${a.card.id}" data-gi="${a.i}" style="cursor:pointer">
+      <td class="num" style="color:var(--faint)">${i+1}</td><td class="l"><span class="cell">${img(a.card)}<span><b>${esc(a.card.n)} #${a.card.no}</b><small>${esc(a.card.set)}</small></span></span></td>
+      <td><span class="grade">${a.g}</span></td><td class="num" style="font-weight:600">${eur(a.fv)}</td><td>${chg(a.c7)}</td><td>${chg(a.c30)}</td><td class="num">${eur(a.cap)}</td><td class="num">${eur(a.vol30)}</td><td class="num">${int(a.pop)}</td><td>${ev(a.score)}</td><td>${spark(a.series)}</td></tr>`).join("")};
+  draw();
+  document.querySelector("#rank thead").addEventListener("click",e=>{const th=e.target.closest("th.s");if(!th)return;const k=th.dataset.k;if(sortKey===k)sortDir*=-1;else{sortKey=k;sortDir=-1}draw()});
+  document.querySelector("#rank tbody").addEventListener("click",e=>{const tr=e.target.closest("tr[data-h]");if(tr){gradeSel=+tr.dataset.gi;keepGrade=true;location.hash=tr.dataset.h}});
+  document.getElementById("gtabs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;gradeView=b.dataset.i==="all"?"all":+b.dataset.i;[...b.parentNode.children].forEach(x=>x.classList.toggle("on",x===b));draw()});
+};
+
+let gradeSel=0,keepGrade=false,salesFilter="all",range=180;
+V.card=id=>{const c=byId[id];if(!c)return V.nf();const a=c.atoms[gradeSel];
+  const ex=a.list.filter(o=>o.st==="no"),plat={};a.inc.filter(o=>o.age<=90).forEach(o=>plat[o.plat]=(plat[o.plat]||0)+o.price);const ptot=Object.values(plat).reduce((s,x)=>s+x,0)||1;
+  const myDeals=DEALS.filter(d=>d.a.card===c).slice(0,3);
+  return`
+  <div class="crumbs"><a href="#market">${L("Mercato","Market")}</a>/<span>${esc(c.set)}</span>/<span>${code(c)}${c.no}:EN</span></div>
+  <div class="gradestrip" id="gstrip">${c.atoms.map((x,i)=>`<button data-i="${i}" class="${i===gradeSel?"on":""}"><b>${x.g}</b><span>${eurs(x.fv)}</span></button>`).join("")}
+    <button disabled style="cursor:default;opacity:.7"><b>RAW NM · ${L("reale","real")}</b><span>${eurs(c.raw)}</span></button></div>
+  <div class="cgrid">
+    <div class="slab"><div class="lab"><span>${esc(c.set)} · ${c.no}/${c.tot}<br>${esc(c.n)}</span><b>${a.g.replace("PSA ","")}</b></div>
+      ${c.img?`<img src="${c.img}" alt="${esc(c.n)}">`:`<div class="noimg">${L("immagine non disponibile","image not available")}</div>`}
+      <h1 style="font-size:26px;margin-top:16px">${esc(c.n)} <span style="color:var(--faint)">#${c.no}</span></h1>
+      <div style="color:var(--muted);font-size:13px;margin-top:4px">${esc(c.r||"")} · ${(c.ty||[]).join(" ")} · ill. ${esc(c.ill||"–")}</div></div>
+
+    <div class="stack">
+      <div class="panel pad fvbox">
+        <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap"><span class="eyebrow">Fair value · ${a.g}</span>${ev(a.score)}</div>
+        <div class="price num holo">${eur(a.fv)}</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><span class="eyebrow">${L("7g","7d")}</span>${chg(a.c7)}<span class="eyebrow" style="margin-left:8px">${L("30g","30d")}</span>${chg(a.c30)}</div>
+        <div style="margin-top:16px;font-size:13px;color:var(--muted)">${L(`Costruito da <b style="color:var(--fg)">${a.n} vendite incluse</b> su ${a.list.length}, di cui ${a.inc.filter(o=>o.certOk).length} con cert verificato. Evidenza ${a.score}/100.`,`Built from <b style="color:var(--fg)">${a.n} included sales</b> out of ${a.list.length}, ${a.inc.filter(o=>o.certOk).length} with a verified cert. Evidence ${a.score}/100.`)}</div>
+        <div class="meter"><i style="width:${a.score}%"></i></div>
+        <div class="stats4">
+          <div><span class="eyebrow">Market cap</span><span class="num">${eurs(a.cap)}</span><small>${L("fair value × pop.","fair value × pop.")}</small></div>
+          <div><span class="eyebrow">${L("Popolazione","Population")}</span><span class="num">${int(a.pop)}</span><small>slab ${a.g}</small></div>
+          <div><span class="eyebrow">${L("Volume 30g","30d volume")}</span><span class="num">${eurs(a.vol30)}</span><small>${L("vendite incluse","included sales")}</small></div>
+          <div><span class="eyebrow">${a.i===0?"Gem rate":L("Scartate","Rejected")}</span><span class="num">${a.i===0?pct(c.atoms[0].gem,0):ex.length}</span><small>${a.i===0?L("quota PSA 10","PSA 10 share"):L("vendite escluse","excluded sales")}</small></div>
+        </div>
+      </div>
+      <div class="panel pad">
+        <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:8px"><h2>${L("Vendite e fair value","Sales and fair value")}</h2>
+          <div class="tabs" id="rtabs">${[30,90,180].map(d=>`<button data-r="${d}" class="${range===d?"on":""}">${d}${L("g","d")}</button>`).join("")}</div></div>
+        <div id="sc">${salesChart(a,range)}</div>
+        <div class="legend"><span><i class="dot" style="background:#6ef0ff"></i>${L("Inclusa, cert verificato","Included, cert verified")}</span><span><i class="dot" style="background:var(--accent)"></i>${L("Inclusa","Included")}</span><span><i class="dot" style="background:var(--warn)"></i>${L("Peso ridotto","Reduced weight")}</span><span style="color:var(--down)">✕ ${L("Scartata","Rejected")}</span><span>— ${L("Fair value settimanale · scala logaritmica","Weekly fair value · log scale")}</span></div>
+      </div>
+      <div class="panel pad">
+        <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:6px"><div><h2>${L("Ogni vendita, con il motivo","Every sale, with the reason")}</h2><p style="color:var(--muted);font-size:13px;margin:4px 0 0">${L("Nessuna scatola nera: ecco cosa entra nel prezzo e cosa no.","No black box: here is what goes into the price and what doesn't.")}</p></div>
+          <div class="tabs" id="stabs"><button data-f="all" class="${salesFilter==="all"?"on":""}">${L("Tutte","All")} ${a.list.length}</button><button data-f="in" class="${salesFilter==="in"?"on":""}">${L("Incluse","Included")} ${a.inc.length}</button><button data-f="no" class="${salesFilter==="no"?"on":""}">${L("Scartate","Rejected")} ${ex.length}</button></div></div>
+        <div id="slist"></div>
+      </div>
+    </div>
+
+    <aside class="side stack">
+      <div class="panel pad"><h3 style="margin-bottom:10px">${L("Scala dei gradi","Grade ladder")}</h3>
+        <div class="scroll"><table class="ladder" id="ladder"><thead><tr><th>${L("Grado","Grade")}</th><th>Fair value</th><th>${L("30g","30d")}</th><th>Pop.</th></tr></thead>
+        <tbody>${c.atoms.map((x,i)=>`<tr data-i="${i}" class="${i===gradeSel?"on":""}"><td><span class="grade">${x.g}</span></td><td class="num">${eurs(x.fv)}</td><td>${chg(x.c30)}</td><td class="num">${int(x.pop)}</td></tr>`).join("")}
+        <tr style="cursor:default"><td><span class="grade" style="background:var(--panel-2);color:var(--fg)">RAW</span></td><td class="num">${eurs(c.raw)}</td><td>${chg(c.cm30?(c.raw-c.cm30)/c.cm30:NaN)}</td><td class="num">–</td></tr></tbody></table></div>
+        <p class="note" style="margin:12px 0 0">${L("Il raw è reale (Cardmarket via TCGdex) e fa da pavimento: nessuna vendita graded può valere meno.","The raw price is real (Cardmarket via TCGdex) and acts as a floor: no graded sale can be worth less.")}</p></div>
+      <div class="panel pad"><h3 style="margin-bottom:12px">${L("Dove si vende · 90g","Where it sells · 90d")}</h3>
+        <div class="bars">${Object.entries(plat).sort((x,y)=>y[1]-x[1]).map(([k,v])=>`<div class="b"><span>${k}</span><div class="track"><i style="width:${(v/ptot*100).toFixed(1)}%"></i></div><span class="num" style="text-align:right">${Math.round(v/ptot*100)}%</span></div>`).join("")||`<span style="color:var(--muted);font-size:13px">${L("Nessuna vendita recente","No recent sales")}</span>`}</div></div>
+      <div class="panel pad"><h3 style="margin-bottom:6px">${L("Deal attivi su questa carta","Active deals on this card")}</h3>
+        ${myDeals.length?myDeals.map(d=>`<a href="#deals" class="sale" style="grid-template-columns:auto minmax(0,1fr) auto"><span class="grade">${d.a.g}</span><span class="t"><b>${d.src}</b><small>${d.eu?L("UE, niente dogana","EU, no customs"):L("extra-UE, IVA inclusa","non-EU, VAT included")}</small></span><span class="p"><span class="num">${eur(d.landed)}</span>${chg(-d.disc)}</span></a>`).join(""):`<p style="color:var(--muted);font-size:13px;margin:0">${L("Nessun annuncio sotto il fair value ora.","No listings below fair value right now.")}</p>`}</div>
+    </aside>
+  </div>`};
+V.card.after=id=>{const c=byId[id];if(!c)return;const a=c.atoms[gradeSel];
+  const drawList=()=>{const Ls=a.list.filter(o=>salesFilter==="all"||(salesFilter==="in"?o.st!=="no":o.st==="no"));
+    document.getElementById("slist").innerHTML=Ls.slice(0,40).map(o=>`<div class="sale ${o.st==="no"?"ex":""}"><span class="flag ${EU.has(o.cc)?"eu":""}">${o.cc}</span>
+      <span class="t"><b title="${esc(o.ttl)}">${esc(o.ttl)}</b><small>${o.plat} · ${ago(o.age)} · ${o.seller}</small></span>
+      <span class="p"><span class="num">${eur(o.price)}</span><span class="why ${o.st==="no"?"no":o.st==="lo"?"lo":"ok"}">${esc(why(o.why))}</span></span></div>`).join("")+(Ls.length>40?`<p style="color:var(--faint);font-size:12.5px;margin:10px 0 0">${L(`Mostrate 40 di ${Ls.length}.`,`Showing 40 of ${Ls.length}.`)}</p>`:"")};
+  drawList();
+  document.getElementById("gstrip").addEventListener("click",e=>{const b=e.target.closest("button[data-i]");if(!b)return;gradeSel=+b.dataset.i;route(true)});
+  document.getElementById("ladder").addEventListener("click",e=>{const r=e.target.closest("tr[data-i]");if(!r)return;gradeSel=+r.dataset.i;route(true)});
+  document.getElementById("rtabs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;range=+b.dataset.r;[...b.parentNode.children].forEach(x=>x.classList.toggle("on",x===b));document.getElementById("sc").innerHTML=salesChart(a,range)});
+  document.getElementById("stabs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;salesFilter=b.dataset.f;[...b.parentNode.children].forEach(x=>x.classList.toggle("on",x===b));drawList()});
+};
+
+let F={eu:false,max:"",min:12,g:"all",trust:true};
+V.deals=()=>`
+  <div class="crumbs"><a href="#market">${L("Mercato","Market")}</a>/<span>Deal</span></div>
+  <div><h1 style="font-size:clamp(26px,3.6vw,40px)">${L(`Deal sul <span class="holo">costo reale</span>`,`Deals on <span class="holo">landed cost</span>`)}</h1>
+    <p style="color:var(--muted);max-width:62ch;margin:10px 0 0">${L("Prezzo + spedizione + IVA all'importazione + sdoganamento + commissioni d'asta, confrontato con il fair value. Un -20% dagli USA può diventare un +5% a casa tua: qui lo vedi subito.","Price + shipping + import VAT + customs handling + auction fees, compared with the fair value. A -20% deal from the US can become +5% by the time it reaches you: here you see it immediately.")}</p></div>
+  <div class="filters" style="margin-top:20px">
+    <label>${L("Grado","Grade")}<select id="fg"><option value="all">${L("Tutti","All")}</option>${GRADES.map((g,i)=>`<option value="${i}" ${String(F.g)===String(i)?"selected":""}>${g}</option>`).join("")}</select></label>
+    <label>${L("Budget max (€)","Max budget (€)")}<input id="fmax" type="number" min="0" step="50" placeholder="${L("nessuno","none")}" value="${F.max}"></label>
+    <label>${L("Sconto minimo","Minimum discount")}<select id="fmin">${[0,5,12,20,30].map(v=>`<option value="${v}" ${F.min===v?"selected":""}>${v}%</option>`).join("")}</select></label>
+    <label class="chk"><input id="feu" type="checkbox" ${F.eu?"checked":""}> ${L("Solo venditori UE","EU sellers only")}</label>
+    <label class="chk"><input id="ftr" type="checkbox" ${F.trust?"checked":""}> ${L("Solo fair value affidabile","Reliable fair value only")}</label>
+  </div>
+  <div id="dsum" style="color:var(--muted);font-size:13.5px;margin-bottom:14px"></div>
+  <div class="dgrid" id="dlist"></div>
+  <p class="note" style="margin-top:22px">${L("<b>Come calcoliamo il costo reale per l'Italia.</b> Venditori UE: niente dogana, contano prezzo e spedizione. Extra-UE: IVA al 22% su prezzo e spedizione; sotto i 150 € eBay la incassa al checkout (IOSS), sopra la riscuote il corriere con una commissione di sdoganamento stimata. Eventuali dazi non sono inclusi: da verificare.","<b>How we calculate landed cost for Italy.</b> EU sellers: no customs, only price and shipping count. Non-EU: 22% VAT on price and shipping; under €150 eBay collects it at checkout (IOSS), above that the courier collects it with an estimated clearance fee. Customs duties, if any, are not included: to be verified.")}</p>`;
+function ring(s){const R=24,C=2*Math.PI*R;return`<svg class="ring" viewBox="0 0 58 58" aria-label="${L("Punteggio","Score")} ${s}"><defs><linearGradient id="rg" x1="0" x2="1"><stop offset="0" stop-color="#6ef0ff"/><stop offset=".5" stop-color="#9d8cff"/><stop offset="1" stop-color="#ff8ad8"/></linearGradient></defs><circle cx="29" cy="29" r="${R}" fill="none" stroke="var(--line)" stroke-width="5"/><circle cx="29" cy="29" r="${R}" fill="none" stroke="url(#rg)" stroke-width="5" stroke-linecap="round" stroke-dasharray="${C*s/100} ${C}" transform="rotate(-90 29 29)"/><text x="29" y="34" text-anchor="middle">${s}</text></svg>`}
+const fmtT=m=>m<60?m+" min":Math.floor(m/60)+"h "+String(m%60).padStart(2,"0");
+V.deals.after=()=>{
+  const draw=()=>{const Ls=DEALS.filter(d=>(F.g==="all"||d.a.i===+F.g)&&(!F.eu||d.eu)&&(!F.max||d.landed<=+F.max)&&d.disc*100>=F.min&&(!F.trust||d.a.score>=40));
+    document.getElementById("dsum").textContent=L(`${Ls.length} annunci su ${DEALS.length} monitorati · ordinati per punteggio`,`${Ls.length} of ${DEALS.length} monitored listings · sorted by score`);
+    document.getElementById("dlist").innerHTML=Ls.length?Ls.map(d=>`<article class="panel deal">
+      <div class="top">${img(d.a.card)}<span class="t"><b>${esc(d.a.card.n)} #${d.a.card.no}</b><small>${esc(d.a.card.set)}</small></span>${ring(d.sc)}</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center"><span class="grade">${d.a.g}</span><span class="flag ${d.eu?"eu":""}">${d.cc} · ${d.src}</span>${d.certOk?`<span class="why ok">${L("Cert verificato","Cert verified")}</span>`:`<span class="why lo">${L("Cert da verificare","Cert to verify")}</span>`}${d.auction?`<span class="timer" data-end="${d.ends}">⏱ ${fmtT(d.ends)}</span>`:`<span class="flag">${L("Compralo subito","Buy it now")}</span>`}</div>
+      <div class="breakdown">
+        <div><span>${L("Prezzo","Price")}</span><span class="num">${eur(d.price,1)}</span></div>
+        <div><span>${L("Spedizione","Shipping")}</span><span class="num">${eur(d.ship,1)}</span></div>
+        ${d.premium?`<div><span>${L("Commissione acquirente","Buyer's premium")}</span><span class="num">${eur(d.premium,1)}</span></div>`:""}
+        ${d.eu?`<div><span>${L("Dogana e IVA","Customs and VAT")}</span><span class="num">€0 · ${L("UE","EU")}</span></div>`:`<div><span>${L("IVA import 22%","Import VAT 22%")}${d.ioss?L(" (IOSS al checkout)"," (IOSS at checkout)"):""}</span><span class="num">${eur(d.iva,1)}</span></div>${d.fee?`<div><span>${L("Sdoganamento corriere","Courier clearance fee")}</span><span class="num">${eur(d.fee,1)}</span></div>`:""}`}
+        <div class="tot"><span>${L("Costo reale","Landed cost")}</span><span class="num">${eur(d.landed,1)}</span></div>
+      </div>
+      <div class="vs"><span style="font-size:13px;color:var(--muted)">Fair value <b class="num" style="color:var(--fg)">${eur(d.a.fv)}</b><br>${ev(d.a.score)}</span><span class="save" style="color:${d.disc>=0?"var(--up)":"var(--down)"}">${pct(-d.disc)}</span></div>
+      <div style="display:flex;gap:8px"><a class="btn" style="flex:1;height:38px" href="#card-${d.a.card.id}" data-gi="${d.a.i}">${L("Analizza la carta","Analyse the card")}</a></div>
+      <small style="color:var(--faint);font-size:12px">${L(`Venditore ${d.seller} · ${d.fb}% feedback positivi`,`Seller ${d.seller} · ${d.fb}% positive feedback`)}</small>
+    </article>`).join(""):`<div class="panel pad" style="grid-column:1/-1;text-align:center;color:var(--muted)">${L("Nessun annuncio con questi filtri. Prova ad abbassare lo sconto minimo o ad allargare il budget.","No listings match these filters. Try a lower minimum discount or a larger budget.")}</div>`};
+  draw();
+  const on=(id,evn,fn)=>document.getElementById(id).addEventListener(evn,fn);
+  on("fg","change",e=>{F.g=e.target.value;draw()});on("fmax","input",e=>{F.max=e.target.value;draw()});on("fmin","change",e=>{F.min=+e.target.value;draw()});
+  on("feu","change",e=>{F.eu=e.target.checked;draw()});on("ftr","change",e=>{F.trust=e.target.checked;draw()});
+  document.getElementById("dlist").addEventListener("click",e=>{const b=e.target.closest("a[data-gi]");if(b){gradeSel=+b.dataset.gi;keepGrade=true}});
+};
+
+/*__METHOD__*/
+
+V.nf=()=>`<h1 style="font-size:30px">${L("Pagina non trovata","Page not found")}</h1><p style="color:var(--muted)">${L("Questo indirizzo non corrisponde a nessuna carta del dataset demo.","This address doesn't match any card in the demo dataset.")}</p><a class="btn" href="#market">${L("Torna al mercato","Back to the market")}</a>`;
+
+/* router */
+let lastCard=null;
+function route(keep){const h=(location.hash||"#market").slice(1);let html,after,key=h;
+  if(h.startsWith("card-")){const id=h.slice(5);if(id!==lastCard){if(!keepGrade)gradeSel=0;lastCard=id;salesFilter="all"}keepGrade=false;html=V.card(id);after=()=>V.card.after(id);key="market"}
+  else if(V[h]&&!["card","nf"].includes(h)){html=V[h]();after=V[h].after}
+  else{html=V.market();after=V.market.after;key="market"}
+  document.getElementById("view").innerHTML=html;after&&after();
+  document.querySelectorAll("#links a").forEach(a=>a.classList.toggle("on",a.dataset.v===key));
+  if(!keep)window.scrollTo(0,0)}
+addEventListener("hashchange",()=>route());
+chrome();route();
+setInterval(()=>{document.querySelectorAll(".timer[data-end]").forEach(t=>{let m=+t.dataset.end-1;if(m<0)m=0;t.dataset.end=m;t.textContent="⏱ "+fmtT(m)})},60000);
+</script>

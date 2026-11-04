@@ -1,0 +1,914 @@
+<title>Slabwise</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: terminale notturno con bagliore olografico (il "foil" di una carta holo) usato solo su logo, fair value e punteggio deal. Colonna 1240px, viste via #hash. */
+:root{
+  --bg:#0b0d1a; --bg-2:#10132a; --panel:#141834; --panel-2:#1b2045; --line:#272d5c; --line-2:#343b73;
+  --fg:#eef0ff; --muted:#a3a8d4; --faint:#6e74a6;
+  --holo:linear-gradient(105deg,#6ef0ff 0%,#9d8cff 30%,#ff8ad8 58%,#ffd46b 82%,#6ef0ff 100%);
+  --accent:#9d8cff; --accent-ink:#0b0d1a;
+  --up:#4fe3a1; --up-bg:rgba(79,227,161,.12); --down:#ff6b81; --down-bg:rgba(255,107,129,.13);
+  --warn:#ffcc66; --warn-bg:rgba(255,204,102,.13);
+  --shadow:0 24px 60px -30px rgba(0,0,0,.8);
+  --f-display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --f-body:"Manrope","Segoe UI",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  --r:14px; color-scheme:dark;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+  --bg:#f3f3fb; --bg-2:#ebebf8; --panel:#ffffff; --panel-2:#f1f1fb; --line:#dfe0f0; --line-2:#cfd1ea;
+  --fg:#15172e; --muted:#555a85; --faint:#8a8eb3;
+  --accent:#6a54f0; --accent-ink:#ffffff;
+  --up:#0d8a58; --up-bg:rgba(13,138,88,.1); --down:#d12a48; --down-bg:rgba(209,42,72,.09);
+  --warn:#946000; --warn-bg:rgba(201,140,0,.12);
+  --shadow:0 24px 50px -30px rgba(40,40,90,.35); color-scheme:light}}
+:root[data-theme="light"]{
+  --bg:#f3f3fb; --bg-2:#ebebf8; --panel:#ffffff; --panel-2:#f1f1fb; --line:#dfe0f0; --line-2:#cfd1ea;
+  --fg:#15172e; --muted:#555a85; --faint:#8a8eb3;
+  --accent:#6a54f0; --accent-ink:#ffffff;
+  --up:#0d8a58; --up-bg:rgba(13,138,88,.1); --down:#d12a48; --down-bg:rgba(209,42,72,.09);
+  --warn:#946000; --warn-bg:rgba(201,140,0,.12);
+  --shadow:0 24px 50px -30px rgba(40,40,90,.35); color-scheme:light}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:15px/1.5 var(--f-body);margin:0;
+  background-image:radial-gradient(900px 420px at 85% -120px,rgba(157,140,255,.16),transparent 70%),radial-gradient(700px 360px at -10% 0,rgba(110,240,255,.08),transparent 70%);background-repeat:no-repeat}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.holo{background:var(--holo);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:foil 8s linear infinite}
+@keyframes foil{to{background-position:200% 0}}
+@media (prefers-reduced-motion:reduce){.holo,.tape{animation:none!important}}
+
+/* header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:6;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:22px;height:62px}
+.logo{display:flex;align-items:center;gap:10px;font:800 19px/1 var(--f-display);letter-spacing:-.02em}
+.logo .mark{width:26px;height:32px;border-radius:6px;background:var(--holo);background-size:200% 100%;animation:foil 8s linear infinite;position:relative;flex:none;box-shadow:0 0 18px rgba(157,140,255,.45)}
+.logo .mark::after{content:"";position:absolute;inset:3px;border-radius:4px;background:var(--bg)}
+.logo .mark::before{content:"";position:absolute;left:6px;right:6px;top:6px;height:5px;border-radius:2px;background:var(--holo);z-index:1}
+.links{display:flex;gap:2px;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none}
+.links a{padding:8px 13px;border-radius:9px;color:var(--muted);font-weight:600;font-size:14px;white-space:nowrap}
+.links a:hover{color:var(--fg);background:var(--panel)}
+.links a.on{color:var(--fg);background:var(--panel-2)}
+.links a .ct{font:600 11px var(--f-mono);margin-left:6px;padding:1px 6px;border-radius:5px;background:var(--up-bg);color:var(--up)}
+.demo-pill{font:600 10.5px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--warn);background:var(--warn-bg);padding:4px 8px;border-radius:6px;white-space:nowrap}
+.search{position:relative}
+.search input{width:230px;height:38px;border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:0 34px 0 12px;color:var(--fg);font:inherit;font-size:14px}
+.search kbd{position:absolute;right:9px;top:9px;font:11px var(--f-mono);border:1px solid var(--line-2);border-radius:4px;padding:1px 5px;color:var(--faint)}
+.results{position:absolute;top:44px;right:0;width:330px;max-width:calc(100vw - 32px);background:var(--panel);border:1px solid var(--line-2);border-radius:12px;box-shadow:var(--shadow);padding:6px;z-index:20}
+.results a{display:flex;gap:10px;align-items:center;padding:7px 8px;border-radius:8px}
+.results a:hover,.results a.sel{background:var(--panel-2)}
+.results img{width:28px;border-radius:3px}
+.results small{color:var(--muted);display:block;font-size:12px}
+
+/* tape */
+.ticker{border-bottom:1px solid var(--line);overflow:hidden;background:var(--bg-2)}
+.tape{display:flex;width:max-content;animation:tape 80s linear infinite}
+.ticker:hover .tape{animation-play-state:paused}
+@keyframes tape{to{transform:translateX(-50%)}}
+.tk{display:flex;align-items:center;gap:9px;padding:8px 18px;border-right:1px solid var(--line);white-space:nowrap;font-size:13px}
+.tk img{width:20px;border-radius:2px}
+.tk .g{font:600 10.5px var(--f-mono);color:var(--faint)}
+
+/* generic */
+main{padding-block:26px 70px}
+h1,h2,h3{font-family:var(--f-display);letter-spacing:-.025em;text-wrap:balance;margin:0;font-weight:700}
+h1{font-size:clamp(28px,4.4vw,54px);line-height:1.02;font-weight:800}
+h2{font-size:19px}
+h3{font-size:15px}
+.eyebrow{font:600 11px/1 var(--f-mono);text-transform:uppercase;letter-spacing:.1em;color:var(--faint)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r)}
+.pad{padding:20px}
+.crumbs{font:600 11.5px var(--f-mono);text-transform:uppercase;letter-spacing:.07em;color:var(--faint);display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.crumbs a:hover{color:var(--fg)}
+.chg{display:inline-flex;align-items:center;gap:3px;font:600 12px var(--f-mono);padding:2px 7px;border-radius:6px;white-space:nowrap}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.chg.flat{color:var(--muted);background:var(--panel-2)}
+.ev{display:inline-flex;align-items:center;gap:6px;font:600 11px var(--f-mono);color:var(--muted);white-space:nowrap}
+.ev i{display:inline-flex;gap:2px}
+.ev i b{width:4px;height:10px;border-radius:1px;background:var(--line-2)}
+.ev i b.on{background:var(--up)}
+.ev.lo i b.on{background:var(--warn)}
+.tabs{display:inline-flex;gap:2px;background:var(--bg-2);border:1px solid var(--line);padding:3px;border-radius:10px;flex-wrap:wrap}
+.tabs button{border:0;background:transparent;padding:6px 12px;border-radius:7px;font-size:13px;font-weight:600;color:var(--muted)}
+.tabs button.on{background:var(--panel-2);color:var(--fg);box-shadow:inset 0 0 0 1px var(--line-2)}
+.mini{width:34px;border-radius:4px;flex:none;background:var(--panel-2)}
+.grade{font:700 11px var(--f-mono);padding:3px 7px;border-radius:5px;background:var(--fg);color:var(--bg);white-space:nowrap}
+.flag{font:600 11px var(--f-mono);padding:2px 6px;border-radius:5px;border:1px solid var(--line-2);color:var(--muted);white-space:nowrap}
+.flag.eu{color:var(--up);border-color:color-mix(in srgb,var(--up) 40%,transparent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:42px;padding:0 18px;border-radius:11px;background:var(--fg);color:var(--bg);font-weight:700;border:0}
+.btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line-2)}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%}
+.tbl th,.tbl td{padding:12px 10px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+.tbl th{font:600 10.5px var(--f-mono);text-transform:uppercase;letter-spacing:.08em;color:var(--faint);position:sticky;top:0;background:var(--panel)}
+.tbl th.s{cursor:pointer;user-select:none}
+.tbl th.s:hover{color:var(--fg)}
+.tbl th.s.on{color:var(--fg)}
+.tbl .l{text-align:left}
+.tbl tbody tr{transition:background .12s}
+.tbl tbody tr:hover td{background:var(--panel-2)}
+.tbl tbody tr:last-child td{border-bottom:0}
+.cell{display:flex;align-items:center;gap:12px;min-width:220px}
+.cell b{display:block;font-weight:700}
+.cell small{color:var(--muted);font-size:12.5px}
+.note{font-size:13px;color:var(--muted);background:var(--bg-2);border:1px dashed var(--line-2);border-radius:10px;padding:12px 14px}
+.note b{color:var(--fg)}
+.foot{color:var(--faint);font-size:12.5px;border-top:1px solid var(--line);padding-block:22px 40px}
+.foot .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
+
+/* hero / market */
+.hero{display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:stretch;margin-bottom:22px}
+.hero h1 em{font-style:normal}
+.hero p{color:var(--muted);font-size:16.5px;max-width:52ch;margin:16px 0 20px}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.kpi{padding:16px 18px;display:grid;gap:6px;align-content:start}
+.kpi .big{font:700 24px/1.1 var(--f-display);letter-spacing:-.02em}
+.kpi small{color:var(--muted);font-size:12.5px}
+.gauge text{fill:var(--fg);font-family:var(--f-display)}
+.spark{display:block}
+.sec-h{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin:30px 0 12px}
+.sec-h p{margin:4px 0 0;color:var(--muted);font-size:13.5px}
+
+/* card page */
+.gradestrip{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:22px}
+.gradestrip button{flex:none;border:1px solid var(--line);background:var(--panel);border-radius:12px;padding:9px 16px;text-align:left;min-width:112px}
+.gradestrip button b{display:block;font:700 11.5px var(--f-mono);color:var(--faint);letter-spacing:.05em}
+.gradestrip button span{font:600 15px var(--f-mono)}
+.gradestrip button.on{border-color:transparent;background:linear-gradient(var(--panel-2),var(--panel-2)) padding-box,var(--holo) border-box;border:1.5px solid transparent}
+.gradestrip button.on b{color:var(--fg)}
+.cgrid{display:grid;grid-template-columns:300px minmax(0,1fr) 300px;gap:20px;align-items:start}
+.slab{padding:14px 14px 18px;background:linear-gradient(160deg,var(--panel-2),var(--panel));border:1px solid var(--line-2);border-radius:18px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.slab::after{content:"";position:absolute;inset:-40%;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.10) 48%,rgba(157,140,255,.12) 52%,transparent 60%);transform:translateX(-30%);transition:transform .8s;pointer-events:none}
+.slab:hover::after{transform:translateX(30%)}
+.slab .lab{display:flex;justify-content:space-between;align-items:center;gap:8px;background:var(--fg);color:var(--bg);border-radius:8px;padding:8px 11px;font:600 10px/1.3 var(--f-mono);margin-bottom:12px;text-transform:uppercase}
+.slab .lab b{font:800 22px/1 var(--f-display)}
+.slab img{width:100%;border-radius:8px;display:block}
+.slab .noimg{aspect-ratio:63/88;border-radius:8px;background:var(--bg-2);display:grid;place-items:center;color:var(--faint);font:12px var(--f-mono)}
+.fvbox .price{font:800 clamp(38px,5.2vw,58px)/1 var(--f-display);letter-spacing:-.035em;margin:10px 0 10px}
+.meter{height:8px;border-radius:4px;background:var(--bg-2);overflow:hidden;margin-top:6px}
+.meter i{display:block;height:100%;border-radius:4px;background:var(--holo)}
+.stats4{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);margin-top:18px}
+.stats4>div{padding:14px 12px 2px 0;display:grid;gap:4px}
+.stats4 .num{font-size:17px;font-weight:600}
+.stats4 small{color:var(--faint);font-size:11.5px}
+.chart{width:100%;height:auto;display:block}
+.chart text{fill:var(--faint);font:10.5px var(--f-mono)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin-top:8px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+.sale{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;padding:11px 2px;border-bottom:1px solid var(--line)}
+.sale:last-child{border-bottom:0}
+.sale .t{min-width:0}
+.sale .t b{display:block;font-size:13.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sale .t small{color:var(--muted);font-size:12px}
+.sale .p{text-align:right}
+.sale .p .num{display:block;font-weight:600}
+.sale.ex .p .num{text-decoration:line-through;color:var(--faint)}
+.why{font:600 11px var(--f-mono);padding:2px 7px;border-radius:5px;white-space:nowrap}
+.why.ok{color:var(--up);background:var(--up-bg)}
+.why.no{color:var(--down);background:var(--down-bg)}
+.why.lo{color:var(--warn);background:var(--warn-bg)}
+.ladder td,.ladder th{padding:10px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+.ladder th{font:600 10.5px var(--f-mono);text-transform:uppercase;letter-spacing:.08em;color:var(--faint)}
+.ladder td:first-child,.ladder th:first-child{text-align:left}
+.ladder tbody tr{cursor:pointer}
+.ladder tbody tr:hover td{background:var(--panel-2)}
+.ladder tr.on td{background:color-mix(in srgb,var(--accent) 14%,transparent)}
+.bars{display:grid;gap:10px}
+.bars .b{display:grid;grid-template-columns:110px minmax(0,1fr) 54px;gap:10px;align-items:center;font-size:13px}
+.bars .track{height:9px;background:var(--bg-2);border-radius:5px;overflow:hidden}
+.bars .track i{display:block;height:100%;border-radius:5px;background:var(--accent)}
+.stack{display:grid;gap:20px;min-width:0}
+
+/* deals */
+.dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.deal{padding:16px;display:grid;gap:14px;position:relative;transition:transform .15s,border-color .15s}
+.deal:hover{transform:translateY(-2px);border-color:var(--line-2)}
+.deal .top{display:flex;gap:12px;align-items:center}
+.deal .top img,.deal .top .mini{width:46px}
+.deal .top .t{flex:1;min-width:0}
+.deal .top .t b{display:block;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.deal .top .t small{color:var(--muted);font-size:12.5px}
+.ring{width:58px;height:58px;flex:none}
+.ring text{font:700 15px var(--f-display);fill:var(--fg)}
+.breakdown{display:grid;gap:4px;font-size:13px}
+.breakdown div{display:flex;justify-content:space-between;gap:8px;color:var(--muted)}
+.breakdown div.tot{color:var(--fg);font-weight:700;border-top:1px solid var(--line);padding-top:6px;margin-top:2px}
+.deal .vs{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.save{font:800 22px var(--f-display);letter-spacing:-.02em;color:var(--up)}
+.timer{font:600 12px var(--f-mono);color:var(--warn)}
+.filters{display:flex;gap:14px;flex-wrap:wrap;align-items:end;margin:4px 0 18px}
+.filters label{display:grid;gap:5px;font:600 11px var(--f-mono);text-transform:uppercase;letter-spacing:.07em;color:var(--faint)}
+.filters select,.filters input{height:38px;border:1px solid var(--line-2);background:var(--panel);color:var(--fg);border-radius:9px;padding:0 10px;font:500 14px var(--f-body)}
+.chk{display:flex!important;align-items:center;gap:8px;height:38px;text-transform:none!important;letter-spacing:0!important;font:600 13.5px var(--f-body)!important;color:var(--fg)!important}
+.steps{display:grid;gap:12px;counter-reset:s}
+.step{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:14px;align-items:start;padding:16px}
+.step::before{counter-increment:s;content:counter(s);width:36px;height:36px;border-radius:10px;display:grid;place-items:center;font:800 15px var(--f-display);background:var(--panel-2);border:1px solid var(--line-2)}
+.step p{margin:4px 0 0;color:var(--muted);font-size:14px}
+.step .num{font-size:20px;font-weight:600;color:var(--down)}
+
+/* metodologia */
+.mhero{display:grid;grid-template-columns:1.5fr 1fr;gap:28px;align-items:end;margin-bottom:22px}
+.lede{color:var(--muted);font-size:16.5px;max-width:64ch;margin:14px 0 0}
+.mkpi{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mkpi>div{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:grid;gap:4px}
+.mkpi .num{font-size:24px;font-weight:600}
+.mkpi small{color:var(--muted);font-size:12.5px}
+.toc{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px;padding:12px;background:var(--bg-2);border:1px solid var(--line);border-radius:12px}
+.toc a{display:inline-flex;gap:8px;align-items:center;padding:7px 11px;border-radius:8px;font-weight:600;font-size:13.5px;color:var(--muted)}
+.toc a:hover{background:var(--panel);color:var(--fg)}
+.toc a .num{font-size:11px;color:var(--faint)}
+.msec{padding-top:34px;scroll-margin-top:80px}
+.mhead{display:grid;grid-template-columns:56px minmax(0,1fr);gap:16px;align-items:start;margin-bottom:16px}
+.mhead .sn{font:800 26px/1 var(--f-display);background:var(--holo);-webkit-background-clip:text;background-clip:text;color:transparent;padding-top:2px}
+.mhead h2{font-size:clamp(20px,2.4vw,26px)}
+.mhead p{color:var(--muted);margin:8px 0 0;max-width:72ch}
+.mhead p b{color:var(--fg)}
+.fig{margin:0}
+.fig figcaption{color:var(--muted);font-size:13.5px;margin-top:12px;max-width:80ch}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.cards3 .panel{display:grid;gap:8px;align-content:start}
+.cards3 p{margin:0;color:var(--muted);font-size:14px}
+.tag{justify-self:start;font:600 10.5px var(--f-mono);text-transform:uppercase;letter-spacing:.08em;color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,transparent);padding:3px 8px;border-radius:5px}
+.tag.ok{color:var(--up);background:var(--up-bg)}
+.measure .f{font:500 13px var(--f-mono);color:var(--fg)!important;background:var(--bg-2);border-radius:8px;padding:8px 10px}
+.split2{display:grid;grid-template-columns:1.1fr 1fr;gap:16px}
+.slider{display:grid;gap:8px;font-size:14px;color:var(--muted);margin-bottom:8px}
+.slider input{width:100%;accent-color:#9d8cff}
+.formula p{color:var(--muted);font-size:14px;margin:10px 0 0}
+.formula p.big{color:var(--fg);font-size:16px;line-height:1.55}
+.evscale{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:14px}
+.evscale div{display:grid;gap:4px;font-size:11.5px}
+.evscale i{height:8px;border-radius:3px;background:var(--up)}
+.evscale b{font-size:12px}
+.evscale .num{color:var(--faint);font-size:10.5px}
+.liq td,.risk td{vertical-align:top}
+.lb{display:inline-block;width:70px;height:7px;border-radius:4px;background:var(--bg-2);overflow:hidden;vertical-align:middle;margin-right:8px}
+.lb i{display:block;height:100%;background:var(--up)}
+.lb.rare i{background:var(--warn)}
+.liq tr.tot td{border-top:2px solid var(--line-2)}
+.gloss{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:0}
+.gloss .panel{padding:16px}
+.gloss dt{font:700 14px var(--f-display);margin-bottom:6px}
+.gloss dd{margin:0;color:var(--muted);font-size:13.5px}
+@media (max-width:860px){.mhero,.split2{grid-template-columns:1fr}.cards3{grid-template-columns:1fr}}
+@media (max-width:560px){.mhead{grid-template-columns:1fr;gap:6px}.evscale{grid-template-columns:repeat(5,minmax(0,1fr))}}
+
+@media (max-width:1100px){.cgrid{grid-template-columns:280px minmax(0,1fr)}.cgrid .side{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:20px}}
+@media (max-width:860px){.hero{grid-template-columns:1fr}.cgrid{grid-template-columns:1fr}.slab{max-width:300px;justify-self:center}.cgrid .side{grid-template-columns:1fr}.search{display:none}}
+@media (max-width:560px){.kpis{grid-template-columns:1fr 1fr}.stats4{grid-template-columns:1fr 1fr}.demo-pill{display:none}.step{grid-template-columns:36px minmax(0,1fr)}.step .num{grid-column:2}.bars .b{grid-template-columns:86px minmax(0,1fr) 48px}}
+</style>
+
+<header class="top">
+  <div class="wrap nav">
+    <a class="logo" href="#market" aria-label="Slabwise"><span class="mark" aria-hidden="true"></span>slabwise</a>
+    <nav class="links" id="links">
+      <a href="#market" data-v="market">Mercato</a>
+      <a href="#deals" data-v="deals">Deal<span class="ct" id="dealct"></span></a>
+      <a href="#method" data-v="method">Metodologia</a>
+    </nav>
+    <span class="demo-pill" title="Valori graded, vendite e annunci sono simulati">Prototipo · dati demo</span>
+    <div class="search">
+      <input id="q" type="search" placeholder="Cerca una carta" autocomplete="off" aria-label="Cerca una carta">
+      <kbd>/</kbd>
+      <div class="results" id="qres" hidden></div>
+    </div>
+  </div>
+</header>
+<div class="ticker" aria-label="Quotazioni"><div class="tape" id="tape"></div></div>
+<main class="wrap" id="view"></main>
+<footer class="foot"><div class="wrap">
+  <span>Prototipo. Fair value, vendite, popolazioni e annunci sono simulati; immagini e prezzi raw di riferimento da TCGdex (22 ottobre 2026).</span>
+  <span>Costo reale calcolato per l'Italia. Non è consulenza finanziaria.</span>
+</div></footer>
+
+<script>
+const CARDS = __CARDS__;
+const IMGS = __IMGS__;
+const TODAY = new Date("2026-10-22T12:00:00Z");
+
+/* ================= dati demo deterministici ================= */
+function rng(str){let h=2166136261;for(const c of str){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return()=>{h^=h<<13;h^=h>>>17;h^=h<<5;return((h>>>0)%100000)/100000}}
+function gauss(r){let u=0,v=0;while(!u)u=r();while(!v)v=r();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)}
+const GRADES=["PSA 10","PSA 9","PSA 8","PSA 7"];
+const VINT=s=>/^(base|neo|gym)/.test(s);
+const MULT={v:[42,7,3.2,2.1],m:[2.6,1.25,0.95,0.8]};
+const POP={v:[[40,400],[400,2800],[700,3200],[600,2600]],m:[[2500,16000],[1200,6000],[300,1500],[80,500]]};
+const NSALES={v:[[5,11],[12,26],[14,30],[10,24]],m:[[28,55],[14,30],[6,14],[3,8]]};
+const PLAT=[["eBay US","US",44],["eBay DE","DE",11],["eBay IT","IT",8],["Fanatics Collect","US",15],["Goldin","US",8],["Catawiki","NL",14]];
+const SELLERS=["kanto_slabs","holo_haus","gradedgems_eu","pallet_town_cards","mint.mavens","rocket_vault","fossil_finds","sapporo_slabs"];
+function pick(r,arr){const tot=arr.reduce((a,x)=>a+x[2],0);let k=r()*tot;for(const x of arr){k-=x[2];if(k<=0)return x}return arr[0]}
+
+const cards = CARDS.map(c=>({...c,raw:c.cmt??c.cm7??c.cm30,img:IMGS[c.id]||null,v:VINT(c.sid)}));
+const byId=Object.fromEntries(cards.map(c=>[c.id,c]));
+
+let certSeq=81000000;
+for(const c of cards){
+  const r=rng(c.id+"g"), k=c.v?"v":"m";
+  const rawTrend = c.cm30 ? Math.max(-0.5,Math.min(0.8,(c.raw-c.cm30)/c.cm30)) : 0;
+  c.atoms=GRADES.map((g,i)=>{
+    const fv=c.raw*MULT[k][i]*(0.75+r()*0.6);
+    const [plo,phi]=POP[k][i], [nlo,nhi]=NSALES[k][i];
+    const drift=(rawTrend*2.2+(r()-0.45)*0.5);           // tendenza annua simulata
+    const n=Math.round(nlo+r()*(nhi-nlo));
+    const sales=[];
+    for(let s=0;s<n;s++){
+      const age=Math.floor(Math.pow(r(),1.15)*180);
+      const p=pick(r,PLAT);
+      const truth=fv*Math.exp(-drift*age/365);
+      const price=truth*Math.exp(gauss(r)*(c.v?0.13:0.09));
+      sales.push({age,plat:p[0],cc:p[1],price,cert:(certSeq++),certOk:r()<0.62,certGrade:g,kind:"ok",seller:SELLERS[Math.floor(r()*SELLERS.length)]});
+    }
+    // contaminazione realistica
+    const bad=Math.max(2,Math.round(n*(0.14+r()*0.12)));
+    for(let b=0;b<bad;b++){
+      const age=Math.floor(r()*170), p=pick(r,PLAT), truth=fv*Math.exp(-drift*age/365), t=r();
+      let s={age,plat:p[0],cc:p[1],cert:(certSeq++),certOk:false,certGrade:g,seller:SELLERS[Math.floor(r()*SELLERS.length)]};
+      if(t<0.28){s.kind="ready";s.price=c.raw*(0.7+r()*0.8)}
+      else if(t<0.42){s.kind="lot";s.price=truth*(2.6+r()*2.4)}
+      else if(t<0.58){s.kind="bo";s.price=truth*(1.18+r()*0.25);s.plat="eBay US";s.cc="US"}
+      else if(t<0.72&&sales.length){const o=sales[Math.floor(r()*sales.length)];s={...o,kind:"dup",price:o.price*(0.93+r()*0.12),age:Math.max(0,o.age-Math.floor(r()*6))}}
+      else if(t<0.86){s.kind="wrong";s.certOk=true;const wg=1+Math.floor(r()*3);s.certGrade="PSA "+wg;s.price=truth*(0.06+r()*0.12)}
+      else {s.kind="unpaid";s.plat="Fanatics Collect";s.cc="US";s.price=truth*(1.05+r()*0.2)}
+      sales.push(s);
+    }
+    sales.sort((a,b)=>a.age-b.age);
+    return {g,i,card:c,pop:Math.round(plo+r()*(phi-plo)),sales,drift};
+  });
+}
+
+/* ================= pipeline di pulizia (il cuore) ================= */
+const title=(s,a)=>{const c=a.card,base=`${c.set} ${c.n} #${c.no}`;
+  return {ready:`${base} ${a.g} READY? Mint, da gradare`,lot:`Lotto x5 ${c.n} ${a.g} + bonus`,bo:`${base} ${a.g} Gem Mint · Best Offer accettata`,
+    dup:`${base} ${a.g} cert ${s.cert}`,wrong:`${base} PSA slab cert ${s.cert}`,unpaid:`${base} ${a.g} · asta conclusa`,ok:`${base} ${a.g} cert ${s.cert}`}[s.kind]};
+const median=a=>{if(!a.length)return NaN;const s=[...a].sort((x,y)=>x-y),m=s.length>>1;return s.length%2?s[m]:(s[m-1]+s[m])/2};
+const wmedian=(vals,w)=>{const z=vals.map((v,i)=>[v,w[i]]).sort((a,b)=>a[0]-b[0]);const tot=z.reduce((a,x)=>a+x[1],0);let acc=0;for(const [v,ww] of z){acc+=ww;if(acc>=tot/2)return v}return z.at(-1)?.[0]};
+
+function screen(a,asOf=0){
+  // fase 1: identità e annuncio (indipendente dal prezzo)
+  const seen=new Set(), out=[];
+  // dal più vecchio al più recente: tra due vendite con lo stesso cert resta l'originale, il rilancio è il duplicato
+  for(const s of a.sales.filter(x=>x.age>=asOf).sort((x,y)=>y.age-x.age)){
+    const o={...s,ttl:title(s,a),w:1,st:"ok",why:s.certOk?"Cert verificato":"Incluso"};
+    if(seen.has(s.cert)){o.st="no";o.why="Duplicato: stesso cert"}
+    else if(s.certOk&&s.certGrade!==a.g){o.st="no";o.why=`Cert: in realtà ${s.certGrade}`}
+    else if(/ready|da gradare|candidate/i.test(o.ttl)){o.st="no";o.why="Non è uno slab: carta raw"}
+    else if(/lotto|lot\b|x\d/i.test(o.ttl)){o.st="no";o.why="Lotto di più carte"}
+    else if(s.kind==="bo"){o.st="no";o.why="Best Offer: prezzo reale nascosto"}
+    else if(s.kind==="unpaid"){o.st="no";o.why="Pagamento non confermato"}
+    seen.add(s.cert); out.push(o);
+  }
+  return out.sort((x,y)=>x.age-y.age);
+}
+function finish(a,list,lowerAnchor){
+  // fase 2: coerenza con la scala dei gradi (in rapporti, vale a ogni livello di prezzo).
+  // Sopra il grado inferiore: pavimento al 72%. Il PSA 7 contro il raw è più largo, perché nel moderno
+  // un voto basso vale spesso meno di una carta raw perfetta.
+  const floor = a.i===3 ? lowerAnchor*0.4 : lowerAnchor*0.72;
+  for(const o of list) if(o.st==="ok"&&o.price<floor){o.st="no";o.why=a.i===3?"Sotto il prezzo raw: incoerente":"Sotto il grado inferiore: incoerente"}
+  // fase 3: recinto asimmetrico in log-prezzo
+  const ok=list.filter(o=>o.st==="ok"), lp=ok.map(o=>Math.log(o.price)), m=median(lp);
+  const mad=Math.max(0.12,median(lp.map(x=>Math.abs(x-m)))*1.4826);
+  for(const o of ok){const z=(Math.log(o.price)-m)/mad;
+    if(z<-3){o.st="no";o.why="Troppo sotto il mercato"}
+    else if(z>3){const corr=ok.some(p=>p!==o&&Math.abs(p.age-o.age)<=21&&(Math.log(p.price)-m)/mad>1.8);
+      if(corr){o.why="Alto ma confermato"} else {o.st="lo";o.w=0.35;o.why="Alto isolato: peso ridotto"}}}
+  const inc=list.filter(o=>o.st!=="no");
+  const n=inc.length, hl=n>15?30:75;
+  const w=inc.map(o=>Math.exp(-(o.age)/hl)*(o.certOk?1.3:1)*o.w);
+  const fv=n?wmedian(inc.map(o=>o.price),w):NaN;
+  const last=n?Math.min(...inc.map(o=>o.age)):999;
+  const lps=inc.map(o=>Math.log(o.price)), mm=median(lps), disp=n?median(lps.map(x=>Math.abs(x-mm))):1;
+  const score=Math.round(Math.min(n/12,1)*30+(last<14?25:last<45?15:last<90?8:2)+(1-Math.min(disp/0.35,1))*25+(n?inc.filter(o=>o.certOk).length/n:0)*20);
+  return {fv,list,inc,score:Math.max(0,Math.min(100,score)),n};
+}
+// calcola tutta la scala dal basso verso l'alto, così ogni grado ha l'ancora del grado sotto
+function valueCard(c,asOf=0){
+  const res=[]; let anchor=c.raw*Math.exp(-(c.cm30?((c.raw-c.cm30)/c.cm30):0)*asOf/30);
+  for(let i=3;i>=0;i--){const a=c.atoms[i];const r=finish(a,screen(a,asOf),anchor);res[i]=r;if(isFinite(r.fv))anchor=r.fv}
+  // riconciliazione della scala: regressione isotonica pesata sull'evidenza (log-prezzi),
+  // così un grado con poche vendite si sposta verso quello ben documentato e non il contrario
+  const pts=res.map((r,i)=>({i,v:Math.log(r.fv),w:Math.max(5,r.score)})).reverse(); // dal PSA 7 al PSA 10, deve crescere
+  const blocks=[];for(const p of pts){blocks.push({v:p.v,w:p.w,ids:[p.i]});
+    while(blocks.length>1&&blocks.at(-1).v<=blocks.at(-2).v+0.03){const b=blocks.pop(),a2=blocks.pop();blocks.push({v:(a2.v*a2.w+b.v*b.w)/(a2.w+b.w),w:a2.w+b.w,ids:[...a2.ids,...b.ids]})}}
+  for(const b of blocks){if(b.ids.length<2)continue;
+    // dentro un blocco unito i gradi restano distinti: +4% per ogni gradino
+    const ord=b.ids.sort((x,y)=>y-x);ord.forEach((id,k)=>{const nv=Math.exp(b.v+(k-(ord.length-1)/2)*0.04);if(Math.abs(nv/res[id].fv-1)>0.001){res[id].fv=nv;res[id].adj=true;res[id].score=Math.min(res[id].score,79)}})}
+  return res;
+}
+const EVL=s=>s>=80?"Molto forte":s>=60?"Forte":s>=40?"Moderata":s>=20?"Limitata":"Scarsa";
+for(const c of cards){
+  const now=valueCard(c,0), d7=valueCard(c,7), d30=valueCard(c,30);
+  const weeks=[...Array(13)].map((_,k)=>valueCard(c,(12-k)*7));
+  c.atoms.forEach((a,i)=>{Object.assign(a,now[i]);a.c7=a.fv/d7[i].fv-1;a.c30=a.fv/d30[i].fv-1;
+    a.series=weeks.map(w=>w[i].fv).map((v,k,arr)=>isFinite(v)?v:arr.find(isFinite));
+    a.cap=a.fv*a.pop;a.vol30=a.inc.filter(o=>o.age<=30).reduce((s,o)=>s+o.price,0);a.gem=null});
+  const tot=c.atoms.reduce((s,a)=>s+a.pop,0)*1.6; c.atoms[0].gem=c.atoms[0].pop/tot;
+  c.cap=c.atoms.reduce((s,a)=>s+a.cap,0);
+}
+const ATOMS=cards.flatMap(c=>c.atoms).sort((a,b)=>b.cap-a.cap);
+const TOTAL=ATOMS.reduce((s,a)=>s+a.cap,0), TOTPOP=ATOMS.reduce((s,a)=>s+a.pop,0);
+const ALLSALES=ATOMS.flatMap(a=>a.list), EXCL=ALLSALES.filter(o=>o.st==="no");
+
+/* indice SW25: top 25 atomi per cap, pesati per cap, base 1000 */
+const IDX=(()=>{const top=ATOMS.filter(a=>a.score>=40).slice(0,25);const w=top.map(a=>a.pop);
+  const lvl=[...Array(13)].map((_,k)=>top.reduce((s,a,i)=>s+a.series[k]*w[i],0));return lvl.map(v=>v/lvl[0]*1000)})();
+/* Fear & Greed su 4 segnali */
+const FG=(()=>{const tr=ATOMS.filter(a=>a.score>=40);
+  const mom=median(tr.map(a=>a.c30)), breadth=tr.filter(a=>a.c30>0).length/tr.length;
+  const v30=tr.reduce((s,a)=>s+a.inc.filter(o=>o.age<=30).length,0), vprev=tr.reduce((s,a)=>s+a.inc.filter(o=>o.age>30&&o.age<=60).length,0);
+  const act=vprev? v30/vprev:1, idxHi=Math.max(...IDX), off=IDX.at(-1)/idxHi;
+  const f={Momentum:Math.max(0,Math.min(100,50+mom*250)),Ampiezza:breadth*100,Attività:Math.max(0,Math.min(100,act*50)),"Vicino ai massimi":Math.max(0,Math.min(100,(off-0.8)*500))};
+  const v=Math.round(Object.values(f).reduce((a,b)=>a+b,0)/4);
+  return {v,f,label:v<25?"Paura estrema":v<45?"Paura":v<56?"Neutrale":v<75?"Avidità":"Avidità estrema"}})();
+
+/* annunci attivi e costo reale in Italia */
+const EU=new Set(["DE","IT","NL","FR","ES"]);
+const DEALS=(()=>{const out=[];let k=0;
+  for(const a of ATOMS){const r=rng(a.card.id+a.g+"L");if(r()>0.5||!isFinite(a.fv))continue;
+    const nl=1+Math.floor(r()*2);
+    for(let j=0;j<nl;j++){
+      const src=[["eBay US","US",30],["eBay DE","DE",22],["eBay IT","IT",14],["eBay FR","FR",8],["Catawiki","NL",14],["Goldin","US",12]];
+      const p=pick(r,src), price=a.fv*(0.6+r()*0.48), eu=EU.has(p[1]);
+      const ship=eu?(p[1]==="IT"?6+r()*5:9+r()*9):(24+r()*22);
+      const auction=p[0]==="Catawiki"||p[0]==="Goldin"||r()<0.3;
+      const ioss=!eu&&p[0].startsWith("eBay")&&price<=150;
+      const iva=eu?0:(price+ship)*0.22, fee=eu||ioss?0:12+Math.round(r()*8);
+      const premium=p[0]==="Goldin"?price*0.2:p[0]==="Catawiki"?price*0.09+3:0;
+      const landed=price+ship+iva+fee+premium, disc=1-landed/a.fv;
+      const fb=Math.round(96+r()*4*10)/10, certOk=r()<0.7;
+      const ends=auction?Math.floor(20+r()*60*30):null;
+      const sc=Math.round(Math.max(0,Math.min(100,disc*220+ (a.score-40)*0.5 + (certOk?10:0) + (fb>=99?6:0) + (ends&&ends<180?6:0))));
+      out.push({id:"L"+(k++),a,src:p[0],cc:p[1],eu,price,ship,iva,fee,premium,ioss,landed,disc,fb,certOk,auction,ends,sc,seller:SELLERS[Math.floor(r()*SELLERS.length)]});
+    }}
+  return out.sort((x,y)=>y.sc-x.sc)})();
+const GOOD=DEALS.filter(d=>d.disc>=0.12&&d.a.score>=40);
+
+/* ================= formato ================= */
+const eur=(n,d)=>!isFinite(n)?"–":n>=1e9?"€"+(n/1e9).toFixed(2).replace(".",",")+" Mld":n>=1e6?"€"+(n/1e6).toFixed(2).replace(".",",")+" Mln":n>=1e4&&!d?"€"+Math.round(n).toLocaleString("it-IT"):"€"+n.toLocaleString("it-IT",{minimumFractionDigits:d?2:0,maximumFractionDigits:d?2:0});
+const eurs=n=>n>=1e6?"€"+(n/1e6).toFixed(1).replace(".",",")+"M":n>=1e3?"€"+(n/1e3).toFixed(n>=1e4?0:1).replace(".",",")+"k":"€"+Math.round(n);
+const int=n=>Math.round(n).toLocaleString("it-IT");
+const pct=(n,s=1)=>(s&&n>0?"+":"")+(n*100).toFixed(1).replace(".",",")+"%";
+const chg=n=>{if(!isFinite(n))return`<span class="chg flat">–</span>`;const k=Math.abs(n)<0.0005?"flat":n>0?"up":"down";return`<span class="chg ${k}">${k==="up"?"▲":k==="down"?"▼":"·"} ${(Math.abs(n)*100).toFixed(1).replace(".",",")}%</span>`};
+const esc=s=>String(s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+const img=(c,cls="mini")=>c.img?`<img class="${cls}" src="${c.img}" alt="" loading="lazy">`:`<span class="${cls}" style="aspect-ratio:63/88;display:inline-block"></span>`;
+const ev=s=>`<span class="ev ${s<40?"lo":""}" title="Evidenza vendite ${s}/100"><i>${[20,40,60,80,100].map(t=>`<b class="${s>=t-19?"on":""}"></b>`).join("")}</i>${EVL(s)}</span>`;
+const code=c=>c.sid.toUpperCase().replace(/[^A-Z0-9]/g,"").slice(0,5);
+function spark(vals,w=110,h=32){const v=vals.filter(isFinite);if(v.length<2)return"";const lo=Math.min(...v),hi=Math.max(...v),sp=hi-lo||1;
+  const pts=v.map((x,i)=>[(i/(v.length-1))*(w-4)+2,h-3-((x-lo)/sp)*(h-6)]);const up=v.at(-1)>=v[0];const col=up?"var(--up)":"var(--down)";
+  const d=pts.map((p,i)=>(i?"L":"M")+p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" ");
+  return`<svg class="spark" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" aria-hidden="true"><path d="${d} L${w-2} ${h} L2 ${h}Z" fill="${col}" opacity=".12"/><path d="${d}" fill="none" stroke="${col}" stroke-width="1.6" stroke-linejoin="round"/><circle cx="${pts.at(-1)[0]}" cy="${pts.at(-1)[1]}" r="2.4" fill="${col}"/></svg>`}
+document.getElementById("dealct").textContent=GOOD.length;
+
+/* ticker */
+(()=>{const it=ATOMS.slice(0,16).map(a=>`<a class="tk" href="#card-${a.card.id}">${img(a.card,"")}<b>${esc(a.card.n)}</b><span class="g">${code(a.card)} · ${a.g}</span><span class="num">${eurs(a.fv)}</span>${chg(a.c30)}</a>`).join("");document.getElementById("tape").innerHTML=it+it})();
+
+/* search */
+const q=document.getElementById("q"),qres=document.getElementById("qres");let sel=0;
+function search(term,box){term=term.trim().toLowerCase();if(!term){box.hidden=true;return[]}
+  const h=cards.filter(c=>(c.n+" "+c.set+" "+c.no).toLowerCase().includes(term)).slice(0,7);
+  box.innerHTML=h.length?h.map((c,i)=>`<a href="#card-${c.id}" class="${i===sel?"sel":""}">${img(c,"")}<span><b>${esc(c.n)} #${c.no}</b><small>${esc(c.set)} · PSA 10 ${eurs(c.atoms[0].fv)}</small></span></a>`).join(""):`<div style="padding:10px;color:var(--muted);font-size:13px">Nessuna carta per “${esc(term)}” nel dataset demo (${cards.length} carte).</div>`;box.hidden=false;return h}
+q.addEventListener("input",()=>{sel=0;search(q.value,qres)});
+q.addEventListener("keydown",e=>{const h=[...qres.querySelectorAll("a")];if(e.key==="ArrowDown"){sel=Math.min(sel+1,h.length-1);search(q.value,qres);e.preventDefault()}if(e.key==="ArrowUp"){sel=Math.max(0,sel-1);search(q.value,qres);e.preventDefault()}if(e.key==="Enter"&&h[sel]){location.hash=h[sel].getAttribute("href");q.blur()}if(e.key==="Escape"){qres.hidden=true;q.blur()}});
+q.addEventListener("blur",()=>setTimeout(()=>qres.hidden=true,150));
+document.addEventListener("keydown",e=>{if(e.key==="/"&&!/INPUT|SELECT/.test(document.activeElement.tagName)){e.preventDefault();q.focus()}});
+
+/* ================= grafici ================= */
+function gauge(v,label){const a=Math.PI*(1-v/100),cx=120,cy=112,R=92,x=cx+R*Math.cos(a),y=cy-R*Math.sin(a);
+  const seg=(f,t,col)=>{const a1=Math.PI*(1-f/100),a2=Math.PI*(1-t/100);return`<path d="M${cx+R*Math.cos(a1)} ${cy-R*Math.sin(a1)} A${R} ${R} 0 0 1 ${cx+R*Math.cos(a2)} ${cy-R*Math.sin(a2)}" stroke="${col}" stroke-width="14" fill="none" stroke-linecap="butt"/>`};
+  return`<svg class="gauge" viewBox="0 0 240 132" width="100%" style="max-width:260px" role="img" aria-label="Fear and Greed ${v}">
+  ${seg(0,24.5,"var(--down)")}${seg(25.5,44.5,"color-mix(in srgb,var(--down) 55%,var(--warn))")}${seg(45.5,55.5,"var(--warn)")}${seg(56.5,74.5,"color-mix(in srgb,var(--up) 60%,var(--warn))")}${seg(75.5,100,"var(--up)")}
+  <line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="var(--fg)" stroke-width="3" stroke-linecap="round"/><circle cx="${cx}" cy="${cy}" r="7" fill="var(--fg)"/>
+  <text x="${cx}" y="${cy-28}" text-anchor="middle" font-size="30" font-weight="800">${v}</text></svg>`}
+function lineChart(vals,labels,{h=200,fmt=v=>Math.round(v).toLocaleString("it-IT")}={}){
+  const w=640,p={l:56,r:12,t:12,b:24},lo0=Math.min(...vals),hi0=Math.max(...vals),sp=(hi0-lo0)||hi0*0.05,lo=lo0-sp*.12,hi=hi0+sp*.12;
+  const X=i=>p.l+(w-p.l-p.r)*i/(vals.length-1),Y=v=>p.t+(h-p.t-p.b)*(1-(v-lo)/(hi-lo));
+  const d=vals.map((v,i)=>(i?"L":"M")+X(i).toFixed(1)+" "+Y(v).toFixed(1)).join(" ");const ticks=[0,1,2,3].map(k=>lo+(hi-lo)*k/3);
+  return`<svg class="chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="Andamento"><defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#6ef0ff"/><stop offset=".5" stop-color="#9d8cff"/><stop offset="1" stop-color="#ff8ad8"/></linearGradient><linearGradient id="la" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#9d8cff" stop-opacity=".28"/><stop offset="1" stop-color="#9d8cff" stop-opacity="0"/></linearGradient></defs>
+  ${ticks.map(t=>`<line x1="${p.l}" x2="${w-p.r}" y1="${Y(t)}" y2="${Y(t)}" stroke="var(--line)"/><text x="${p.l-8}" y="${Y(t)+4}" text-anchor="end">${fmt(t)}</text>`).join("")}
+  ${labels.map(([i,t])=>`<text x="${X(i)}" y="${h-6}" text-anchor="middle">${t}</text>`).join("")}
+  <path d="${d} L${X(vals.length-1)} ${h-p.b} L${X(0)} ${h-p.b}Z" fill="url(#la)"/><path d="${d}" fill="none" stroke="url(#lg)" stroke-width="2.6" stroke-linejoin="round"/>
+  <circle cx="${X(vals.length-1)}" cy="${Y(vals.at(-1))}" r="5" fill="#ff8ad8"/></svg>`}
+function salesChart(a,range){
+  const w=660,h=270,p={l:62,r:14,t:14,b:26},L=a.list.filter(o=>o.age<=range);
+  const all=L.map(o=>o.price).concat([a.fv]).filter(isFinite);let lo=Math.log(Math.min(...all)*0.85),hi=Math.log(Math.max(...all)*1.15);
+  const X=age=>p.l+(w-p.l-p.r)*(1-age/range),Y=v=>p.t+(h-p.t-p.b)*(1-(Math.log(v)-lo)/(hi-lo));
+  const ticks=[0,1,2,3,4].map(k=>Math.exp(lo+(hi-lo)*k/4));
+  const ser=a.series.map((v,k)=>({age:(12-k)*7,v})).filter(o=>o.age<=range&&isFinite(o.v));
+  const fvp=ser.map((o,i)=>(i?"L":"M")+X(o.age).toFixed(1)+" "+Y(o.v).toFixed(1)).join(" ");
+  const days=range===30?[30,20,10,0]:range===90?[90,60,30,0]:[180,120,60,0];
+  const dots=L.map(o=>o.st==="no"
+    ?`<g><title>${esc(o.why)} · ${eur(o.price)}</title><path d="M${X(o.age)-4} ${Y(o.price)-4}l8 8M${X(o.age)+4} ${Y(o.price)-4}l-8 8" stroke="var(--down)" stroke-width="2" stroke-linecap="round"/></g>`
+    :`<circle cx="${X(o.age)}" cy="${Y(o.price)}" r="${o.st==="lo"?4:5}" fill="${o.st==="lo"?"var(--warn)":o.certOk?"#6ef0ff":"var(--accent)"}" stroke="var(--panel)" stroke-width="1.5"><title>${esc(o.why)} · ${eur(o.price)}</title></circle>`).join("");
+  return`<svg class="chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="Vendite e fair value, scala logaritmica"><defs><linearGradient id="fvg" x1="0" x2="1"><stop offset="0" stop-color="#6ef0ff"/><stop offset=".55" stop-color="#9d8cff"/><stop offset="1" stop-color="#ff8ad8"/></linearGradient></defs>
+  ${ticks.map(t=>`<line x1="${p.l}" x2="${w-p.r}" y1="${Y(t)}" y2="${Y(t)}" stroke="var(--line)"/><text x="${p.l-8}" y="${Y(t)+4}" text-anchor="end">${eurs(t)}</text>`).join("")}
+  ${days.map(d=>`<text x="${X(d)}" y="${h-7}" text-anchor="middle">${d?"-"+d+"g":"oggi"}</text>`).join("")}
+  ${fvp?`<path d="${fvp}" fill="none" stroke="url(#fvg)" stroke-width="3" stroke-linejoin="round" opacity=".95"/>`:""}${dots}</svg>`}
+
+/* ================= viste ================= */
+const V={};
+let sortKey="cap",sortDir=-1,gradeView=0;
+V.market=()=>{
+  const best=GOOD[0];
+  return`
+  <section class="hero">
+    <div class="panel pad" style="display:grid;align-content:space-between;gap:18px;background:linear-gradient(150deg,var(--panel-2),var(--panel))">
+      <div>
+        <div class="eyebrow">Carte Pokémon graded · costo reale in Italia</div>
+        <h1 style="margin-top:14px">Compra lo slab giusto, al <em class="holo">prezzo giusto</em>.</h1>
+        <p>Fair value per ogni grado costruito solo da vendite verificate, con ogni vendita scartata mostrata e spiegata. E deal calcolati su quanto paghi davvero, IVA e spedizione comprese.</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn" href="#deals">Vedi i ${GOOD.length} deal di oggi →</a>
+        <a class="btn ghost" href="#method">Leggi la metodologia</a>
+      </div>
+    </div>
+    <div class="kpis">
+      <div class="panel kpi"><span class="eyebrow">Market cap graded</span><span class="big num">${eur(TOTAL)}</span><small>${int(TOTPOP)} slab PSA tracciati</small></div>
+      <div class="panel kpi"><span class="eyebrow">Indice SW25</span><span class="big num">${IDX.at(-1).toFixed(1).replace(".",",")}</span><small>${chg(IDX.at(-1)/IDX[0]-1)} in 12 settimane</small>${spark(IDX,150,30)}</div>
+      <a class="panel kpi" href="#method" style="grid-row:span 2;justify-items:center;text-align:center"><span class="eyebrow">Fear &amp; Greed</span>${gauge(FG.v)}<b style="font-family:var(--f-display);font-size:16px">${FG.label}</b>
+        <div style="display:grid;gap:6px;width:100%;text-align:left">${Object.entries(FG.f).map(([k,v])=>`<div style="display:grid;grid-template-columns:1fr 34px;gap:8px;align-items:center;font-size:12px;color:var(--muted)"><span>${k}<div class="meter" style="height:5px;margin-top:3px"><i style="width:${v}%"></i></div></span><span class="num" style="text-align:right">${Math.round(v)}</span></div>`).join("")}</div></a>
+      <div class="panel kpi"><span class="eyebrow">Vendite scartate</span><span class="big num" style="color:var(--down)">${int(EXCL.length)}</span><small>su ${int(ALLSALES.length)} registrate (${pct(EXCL.length/ALLSALES.length,0)})</small></div>
+    </div>
+  </section>
+  ${best?`<a class="panel pad" href="#deals" style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;border-color:transparent;background:linear-gradient(var(--panel),var(--panel)) padding-box,var(--holo) border-box;border:1.5px solid transparent">
+    <span class="eyebrow">Miglior deal adesso</span>${img(best.a.card)}<b>${esc(best.a.card.n)} #${best.a.card.no} · ${best.a.g}</b><span class="flag ${best.eu?"eu":""}">${best.cc}</span>
+    <span style="color:var(--muted)">costo reale <b class="num" style="color:var(--fg)">${eur(best.landed)}</b> contro fair value <b class="num" style="color:var(--fg)">${eur(best.a.fv)}</b></span><span class="save" style="margin-left:auto">${pct(-best.disc)}</span></a>`:""}
+  <div class="sec-h"><div><h2>Classifica per market cap</h2><p>Fair value × popolazione. Clicca sulle colonne per ordinare.</p></div>
+    <div class="tabs" id="gtabs">${GRADES.map((g,i)=>`<button data-i="${i}" class="${i===gradeView?"on":""}">${g}</button>`).join("")}<button data-i="all" class="${gradeView==="all"?"on":""}">Tutti</button></div></div>
+  <div class="panel scroll"><table class="tbl" id="rank"><thead></thead><tbody></tbody></table></div>`};
+V.market.after=()=>{
+  const cols=[["#","rank",0],["Carta","name",0,"l"],["Grado","g",0],["Fair value","fv",1],["7g","c7",1],["30g","c30",1],["Market cap","cap",1],["Volume 30g","vol30",1],["Pop.","pop",1],["Evidenza","score",1],["12 settimane","sp",0]];
+  const draw=()=>{
+    let rows=gradeView==="all"?[...ATOMS]:ATOMS.filter(a=>a.i===+gradeView);
+    rows=rows.filter(a=>isFinite(a.fv));
+    if(sortKey!=="cap"||sortDir!==-1){rows.sort((x,y)=>{const a=sortKey==="name"?x.card.n:x[sortKey],b=sortKey==="name"?y.card.n:y[sortKey];return(a>b?1:a<b?-1:0)*sortDir})}
+    document.querySelector("#rank thead").innerHTML=`<tr>${cols.map(([t,k,s,c])=>`<th class="${c||""} ${s?"s":""} ${sortKey===k?"on":""}" data-k="${k}">${t}${sortKey===k?(sortDir<0?" ↓":" ↑"):""}</th>`).join("")}</tr>`;
+    document.querySelector("#rank tbody").innerHTML=rows.map((a,i)=>`<tr data-h="#card-${a.card.id}" data-gi="${a.i}" style="cursor:pointer">
+      <td class="num" style="color:var(--faint)">${i+1}</td><td class="l"><span class="cell">${img(a.card)}<span><b>${esc(a.card.n)} #${a.card.no}</b><small>${esc(a.card.set)}</small></span></span></td>
+      <td><span class="grade">${a.g}</span></td><td class="num" style="font-weight:600">${eur(a.fv)}</td><td>${chg(a.c7)}</td><td>${chg(a.c30)}</td><td class="num">${eur(a.cap)}</td><td class="num">${eur(a.vol30)}</td><td class="num">${int(a.pop)}</td><td>${ev(a.score)}</td><td>${spark(a.series)}</td></tr>`).join("")};
+  draw();
+  document.querySelector("#rank thead").addEventListener("click",e=>{const th=e.target.closest("th.s");if(!th)return;const k=th.dataset.k;if(sortKey===k)sortDir*=-1;else{sortKey=k;sortDir=-1}draw()});
+  document.querySelector("#rank tbody").addEventListener("click",e=>{const tr=e.target.closest("tr[data-h]");if(tr){gradeSel=+tr.dataset.gi;keepGrade=true;location.hash=tr.dataset.h}});
+  document.getElementById("gtabs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;gradeView=b.dataset.i==="all"?"all":+b.dataset.i;[...b.parentNode.children].forEach(x=>x.classList.toggle("on",x===b));draw()});
+};
+
+let gradeSel=0,keepGrade=false,salesFilter="all",range=180;
+V.card=id=>{const c=byId[id];if(!c)return V.nf();const a=c.atoms[gradeSel];
+  const ex=a.list.filter(o=>o.st==="no"),plat={};a.inc.filter(o=>o.age<=90).forEach(o=>plat[o.plat]=(plat[o.plat]||0)+o.price);const ptot=Object.values(plat).reduce((s,x)=>s+x,0)||1;
+  const myDeals=DEALS.filter(d=>d.a.card===c).slice(0,3);
+  return`
+  <div class="crumbs"><a href="#market">Mercato</a>/<span>${esc(c.set)}</span>/<span>${code(c)}${c.no}:EN</span></div>
+  <div class="gradestrip" id="gstrip">${c.atoms.map((x,i)=>`<button data-i="${i}" class="${i===gradeSel?"on":""}"><b>${x.g}</b><span>${eurs(x.fv)}</span></button>`).join("")}
+    <button disabled style="cursor:default;opacity:.7"><b>RAW NM · reale</b><span>${eurs(c.raw)}</span></button></div>
+  <div class="cgrid">
+    <div class="slab"><div class="lab"><span>${esc(c.set)} · ${c.no}/${c.tot}<br>${esc(c.n)}</span><b>${a.g.replace("PSA ","")}</b></div>
+      ${c.img?`<img src="${c.img}" alt="${esc(c.n)}">`:`<div class="noimg">immagine non disponibile</div>`}
+      <h1 style="font-size:26px;margin-top:16px">${esc(c.n)} <span style="color:var(--faint)">#${c.no}</span></h1>
+      <div style="color:var(--muted);font-size:13px;margin-top:4px">${esc(c.r||"")} · ${(c.ty||[]).join(" ")} · ill. ${esc(c.ill||"–")}</div></div>
+
+    <div class="stack">
+      <div class="panel pad fvbox">
+        <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap"><span class="eyebrow">Fair value · ${a.g}</span>${ev(a.score)}</div>
+        <div class="price num holo">${eur(a.fv)}</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><span class="eyebrow">7g</span>${chg(a.c7)}<span class="eyebrow" style="margin-left:8px">30g</span>${chg(a.c30)}</div>
+        <div style="margin-top:16px;font-size:13px;color:var(--muted)">Costruito da <b style="color:var(--fg)">${a.n} vendite incluse</b> su ${a.list.length}, di cui ${a.inc.filter(o=>o.certOk).length} con cert verificato. Evidenza ${a.score}/100.</div>
+        <div class="meter"><i style="width:${a.score}%"></i></div>
+        <div class="stats4">
+          <div><span class="eyebrow">Market cap</span><span class="num">${eurs(a.cap)}</span><small>fair value × pop.</small></div>
+          <div><span class="eyebrow">Popolazione</span><span class="num">${int(a.pop)}</span><small>slab ${a.g}</small></div>
+          <div><span class="eyebrow">Volume 30g</span><span class="num">${eurs(a.vol30)}</span><small>vendite incluse</small></div>
+          <div><span class="eyebrow">${a.i===0?"Gem rate":"Scartate"}</span><span class="num">${a.i===0?pct(c.atoms[0].gem,0):ex.length}</span><small>${a.i===0?"quota PSA 10":"vendite escluse"}</small></div>
+        </div>
+      </div>
+      <div class="panel pad">
+        <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:8px"><h2>Vendite e fair value</h2>
+          <div class="tabs" id="rtabs">${[30,90,180].map(d=>`<button data-r="${d}" class="${range===d?"on":""}">${d}g</button>`).join("")}</div></div>
+        <div id="sc">${salesChart(a,range)}</div>
+        <div class="legend"><span><i class="dot" style="background:#6ef0ff"></i>Inclusa, cert verificato</span><span><i class="dot" style="background:var(--accent)"></i>Inclusa</span><span><i class="dot" style="background:var(--warn)"></i>Peso ridotto</span><span style="color:var(--down)">✕ Scartata</span><span>— Fair value settimanale · scala logaritmica</span></div>
+      </div>
+      <div class="panel pad">
+        <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:6px"><div><h2>Ogni vendita, con il motivo</h2><p style="color:var(--muted);font-size:13px;margin:4px 0 0">Nessuna scatola nera: ecco cosa entra nel prezzo e cosa no.</p></div>
+          <div class="tabs" id="stabs"><button data-f="all" class="${salesFilter==="all"?"on":""}">Tutte ${a.list.length}</button><button data-f="in" class="${salesFilter==="in"?"on":""}">Incluse ${a.inc.length}</button><button data-f="no" class="${salesFilter==="no"?"on":""}">Scartate ${ex.length}</button></div></div>
+        <div id="slist"></div>
+      </div>
+    </div>
+
+    <aside class="side stack">
+      <div class="panel pad"><h3 style="margin-bottom:10px">Scala dei gradi</h3>
+        <div class="scroll"><table class="ladder" id="ladder"><thead><tr><th>Grado</th><th>Fair value</th><th>30g</th><th>Pop.</th></tr></thead>
+        <tbody>${c.atoms.map((x,i)=>`<tr data-i="${i}" class="${i===gradeSel?"on":""}"><td><span class="grade">${x.g}</span></td><td class="num">${eurs(x.fv)}</td><td>${chg(x.c30)}</td><td class="num">${int(x.pop)}</td></tr>`).join("")}
+        <tr style="cursor:default"><td><span class="grade" style="background:var(--panel-2);color:var(--fg)">RAW</span></td><td class="num">${eurs(c.raw)}</td><td>${chg(c.cm30?(c.raw-c.cm30)/c.cm30:NaN)}</td><td class="num">–</td></tr></tbody></table></div>
+        <p class="note" style="margin:12px 0 0">Il raw è reale (Cardmarket via TCGdex) e fa da pavimento: nessuna vendita graded può valere meno.</p></div>
+      <div class="panel pad"><h3 style="margin-bottom:12px">Dove si vende · 90g</h3>
+        <div class="bars">${Object.entries(plat).sort((x,y)=>y[1]-x[1]).map(([k,v])=>`<div class="b"><span>${k}</span><div class="track"><i style="width:${(v/ptot*100).toFixed(1)}%"></i></div><span class="num" style="text-align:right">${Math.round(v/ptot*100)}%</span></div>`).join("")||'<span style="color:var(--muted);font-size:13px">Nessuna vendita recente</span>'}</div></div>
+      <div class="panel pad"><h3 style="margin-bottom:6px">Deal attivi su questa carta</h3>
+        ${myDeals.length?myDeals.map(d=>`<a href="#deals" class="sale" style="grid-template-columns:auto minmax(0,1fr) auto"><span class="grade">${d.a.g}</span><span class="t"><b>${d.src}</b><small>${d.eu?"UE, niente dogana":"extra-UE, IVA inclusa"}</small></span><span class="p"><span class="num">${eur(d.landed)}</span>${chg(-d.disc)}</span></a>`).join(""):'<p style="color:var(--muted);font-size:13px;margin:0">Nessun annuncio sotto il fair value ora.</p>'}</div>
+    </aside>
+  </div>`};
+V.card.after=id=>{const c=byId[id];if(!c)return;const a=c.atoms[gradeSel];
+  const drawList=()=>{const L=a.list.filter(o=>salesFilter==="all"||(salesFilter==="in"?o.st!=="no":o.st==="no"));
+    document.getElementById("slist").innerHTML=L.slice(0,40).map(o=>`<div class="sale ${o.st==="no"?"ex":""}"><span class="flag ${EU.has(o.cc)?"eu":""}">${o.cc}</span>
+      <span class="t"><b title="${esc(o.ttl)}">${esc(o.ttl)}</b><small>${o.plat} · ${o.age===0?"oggi":o.age===1?"ieri":o.age+" giorni fa"} · ${o.seller}</small></span>
+      <span class="p"><span class="num">${eur(o.price)}</span><span class="why ${o.st==="no"?"no":o.st==="lo"?"lo":"ok"}">${esc(o.why)}</span></span></div>`).join("")+(L.length>40?`<p style="color:var(--faint);font-size:12.5px;margin:10px 0 0">Mostrate 40 di ${L.length}.</p>`:"")};
+  drawList();
+  const re=()=>route(true);
+  document.getElementById("gstrip").addEventListener("click",e=>{const b=e.target.closest("button[data-i]");if(!b)return;gradeSel=+b.dataset.i;re()});
+  document.getElementById("ladder").addEventListener("click",e=>{const r=e.target.closest("tr[data-i]");if(!r)return;gradeSel=+r.dataset.i;re()});
+  document.getElementById("rtabs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;range=+b.dataset.r;[...b.parentNode.children].forEach(x=>x.classList.toggle("on",x===b));document.getElementById("sc").innerHTML=salesChart(a,range)});
+  document.getElementById("stabs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;salesFilter=b.dataset.f;[...b.parentNode.children].forEach(x=>x.classList.toggle("on",x===b));drawList()});
+};
+
+let F={eu:false,max:"",min:12,g:"all",trust:true};
+V.deals=()=>`
+  <div class="crumbs"><a href="#market">Mercato</a>/<span>Deal</span></div>
+  <div style="display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap">
+    <div><h1 style="font-size:clamp(26px,3.6vw,40px)">Deal sul <span class="holo">costo reale</span></h1>
+    <p style="color:var(--muted);max-width:62ch;margin:10px 0 0">Prezzo + spedizione + IVA all'importazione + sdoganamento + commissioni d'asta, confrontato con il fair value. Un -20% dagli USA può diventare un +5% a casa tua: qui lo vedi subito.</p></div>
+  </div>
+  <div class="filters" style="margin-top:20px">
+    <label>Grado<select id="fg"><option value="all">Tutti</option>${GRADES.map((g,i)=>`<option value="${i}">${g}</option>`).join("")}</select></label>
+    <label>Budget max (€)<input id="fmax" type="number" min="0" step="50" placeholder="nessuno" value="${F.max}"></label>
+    <label>Sconto minimo<select id="fmin">${[0,5,12,20,30].map(v=>`<option value="${v}" ${F.min===v?"selected":""}>${v}%</option>`).join("")}</select></label>
+    <label class="chk"><input id="feu" type="checkbox" ${F.eu?"checked":""}> Solo venditori UE</label>
+    <label class="chk"><input id="ftr" type="checkbox" ${F.trust?"checked":""}> Solo fair value affidabile</label>
+  </div>
+  <div id="dsum" style="color:var(--muted);font-size:13.5px;margin-bottom:14px"></div>
+  <div class="dgrid" id="dlist"></div>
+  <p class="note" style="margin-top:22px"><b>Come calcoliamo il costo reale per l'Italia.</b> Venditori UE: niente dogana, contano prezzo e spedizione. Extra-UE: IVA al 22% su prezzo e spedizione; sotto i 150 € eBay la incassa al checkout (IOSS), sopra la riscuote il corriere con una commissione di sdoganamento stimata. Eventuali dazi non sono inclusi: da verificare.</p>`;
+function ring(s){const R=24,C=2*Math.PI*R;return`<svg class="ring" viewBox="0 0 58 58" aria-label="Punteggio ${s}"><defs><linearGradient id="rg" x1="0" x2="1"><stop offset="0" stop-color="#6ef0ff"/><stop offset=".5" stop-color="#9d8cff"/><stop offset="1" stop-color="#ff8ad8"/></linearGradient></defs><circle cx="29" cy="29" r="${R}" fill="none" stroke="var(--line)" stroke-width="5"/><circle cx="29" cy="29" r="${R}" fill="none" stroke="url(#rg)" stroke-width="5" stroke-linecap="round" stroke-dasharray="${C*s/100} ${C}" transform="rotate(-90 29 29)"/><text x="29" y="34" text-anchor="middle">${s}</text></svg>`}
+const fmtT=m=>m<60?m+" min":Math.floor(m/60)+"h "+String(m%60).padStart(2,"0");
+V.deals.after=()=>{
+  const draw=()=>{const L=DEALS.filter(d=>(F.g==="all"||d.a.i===+F.g)&&(!F.eu||d.eu)&&(!F.max||d.landed<=+F.max)&&d.disc*100>=F.min&&(!F.trust||d.a.score>=40));
+    document.getElementById("dsum").textContent=`${L.length} annunci su ${DEALS.length} monitorati · ordinati per punteggio`;
+    document.getElementById("dlist").innerHTML=L.length?L.map(d=>`<article class="panel deal">
+      <div class="top">${img(d.a.card)}<span class="t"><b>${esc(d.a.card.n)} #${d.a.card.no}</b><small>${esc(d.a.card.set)}</small></span>${ring(d.sc)}</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center"><span class="grade">${d.a.g}</span><span class="flag ${d.eu?"eu":""}">${d.cc} · ${d.src}</span>${d.certOk?'<span class="why ok">Cert verificato</span>':'<span class="why lo">Cert da verificare</span>'}${d.auction?`<span class="timer" data-end="${d.ends}">⏱ ${fmtT(d.ends)}</span>`:'<span class="flag">Compralo subito</span>'}</div>
+      <div class="breakdown">
+        <div><span>Prezzo</span><span class="num">${eur(d.price,1)}</span></div>
+        <div><span>Spedizione</span><span class="num">${eur(d.ship,1)}</span></div>
+        ${d.premium?`<div><span>Commissione acquirente</span><span class="num">${eur(d.premium,1)}</span></div>`:""}
+        ${d.eu?`<div><span>Dogana e IVA</span><span class="num">€0 · UE</span></div>`:`<div><span>IVA import 22%${d.ioss?" (IOSS al checkout)":""}</span><span class="num">${eur(d.iva,1)}</span></div>${d.fee?`<div><span>Sdoganamento corriere</span><span class="num">${eur(d.fee,1)}</span></div>`:""}`}
+        <div class="tot"><span>Costo reale</span><span class="num">${eur(d.landed,1)}</span></div>
+      </div>
+      <div class="vs"><span style="font-size:13px;color:var(--muted)">Fair value <b class="num" style="color:var(--fg)">${eur(d.a.fv)}</b><br>${ev(d.a.score)}</span><span class="save" style="color:${d.disc>=0?"var(--up)":"var(--down)"}">${pct(-d.disc)}</span></div>
+      <div style="display:flex;gap:8px"><a class="btn" style="flex:1;height:38px" href="#card-${d.a.card.id}" data-gi="${d.a.i}">Analizza la carta</a></div>
+      <small style="color:var(--faint);font-size:12px">Venditore ${d.seller} · ${d.fb}% feedback positivi</small>
+    </article>`).join(""):`<div class="panel pad" style="grid-column:1/-1;text-align:center;color:var(--muted)">Nessun annuncio con questi filtri. Prova ad abbassare lo sconto minimo o ad allargare il budget.</div>`};
+  draw();
+  const on=(id,ev,fn)=>document.getElementById(id).addEventListener(ev,fn);
+  on("fg","change",e=>{F.g=e.target.value;draw()});on("fmax","input",e=>{F.max=e.target.value;draw()});on("fmin","change",e=>{F.min=+e.target.value;draw()});
+  on("feu","change",e=>{F.eu=e.target.checked;draw()});on("ftr","change",e=>{F.trust=e.target.checked;draw()});
+  document.getElementById("dlist").addEventListener("click",e=>{const b=e.target.closest("a[data-gi]");if(b){gradeSel=+b.dataset.gi;keepGrade=true}});
+};
+
+V.method=()=>{
+  const cnt={};EXCL.forEach(o=>{const k=o.why.startsWith("Cert:")?"cert":o.why.startsWith("Duplicato")?"dup":/slab|Lotto/.test(o.why)?"listing":/Best Offer|Pagamento/.test(o.why)?"price":/incoerente/.test(o.why)?"ladder":"fence";cnt[k]=(cnt[k]||0)+1});
+  const N0=ALLSALES.length, s1=N0-(cnt.dup||0), s2=s1-(cnt.cert||0), s3=s2-(cnt.listing||0)-(cnt.price||0), s4=s3-(cnt.ladder||0), s5=s4-(cnt.fence||0);
+  const lo=ALLSALES.filter(o=>o.st==="lo").length;
+  /* imbuto */
+  const st=[["Registrate",N0,""],["Senza duplicati",s1,"stesso cert"],["Cert verificato",s2,"grado reale"],["Annunci validi",s3,"lotti, raw, Best Offer, non pagate"],["Scala coerente",s4,"sotto il grado inferiore"],["Nel prezzo",s5,"troppo sotto il mercato"]];
+  const W=980,colW=W/st.length,maxH=150,top=40;
+  const funnel=`<svg viewBox="0 0 ${W} 250" role="img" aria-label="Imbuto: da ${N0} vendite registrate a ${s5} vendite usate nel prezzo" style="min-width:760px;width:100%;height:auto;color:var(--fg)">
+    <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker>
+    <linearGradient id="fh" x1="0" x2="1"><stop offset="0" stop-color="#6ef0ff"/><stop offset=".5" stop-color="#9d8cff"/><stop offset="1" stop-color="#ff8ad8"/></linearGradient></defs>
+    ${st.map(([t,v,why],i)=>{const h=maxH*v/N0,x=i*colW+20,w=colW-58,y=top+(maxH-h)/2;
+      return`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="8" fill="${i===st.length-1?"url(#fh)":"currentColor"}" opacity="${i===st.length-1?1:0.12+i*0.05}"/>
+      <text x="${x+w/2}" y="${top+maxH/2+6}" text-anchor="middle" font-family="var(--f-mono)" font-size="17" font-weight="600" fill="${i===st.length-1?"#0b0d1a":"currentColor"}">${int(v)}</text>
+      <text x="${x+w/2}" y="${top+maxH+30}" text-anchor="middle" font-family="var(--f-body)" font-size="13" font-weight="700" fill="currentColor">${t}</text>
+      ${i?`<line x1="${x-34}" y1="${top+maxH/2}" x2="${x-6}" y2="${top+maxH/2}" stroke="currentColor" stroke-width="1.6" marker-end="url(#ar)"/>
+      <text x="${x-20}" y="${top-14}" text-anchor="middle" font-family="var(--f-mono)" font-size="11.5" fill="var(--down)">−${int(st[i-1][1]-v)}</text>
+      <text x="${x+w/2}" y="${top+maxH+48}" text-anchor="middle" font-family="var(--f-body)" font-size="11.5" fill="var(--muted)">${why}</text>`:""}`}).join("")}
+  </svg>`;
+  return`<div class="crumbs"><a href="#market">Mercato</a>/<span>Metodologia</span></div>
+  <section class="mhero">
+    <div>
+      <div class="eyebrow">Metodologia · versione prototipo · 22 ottobre 2026</div>
+      <h1 style="font-size:clamp(28px,4vw,48px);margin-top:14px;max-width:20ch">Come una vendita diventa un <span class="holo">prezzo giusto</span>.</h1>
+      <p class="lede">Tutti i siti di prezzi partono dalle stesse vendite eBay e d'asta, e quelle vendite sono sporche. Questa pagina spiega, passo per passo, come decidiamo quali vendite contano, come calcoliamo il valore di una carta e quanto vale davvero il mercato. Ogni numero qui sotto è calcolato dal vivo sul dataset del prototipo.</p>
+    </div>
+    <div class="mkpi">
+      <div><span class="num">${int(N0)}</span><small>vendite registrate</small></div>
+      <div><span class="num" style="color:var(--down)">${int(N0-s5)}</span><small>scartate, ognuna con il motivo</small></div>
+      <div><span class="num">${lo}</span><small>alte isolate, a peso ridotto</small></div>
+      <div><span class="num">0</span><small>inversioni nella scala dei gradi</small></div>
+    </div>
+  </section>
+
+  <nav class="toc" aria-label="Indice">${[["m1","Il percorso di una vendita"],["m2","Perché la maggioranza sbaglia"],["m3","Fair value prudente"],["m4","Tre misure del mercato"],["m5","Liquidità"],["m6","Cosa può falsare i dati"],["m7","Fonti"],["m8","Glossario"]].map(([id,t],i)=>`<a href="#method" data-to="${id}"><span class="num">${String(i+1).padStart(2,"0")}</span>${t}</a>`).join("")}</nav>
+
+  <section class="msec" id="m1">
+    <div class="mhead"><span class="sn">01</span><div><h2>Il percorso di una vendita</h2><p>Una vendita deve superare ogni passaggio, in quest'ordine. I primi tre non guardano il prezzo: prima capiamo <b>cosa</b> è stato venduto, solo dopo <b>a quanto</b>.</p></div></div>
+    <figure class="panel pad fig"><div class="scroll">${funnel}</div>
+      <figcaption>Su ${int(N0)} vendite registrate, ${int(s5)} entrano nel calcolo del prezzo. I numeri in rosso sono le vendite scartate a ogni passaggio.</figcaption></figure>
+    <div class="cards3">
+      <div class="panel pad"><span class="tag">Identità</span><h3>Il certificato decide, non il titolo</h3><p>Se l'annuncio riporta il numero di cert, lo verifichiamo con PSA: carta e voto reali. Un titolo che dice "PSA 10" su una carta che il certificato dice PSA 2 viene riclassificato.</p></div>
+      <div class="panel pad"><span class="tag">Annuncio</span><h3>Non tutto quello che è "venduto" è una vendita</h3><p>Lotti di più carte, carte raw vendute come "pronte per il 10", Best Offer con il prezzo vero nascosto, aste non pagate e rilanci dello stesso slab restano fuori.</p></div>
+      <div class="panel pad"><span class="tag">Prezzo</span><h3>Regole in rapporti, non in euro</h3><p>Un PSA 10 non vale meno di un PSA 9, e nessuno slab meno della carta raw. Le soglie sono rapporti, quindi valgono uguale per una carta da 30 € e per una da 35.000 €.</p></div>
+    </div>
+  </section>
+
+  <section class="msec" id="m2">
+    <div class="mhead"><span class="sn">02</span><div><h2>Perché la maggioranza sbaglia</h2><p>Il caso classico: in due settimane escono dieci annunci "PSA 10" a 30 € e una vendita vera a 35.000 €. Un algoritmo che guarda solo i prezzi dà ragione ai dieci. Prova a cambiare metodo.</p></div></div>
+    <figure class="panel pad fig">
+      <div class="tabs" id="majt" style="margin-bottom:14px"><button data-m="med" class="on">Mediana semplice</button><button data-m="sw">Slabwise</button></div>
+      <div id="majfig"></div>
+      <figcaption id="majcap"></figcaption>
+    </figure>
+  </section>
+
+  <section class="msec" id="m3">
+    <div class="mhead"><span class="sn">03</span><div><h2>Fair value prudente</h2><p>Con molte vendite ci fidiamo delle vendite. Con poche, il valore si appoggia anche a un riferimento costruito dalla scala dei gradi e dalle carte simili. Il peso si sposta da solo man mano che arrivano vendite.</p></div></div>
+    <div class="split2">
+      <figure class="panel pad fig">
+        <label class="slider"><span>Vendite valide osservate: <b class="num" id="shn">1</b></span><input id="shs" type="range" min="0" max="30" value="1"></label>
+        <div id="shfig"></div>
+        <figcaption>Esempio: le vendite osservate sono a 3,72 milioni, il riferimento dei comparabili a 400.000. Con una sola vendita il riferimento pesa tre volte tanto; con trenta vendite quasi non conta più.</figcaption>
+      </figure>
+      <div class="panel pad formula">
+        <span class="tag">La formula, a parole</span>
+        <p class="big">valore = media pesata, in scala logaritmica, tra la <b>mediana delle vendite</b> (peso = numero di vendite) e il <b>riferimento</b> (peso fisso = 3).</p>
+        <p>Si usa la scala logaritmica perché i prezzi delle carte si muovono per percentuali: passare da 100 a 200 € è lo stesso salto di passare da 10.000 a 20.000 €.</p>
+        <p>Ogni valore esce con una <b>forchetta</b> e un <b>punteggio di evidenza</b> da 0 a 100, costruito da: numero di vendite, quanto sono recenti, quanto concordano tra loro e quante hanno il cert verificato.</p>
+        <div class="evscale">${[["0–19","Scarsa"],["20–39","Limitata"],["40–59","Moderata"],["60–79","Forte"],["80–100","Molto forte"]].map(([r,l],i)=>`<div><i style="opacity:${0.25+i*0.18}"></i><b>${l}</b><span class="num">${r}</span></div>`).join("")}</div>
+        <p style="font-size:13px;margin-top:12px">Sotto 40 il valore si mostra, ma non genera deal e non entra negli indici.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="msec" id="m4">
+    <div class="mhead"><span class="sn">04</span><div><h2>Tre misure del mercato, non una</h2><p>Il market cap classico (prezzo × copie) presume che le carte siano tutte uguali e vendibili domani al prezzo dell'ultima vendita. Per le carte non è vero, quindi lo dividiamo in tre domande diverse.</p></div></div>
+    <div class="cards3">
+      <div class="panel pad measure"><span class="tag">Stima</span><h3>Valore di collezione</h3><p class="f">fair value prudente × popolazione, con forchetta</p><p>Quanto vale l'insieme delle copie esistenti, secondo la stima migliore.</p></div>
+      <div class="panel pad measure"><span class="tag">Stima prudente</span><h3>Valore liquido</h3><p class="f">valore basso della forchetta × copie che circolano</p><p>Quanto si potrebbe realizzare vendendo in tempi ragionevoli. È il numero più vicino al "denaro vero".</p></div>
+      <div class="panel pad measure"><span class="tag ok">Dato</span><h3>Volume reale</h3><p class="f">somma delle vendite valide in 12 mesi</p><p>Quanti soldi sono passati davvero di mano. Non è una stima: è un conteggio.</p></div>
+    </div>
+    <figure class="panel pad fig" style="margin-top:16px">
+      <h3 style="margin-bottom:4px">Lo stesso caso, due metodi</h3>
+      <p style="color:var(--muted);font-size:13.5px;margin:0 0 16px">Una carta con 3 copie graded e una sola vendita da 3,72 milioni di dollari. Esempio illustrativo.</p>
+      <div class="scroll">${capCompare()}</div>
+      <figcaption>Il metodo "ultima vendita × copie" produce 11,2 milioni. Il valore di collezione prudente è circa 2,1 milioni, con una forchetta larga perché c'è una sola vendita; il valore liquido è più basso ancora, perché in tre anni circola probabilmente una copia sola.</figcaption>
+    </figure>
+    <div class="note" style="margin-top:14px"><b>Il compromesso, detto chiaramente.</b> Se quella vendita record era vera, il nostro valore la "insegue" più lentamente: sale man mano che arrivano altre vendite a quel livello. La forchetta larga lo segnala subito. In cambio, una vendita sola non può più gonfiare l'intero mercato. Negli indici, inoltre, nessuna carta può pesare più del 5%.</div>
+  </section>
+
+  <section class="msec" id="m5">
+    <div class="mhead"><span class="sn">05</span><div><h2>Liquidità: quanto si vende davvero una carta</h2><p>Serve per stimare le copie che circolano e lo sconto del valore liquido. Nessun indicatore basta da solo, quindi ne combiniamo cinque.</p></div></div>
+    <div class="scroll"><table class="tbl panel liq">
+      <thead><tr><th class="l">Indicatore</th><th class="l">Come si calcola</th><th class="l">Cosa dice</th><th>Carta molto scambiata</th><th>Carta rara</th></tr></thead>
+      <tbody>${[
+        ["Ricambio","cert unici venduti in 12 mesi ÷ popolazione","Quanta parte dell'offerta circola",82,9],
+        ["Regolarità","intervallo mediano tra vendite e sua variabilità","Vende con costanza o a ondate",88,14],
+        ["Profondità","annunci attivi ÷ popolazione","Se c'è qualcuno dall'altra parte, adesso",74,22],
+        ["Dispersione","distanza tipica dei prezzi dal fair value","Mercato ordinato o trattative una per una",79,31],
+        ["Impatto","variazione di prezzo ÷ volume in euro","Quanto basta poco denaro a muovere il prezzo",85,18]]
+        .map(([a,b,c,x,y])=>`<tr><td class="l"><b>${a}</b></td><td class="l" style="white-space:normal;min-width:200px;color:var(--muted)">${b}</td><td class="l" style="white-space:normal;min-width:180px;color:var(--muted)">${c}</td><td><span class="lb"><i style="width:${x}%"></i></span><span class="num">${x}</span></td><td><span class="lb rare"><i style="width:${y}%"></i></span><span class="num">${y}</span></td></tr>`).join("")}
+      <tr class="tot"><td class="l"><b>Punteggio di liquidità</b></td><td class="l" colspan="2" style="color:var(--muted)">media dei cinque, corretta per il numero di osservazioni</td><td class="num"><b>82</b></td><td class="num"><b>19</b></td></tr></tbody></table></div>
+    <div class="cards3" style="margin-top:16px">
+      <div class="panel pad"><span class="tag">Accorgimento 1</span><h3>Copie, non vendite</h3><p>Se lo stesso slab passa di mano tre volte in un mese, è una copia che circola, non tre. Contare i cert unici neutralizza anche buona parte delle vendite gonfiate tra account collegati.</p></div>
+      <div class="panel pad"><span class="tag">Accorgimento 2</span><h3>Poche osservazioni, stima prudente</h3><p>Una carta con 3 copie e 1 vendita in un anno sembra liquidissima (33% di ricambio). È un'illusione statistica: come per il fair value, pesa soprattutto il dato delle carte comparabili.</p></div>
+      <div class="panel pad"><span class="tag">Accorgimento 3</span><h3>Popolazione corretta</h3><p>Chi apre uno slab per ritentare il voto spesso non restituisce l'etichetta: la carta viene contata due volte. Applichiamo uno sconto stimato per grado ed epoca, con forchetta.</p></div>
+    </div>
+    <p class="note" style="margin-top:14px"><b>Come sapremo se funziona.</b> Un buon punteggio di liquidità deve prevedere se un annuncio vende entro 30 giorni e quanto vicino al fair value. Lo misureremo osservando gli annunci ogni giorno, prima di usarlo sui dati reali. I valori nella tabella sono un esempio.</p>
+  </section>
+
+  <section class="msec" id="m6">
+    <div class="mhead"><span class="sn">06</span><div><h2>Cosa può falsare i dati, e cosa facciamo</h2><p>L'elenco completo dei rischi noti. Lo stato dice se la difesa è già nel prototipo o è prevista per la versione con dati reali.</p></div></div>
+    <div class="scroll"><table class="tbl panel risk">
+      <thead><tr><th class="l">Rischio</th><th class="l">Effetto sui numeri</th><th class="l">Difesa</th><th class="l">Stato</th></tr></thead>
+      <tbody>${[
+        ["Grado sbagliato nel titolo","Un PSA 1 conta come PSA 10","Verifica del cert con PSA","y"],
+        ["Carta raw venduta come “pronta per il 10”","Prezzi graded troppo bassi","Riconoscimento del titolo e coerenza con la scala","y"],
+        ["Lotti di più carte","Prezzi troppo alti","Riconoscimento del titolo e recinto asimmetrico","y"],
+        ["Best Offer con prezzo nascosto","Prezzi troppo alti","Escluse finché non c'è il prezzo accettato","y"],
+        ["Aste non pagate","Prezzi troppo alti","Escluse finché il pagamento non è confermato","y"],
+        ["Stesso slab rimesso in vendita","Volume e ricambio gonfiati","Un cert conta una volta","y"],
+        ["Vendita record isolata","Market cap gonfiato","Peso ridotto finché non c'è conferma; tetto del 5% negli indici","y"],
+        ["Slab falso con cert vero","Prezzi troppo bassi","Confronto con le foto PSA del cert","p"],
+        ["Vendite tra account collegati","Prezzi e volumi gonfiati","Coppie compratore-venditore ricorrenti, account nuovi","p"],
+        ["Regrade e crack-out","Popolazione e market cap sovrastimati","Sconto stimato per grado ed epoca","p"],
+        ["Commissioni d'asta diverse","Confronti falsati tra piattaforme","Normalizzazione al prezzo pagato dal compratore","p"],
+        ["Copie migliori alle case d'aste","eBay sottostima il grado","Peso per piattaforma e controllo per fascia di prezzo","p"],
+        ["Picchi da eventi (ristampe, nuovi set)","Valori gonfiati per poche settimane","Valore pesato per recenza e forchetta","p"],
+        ["Cambi e mercati diversi","Prezzi incoerenti tra paesi","Conversione al cambio BCE del giorno della vendita","p"]]
+        .map(([a,b,c,s])=>`<tr><td class="l" style="white-space:normal;min-width:200px"><b>${a}</b></td><td class="l" style="white-space:normal;min-width:170px;color:var(--muted)">${b}</td><td class="l" style="white-space:normal;min-width:220px;color:var(--muted)">${c}</td><td class="l">${s==="y"?'<span class="why ok">Nel prototipo</span>':'<span class="why lo">Previsto</span>'}</td></tr>`).join("")}</tbody></table></div>
+  </section>
+
+  <section class="msec" id="m7">
+    <div class="mhead"><span class="sn">07</span><div><h2>Fonti e cosa è reale</h2><p>Usiamo solo fonti con condizioni d'uso compatibili. Niente scraping di siti che lo vietano.</p></div></div>
+    <figure class="panel pad fig"><div class="scroll">${sourcesDiagram()}</div>
+      <figcaption>Nel prototipo sono reali solo catalogo, immagini e prezzo raw (TCGdex). Vendite graded, popolazioni e annunci sono simulati, con errori inseriti apposta per mettere alla prova il filtro. Il filtro invece è vero e gira nel tuo browser.</figcaption></figure>
+  </section>
+
+  <section class="msec" id="m8">
+    <div class="mhead"><span class="sn">08</span><div><h2>Glossario</h2></div></div>
+    <dl class="gloss">${[
+      ["Atomo","La combinazione carta × stampa × grado. Un Charizard Base Set PSA 10 e lo stesso Charizard PSA 9 sono due atomi, con prezzi e popolazioni proprie."],
+      ["Cert","Il numero di certificato stampato sull'etichetta dello slab. Permette di verificare carta e voto presso l'ente di grading."],
+      ["Fair value","La nostra stima di quanto vale oggi una copia di un atomo, costruita solo da vendite valide."],
+      ["Evidenza","Punteggio da 0 a 100 che dice quanto è solido un fair value."],
+      ["Forchetta","L'intervallo in cui il valore si trova con buona probabilità. Larga quando le vendite sono poche."],
+      ["Popolazione","Quante copie di un atomo sono state gradate, secondo i report degli enti."],
+      ["Ricambio","Quota delle copie esistenti che cambia proprietario in un anno."],
+      ["Copie che circolano","Equivalente del flottante in borsa: le copie realisticamente sul mercato in un dato orizzonte."],
+      ["Recinto asimmetrico","Regola che scarta con decisione le vendite molto sotto il mercato e tiene, a peso ridotto, quelle molto sopra."],
+      ["Costo reale","Prezzo + spedizione + IVA all'importazione + sdoganamento + commissioni: quanto paghi davvero in Italia."]]
+      .map(([t,d])=>`<div class="panel"><dt>${t}</dt><dd>${d}</dd></div>`).join("")}</dl>
+  </section>`};
+
+function capCompare(){
+  const W=900,H=190,x0=190,x1=W-40,max=12e6,X=v=>x0+(x1-x0)*v/max;
+  const rows=[["Ultima vendita × copie",11.16e6,null,"tcg"],["Valore di collezione",2.09e6,[0.9e6,6.2e6],"col"],["Valore liquido",0.5e6,[0.3e6,0.9e6],"liq"]];
+  return`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Confronto: 11,2 milioni con l'ultima vendita, 2,1 milioni come valore di collezione, 0,5 milioni come valore liquido" style="min-width:640px;width:100%;height:auto;color:var(--fg)">
+  <defs><linearGradient id="cg" x1="0" x2="1"><stop offset="0" stop-color="#6ef0ff"/><stop offset=".5" stop-color="#9d8cff"/><stop offset="1" stop-color="#ff8ad8"/></linearGradient></defs>
+  ${[0,3e6,6e6,9e6,12e6].map(v=>`<line x1="${X(v)}" x2="${X(v)}" y1="10" y2="${H-26}" stroke="currentColor" opacity=".12"/><text x="${X(v)}" y="${H-8}" text-anchor="middle" font-family="var(--f-mono)" font-size="11" fill="var(--faint)">${v?"$"+v/1e6+"M":"0"}</text>`).join("")}
+  ${rows.map(([t,v,band,k],i)=>{const y=22+i*50;return`
+    <text x="${x0-14}" y="${y+18}" text-anchor="end" font-family="var(--f-body)" font-size="13" font-weight="700" fill="currentColor">${t}</text>
+    ${band?`<rect x="${X(band[0])}" y="${y+4}" width="${X(band[1])-X(band[0])}" height="20" rx="4" fill="#9d8cff" opacity=".18"/>`:""}
+    <rect x="${x0}" y="${y+8}" width="${X(v)-x0}" height="12" rx="3" fill="${k==="tcg"?"var(--down)":"url(#cg)"}"/>
+    <text x="${X(v)+(k==="tcg"?-8:10)}" y="${y+18}" text-anchor="${k==="tcg"?"end":"start"}" font-family="var(--f-mono)" font-size="12.5" font-weight="600" fill="${k==="tcg"?"#fff":"currentColor"}">$${(v/1e6).toFixed(1).replace(".",",")}M</text>`}).join("")}
+  <text x="${X(6.2e6)+8}" y="${22+50+10}" font-family="var(--f-body)" font-size="11" fill="var(--muted)">forchetta</text>
+  </svg>`}
+
+function sourcesDiagram(){
+  const W=980,H=300;
+  const L=[["TCGdex","catalogo, immagini, raw","real",40],["Fonte graded con licenza","vendite e popolazioni","plan",110],["API PSA","verifica dei cert","plan",180],["eBay Browse API","annunci attivi","plan",250]];
+  const mid=[["Pulizia","imbuto a 6 passaggi",95],["Valutazione","fair value, evidenza, liquidità",205]];
+  const R=[["Classifica e indici",60],["Pagina carta",135],["Deal sul costo reale",210]];
+  const box=(x,y,w,h,t,s,kind)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="10" fill="${kind==="real"?"#4fe3a1":kind==="core"?"#9d8cff":"currentColor"}" fill-opacity="${kind==="real"?.16:kind==="core"?.18:.06}" stroke="${kind==="real"?"#4fe3a1":kind==="core"?"#9d8cff":"currentColor"}" stroke-opacity="${kind==="plan"?.35:.9}" ${kind==="plan"?'stroke-dasharray="5 4"':""}/>
+    <text x="${x+14}" y="${y+22}" font-family="var(--f-body)" font-size="13.5" font-weight="700" fill="currentColor">${t}</text>${s?`<text x="${x+14}" y="${y+40}" font-family="var(--f-body)" font-size="11.5" fill="var(--muted)">${s}</text>`:""}`;
+  const arrow=(x1,y1,x2,y2,lab)=>`<path d="M${x1} ${y1} C${(x1+x2)/2} ${y1}, ${(x1+x2)/2} ${y2}, ${x2} ${y2}" fill="none" stroke="currentColor" stroke-opacity=".45" stroke-width="1.5" marker-end="url(#ar2)"/>${lab?`<text x="${(x1+x2)/2}" y="${(y1+y2)/2-6}" text-anchor="middle" font-family="var(--f-mono)" font-size="10.5" fill="var(--faint)">${lab}</text>`:""}`;
+  return`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Le fonti alimentano pulizia e valutazione, che producono classifica, pagina carta e deal" style="min-width:760px;width:100%;height:auto;color:var(--fg)">
+  <defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor" fill-opacity=".6"/></marker></defs>
+  <text x="20" y="22" font-family="var(--f-mono)" font-size="11" fill="var(--faint)">FONTI</text><text x="400" y="22" font-family="var(--f-mono)" font-size="11" fill="var(--faint)">SLABWISE</text><text x="740" y="22" font-family="var(--f-mono)" font-size="11" fill="var(--faint)">COSA VEDI</text>
+  ${L.map(([t,s,k,y])=>box(20,y-8,250,52,t,s,k)).join("")}
+  ${mid.map(([t,s,y])=>box(400,y-8,230,56,t,s,"core")).join("")}
+  ${R.map(([t,y])=>box(740,y-8,220,44,t,"","core")).join("")}
+  ${arrow(270,58,400,115,"raw e catalogo")}${arrow(270,128,400,115,"vendite")}${arrow(270,198,400,125,"cert")}${arrow(515,143,515,197,"")}${arrow(270,268,740,224,"annunci")}
+  ${arrow(630,225,740,74,"")}${arrow(630,225,740,149,"")}${arrow(630,225,740,212,"")}
+  <rect x="20" y="${H-26}" width="12" height="12" rx="3" fill="#4fe3a1" fill-opacity=".3" stroke="#4fe3a1"/><text x="40" y="${H-16}" font-family="var(--f-body)" font-size="12" fill="var(--muted)">reale nel prototipo</text>
+  <rect x="190" y="${H-26}" width="12" height="12" rx="3" fill="none" stroke="currentColor" stroke-opacity=".4" stroke-dasharray="3 3"/><text x="210" y="${H-16}" font-family="var(--f-body)" font-size="12" fill="var(--muted)">simulato ora, fonte reale prevista</text>
+  </svg>`}
+
+V.method.after=()=>{
+  document.querySelector(".toc").addEventListener("click",e=>{const a=e.target.closest("a[data-to]");if(!a)return;e.preventDefault();document.getElementById(a.dataset.to).scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"})});
+  /* demo maggioranza */
+  const sales=[...Array(10)].map((_,i)=>({d:13-i*1.2,p:26+((i*37)%11)})).concat([{d:5,p:35000,real:true}]);
+  const raw=2000,psa9=9000;
+  const draw=m=>{const W=880,H=260,p={l:70,r:20,t:16,b:30},lo=Math.log(15),hi=Math.log(70000);
+    const X=d=>p.l+(W-p.l-p.r)*(1-d/14),Y=v=>p.t+(H-p.t-p.b)*(1-(Math.log(v)-lo)/(hi-lo));
+    const med=median(sales.map(s=>s.p)), res=m==="med"?med:35000;
+    const lines=m==="sw"?`<line x1="${p.l}" x2="${W-p.r}" y1="${Y(raw)}" y2="${Y(raw)}" stroke="#ffcc66" stroke-dasharray="6 5"/><text x="${W-p.r-4}" y="${Y(raw)-6}" text-anchor="end" font-family="var(--f-mono)" font-size="11" fill="#ffcc66">raw NM €2.000: nessun PSA 10 può stare sotto</text>
+      <line x1="${p.l}" x2="${W-p.r}" y1="${Y(psa9)}" y2="${Y(psa9)}" stroke="currentColor" stroke-opacity=".35" stroke-dasharray="3 5"/><text x="${W-p.r-4}" y="${Y(psa9)-6}" text-anchor="end" font-family="var(--f-mono)" font-size="11" fill="var(--muted)">PSA 9 €9.000</text>`:"";
+    const dots=sales.map(s=>m==="sw"&&!s.real?`<path d="M${X(s.d)-5} ${Y(s.p)-5}l10 10M${X(s.d)+5} ${Y(s.p)-5}l-10 10" stroke="var(--down)" stroke-width="2.2" stroke-linecap="round"/>`:`<circle cx="${X(s.d)}" cy="${Y(s.p)}" r="${s.real?8:6}" fill="${s.real?"#6ef0ff":"#9d8cff"}" stroke="var(--panel)" stroke-width="2"/>`).join("");
+    document.getElementById("majfig").innerHTML=`<div class="scroll"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${m==="med"?"Con la mediana semplice il prezzo è 30 euro":"Con Slabwise i dieci annunci sono scartati e il prezzo è 35.000 euro"}" style="min-width:600px;width:100%;height:auto;color:var(--fg)">
+      ${[30,300,3000,30000].map(v=>`<line x1="${p.l}" x2="${W-p.r}" y1="${Y(v)}" y2="${Y(v)}" stroke="currentColor" stroke-opacity=".1"/><text x="${p.l-10}" y="${Y(v)+4}" text-anchor="end" font-family="var(--f-mono)" font-size="11" fill="var(--faint)">€${v.toLocaleString("it-IT")}</text>`).join("")}
+      ${[14,7,0].map(d=>`<text x="${X(d)}" y="${H-8}" text-anchor="middle" font-family="var(--f-mono)" font-size="11" fill="var(--faint)">${d?"-"+d+" giorni":"oggi"}</text>`).join("")}
+      ${lines}${dots}
+      <line x1="${p.l}" x2="${W-p.r}" y1="${Y(res)}" y2="${Y(res)}" stroke="${m==="med"?"var(--down)":"#4fe3a1"}" stroke-width="2.5"/>
+      <text x="${p.l+8}" y="${Y(res)-8}" font-family="var(--f-display)" font-size="14" font-weight="700" fill="${m==="med"?"var(--down)":"#4fe3a1"}">Prezzo: €${Math.round(res).toLocaleString("it-IT")}</text>
+      <text x="${X(5)+14}" y="${Y(35000)+4}" font-family="var(--f-body)" font-size="11.5" fill="var(--muted)">vendita con cert verificato</text></svg></div>`;
+    document.getElementById("majcap").innerHTML=m==="med"
+      ?"La mediana dà ragione alla maggioranza: 10 annunci su 11 sono a circa 30 €, quindi il PSA 10 “vale” 30 €. È l'errore che tcgcharts ammette per le carte molto scambiate."
+      :"Slabwise prima classifica: i dieci annunci stanno sotto il prezzo della carta raw, quindi non possono essere PSA 10 (sono carte raw o ristampe). Resta la vendita con cert verificato. Nessuna regola scritta per questa carta: la stessa logica vale per qualsiasi prezzo.";
+  };
+  draw("med");
+  document.getElementById("majt").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;[...b.parentNode.children].forEach(x=>x.classList.toggle("on",x===b));draw(b.dataset.m)});
+  /* slider shrinkage */
+  const obs=3.72e6,ref=4e5,k=3;
+  const sh=()=>{const n=+document.getElementById("shs").value;document.getElementById("shn").textContent=n;
+    const v=Math.exp((n*Math.log(obs)+k*Math.log(ref))/(n+k)), wo=n/(n+k);
+    const W=520,H=150,X=x=>30+(W-60)*(Math.log(x)-Math.log(2e5))/(Math.log(6e6)-Math.log(2e5));
+    document.getElementById("shfig").innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Con ${n} vendite il valore è ${Math.round(v).toLocaleString("it-IT")} dollari" style="width:100%;height:auto;color:var(--fg)">
+      <line x1="30" x2="${W-30}" y1="70" y2="70" stroke="currentColor" stroke-opacity=".2" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="${X(ref)}" cy="70" r="7" fill="var(--panel)" stroke="currentColor" stroke-width="2"/><text x="${X(ref)}" y="100" text-anchor="middle" font-family="var(--f-mono)" font-size="11" fill="var(--muted)">riferimento $400k</text>
+      <circle cx="${X(obs)}" cy="70" r="7" fill="var(--panel)" stroke="#6ef0ff" stroke-width="2"/><text x="${X(obs)}" y="100" text-anchor="middle" font-family="var(--f-mono)" font-size="11" fill="var(--muted)">vendite $3,72M</text>
+      <circle cx="${X(v)}" cy="70" r="11" fill="#9d8cff"/><text x="${X(v)}" y="42" text-anchor="middle" font-family="var(--f-display)" font-size="16" font-weight="700" fill="currentColor">$${v>=1e6?(v/1e6).toFixed(2).replace(".",",")+"M":Math.round(v/1e3)+"k"}</text>
+      <rect x="30" y="122" width="${(W-60)*wo}" height="10" rx="3" fill="#6ef0ff"/><rect x="${30+(W-60)*wo}" y="122" width="${(W-60)*(1-wo)}" height="10" rx="3" fill="currentColor" fill-opacity=".25"/>
+      <text x="30" y="146" font-family="var(--f-mono)" font-size="10.5" fill="var(--muted)">peso vendite ${Math.round(wo*100)}%</text><text x="${W-30}" y="146" text-anchor="end" font-family="var(--f-mono)" font-size="10.5" fill="var(--muted)">peso riferimento ${Math.round((1-wo)*100)}%</text></svg>`};
+  sh();document.getElementById("shs").addEventListener("input",sh);
+};
+
+V.nf=()=>`<h1 style="font-size:30px">Pagina non trovata</h1><p style="color:var(--muted)">Questo indirizzo non corrisponde a nessuna carta del dataset demo.</p><a class="btn" href="#market">Torna al mercato</a>`;
+
+/* router */
+let lastCard=null;
+function route(keep){const h=(location.hash||"#market").slice(1);let html,after,key=h;
+  if(h.startsWith("card-")){const id=h.slice(5);if(id!==lastCard){if(!keepGrade)gradeSel=0;lastCard=id;salesFilter="all"}keepGrade=false;html=V.card(id);after=()=>V.card.after(id);key="market"}
+  else if(V[h]&&!["card","nf"].includes(h)){html=V[h]();after=V[h].after}
+  else{html=V.market();after=V.market.after;key="market"}
+  document.getElementById("view").innerHTML=html;after&&after();
+  document.querySelectorAll("#links a").forEach(a=>a.classList.toggle("on",a.dataset.v===key));
+  if(!keep)window.scrollTo(0,0)}
+addEventListener("hashchange",()=>route());
+route();
+/* countdown aste */
+setInterval(()=>{document.querySelectorAll(".timer[data-end]").forEach(t=>{let m=+t.dataset.end-1;if(m<0)m=0;t.dataset.end=m;t.textContent="⏱ "+fmtT(m)})},60000);
+</script>

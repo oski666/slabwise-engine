@@ -1,0 +1,119 @@
+# Automatic site build (D75, D112): every morning, after the sales collection, GitHub recomputes the values, reads the
+# active eBay listings, computes the deals and publishes the page on Cloudflare Pages. It does not use Claude.
+# The deals are refreshed during the day by the "Occasioni" workflow, which reuses this run's values (artifact).
+# eBay listings are never committed (no archive, licence §8.1): they live only inside the run.
+name: Sito
+on:
+  workflow_run:                  # D116: right after the morning collection, whenever GitHub actually runs it
+    workflows: ["Raccolta tcgcharts"]
+    types: [completed]
+  schedule:
+    - cron: "17 9 * * *"           # fallback: if the collection never ran, build anyway (skipped when today's build exists)
+  workflow_dispatch: {}
+permissions:
+  contents: write                # D105: the weekly sealed snapshot is committed
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    outputs:
+      go: ${{ steps.g.outputs.go }}
+    steps:
+      - id: g
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          go=true
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            n=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/sito.yml/runs?created=>=$(date -u +%F)&status=success" -q '.total_count')
+            [ "$n" -gt 0 ] && go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"
+  build:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    env:
+      HAS_EBAY: ${{ secrets.EBAY_CLIENT_ID != '' }}
+      HAS_CF: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Private data (D163)
+        uses: ./.github/actions/private-data
+        with:
+          mode: pull
+          token: ${{ secrets.DATA_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: pip install numpy scipy pandas pillow
+      - name: Keys
+        env:
+          EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
+          EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
+          EPN_CAMPAIGN_ID: ${{ secrets.EPN_CAMPAIGN_ID }}
+        run: |
+          mkdir -p ~/.slabwise
+          printf '%s' "$EBAY_CLIENT_ID" > ~/.slabwise/ebay_client_id
+          printf '%s' "$EBAY_CLIENT_SECRET" > ~/.slabwise/ebay_client_secret
+          printf '%s' "$EPN_CAMPAIGN_ID" > ~/.slabwise/epn_campaign_id
+      - name: Sales (base + Alt + tcgcharts, D82)
+        run: PYTHONPATH=. python scripts/build_sales.py data/raw/sales_base.csv data/raw/alt data/raw/sales_all.csv data/raw/tcgcharts
+      - name: Indices with the long history (D149, protocol §29)
+        if: github.event_name != 'workflow_dispatch'   # 4 Nov (GitHub minutes): once a day; extra builds keep the morning's indices
+        continue-on-error: true          # if it fails, yesterday's index_full.json stays
+        timeout-minutes: 40
+        run: |
+          SLABWISE_TC_HISTORY=1 PYTHONPATH=. python scripts/build_sales.py data/raw/sales_base.csv data/raw/alt /tmp/sales_hist.csv data/raw/tcgcharts
+          SLABWISE_TC_HISTORY=1 SLABWISE_OUT=/tmp/real_hist.json PYTHONPATH=. python prototype/build_real_data.py /tmp/sales_hist.csv data/raw/era_map.json
+          PYTHONPATH=. python scripts/index_full_extract.py /tmp/real_hist.json
+      - name: Values
+        run: PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json
+      - name: eBay listings and deals (D112)
+        if: env.HAS_EBAY == 'true'
+        continue-on-error: true
+        timeout-minutes: 10              # a slow eBay never blocks the publication of the values
+        run: |
+          PYTHONPATH=. python scripts/ebay_listings.py data/raw/ebay/listings.json
+          PYTHONPATH=. python scripts/deals_refresh.py prototype/data/real.json data/raw/ebay/listings.json
+      - name: Weekly sealed snapshot (D105)
+        continue-on-error: true
+        run: |
+          pip install -q opentimestamps-client
+          python scripts/seal.py prototype/data/real.json data/seals
+          for f in data/seals/*.json; do [ -f "$f.ots" ] || ots stamp "$f"; done
+          ots upgrade data/seals/*.ots || true
+          git config user.name "slabwise-bot"
+          git config user.email "slabwise-bot@users.noreply.github.com"
+          git add data/seals
+          git diff --cached --quiet || (git commit -m "Istantanea sigillata dei valori" && git pull --rebase --autostash -q && git push)
+      - name: Scorecard (D105)
+        continue-on-error: true
+        run: PYTHONPATH=. python scripts/pagella.py data/raw/sales_all.csv prototype/data/pagella.json
+      - name: Keep the values for the deal refreshes
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-data
+          path: |
+            prototype/data/real.json
+            prototype/data/pagella.json
+          retention-days: 3
+      - name: Page
+        run: |
+          mkdir -p site
+          python prototype/v7/build.py real --split site
+          sed -i 's#<meta charset="utf-8">#<meta charset="utf-8">\n<meta name="robots" content="noindex">#' site/index.html
+          python social/reel-studio/build.py
+          sed 's#<meta charset="utf-8">#<meta charset="utf-8">\n<meta name="robots" content="noindex">#' social/reel-studio/studio.html > site/x/studio.html
+      - name: Publish on Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        if: env.HAS_CF == 'true'
+        run: |
+          npx --yes wrangler@3 pages project create slabwise --production-branch=main || true
+          npx --yes wrangler@3 pages deploy site --project-name=slabwise --branch=main --commit-dirty=true

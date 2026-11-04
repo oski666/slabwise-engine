@@ -1,0 +1,25 @@
+seed1_c0_A.json k 1.0 EV 0.0541 CA 0.782
+seed1_c10_A.json k 1.1 EV 0.0572 CA 0.765
+seed1_c15_A.json k 1.2 EV 0.0598 CA 0.773
+seed1_c15_A_alt.json k 1.2 EV 0.0769 CA 0.756
+seed1_c15_B.json k 1.2 EV 0.0597 CA 0.773
+seed1_c35_A.json k 1.2 EV 0.0635 CA 0.819
+seed2_c0_A.json k 0.9 EV 0.0533 CA 0.814
+seed1_c50_A.json k 1.2 EV 0.0619 CA 0.752
+seed2_c10_A.json k 1.1 EV 0.0556 CA 0.821
+seed2_c15_A.json k 1.2 EV 0.0615 CA 0.817
+seed2_c15_A_alt.json k 1.2 EV 0.0683 CA 0.794
+seed2_c15_B.json k 1.2 EV 0.0616 CA 0.817
+seed2_c35_A.json k 1.2 EV 0.0621 CA 0.776
+seed2_c50_A.json k 1.2 EV 0.0623 CA 0.792
+seed3_c0_A.json k 0.9 EV 0.0524 CA 0.801
+seed3_c10_A.json k 1.2 EV 0.056 CA 0.837
+seed3_c15_A.json k 1.2 EV 0.0558 CA 0.847
+seed3_c15_A_alt.json k 1.2 EV 0.0713 CA 0.791
+seed3_c15_B.json k 1.2 EV 0.0557 CA 0.847
+seed3_c35_A.json k 1.2 EV 0.0588 CA 0.8
+seed3_c50_A.json k 1.2 EV 0.0617 CA 0.796
+seed4_c15_A.json k 1.2 EV 0.0544 CA 0.851
+seed5_c15_A.json k 1.2 EV 0.0577 CA 0.828
+SIMFINE
+FINE

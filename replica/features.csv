@@ -1,0 +1,11 @@
+id,feature,priority,clone,note
+R01,apertura a vignette con titolo fumetto e Slabby,must,yes,vignette con le nostre carte; illustrazioni dedicate da fare
+R02,barra laterale scura con voci serif e voce attiva,must,yes,
+R03,pillole in alto a destra (ricerca e tema),should,yes,
+R04,sezioni a schermo intero con parola gigante e triangolo,must,yes,
+R05,titoli in riquadro con ombra spostata,must,yes,
+R06,slab in evidenza con miniature per cambiarlo,must,yes,
+R07,fascia blu con le storie della settimana,should,yes,"scorre da sola ogni 4 s, si ferma sotto il puntatore; pallini cliccabili"
+R08,schede stile notizie per collezione e giapponesi,must,yes,
+M01,mobile: barra laterale diventa barra in alto e menu in basso,must,yes,"barra in alto, sezioni nel menu in basso; senza menu laterale a scomparsa"
+R09,movimento: entrate animate, parallasse e scorrimenti continui,must,yes,"tutto spento con riduci movimento (D43)"

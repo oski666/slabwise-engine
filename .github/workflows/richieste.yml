@@ -1,0 +1,71 @@
+# Card requests within the hour (D117): started every hour by the Cloudflare clock. When a visitor asked for a card
+# since the last run, it is checked (D97) and, if it passes, added to the catalogue with the engine gate (§15);
+# then the site is rebuilt. With nothing new it stops after a few seconds.
+name: Richieste
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: raccolta-tcgcharts      # never at the same time as the collection: both write the tcgcharts files
+  cancel-in-progress: false
+jobs:
+  gate:                          # 4 Nov: a tiny job without checkout decides; the real job is skipped (no minutes) when idle
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    outputs:
+      go: ${{ steps.new.outputs.go }}
+    steps:
+      - name: Anything new?
+        id: new
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/contents/prototype/data/requests_status.json" -H "Accept: application/vnd.github.raw" > /tmp/st.json
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, urllib.request
+          live = json.load(urllib.request.urlopen(urllib.request.Request("https://slabwise.pages.dev/api/richieste", headers={"User-Agent": "slabwise-bot"}), timeout=30))
+          st = json.load(open("/tmp/st.json"))
+          todo = [r for r in live.get("requests", []) if f"{r['lang']}:{r['id']}" not in st]
+          ready = [k for k, v in st.items() if v.get("status") == "pronta"]
+          print("go=" + ("true" if todo or ready else "false"))
+          PY
+  requests:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Private data (D163)
+        uses: ./.github/actions/private-data
+        with:
+          mode: pull
+          token: ${{ secrets.DATA_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check and add (D97, D102)
+        run: |
+          pip install -q numpy pandas scipy pillow
+          PYTHONPATH=. python scripts/card_requests.py prototype/data/requests_status.json
+          PYTHONPATH=. python scripts/add_cards.py
+      - name: Save the private data (D163)
+        uses: ./.github/actions/private-data
+        with:
+          mode: push
+          token: ${{ secrets.DATA_TOKEN }}
+          message: "Richieste: dati grezzi"
+      - name: Save and rebuild the site
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "slabwise-bot"
+          git config user.email "slabwise-bot@users.noreply.github.com"
+          git add prototype/data/requests_status.json prototype/data/cards.json prototype/data/images.json prototype/data/hires.json data/catalogue_extra.json 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Richieste: controllo del $(date -u '+%F %H:%M')"
+            git pull --rebase --autostash -q && git push
+            gh workflow run sito.yml -R "$GITHUB_REPOSITORY"
+          fi

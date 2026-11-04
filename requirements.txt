@@ -1,0 +1,8 @@
+# Per l'anteprima del sito basta Pillow (facoltativo: ritaglia e ridimensiona le pose PNG).
+pillow
+# Per il motore, i test e i report:
+numpy
+scipy
+pandas
+matplotlib
+pytest

@@ -1,0 +1,13 @@
+== today 
+E2r: 1 voci lontane dalle vendite recenti: [('base2-11/1st', 9, 5, 9600, 5210)]
+gap_start=True venue_gaps=True R1: 0 voci su 379: []
+== today --v116
+E2r: 1 voci lontane dalle vendite recenti: [('base2-11/1st', 9, 5, 9600, 5380)]
+gap_start=True venue_gaps=True R1: 0 voci su 379: []
+== hist_today 
+E2r: 1 voci lontane dalle vendite recenti: [('base2-11/1st', 9, 5, 9600, 4956)]
+gap_start=True venue_gaps=True R1: 0 voci su 393: []
+== hist_today --v116
+E2r: 2 voci lontane dalle vendite recenti: [('base1-8', 10, 5, 8000, 3047), ('base2-11/1st', 9, 5, 9600, 5001)]
+gap_start=True venue_gaps=True R1: 0 voci su 393: []
+LANEADONE

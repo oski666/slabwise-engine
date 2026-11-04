@@ -1,0 +1,1515 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slabwise</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Anton&family=Luckiest+Guy&family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=JetBrains+Mono:wght@600;700&family=Inter+Tight:wght@800;900&display=swap">
+__CHAR_FONT__
+<style>
+__STYLE__
+</style>
+
+__SLABBY_SVG__
+<div class="intro" aria-hidden="true"><i></i><i></i><b data-i="intro"></b></div>
+<div class="progress" id="prog" aria-hidden="true"></div>
+<aside class="side" data-ia="aria-label:a_nav">
+  <a class="brand" href="#mercato" data-ia="aria-label:a_brand"><span class="brand-top">slab</span><span class="brand-bot">wise</span></a>
+  <nav class="snav" data-ia="aria-label:a_secs">
+    <a href="#mercato" data-nav="mercato" data-sec="home" data-i="market"></a>
+    <a href="#mercato" data-sec="ere" data-i="eras"></a>
+    <a href="#mercato" data-sec="star" data-i="featured"></a>
+    <a href="#mercato" data-sec="slab" data-i="catalog"></a>
+    <a href="#mercato" data-sec="jp" data-i="japan"></a>
+    <a href="#deal" data-nav="deal" data-i="deals"></a>
+    <a href="#metodo" data-nav="metodo" data-i="method"></a>
+    <a href="#richieste" data-nav="richieste" data-i="requests"></a>
+    <a href="#mie" data-nav="mie"><span data-i="mine"></span> <b class="wcount" hidden></b></a>
+  </nav>
+  <span class="side-kana" lang="ja" aria-hidden="true">グレーディング相場</span>
+  <svg class="side-peek" id="sidepeek" aria-hidden="true"><use href="#slabby-peek"/></svg>
+  <span class="side-badge" id="datamode">DEMO</span>
+</aside>
+<div class="topright">
+  <div class="search pill-light" role="search">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input id="q" type="search" autocomplete="off" data-ia="placeholder:search_ph;aria-label:search_aria">
+    <div class="results" id="res" hidden></div>
+  </div>
+  <div class="pill-dark">
+    <a href="#deal" data-ia="aria-label:deals;title:deals"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12l9-9h7v7l-9 9z"/><circle cx="15.5" cy="8.5" r="1.5"/></svg></a>
+    <a href="#metodo" data-ia="aria-label:method;title:method"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg></a>
+    <button class="langbtn" id="lang" data-ia="aria-label:a_lang;title:a_lang"><span data-l="it">IT</span><span data-l="en">EN</span></button>
+    <button class="iconbtn" id="theme" data-ia="aria-label:a_theme"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+  </div>
+</div>
+<nav class="mnav" data-ia="aria-label:a_secs">
+  <a href="#mercato" data-nav="mercato" data-i="market"></a><a href="#deal" data-nav="deal" data-i="deals"></a><a href="#metodo" data-nav="metodo" data-i="method"></a><a href="#richieste" data-nav="richieste" data-i="requests"></a><a href="#mie" data-nav="mie"><span data-i="mine_short"></span> <b class="wcount" hidden></b></a>
+</nav>
+<main id="app"></main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<footer><div class="wrap"><span data-i="foot_build"></span><span id="foot"></span><a href="#privacy" style="color:inherit" data-i="privacy_link"></a> · <a href="#termini" style="color:inherit" data-i="terms_link"></a> · <a href="#contatti" style="color:inherit" data-i="contact_link"></a> · <a href="#pose" style="color:inherit" data-i="poses_link"></a></div></footer>
+
+<script>
+const D = __DATA__;
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* ---- language (D62): Italian and English. Japanese card names and sets always stay as printed. ----
+   The words of the product live in GLOSSARY: change a term there and it changes everywhere. */
+let LANG = (() => { let s = null; try { s = localStorage.getItem("sw-lang"); } catch (e) {}
+  return s === "it" || s === "en" ? s : /^it\b/i.test(navigator.language || "it") ? "it" : "en"; })();
+const tx = (it, en) => LANG === "it" ? it : en;
+const GLOSSARY = {
+  market: ["Mercato", "Market"], eras: ["Le ere", "Eras"], featured: ["In evidenza", "Featured"], catalog: ["Catalogo", "Catalogue"],
+  japan: ["Giappone", "Japan"], week: ["Settimana", "This week"], deals: ["Occasioni", "Deals"], method: ["Metodo", "Method"],
+  requests: ["Richieste", "Requests"], mine: ["Le mie carte", "My cards"], mine_short: ["Mie", "Mine"],
+  card: ["carta gradata", "graded card"], cards: ["carte gradate", "graded cards"],
+  range: ["intervallo di valore", "value range"], range80: ["intervallo all'80%", "80% range"],
+  deal: ["occasione", "deal"], intro: ["SBAM!", "BAM!"], poses_link: ["Pose del personaggio", "Character poses"],
+  tier_hi: ["Affidabilità alta", "High confidence"], tier_mid: ["Affidabilità media", "Medium confidence"], tier_lo: ["Affidabilità bassa", "Low confidence"],
+};
+const UI = {   // labels of the fixed page parts (data-i / data-ia)
+  a_nav: ["Navigazione", "Navigation"], a_brand: ["Slabwise, mercato", "Slabwise, market"], a_secs: ["Sezioni", "Sections"],
+  search_ph: ["Cerca una carta o un cert  ( / )", "Search a card or a cert  ( / )"], search_aria: ["Cerca una carta o un numero di cert PSA", "Search a card or a PSA cert number"],
+  a_week: ["Storie della settimana", "Stories of the week"], a_lang: ["Lingua: italiano / English", "Language: italiano / English"],
+  a_theme: ["Cambia tema", "Switch theme"],
+  privacy_link: ["Privacy", "Privacy"], terms_link: ["Condizioni d'uso", "Terms of use"], contact_link: ["Contatti", "Contact"],
+  foot_build: ['Slabwise · prototipo v7.2 "Comic Rush" · motore LVM v1.15 · indice d\'era v1.4 · con Slabby', 'Slabwise · prototype v7.2 "Comic Rush" · LVM engine v1.15 · era index v1.4 · with Slabby'],
+};
+const t = k => { const e = GLOSSARY[k] || UI[k]; return e ? e[LANG === "it" ? 0 : 1] : k; };
+let LOC, nf0, nf1;
+function setLocale() {
+  LOC = LANG === "it" ? "it-IT" : "en-US";
+  nf0 = new Intl.NumberFormat(LOC, {maximumFractionDigits: 0});
+  nf1 = new Intl.NumberFormat(LOC, {maximumFractionDigits: 1, minimumFractionDigits: 1});
+  document.documentElement.lang = LANG;
+}
+setLocale();
+const usd = v => "$" + nf0.format(v);
+const usdK = v => v >= 1e9 ? "$" + nf1.format(v / 1e9) + tx(" mld", "B") : v >= 1e6 ? "$" + nf1.format(v / 1e6) + tx(" mln", "M") : usd(v);
+const eur = v => tx(nf0.format(v) + " €", "€" + nf0.format(v));
+const pct = (v, s = true) => v == null || !isFinite(v) ? "—" : (s && v > 0 ? "+" : v < 0 ? "−" : "") + nf1.format(Math.abs(v * 100)) + "%";   // "—": a card too new for that span
+const dateF = s => new Date(s + "T12:00:00").toLocaleDateString(LOC, {day: "numeric", month: "short", year: "2-digit"});
+const plural = (n, one, many) => n + " " + (n === 1 ? one : many);
+/* data strings are written by the engine in Italian: shown as they are in Italian, translated here in English */
+const SERIES_EN = {"Giappone": "Japan", "Vintage": "Vintage", "Classica": "Classic", "Di mezzo": "Mid era", "Moderna": "Modern", "Contemporanea": "Contemporary", "Altro": "Other"};   /* D154: the five eras of the market */
+const VENUE_EN = {"Casa d'aste": "Auction house", "Prezzo fisso": "Fixed price"};
+const REASON_EN = {
+  "molto sotto il valore: possibile carta rovinata, falso o voto sbagliato": "far below the value: possibly a damaged card, a fake or a wrong grade",
+  "molto sopra il valore: possibile lotto, asta gonfiata o Best Offer": "far above the value: possibly a lot, an inflated auction or a Best Offer",
+  "Best Offer senza prezzo accettato": "Best Offer with no accepted price", "pagamento in attesa": "payment pending",
+  "lotto non pagato": "unpaid lot", "sparito dall'archivio Fanatics": "removed from the Fanatics archive",
+  "duplicato (stesso cert, altra fonte)": "duplicate (same cert, another source)", "duplicato (stesso annuncio)": "duplicate (same listing)",
+  "doppione tra ricerche": "duplicate between searches", "lotto di più carte": "lot of several cards", "non venduta": "not sold",
+  "prezzo mancante": "missing price", "prezzo o data mancanti": "missing price or date", "valuta non USD": "currency not USD",
+  "altro grader": "another grading company", "non PSA 7-10": "not PSA 7–10", "cert: stampa diversa dal catalogo": "cert: different printing from the catalogue",
+  "cert: voto fuori perimetro": "cert: grade out of scope", "nessuna carta del catalogo": "no catalogue card",
+  "esclusa (lotto, sigillato, firmata, altro grader...)": "excluded (lot, sealed, signed, other grader…)",
+  "esclusa (lingua, lotto, sigillato, firmata, ristampa...)": "excluded (language, lot, sealed, signed, reprint…)",
+};
+const ser = s => LANG === "en" ? SERIES_EN[s] || s : s;
+const ven = s => LANG === "en" ? VENUE_EN[s] || s : s;
+const rsn = s => s && LANG === "en" ? REASON_EN[s] || s : s;
+const ori = o => LANG === "en" ? ({UE: "EU", USA: "US"})[o] || o : o;
+
+const halfw = g => (g.hi - g.lo) / 2 / g.value;
+const cardById = Object.fromEntries(D.cards.map(c => [c.id, c]));
+const gradeOf = (c, g) => c.grades.find(x => x.grade === g);
+const capOf = c => D.real ? shown(c.grades[0]) : c.grades.reduce((s, g) => s + g.value * g.pop, 0);
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+if (!reduce) document.documentElement.classList.add("mo");
+let firstLoad = true;
+
+function applyStatic() {
+  document.querySelectorAll("[data-i]").forEach(el => { el.textContent = t(el.dataset.i); });
+  document.querySelectorAll("[data-ia]").forEach(el => el.dataset.ia.split(";").forEach(p => { const [a, k] = p.split(":"); el.setAttribute(a, t(k)); }));
+  document.querySelectorAll("#lang [data-l]").forEach(s => s.classList.toggle("on", s.dataset.l === LANG));
+  $("#foot").textContent = (D.real ? tx(`Vendite vere al ${dateF(D.asof)} · eBay (anche tramite Alt), Goldin, Fanatics Collect · ${nf0.format(D.n_sales)} vendite`, `Real sales as of ${dateF(D.asof)} · eBay (also via Alt), Goldin, Fanatics Collect · ${nf0.format(D.n_sales)} sales`)
+    : tx("Dati dimostrativi al ", "Demo data as of ") + dateF(D.asof)) + tx(" · carte e immagini TCGdex", " · cards and images TCGdex");
+  const m = $("#datamode");
+  if (D.real) { m.textContent = tx("DATI VERI", "REAL DATA"); m.title = tx(D.note, "Real data: completed eBay sales (recent weeks), Goldin and Fanatics Collect (since 2023). Populations and listings not collected yet."); }
+  else { m.textContent = "DEMO"; m.title = tx("Carte e immagini reali; vendite, popolazioni e annunci simulati", "Real cards and images; simulated sales, populations and listings"); }
+}
+applyStatic();
+$("#lang").onclick = () => {
+  LANG = LANG === "it" ? "en" : "it";
+  try { localStorage.setItem("sw-lang", LANG); } catch (e) {}
+  setLocale(); applyStatic();
+  const y = scrollY; route(); scrollTo({top: y});
+  window.dispatchEvent(new CustomEvent("slabwise:lang", {detail: LANG}));
+};
+
+(function () {
+  let th = null; try { th = localStorage.getItem("sw-theme"); } catch (e) {}
+  if (th) document.documentElement.dataset.theme = th;
+  $("#theme").onclick = () => {
+    const cur = document.documentElement.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    const nx = cur === "light" ? "dark" : "light";
+    document.documentElement.dataset.theme = nx;
+    try { localStorage.setItem("sw-theme", nx); } catch (e) {}
+  };
+})();
+function toast(msg) { const el = $("#toast"); el.textContent = msg; el.classList.add("on"); clearTimeout(toast.h); toast.h = setTimeout(() => el.classList.remove("on"), 2200); }
+
+/* doodles: tiny hand-drawn-style marks per era (keyed by the engine's series names) */
+const DOODLE = {
+  "Vintage": `<svg class="doodle" viewBox="0 0 84 84"><path d="M42 8l9 22 24 2-18 15 6 23-21-13-21 13 6-23L9 32l24-2z" fill="var(--sun)" stroke="var(--edge)" stroke-width="3" stroke-linejoin="round"/></svg>`,
+  "Classica": `<svg class="doodle" viewBox="0 0 84 84"><path d="M48 6L18 46h20l-6 32 32-42H44z" fill="var(--brand)" stroke="var(--edge)" stroke-width="3" stroke-linejoin="round"/></svg>`,
+  "Di mezzo": `<svg class="doodle" viewBox="0 0 84 84"><path d="M42 8l30 34-30 34-30-34z" fill="var(--sun)" stroke="var(--edge)" stroke-width="3"/></svg>`,
+  "Moderna": `<svg class="doodle" viewBox="0 0 84 84"><path d="M42 10l26 10v20c0 18-12 28-26 34C28 68 16 58 16 40V20z" fill="var(--sky)" stroke="var(--edge)" stroke-width="3" stroke-linejoin="round"/></svg>`,
+  "Contemporanea": `<svg class="doodle" viewBox="0 0 84 84"><circle cx="42" cy="42" r="30" fill="var(--coral)" stroke="var(--edge)" stroke-width="3"/><path d="M12 42h60" stroke="var(--edge)" stroke-width="3"/><circle cx="42" cy="42" r="9" fill="#fff" stroke="var(--edge)" stroke-width="3"/></svg>`,
+};
+
+/* components */
+function slab(c, g, w = 300, cls = "") {
+  return `<div class="stage"><div class="slab ${cls}" style="--w:${w}px" data-tilt>
+    <div class="lab"><div style="min-width:0"><div class="l1">${esc(c.name)}</div><div class="l2">${esc(c.set)} · #${esc(c.no)}${c.tot ? "/" + c.tot : ""}</div><div class="l3">SLABWISE · ${esc(c.id.toUpperCase())}</div></div>
+      <div class="gr">${g === "JP" ? `<b>${tx("STAMPA", "PRINT")}</b><strong>JP</strong>` : `<b>PSA</b><strong>${g}</strong>`}</div></div>
+    <div class="win">${c.img ? `<img src="${c.img}" alt="${esc(c.name)}, ${esc(c.set)}">` : `<div class="noimg">${tx("Immagine in arrivo", "Image coming soon")}</div>`}<div class="holo"></div><div class="glare"></div></div>
+  </div></div>`;
+}
+/* the value range bar: the signature of Slabwise (P10) */
+function fork(g, mini = false, span = 0.25) {
+  const pos = v => 50 + 50 * Math.log(v / g.value) / Math.log(1 + span);
+  const a = Math.max(0, pos(g.lo)), b = Math.min(100, pos(g.hi));
+  return `<div class="fork${mini ? " mini" : ""}" role="img" aria-label="${tx(`Valore ${usd(g.value)}, intervallo all'80% da ${usd(g.lo)} a ${usd(g.hi)}`, `Value ${usd(g.value)}, 80% range from ${usd(g.lo)} to ${usd(g.hi)}`)}">
+    <div class="track"><div class="band" style="left:${a}%;width:${b - a}%"></div><div class="pin" style="left:50%"></div></div>
+    ${mini ? "" : `<div class="ends"><span>${usd(g.lo)}</span><span>${tx("80% di probabilità che il valore sia qui", "80% likely to be in this range")}</span><span>${usd(g.hi)}</span></div>`}</div>`;
+}
+/* confidence tier of a value (D47); the engine names them "Vendite fresche", "Stimato", "Poco sicuro" */
+const TIER_KEY = {"Vendite fresche": "hi", "Stimato": "mid", "Poco sicuro": "lo"};
+const TIER_CLS = {hi: "t-live", mid: "t-mod", lo: "t-low"};
+const TIER_WHY = {hi: ["almeno 3 vendite nelle ultime 13 settimane e intervallo stretto", "at least 3 sales in the last 13 weeks and a narrow range"],
+  mid: ["poche vendite recenti: il valore viene soprattutto dal modello", "few recent sales: the value comes mostly from the model"],
+  lo: ["quasi nessuna vendita recente: prendilo come un'indicazione", "almost no recent sales: take it as a rough guide"]};
+const tierK = g => TIER_KEY[g.tier];
+/* D66: a grade with no sale of its own gets no published value: the grade ladder is not reliable enough there (D65) */
+const noOwn = g => !!(D.real && g && (g.sales_all === 0 || g.off));     // D66: no own sales; D98: estimate far from its own recent sales
+const shown = g => noOwn(g) ? 0 : g.value;                                // D66: a hidden value never ranks or shows
+const usdV = g => noOwn(g) ? "—" : usd(g.value);
+const noEst = (grade, g) => g && g.off
+  ? tx(`PSA ${grade}: stima in revisione, le ultime vendite (mediana ${usd(g.med90)}) non tornano con il modello`, `PSA ${grade}: estimate under review, recent sales (median ${usd(g.med90)}) disagree with the model`)
+  : tx(`Nessuna vendita in PSA ${grade}: stima non disponibile`, `No PSA ${grade} sales: no estimate`);
+/* D115: what a grade without its own sales shows instead of a number: the nearest grades with real sales and how rare it is */
+const monthF = s => new Date(s + "T12:00:00").toLocaleDateString(LOC, {month: "long", year: "numeric"});
+const firstSale = c => c.sales.length ? c.sales.reduce((a, s) => s.date < a ? s.date : a, c.sales[0].date) : new Date().toISOString().slice(0, 10);
+const refBlock = (c, g) => {
+  const near = c.grades.filter(x => x.grade !== g.grade && !noOwn(x)).sort((a, b) => Math.abs(a.grade - g.grade) - Math.abs(b.grade - g.grade) || b.grade - a.grade).slice(0, 2);
+  const last = g.last ? {date: g.last[0], price: g.last[1], venue: g.last[2]} : [...c.sales].filter(s => s.grade === g.grade).pop();
+  const up = near.find(x => x.grade < g.grade);
+  const rare = up && g.pop && up.pop ? tx(`In PSA ${g.grade} ci sono ${nf0.format(g.pop)} gradaggi contro ${nf0.format(up.pop)} in PSA ${up.grade}: circa 1 ogni ${nf0.format(Math.max(1, Math.round(up.pop / g.pop)))}. Con così pochi esemplari il prezzo lo fa la singola vendita.`, `PSA ${g.grade} has ${nf0.format(g.pop)} gradings against ${nf0.format(up.pop)} in PSA ${up.grade}: about 1 in ${nf0.format(Math.max(1, Math.round(up.pop / g.pop)))}. With so few copies a single sale sets the price.`) : "";
+  return `<div class="refbox">${last ? `<div class="fact"><span>${tx("Ultima vendita nota", "Last known sale")}</span><b>${usd(last.price)}</b><em class="note">${dateF(last.date)} · ${esc(ven(last.venue))}</em></div>` : ""}
+    ${near.map(x => `<button class="fact" data-cg="${x.grade}" type="button"><span>${tx("Riferimento", "Reference")} PSA ${x.grade}</span><b>${usd(x.value)}</b><em class="note">${x.sales_all} ${tx("vendite vere", "real sales")}</em></button>`).join("")}</div>
+    ${rare ? `<p class="note">${rare}</p>` : ""}`;
+};
+const tierName = g => t("tier_" + tierK(g));
+const tierWhy = g => TIER_WHY[tierK(g)][LANG === "it" ? 0 : 1];
+const tierBadge = g => g.tier ? `<span class="tierbadge ${TIER_CLS[tierK(g)]}" title="${esc(tierWhy(g))}">${esc(tierName(g))}</span>` : "";
+const probTag = p => `<span class="prob ${p >= 0.8 ? "hi" : p >= 0.4 ? "mid" : "lo"}">${Math.round(p * 100)}%</span>`;
+function ring(p) {
+  const r = 30, C = 2 * Math.PI * r, col = p >= 0.8 ? "var(--mint)" : p >= 0.4 ? "var(--sun)" : "var(--line)";
+  return `<div class="ring" role="img" aria-label="${tx("Probabilità di occasione", "Deal probability")} ${Math.round(p * 100)}%"><svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="${r}"/><circle class="f" cx="36" cy="36" r="${r}" fill="none" stroke="${col}" stroke-width="7" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${reduce ? C * (1 - p) : C}" data-off="${C * (1 - p)}"/></svg><b>${Math.round(p * 100)}%</b></div>`;
+}
+function receipt(d) {
+  return `<div class="receipt">
+    <div><span>${tx("Prezzo", "Price")} (${ori(d.origin)})</span><b>${eur(d.price_eur)}</b></div>
+    <div><span>${tx("Spedizione", "Shipping")}</span><b>${eur(d.ship_eur)}</b></div>
+    ${d.origin === "UE" ? `<div><span>${tx("IVA e dogana", "VAT and customs")}</span><b>${tx("niente (UE)", "none (EU)")}</b></div>` : `<div><span>${tx("IVA import 22%", "Import VAT 22%")}</span><b>${eur(d.vat_eur)}</b></div><div><span>${tx("Sdoganamento", "Customs clearance")}</span><b>${eur(d.fee_eur)}</b></div>`}
+    <div class="tot"><span>${tx("Ti costa in Italia", "Landed cost in Italy")}</span><b>${eur(d.landed_eur)}</b></div>
+    <div><span>${tx("Vale sul mercato", "Market value")}</span><b>${eur(d.value_eur)}</b></div>
+    ${resale(d)}</div>`;
+}
+/* D119: what is left if you sell it again, before you buy. A private seller in Italy pays no eBay.it fee for buyers in the
+   eurozone (from 1 September 2026); a business seller pays about 13%. Insured tracked shipping to the buyer: about 10 EUR. */
+const RESALE = {ship_eur: 10, pro_fee: 0.1325, pro_fixed_eur: 0.4};
+function resale(d) {
+  const priv = d.value_eur - RESALE.ship_eur, pro = d.value_eur * (1 - RESALE.pro_fee) - RESALE.pro_fixed_eur - RESALE.ship_eur;
+  const row = (label, net) => { const m = net - d.landed_eur;
+    return `<div><span>${label}</span><b class="${m >= 0 ? "up" : "down"}">${m >= 0 ? "+" : "−"}${eur(Math.abs(m))}</b></div>`; };
+  return `<div class="resale"><span class="note">${tx("Se la rivendi al valore di mercato, ti resta", "If you resell it at market value, you keep")}</span>
+    ${row(tx("da privato su eBay.it", "as a private seller on eBay.it"), priv)}
+    ${row(tx("da professionista (~13%)", "as a business seller (~13%)"), pro)}
+    <span class="note">${tx("Tolta la spedizione assicurata al compratore (~10 €). In Italia il prezzo di rivendita può essere diverso dal mercato USA.", "After insured shipping to the buyer (~10 €). In Italy the resale price may differ from the US market.")}</span></div>`;
+}
+/* real listings (D72): shown only while fresh (6 hours, eBay licence §8.1) and only when p_deal >= 0.5 */
+const DEAL_TTL = 6 * 3600 * 1000;
+const dealsLive = () => !D.real || (D.deals_asof && Date.now() - Date.parse(D.deals_asof) < DEAL_TTL);
+const dealsOf = c => dealsLive() ? c.deals : [];
+const dealTime = () => D.deals_asof ? new Date(D.deals_asof).toLocaleString(LOC, {day: "numeric", month: "short", hour: "2-digit", minute: "2-digit"}) : "";
+const dealNote = () => tx("Stima statistica su vendite reali, non un consiglio d'acquisto: controlla sempre l'annuncio. I link a eBay sono affiliati: se compri, Slabwise può ricevere una commissione, senza costi per te.",
+  "A statistical estimate from real sales, not buying advice: always check the listing. Links to eBay are affiliate links: if you buy, Slabwise may earn a commission at no cost to you.");
+const fromTxt = o => o === "UE" ? tx("dall'UE", "from the EU") : o === "USA" ? tx("dagli USA", "from the US") : tx("da ", "from ") + esc(o);
+function dealRow(c, d, showCard) {
+  const sus = d.suspicious, top = d.p_deal >= 0.8;
+  return `<article class="deal tile hov${top ? " top" : sus ? " sus" : ""}">${top ? `<span class="sticker mint pop">${tx("Occasione!", "Good deal!")}</span>` : sus ? `<span class="sticker coral">${tx("Sospetto", "Suspicious")}</span>` : ""}${ring(d.p_deal)}
+    <div style="min-width:0">${showCard ? `<a href="#c-${c.id}" style="text-decoration:none"><h3>${esc(c.name)} · PSA ${d.grade}</h3></a><div class="muted" style="font-size:15px">${esc(c.set)} · ${fromTxt(d.origin)}</div>` : `<h3>PSA ${d.grade} · ${fromTxt(d.origin)}</h3>`}
+      <div class="tags"><span class="tag">${d.cert ? tx("cert nell'annuncio", "cert in listing") : tx("senza cert", "no cert")}</span><span class="tag">${tx("chiede", "asking")} $${nf0.format(d.ask_usd)}</span>${d.seller_pct ? `<span class="tag">${tx("venditore", "seller")} ${esc(d.seller_pct)}%</span>` : ""}${d.authenticity ? `<span class="tag">${tx("garanzia di autenticità", "authenticity guarantee")}</span>` : ""}${d.best_offer ? `<span class="tag">${tx("accetta offerte", "accepts offers")}</span>` : ""}</div>
+      <p class="muted" style="font-size:15px;margin-top:8px">${sus ? tx("Costa così poco rispetto al valore che probabilmente non è la carta descritta.", "So cheap compared with its value that it is probably not the card described.") : top ? tx("Con spedizione, IVA e dogana vale comunque almeno il 10% più di quanto la paghi.", "Even with shipping, VAT and customs it is worth at least 10% more than you pay.") : tx("Dopo i costi per arrivare in Italia, il margine è troppo piccolo per esserne sicuri.", "After the costs of getting it to Italy, the margin is too small to be sure.")}</p>${d.url ? `<a class="btn" href="${esc(d.url)}" target="_blank" rel="sponsored noopener nofollow" style="display:inline-block;margin-top:10px">${tx("Vedi l'annuncio su eBay", "See the listing on eBay")} ↗</a>` : ""}</div>
+    ${receipt(d)}</article>`;
+}
+
+/* views */
+const S = {g: 10, sort: "cap", dealMin: 0.5, dealOrigin: "tutti", cg: 10, star: null};
+const SERIES_KEY = {"Vintage": "wotc", "Classica": "wotc", "Di mezzo": "swsh", "Moderna": "swsh", "Contemporanea": "sv"};
+const catOf = c => SERIES_KEY[c.series] || "sv";
+function spark(points) {
+  const v = points.map(p => p[1]), lo = Math.min(...v), hi = Math.max(...v), W = 200, H = 46;
+  const pts = v.map((y, i) => `${(i / (v.length - 1)) * W},${H - 4 - (hi > lo ? (y - lo) / (hi - lo) : .5) * (H - 8)}`).join(" ");
+  return `<svg viewBox="0 0 ${W} ${H}" class="spark" aria-hidden="true"><polyline points="${pts}" fill="none" stroke="var(--cat)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg>`;
+}
+/* ---- v7 "Comic Rush": section furniture ---- */
+const corner = () => `<span class="corner" aria-hidden="true"><i></i><u></u><b></b></span>`;
+const twinkle = (x, y, k = 0, cls = "") => `<i class="twinkle ${cls}" style="left:${x}%;top:${y}%;--k:${k}" aria-hidden="true"></i>`;
+const chevron = id => `<a class="chev" href="#mercato" data-sec="${id}" aria-label="${tx("Sezione successiva", "Next section")}"><i></i><i></i></a>`;
+const SECS = ["home", "ere", "star", "slab", "week", "jp"];
+function boxTitle(title, sub, id) {
+  const n = SECS.indexOf(id);
+  const kick = n > 0 ? `<span class="kick">${String(n).padStart(2, "0")} / ${String(SECS.length - 1).padStart(2, "0")} <span lang="ja">${{ere: "時代", star: "注目", slab: "一覧", week: "今週", jp: "日本"}[id] || ""}</span></span>` : "";
+  return `<div class="boxtitle rv">${kick}<h2>${title}</h2>${sub ? `<p>${sub}</p>` : ""}</div>`;
+}
+const words = (s, k0 = 0) => s.split(/(<br>)/).map(x => x === "<br>" ? x : x.split(" ").map((w, i) => `<span class="w" style="--i:${k0 + i}">${w}</span>`).join(" ")).join("");
+function sectionWrap(id, word, inner, next, top) {
+  return `<section class="cs" id="sec-${id}" data-sec-id="${id}"><span class="wm" aria-hidden="true">${word}</span>${top ? `<span class="wm wm-top" aria-hidden="true">${top}</span>` : ""}
+    ${twinkle(84, 74, 1)}${twinkle(91, 14, 2, "s")}${twinkle(6, 88, 3, "p")}${inner}${next ? chevron(next) : ""}${corner()}</section>`;
+}
+const topCard = () => { const sure = D.cards.filter(c => tierK(c.grades[0]) === "hi");   // only a well-measured value goes in Slabby's mouth
+  return [...(sure.length ? sure : D.cards)].sort((a, b) => shown(b.grades[0]) - shown(a.grades[0]))[0]; };
+/* data URI -> short blob URL, so the same picture can sit many times in the page without copying its bytes */
+const _blobs = new Map();
+function blobOf(u) {
+  if (!u || !u.startsWith("data:")) return u;
+  if (_blobs.has(u)) return _blobs.get(u);
+  let out = u;
+  try { const [h, b] = u.split(","), bin = atob(b), arr = new Uint8Array(bin.length); for (let k = 0; k < bin.length; k++) arr[k] = bin.charCodeAt(k);
+    out = URL.createObjectURL(new Blob([arr], {type: h.slice(5).split(";")[0]})); } catch (e) { out = u; }
+  _blobs.set(u, out); return out;
+}
+function comicHero() {
+  const ids = ["swsh7-215", "base1-4", "sv03.5-199", "neo1-9", "svp-085", "me02-125"].filter(id => cardById[id]);
+  /* 4 Nov: each panel is a wall of whole cards at their own size (more cards, no upscaling), the most valuable first */
+  const wallCards = [...D.cards].filter(c => c.lang !== "ja" && (c.img || c.thumb)).sort((a, b) => (capOf(b) || 0) - (capOf(a) || 0)).slice(0, 40);
+  const wall = i => { const n = wallCards.length; if (!n) return ""; const pick = Array.from({length: 56}, (_, k) => wallCards[(i * 7 + k * 3) % n]);
+    return `<span class="art wall" aria-hidden="true">${pick.map(c => `<img src="${blobOf(c.img || c.thumb)}" alt="" loading="lazy" decoding="async">`).join("")}</span>`; };
+  const panels = ids.slice(0, 5).map((id, i) => { const c = cardById[id];
+    return `<a class="panel p${i + 1}" href="#c-${id}" aria-label="${esc(c.name)}" style="--i:${i}">${wall(i)}<span class="tint"></span><span class="dots"></span></a>`; }).join("");
+  const caps = [[2, "cap3"]].filter(([k]) => ids[k]).map(([k, cls], i) => { const c = cardById[ids[k]], g = gradeOf(c, 10);
+    return `<a class="cap ${cls}" href="#c-${c.id}" style="--i:${i}" tabindex="-1"><b>${esc(c.name)}</b><span>${usdV(g)}</span></a>`; }).join("");
+  const vb = (document.getElementById("slabby-smug") || {getAttribute: () => "0 0 200 200"}).getAttribute("viewBox");
+  const h1 = tx("Vuoi sapere quanto<br>vale la tua carta?", "Want to know what<br>your card is worth?");
+  return `<section class="cs hero7" id="sec-home" data-sec-id="home">
+    <div class="panels" id="panels">${panels}</div>${caps}
+    <div class="burst7" aria-hidden="true"><i></i></div>
+    <figure class="h-char" id="hchar"><p class="h-say" id="hsay" aria-live="off"></p><svg viewBox="${vb}" aria-hidden="true"><use href="#slabby-smug"/></svg></figure>
+    <div class="h-left"><div class="h-sticker"><span class="play" aria-hidden="true"></span><h1 aria-label="${h1.replace("<br>", " ")}">${words(h1)}</h1>
+      <p class="h-tag">${tx("<b>Prezzi reali</b> + intervalli onesti", "<b>Real prices</b> + honest ranges")}</p></div>
+    <div class="h-name"><b class="h-kana" lang="ja" aria-hidden="true" style="--i:0">グレーディング相場</b><span style="--i:1">${tx("Valori delle carte", "Values of graded")}</span><span style="--i:2">${tx("Pokémon gradate", "Pokémon cards")}</span></div>
+    <div class="h-buttons">
+      <a class="nbtn" href="#mercato" data-sec="slab" style="--i:0"><b>${t("catalog")}</b><small>${plural(D.cards.length, tx("carta seguita", "card tracked"), tx("carte seguite", "cards tracked"))}</small></a>
+      <a class="nbtn" href="#mercato" data-sec="ere" style="--i:1"><b>${tx("Indice d'era", "Era index")}</b><small>${tx("base 100", "base 100")}</small></a>
+      <a class="nbtn" href="#mercato" data-sec="week" style="--i:2"><b>${t("week")}</b><small>${plural((D.pulse.stories || []).length, tx("storia", "story"), tx("storie", "stories"))}</small></a>
+      <a class="nbtn" href="#deal" style="--i:3"><b>${t("deals")}</b><small>${tx("in euro, tasse comprese", "in euros, taxes included")}</small></a>
+      <a class="nbtn" href="#metodo" style="--i:4"><b>${t("method")}</b><small>${tx("come facciamo i conti", "how we do the maths")}</small></a>
+      <a class="nbtn hot" href="#mercato" data-sec="jp" style="--i:5"><b>${t("japan")}</b><small>${tx("stampe giapponesi", "Japanese printings")}</small></a>
+    </div></div>
+    ${chevron("ere")}
+  </section>`;
+}
+function tickers() {
+  const list = [...D.cards].filter(c => !noOwn(gradeOf(c, 10))).sort((a, b) => (b.n_sales || 0) - (a.n_sales || 0));   // D121: same three facts for every card
+  const item = c => { const g = gradeOf(c, 10);
+    return `<a class="item" href="#c-${c.id}" tabindex="-1">${esc(c.name)} <small>PSA 10</small> ${usdV(g)} <i class="${g.ch30 >= 0 ? "up" : "down"}">${g.ch30 >= 0 ? "▲" : "▼"} ${pct(Math.abs(g.ch30), false)}</i></a>`; };
+  const half = arr => arr.map(item).join("");
+  const a = list.slice(0, Math.ceil(list.length / 2)), b = list.slice(Math.ceil(list.length / 2));
+  return `<div class="tickers" aria-label="${tx("Prezzi PSA 10 di oggi", "Today's PSA 10 prices")}" role="region">
+    <div class="tick a"><div class="row" style="--dur:${Math.max(46, a.length * 4)}s">${half(a)}${half(a)}</div></div>
+    <div class="tick b" aria-hidden="true"><div class="row" style="--dur:${Math.max(58, (b.length || a.length) * 4.6)}s">${half(b.length ? b : a)}${half(b.length ? b : a)}</div></div></div>`;
+}
+function eraTop(series) { return [...D.cards].filter(c => c.series === series).sort((a, b) => shown(b.grades[0]) - shown(a.grades[0]))[0]; }
+const in30 = () => tx("in 30 giorni", "in 30 days");
+function eraBody(r) {
+  const ix = (D.indexes || {})[r.series];
+  if (!ix) {
+    const need = 6, have = Math.min(need, Math.round(r.sales / Math.max(1, r.n) / 4));
+    return `<span class="v">${nf0.format(r.sales)}<small>${tx("vendite", "sales")}</small></span>
+      <div class="meter" style="--m:${Math.round(100 * have / need)}%"><span>${tx("Indice in arrivo: serve almeno mezzo anno di vendite", "Index coming: at least half a year of sales needed")}</span><i></i></div>
+      <span class="note">${plural(r.n, tx("carta seguita", "card tracked"), tx("carte seguite", "cards tracked"))}</span>`;
+  }
+  const last = ix.points[ix.points.length - 1][1];
+  return `<span class="v">${nf1.format(last)}<small>${tx("indice", "index")}</small></span>
+    <span class="${ix.ch30 >= 0 ? "up" : "down"}" style="font-weight:800">${pct(ix.ch30)} ${in30()}</span>${spark(ix.points)}
+    <span class="note">${tx("Paniere", "Basket")}: ${plural(ix.basket.length, tx("voce", "item"), tx("voci", "items"))} · ${nf0.format(r.sales)} ${tx("vendite", "sales")}</span>`;
+}
+function erasSection() {
+  const inner = `<div class="cs-in">${boxTitle(tx("Le <em>ere</em>", "The <em>eras</em>"), D.real ? tx(`${nf0.format(D.n_sales)} vendite vere · indice: 100 = ${D.index_base ? dateF(D.index_base) : "inizio"}, uguale per tutte le ere`, `${nf0.format(D.n_sales)} real sales · index: 100 = ${D.index_base ? dateF(D.index_base) : "start"}, the same for every era`) : tx("Dati dimostrativi", "Demo data"), "ere")}
+    ${D.index_all ? `<a class="ixhero" href="#indice-tutto"><span class="label">${tx("Indice generale", "General index")}</span><b class="num">${nf1.format(D.index_all.points[D.index_all.points.length - 1][1])}</b><span class="${D.index_all.ch30 >= 0 ? "up" : "down"}" style="font-weight:800">${pct(D.index_all.ch30)} ${in30()}</span><span class="note">${tx(`le ${D.index_all.basket.length} carte e voti inglesi più scambiati del catalogo`, `the ${D.index_all.basket.length} most traded cards and grades of the whole catalogue`)}${Object.keys(D.index_sets || {}).length ? " · " + tx("indici di set", "set indices") + ": " + Object.entries(D.index_sets).map(([k, v]) => esc(v.label)).join(", ") : ""} →</span></a>${(D.indexes || {}).Giappone ? `<a class="ixhero ixja" href="#indice-Giappone"><span class="label">${tx("Indice Giappone", "Japan index")}</span><b class="num">${nf1.format(D.indexes.Giappone.points[D.indexes.Giappone.points.length - 1][1])}</b><span class="${D.indexes.Giappone.ch30 >= 0 ? "up" : "down"}" style="font-weight:800">${pct(D.indexes.Giappone.ch30)} ${in30()}</span><span class="note">${tx("le stampe giapponesi più scambiate, a parte dal mercato inglese", "the most traded Japanese printings, apart from the English market")} →</span></a>` : ""}` : ""}
+    <div class="era7">${D.rollups.map((r, k) => { const top = eraTop(r.series);
+      return `<a class="era8 rv" href="#indice-${encodeURIComponent(r.series)}" style="text-decoration:none;color:inherit;--cat:var(--cat-${SERIES_KEY[r.series] || "sv"});--i:${k};--rr:${k % 2 ? 2 : -2}deg">
+      <div class="era-art">${top ? `<span class="img" style="background-image:url('${top.thumb || top.img}')"></span>` : ""}<span class="era-no">${String(k + 1).padStart(2, "0")}</span>${DOODLE[r.series] || ""}</div>
+      <div class="era-body"><h3>${esc(ser(r.series))}</h3>${D.real ? eraBody(r) : `<span class="v">${usdK(r.cap)}</span>`}</div>
+      <span class="ntag">${D.real ? (((D.indexes || {})[r.series]) ? pct(D.indexes[r.series].ch30) + tx(" · 30 gg", " · 30 d") : plural(r.n, tx("carta", "card"), tx("carte", "cards"))) : pct(r.ch30)}</span></a>`; }).join("")}</div></div>`;
+  return sectionWrap("ere", "ERAS", inner, "star", "時代");
+}
+/* D126: featured = the 6 cards that moved most in 30 days among those with a well-measured PSA 10 price */
+function starPick() {
+  const sure = D.cards.filter(c => !noOwn(gradeOf(c, 10)) && tierK(gradeOf(c, 10)) === "hi" && Number.isFinite(gradeOf(c, 10).ch30));
+  const pool = sure.length >= 6 ? sure : D.cards.filter(c => !noOwn(gradeOf(c, 10)));
+  return [...pool].sort((a, b) => Math.abs(gradeOf(b, 10).ch30) - Math.abs(gradeOf(a, 10).ch30)).slice(0, 6);
+}
+function starInner() {
+  const list = starPick();
+  const c = cardById[S.star] || list[0];
+  const g = gradeOf(c, 10);
+  const w = c.name.split(" ");
+  return `<div class="star-rays" aria-hidden="true"></div>
+    <div class="star-words" aria-hidden="true"><span>${esc(w[0])}</span><span class="blue">${esc(w.slice(1).join(" ") || "PSA 10")}</span></div>
+    <a class="star-slab" href="#c-${c.id}" aria-label="${tx("Apri", "Open")} ${esc(c.name)}">${slab(c, 10, 300)}</a>
+    <div class="star-name"><span style="--i:0">${esc(c.name)}</span><span style="--i:1">PSA 10 · ${usdV(g)}</span></div>
+    <p class="star-meta">${esc(c.set)} · ${tx("intervallo", "range")} ${usd(g.lo)}–${usd(g.hi)} · ${nf0.format(c.n_sales || g.sales90)} ${tx("vendite", "sales")}</p>
+    <div class="star-pick" role="group" aria-label="${tx("Scegli la carta in evidenza", "Choose the featured card")}">
+      <button class="arrow" data-star="-1" aria-label="${tx("Precedente", "Previous")}">‹</button>
+      ${list.map(x => `<button class="thumbbtn" data-star-id="${x.id}" aria-pressed="${x.id === c.id}" aria-label="${esc(x.name)}"><img src="${x.thumb || x.img}" alt=""></button>`).join("")}
+      <button class="arrow" data-star="1" aria-label="${tx("Successiva", "Next")}">›</button>
+    </div>
+    <div class="star-timer" aria-hidden="true"><i></i></div>`;
+}
+function starSection() {
+  return `<section class="cs star7" id="sec-star" data-sec-id="star"><span class="wm" aria-hidden="true">STAR</span>${boxTitle(tx("In <em>evidenza</em>", "<em>Featured</em>"), tx("Le 6 carte che si sono mosse di più nell'ultimo mese, tra quelle con un prezzo affidabile. Si aggiornano ogni mattina; passaci sopra per fermarle", "The 6 cards that moved most in the last month, among those with a reliable price. Updated every morning; hover to pause them"), "star")}<div class="star-stage" id="star-stage">${starInner()}</div>${twinkle(88, 30, 0)}${twinkle(12, 40, 2, "s")}${chevron("slab")}${corner()}</section>`;
+}
+function collectionSection() {
+  const inner = `<div class="cs-in">${boxTitle(tx("Il <em>catalogo</em>", "The <em>catalogue</em>"), tx("Valore di oggi, intervallo all'80% e vendite degli ultimi 90 giorni. Si aggiorna ogni mattina", "Today's value, 80% range and sales of the last 90 days. Updated every morning"), "slab")}
+    <div class="filters rv">
+      <div class="chips" role="group" aria-label="${tx("Voto", "Grade")}">${[10, 9, 8, 7].map(g => `<button class="chip" data-g="${g}" aria-pressed="${g === S.g}">PSA ${g}</button>`).join("")}</div>
+      <div class="chips" role="group" aria-label="${tx("Ordina", "Sort")}">${[["cap", tx("Più preziose", "Most valuable")], ["ch30", tx("In salita", "Rising")], ["sales", tx("Più vendute", "Most sold")], ["sure", tx("Più affidabili", "Most reliable")]].map(([k, l]) => `<button class="chip" data-sort="${k}" aria-pressed="${S.sort === k}">${l}</button>`).join("")}</div>
+    </div>
+    <div class="cgrid" data-tour="grid">${tiles()}</div></div>`;
+  return sectionWrap("slab", "CARDS", inner, "week", "一覧");
+}
+const KIND = {mover: ["In movimento", "On the move"], caught: ["Vendita anomala", "Outlier sale"], ladder: ["PSA 10 o 9?", "PSA 10 or 9?"], deal: ["Occasione", "Deal"], era: ["Era", "Era"]};
+function weekBand() {
+  const st = D.pulse.stories || [];
+  if (!st.length) return "";
+  return `<section class="cs band7" id="sec-week" data-sec-id="week"><span class="wm" aria-hidden="true">WEEK</span>
+    <div class="band-head">${boxTitle(tx("La <em>settimana</em>", "The <em>week</em>"), tx("Cosa è successo ai prezzi questa settimana. Si aggiorna ogni lunedì", "What happened to prices this week. Updated every Monday"), "week")}</div>
+    <div class="band-strip rv" id="bandstrip">${st.map((x, i) => { const s = storyText(x); const c = s.card;
+      return `<a class="bcard" href="${c ? "#c-" + c.id : "#mercato"}"><span class="bnum">${i + 1}</span>${x.kind ? `<span class="bkind">${esc(KIND[x.kind] ? tx(...KIND[x.kind]) : x.kind)}</span>` : ""}${c ? `<span class="bimg" style="background-image:url('${c.thumb || c.img}')"></span>` : ""}<span class="btxt">${markHook(s.hook)}</span></a>`; }).join("")}</div>
+    <div class="band-dots" id="banddots">${st.map((_, i) => `<button aria-label="${tx("Storia", "Story")} ${i + 1}" data-band="${i}" aria-current="${i === 0}"></button>`).join("")}</div>
+    ${twinkle(80, 12, 1)}${chevron("jp")}${corner()}</section>`;
+}
+function japanSection7() {
+  const priced = D.cards.filter(c => c.lang === "ja"), waiting = D.ja_pending || [];
+  const ja = [...priced, ...waiting.slice(0, Math.max(0, 12 - priced.length))];   /* D158: the priced ones first, a few waiting ones */
+  if (!ja.length) return "";
+  const soon = tx("Prezzi in arrivo", "Prices coming soon");
+  const inner = `<div class="cs-in">${boxTitle(tx("<em>Giappone</em>", "<em>Japan</em>"), tx("Stampe giapponesi: carte diverse, con un loro prezzo. Oggi le vendite vengono da Fanatics Collect; arriveranno anche Mercari ed eBay", "Japanese printings: different cards with their own price. Sales come from Fanatics Collect today; Mercari and eBay will follow"), "jp")}
+    <div class="news-row">${ja.map((j, k) => { const en = enOf(j);
+      return `<a class="jp8 rv" style="--i:${k}" href="#c-${j.id}">
+        <div class="news-img">${j.img ? `<img src="${j.img}" alt="${esc(j.name)}">` : `<span class="noimg">${tx("foto in arrivo", "photo coming soon")}</span>`}${j.grades ? "" : `<span class="hanko" lang="ja" aria-label="${soon}">準備中</span>`}</div>
+        <div class="news-body"><b lang="ja">${esc(j.name)}</b><span><span lang="ja">${esc(j.set)}</span> · ${esc(j.no)}/${j.tot || "?"}</span>${j.grades ? `<span class="ct-price"><b class="num">${usdV(gradeOf(j, 10))}</b>${tierBadge(gradeOf(j, 10))}</span>` : ""}${en ? `<span class="muted">${tx("Stampa inglese", "English printing")}: ${esc(en.name)}${j.grades ? " · " + usdV(gradeOf(en, 10)) : ""}</span>` : ""}</div>
+        <span class="ntag">${j.grades ? `PSA 10 · ${plural(j.n_sales, tx("vendita", "sale"), tx("vendite", "sales"))}` : soon}</span></a>`; }).join("")}</div>
+    ${waiting.length > ja.length - priced.length ? `<p class="note">${tx(`Altre ${waiting.length - (ja.length - priced.length)} stampe giapponesi delle nostre carte sono nel catalogo in attesa di prezzo: le trovi nella scheda di ogni carta inglese.`, `${waiting.length - (ja.length - priced.length)} more Japanese printings of our cards are in the catalogue waiting for a price: each English card's page links to its own.`)}</p>` : ""}</div>`;
+  return sectionWrap("jp", "JAPAN", inner, null, "日本");
+}
+function viewMarket() {
+  return comicHero() + tickers() + erasSection() + starSection() + collectionSection() + weekBand() + japanSection7();
+}
+function tiles() {
+  const key = {cap: c => capOf(c), ch30: c => gradeOf(c, S.g).ch30 ?? -Infinity, sales: c => gradeOf(c, S.g).sales90, sure: c => -halfw(gradeOf(c, S.g))}[S.sort];
+  return [...D.cards].sort((a, b) => noOwn(gradeOf(a, S.g)) - noOwn(gradeOf(b, S.g)) || key(b) - key(a)).map((c, i) => { const g = gradeOf(c, S.g), hid = noOwn(g); return `<a class="ct8 rv" href="#c-${c.id}" style="--cat:var(--cat-${catOf(c)});--i:${i % 4}">
+    <div class="ct-art">${c.thumb || c.img ? `<img src="${c.img || c.thumb}" alt="">` : `<span class="noimg">${tx("foto in arrivo", "photo coming soon")}</span>`}${hid ? "" : `<span class="ct-rank">${i + 1}</span>`}<span class="ct-grade">PSA ${S.g}</span>${g.tier ? `<span class="ct-tier ${TIER_CLS[tierK(g)]}" title="${esc(tierName(g))}"></span>` : ""}</div>
+    <div class="ct-body"><h3>${esc(c.name)}</h3><span class="meta">${esc(c.set)} · #${esc(c.no)}</span>
+      ${hid ? `<div class="ct-price"><b class="num">—</b></div><span class="note">${g.last && !g.off ? tx(`Poche vendite per un prezzo. Ultima vendita: ${usd(g.last[1])}, ${monthF(g.last[0])}`, `Too few sales for a price. Last sale: ${usd(g.last[1])}, ${monthF(g.last[0])}`) : noEst(S.g, g)}</span>` : `<div class="ct-price"><b class="num">${usd(g.value)}</b><span class="${g.ch30 >= 0 ? "up" : "down"}">${pct(g.ch30)}</span></div>
+      ${fork(g, true)}<span class="note">±${nf1.format(halfw(g) * 100)}% · ${plural(g.sales90, tx("vendita", "sale"), tx("vendite", "sales"))} ${tx("in 90 giorni", "in 90 days")}</span>`}</div></a>`; }).join("");
+}
+
+/* D152: the English card is shown as "the same card" only when the illustration and the Pokémon match (en_same) */
+const enOf = j => j && j.en_same ? cardById[j.en] : null;
+const jaOf = c => D.cards.find(x => x.lang === "ja" && x.en === c.id && x.en_same) || (D.ja_pending || []).find(x => x.en === c.id && x.en_same);
+const jaById = Object.fromEntries((D.ja_pending || []).map(j => [j.id, j]));
+const engBox = en => `<a class="tile jabox" href="#c-${en.id}" style="text-decoration:none;color:inherit"><span class="label">${tx("Stampa inglese", "English printing")}</span>
+        <div style="display:flex;gap:12px;align-items:center">${en.thumb || en.img ? `<img src="${en.thumb || en.img}" alt="" style="width:64px;border-radius:4px">` : ""}
+        <div><b>${esc(en.name)}</b><br><span class="note">${esc(en.set)} · ${esc(en.no)}${en.tot ? "/" + en.tot : ""}</span><br><span class="note">${tx("PSA 10 oggi", "PSA 10 today")} ${usdV(gradeOf(en, 10))} · ${tx("apri la scheda", "open its page")}</span></div></div></a>`;
+const byIll = c => c.illustrator ? tx(" · illustrazione di ", " · illustrated by ") + esc(c.illustrator) : "";
+/* a Japanese printing has its own page: its own image and data, no price until it has enough sales (D41, D45) */
+function viewJa(id) {
+  const j = jaById[id]; if (!j) return viewMarket();
+  const en = enOf(j);
+  const n = j.sales || 0;
+  return `<div class="wrap">
+  <div class="crumbs"><a href="#mercato">${t("market")}</a> › ${t("japan")} › <span lang="ja">${esc(j.set)}</span> › <span lang="ja">${esc(j.name)}</span></div>
+  <div class="cardpage">
+    <div class="leftcol">
+      ${slab(j, "JP", 320, "bob")}
+      <p class="note" style="text-align:center">${esc(j.rarity || "")}${byIll(j)}</p>
+      ${en ? engBox(en) : ""}
+    </div>
+    <div>
+      <div style="padding-bottom:20px;display:flex;flex-direction:column;align-items:flex-start;gap:8px"><span class="label">${tx("Stampa giapponese", "Japanese printing")} · <span lang="ja">${esc(j.set)}</span> · #${esc(j.no)}${j.tot ? "/" + j.tot : ""}</span><h1 lang="ja" style="font-size:clamp(34px,4.6vw,52px);margin-top:4px">${esc(j.name)}</h1></div>
+      <div class="tile q"><div class="qhead"><span class="qn">1</span><h2>${tx("Quanto vale?", "What is it worth?")}</h2></div>
+        <div class="valuerow"><span class="big">${tx("Prezzo in arrivo", "Price coming soon")}</span><span class="sticker sky">${plural(n, tx("vendita raccolta", "sale collected"), tx("vendite raccolte", "sales collected"))}</span></div>
+        <p class="muted">${tx("Mostriamo un valore quando abbiamo almeno 5 vendite vere di questa stampa. Le raccoglieremo da Mercari Giappone ed eBay.", "We show a value once we have at least 5 real sales of this printing. We will collect them from Mercari Japan and eBay.")}</p>
+      </div>
+      <div class="tile q"><div class="qhead"><span class="qn">2</span><h2>${tx("Perché un prezzo a parte?", "Why a separate price?")}</h2></div>
+        <p class="muted">${tx("La stampa giapponese è una carta diversa da quella inglese: set, numero e tiratura sono suoi, e chi colleziona le paga in modo diverso. Per questo non copiamo il prezzo inglese: ", "The Japanese printing is a different card from the English one: its set, number and print run are its own, and collectors price them differently. So we do not copy the English price: ")}${en ? tx(`quello della <a href="#c-${en.id}">stampa inglese</a> resta sulla sua scheda.`, `the <a href="#c-${en.id}">English printing</a> keeps its own on its page.`) : tx("aspettiamo le sue vendite.", "we wait for its own sales.")}</p>
+        <p class="note">${tx("Fonte dei dati", "Data source")}: ${esc(j.source || "TCGdex")}.</p>
+      </div>
+    </div>
+  </div></div>`;
+}
+/* ---- the history of one copy, by PSA cert (D63): every sale of that cert in the Fanatics Collect archive ---- */
+const CERT = (D.certs || {}).certs || {}, CNAME = (D.certs || {}).names || (D.certs_meta || {}).names || {};
+/* D104: on the published site the history, the sales and the certs are read one card or one cert at a time */
+const LAZY = !!D.certs_meta, CERT_MISS = new Set();
+async function ensureCard(c) {
+  if (!c || !c.lazy || c._full) return c;
+  if (!c._p) c._p = fetch(`/api/card/${encodeURIComponent(c.id)}`).then(r => r.ok ? r.json() : Promise.reject(r.status)).then(j => {
+    c.grades.forEach(g => { g.history = j.grades[String(g.grade)] || []; });
+    c.sales = j.sales || []; c.excluded = j.excluded || []; c._certs = j.certs || {}; c._full = true;
+  }).catch(e => { c._p = null; c._err = e; });
+  await c._p; return c;
+}
+async function ensureCert(n) {
+  if (!LAZY || CERT[n] || CERT_MISS.has(n)) return;
+  try { const r = await fetch(`/api/cert/${encodeURIComponent(n)}`); if (r.ok) CERT[n] = (await r.json()).sales; else CERT_MISS.add(n); }
+  catch (e) { CERT_MISS.add(n); }
+  const l = CERT[n]; if (l) await ensureCard(cardById[l[l.length - 1][1]] || cardById[l[l.length - 1][1].split("/")[0]]);
+}
+const loadingView = () => `<div class="wrap"><section class="sec" style="padding-top:36px"><div class="tile empty">${tx("Carico i dati…", "Loading data…")}</div></section></div>`;
+const VARIANT = {"1st": ["1ª edizione", "1st Edition"], shadowless: ["Shadowless", "Shadowless"]};
+const psaLink = n => `<a href="https://www.psacard.com/cert/${encodeURIComponent(n)}" target="_blank" rel="noopener">${tx("Verifica il cert su PSA", "Verify the cert on PSA")} ↗</a>`;
+function copyInfo(cid) {
+  const [base, v] = cid.split("/"), c = cardById[cid] || (v ? null : cardById[base]);   // D141: editions have their own page
+  const n = CNAME[base] || (cardById[base] ? [cardById[base].name, cardById[base].set, cardById[base].no, cardById[base].tot, cardById[base].thumb] : [base, "", "", null, null]);
+  return {id: base, c, variant: v ? (VARIANT[v] ? tx(...VARIANT[v]) : v) : "", name: n[0], set: n[1], no: n[2], tot: n[3],
+    img: (cardById[base] && cardById[base].img) || (jaById[base] && jaById[base].img) || n[4], ja: base.startsWith("ja:")};
+}
+const counted = list => list.filter(s => !s[5]);
+function valueAt(c, grade, date) {
+  const g = c && gradeOf(c, grade); if (!g) return null;
+  let r = null; for (const h of g.history) { if (h[0] <= date) r = h; else break; }
+  return r && {value: r[1], lo: r[2], hi: r[3]};
+}
+const certsOf = c => Object.entries(c._certs || CERT).filter(([, l]) => l.some(s => s[1] === c.id) && counted(l).length > 1)
+  .sort((a, b) => b[1][b[1].length - 1][0] < a[1][a[1].length - 1][0] ? -1 : 1);
+function viewCert(n) {
+  const list = CERT[n];
+  if (!list) return `<div class="wrap"><section class="sec" style="padding-top:36px;gap:16px">
+    <div><span class="label">${tx("Cert PSA", "PSA cert")} ${esc(n)}</span><h2 style="font-size:clamp(28px,3.4vw,40px)">${tx("Questa copia non è nel nostro archivio", "This copy is not in our archive")}</h2>
+      <p class="muted" style="max-width:62ch;margin-top:8px">${tx("Per ora conosciamo la storia delle copie vendute su Fanatics Collect dal 2023, solo per le carte del nostro catalogo. Le vendite eBay non riportano il cert.", "For now we know the history of copies sold on Fanatics Collect since 2023, only for the cards in our catalogue. eBay sales do not carry the cert.")}</p></div>
+    <p>${psaLink(n)}</p></section></div>`;
+  const last = list[list.length - 1], k = copyInfo(last[1]), grade = last[2];
+  const ok = counted(list), first = ok[0], end = ok[ok.length - 1];
+  const g0 = k.c && gradeOf(k.c, grade);
+  // the chart covers this copy's sales (from six months before the first one), not the card's whole history
+  const from = new Date(new Date(list[0][0]).getTime() - 182 * 864e5).toISOString().slice(0, 10);
+  const g = g0 && {...g0, history: g0.history.filter(h => h[0] >= from)};
+  const L = k.ja ? ' lang="ja"' : "";
+  const rows = list.map((s, i) => {
+    const v = valueAt(k.c, s[2], s[0]), prev = ok[ok.indexOf(s) - 1];
+    const rel = !v || s[5] ? "" : s[3] > v.hi ? `<span class="up">${tx("sopra", "above")} (${pct(s[3] / v.value - 1)})</span>` : s[3] < v.lo ? `<span class="down">${tx("sotto", "below")} (${pct(s[3] / v.value - 1)})</span>` : tx("nell'intervallo", "in range");
+    return `<tr style="white-space:nowrap"><td>${dateF(s[0])}</td><td class="n">${usd(s[3])}</td><td>${s[4] === "a" ? tx("Asta", "Auction") : tx("Prezzo fisso", "Fixed price")}</td>
+      <td>${s[5] ? `<span class="prob lo">${esc(rsn(s[5]))}</span>` : prev && !s[5] ? `<b class="${s[3] >= prev[3] ? "up" : "down"}">${pct(s[3] / prev[3] - 1)}</b>` : tx("prima vendita", "first sale")}</td>
+      ${k.c ? `<td class="n">${v ? usd(v.value) : "—"}</td><td>${rel}</td>` : ""}</tr>`; }).reverse().join("");
+  const sales = list.map(s => ({date: s[0], price: s[3], pgen: s[5] ? 0 : 1, why: s[5] ? rsn(s[5]) : (s[4] === "a" ? tx("asta", "auction") : tx("prezzo fisso", "fixed price"))}));
+  return `<div class="wrap">
+  <div class="crumbs"><a href="#mercato">${t("market")}</a> › ${k.c ? `<a href="#c-${k.id}"${L}>${esc(k.name)}</a>` : `<span${L}>${esc(k.name)}</span>`} › ${tx("Cert", "Cert")} ${esc(n)}</div>
+  <div class="cardpage">
+    <div class="leftcol">
+      ${slab({id: k.id, name: k.name, set: k.set, no: k.no, tot: k.tot, img: k.img}, grade, 320, "bob")}
+      <p class="note" style="text-align:center">${psaLink(n)}</p>
+      ${k.c ? `<a class="btn ghost" href="#c-${k.id}" style="justify-self:center">${tx("Apri la scheda della carta", "Open the card page")}</a>` : ""}
+    </div>
+    <div>
+      <div style="padding-bottom:20px;display:flex;flex-direction:column;align-items:flex-start;gap:8px"><span class="label">${tx("Storia di una copia", "History of one copy")} · ${tx("cert PSA", "PSA cert")} ${esc(n)}</span>
+        <h1${L} style="font-size:clamp(34px,4.6vw,52px);margin-top:4px">${esc(k.name)}</h1>
+        <span class="muted"><span${L}>${esc(k.set)}</span> · #${esc(k.no)}${k.tot ? "/" + k.tot : ""}${k.variant ? " · " + esc(k.variant) : ""} · PSA ${grade}</span></div>
+      <div class="tile q"><div class="qhead"><span class="qn">1</span><h2>${tx("Quante volte è passata di mano?", "How many times has it changed hands?")}</h2></div>
+        <div class="facts"><div class="fact"><span>${tx("Vendite", "Sales")}</span><b>${ok.length}</b></div>
+          <div class="fact"><span>${tx("Prima", "First")}</span><b>${first ? usd(first[3]) : "—"}</b></div>
+          <div class="fact"><span>${tx("Ultima", "Last")}</span><b>${end ? usd(end[3]) : "—"}</b></div>
+          <div class="fact"><span>${tx("Dalla prima all'ultima", "First to last")}</span><b class="${end && first && end[3] >= first[3] ? "up" : "down"}">${ok.length > 1 ? pct(end[3] / first[3] - 1) : "—"}</b></div></div>
+        ${g && g.history.length > 1 ? `<div>${chart(g, sales)}</div><div class="legend"><span><i style="background:var(--brand)"></i>${tx(`Il nostro valore del PSA ${grade} e intervallo all'80%`, `Our PSA ${grade} value and 80% range`)}</span><span><i style="background:var(--ink)"></i>${tx("Vendite di questa copia", "Sales of this copy")}</span><span><i style="background:var(--coral)"></i>${tx("Non pagata o in attesa", "Unpaid or pending")}</span></div>` : ""}
+        <div class="tbl"><table><thead><tr><th>${tx("Data", "Date")}</th><th class="n">${tx("Prezzo", "Price")}</th><th>${tx("Tipo", "Type")}</th><th>${tx("Sulla precedente", "Vs previous")}</th>${k.c ? `<th class="n">${tx("Nostro valore", "Our value")}</th><th>${tx("Sul valore", "Vs value")}</th>` : ""}</tr></thead><tbody>${rows}</tbody></table></div>
+        <p class="note">${tx("Fonte: archivio pubblico delle vendite di Fanatics Collect. Le vendite a prezzo fisso sono qui per completezza: per calcolare i valori usiamo per ora solo le aste. I lotti non pagati non contano come vendite.", "Source: Fanatics Collect public sales archive. Fixed-price sales are shown for completeness: for now our values use auctions only. Unpaid lots do not count as sales.")}${k.c ? "" : " " + tx("Per questa stampa non calcoliamo ancora un valore.", "We do not compute a value for this printing yet.")}</p>
+      </div>
+    </div>
+  </div></div>`;
+}
+function resold(c) {
+  const l = certsOf(c); if (!l.length) return "";
+  return `<h3 style="font-size:20px">${tx("Copie rivendute", "Resold copies")}</h3>
+    <p class="note">${tx(`${l.length} copie di questa carta sono state vendute più di una volta. Apri un cert per vederne la storia, oppure scrivi un numero di cert nella ricerca.`, `${l.length} copies of this card sold more than once. Open a cert to see its history, or type a cert number in the search.`)}</p>
+    <div class="chips" style="flex-wrap:wrap">${l.slice(0, 12).map(([n, s]) => { const o = counted(s);
+      return `<a class="chip" href="#cert-${n}" style="text-decoration:none">PSA ${s[s.length - 1][2]} · ${n} · ${o.length}× · <span class="${o[o.length - 1][3] >= o[0][3] ? "up" : "down"}">${pct(o[o.length - 1][3] / o[0][3] - 1)}</span></a>`; }).join("")}</div>`;
+}
+function viewCard(id) {
+  if (id.startsWith("ja:") && !cardById[id]) return viewJa(id);
+  const c = cardById[id]; if (!c) return viewMarket();
+  const g = gradeOf(c, S.cg);
+  const sales = c.sales.filter(s => s.grade === g.grade);
+  const low = c.sales.filter(s => s.pgen < 0.5);
+  const crumbSeries = c.lang === "ja" ? t("japan") : esc(ser(c.series));
+  return `<div class="wrap">
+  <div class="crumbs"><a href="#mercato">${t("market")}</a> › ${crumbSeries} › <span${c.lang === "ja" ? ' lang="ja"' : ""}>${esc(c.set)}</span> › <span${c.lang === "ja" ? ' lang="ja"' : ""}>${esc(c.name)}</span></div>
+  <div class="cardpage">
+    <div class="leftcol">
+      ${slab(c, g.grade, 320, "bob")}
+      <div class="chips" role="group" aria-label="${tx("Voto", "Grade")}">${c.grades.map(x => `<button class="chip" data-cg="${x.grade}" aria-pressed="${x.grade === g.grade}">PSA ${x.grade}</button>`).join("")}</div>
+      <p class="note" style="text-align:center">${esc(c.rarity || "")}${byIll(c)}</p>
+      ${c.variant || c.variants ? `<div class="edbox"><span class="label">${tx("Stampa", "Printing")}</span><div class="chips">${[c.variant ? cardById[c.base] : c, ...((c.variant ? cardById[c.base] : c).variants || []).map(id => cardById[id])].filter(Boolean).map(x => `<a class="chip" href="#c-${x.id}" aria-pressed="${x === c}" style="text-decoration:none">${edLabel(x)}</a>`).join("")}</div><p class="note">${tx("Sono carte diverse, con prezzi diversi. L'immagine è la stessa per tutte e può mostrare il timbro di un'altra stampa.", "They are different cards with different prices. The picture is shared and may show another printing's stamp.")}</p></div>` : ""}
+      ${c.lang === "ja" && enOf(c) ? engBox(enOf(c)) : ""}
+      ${(() => { const j = jaOf(c); return j ? `<a class="tile jabox" href="#c-${j.id}" style="text-decoration:none;color:inherit"><span class="label">${tx("Versione giapponese", "Japanese version")}</span>
+        <div style="display:flex;gap:12px;align-items:center">${j.img ? `<img src="${j.img}" alt="" style="width:64px;border-radius:4px">` : ""}
+        <div><b lang="ja">${esc(j.name)}</b><br><span class="note"><span lang="ja">${esc(j.set)}</span> · ${esc(j.no)}/${j.tot || "?"}</span><br><span class="note">${j.grades ? tx(`PSA 10 oggi ${usdV(gradeOf(j, 10))}: è una stampa diversa, con un suo valore. Apri la scheda`, `PSA 10 today ${usdV(gradeOf(j, 10))}: a different printing with its own value. Open its page`) : tx("Prezzo in arrivo: è una stampa diversa, con un suo valore. Apri la scheda", "Price coming soon: a different printing with its own value. Open its page")}</span></div></div></a>` : ""; })()}
+    </div>
+    <div>
+      <div style="padding-bottom:20px;display:flex;flex-direction:column;align-items:flex-start;gap:8px"><span class="label">${crumbSeries} · <span${c.lang === "ja" ? ' lang="ja"' : ""}>${esc(c.set)}</span> · #${esc(c.no)}${c.tot ? "/" + c.tot : ""}</span><h1${c.lang === "ja" ? ' lang="ja"' : ""} style="font-size:clamp(34px,4.6vw,52px);margin-top:4px">${esc(c.name)}</h1>${watchBtn(c, g)}</div>
+
+      <div class="tile q"><div class="qhead"><span class="qn">1</span><h2>${tx("Quanto vale?", "What is it worth?")}</h2></div>
+        ${noOwn(g) ? `<div class="valuerow"><span class="big">${tx("Stima non disponibile", "No estimate")}</span><span class="sticker sky">${g.stale ? tx("Poche vendite", "Few sales") : g.off ? tx("In revisione", "Under review") : (g.last ? tx(`Ultima vendita: ${monthF(g.last[0])}`, `Last sale: ${monthF(g.last[0])}`) : tx("0 vendite in PSA", "0 sales in PSA") + " " + g.grade)}</span></div>
+        <p class="muted">${g.stale ? tx(`In PSA ${g.grade} non passa di mano da più di 3 mesi e la stima del modello si è allontanata troppo dall'ultima vendita: invece di un numero poco sicuro ti mostriamo quella vendita e i voti vicini.`, `In PSA ${g.grade} it has not changed hands for over 3 months and the model's estimate drifted too far from the last sale: instead of an unreliable number we show that sale and the nearby grades.`) : g.off ? tx(`Le ultime vendite in PSA ${g.grade} non tornano con il modello: finché non capiamo perché non mostriamo un numero.`, `Recent PSA ${g.grade} sales disagree with the model: until we know why we show no number.`) : g.last ? tx(`In PSA ${g.grade} questa carta passa di mano raramente: l'ultima vendita che conosciamo è qui sotto. Una vendita sola, magari su un'altra piattaforma, non basta per dare un valore, quindi non inventiamo un numero.`, `In PSA ${g.grade} this card rarely changes hands: the last sale we know of is below. One sale, maybe on another platform, is not enough for a value, so we do not make up a number.`) : tx(`Nei dati che abbiamo (vendite da ${monthF(firstSale(c))}) non c'è nessuna vendita di questa carta in PSA ${g.grade}. Ricavarla dagli altri voti oggi non è affidabile, quindi non inventiamo un numero.`, `In the data we have (sales since ${monthF(firstSale(c))}) there is no sale of this card in PSA ${g.grade}. Deriving it from the other grades is not reliable today, so we do not make up a number.`)}</p>
+        ${refBlock(c, g)}` : `
+        <div class="valuerow"><span class="big num" data-count="${g.value}" data-fmt="usd">${usd(g.value)}</span><span class="sticker ${g.ch30 >= 0 ? "mint" : "coral"}">${pct(g.ch30)} ${in30()}</span><span class="muted" style="font-weight:700">${tx("circa", "about")} ${eur(g.value * D.eur_rate)}</span>${tierBadge(g)}</div>
+        <div data-tour="fork">${fork(g)}</div>
+        <p class="muted">${tx(`Una copia tipica in PSA ${g.grade}, venduta oggi su eBay. Con l'80% di probabilità vale tra ${usd(g.lo)} e ${usd(g.hi)}.`, `A typical copy in PSA ${g.grade}, sold today on eBay. With 80% probability it is worth between ${usd(g.lo)} and ${usd(g.hi)}.`)}${g.tier ? ` <b>${esc(tierName(g))}</b>: ${esc(tierWhy(g))}.` : ""}</p>`}
+        <div class="facts"><div class="fact"><span>${tx("90 giorni", "90 days")}</span>${noOwn(g) ? "<b>—</b>" : `<b class="${g.ch90 >= 0 ? "up" : "down"}">${pct(g.ch90)}</b>`}</div><div class="fact"><span>${tx("Vendite 90 gg", "Sales 90 d")}</span><b>${g.sales90}</b></div><div class="fact" title="${tx("Quante volte PSA ha dato questo voto. Una copia rimandata a PSA può essere contata più volte, soprattutto nel vintage: le copie vere sono di meno.", "How many times PSA gave this grade. A resubmitted copy can be counted more than once, especially in vintage: the real copies are fewer.")}"><span>${tx("Gradaggi PSA", "PSA gradings")}</span><b>${g.pop == null ? tx("n/d", "n/a") : nf0.format(g.pop)}</b></div><div class="fact"><span>${g.pop == null ? tx("Vendite in tutto", "Sales overall") : tx("Valore dei gradaggi", "Value of gradings")}</span><b>${g.pop == null ? g.sales_all : noOwn(g) ? "—" : usdK(g.value * g.pop)}</b></div></div>
+      </div>
+
+      <div class="tile q"><div class="qhead"><span class="qn">2</span><h2>${tx("Quanto ne siamo sicuri?", "How sure are we?")}</h2></div>
+        <div data-tour="chart">${noOwn(g) ? `<p class="note">${noEst(g.grade, g)}.</p>` : chart(g, sales)}</div>
+        <div class="legend"><span><i style="background:var(--brand)"></i>${tx("Valore e intervallo all'80%", "Value and 80% range")}</span><span><i style="background:var(--ink)"></i>${tx("Vendita attendibile", "Reliable sale")}</span><span><i style="background:var(--coral)"></i>${tx("Vendita poco credibile", "Implausible sale")}</span><span>${tx("Passa sopra un punto", "Hover a point")}</span></div>
+        <div class="why">
+          <div class="tile"><b class="num" data-count="${c.sales.length - low.length}">${c.sales.length - low.length}</b><span class="muted" style="font-size:15px">${tx("vendite attendibili usate", "reliable sales used")}</span></div>
+          <div class="tile"><b class="num" data-count="${low.length}">${low.length}</b><span class="muted" style="font-size:15px">${tx("vendite troppo strane per crederci", "sales too odd to believe")}</span></div>
+          <div class="tile"><b class="num" data-count="${c.excluded.length}">${c.excluded.length}</b><span class="muted" style="font-size:15px">${tx("record scartati prima: doppioni, lotti, Best Offer, aste non pagate", "records removed first: duplicates, lots, Best Offers, unpaid auctions")}</span></div>
+        </div>
+        <details><summary>${tx("Apri tutte le vendite e le loro probabilità", "Show all sales and their probabilities")}</summary>
+          <div class="tbl" style="margin-top:12px"><table><thead><tr><th>${tx("Data", "Date")}</th><th>${tx("Voto", "Grade")}</th><th class="n">${tx("Prezzo", "Price")}</th><th>${tx("Dove", "Where")}</th><th>${tx("Attendibile?", "Genuine?")}</th><th>${tx("Perché", "Why")}</th></tr></thead><tbody>
+          ${[...c.sales].reverse().slice(0, 40).map(s => `<tr><td>${dateF(s.date)}</td><td>PSA ${s.grade}</td><td class="n">${usd(s.price)}</td><td>${esc(ven(s.venue))}${s.cert ? " · cert" : ""}</td><td>${probTag(s.pgen)}</td><td class="muted" style="font-size:14px">${esc(rsn(s.why) || "")}</td></tr>`).join("")}
+          ${c.excluded.slice(-10).reverse().map(s => `<tr><td>${dateF(s.date)}</td><td>PSA ${s.grade}</td><td class="n">${usd(s.price)}</td><td>—</td><td><span class="prob lo">${tx("scartata", "removed")}</span></td><td class="muted" style="font-size:14px">${esc(rsn(s.why))}</td></tr>`).join("")}
+          </tbody></table></div></details>
+        <h3 style="font-size:20px">${tx("La scala dei voti", "The grade ladder")}</h3>
+        ${ladder(c, g.grade)}
+        ${resold(c)}
+      </div>
+
+      ${noOwn(g) ? "" : cardScore(c, g)}
+      <div class="tile q"><div class="qhead"><span class="qn">3</span><h2>${tx("Conviene comprarla dall'Italia?", "Is it worth buying from Italy?")}</h2></div>
+        ${dealsOf(c).length ? `<div class="deals">${dealsOf(c).slice(0, 4).map(d => dealRow(c, d, false)).join("")}</div>` : `<div class="empty">${c.deals_off ? tx("Per questa carta non stiamo ancora controllando gli annunci in vendita: il prezzo è aggiornato, le occasioni arriveranno.", "We are not checking the listings for this card yet: the price is up to date, deals will come.") : !D.real ? tx("Nessun annuncio nelle ultime due settimane.", "No listings in the last two weeks.") : !D.deals_asof ? tx("Annunci in vendita non ancora raccolti.", "Listings not collected yet.") : !dealsLive() ? tx("Annunci in aggiornamento: mostriamo solo annunci controllati nelle ultime 6 ore.", "Listings being refreshed: we only show listings checked in the last 6 hours.") : tx("Oggi nessun annuncio di questa carta è un'occasione.", "No listing of this card is a deal today.")}</div>`}
+        ${D.real && D.deals_asof ? `<p class="note">${dealNote()}</p>` : ""}
+        <p class="note">${tx("Probabilità di occasione = l'annuncio è davvero la carta descritta × la copia vale almeno il 10% in più di quanto ti costa in Italia. Cambio", "Deal probability = the listing really is the card described × the copy is worth at least 10% more than it costs you in Italy. Rate")} 1 $ = ${D.eur_rate.toLocaleString(LOC, {minimumFractionDigits: 2})} €.</p>
+      </div>
+      ${cardMore(c, g)}
+    </div>
+  </div></div>`;
+}
+/* D137: the card page, more complete — grades side by side, liquidity, market, last sales, technical sheet */
+/* D141: printing label of a card page */
+const edLabel = x => !x.variant ? "Unlimited" : ((x.variant.startsWith("1st") ? tx("1ª edizione", "1st Edition") : "Shadowless") + (x.variant.endsWith("-red") ? tx(", guance rosse", ", red cheeks") : x.variant.endsWith("-yellow") ? tx(", guance gialle", ", yellow cheeks") : ""));
+const setOf = c => c.id.split("/")[0].replace(/^ja:/, "").replace(/-[^-]+$/, "");
+const median = a => { const b = a.filter(x => x != null && isFinite(x)).sort((x, y) => x - y); return b.length ? (b.length % 2 ? b[(b.length - 1) / 2] : (b[b.length / 2 - 1] + b[b.length / 2]) / 2) : null; };
+const share10 = c => { const g = gradeOf(c, 10); return g && g.pop && c.psa_total ? g.pop / c.psa_total : null; };
+const capPSA = c => c.grades.reduce((t, g) => t + (!noOwn(g) && g.pop ? g.value * g.pop : 0), 0);
+function cardMore(c, g) {
+  const nf = v => v == null ? "—" : nf0.format(v);
+  const G = [...c.grades].sort((a, b) => b.grade - a.grade);
+  /* 4: grades side by side */
+  const rows = G.map((x, i) => { const below = G[i + 1], prem = below && !noOwn(x) && !noOwn(below) ? x.value / below.value : null;
+    return `<button class="lrow${x.grade === g.grade ? " on" : ""}" data-cg="${x.grade}" aria-pressed="${x.grade === g.grade}"><span class="lg">PSA ${x.grade}</span><span class="num lv">${usdV(x)}</span>
+      <span class="num">${x.sales90}</span><span class="num">${nf(x.pop)}</span><span class="num ${noOwn(x) || !Number.isFinite(x.ch30) ? "" : x.ch30 >= 0 ? "up" : "down"}">${noOwn(x) ? "—" : pct(x.ch30)}</span>
+      <span class="num">${prem ? "×" + nf1.format(prem) : "—"}</span></button>`; }).join("");
+  const sh = share10(c), peersSet = D.cards.filter(x => x !== c && x.lang === c.lang && setOf(x) === setOf(c)), peersEra = D.cards.filter(x => x !== c && x.lang === c.lang && x.series === c.series);
+  const mSet = peersSet.length >= 2 ? median(peersSet.map(share10)) : null, mEra = median(peersEra.map(share10));
+  const g10 = gradeOf(c, 10), g9 = gradeOf(c, 9), p109 = g10 && g9 && !noOwn(g10) && !noOwn(g9) ? g10.value / g9.value : null;
+  const q4 = `<div class="tile q"><div class="qhead"><span class="qn">4</span><h2>${tx("Che differenza fa il voto?", "What difference does the grade make?")}</h2></div>
+    <div class="ladder" role="table"><div class="lrow lhead" role="row"><span>${tx("Voto", "Grade")}</span><span>${tx("Valore", "Value")}</span><span title="${tx("Vendite negli ultimi 90 giorni", "Sales in the last 90 days")}">${tx("Vendite", "Sales")}</span><span>${tx("Pop.", "Pop.")}</span><span>30 ${tx("gg", "d")}</span><span title="${tx("Quante volte vale il voto subito sotto", "How many times the grade just below")}">${tx("Premio", "Premium")}</span></div>${rows}</div>
+    ${p109 ? `<p style="font:600 19px var(--display);margin-top:10px">${tx(`Un PSA 10 vale ${nf1.format(p109)} volte un PSA 9.`, `A PSA 10 is worth ${nf1.format(p109)} times a PSA 9.`)}</p>` : ""}
+    ${sh != null ? `<p class="muted">${tx(`Su ${nf0.format(c.psa_total)} copie gradate da PSA, il ${nf1.format(sh * 100)}% ha preso 10.`, `Of ${nf0.format(c.psa_total)} copies graded by PSA, ${nf1.format(sh * 100)}% got a 10.`)}${mSet != null ? tx(` Nelle altre carte dello stesso set di solito il ${nf1.format(mSet * 100)}%`, ` In the other cards of the same set usually ${nf1.format(mSet * 100)}%`) : ""}${mEra != null ? (mSet != null ? tx(", nella sua era il ", ", in its era ") : tx(" Nella sua era di solito il ", " In its era usually ")) + nf1.format(mEra * 100) + "%" : ""}${mSet != null || mEra != null ? "." : ""} ${sh < (mEra ?? sh) * 0.7 ? tx("Un 10 qui è più raro della media: è uno dei motivi del premio.", "A 10 here is rarer than usual: one reason for the premium.") : ""}</p>
+      <p class="note">${tx("La popolazione conta i gradaggi, non le copie: una copia rimandata a PSA può contare più volte.", "Population counts gradings, not copies: a resubmitted copy can be counted more than once.")}</p>` : ""}</div>`;
+  /* 5: liquidity */
+  const since = new Date(Date.parse(D.asof) - 90 * 864e5).toISOString().slice(0, 10);
+  const liq = G.map(x => { const ss = (c.sales || []).filter(s => s.grade === x.grade && s.date >= since && s.pgen >= 0.5);
+    const disp = !noOwn(x) && ss.length >= 5 ? median(ss.map(s => Math.abs(Math.log(s.price / x.value)))) : null;
+    return {x, days: x.sales90 ? 90 / x.sales90 : null, disp, n: ss.length}; });
+  const lg = liq.find(l => l.x.grade === g.grade);
+  const q5 = `<div class="tile q"><div class="qhead"><span class="qn">5</span><h2>${tx("Quanto è facile rivenderla?", "How easy is it to resell?")}</h2></div>
+    ${lg ? `<p style="font:600 19px var(--display)">${lg.days ? (lg.days <= 1.5 ? tx(`In PSA ${g.grade} passa di mano quasi ogni giorno.`, `In PSA ${g.grade} it changes hands almost every day.`) : tx(`In PSA ${g.grade} passa di mano in media ogni ${nf0.format(Math.round(lg.days))} giorni.`, `In PSA ${g.grade} it changes hands every ${nf0.format(Math.round(lg.days))} days on average.`)) : tx(`In PSA ${g.grade} non è passata di mano negli ultimi 90 giorni: rivenderla può richiedere tempo.`, `In PSA ${g.grade} it has not changed hands in the last 90 days: reselling may take time.`)}
+      ${lg.disp != null ? tx(` Le vendite stanno di solito entro il ${nf0.format(Math.round((Math.exp(lg.disp) - 1) * 100))}% dal valore.`, ` Sales usually land within ${nf0.format(Math.round((Math.exp(lg.disp) - 1) * 100))}% of the value.`) : ""}</p>` : ""}
+    <div class="facts">${liq.map(l => `<div class="fact"><span>PSA ${l.x.grade}</span><b>${l.days ? (l.days <= 1.5 ? tx("ogni giorno", "daily") : tx(`ogni ${nf0.format(Math.round(l.days))} gg`, `every ${nf0.format(Math.round(l.days))} d`)) : tx("ferma", "idle")}</b>${l.disp != null ? `<small class="note">±${nf0.format(Math.round((Math.exp(l.disp) - 1) * 100))}%</small>` : ""}</div>`).join("")}</div>
+    <p class="note">${tx("Frequenza: vendite credibili degli ultimi 90 giorni. ± = di quanto si allontana di solito una vendita dal valore (mediana): più è piccolo, meno rischi sul prezzo quando vendi.", "Frequency: credible sales in the last 90 days. ± = how far a sale usually lands from the value (median): the smaller, the less price risk when you sell.")}</p></div>`;
+  /* 6: against the market */
+  const h = g.history || [], ch13 = !noOwn(g) && h.length > 13 ? h[h.length - 1][1] / h[h.length - 14][1] - 1 : null;
+  const eraIx = (D.indexes || {})[c.series], eW = eraIx && eraIx.returns ? eraIx.returns.w13 : null, aW = D.index_all && D.index_all.returns ? D.index_all.returns.w13 : null;
+  const caps = D.cards.map(x => [x, capPSA(x)]).filter(([, v]) => v > 0).sort((a, b) => b[1] - a[1]), myCap = capPSA(c), rank = caps.findIndex(([x]) => x === c) + 1;
+  const bar = (l, v, href) => `<div class="vsrow"><span>${href ? `<a href="${href}">${l}</a>` : l}</span><span class="vsbar"><i class="${v == null ? "" : v >= 0 ? "pos" : "neg"}" style="width:${v == null ? 0 : Math.min(50, Math.abs(v) * 100)}%"></i></span><b class="num ${v == null ? "" : v >= 0 ? "up" : "down"}">${pct(v)}</b></div>`;
+  const verdict = ch13 != null && eW != null ? (ch13 - eW > 0.03 ? tx("Negli ultimi 3 mesi ha fatto meglio della sua era.", "In the last 3 months it did better than its era.") : ch13 - eW < -0.03 ? tx("Negli ultimi 3 mesi ha fatto peggio della sua era.", "In the last 3 months it did worse than its era.") : tx("Negli ultimi 3 mesi si è mossa come la sua era.", "In the last 3 months it moved like its era.")) : "";
+  const q6 = `<div class="tile q"><div class="qhead"><span class="qn">6</span><h2>${tx("Come va rispetto al mercato?", "How is it doing against the market?")}</h2></div>
+    ${verdict ? `<p style="font:600 19px var(--display)">${verdict}</p>` : ""}
+    <div class="vs">${bar(`${esc(c.name)} PSA ${g.grade}`, ch13)}${eraIx ? bar(tx("Indice ", "Index ") + esc(ser(c.series)), eW, `#indice-${encodeURIComponent(c.series)}`) : ""}${D.index_all ? bar(tx("Indice generale", "General index"), aW, "#indice-tutto") : ""}</div>
+    <p class="note">${tx("Variazione in 13 settimane.", "Change over 13 weeks.")}${D.index_source ? tx(" Gli indici usano anche le vendite più vecchie, il prezzo della carta solo quelle recenti.", " Indices also use older sales, the card price only recent ones.") : ""}</p>
+    ${myCap > 0 ? `<div class="facts" style="margin-top:10px"><div class="fact"><span>${tx("Capitalizzazione PSA 7–10", "PSA 7–10 market cap")}</span><b>${usd(Math.round(myCap))}</b></div><div class="fact"><span>${tx("Posizione nel catalogo", "Rank in the catalogue")}</span><b>${rank}ª ${tx("su", "of")} ${caps.length}</b></div></div>
+      <p class="note">${tx("Valore di oggi × copie gradate PSA, voti dal 7 al 10. Una fotografia di oggi: non dice quanto è cresciuta per i prezzi e quanto per i nuovi slab.", "Today's value × PSA graded copies, grades 7 to 10. A snapshot: it does not split growth from prices and from new slabs.")}</p>` : ""}</div>`;
+  /* 7: the last sales */
+  const all = [...(c.sales || []).map(s => ({...s, out: s.pgen >= 0.5 ? "ok" : "low"})), ...(c.excluded || []).map(s => ({...s, out: "x"}))].sort((a, b) => b.date.localeCompare(a.date));
+  const OUT = {ok: [tx("usata", "used"), "up"], low: [tx("poco credibile", "implausible"), "down"], x: [tx("scartata", "removed"), ""]};
+  const srow = s => `<div class="srow"><span>${dateF(s.date)}</span><span>PSA ${s.grade}</span><span class="num">${usd(s.price)}</span><span>${esc(s.venue ? (LANG === "en" ? VENUE_EN[s.venue] || s.venue : s.venue) : "eBay")}</span><span><b class="${OUT[s.out][1]}">${OUT[s.out][0]}</b>${s.why ? ` <small class="note">${esc(LANG === "en" ? REASON_EN[s.why] || s.why : s.why)}</small>` : ""}</span></div>`;
+  const head = `<div class="srow shead"><span>${tx("Data", "Date")}</span><span>${tx("Voto", "Grade")}</span><span class="num">${tx("Prezzo", "Price")}</span><span>${tx("Dove", "Where")}</span><span>${tx("Esito", "Outcome")}</span></div>`;
+  const q7 = all.length ? `<div class="tile q"><div class="qhead"><span class="qn">7</span><h2>${tx("Le ultime vendite", "The latest sales")}</h2></div>
+    <div class="sgrid">${head}${all.slice(0, 12).map(srow).join("")}</div>
+    ${all.length > 12 ? `<details style="margin-top:8px"><summary class="note" style="cursor:pointer">${tx(`Mostra tutte (${all.length})`, `Show all (${all.length})`)}</summary><div class="sgrid">${head}${all.slice(12, 200).map(srow).join("")}</div></details>` : ""}
+    <p class="note">${tx("Usata = entra nel valore. Poco credibile = pesa poco perché il prezzo non torna. Scartata = tolta prima: doppioni, lotti, Best Offer senza prezzo, aste non pagate.", "Used = counts in the value. Implausible = weighs little because the price does not add up. Removed = taken out first: duplicates, lots, Best Offers without price, unpaid auctions.")}</p></div>` : "";
+  /* technical sheet */
+  const fam = c.variant ? [cardById[c.base], ...(cardById[c.base] && cardById[c.base].variants || []).map(id => cardById[id])].filter(x => x && x !== c) : (c.variants || []).map(id => cardById[id]).filter(Boolean);
+  const edName = edLabel;
+  const ja = c.lang === "ja" ? null : jaOf(c), en = c.lang === "ja" ? enOf(c) : null;
+  const fact = (l, v) => v ? `<div class="fact"><span>${l}</span><b>${v}</b></div>` : "";
+  const sheet = `<div class="tile" style="padding:18px 20px"><span class="label">${tx("Scheda tecnica", "Technical sheet")}</span>
+    <div class="facts" style="margin-top:8px">${fact(tx("Set", "Set"), `<span${c.lang === "ja" ? ' lang="ja"' : ""}>${esc(c.set)}</span>`)}${fact(tx("Numero", "Number"), esc(c.no) + (c.tot ? "/" + c.tot : ""))}${fact(tx("Rarità", "Rarity"), esc(c.rarity || ""))}${fact(tx("Illustratore", "Illustrator"), esc(c.illustrator || ""))}${fact(tx("Lingua", "Language"), c.lang === "ja" ? tx("Giapponese", "Japanese") : tx("Inglese", "English"))}${fact(tx("Era", "Era"), `<a href="#indice-${encodeURIComponent(c.series)}">${esc(ser(c.series))}</a>`)}</div>
+    ${(() => { const ins = [["tutto", D.index_all], ...Object.entries(D.indexes || {}), ...Object.entries(D.index_sets || {}).map(([k, v]) => ["set:" + k, v])]
+        .flatMap(([k, v]) => ((v && v.components) || []).filter(x => x.id === c.id).map(x => `<a href="#indice-${encodeURIComponent(k)}">${esc(ixName(k))}</a> (PSA ${x.grade}, ${nf1.format(x.weight * 100)}%)`));
+      return `<p class="muted" style="margin-top:10px">${ins.length ? tx("Pesa negli indici: ", "Counts in the indices: ") + ins.join(" · ") : tx("Oggi non è nel paniere di nessun indice: ci entrano le combinazioni carta e voto più scambiate.", "Not in any index basket today: the most traded card and grade pairs go in.")}</p>`; })()}
+    ${fam.length || ja || en ? `<p class="muted" style="margin-top:10px">${tx("Altre stampe, ognuna con un prezzo a parte: ", "Other printings, each with its own price: ")}${[...fam.map(x => `<a href="#c-${x.id}">${edName(x)}</a> (PSA 10 ${usdV(gradeOf(x, 10) || {})})`), ja ? `<a href="#c-${ja.id}">${tx("giapponese", "Japanese")}</a>` : "", en ? `<a href="#c-${en.id}">${tx("inglese", "English")}</a>` : ""].filter(Boolean).join(", ")}.</p>` : ""}</div>`;
+  return q4 + q5 + q6 + q7 + sheet;
+}
+function chart(g, sales) {
+  const W = 720, H = 290, L = 8, R = 66, T = 14, B = 28;
+  const h = g.history, t0 = +new Date(h[0][0]), t1 = +new Date(h[h.length - 1][0]);
+  const pts = sales.filter(s => +new Date(s.date) >= t0);
+  const vals = h.flatMap(r => [r[2], r[3]]).concat(pts.map(s => s.price).filter(p => p > g.value / 4 && p < g.value * 4));
+  const lo = Math.min(...vals) * 0.92, hi = Math.max(...vals) * 1.06;
+  const x = d => L + (W - L - R) * (+new Date(d) - t0) / (t1 - t0 || 1);
+  const y = v => T + (H - T - B) * (1 - (Math.log(v) - Math.log(lo)) / (Math.log(hi) - Math.log(lo)));
+  const band = h.map(r => `${x(r[0])},${y(r[3])}`).join(" ") + " " + [...h].reverse().map(r => `${x(r[0])},${y(r[2])}`).join(" ");
+  let grid = "";
+  for (let i = 0; i <= 4; i++) { const v = Math.exp(Math.log(lo) + (Math.log(hi) - Math.log(lo)) * i / 4); grid += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--soft)" stroke-width="2" stroke-dasharray="2 7" stroke-linecap="round"/><text x="${W - R + 8}" y="${y(v) + 4}">${usd(v)}</text>`; }
+  [0, .5, 1].forEach(f => { const d = new Date(t0 + (t1 - t0) * f).toISOString().slice(0, 10); grid += `<text x="${x(d)}" y="${H - 6}" text-anchor="${f === 0 ? "start" : f === 1 ? "end" : "middle"}">${new Date(d).toLocaleDateString(LOC, {month: "short", year: "numeric"})}</text>`; });
+  const dots = pts.map(s => { const vy = Math.min(Math.max(y(Math.min(Math.max(s.price, lo), hi)), T), H - B), ok = s.pgen >= 0.5;
+    return `<circle class="s${ok ? "" : " bad"}" cx="${x(s.date)}" cy="${vy}" r="5" fill="${ok ? "var(--ink)" : "var(--coral)"}" stroke="var(--paper)" stroke-width="1.5"><title>${dateF(s.date)} · ${usd(s.price)} · ${tx("attendibile al", "genuine at")} ${Math.round(s.pgen * 100)}%${s.why ? " · " + rsn(s.why) : ""}</title></circle>`; }).join("");
+  const last = h[h.length - 1];
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${tx("Valore stimato con intervallo all'80% e vendite", "Estimated value with 80% range and sales")}">${grid}
+    <polygon points="${band}" fill="var(--brand-soft)" stroke="var(--brand)" stroke-width="1.5" stroke-linejoin="round" opacity=".9"/>
+    <polyline points="${h.map(r => `${x(r[0])},${y(r[1])}`).join(" ")}" fill="none" stroke="var(--brand)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+    ${dots}<circle cx="${x(last[0])}" cy="${y(last[1])}" r="8" fill="var(--sun)" stroke="var(--edge)" stroke-width="2.5"/></svg>`;
+}
+function ladder(c, sel) {
+  const vals = c.grades.filter(g => !noOwn(g)).flatMap(g => [g.lo, g.hi]);
+  const lo = Math.min(...vals) * 0.85, hi = Math.max(...vals) * 1.1;
+  const p = v => 100 * (Math.log(v) - Math.log(lo)) / (Math.log(hi) - Math.log(lo));
+  return `<div class="ladder">${c.grades.map(g => `<div class="r${g.grade === sel ? " on" : ""}" data-cg="${g.grade}" role="button" tabindex="0" style="cursor:pointer" aria-label="${tx("Vedi", "See")} PSA ${g.grade}"><span class="g">PSA ${g.grade}</span>
+    ${noOwn(g) ? `<div class="lt"></div><span class="num" style="text-align:right;font:700 18px var(--display)" title="${esc(noEst(g.grade, g))}">—</span></div>` : `<div class="lt"><i style="left:${p(g.lo)}%;width:${p(g.hi) - p(g.lo)}%"></i><b style="left:${p(g.value)}%"></b></div>
+    <span class="num" style="text-align:right;font:700 18px var(--display)">${usd(g.value)}</span></div>`}`).join("")}</div>
+    <p class="note">${tx("Tutti i voti sono stimati insieme: una vendita di un PSA 9 aiuta anche a stimare il PSA 10.", "All grades are estimated together: a PSA 9 sale also helps estimate the PSA 10.")}</p>`;
+}
+
+function viewWeek() {
+  const P = D.pulse, [from, to] = P.week.split("/");
+  const st = P.stories.map((s, i) => storyCard(s, i)).join("");
+  const n = P.stories.length;
+  return `<div class="wrap"><section class="sec" style="padding-top:36px">
+    <div class="sechead"><div><span class="label">${tx(`Settimana dal ${dateF(from)} al ${dateF(to)}`, `Week of ${dateF(from)} – ${dateF(to)}`)}</span><h2>${tx(`Le ${n} storie della settimana`, `The ${n} stories of the week`)}</h2>
+      <p class="muted" style="max-width:62ch;margin-top:8px">${tx("Tutto quello che serve per i reel di questa settimana, calcolato dal motore. Ogni storia ha il suo copione e un pulsante che copia i numeri per il Reel Studio.", "Everything this week's reels need, computed by the engine. Each story has its script and a button that copies the numbers for the Reel Studio.")}</p></div>
+      <button class="btn sun" id="copyAll">${tx(`Copia i ${n} copioni`, `Copy the ${n} scripts`)}</button></div>
+    <div style="display:grid;gap:26px;margin-top:10px">${st}</div>
+  </section></div>`;
+}
+/* D130: the index chart: this series in colour, the other series in grey on the same base, the 100 line marked */
+/* D136: an index by its page key: "tutto" (general), "set:<id>", or an era name */
+const ixOf = k => k === "tutto" ? D.index_all : k.startsWith("set:") ? (D.index_sets || {})[k.slice(4)] : (D.indexes || {})[k];
+const ixName = k => k === "tutto" ? tx("Generale", "General") : k.startsWith("set:") ? (ixOf(k) || {}).label || k.slice(4) : ser(k);
+function indexChart(series) {
+  const me = ixOf(series);
+  if (!me) return "";
+  const IX = {...(D.indexes || {}), ...(D.index_all ? {tutto: D.index_all} : {})}; if (!IX[series]) IX[series] = me;
+  const W = 640, H = 240, L = 44, R = 16, T = 16, B = 30;
+  const base = me.base || D.index_base, hist = (D.index_history || {})[series], full = !!hist && S.ixr !== "base";   // D138
+  const t0 = full ? hist.start : (me.start && S.ixr !== "base" ? me.start : base);   // D149: the whole history by default
+  const all = Object.entries(IX).map(([k, v]) => [k, k === series && full ? [...hist.points, ...v.points.filter(p => p[0] >= base)] : v.points.filter(p => p[0] >= t0)]).filter(([, p]) => p.length > 1);
+  const vals = all.flatMap(([, p]) => p.map(x => x[1])), lo = Math.min(100, ...vals) * 0.95, hi = Math.max(100, ...vals) * 1.05;
+  const dates = [...new Set(all.flatMap(([, p]) => p.map(x => x[0])))].sort(), d0 = Date.parse(dates[0]), d1 = Date.parse(dates[dates.length - 1]);
+  const X = d => L + (Date.parse(d) - d0) / Math.max(1, d1 - d0) * (W - L - R), Y = v => T + (1 - (Math.log(v) - Math.log(lo)) / (Math.log(hi) - Math.log(lo))) * (H - T - B);
+  const path = p => p.map((x, i) => `${i ? "L" : "M"}${X(x[0]).toFixed(1)},${Y(x[1]).toFixed(1)}`).join("");
+  const ticks = [lo * 1.02, 100, hi / 1.02].map(v => Math.round(v / 10) * 10).filter((v, i, a) => a.indexOf(v) === i);
+  const mine = all.find(([k]) => k === series)[1], last = mine[mine.length - 1];
+  const months = [], yearly = d1 - d0 > 730 * 864e5; { const a = new Date(d0); for (let y = a.getUTCFullYear(), m = a.getUTCMonth() + 1; Date.UTC(y, m, 1) <= d1; m++) { const d = new Date(Date.UTC(y, m, 1)); if (!yearly || d.getUTCMonth() === 0) months.push(d.toISOString().slice(0, 10)); } }
+  const others = all.filter(([k]) => k !== series).map(([k, p]) => ({k, p}));
+  return `<svg viewBox="0 0 ${W} ${H}" class="ixchart" role="img" aria-label="${tx(`Indice ${ixName(series)} da ${dateF(t0)}: ${nf1.format(last[1])}`, `${ser(series)} index since ${dateF(t0)}: ${nf1.format(last[1])}`)}">
+    ${months.filter(m => Date.parse(m) >= d0).map(m => `<line x1="${X(m)}" x2="${X(m)}" y1="${T}" y2="${H - B}" class="grid"/><text x="${X(m)}" y="${H - 10}" class="ax" text-anchor="middle">${yearly ? m.slice(0, 4) : new Date(m).toLocaleDateString(LOC, {month: "short", timeZone: "UTC"})}</text>`).join("")}
+    ${ticks.map(v => `<text x="${L - 8}" y="${Y(v) + 4}" class="ax" text-anchor="end">${v}</text>`).join("")}
+    <line x1="${L}" x2="${W - R}" y1="${Y(100)}" y2="${Y(100)}" class="base"/>
+    ${others.map(o => `<path d="${path(o.p)}" class="other" data-ixk="${esc(o.k)}"><title>${esc(ixName(o.k))}</title></path>`).join("")}
+    <path d="${path(mine)} L${X(last[0])},${H - B} L${X(mine[0][0])},${H - B} Z" class="area"/>
+    ${full ? `<path d="${path(mine.filter(p => p[0] < base))}${(() => { const f = mine.find(p => p[0] >= base); return f ? ` L${X(f[0]).toFixed(1)},${Y(f[1]).toFixed(1)}` : ""; })()}" class="me rebuilt"/><path d="${path(mine.filter(p => p[0] >= base))}" class="me"/><line x1="${X(base)}" x2="${X(base)}" y1="${T}" y2="${H - B}" class="basev"/><text x="${X(base) + 4}" y="${T + 10}" class="ax">${tx("base", "base")}</text>` : `<path d="${path(mine)}" class="me"/>`}
+    <circle cx="${X(last[0])}" cy="${Y(last[1])}" r="5" class="dot"/>
+    <line class="xh" x1="0" x2="0" y1="${T}" y2="${H - B}" visibility="hidden"/><circle class="xhd" r="5" visibility="hidden"/>
+    <rect class="xhit" x="${L}" y="${T}" width="${W - L - R}" height="${H - T - B}" fill="transparent" data-pts='${JSON.stringify(mine.map(p => [p[0], p[1], +X(p[0]).toFixed(1), +Y(p[1]).toFixed(1)]))}' data-w="${W}"/>
+  </svg><div class="ixtip" hidden></div>
+  ${others.length ? `<div class="ixlegend"><span class="me-k"><i></i>${esc(ixName(series))} <b class="num">${nf1.format(last[1])}</b></span>${others.map(o => `<a href="#indice-${encodeURIComponent(o.k)}" data-ixk="${esc(o.k)}"><i></i>${esc(ixName(o.k))} <b class="num">${nf1.format(o.p[o.p.length - 1][1])}</b></a>`).join("")}</div>` : ""}`;
+}
+/* D126: one index, explained in two lines, with the cards it is made of */
+function viewIndex(key) {
+  const ix = ixOf(key), kind = key === "tutto" ? "generale" : key.startsWith("set:") ? "set" : "era";
+  const r = kind === "era" ? (D.rollups || []).find(x => x.series === key) : null;
+  const own = kind === "generale" ? D.cards.filter(c => c.lang !== "ja") : key === "Giappone" ? D.cards.filter(c => c.lang === "ja") : kind === "set" ? D.cards.filter(c => c.lang !== "ja" && c.id.split("/")[0].replace(/-[^-]+$/, "") === key.slice(4)) : D.cards.filter(c => c.series === key);
+  const name = ixName(key), K = kind === "generale" ? 30 : 10;
+  const comps = ix ? (ix.components || []).map(x => { const base = x.id.split("/")[0], c = cardById[x.id] || cardById[base];
+    return c ? {...x, c, ed: x.id.includes("/1st") ? tx("1ª edizione", "1st edition") : x.id.includes("/shadowless") ? "Shadowless" : ""} : null; }).filter(Boolean) : [];
+  const last = ix ? ix.points[ix.points.length - 1][1] : null;
+  const base = ix ? ix.base || D.index_base : null;
+  const scope = kind === "generale" ? tx("di tutto il catalogo inglese", "of the whole English catalogue") : kind === "set" ? tx(`del set ${name}`, `of the ${name} set`) : key === "Giappone" ? tx("delle stampe giapponesi", "of the Japanese printings") : tx(`dell'era ${name}`, `of the ${name} era`);
+  const R = ix ? ix.returns || {} : {};
+  const retCell = (k, l) => `<div class="fact"><span>${l}</span><b class="${R[k] == null ? "" : R[k] >= 0 ? "up" : "down"}">${pct(R[k])}</b></div>`;
+  const up = comps.filter(x => (x.contrib || 0) > 0), dn = comps.filter(x => (x.contrib || 0) < 0);
+  const sum = comps.reduce((t, x) => t + (x.contrib || 0), 0);
+  const story = ix && comps.length > 1 ? tx(`Nelle ultime 4 settimane le voci del paniere si sono mosse in media del ${pct(Math.exp(sum) - 1)}.${up.length ? ` Ha spinto di più ${up[0].c.name} PSA ${up[0].grade} (${pct(up[0].ch4)}).` : ""}${dn.length ? ` Ha frenato di più ${dn[0].c.name} PSA ${dn[0].grade} (${pct(dn[0].ch4)}).` : ""}`,
+    `In the last 4 weeks the basket items moved ${pct(Math.exp(sum) - 1)} on average.${up.length ? ` The biggest push: ${up[0].c.name} PSA ${up[0].grade} (${pct(up[0].ch4)}).` : ""}${dn.length ? ` The biggest drag: ${dn[0].c.name} PSA ${dn[0].grade} (${pct(dn[0].ch4)}).` : ""}`) : "";
+  const maxC = Math.max(1e-9, ...comps.map(x => Math.abs(x.contrib || 0)));
+  const compRow = x => `<a class="ixrow" href="#c-${x.c.id}">
+      <span class="ixc-card">${x.c.thumb || x.c.img ? `<img src="${x.c.thumb || x.c.img}" alt="" loading="lazy">` : ""}<span><b>${esc(x.c.name)}</b><small>PSA ${x.grade}${x.ed ? " · " + esc(x.ed) : ""} · ${esc(x.c.set)}</small></span></span>
+      <span class="num">${nf1.format(x.weight * 100)}%</span>
+      <span class="num">${x.value != null ? usd(x.value) : "—"}</span>
+      <span class="num ${x.ch4 == null ? "" : x.ch4 >= 0 ? "up" : "down"}">${pct(x.ch4)}</span>
+      <span class="ixbar"><span class="trk"><i class="${(x.contrib || 0) >= 0 ? "pos" : "neg"}" style="width:${Math.round(Math.abs(x.contrib || 0) / maxC * 50)}%"></i></span><em class="num">${x.contrib == null ? "—" : (x.contrib >= 0 ? "+" : "−") + nf1.format(Math.abs(x.contrib) * 100) + " pt"}</em></span></a>`;
+  const others = [["tutto", D.index_all], ...Object.entries(D.indexes || {}), ...Object.entries(D.index_sets || {}).map(([k, v]) => ["set:" + k, v])].filter(([k, v]) => v && k !== key);
+  return `<div class="wrap"><section class="sec" style="padding-top:36px">
+    <div class="sechead"><div><span class="label"><a href="#mercato">${tx("Indici", "Indices")}</a> · ${kind === "generale" ? tx("tutto il mercato che seguiamo", "the whole market we follow") : kind === "set" ? tx("set", "set") : tx("era", "era")}</span>
+      <h2>${tx("Indice", "Index")} ${esc(name)}${ix ? ` · ${nf1.format(last)}` : ""}</h2>
+      <p class="muted" style="max-width:66ch;margin-top:8px">${ix ? tx(`Un numero solo per il valore ${scope}: segue le ${comps.length} combinazioni carta e voto più vendute, tutte con lo stesso peso. Vale 100 il ${dateF(base)}: a 130 vuol dire +30% da allora.`, `One number for the value ${scope}: it tracks the ${comps.length} card and grade pairs sold most, all with the same weight. It is 100 on ${dateF(base)}: 130 means +30% since then.`)
+        : tx(`Per un indice servono almeno sei mesi di vendite: ${name} ancora non li ha.`, `An index needs at least six months of sales: ${name} does not have them yet.`)}</p>
+      ${story ? `<p style="max-width:66ch;margin-top:8px;font:600 19px var(--display)">${story}</p>` : ""}
+      ${D.index_source && ix ? `<p class="note" style="max-width:66ch;margin-top:8px">${tx(`Calcolato con tutte le vendite dal ${dateF(ix.start || base)}, compreso lo storico che i prezzi delle carte non usano ancora: abbiamo verificato che segue le rivendite vere della stessa copia (protocollo §29).`, `Computed with every sale since ${dateF(ix.start || base)}, including the history card prices do not use yet: we checked that it follows real resales of the same copy (protocol §29).`)}</p>` : ""}</div></div>
+    ${ix ? `<div class="tile" style="padding:18px">${(D.index_history || {})[key] || (ix.start && ix.start < base) ? `<div class="chips" style="margin-bottom:8px"><button class="chip" data-ixr="all" aria-pressed="${S.ixr !== "base"}">${tx(`Dal ${(((D.index_history || {})[key] || ix).start || "").slice(0, 4)}`, `Since ${(((D.index_history || {})[key] || ix).start || "").slice(0, 4)}`)}</button><button class="chip" data-ixr="base" aria-pressed="${S.ixr === "base"}">${tx(`Dal ${dateF(base)}`, `Since ${dateF(base)}`)}</button></div>` : ""}${indexChart(key)}<p class="note">${tx(`In colore ${name}, in grigio gli altri indici, tutti a 100 il ${dateF(D.index_base || base)}${D.index_source ? " (quelli nati dopo, a 100 al loro inizio)" : ""}. Scala logaritmica: la stessa distanza vuol dire la stessa percentuale.`, `${name} in colour, the other indices in grey, all at 100 on ${dateF(D.index_base || base)}${D.index_source ? " (later ones at 100 on their start)" : ""}. Log scale: equal distances mean equal percentages.`)}${(D.index_history || {})[key] && S.ixr !== "base" ? tx(" Il tratto a puntini prima della base è <b>ricostruito con le vendite passate</b> (protocollo §27): stesso metodo, dati più scarsi.", " The dotted stretch before the base is <b>rebuilt from past sales</b> (protocol §27): same method, thinner data.") : ""}</p></div>
+    <div class="facts ixret">${retCell("w1", tx("1 settimana", "1 week"))}${retCell("w4", tx("1 mese", "1 month"))}${retCell("w13", tx("3 mesi", "3 months"))}${retCell("w26", tx("6 mesi", "6 months"))}${retCell("ytd", tx("Da inizio anno", "Year to date"))}${retCell("w52", tx("1 anno", "1 year"))}
+      <div class="fact" title="${tx("Quanto oscilla di settimana in settimana, riportato a un anno: più è alto, più l'indice va su e giù.", "How much it swings week to week, scaled to a year: the higher, the bumpier.")}"><span>${tx("Volatilità annua", "Annual volatility")}</span><b>${ix.vol != null ? nf1.format(ix.vol * 100) + "%" : "—"}</b></div>
+      <div class="fact" title="${ix.mdd ? tx(`Dal massimo del ${dateF(ix.mdd.peak)} al minimo del ${dateF(ix.mdd.at)}`, `From the high of ${dateF(ix.mdd.peak)} to the low of ${dateF(ix.mdd.at)}`) : ""}"><span>${tx("Calo massimo dal picco", "Maximum drawdown")}</span><b class="down">${ix.mdd ? pct(ix.mdd.value) : "—"}</b></div></div>
+    <h3 style="margin:26px 0 6px">${tx("Componenti", "Components")}</h3>
+    <p class="note" style="max-width:70ch">${tx("Contributo = quanto la voce ha spostato l'indice nelle ultime 4 settimane, in punti percentuali: la sua variazione divisa per il numero di voci.", "Contribution = how much the item moved the index in the last 4 weeks, in percentage points: its change divided by the number of items.")}</p>
+    ${(() => { const gs = [...new Set(comps.map(x => x.grade))].sort((a, b) => b - a); return gs.length && gs.length < 4 ? `<p class="note" style="max-width:70ch">${tx(`In questo paniere ci sono solo PSA ${gs.join(", ")}: sono i voti che qui passano di mano abbastanza spesso da misurare un movimento settimana per settimana. Abbiamo provato a riservare posti agli altri voti, ma l'indice seguiva peggio il mercato (protocollo §28).`, `This basket holds only PSA ${gs.join(", ")}: the grades that change hands often enough here to measure a weekly move. We tried reserving seats for the other grades, but the index tracked the market worse (protocol §28).`)}</p>` : ""; })()}
+    <div class="ixtable"><div class="ixrow ixhead"><span>${tx("Carta e voto", "Card and grade")}</span><span>${tx("Peso", "Weight")}</span><span>${tx("Valore", "Value")}</span><span>${tx("4 sett.", "4 wk")}</span><span>${tx("Contributo", "Contribution")}</span></div>${comps.map(compRow).join("")}</div>
+    ${own.length > comps.length ? `<p class="note" style="margin-top:10px">${tx(`Seguiamo altre ${own.length - comps.length} carte qui dentro: entrano quando sono tra le più vendute alla prossima revisione.`, `We follow ${own.length - comps.length} more cards here: they join when they are among the most sold at the next review.`)}</p>` : ""}
+    <details class="tile ixrules" style="margin-top:22px;padding:16px 20px"><summary><b>${tx("Regolamento dell'indice", "Index rules")}</b></summary>
+      <ol style="margin:12px 0 0;padding-left:20px;display:grid;gap:8px;max-width:72ch">
+        <li>${tx(`<b>Chi entra.</b> Le combinazioni carta e voto ${scope} con almeno 6 vendite credibili negli ultimi 3 mesi (probabilità di essere genuina sopra il 50%); al massimo ${K}, le più vendute.`, `<b>Who is in.</b> The card and grade pairs ${scope} with at least 6 credible sales in the last 3 months (probability of being genuine above 50%); at most ${K}, the most sold.`)}</li>
+        <li>${tx("<b>Quando cambia.</b> Il paniere si rivede ogni 13 settimane, guardando solo il passato. Una carta può esserci con due voti: per il mercato sono prodotti diversi.", "<b>When it changes.</b> The basket is reviewed every 13 weeks, looking only at the past. A card can be there with two grades: for the market they are different products.")}</li>
+        <li>${tx("<b>Pesi.</b> Uguali: una carta da 50.000 $ conta quanto una da 200 $. Così l'indice racconta il mercato e non due o tre carte famose.", "<b>Weights.</b> Equal: a $50,000 card counts as much as a $200 one. So the index tells the market, not two or three famous cards.")}</li>
+        <li>${tx("<b>Come si muove.</b> Ogni settimana della media delle variazioni dei valori delle voci (in logaritmo). Le variazioni si concatenano: quando il paniere cambia l'indice non salta.", "<b>How it moves.</b> Each week by the mean change of the items' values (in logs). Changes are chained: when the basket changes the index does not jump.")}</li>
+        <li>${tx(`<b>Base.</b> 100 il ${dateF(base)}. Si pubblica dopo almeno 26 settimane di dati.`, `<b>Base.</b> 100 on ${dateF(base)}. Published after at least 26 weeks of data.`)}</li>
+        <li>${tx("<b>Cosa non lo muove.</b> I nuovi slab gradati e l'ingresso di nuove carte nel catalogo: conta solo il prezzo delle stesse voci da una settimana all'altra.", "<b>What does not move it.</b> Newly graded slabs and new cards joining the catalogue: only the price of the same items from one week to the next counts.")}</li>
+      </ol><p class="note" style="margin-top:10px">${tx('Dettagli e prove nel <a href="#metodo">metodo</a>.', 'Details and tests in the <a href="#metodo">method</a>.')}</p></details>` : `<div class="reqlist" style="margin-top:14px">${own.map(c => `<a class="tile reqrow" href="#c-${c.id}" style="text-decoration:none;color:inherit"><b>${esc(c.name)}</b><span class="num">${usdV(gradeOf(c, 10))}</span></a>`).join("")}</div>`}
+    ${others.length ? `<h3 style="margin:26px 0 10px">${tx("Gli altri indici", "The other indices")}</h3><div class="chips">${others.map(([k, v]) => `<a class="chip" href="#indice-${encodeURIComponent(k)}" style="text-decoration:none">${esc(ixName(k))} · ${nf1.format(v.points[v.points.length - 1][1])} <span class="${v.ch30 >= 0 ? "up" : "down"}">${pct(v.ch30)}</span></a>`).join("")}</div>` : ""}
+  </section></div>`;
+}
+/* the stories are written here from the engine's numbers, in the page's language */
+/* the key number of a story under a marker stroke (heavy tight type, idea from Oscar, 2 November) */
+const markHook = h => esc(h).replace(/([+−-]\d[\d.,]*\s?%|\$\d(?:[\d.,]*\d)?|\d[\d.,]*\s(?:volte|times))/, '<mark class="hl">$1</mark>');
+function storyHook(s, c) {
+  const nm = c ? c.name : "";
+  if (s.kind === "mover" && s.change7 != null) return `${nm} PSA ${s.grade}: ${s.change7 > 0 ? "+" : "−"}${Math.round(Math.abs(s.change7) * 100)}% ${tx("in 4 settimane", "in 4 weeks")}`;
+  if (s.kind === "caught" && s.price) return tx(`Venduta a ${usd(s.price)}, ma per il nostro modello non è credibile`, `Sold for ${usd(s.price)}, but our model does not believe it`);
+  if (s.kind === "ladder" && s.ratio) return tx(`${nm}: un PSA 10 vale ${nf1.format(s.ratio)} volte un PSA 9`, `${nm}: a PSA 10 is worth ${nf1.format(s.ratio)} times a PSA 9`);
+  return s.hook;
+}
+function storyText(s) {
+  const c = s.card ? cardById[s.card] : null;
+  const hook = storyHook(s, c);
+  const Lx = {
+    mover: [tx(`Valore oggi ${usd(s.value)}, intervallo all'80% ${usd(s.lo)}–${usd(s.hi)}.`, `Value today ${usd(s.value)}, 80% range ${usd(s.lo)}–${usd(s.hi)}.`), tx("La terresti o la venderesti? Scrivilo nei commenti.", "Would you keep it or sell it? Tell us in the comments.")],
+    deal: [tx(`In Italia ti costa ${eur(s.landed_eur)} e ne vale ${eur(s.value_eur)}${s.origin === "UE" ? ", senza dogana perché arriva dall'UE" : ""}.`, `Landed in Italy it costs ${eur(s.landed_eur)} and is worth ${eur(s.value_eur)}${s.origin === "UE" ? ", no customs since it ships from the EU" : ""}.`), tx("La compreresti? Scrivilo nei commenti.", "Would you buy it? Tell us in the comments.")],
+    caught: [tx(`Il valore di questo PSA ${s.grade} è ${usd(s.value)}: quella vendita era ${s.price < s.value ? "troppo bassa" : "troppo alta"}. Motivo: ${s.why}.`, `This PSA ${s.grade} is worth ${usd(s.value)}: that sale was ${s.price < s.value ? "too low" : "too high"}. Reason: ${rsn(s.why)}.`), tx("Per questo non guardiamo mai solo l'ultima vendita.", "That is why we never look at the last sale alone.")],
+    ladder: [`PSA 10 ${usd(s.v10)} ${tx("contro", "vs")} PSA 9 ${usd(s.v9)}.`, tx("La manderesti a gradare? Scrivilo nei commenti.", "Would you send it for grading? Tell us in the comments.")],
+    era: [tx(`Valore di collezione ${usdK(s.cap)}.`, `Collection value ${usdK(s.cap)}.`), tx("Quale era compreresti adesso?", "Which era would you buy now?")],
+  }[s.kind];
+  return {hook, body: Lx[0], cta: Lx[1], card: c};
+}
+function storyCard(s, i) {
+  const x = storyText(s), c = x.card;
+  let visual = "";
+  if (c) visual = `<a href="#c-${c.id}" style="text-decoration:none">${slab(c, s.grade || 10, 150)}</a>`;
+  else visual = `<div style="width:140px">${DOODLE[s.series] || ""}</div>`;
+  const tag = {mover: ["sky", tx("Movimento", "Move")], deal: ["mint", t("deals")], caught: ["coral", tx("Vendita anomala", "Outlier sale")], ladder: ["", tx("Voti", "Grades")], era: ["sky", "Era"]}[s.kind];
+  return `<article class="tile story"${i === 0 ? ' data-tour="story"' : ""}><span class="n">${i + 1}</span>
+    <div class="visual">${visual}</div>
+    <div style="display:grid;gap:10px;min-width:0"><span class="sticker ${tag[0]}" style="justify-self:start">${tag[1]}</span><p class="hook">${markHook(x.hook)}</p><p class="muted">${esc(x.body)}</p></div>
+    <div style="display:grid;gap:12px">
+      <div class="script"><div><b>${tx("Gancio", "Hook")} · 0–3 s</b>${esc(x.hook)}</div><div><b>${tx("Numeri", "Numbers")} · 3–15 s</b>${esc(x.body)}</div><div><b>${tx("Chiusura", "Close")}</b>${esc(x.cta)}</div></div>
+      ${s.reel ? `<button class="btn" data-copy="${i}">${tx("Copia per il Reel Studio", "Copy for the Reel Studio")}</button>` : `<button class="btn ghost" data-copytext="${i}">${tx("Copia il copione", "Copy the script")}</button>`}
+    </div></article>`;
+}
+
+/* D113: listings that become a deal at a lower price: the highest offer that still makes it one, landed in Italy */
+function offersBlock() {
+  const O = (D.offers || []).filter(o => cardById[o.card]);
+  if (!D.real || !dealsLive() || !O.length) return "";
+  return `<div class="tile" style="padding:20px;display:grid;gap:10px"><h3>${tx("Da trattare: offri fino a…", "Make an offer: up to…")}</h3>
+    <p class="muted" style="max-width:66ch">${tx("Annunci che a questo prezzo non sono un'occasione, ma lo diventano con un'offerta. Il numero è il prezzo più alto da offrire perché, arrivata in Italia con spedizione, IVA e dogana, la carta valga almeno il 10% in più di quanto paghi, con l'80% di probabilità.", "Listings that are not a deal at their price but become one with an offer. The number is the highest price to offer so that, landed in Italy with shipping, VAT and customs, the card is worth at least 10% more than you pay, with 80% probability.")}</p>
+    <div class="tbl"><table><thead><tr><th>${tx("Carta", "Card")}</th><th class="n">${tx("Chiede", "Asks")}</th><th class="n">${tx("Offri fino a", "Offer up to")}</th><th class="n">${tx("Sconto", "Discount")}</th><th>${tx("Da", "From")}</th><th></th></tr></thead><tbody>
+    ${O.slice(0, 30).map(o => { const c = cardById[o.card]; return `<tr><td><a href="#c-${esc(c.id)}">${esc(c.name)}</a> <span class="muted">PSA ${o.grade}</span></td><td class="n">${eur(o.ask_eur)}</td><td class="n"><b>${eur(o.offer_eur)}</b></td><td class="n">−${Math.round(o.discount * 100)}%</td><td>${esc(o.origin)}${o.best_offer ? ` · ${tx("accetta proposte", "accepts offers")}` : ""}</td><td><a href="${esc(o.url)}" target="_blank" rel="noopener sponsored">eBay ↗</a></td></tr>`; }).join("")}
+    </tbody></table></div>
+    <p class="note">${tx("I prezzi sono in euro, prima di spedizione e tasse. Un'offerta molto sotto il prezzo chiesto spesso viene rifiutata: non mostriamo quelle oltre il 30%.", "Prices are in euros, before shipping and taxes. An offer far below the asking price is often refused: we do not show those above 30%.")}</p></div>`;
+}
+function viewDeals() {
+  const all = D.cards.flatMap(c => dealsOf(c).map(d => ({c, d})));
+  const list = all.filter(({d}) => d.p_deal >= S.dealMin && (S.dealOrigin === "tutti" || d.origin === S.dealOrigin)).sort((a, b) => b.d.p_deal - a.d.p_deal);
+  return `<div class="wrap"><section class="sec" style="padding-top:36px">
+    <div><span class="label">${t("deals")} · ${D.real ? (D.deals_asof ? tx("annunci eBay controllati il ", "eBay listings checked ") + dealTime() : tx("annunci non ancora raccolti", "listings not collected yet")) : tx("ultime due settimane", "last two weeks")}</span><h2 style="font-size:clamp(28px,3.4vw,40px)">${tx("Occasioni vere, in euro", "Real deals, in euros")}</h2>
+      <p class="muted" style="max-width:62ch;margin-top:8px">${tx(`Niente "sconti": ti diciamo quanto è probabile che sia davvero un'occasione dopo spedizione, IVA e dogana. Mostriamo solo gli annunci con almeno il 50% di probabilità.`, `No "discounts": we tell you how likely it is to be a real deal after shipping, VAT and customs. We only show listings with at least a 50% probability.`)}</p>${D.real ? `<p class="note" style="max-width:62ch">${dealNote()}</p>` : ""}</div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap" data-tour="dealfilters">
+      <div class="chips" role="group" aria-label="${tx("Probabilità minima", "Minimum probability")}">${[[0.8, tx("Quasi sicure", "Near certain")], [0.5, tx("Probabili", "Likely")], [0, tx("Tutte", "All")]].map(([v, l]) => `<button class="chip" data-min="${v}" aria-pressed="${S.dealMin === v}">${l}</button>`).join("")}</div>
+      <div class="chips" role="group" aria-label="${tx("Provenienza", "Origin")}">${[["tutti", tx("Ovunque", "Anywhere")], ["UE", tx("Dall'UE", "From the EU")], ["USA", tx("Dagli USA", "From the US")]].map(([v, l]) => `<button class="chip" data-or="${v}" aria-pressed="${S.dealOrigin === v}">${l}</button>`).join("")}</div>
+    </div>
+    ${offersBlock()}
+    <div class="deals" style="margin-top:8px">${list.length ? list.slice(0, 40).map(({c, d}) => dealRow(c, d, true)).join("") : `<div class="tile empty">${D.real && !D.deals_asof ? tx("Gli annunci in vendita non li abbiamo ancora raccolti. ", "We have not collected listings yet. ") : D.real && !dealsLive() ? tx("Annunci in aggiornamento: mostriamo solo annunci controllati nelle ultime 6 ore. ", "Listings being refreshed: we only show listings checked in the last 6 hours. ") : ""}${tx('Nessuna occasione con questi filtri.', 'No deals with these filters.')}</div>`}</div>
+  </section></div>`;
+}
+
+/* pose sheet (D61): which PNG fills each animation of the character, and what is missing */
+const POSE_USE = {
+  smug: [["Posa normale", "In basso a destra quando non fa niente; grande nella testata; seduto sul titolo se manca sit.png; sbuca di lato se manca peek_side.png"], ["Default pose", "Bottom right when idle; large in the header; sits on titles if sit.png is missing; peeks from the side if peek_side.png is missing"]],
+  bliss: [["Contento", "Spiega l'intervallo di valore; saluta vicino alla ricerca se manca wave.png"], ["Happy", "Explains the value range; waves next to search if wave.png is missing"]],
+  laugh: [["Ride", "Pagina Settimana; corre se manca run.png; linguaccia se manca tongue.png"], ["Laughing", "Week page; runs if run.png is missing; sticks out his tongue if tongue.png is missing"]],
+  drool: [["Sbava", "Passi sopra un'occasione"], ["Drooling", "You hover a deal"]],
+  shock: [["Spaventato", "Vendita sospetta o annuncio falso"], ["Shocked", "Suspicious sale or fake listing"]],
+  sleep: [["Dorme", "Dopo 45 secondi senza attività"], ["Asleep", "After 45 seconds of inactivity"]],
+  peek: [["Solo la testa", "Quando lo zittisci; da dietro la carta se manca peek_top.png; appeso (capovolto) se manca cling.png"], ["Head only", "When muted; behind the card if peek_top.png is missing; hanging (upside down) if cling.png is missing"]],
+  run: [["Corre (di profilo, verso destra)", "Attraversa lo schermo ogni 20–40 secondi"], ["Running (side view, facing right)", "Crosses the screen every 20–40 seconds"]],
+  cling: [["Appeso con le mani in alto", "Scende dal bordo in alto quando scorri troppo veloce"], ["Hanging, hands up", "Drops from the top edge when you scroll too fast"]],
+  sit: [["Seduto, gambe a penzoloni", "Si siede sopra il titolo della sezione"], ["Sitting, legs dangling", "Sits on top of the section title"]],
+  tongue: [["Linguaccia", "Quando premi «Fammi stare zitto»"], ["Tongue out", "When you press “Be quiet”"]],
+  wave: [["Saluta", "Spunta sotto la ricerca la prima volta che la apri"], ["Waving", "Pops up under search the first time you open it"]],
+  peek_top: [["Testa e mani che spuntano da un bordo in basso", "Esce da dietro la carta quando ne apri la scheda"], ["Head and hands rising from a bottom edge", "Comes out from behind the card when you open its page"]],
+  teacher: [["Maestro con occhiali e bacchetta", "Spiega la pagella di una carta quando la scorri"], ["Teacher with glasses and pointer", "Explains a card's scorecard when you scroll to it"]],
+  peek_side: [["Si sporge di lato, mezzo nascosto", "Sbuca dal lato destro della carta quando ci passi sopra"], ["Leaning out sideways, half hidden", "Peeks from the card's right side when you hover it"]],
+};
+function viewPose() {
+  const slots = (window.Slabby && window.Slabby.SLOTS) || [];
+  return `<div class="wrap"><div class="sechead"><div><span class="label">${tx("Personaggio", "Character")}</span><h2>${tx("Le pose e dove appaiono", "The poses and where they appear")}</h2></div>
+    <p class="note" style="max-width:56ch">${tx("Ogni riquadro è un file PNG nella cartella", "Each box is a PNG file in the folder")} <code>prototype/character/slabby/</code>. ${tx("Se manca, il sito usa un'altra posa (in rosa). Aggiungi il file con quel nome e rilancia l'anteprima.", "If it is missing, the site uses another pose (in pink). Add the file with that name and rebuild the preview.")}</p></div>
+    <div class="posegrid">${slots.map(x => { const u = POSE_USE[x.pose] ? POSE_USE[x.pose][LANG === "it" ? 0 : 1] : ["", ""];
+      return `<article class="tile poseslot${x.own ? "" : " missing"}"><div class="poseimg">${x.svg}</div>
+        <div><b><code>${x.pose}.png</code></b> · ${esc(u[0])}<p class="note">${esc(u[1])}</p>
+        <span class="${x.own ? "tierbadge t-live" : "tierbadge t-low"}">${x.own ? tx("c'è", "present") : tx("manca: ora usa ", "missing: now uses ") + x.uses + ".png"}</span></div></article>`; }).join("")}</div></div>`;
+}
+function viewMethod() {
+  return `<div class="wrap"><section class="sec" style="padding-top:36px;gap:26px">
+    <div><span class="label">${t("method")}</span><h2 style="font-size:clamp(28px,3.4vw,40px)">${tx("Come facciamo i conti", "How we do the maths")}</h2>
+      <p class="muted" style="max-width:62ch;margin-top:8px">${tx("Ogni carta gradata ha un valore che nessuno vede. Ogni vendita lo misura con un errore: rumore, copia più o meno bella, piattaforma, tempo, e a volte un falso. Il nostro modello mette tutto insieme e ti dice il valore di oggi, il suo intervallo all'80% e quanto è affidabile.", "Every graded card has a value nobody sees. Each sale measures it with an error: noise, a nicer or worse copy, the platform, time, and sometimes a fake. Our model puts it all together and tells you today's value, its 80% range and how reliable it is.")}</p></div>
+    <div class="cols4" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+      <div class="tile hov" style="padding:20px;display:grid;gap:8px"><span class="sticker sky" style="justify-self:start">1 · ${tx("Cosa", "What")}</span><h3>${tx("Prima capiamo cosa è stato venduto", "First we work out what was sold")}</h3><p class="muted">${tx("Doppioni, lotti, Best Offer, aste non pagate e cert sbagliati escono prima di guardare il prezzo.", "Duplicates, lots, Best Offers, unpaid auctions and wrong certs go out before we look at the price.")}</p></div>
+      <div class="tile hov" style="padding:20px;display:grid;gap:8px"><span class="sticker" style="justify-self:start">2 · ${tx("Quanto", "How much")}</span><h3>${tx("Poi diamo un peso a ogni vendita", "Then we weigh every sale")}</h3><p class="muted">${tx("Ogni vendita ha una probabilità di essere attendibile. Quelle vecchie contano meno, i voti si aiutano a vicenda.", "Each sale has a probability of being genuine. Older sales count less, and the grades help each other.")}</p></div>
+      <div class="tile hov" style="padding:20px;display:grid;gap:8px"><span class="sticker mint" style="justify-self:start">3 · ${tx("Conviene", "Worth it")}</span><h3>${tx("Infine guardiamo il tuo costo", "Finally we look at your cost")}</h3><p class="muted">${tx("Un'occasione deve esserlo dopo spedizione, IVA e dogana, non solo sul prezzo.", "A deal has to be one after shipping, VAT and customs, not just on the price.")}</p></div>
+    </div>
+    <div class="tile" style="padding:22px;display:grid;gap:10px"><span class="label">${tx("Messo alla prova su un mercato simulato", "Tested on a simulated market")}</span>
+      <p style="font:600 20px var(--display)">${tx("Errore 5,8% contro 9,1% del miglior metodo pubblico · 86% di occasioni giuste contro circa il 30%.", "Error 5.8% vs 9.1% for the best public method · 86% of deals right vs about 30%.")}</p>
+      <p class="note">${tx("Risultati su dati simulati, non su vendite reali.", "Results on simulated data, not on real sales.")}</p></div>
+    ${D.real ? `<div class="tile" style="padding:22px;display:grid;gap:10px"><span class="label">${tx("Prima prova sulle vendite vere", "First test on real sales")}</span>
+      <p style="font:600 20px var(--display)">${tx("Errore mediano sulla vendita successiva 7,2%, su 14.212 vendite: meno di tutti i metodi pubblici che abbiamo provato.", "Median error on the next sale 7.2%, over 14,212 sales: lower than every public method we tested.")}</p>
+      <p class="note">${tx("Sulle carte con poche vendite non siamo ancora i migliori: ci stiamo lavorando. L'intervallo all'80% contiene la vendita successiva nell'81% dei casi, come promesso.", "On cards with few sales we are not the best yet: we are working on it. The 80% range held the next sale in 81% of cases, as promised.")}</p></div>` : ""}
+  </section></div>`;
+}
+
+/* the scorecard of one card (D108): every later eBay sale against the value we published the week before */
+function scoreOf(c, g) {
+  const P = D.params || {}, se = P.sigma_e || 0.1, sq = P.sigma_q || 0.07, h = g.history || [];
+  const out = [];
+  for (const s of (c.sales || [])) {
+    if (s.grade !== g.grade || s.pgen < 0.5 || s.venue !== "eBay") continue;
+    let r = null; for (const x of h) { if (x[0] <= s.date) r = x; else break; }
+    if (!r || r[0] === s.date) continue;
+    const sd = (Math.log(r[3]) - Math.log(r[2])) / 2.5632, band = 1.2816 * Math.sqrt(sd * sd + se * se + sq * sq);
+    out.push({date: s.date, price: s.price, value: r[1], lo: r[1] * Math.exp(-band), hi: r[1] * Math.exp(band), err: Math.abs(Math.log(s.price / r[1]))});
+  }
+  return out;
+}
+/* D120: the scorecard answers one plain question, "can you trust this price?", not "is it a good buy" */
+function trustOf(L) {
+  const inside = L.filter(x => x.price >= x.lo && x.price <= x.hi).length, share = inside / L.length;
+  const errs = L.map(x => x.err).sort((a, b) => a - b), med = Math.exp(errs[Math.floor(errs.length / 2)]) - 1;
+  const lvl = med <= 0.10 && share >= 0.7 ? "hi" : med <= 0.20 && share >= 0.6 ? "mid" : "lo";
+  return {inside, share, med, lvl};
+}
+function cardScore(c, g) {
+  const L = scoreOf(c, g);
+  if (L.length < 3) {   // every grade gets the question; when the evidence is thin it says so instead of disappearing
+    const auc = (c.sales || []).filter(s => s.grade === g.grade && s.pgen >= 0.5 && s.venue !== "eBay").length;
+    return `<div class="tile q score" data-tour="score"><div class="qhead"><span class="qn">✓</span><h2>${tx("Ti puoi fidare di questo prezzo?", "Can you trust this price?")}</h2></div>
+    <div class="valuerow"><span class="sticker sky" style="font-size:20px">${tx("Non possiamo ancora dirlo", "We can't tell yet")}</span></div>
+    <p class="muted">${tx(`La pagella confronta il prezzo che avevamo scritto qui con le vendite eBay arrivate dopo, e ne servono almeno 3 in PSA ${g.grade}: per ora ${L.length === 1 ? "ce n'è 1" : `ce ne sono ${L.length}`}.`, `The scorecard compares the price we had written here with the eBay sales that came after, and it needs at least 3 in PSA ${g.grade}: so far there ${L.length === 1 ? "is 1" : `are ${L.length}`}.`)}${auc ? tx(` In questo voto la carta passa di mano soprattutto nelle case d'asta (${auc} vendite), che seguono prezzi diversi da eBay e quindi non le usiamo per questo voto di fiducia.`, ` In this grade the card changes hands mostly at auction houses (${auc} sales), which follow different prices from eBay, so we don't use them for this trust score.`) : ""} ${tx("Intanto guarda l'intervallo all'80% qui sopra e la fascia di affidabilità.", "Meanwhile look at the 80% range above and the reliability tier.")}</p></div>`;
+  }
+  const T = trustOf(L), last = L.slice(-20);
+  const word = {hi: tx("Sì, molto", "Yes, very much"), mid: tx("Sì, abbastanza", "Yes, mostly"), lo: tx("Non ancora del tutto", "Not fully yet")}[T.lvl];
+  const cls = {hi: "mint", mid: "sun", lo: "coral"}[T.lvl];
+  const sealN = (D.pagella && D.pagella.seals || []).length;
+  return `<div class="tile q score" data-tour="score"><div class="qhead"><span class="qn">✓</span><h2>${tx("Ti puoi fidare di questo prezzo?", "Can you trust this price?")}</h2></div>
+    <div class="valuerow"><span class="sticker ${cls}" style="font-size:20px">${word}</span></div>
+    <p style="font:600 20px var(--display)">${tx(`Quando questa carta si è venduta davvero, il prezzo si è scostato in media del ${Math.round(T.med * 100)}% dal nostro.`, `When this card really sold, the price was on average ${Math.round(T.med * 100)}% away from ours.`)}</p>
+    <div class="dots" role="img" aria-label="${tx(`${T.inside} vendite su ${L.length} vicine al nostro prezzo`, `${T.inside} of ${L.length} sales close to our price`)}">${last.map(x => `<i class="${x.price >= x.lo && x.price <= x.hi ? "ok" : "no"}" title="${dateF(x.date)}: ${usd(x.price)} · ${tx("noi", "us")} ${usd(x.value)}"></i>`).join("")}</div>
+    <p class="muted">${tx(`<b>${T.inside} vendite su ${L.length}</b> sono finite vicino al prezzo che avevamo scritto qui la settimana prima.`, `<b>${T.inside} of ${L.length} sales</b> landed close to the price we had written here the week before.`)}
+      ${tx("Questa pagella non dice se conviene comprarla: dice quanto il nostro prezzo assomiglia a quelli veri.", "This scorecard does not say whether to buy it: it says how close our price is to the real ones.")}</p>
+    <details class="why-more"><summary>${tx("Perché non tutte vicine?", "Why not all of them close?")}</summary>
+      <p class="muted">${tx("Due copie della stessa carta non si vendono mai allo stesso prezzo: conta la copia, chi compra quel giorno, un'asta fortunata. Per noi \"vicino\" vuol dire dentro la forchetta di prezzo che mostriamo, e la forchetta lascia fuori apposta circa 2 vendite su 10: se le contenesse tutte sarebbe così larga da non servire a niente.", "Two copies of the same card never sell at the same price: the copy matters, who is buying that day, a lucky auction. For us \"close\" means inside the price range we show, and the range leaves out about 2 sales in 10 on purpose: if it held them all it would be too wide to be any use.")}</p></details>
+    <details class="why-more"><summary>${tx("Vedi le vendite una per una", "See the sales one by one")}</summary>
+    <div class="tbl"><table><thead><tr><th>${tx("Venduta il", "Sold on")}</th><th class="n">${tx("a", "for")}</th><th class="n">${tx("Il nostro prezzo prima", "Our price before")}</th><th>${tx("Vicino?", "Close?")}</th></tr></thead><tbody>
+      ${L.slice(-12).reverse().map(x => `<tr><td>${dateF(x.date)}</td><td class="n">${usd(x.price)}</td><td class="n">${usd(x.value)}</td><td>${x.price >= x.lo && x.price <= x.hi ? "✓" : "✗"}</td></tr>`).join("")}
+    </tbody></table></div></details>
+    <p class="note">${tx("Il prezzo con cui confrontiamo ogni vendita è quello pubblicato prima, mai corretto dopo: ogni settimana i prezzi vengono \"timbrati\" con una firma digitale pubblica, così nessuno, nemmeno noi, può cambiarli.", "Each sale is compared with the price published before it, never corrected afterwards: every week our prices are \"stamped\" with a public digital signature, so nobody, not even us, can change them.")} ${sealN ? `<a href="sigilli/${esc(D.pagella.seals[sealN - 1].seal)}">${tx("Il timbro più recente", "The latest stamp")}</a>` : ""}</p>
+  </div>`;
+}
+/* D129: privacy, terms and contact. Plain words; the owner is a private person in Italy; no accounts, no analytics */
+const LEGAL_DATE = "2026-11-03";
+const LEGAL = {
+  privacy: {
+    title: ["Privacy", "Privacy"],
+    parts: [
+      [["Chi gestisce Slabwise", "Who runs Slabwise"], ["Slabwise è un progetto personale di Oscar, in Italia, che decide come vengono trattati i pochi dati descritti qui (titolare del trattamento). Per qualsiasi domanda o richiesta usa la pagina Contatti.", "Slabwise is a personal project of Oscar, in Italy, who decides how the few data described here are handled (data controller). For any question or request use the Contact page."]],
+      [["Cosa non raccogliamo", "What we do not collect"], ["Non ci sono account, pubblicità o cookie di profilazione. Non vendiamo e non cediamo dati a nessuno.", "There are no accounts, no advertising and no profiling cookies. We do not sell or hand over data to anyone."]],
+      [["Statistiche anonime", "Anonymous statistics"], ["Contiamo in forma anonima le visite al sito (con Cloudflare Web Analytics, che non usa cookie e non segue le persone tra siti diversi), quante volte si apre la scheda di ogni carta e quante persone seguono o possiedono ogni carta in ogni voto. Ci arrivano solo numeri: nessun identificativo, nessun prezzo pagato, nessun numero di cert. Servono a capire quali carte interessano. Puoi spegnere il conteggio delle tue carte e delle schede che apri dalla pagina Le mie carte.", "We count anonymously the visits to the site (with Cloudflare Web Analytics, which uses no cookies and does not follow people across sites), how often each card page is opened and how many people follow or own each card in each grade. We receive only numbers: no identifier, no price paid, no cert number. They tell us which cards matter. You can turn off the counting of your cards and of the pages you open on the My cards page."]],
+      [["Richieste di carte", "Card requests"], ["Quando chiedi di aggiungere una carta salviamo la carta richiesta e, per limitare gli abusi (al massimo 10 richieste al giorno per connessione), un'impronta cifrata del tuo indirizzo di rete insieme alla data. L'impronta non permette di risalire all'indirizzo e si cancella da sola dopo 24 ore.", "When you ask us to add a card we store the card and, to limit abuse (at most 10 requests a day per connection), an encrypted fingerprint of your network address with the date. The fingerprint cannot be turned back into the address and deletes itself after 24 hours."]],
+      [["Messaggi dal modulo Contatti", "Messages from the Contact form"], ["Salviamo il testo del messaggio e, solo se la scrivi, l'email a cui risponderti. Li usiamo solo per risponderti e li cancelliamo entro 12 mesi, o prima se ce lo chiedi. Anche qui un'impronta dell'indirizzo di rete limita gli invii a 5 al giorno e si cancella dopo 24 ore.", "We store the text of the message and, only if you write it, the email to answer you at. We use them only to answer and delete them within 12 months, or earlier if you ask. Here too a fingerprint of the network address limits sending to 5 a day and deletes itself after 24 hours."]],
+      [["Cosa resta nel tuo browser", "What stays in your browser"], ["Lingua, tema chiaro o scuro, qualche preferenza di Slabby la lista \"Le mie carte\" e la collezione (carte seguite e copie che hai, con eventuali numeri di cert e prezzi pagati) sono salvati solo nel tuo browser (memoria locale) e non ci vengono inviati. Puoi cancellarli dalle impostazioni del browser; la lista anche con il pulsante Togli.", "Language, light or dark theme, a few Slabby preferences the \"My cards\" list and the collection (cards you follow and copies you own, with any cert numbers and prices paid) are saved only in your browser (local storage) and are not sent to us. You can delete them in your browser settings; the list also with the Remove button."]],
+      [["Chi ci aiuta a tenere online il sito", "Who helps us keep the site online"], ["Il sito è ospitato da Cloudflare, che per far funzionare e proteggere il servizio tratta i dati tecnici delle connessioni (per esempio l'indirizzo di rete) come previsto dalla sua informativa. I caratteri tipografici sono serviti dal nostro sito: il tuo browser non contatta Google.", "The site is hosted by Cloudflare, which processes the technical data of connections (for example the network address) to run and protect the service, as set out in its own policy. Fonts are served from our own site: your browser does not contact Google."]],
+      [["Link a eBay", "Links to eBay"], ["I link agli annunci eBay sono link di affiliazione (eBay Partner Network): se compri, Slabwise può ricevere una commissione, senza costi per te. Quando apri il link sei su eBay, che tratta i tuoi dati e i suoi cookie come titolare autonomo, secondo la sua informativa.", "Links to eBay listings are affiliate links (eBay Partner Network): if you buy, Slabwise may earn a commission at no cost to you. When you open the link you are on eBay, which processes your data and its cookies as an independent controller, under its own policy."]],
+      [["I tuoi diritti", "Your rights"], ["Puoi chiedere di vedere, correggere o cancellare i dati che ti riguardano, opporti al trattamento o limitarlo, scrivendoci dalla pagina Contatti. Puoi anche presentare reclamo al Garante per la protezione dei dati personali (www.garanteprivacy.it).", "You can ask to see, correct or delete the data about you, object to or restrict their processing, by writing to us from the Contact page. You can also lodge a complaint with the Italian Data Protection Authority (www.garanteprivacy.it)."]],
+    ],
+  },
+  termini: {
+    title: ["Condizioni d'uso", "Terms of use"],
+    parts: [
+      [["Cos'è Slabwise", "What Slabwise is"], ["Slabwise stima quanto valgono le carte Pokémon gradate PSA a partire da vendite reali. Le stime sono calcoli statistici con un margine d'errore, che mostriamo sempre (la forchetta). Non sono un'offerta di acquisto o di vendita.", "Slabwise estimates what PSA-graded Pokémon cards are worth from real sales. The estimates are statistical calculations with a margin of error, which we always show (the range). They are not an offer to buy or sell."]],
+      [["Non è un consiglio d'investimento", "Not investment advice"], ["Niente su Slabwise è un consiglio finanziario o d'investimento. Le carte possono perdere valore. Decidi tu, e se serve chiedi a un professionista.", "Nothing on Slabwise is financial or investment advice. Cards can lose value. The decision is yours; ask a professional if you need to."]],
+      [["Occasioni e annunci", "Deals and listings"], ["Le occasioni sono annunci eBay che, secondo il nostro calcolo, costano meno del valore stimato una volta arrivati in Italia. Prima di comprare controlla sempre l'annuncio, il venditore, le foto e il numero di certificato. Gli annunci sono di terzi: non siamo parte della compravendita e non rispondiamo di prezzi, spedizioni o autenticità.", "Deals are eBay listings that, by our calculation, cost less than the estimated value once landed in Italy. Before buying always check the listing, the seller, the photos and the certificate number. Listings belong to third parties: we are not part of the sale and are not responsible for prices, shipping or authenticity."]],
+      [["Dati e accuratezza", "Data and accuracy"], ["Usiamo vendite pubbliche e dati di partner e li controlliamo, ma possono contenere errori o arrivare in ritardo. Il sito è offerto così com'è, senza garanzie: nei limiti di legge non rispondiamo di decisioni prese sulla base delle stime.", "We use public sales and partner data and check them, but they can contain errors or arrive late. The site is provided as is, without warranties: within the limits of the law we are not liable for decisions taken on the basis of the estimates."]],
+      [["Marchi", "Trademarks"], ["Pokémon e i nomi dei personaggi sono marchi di Nintendo, Creatures Inc., GAME FREAK inc. e The Pokémon Company. PSA è un marchio di Collectors Universe. Slabwise è un progetto indipendente, non affiliato né approvato da loro. Le immagini delle carte servono solo a riconoscerle.", "Pokémon and the character names are trademarks of Nintendo, Creatures Inc., GAME FREAK inc. and The Pokémon Company. PSA is a trademark of Collectors Universe. Slabwise is an independent project, not affiliated with or endorsed by them. Card images are shown only to identify the cards."]],
+      [["Uso del sito", "Using the site"], ["Puoi consultare e condividere le pagine. Non è consentito copiare in modo automatico e massiccio i dati del sito o usarlo in modo da rallentarlo o danneggiarlo.", "You may browse and share the pages. Automated bulk copying of the site's data, or using it in ways that slow it down or harm it, is not allowed."]],
+      [["Modifiche", "Changes"], ["Possiamo aggiornare queste condizioni; la data in alto dice quando è successo l'ultima volta. Si applica la legge italiana.", "We may update these terms; the date at the top says when it last happened. Italian law applies."]],
+    ],
+  },
+};
+function viewLegal(k) {
+  const L_ = LEGAL[k];
+  return `<div class="wrap"><section class="sec" style="padding-top:36px;max-width:780px">
+    <div class="sechead"><div><span class="label">${tx("Aggiornata il", "Updated on")} ${dateF(LEGAL_DATE)}</span><h2>${tx(...L_.title)}</h2></div></div>
+    ${L_.parts.map(([h, b]) => `<div class="tile" style="padding:18px 20px;margin-bottom:12px"><h3 style="margin-bottom:6px">${tx(...h)}</h3><p class="muted">${tx(...b)}</p></div>`).join("")}
+  </section></div>`;
+}
+// "Le mie carte" (D131): the cards a visitor follows, kept only in this browser (localStorage "sw-watch").
+// Key "<card id>|<grade>" -> {v: value when added (null if we showed no estimate), d: date added}.
+const WATCH_KEY = "sw-watch";
+// Anonymous counts (D133): only {k, id, g, d}, never prices or certs; off with the switch on #mie ("sw-stats" = "0"),
+// never for our own visits (studio cookie). k: "w" followed, "c" owned, "v" card page opened.
+const statsOn = () => { if (/(^|; )sw_staff=1/.test(document.cookie)) return false; try { return localStorage.getItem("sw-stats") !== "0"; } catch (e) { return false; } };
+function countSend(ev, force) {
+  if (!ev.length || (!force && !statsOn())) return;
+  for (let i = 0; i < ev.length; i += 50) {
+    const body = JSON.stringify({ev: ev.slice(i, i + 50)});
+    try { if (!(navigator.sendBeacon && navigator.sendBeacon("/api/conta", new Blob([body], {type: "application/json"})))) fetch("/api/conta", {method: "POST", body, headers: {"content-type": "application/json"}, keepalive: true}).catch(() => {}); } catch (e) {}
+  }
+}
+function countAll(d) {                       // everything this browser follows and owns, +1 or -1
+  const ev = Object.keys(watchGet()).map(k => { const i = k.lastIndexOf("|"); return {k: "w", id: k.slice(0, i), g: +k.slice(i + 1), d}; });
+  collGet().forEach(x => ev.push({k: "c", id: x.id, g: x.g, d}));
+  return ev;
+}
+function countSync() {                       // once per browser: the lists made before the counts existed
+  try { if (localStorage.getItem("sw-stats-sync") || !statsOn()) return; localStorage.setItem("sw-stats-sync", "1"); } catch (e) { return; }
+  countSend(countAll(1));
+}
+function countView(id) {
+  try { const k = "sw-v-" + id; if (sessionStorage.getItem(k)) return; sessionStorage.setItem(k, "1"); } catch (e) { return; }
+  countSend([{k: "v", id}]);
+}
+function watchGet() { try { const o = JSON.parse(localStorage.getItem(WATCH_KEY) || "{}"); return o && typeof o === "object" ? o : {}; } catch (e) { return {}; } }
+function watchSet(o) { try { localStorage.setItem(WATCH_KEY, JSON.stringify(o)); return true; } catch (e) { return false; } }
+function watchCount() {
+  const n = Object.keys(watchGet()).filter(k => cardById[k.split("|")[0]]).length;
+  document.querySelectorAll(".wcount").forEach(b => { b.textContent = n; b.hidden = !n; });
+}
+function watchBtn(c, g) {
+  const on = !!watchGet()[`${c.id}|${g.grade}`];
+  return `<button class="chip watchbtn" data-watch="${esc(c.id)}|${g.grade}" aria-pressed="${on}">${on ? "★ " + tx(`Segui PSA ${g.grade}`, `Following PSA ${g.grade}`) : "☆ " + tx(`Segui in PSA ${g.grade}`, `Follow in PSA ${g.grade}`)}</button>`;
+}
+function watchToggle(key) {
+  const o = watchGet(), [id, gr] = [key.slice(0, key.lastIndexOf("|")), +key.slice(key.lastIndexOf("|") + 1)];
+  const c = cardById[id]; if (!c) return;
+  const g = gradeOf(c, gr);
+  const was = !!o[key];
+  if (was) delete o[key];
+  else o[key] = {v: g && !noOwn(g) ? g.value : null, d: new Date().toISOString().slice(0, 10)};
+  if (!watchSet(o)) { toast(tx("Questo browser non permette di salvare la lista", "This browser does not let us save the list")); return; }
+  countSend([{k: "w", id, g: gr, d: was ? -1 : 1}]);
+  toast(o[key] ? tx(`Aggiunta a Le mie carte (PSA ${gr})`, `Added to My cards (PSA ${gr})`) : tx("Tolta da Le mie carte", "Removed from My cards"));
+  watchCount();
+}
+// "La mia collezione" (D132): the copies a visitor owns, by PSA cert or by card and grade, also only in this browser
+// (localStorage "sw-coll": a list of {cert, id, g, v (variant label: no shared value), paid, d}).
+const COLL_KEY = "sw-coll";
+function collGet() { try { const o = JSON.parse(localStorage.getItem(COLL_KEY) || "[]"); return Array.isArray(o) ? o : []; } catch (e) { return []; } }
+function collSet(o) { try { localStorage.setItem(COLL_KEY, JSON.stringify(o)); return true; } catch (e) { return false; } }
+function collValue(x) { const c = cardById[x.v ? x.id + "/" + x.v : x.id], g = c && gradeOf(c, x.g); return g && !noOwn(g) ? g.value : null; }
+function viewColl() {
+  const rows = collGet();
+  const opts = D.cards.slice().sort((a, b) => a.name.localeCompare(b.name)).map(c => `<option value="${esc(c.id)}">${esc(c.name)} · ${esc(c.set)} #${esc(c.no)}</option>`).join("");
+  const vals = rows.map(collValue), tot = vals.reduce((s, v) => s + (v || 0), 0);
+  const paid = rows.reduce((s, x, i) => s + (x.paid && vals[i] != null ? x.paid : 0), 0), valPaid = rows.reduce((s, x, i) => s + (x.paid && vals[i] != null ? vals[i] : 0), 0);
+  const list = rows.map((x, i) => { const c = cardById[x.id], k = copyInfo(x.id), v = vals[i], gain = v != null && x.paid ? v / x.paid - 1 : null;
+    const img = (c && c.img) || k.img;
+    return `<div class="tile mine-row">
+      <a ${c ? `href="#c-${c.id}"` : ""} class="mine-img" tabindex="-1">${img ? `<img src="${img}" alt="" loading="lazy">` : ""}</a>
+      <div class="mine-main"><b${x.id.startsWith("ja:") ? ' lang="ja"' : ""}>${c ? `<a href="#c-${c.id}" style="color:inherit">${esc(c.name)}</a>` : esc(k.name)}</b><span class="note">${esc((c && c.set) || k.set)} · #${esc((c && c.no) || k.no)} · PSA ${x.g}${x.v ? " · " + esc(VARIANT[x.v] ? tx(...VARIANT[x.v]) : x.v) : ""}</span>
+        <span class="note">${x.cert ? (x.seen || CERT[x.cert] ? `<a href="#cert-${esc(x.cert)}">cert ${esc(x.cert)}</a>` : `<a href="https://www.psacard.com/cert/${encodeURIComponent(x.cert)}" target="_blank" rel="noopener">cert ${esc(x.cert)} ↗</a>`) : tx("senza cert", "no cert")}${x.paid ? ` · ${tx("pagata", "paid")} ${usd(x.paid)}` : ""}</span></div>
+      <div class="mine-num"><b class="num">${v != null ? usd(v) : "—"}</b>
+        <span class="note">${x.paid ? `${tx("rispetto al prezzo pagato", "vs price paid")} <b class="${gain == null ? "" : gain >= 0 ? "up" : "down"}">${pct(gain)}</b>` : x.v ? tx("stampa diversa: niente stima", "different printing: no estimate") : v == null ? tx("stima non disponibile", "no estimate") : ""}</span></div>
+      <button class="chip" data-uncoll="${i}" aria-label="${tx("Togli", "Remove")} ${esc((c && c.name) || k.name)} PSA ${x.g}">${tx("Togli", "Remove")}</button>
+    </div>`; }).join("");
+  return `<div class="sechead" style="margin-top:40px"><div><span class="label">${tx("Le copie che hai", "The copies you own")}</span><h2>${tx("La mia collezione", "My collection")}</h2>
+      <p class="muted" style="margin-top:8px">${tx("Aggiungi una copia con il numero del certificato PSA (lo trovi sull'etichetta): se l'abbiamo vista passare di mano riconosciamo carta e voto da soli. Altrimenti scegli tu carta e voto. Il valore è quello di una copia tipica in quel voto: la tua può valere un po' di più o di meno.", "Add a copy with its PSA cert number (on the label): if we saw it change hands we recognise card and grade ourselves. Otherwise pick card and grade. The value is that of a typical copy in that grade: yours may be worth a little more or less.")}</p></div></div>
+    <form class="tile coll-form" id="collForm">
+      <label>${tx("Cert PSA (facoltativo)", "PSA cert (optional)")}<input name="cert" inputmode="numeric" autocomplete="off" maxlength="12" pattern="[0-9 ]{5,14}" placeholder="12345678"></label>
+      <label>${tx("Carta", "Card")}<select name="card"><option value="">${tx("— dal cert, o scegli —", "— from the cert, or pick —")}</option>${opts}</select></label>
+      <label>${tx("Voto", "Grade")}<select name="grade">${[10, 9, 8, 7, 6, 5, 4, 3, 2, 1].map(x => `<option>${x}</option>`).join("")}</select></label>
+      <label>${tx("Pagata, in $ (facoltativo)", "Paid, in $ (optional)")}<input name="paid" type="number" min="0" step="1" inputmode="decimal"></label>
+      <button class="btn" type="submit">${tx("Aggiungi", "Add")}</button>
+      <p class="note" id="collOut" role="status" style="grid-column:1/-1;margin:0"></p>
+    </form>
+    ${rows.length ? `<div class="tile" style="padding:16px 20px;margin:12px 0;display:flex;gap:24px;flex-wrap:wrap;align-items:baseline"><span><span class="label">${tx("Copie", "Copies")}</span><br><b class="num" style="font-size:28px">${rows.length}</b></span><span><span class="label">${tx("Valore di oggi, sommato", "Today's value, summed")}</span><br><b class="num" style="font-size:28px">${usd(tot)}</b></span>${paid ? `<span><span class="label">${tx("Dove sai quanto hai pagato", "Where you know what you paid")}</span><br><b class="num" style="font-size:28px">${usd(paid)} → ${usd(valPaid)}</b> <b class="${valPaid >= paid ? "up" : "down"}">${pct(valPaid / paid - 1)}</b></span>` : ""}</div>
+    <div class="mine-list">${list}</div>` : `<div class="tile empty" style="margin-top:12px">${tx("Nessuna copia ancora.", "No copies yet.")}</div>`}
+    <p class="note" style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap;align-items:center">${tx("Lista e collezione restano solo in questo browser. Per portarle su un altro dispositivo:", "List and collection stay only in this browser. To move them to another device:")}
+      <button class="chip" id="mineExport" type="button">${tx("Scarica un file", "Download a file")}</button>
+      <label class="chip" style="cursor:pointer">${tx("Carica un file", "Load a file")}<input id="mineImport" type="file" accept="application/json,.json" hidden></label></p>
+    <div class="tile" style="padding:14px 18px;margin-top:14px;display:flex;gap:14px;align-items:flex-start">
+      <input type="checkbox" id="statsSwitch" ${statsOn() ? "checked" : ""} style="width:22px;height:22px;flex:none;margin-top:2px">
+      <label for="statsSwitch" class="note" style="margin:0">${tx("<b>Conta le mie carte nelle statistiche anonime.</b> Ci arriva solo \"qualcuno segue (o ha) questa carta in questo voto\" e quali schede si aprono: niente prezzi pagati, niente cert, niente che ti identifichi. Ci serve a capire quali carte interessano e quali aggiungere. Se lo spegni, le tue carte escono dai conteggi.", "<b>Count my cards in the anonymous statistics.</b> We only receive \"someone follows (or owns) this card in this grade\" and which card pages are opened: no prices paid, no certs, nothing that identifies you. It tells us which cards matter and which to add. Turn it off and your cards leave the counts.")}</label></div>`;
+}
+document.addEventListener("submit", async e => {
+  if (e.target.id !== "collForm") return;
+  e.preventDefault();
+  const f = e.target, out = document.getElementById("collOut"), cert = (f.cert.value || "").replace(/\D/g, "");
+  const paid = +f.paid.value > 0 ? Math.round(+f.paid.value) : null;
+  let id = f.card.value, g = +f.grade.value, v = "", seen = false;
+  if (cert) {
+    if (cert.length < 5 || cert.length > 12) { out.textContent = tx("Il numero del cert ha tra 5 e 12 cifre.", "A cert number has 5 to 12 digits."); return; }
+    if (collGet().some(x => x.cert === cert)) { out.textContent = tx("Questa copia è già nella collezione.", "This copy is already in the collection."); return; }
+    out.textContent = tx("Cerco il cert…", "Looking up the cert…");
+    await ensureCert(cert);
+    const l = CERT[cert];
+    if (l) { const last = l[l.length - 1], k = copyInfo(last[1]); id = k.id; g = last[2]; v = last[1].split("/")[1] || ""; seen = true; }
+    else if (!id) { out.textContent = tx("Questo cert non è nel nostro archivio: scegli carta e voto e premi di nuovo Aggiungi.", "This cert is not in our archive: pick card and grade and press Add again."); f.card.focus(); return; }
+  } else if (!id) { out.textContent = tx("Scrivi il cert oppure scegli la carta.", "Enter the cert or pick the card."); return; }
+  const o = collGet(); o.push({cert: cert || null, seen, id, g, v, paid, d: new Date().toISOString().slice(0, 10)});
+  if (!collSet(o)) { out.textContent = tx("Questo browser non permette di salvare la collezione.", "This browser does not let us save the collection."); return; }
+  countSend([{k: "c", id, g, d: 1}]);
+  const y = scrollY; route(); scrollTo({top: y});
+  toast(tx(`Aggiunta: ${(cardById[id] || copyInfo(id)).name} PSA ${g}`, `Added: ${(cardById[id] || copyInfo(id)).name} PSA ${g}`));
+});
+document.addEventListener("change", e => {
+  if (e.target.id === "statsSwitch") {
+    const on = e.target.checked;
+    if (on) { try { localStorage.removeItem("sw-stats"); localStorage.setItem("sw-stats-sync", "1"); } catch (x) {} countSend(countAll(1), true); }
+    else { countSend(countAll(-1), true); try { localStorage.setItem("sw-stats", "0"); } catch (x) {} }
+    toast(on ? tx("Statistiche anonime attive", "Anonymous statistics on") : tx("Statistiche anonime spente: le tue carte sono uscite dai conteggi", "Anonymous statistics off: your cards left the counts"));
+    return;
+  }
+  if (e.target.id !== "mineImport" || !e.target.files[0]) return;
+  e.target.files[0].text().then(txt => {
+    const d = JSON.parse(txt);
+    if (!d || d.slabwise !== "mie" || !Array.isArray(d.coll) || typeof d.watch !== "object") throw new Error("format");
+    const w = {...watchGet(), ...d.watch}, have = collGet(), seen = new Set(have.map(x => JSON.stringify(x)));
+    const add = d.coll.filter(x => x && typeof x.id === "string" && +x.g >= 1 && +x.g <= 10 && !seen.has(JSON.stringify(x)) && !(x.cert && have.some(h => h.cert === x.cert)));
+    const newW = Object.keys(d.watch).filter(k => !watchGet()[k]);
+    watchSet(w); collSet([...have, ...add]); route();
+    countSend([...newW.map(k => { const i = k.lastIndexOf("|"); return {k: "w", id: k.slice(0, i), g: +k.slice(i + 1), d: 1}; }), ...add.map(x => ({k: "c", id: x.id, g: +x.g, d: 1}))]); toast(tx(`Caricate ${add.length} copie e la lista`, `Loaded ${add.length} copies and the list`));
+  }).catch(() => toast(tx("Questo file non è un salvataggio di Slabwise", "This file is not a Slabwise save")));
+});
+function mineExport() {
+  const blob = new Blob([JSON.stringify({slabwise: "mie", saved: new Date().toISOString(), watch: watchGet(), coll: collGet()}, null, 1)], {type: "application/json"});
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = `slabwise-le-mie-carte-${new Date().toISOString().slice(0, 10)}.json`;
+  document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+}
+function viewMine() {
+  const o = watchGet();
+  const rows = Object.entries(o).map(([k, w]) => { const i = k.lastIndexOf("|"); const c = cardById[k.slice(0, i)]; const g = c && gradeOf(c, +k.slice(i + 1)); return c && g ? {k, c, g, w} : null; }).filter(Boolean)
+    .sort((a, b) => (b.w.d || "").localeCompare(a.w.d || ""));
+  const tot = rows.reduce((s, r) => s + (noOwn(r.g) ? 0 : r.g.value), 0);
+  const since = r => !noOwn(r.g) && r.w.v ? r.g.value / r.w.v - 1 : null;
+  const list = rows.map(r => { const s = since(r); return `<div class="tile mine-row">
+      <a href="#c-${r.c.id}" class="mine-img" tabindex="-1">${r.c.img ? `<img src="${r.c.img}" alt="" loading="lazy">` : ""}</a>
+      <div class="mine-main"><a href="#c-${r.c.id}" style="color:inherit"><b${r.c.lang === "ja" ? ' lang="ja"' : ""}>${esc(r.c.name)}</b></a><span class="note"><span${r.c.lang === "ja" ? ' lang="ja"' : ""}>${esc(r.c.set)}</span> · #${esc(r.c.no)} · PSA ${r.g.grade}</span>
+        <span class="note">${tx("Seguita dal", "Following since")} ${esc(r.w.d || "?")}${r.w.v ? ` · ${tx("allora", "then")} ${usd(r.w.v)}` : ""}</span></div>
+      <div class="mine-num"><b class="num">${usdV(r.g)}</b>
+        <span class="note">${tx("da quando la segui", "since you follow it")} <b class="${s == null ? "" : s >= 0 ? "up" : "down"}">${pct(s)}</b></span>
+        <span class="note">${in30()} <b class="${noOwn(r.g) ? "" : r.g.ch30 >= 0 ? "up" : "down"}">${noOwn(r.g) ? "—" : pct(r.g.ch30)}</b></span></div>
+      <button class="chip" data-unwatch="${esc(r.k)}" aria-label="${tx("Togli", "Remove")} ${esc(r.c.name)} PSA ${r.g.grade}">${tx("Togli", "Remove")}</button>
+    </div>`; }).join("");
+  return `<div class="wrap"><section class="sec" style="padding-top:36px;max-width:860px">
+    <div class="sechead"><div><span class="label">Slabwise</span><h2>${t("mine")}</h2>
+      <p class="muted" style="margin-top:8px">${tx("Le carte che segui, con il valore di oggi e quanto è cambiato da quando le hai aggiunte. Per aggiungerne una apri la sua scheda, scegli il voto e premi ☆ Segui.", "The cards you follow, with today's value and how much it changed since you added them. To add one open its page, pick the grade and press ☆ Follow.")}</p></div></div>
+    ${rows.length ? `<div class="tile" style="padding:16px 20px;margin-bottom:12px;display:flex;gap:24px;flex-wrap:wrap;align-items:baseline"><span><span class="label">${tx("Carte seguite", "Cards followed")}</span><br><b class="num" style="font-size:28px">${rows.length}</b></span><span><span class="label">${tx("Valore di oggi, sommato", "Today's value, summed")}</span><br><b class="num" style="font-size:28px">${usd(tot)}</b></span></div>
+    <div class="mine-list">${list}</div>` : `<div class="tile empty">${tx("Non segui ancora nessuna carta. Apri una scheda dal <a href=\"#mercato\">mercato</a> e premi ☆ Segui.", "You are not following any card yet. Open a card from the <a href=\"#mercato\">market</a> and press ☆ Follow.")}</div>`}
+    <p class="note" style="margin-top:14px">${tx("La lista resta solo in questo browser, su questo dispositivo: non la riceviamo e non serve un account. Se cancelli i dati del sito la perdi.", "The list stays only in this browser, on this device: we never receive it and no account is needed. Clearing the site's data deletes it.")}</p>
+    ${viewColl()}
+  </section></div>`;
+}
+function viewContact() {
+  return `<div class="wrap"><section class="sec" style="padding-top:36px;max-width:680px">
+    <div class="sechead"><div><span class="label">Slabwise</span><h2>${tx("Contatti", "Contact")}</h2>
+      <p class="muted" style="margin-top:8px">${tx("Domande, errori nei prezzi, richieste sui tuoi dati: scrivici qui. Se vuoi una risposta lascia un'email; non la usiamo per nient'altro.", "Questions, wrong prices, requests about your data: write to us here. If you want an answer leave an email; we use it for nothing else.")}</p></div></div>
+    <form class="tile" id="contactForm" style="padding:20px;display:grid;gap:12px">
+      <label>${tx("Messaggio", "Message")}<textarea name="msg" required maxlength="2000" rows="6" style="width:100%;margin-top:6px;padding:10px;border-radius:12px;border:1.5px solid var(--line);font:inherit;background:var(--bg2);color:inherit"></textarea></label>
+      <label>${tx("Email per la risposta (facoltativa)", "Email for the answer (optional)")}<input name="email" type="email" maxlength="120" style="width:100%;margin-top:6px;padding:10px;border-radius:12px;border:1.5px solid var(--line);font:inherit;background:var(--bg2);color:inherit"></label>
+      <p class="note">${tx('Inviando accetti che il messaggio venga trattato come descritto nella <a href="#privacy">privacy</a>.', 'By sending you accept that the message is handled as described in the <a href="#privacy">privacy notice</a>.')}</p>
+      <button class="btn" type="submit">${tx("Invia", "Send")}</button><p class="note" id="contactOut" role="status"></p>
+    </form></section></div>`;
+}
+document.addEventListener("submit", async e => {
+  if (e.target.id !== "contactForm") return;
+  e.preventDefault();
+  const f = e.target, out = document.getElementById("contactOut");
+  out.textContent = tx("Invio…", "Sending…");
+  try {
+    const r = await (await fetch("/api/contatto", {method: "POST", headers: {"content-type": "application/json"}, body: JSON.stringify({msg: f.msg.value, email: f.email.value})})).json();
+    out.textContent = r.ok ? tx("Grazie, messaggio ricevuto.", "Thanks, message received.") : r.error === "limit" ? tx("Hai già scritto molte volte oggi: riprova domani.", "You have written many times today: try again tomorrow.") : tx("Non è andato a buon fine, riprova.", "It did not go through, try again.");
+    if (r.ok) f.reset();
+  } catch (err) { out.textContent = tx("Non è andato a buon fine, riprova.", "It did not go through, try again."); }
+});
+/* card requests (D97): visitors ask for new cards; a daily check decides with the data */
+const REQ = {lang: "en", hits: [], live: null, msg: ""};
+const REQ_STATUS = {
+  aggiunta: ["Aggiunta al sito", "Added to the site"], pronta: ["Dati sufficienti: in arrivo", "Enough data: coming soon"],
+  attesa_vendite: ["In attesa: poche vendite gradate", "On hold: few graded sales"], attesa_coerenza: ["In attesa: dati non ancora coerenti", "On hold: data not consistent yet"],
+  scartata: ["Scartata: non è la stampa giapponese di quella carta", "Dropped: not the Japanese printing of that card"],
+  non_trovata: ["In attesa: carta non trovata nelle fonti", "On hold: card not found in our sources"], in_valutazione: ["In valutazione: risposta entro un'ora", "Being checked: answer within the hour"],
+  attesa_era: ["In attesa: epoca non ancora coperta dal motore", "On hold: era not covered by the engine yet"], attesa_motore: ["In attesa: i controlli del motore non tornano ancora", "On hold: engine checks not passed yet"],
+};
+function reqStatus(r) {
+  const st = (D.requests_status || {})[`${r.lang}:${r.id}`];
+  const k = st ? st.status : "in_valutazione";
+  return {k, label: tx(...REQ_STATUS[k] || REQ_STATUS.in_valutazione), why: st && st.detail ? st.detail : ""};
+}
+function reqList() {
+  if (REQ.live === null) return `<div class="tile empty">${tx("Carico le richieste…", "Loading requests…")}</div>`;
+  if (REQ.live === false) return `<div class="tile empty">${tx("Le richieste non sono ancora attive su questo sito.", "Requests are not active on this site yet.")}</div>`;
+  if (!REQ.live.length) return `<div class="tile empty">${tx("Nessuna richiesta per ora: sii il primo.", "No requests yet: be the first.")}</div>`;
+  return `<div class="reqlist">${REQ.live.slice(0, 60).map(r => { const s = reqStatus(r); return `<div class="tile reqrow"><div><b>${esc(r.name || r.id)}</b><span class="muted"> · ${esc(r.set || "")} · ${esc(r.id)} · ${r.lang === "ja" ? tx("giapponese", "Japanese") : tx("inglese", "English")}</span><div class="note">${s.label}${s.why ? " · " + esc(s.why) : ""}</div></div><span class="pill">${r.n} ${r.n === 1 ? tx("richiesta", "request") : tx("richieste", "requests")}</span></div>`; }).join("")}</div>`;
+}
+function reqHave(id, lang = REQ.lang) {
+  const k = lang === "ja" ? "ja:" + id.toLowerCase() : id;
+  return D.cards.some(c => c.id === k) ? k : "";
+}
+/* shared by the page and by Slabby (D100): search TCGdex, send a request */
+window.SWReq = {
+  have: reqHave, soon: reqSoon,
+  async search(q, lang) {
+    const r = await fetch(`https://api.tcgdex.net/v2/${lang}/cards?name=${encodeURIComponent(q.trim())}&pagination:itemsPerPage=30`);
+    return (await r.json()) || [];
+  },
+  async send(id, name, lang) {
+    let set = "";
+    try { const c = await (await fetch(`https://api.tcgdex.net/v2/${lang}/cards/${encodeURIComponent(id)}`)).json(); set = (c.set && c.set.name) || ""; } catch (e) {}
+    try { return await (await fetch("/api/richieste", {method: "POST", headers: {"content-type": "application/json"}, body: JSON.stringify({id, lang, name, set})})).json(); }
+    catch (e) { return {ok: false, error: "network"}; }
+  },
+};
+function reqSoon(id, lang = REQ.lang) {
+  const st = (D.requests_status || {})[`${lang}:${id}`];
+  return !!(st && (st.status === "pronta" || st.status === "aggiunta"));
+}
+function reqHits() {
+  if (!REQ.hits.length) return REQ.msg ? `<p class="note">${esc(REQ.msg)}</p>` : "";
+  return `<div class="reqhits">${REQ.hits.map(h => `<div class="tile reqhit">${h.image ? `<img src="${esc(h.image)}/low.webp" alt="" loading="lazy" width="80">` : ""}<div><b>${esc(h.name)}</b><div class="muted">${esc(h.id)}</div></div>${reqHave(h.id) ? `<a class="chip" href="#c-${esc(reqHave(h.id))}">${tx("Già sul sito", "Already here")}</a>` : reqSoon(h.id) ? `<span class="chip" aria-disabled="true">${tx("In arrivo", "Coming soon")}</span>` : `<button class="chip" data-req="${esc(h.id)}" data-reqname="${esc(h.name)}">${tx("Richiedi", "Request")}</button>`}</div>`).join("")}</div>${REQ.msg ? `<p class="note">${esc(REQ.msg)}</p>` : ""}`;
+}
+function viewRequests() {
+  setTimeout(reqLoad, 0);
+  return `<div class="wrap"><section class="sec" style="padding-top:36px">
+    <div><span class="label">${t("requests")}</span><h2 style="font-size:clamp(28px,3.4vw,40px)">${tx("Richiedi una carta", "Request a card")}</h2>
+      <p class="muted" style="max-width:64ch;margin-top:8px">${tx("Sei tu a decidere quali carte aggiungiamo. Cerca la carta, scegli la stampa esatta e richiedila. Ogni giorno controlliamo se ci sono abbastanza vendite gradate PSA, coerenti tra loro, per stimarla bene: se sì la aggiungiamo, altrimenti resta in attesa e la ricontrolliamo ogni settimana.", "You decide which cards we add. Search the card, pick the exact printing and request it. Every day we check whether there are enough consistent PSA graded sales to value it well: if so we add it, otherwise it stays on hold and we check again every week.")}</p></div>
+    <div class="reqsearch" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+      <input id="reqq" type="search" placeholder="${tx("Nome della carta, es. Umbreon VMAX", "Card name, e.g. Umbreon VMAX")}" aria-label="${tx("Nome della carta", "Card name")}" style="flex:1;min-width:220px">
+      <div class="chips" role="group" aria-label="${tx("Lingua della carta", "Card language")}">${[["en", tx("Inglese", "English")], ["ja", tx("Giapponese", "Japanese")]].map(([v, l]) => `<button class="chip" data-reqlang="${v}" aria-pressed="${REQ.lang === v}">${l}</button>`).join("")}</div>
+      <button class="chip" id="reqgo">${tx("Cerca", "Search")}</button>
+    </div>
+    <div id="reqhits">${reqHits()}</div>
+    <div><h3 style="margin-top:12px">${tx("Le richieste", "Requests so far")}</h3><div id="reqlist">${reqList()}</div></div>
+    <p class="note">${tx("Nessun account e nessun dato personale. La ricerca usa il catalogo pubblico TCGdex.", "No account and no personal data. Search uses the public TCGdex catalogue.")}</p>
+  </section></div>`;
+}
+async function reqLoad() {
+  try { const r = await fetch("/api/richieste"); const j = await r.json(); REQ.live = j.active ? j.requests : false; }
+  catch (e) { REQ.live = false; }
+  const el = document.getElementById("reqlist"); if (el) el.innerHTML = reqList();
+}
+async function reqSearch() {
+  const q = (document.getElementById("reqq") || {}).value || "";
+  if (q.trim().length < 2) return;
+  REQ.msg = tx("Cerco…", "Searching…"); REQ.hits = []; document.getElementById("reqhits").innerHTML = reqHits();
+  try {
+    REQ.hits = await SWReq.search(q, REQ.lang);
+    REQ.msg = REQ.hits.length ? "" : tx("Nessuna carta trovata con questo nome.", "No card found with this name.");
+  } catch (e) { REQ.hits = []; REQ.msg = tx("Ricerca non riuscita, riprova.", "Search failed, try again."); }
+  document.getElementById("reqhits").innerHTML = reqHits();
+}
+async function reqSend(id, name) {
+  REQ.msg = tx("Invio…", "Sending…"); document.getElementById("reqhits").innerHTML = reqHits();
+  try {
+    const j = await SWReq.send(id, name, REQ.lang);
+    REQ.msg = j.ok ? tx(`Richiesta registrata: ${name} (${id}) ora ha ${j.n} ${j.n === 1 ? "richiesta" : "richieste"}.`, `Request saved: ${name} (${id}) now has ${j.n} ${j.n === 1 ? "request" : "requests"}.`)
+      : j.error === "limit" ? tx("Hai raggiunto il limite di 10 richieste per oggi.", "You reached the limit of 10 requests for today.")
+      : j.error === "inactive" ? tx("Le richieste non sono ancora attive su questo sito.", "Requests are not active on this site yet.")
+      : tx("Richiesta non valida.", "Invalid request.");
+  } catch (e) { REQ.msg = tx("Invio non riuscito, riprova.", "Sending failed, try again."); }
+  document.getElementById("reqhits").innerHTML = reqHits(); reqLoad();
+}
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-req],[data-reqlang],#reqgo"); if (!b) return;
+  if (b.id === "reqgo") reqSearch();
+  else if (b.dataset.reqlang) { REQ.lang = b.dataset.reqlang; document.querySelectorAll("[data-reqlang]").forEach(x => x.setAttribute("aria-pressed", x.dataset.reqlang === REQ.lang)); REQ.hits = []; REQ.msg = ""; document.getElementById("reqhits").innerHTML = reqHits(); }
+  else reqSend(b.dataset.req, b.dataset.reqname);
+});
+document.addEventListener("keydown", e => { if (e.key === "Enter" && e.target && e.target.id === "reqq") reqSearch(); });
+
+/* router */
+function route() {
+  const hash0 = location.hash;
+  let h = (location.hash || "#mercato").slice(1);
+  if (h.startsWith("c-") && h.includes("%")) { try { h = "c-" + decodeURIComponent(h.slice(2)); } catch (e) {} }   // shared links with "/" encoded
+  let html, nav = h;
+  const lc = h.startsWith("c-") && cardById[h.slice(2)];
+  const ln = h.startsWith("cert-") && decodeURIComponent(h.slice(5)).replace(/\D/g, "");
+  if (lc && lc.lazy && !lc._full && lc._err) { $("#app").innerHTML = `<div class="wrap"><section class="sec" style="padding-top:36px"><div class="tile empty">${tx("Non riesco a caricare questa carta adesso. Riprova tra un minuto.", "I can't load this card right now. Try again in a minute.")}</div></section></div>`; lc._err = null; return; }
+  if (lc && lc.lazy && !lc._full && !lc._err) { $("#app").innerHTML = loadingView(); ensureCard(lc).then(() => { if (location.hash === hash0) route(); }); return; }
+  if (ln && LAZY && !CERT[ln] && !CERT_MISS.has(ln)) { $("#app").innerHTML = loadingView(); ensureCert(ln).then(() => { if (location.hash === hash0) route(); }); return; }
+  if (h.startsWith("c-")) { html = viewCard(h.slice(2)); nav = "mercato"; }
+  else if (h.startsWith("cert-")) { html = viewCert(decodeURIComponent(h.slice(5))); nav = "mercato"; }
+  else if (h === "deal") html = viewDeals();
+  else if (h === "metodo") html = viewMethod();
+  else if (h === "richieste") html = viewRequests();
+  else if (h === "pagella") { location.hash = "metodo"; return; }
+  else if (h === "settimana") { if (!/(^|; )sw_staff=1/.test(document.cookie)) { location.hash = "mercato"; return; } html = viewWeek(); }
+  else if (h.startsWith("indice-")) { html = viewIndex(decodeURIComponent(h.slice(7))); nav = "mercato"; }
+  else if (h === "pose") html = viewPose();
+  else if (h === "privacy") html = viewLegal("privacy");
+  else if (h === "termini") html = viewLegal("termini");
+  else if (h === "contatti") html = viewContact();
+  else if (h === "mie") html = viewMine();
+  else { html = viewMarket(); nav = "mercato"; }
+  $("#app").innerHTML = html; watchCount(); countSync();
+  if (h.startsWith("c-") && cardById[h.slice(2)]) countView(h.slice(2));
+  document.querySelectorAll("[data-nav]").forEach(a => a.dataset.nav === nav ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"));
+  document.querySelectorAll("h1, .sechead h2, .qhead h2").forEach(el => el.setAttribute("data-t", el.textContent));
+  if (!document.getElementById("sec-home")) document.querySelectorAll("#app .q, #app .sechead, #app .tile, #app .stage, #app .story").forEach((el, i) => { el.classList.add("rv"); el.style.setProperty("--i", i % 4); });
+  bindTilt(); animateIn(); bindSections(); bindMotion(); if (firstLoad) setTimeout(() => document.documentElement.style.setProperty("--h0", "0s"), 3000); firstLoad = false;
+  window.dispatchEvent(new CustomEvent("slabwise:view", {detail: h.startsWith("c-") ? "card" : h.startsWith("cert-") ? "cert" : ["deal", "metodo", "settimana"].includes(h) ? h : "mercato"}));
+}
+/* index chart: crosshair with date and value, legend highlights its line */
+document.addEventListener("pointermove", e => {
+  const r = e.target.closest && e.target.closest(".xhit");
+  document.querySelectorAll(".ixchart").forEach(svg => { if (!r || !svg.contains(r)) { const t = svg.parentNode.querySelector(".ixtip"); if (t) t.hidden = true; svg.querySelector(".xh") && svg.querySelector(".xh").setAttribute("visibility", "hidden"); svg.querySelector(".xhd") && svg.querySelector(".xhd").setAttribute("visibility", "hidden"); } });
+  if (!r) return;
+  const svg = r.ownerSVGElement, box = svg.getBoundingClientRect(), W = +r.dataset.w, x = (e.clientX - box.left) / box.width * W;
+  const pts = JSON.parse(r.dataset.pts); let best = pts[0]; for (const p of pts) if (Math.abs(p[2] - x) < Math.abs(best[2] - x)) best = p;
+  const xh = svg.querySelector(".xh"), d = svg.querySelector(".xhd"), tip = svg.parentNode.querySelector(".ixtip");
+  xh.setAttribute("x1", best[2]); xh.setAttribute("x2", best[2]); xh.setAttribute("visibility", "visible");
+  d.setAttribute("cx", best[2]); d.setAttribute("cy", best[3]); d.setAttribute("visibility", "visible");
+  tip.hidden = false; tip.innerHTML = `${dateF(best[0])} · <b>${nf1.format(best[1])}</b>`;
+  const px = best[2] / W * box.width, pr = svg.parentNode.getBoundingClientRect();
+  tip.style.left = Math.min(Math.max(0, px + box.left - pr.left - tip.offsetWidth / 2), pr.width - tip.offsetWidth) + "px"; tip.style.top = (box.top - pr.top + best[3] / W * box.width - 40) + "px";
+});
+document.addEventListener("mouseover", e => { const a = e.target.closest && e.target.closest(".ixlegend [data-ixk]"); document.querySelectorAll(".ixchart .other").forEach(p => p.classList.toggle("hl", !!a && p.dataset.ixk === a.dataset.ixk)); });
+let lastHash = location.hash;
+window.addEventListener("hashchange", () => { if (location.hash !== lastHash && location.hash.startsWith("#c-")) S.cg = 10; lastHash = location.hash; route(); scrollTo({top: 0}); });
+
+document.addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === " ") && e.target.matches("[role=button][data-cg]")) { e.preventDefault(); e.target.click(); } });
+document.addEventListener("click", e => {
+  const sl = e.target.closest("[data-sec]");
+  if (sl && sl.dataset.sec && (sl.closest(".snav") || sl.classList.contains("chev") || sl.classList.contains("nbtn"))) { e.preventDefault(); goSection(sl.dataset.sec); return; }
+  const sp = e.target.closest("[data-star],[data-star-id]");
+  if (sp) { starGo(sp.dataset.starId || +sp.dataset.star); return; }
+  const bd = e.target.closest("[data-band]");
+  if (bd) { const st = $("#bandstrip"), card = st && st.children[+bd.dataset.band]; if (card) st.scrollTo({left: card.offsetLeft - st.firstElementChild.offsetLeft, behavior: reduce ? "auto" : "smooth"}); return; }
+  const u = e.target.closest("[data-uncoll],#mineExport");
+  if (u) { if (u.id === "mineExport") { mineExport(); return; } const o = collGet(); const [x] = o.splice(+u.dataset.uncoll, 1); collSet(o); if (x) countSend([{k: "c", id: x.id, g: x.g, d: -1}]); const y = scrollY; route(); scrollTo({top: y}); toast(tx("Tolta dalla collezione", "Removed from the collection")); return; }
+  const w = e.target.closest("[data-watch],[data-unwatch]");
+  if (w) { watchToggle(w.dataset.watch || w.dataset.unwatch); const y = scrollY; route(); scrollTo({top: y}); return; }
+  const ir = e.target.closest("[data-ixr]");
+  if (ir) { S.ixr = ir.dataset.ixr; const y = scrollY; route(); scrollTo({top: y}); return; }
+  const el = e.target.closest("[data-g],[data-sort],[data-cg],[data-min],[data-or],[data-copy],[data-copytext],#copyAll");
+  if (!el) return;
+  if (el.dataset.g) { S.g = +el.dataset.g; route(); }
+  else if (el.dataset.sort) { S.sort = el.dataset.sort; route(); }
+  else if (el.dataset.cg) { S.cg = +el.dataset.cg; const y = scrollY; route(); scrollTo({top: y}); }
+  else if (el.dataset.min !== undefined) { S.dealMin = +el.dataset.min; route(); }
+  else if (el.dataset.or) { S.dealOrigin = el.dataset.or; route(); }
+  else if (el.dataset.copy !== undefined) { const s = D.pulse.stories[+el.dataset.copy]; const c = cardById[s.reel.card]; copy(JSON.stringify({slabwise: "reel", lang: LANG, ...s.reel, name: c.name, set: c.set, no: c.no + (c.tot ? "/" + c.tot : "")}), tx("Copiato: incollalo nel Reel Studio", "Copied: paste it into the Reel Studio")); }
+  else if (el.dataset.copytext !== undefined) { const x = storyText(D.pulse.stories[+el.dataset.copytext]); copy(`${x.hook}\n${x.body}\n${x.cta}`, tx("Copione copiato", "Script copied")); }
+  else if (el.id === "copyAll") copy(D.pulse.stories.map((s, i) => { const x = storyText(s); return `${i + 1}. ${x.hook}\n${x.body}\n${x.cta}`; }).join("\n\n"), tx(`${D.pulse.stories.length} copioni copiati`, `${D.pulse.stories.length} scripts copied`));
+});
+function copy(text, msg) {
+  const done = () => toast(msg);
+  try { navigator.clipboard.writeText(text).then(done, () => fallback(text, msg)); } catch (e) { fallback(text, msg); }
+}
+function fallback(text, msg) {
+  const ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); toast(msg); } catch (e) { toast(tx("Seleziona e copia a mano", "Select and copy by hand")); }
+  setTimeout(() => ta.remove(), 50);
+}
+
+/* motion: card tilt, count-up, ring fill — only transforms, only on view */
+function goSection(id) {
+  if (!location.hash.startsWith("#mercato") && location.hash !== "" ) { pendingSec = id; location.hash = "#mercato"; return; }
+  const el = document.getElementById("sec-" + id);
+  if (el) el.scrollIntoView({behavior: reduce ? "auto" : "smooth", block: "start"});
+}
+let pendingSec = null, secObs = null;
+function bindSections() {
+  if (secObs) secObs.disconnect();
+  const links = [...document.querySelectorAll(".snav [data-sec]")];
+  const onMarket = !!document.getElementById("sec-home");
+  if (!onMarket) return;
+  secObs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) {
+    const id = e.target.dataset.secId === "week" ? "slab" : e.target.dataset.secId;
+    links.forEach(a => a.dataset.sec === id ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current")); } }), {rootMargin: "-45% 0px -50% 0px"});
+  document.querySelectorAll("[data-sec-id]").forEach(x => secObs.observe(x));
+  if (pendingSec) { const id = pendingSec; pendingSec = null; setTimeout(() => goSection(id), 30); }
+}
+function bindTilt() {
+  if (reduce) return;
+  document.querySelectorAll("[data-tilt]").forEach(el => {
+    const st = el.parentElement;
+    st.addEventListener("pointermove", e => {
+      const r = el.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+      el.style.transform = `rotateY(${px * 24}deg) rotateX(${-py * 18}deg) translateY(-6px)`;
+      el.style.setProperty("--gx", `${100 - (px + .5) * 100}%`);
+      el.style.setProperty("--hx", `${(px + .5) * 100}%`);
+      el.style.setProperty("--ho", `${.1 + Math.abs(px) * .4}`);
+    });
+    st.addEventListener("pointerleave", () => { el.style.transform = ""; el.style.setProperty("--ho", ".08"); el.style.setProperty("--gx", "130%"); });
+  });
+}
+
+/* ---- v7.1 motion: reveal on scroll, drifting giant words, hero parallax, Slabby typing, featured autoplay ---- */
+function starGo(to) {
+  const list = starPick(); let i = list.findIndex(x => x.id === (S.star || list[0].id));
+  if (typeof to === "string") S.star = to; else { i = (i + to + list.length) % list.length; S.star = list[i].id; }
+  const st = $("#star-stage"); if (!st) return;
+  st.innerHTML = starInner(); bindTilt(); starArm();
+}
+let starT = 0;
+function starArm() {
+  clearTimeout(starT);
+  const sec = $("#sec-star"); if (!sec || reduce) return;
+  const dur = 7000; sec.style.setProperty("--dur", dur + "ms");
+  sec.classList.remove("auto"); void sec.offsetWidth; sec.classList.add("auto");
+  const tick = () => { if (!document.getElementById("sec-star")) return;
+    if (sec.classList.contains("paused") || !sec.classList.contains("in")) { starT = setTimeout(tick, 500); return; }
+    starGo(1); };
+  starT = setTimeout(tick, dur);
+}
+let revObs = null, motionBound = false, typeT = 0;
+function bindMotion() {
+  const all = document.querySelectorAll(".rv, .cs");
+  if (revObs) revObs.disconnect();
+  if (reduce || !("IntersectionObserver" in window)) all.forEach(x => x.classList.add("in"));
+  else {
+    revObs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); revObs.unobserve(e.target); } }), {threshold: .12, rootMargin: "0px 0px -6% 0px"});
+    all.forEach(x => revObs.observe(x));
+  }
+  // featured card: autoplay, paused while the pointer or focus is inside
+  const ss = $("#sec-star");
+  if (ss) { const pause = v => () => ss.classList.toggle("paused", v);
+    ss.addEventListener("pointerenter", pause(true)); ss.addEventListener("pointerleave", pause(false));
+    ss.addEventListener("focusin", pause(true)); ss.addEventListener("focusout", pause(false)); starArm(); }
+  // hero: pointer parallax on panels, captions and Slabby
+  const hero = $("#sec-home");
+  if (hero && !reduce) {
+    hero.addEventListener("pointermove", e => { const r = hero.getBoundingClientRect();
+      hero.style.setProperty("--mx", ((e.clientX - r.left) / r.width - .5).toFixed(3)); hero.style.setProperty("--my", ((e.clientY - r.top) / r.height - .5).toFixed(3)); });
+    hero.addEventListener("pointerleave", () => { hero.style.setProperty("--mx", 0); hero.style.setProperty("--my", 0); });
+  }
+  if (hero && "IntersectionObserver" in window) { const ho = new IntersectionObserver(es => document.body.classList.toggle("at-hero", es[0].isIntersecting), {threshold: .35}); ho.observe(hero); bindMotion.hero && bindMotion.hero.disconnect(); bindMotion.hero = ho; }
+  else document.body.classList.remove("at-hero");
+  // Slabby types a real fact
+  const say = $("#hsay");
+  clearTimeout(typeT);
+  if (say) { const c = topCard(), g = gradeOf(c, 10);
+    const msg = tx(`Psst! ${c.name} in PSA 10 oggi vale ${usd(g.value)}. Toccami e ti spiego come lo calcoliamo.`, `Psst! ${c.name} in PSA 10 is worth ${usd(g.value)} today. Tap me and I'll show you how we work it out.`);
+    if (reduce) say.textContent = msg;
+    else { say.innerHTML = '<span></span><i class="caret"></i>'; const sp = say.firstChild; let k = 0;
+      const typeOn = () => { if (!document.body.contains(say)) return; sp.textContent = msg.slice(0, ++k); if (k < msg.length) typeT = setTimeout(typeOn, msg[k - 1] === "." ? 260 : 32); };
+      typeT = setTimeout(typeOn, firstLoad ? 2300 : 1200); }
+    const ch = $("#hchar"); if (ch) { ch.style.cursor = "pointer"; ch.addEventListener("click", () => { location.hash = "metodo"; }); }
+  }
+  // weekly band: dots follow the scroll, gentle autoplay
+  const st = $("#bandstrip"), dots = $("#banddots");
+  if (st && dots) {
+    const cur = () => { const w = st.firstElementChild ? st.firstElementChild.getBoundingClientRect().width + 22 : 1; return Math.round(st.scrollLeft / w); };
+    st.addEventListener("scroll", () => { const i = cur(); [...dots.children].forEach((d, k) => d.setAttribute("aria-current", k === i)); }, {passive: true});
+    if (!reduce) { let hold = false; st.addEventListener("pointerenter", () => hold = true); st.addEventListener("pointerleave", () => hold = false);
+      clearInterval(bindMotion.band); bindMotion.band = setInterval(() => { if (!document.body.contains(st)) return clearInterval(bindMotion.band);
+        if (hold || st.scrollWidth <= st.clientWidth + 4) return; const r = st.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return;
+        const w = st.firstElementChild.getBoundingClientRect().width + 22, end = st.scrollLeft + st.clientWidth >= st.scrollWidth - 4;
+        st.scrollTo({left: end ? 0 : st.scrollLeft + w, behavior: "smooth"}); }, 4200); }
+  }
+  if (!motionBound) { motionBound = true;
+    let raf = 0;
+    const paint = () => { raf = 0; const h = document.documentElement, max = h.scrollHeight - innerHeight;
+      $("#prog").style.setProperty("--prog", max > 0 ? (scrollY / max).toFixed(4) : 0);
+      if (reduce) return;
+      document.querySelectorAll(".cs").forEach(sec => { const r = sec.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return;
+        sec.style.setProperty("--p", ((r.top + r.height / 2 - innerHeight / 2) / innerHeight).toFixed(3)); }); };
+    const ask = () => { if (!raf) raf = requestAnimationFrame(paint); };
+    addEventListener("scroll", ask, {passive: true}); addEventListener("resize", ask);
+    // comic words on clicks
+    if (!reduce) document.addEventListener("pointerdown", e => { const el = e.target.closest(".nbtn,.morebtn,.chip,.arrow,.thumbbtn,.btn,.cap,[data-band]"); if (!el) return;
+      const w = document.createElement("span"); w.className = "pow"; w.setAttribute("aria-hidden", "true");
+      const POW = LANG === "it" ? ["SBAM!", "ZAC!", "WOW!", "GULP!", "PAF!", "TOC!"] : ["BAM!", "ZAP!", "WOW!", "GULP!", "POW!", "BOP!"];
+      w.textContent = POW[Math.floor(Math.random() * POW.length)];
+      w.style.left = e.clientX + "px"; w.style.top = e.clientY + "px"; document.body.appendChild(w); setTimeout(() => w.remove(), 700); });
+  }
+  requestAnimationFrame(() => window.dispatchEvent(new Event("scroll")));
+}
+const FMT = {usd, usdK, n: v => nf0.format(v)};
+function animateIn() {
+  const items = document.querySelectorAll("[data-count], .ring circle.f, .bar i");
+  if (reduce || !("IntersectionObserver" in window)) { document.querySelectorAll(".ring circle.f").forEach(c => c.style.strokeDashoffset = c.dataset.off); return; }
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return; io.unobserve(e.target); const el = e.target;
+    if (el.matches(".ring circle.f")) { requestAnimationFrame(() => el.style.strokeDashoffset = el.dataset.off); return; }
+    if (el.matches(".bar i")) { const s = el.style.transform; el.style.transform = "scaleX(0)"; requestAnimationFrame(() => requestAnimationFrame(() => el.style.transform = s)); return; }
+    const to = +el.dataset.count, f = FMT[el.dataset.fmt] || FMT.n, t0 = performance.now(), dur = 700;
+    const step = now => { const k = Math.min(1, (now - t0) / dur), e3 = 1 - Math.pow(1 - k, 3); el.textContent = f(to * e3); if (k < 1) requestAnimationFrame(step); else el.textContent = f(to); };
+    requestAnimationFrame(step);
+  }), {threshold: .3});
+  items.forEach(el => io.observe(el));
+}
+
+(function () {
+  const q = $("#q"), res = $("#res"); let sel = 0, hits = [];
+  const render = () => {
+    const s = q.value.trim().toLowerCase(), num = s.replace(/\D/g, "");
+    hits = [];
+    if (/^[\d\s-]{5,}$/.test(s)) {               // a PSA cert number: the history of that copy (D63)
+      const l = CERT[num], k = l && copyInfo(l[l.length - 1][1]);
+      hits.push({href: "#cert-" + num, img: k && k.img, title: `${tx("Cert", "Cert")} ${num}`,
+        sub: l ? `${esc(k.name)} · PSA ${l[l.length - 1][2]} · ${plural(counted(l).length, tx("vendita", "sale"), tx("vendite", "sales"))}` : LAZY ? tx("cerca la storia di questa copia", "look up this copy's history") : tx("non nel nostro archivio: verifica su PSA", "not in our archive: check it on PSA")});
+    }
+    if (s) D.cards.filter(c => (c.name + " " + c.set + " " + c.no).toLowerCase().includes(s)).slice(0, 7).forEach(c =>
+      hits.push({href: "#c-" + c.id, img: c.thumb || c.img, title: esc(c.name), sub: `${esc(c.set)} · ${usdV(gradeOf(c, 10))} ${tx("in PSA 10", "in PSA 10")}`}));
+    clearTimeout(window.__sbOffer);
+    if (s.length >= 4 && !/^[\d\s-]+$/.test(s) && !hits.length && window.Slabby && window.Slabby.offerRequest)
+      window.__sbOffer = setTimeout(() => window.Slabby.offerRequest(q.value.trim()), 1200);
+    if (s.length >= 3 && !/^[\d\s-]+$/.test(s)) hits.push({href: "#richieste", img: "", title: tx("Non trovi la carta? Richiedila", "Can't find the card? Request it"), sub: tx("decidi tu quali carte aggiungiamo", "you decide which cards we add")});
+    res.hidden = !hits.length;
+    res.innerHTML = hits.map((x, i) => `<a href="${x.href}" class="${i === sel ? "on" : ""}">${x.img ? `<img src="${x.img}" alt="">` : ""}<span><b>${x.title}</b><br><small class="muted">${x.sub}</small></span></a>`).join("");
+  };
+  q.addEventListener("input", () => { sel = 0; render(); });
+  q.addEventListener("keydown", e => {
+    if (e.key === "ArrowDown") { sel = Math.min(sel + 1, hits.length - 1); render(); e.preventDefault(); }
+    if (e.key === "ArrowUp") { sel = Math.max(sel - 1, 0); render(); e.preventDefault(); }
+    if (e.key === "Enter" && hits[sel]) { location.hash = hits[sel].href.slice(1); q.value = ""; res.hidden = true; q.blur(); }
+    if (e.key === "Escape") { q.value = ""; res.hidden = true; q.blur(); }
+  });
+  res.addEventListener("click", () => { q.value = ""; res.hidden = true; });
+  document.addEventListener("keydown", e => { if (e.key === "/" && document.activeElement !== q) { e.preventDefault(); q.focus(); } });
+  document.addEventListener("click", e => { if (!e.target.closest(".search")) res.hidden = true; });
+})();
+__SLABBY__
+route();
+requestAnimationFrame(() => requestAnimationFrame(() => document.documentElement.classList.add("go")));
+setTimeout(() => { const it = document.querySelector(".intro"); if (it) it.remove(); }, reduce ? 0 : 1600);
+</script>

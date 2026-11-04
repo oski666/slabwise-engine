@@ -1,0 +1,235 @@
+<title>Slabwise Engine v1.1</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: a lab notebook. Thesis on top, then evidence in the order a skeptic asks for it. */
+:root{
+  --bg:#f6f6fb; --panel:#ffffff; --ink:#16172b; --muted:#5a5d7d; --line:#dedff0;
+  --accent:#5b45e0; --accent-soft:#ecebff; --good:#0d8a58; --bad:#c42747; --rival:#9a9db8;
+  --display:"Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --body:"Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0c0d1a; --panel:#151730; --ink:#eceeff; --muted:#a2a6cc; --line:#2a2e58;
+  --accent:#a593ff; --accent-soft:#23214a; --good:#4fe3a1; --bad:#ff7a92; --rival:#5d6290; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c0d1a; --panel:#151730; --ink:#eceeff; --muted:#a2a6cc; --line:#2a2e58;
+  --accent:#a593ff; --accent-soft:#23214a; --good:#4fe3a1; --bad:#ff7a92; --rival:#5d6290; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:17px/1.6 var(--body);margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:40px 80px;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.02em}
+h1{font-size:clamp(34px,6vw,58px);line-height:1.04;font-weight:800}
+h2{font-size:clamp(24px,3.4vw,32px);font-weight:800}
+h3{font-size:19px;font-weight:600}
+p{margin:0;max-width:66ch}
+.eyebrow{font:700 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+section{display:flex;flex-direction:column;gap:18px}
+.hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:40px;align-items:end}
+@media (max-width:820px){.hero{grid-template-columns:1fr;gap:24px}}
+.hero .lead{font-size:20px;color:var(--muted)}
+.score{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;display:grid;gap:14px}
+.score .big{font:800 64px/1 var(--display);color:var(--accent);letter-spacing:-.04em}
+.score .big small{font:600 22px var(--display);color:var(--muted);letter-spacing:0}
+.vs{display:grid;grid-template-columns:auto 1fr auto;gap:6px 12px;align-items:center;font-size:15px}
+.vs .bar{height:10px;border-radius:5px;background:var(--rival)}
+.vs .bar.me{background:var(--accent)}
+.vs b{font:700 14px var(--mono);font-variant-numeric:tabular-nums}
+table{border-collapse:collapse;width:100%;font-size:15px}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:700 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--bg)}
+tr:last-child td{border-bottom:0}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.me td{background:var(--accent-soft);font-weight:700}
+.pill{display:inline-block;font:700 12px var(--mono);padding:3px 9px;border-radius:999px;white-space:nowrap}
+.pill.ok{color:var(--good);background:color-mix(in srgb,var(--good) 14%,transparent)}
+.pill.ko{color:var(--bad);background:color-mix(in srgb,var(--bad) 14%,transparent)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:820px){.grid2{grid-template-columns:1fr}}
+figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+figcaption{font-size:14px;color:var(--muted)}
+svg text{fill:var(--muted);font:12px var(--mono)}
+.idea{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:820px){.idea{grid-template-columns:1fr}}
+.idea div{border-top:3px solid var(--accent);padding-top:12px;display:flex;flex-direction:column;gap:6px}
+.idea div p{font-size:15px;color:var(--muted)}
+.formula{font:500 15px/1.7 var(--mono);background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;overflow-x:auto;white-space:pre}
+.pillars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 28px;counter-reset:p}
+@media (max-width:720px){.pillars{grid-template-columns:1fr}}
+.pillars div{display:grid;grid-template-columns:44px 1fr;gap:10px;font-size:15px;padding-block:8px;border-bottom:1px solid var(--line)}
+.pillars span{font:700 13px var(--mono);color:var(--accent)}
+.photo{background:#fff;border-radius:8px;padding:6px}
+.next{display:grid;gap:12px}
+.next div{display:grid;grid-template-columns:120px 1fr;gap:14px;align-items:baseline}
+@media (max-width:560px){.next div{grid-template-columns:1fr;gap:2px}}
+.next b{font:700 13px var(--mono);color:var(--accent)}
+.note{border-left:3px solid var(--bad);padding-left:14px;font-size:15px}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+
+<div class="wrap">
+  <header class="hero">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <span class="eyebrow">Slabwise Engine · v1.1 · 23 ottobre 2026</span>
+      <h1>Un solo modello, al posto di una pila di regole.</h1>
+      <p class="lead">Ogni slab ha un valore che nessuno vede. Ogni vendita lo misura male: rumore, copia più o meno bella, piattaforma, tempo, a volte un falso. Il Modello a Valore Latente mette tutto in un'unica equazione e restituisce il valore di oggi con la sua forchetta.</p>
+    </div>
+    <div class="score" aria-label="Risultato principale">
+      <span class="eyebrow">Errore sul valore vero · 5 semi</span>
+      <div class="big" id="bigNum">−37%<small> di errore rispetto al migliore</small></div>
+      <div class="vs" id="vs"></div>
+    </div>
+  </header>
+
+  <section>
+    <span class="eyebrow">Come leggere questi numeri</span>
+    <p class="note">Tutti i risultati vengono da un <b>mercato simulato</b> in cui il valore vero è noto: 300 carte, 3 anni, 45.000 vendite, contaminazione realistica. Dicono quale formula è migliore a parità di condizioni, non quanto sarà preciso il sito sui dati reali. La fase con vendite reali è obbligatoria (pilastro P14) e la filiera è già pronta: basta un CSV.</p>
+  </section>
+
+  <section>
+    <span class="eyebrow">Criteri fissati prima dei risultati</span>
+    <h2>6 su 7 superati</h2>
+    <div class="tbl"><table id="crit"><thead><tr><th>#</th><th>Criterio</th><th>Risultato</th><th>Esito</th></tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Il confronto</span>
+    <h2>Errore per metodo e per liquidità</h2>
+    <p class="muted">Mediana di |log(stima ÷ valore vero)| su 5 semi, cioè circa l'errore percentuale. Le ricostruzioni dei concorrenti seguono i loro metodi pubblici.</p>
+    <div class="tbl"><table id="ev"><thead><tr><th>Metodo</th><th>Totale</th><th>Alta</th><th>Media</th><th>Bassa</th><th>Rarissima</th><th>Dopo il crollo</th><th>Falsi</th></tr></thead><tbody></tbody></table></div>
+    <p class="muted" style="font-size:14px">Liquidità: alta ≥ 1 vendita a settimana, media ≥ 1 al mese, bassa ≥ 1 a trimestre, rarissima meno (il 61% degli atomi). "Falsi": 12 falsi PSA 10 a ~30 $ in due settimane su una carta da ~150 $.</p>
+  </section>
+
+  <section>
+    <div class="grid2">
+      <figure><figcaption><b>Robustezza.</b> Errore totale al crescere delle vendite contaminate (semi 1–3).</figcaption><svg id="rb" viewBox="0 0 460 280" role="img" aria-label="Errore al crescere della contaminazione"></svg></figure>
+      <figure><figcaption><b>Deal.</b> Barra piena: precisione, cioè quanti segnalati sono veri affari. Barra chiara: quota dei veri affari trovata.</figcaption><svg id="dl" viewBox="0 0 460 280" role="img" aria-label="Precisione e richiamo dei deal"></svg></figure>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Due casi</span>
+    <h2>Il crollo e l'inondazione di falsi</h2>
+    <figure>
+      <img class="photo" src="__EXAMPLE__" alt="Due grafici: una carta attraverso un crollo del 35% e una carta colpita da 12 vendite false; la linea viola del modello segue il valore vero, i concorrenti fanno salti.">
+      <figcaption>Nero: valore vero. Viola: il modello con la sua forchetta all'80%. Grigi: tcgcharts, Card Ladder, il nostro prototipo precedente. Punti rossi: vendite arrivate al calcolo. Scala logaritmica.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <span class="eyebrow">Il metodo</span>
+    <h2>Cosa fa il modello</h2>
+    <div class="formula">log prezzo = valore della carta oggi + distanza del voto + qualità della copia
+            + scarto della piattaforma − β · movimento dell'era da quel giorno + rumore</div>
+    <div class="idea">
+      <div><h3>Memoria che si adatta</h3><p>Una vendita vecchia pesa meno perché il valore si è potuto muovere. La covarianza esatta del cammino casuale (minimi quadrati generalizzati) rende le forchette oneste.</p></div>
+      <div><h3>Probabilità, non soglie</h3><p>Ogni vendita ha una probabilità di essere genuina. Le vendite con cert verificato contano di più. Più vendite indipendenti allo stesso livello vengono lette come un cambio di mercato, non come errori.</p></div>
+      <div><h3>Deal bayesiani</h3><p>Anche il prezzo chiesto è un indizio del valore. Così si evita la "maledizione del vincitore", per cui gli annunci più scontati sono spesso quelli in cui la stima sbaglia.</p></div>
+    </div>
+    <p class="muted">I parametri si stimano dai dati del primo anno: le varianze dalle rivendite dello stesso cert (come gli indici Case-Shiller), il resto dalla qualità della previsione. Poi restano fermi.</p>
+  </section>
+
+  <section>
+    <span class="eyebrow">Fuori dalle sue ipotesi</span>
+    <h2>Scenario sfavorevole</h2>
+    <p class="muted">Il simulatore l'ho scritto io, quindi il modello rischia di giocare in casa. Qui le condizioni sono sfavorevoli: picchi da evento su una carta su tre, rumore di vendita più alto, il 30% delle carte con l'era sbagliata.</p>
+    <div class="tbl"><table id="alt"><thead><tr><th>Metodo</th><th>Errore totale</th><th>Rarissima</th><th>Precisione deal</th></tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <section>
+    <span class="eyebrow">docs/PILLARS.md</span>
+    <h2>I 20 pilastri</h2>
+    <div class="pillars" id="pil"></div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Onestà</span>
+    <h2>Cosa non va ancora</h2>
+    <div class="next">
+      <div><b>Rumore (S3)</b><span>1,71% a settimana contro 1,64% di PriceCharting, che quasi non si muove. È il prezzo di un errore di livello molto più basso.</span></div>
+      <div><b>Indice d'era</b><span>Il fattore interno cattura circa metà dei movimenti dell'era: le carte restano giuste, ma non si può pubblicare come indice. Da rifare con un metodo dedicato.</span></div>
+      <div><b>Dati reali</b><span>Il metodo ha bisogno di vendite singole. Nessuna fonte gratuita le dà; serve una decisione su fonte e licenza.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Prossimi passi</span>
+    <div class="next">
+      <div><b>v1.2</b><span>Fattore d'era a trend locale e deriva propria per carta. Nuovi criteri da registrare prima.</span></div>
+      <div><b>Fase R</b><span>Backtest su vendite reali con <code>scripts/run_real.py</code> appena c'è una fonte.</span></div>
+      <div><b>Prodotto</b><span>Pagina carta con forchetta e probabilità per vendita, deal con costo finale in Italia, rollup per set ed era.</span></div>
+    </div>
+  </section>
+</div>
+
+<script>
+const S = __SUMMARY__;
+const LVM = "Slabwise LVM";
+const short = n => n.split(" (")[0];
+const pct = x => (100 * x).toLocaleString("it-IT", {maximumFractionDigits: 1, minimumFractionDigits: 1}) + "%";
+const names = Object.keys(S.EV);
+const comps = names.filter(n => n !== LVM);
+const best = comps.reduce((a, b) => S.EV[a] < S.EV[b] ? a : b);
+
+document.getElementById("bigNum").innerHTML = "−" + Math.round(100 * (1 - S.EV[LVM] / S.EV[best])) + "%<small> di errore rispetto al migliore</small>";
+const mx = Math.max(...names.map(n => S.EV[n]));
+document.getElementById("vs").innerHTML = [...names].sort((a, b) => S.EV[a] - S.EV[b]).map(n =>
+  `<span>${short(n)}</span><div class="bar${n === LVM ? " me" : ""}" style="width:${100 * S.EV[n] / mx}%"></div><b>${pct(S.EV[n])}</b>`).join("");
+
+document.querySelector("#crit tbody").innerHTML = S.criteria.map(c =>
+  `<tr><td class="n">${c.id}</td><td>${c.name}</td><td>${names.reduce((v, n) => v.split(n).join(short(n)), c.value)}</td><td><span class="pill ${c.passed ? "ok" : "ko"}">${c.passed ? "superato" : "mancato"}</span></td></tr>`).join("");
+
+const B = ["alta", "media", "bassa", "rarissima"];
+document.querySelector("#ev tbody").innerHTML = names.map(n =>
+  `<tr class="${n === LVM ? "me" : ""}"><td>${n}</td><td class="n">${pct(S.EV[n])}</td>${B.map(b => `<td class="n">${pct(S.EVb[b][n])}</td>`).join("")}<td class="n">${pct(S.RC[n])}</td><td class="n">${pct(S.FLOOD[n])}</td></tr>`).join("");
+
+document.querySelector("#alt tbody").innerHTML = names.map(n =>
+  `<tr class="${n === LVM ? "me" : ""}"><td>${n}</td><td class="n">${pct(S.ALT_EV[n])}</td><td class="n">${pct(S.ALT_EVb.rarissima[n])}</td><td class="n">${pct(S.ALT_DP[n])}</td></tr>`).join("");
+
+// robustness line chart
+(function () {
+  const svg = document.getElementById("rb"), W = 460, H = 280, L = 46, R = 112, T = 14, Bt = 40;
+  const cs = Object.keys(S.RB).sort(), xs = cs.map(Number);
+  const ymax = 0.2, x = v => L + (W - L - R) * v / 0.5, y = v => T + (H - T - Bt) * (1 - v / ymax);
+  let g = "";
+  for (let v = 0; v <= ymax + 1e-9; v += 0.05) g += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)"/><text x="${L - 8}" y="${y(v) + 4}" text-anchor="end">${Math.round(v * 100)}%</text>`;
+  xs.forEach(v => g += `<text x="${x(v)}" y="${H - Bt + 18}" text-anchor="middle">${Math.round(v * 100)}%</text>`);
+  g += `<text x="${(L + W - R) / 2}" y="${H - 4}" text-anchor="middle">vendite contaminate</text>`;
+  const ends = [];
+  names.forEach(n => {
+    const pts = cs.map((c, i) => [x(xs[i]), y(S.RB[c][n])]);
+    const me = n === LVM;
+    g += `<polyline points="${pts.map(p => p.join(",")).join(" ")}" fill="none" stroke="${me ? "var(--accent)" : "var(--rival)"}" stroke-width="${me ? 3 : 1.5}"/>`;
+    g += pts.map(p => `<circle cx="${p[0]}" cy="${p[1]}" r="${me ? 3.5 : 2.5}" fill="${me ? "var(--accent)" : "var(--rival)"}"/>`).join("");
+    ends.push([pts[pts.length - 1][1], short(n), me]);
+  });
+  ends.sort((a, b) => a[0] - b[0]);
+  let last = -99;
+  ends.forEach(e => { const yy = Math.max(e[0] + 4, last + 13); last = yy; g += `<text x="${W - R + 8}" y="${yy}" style="fill:${e[2] ? "var(--accent)" : "var(--muted)"};font-weight:${e[2] ? 700 : 500}">${e[1]}</text>`; });
+  svg.innerHTML = g;
+})();
+
+// deals bar chart
+(function () {
+  const svg = document.getElementById("dl"), W = 460, H = 280, L = 118, R = 16, T = 10;
+  const rowH = (H - T - 30) / names.length, x = v => L + (W - L - R) * v;
+  let g = "";
+  [0, .25, .5, .75, 1].forEach(v => g += `<line x1="${x(v)}" x2="${x(v)}" y1="${T}" y2="${H - 26}" stroke="var(--line)"/><text x="${x(v)}" y="${H - 10}" text-anchor="middle">${v * 100}%</text>`);
+  names.forEach((n, i) => {
+    const yy = T + i * rowH, me = n === LVM;
+    g += `<text x="${L - 8}" y="${yy + rowH / 2 + 4}" text-anchor="end" style="${me ? "fill:var(--accent);font-weight:700" : ""}">${short(n)}</text>`;
+    g += `<rect x="${L}" y="${yy + 4}" width="${x(S.DP[n]) - L}" height="${rowH / 2 - 5}" rx="3" fill="${me ? "var(--accent)" : "var(--rival)"}"/>`;
+    g += `<rect x="${L}" y="${yy + rowH / 2}" width="${x(S.DR[n]) - L}" height="${rowH / 2 - 5}" rx="3" fill="${me ? "var(--accent)" : "var(--rival)"}" opacity=".4"/>`;
+    g += `<text x="${x(S.DP[n]) + 5}" y="${yy + rowH / 4 + 5}">${Math.round(100 * S.DP[n])}%</text>`;
+  });
+  svg.innerHTML = g;
+})();
+
+const P = [["P1","Solo carte graded: le raw sono escluse da tutto."],["P2","L'atomo è carta × stampa × ente × voto. Enti diversi non si equiparano."],["P3","Il valore nasce solo da vendite concluse; gli annunci servono ai deal."],["P4","Prima l'identità, poi il prezzo: duplicati, cert, lotti, Best Offer."],["P5","Valore di mercato (USD) e costo in Italia sono due conti separati."],["P6","Un modello probabilistico unico, non una pila di regole."],["P7","I parametri si stimano dai dati e poi si congelano."],["P8","Nessuna vendita sparisce: ognuna ha la sua probabilità e un motivo."],["P9","Più vendite indipendenti allo stesso livello sono un cambio di mercato."],["P10","Ogni valore ha una forchetta all'80% che deve essere vera 8 volte su 10."],["P11","Causalità: mai usare dati del futuro."],["P12","Un cambiamento entra solo se migliora il backtest pre-registrato."],["P13","Ogni versione gareggia con i metodi dei concorrenti."],["P14","Prima il mercato simulato, poi i dati reali. Mai confonderli."],["P15","Un deal è una probabilità; lo sconto troppo bello alza il sospetto."],["P16","Rollup per set ed era: effetto prezzo separato dai nuovi slab."],["P17","Metodologia pubblica, limiti compresi."],["P18","Solo fonti lecite: niente scraping vietato né anti-bot."],["P19","Costo zero finché non si decide altrimenti nel registro."],["P20","Requisiti prima del codice; il repository è la fonte di verità."]];
+document.getElementById("pil").innerHTML = P.map(p => `<div><span>${p[0]}</span><p>${p[1]}</p></div>`).join("");
+</script>

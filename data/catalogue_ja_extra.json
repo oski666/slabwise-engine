@@ -1,0 +1,50 @@
+{
+ "ja:sm9-103": [
+  "gengar \\& mimikyu gx|ゲンガー\\&ミミッキュ\\s?gx",
+  103,
+  95,
+  "\\btag\\W*bolt\\b"
+ ],
+ "ja:sv1a-080": [
+  "magikarp|コイキング",
+  80,
+  73,
+  "\\btriplet\\W*beat\\b"
+ ],
+ "ja:sv4a-349": [
+  "charizard ex|リザードン\\s?ex",
+  349,
+  190,
+  "\\bshiny\\W*treasure\\W*ex\\b"
+ ],
+ "ja:sv2a-200": [
+  "venusaur ex|フシギバナ\\s?ex",
+  200,
+  165,
+  "\\bpok\\W*mon\\W*151\\b"
+ ],
+ "ja:m2a-232": [
+  "mega dragonite ex|メガカイリュー\\s?ex",
+  232,
+  193,
+  "\\bmega\\W*dream\\W*ex\\b"
+ ],
+ "ja:sm11b-036": [
+  "reshiram \\& zekrom gx|レシラム\\&ゼクロム\\s?gx",
+  36,
+  49,
+  "\\bdream\\W*league\\b"
+ ],
+ "ja:sm11b-054": [
+  "pikachu|ピカチュウ",
+  54,
+  49,
+  "\\bdream\\W*league\\b"
+ ],
+ "ja:sm8-072": [
+  "lugia gx|ルギア\\s?gx",
+  72,
+  95,
+  "\\bsuper\\W*burst\\W*impact\\b"
+ ]
+}

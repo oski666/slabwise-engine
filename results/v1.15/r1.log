@@ -1,0 +1,13 @@
+== off 
+E2: 1 voci lontane dalle proprie vendite: [('base2-11/1st', 9, 5, 9600, 5008)]
+gap_start=True venue_gaps=True R1: 0 voci su 340: []
+== off --v115
+E2: 1 voci lontane dalle proprie vendite: [('base2-11/1st', 9, 5, 9600, 5570)]
+gap_start=True venue_gaps=True R1: 0 voci su 340: []
+== new 
+E2: 1 voci lontane dalle proprie vendite: [('base2-11/1st', 9, 5, 9600, 4762)]
+gap_start=True venue_gaps=True R1: 1 voci su 341: [('neo1-9/1st', 10, 3)]
+== new --v115
+E2: 1 voci lontane dalle proprie vendite: [('base2-11/1st', 9, 5, 9600, 5288)]
+gap_start=True venue_gaps=True R1: 0 voci su 341: []
+LANE1DONE

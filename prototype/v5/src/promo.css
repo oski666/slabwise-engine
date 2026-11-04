@@ -1,0 +1,180 @@
+/* Font come il volantino: gotico squadrato pesantissimo (M PLUS 1 Black) per titoli, nastri e date, inclinato in avanti;
+   gotico pieno (M PLUS 1 Bold) per i testi. Niente caratteri tondi. */
+/* "Promo TCG" (esperimento v5, decisione D25): il linguaggio dei volantini promozionali giapponesi dei giochi di carte.
+   Cielo ciano con scintille, titoli-adesivo con doppio contorno, nastri inclinati, pannelli con doppio bordo,
+   stelle-esplosione. Sovrascrive base.css (Riso pop) solo dove serve; dati e Slabby restano gli stessi. */
+:root{
+  --sky-a:#c9f6ff; --sky-b:#7fdcff; --sky-c:#3fb3f2;
+  --navy:#0b1a52; --royal:#1d3fd1; --yellow:#ffd400; --orange:#ff8a00; --red:#e8203a;
+  --bg:#bfefff; --paper:#ffffff; --paper2:#f2fbff; --soft:#e2f5ff; --line:#bfe3f6;
+  --ink:#0b1a52; --muted:#34507e; --faint:#5d7aa6;
+  --brand:#1d3fd1; --brand-ink:#ffffff; --brand-soft:#d6e6ff;
+  --promo:"M PLUS 1","Hiragino Kaku Gothic StdN","Yu Gothic",system-ui,sans-serif;
+  --display:var(--promo); --body:"M PLUS 1","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;
+  --frame:0 0 0 3px var(--navy),0 10px 26px -10px rgba(10,40,120,.45);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --sky-a:#0d2a78; --sky-b:#0a1f5c; --sky-c:#071443; --bg:#0a1f5c;
+  --paper:#0f2a74; --paper2:#13348a; --soft:#173b96; --line:#2650b8;
+  --ink:#f2f8ff; --muted:#b9d3ff; --faint:#8fb0e6; --brand:#7fdcff; --brand-ink:#0b1a52; --brand-soft:#1d4aa8;
+  --frame:0 0 0 3px #7fdcff,0 10px 26px -10px rgba(0,0,0,.6); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --sky-a:#0d2a78; --sky-b:#0a1f5c; --sky-c:#071443; --bg:#0a1f5c;
+  --paper:#0f2a74; --paper2:#13348a; --soft:#173b96; --line:#2650b8;
+  --ink:#f2f8ff; --muted:#b9d3ff; --faint:#8fb0e6; --brand:#7fdcff; --brand-ink:#0b1a52; --brand-soft:#1d4aa8;
+  --frame:0 0 0 3px #7fdcff,0 10px 26px -10px rgba(0,0,0,.6); color-scheme:dark}
+
+/* sky with sparkles and a faint circuit grid */
+body{font-weight:700;background-color:var(--sky-b);
+ background-image:
+  url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><g fill='white'><path d='M30 14l3 9 9 3-9 3-3 9-3-9-9-3 9-3z' opacity='.85'/><path d='M128 60l2 6 6 2-6 2-2 6-2-6-6-2 6-2z' opacity='.7'/><path d='M84 128l4 4-4 4-4-4z' opacity='.6'/><path d='M150 150l2 5 5 2-5 2-2 5-2-5-5-2 5-2z' opacity='.55'/><circle cx='60' cy='92' r='2' opacity='.6'/><circle cx='164' cy='18' r='1.6' opacity='.7'/></g></svg>"),
+  linear-gradient(rgba(255,255,255,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.10) 1px,transparent 1px),
+  linear-gradient(180deg,var(--sky-a) 0%,var(--sky-b) 45%,var(--sky-c) 100%);
+ background-size:180px 180px,44px 44px,44px 44px,100% 100%;background-attachment:fixed}
+
+/* sticker headlines: yellow fill, navy outline, white outer ring, hard drop */
+h1,.sechead h2,.qhead h2{font-family:var(--promo);font-weight:900;position:relative;z-index:0;text-shadow:none;letter-spacing:.01em}
+h1:hover,.sechead h2:hover,.qhead h2:hover{text-shadow:none}
+h1{color:var(--yellow);-webkit-text-stroke:9px var(--navy);paint-order:stroke fill;filter:drop-shadow(0 6px 0 var(--navy))}
+h1::before,.sechead h2::before{content:attr(data-t);position:absolute;inset:0;z-index:-1;color:#fff;-webkit-text-stroke:22px #fff;paint-order:stroke fill}
+h1 .mark{color:#fff}
+.sechead h2{color:#fff;-webkit-text-stroke:7px var(--navy);paint-order:stroke fill;filter:drop-shadow(0 5px 0 var(--navy))}
+.sechead h2::before{-webkit-text-stroke:16px #fff}
+.hero h1{font-size:clamp(42px,6.4vw,78px);line-height:1.12;transform:rotate(-2deg);transform-origin:left}
+.hero h1:hover{transform:rotate(-2deg) scale(1.02);transition:transform .3s var(--ease)}
+h3{font-family:var(--promo);font-weight:900}
+
+/* eyebrow labels become slanted ribbons */
+.label{display:inline-block;align-self:flex-start;justify-self:start;background:var(--red);color:#fff;font:900 13px var(--promo);letter-spacing:.08em;padding:6px 18px 6px 14px;clip-path:polygon(0 0,100% 0,calc(100% - 10px) 100%,0 100%);box-shadow:none;width:max-content;max-width:100%}
+.sechead .label{margin-bottom:10px}
+.era .label,.story .label{background:var(--royal)}
+.fact span{color:var(--royal);font-family:var(--promo);font-weight:900}
+.fact{background:var(--soft);box-shadow:inset 0 0 0 2px var(--line)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .fact span{color:#7fdcff}}
+:root[data-theme="dark"] .fact span{color:#7fdcff}
+
+/* top bar: glossy white strip */
+.top{background:linear-gradient(180deg,#ffffff,#eaf8ff);border-bottom:3px solid var(--navy)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .top{background:linear-gradient(180deg,#123a9a,#0b2470)}}
+:root[data-theme="dark"] .top{background:linear-gradient(180deg,#123a9a,#0b2470)}
+.logo{font:900 26px var(--promo);color:var(--royal);-webkit-text-stroke:0}
+nav.main a{font:900 15px var(--promo);color:var(--navy)}
+nav.main a[aria-current="page"]{background:var(--yellow);color:var(--navy);box-shadow:0 0 0 2px var(--navy)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) nav.main a{color:#fff}:root:not([data-theme="light"]) nav.main a[aria-current="page"]{color:var(--navy)}}
+:root[data-theme="dark"] nav.main a{color:#fff}:root[data-theme="dark"] nav.main a[aria-current="page"]{color:var(--navy)}
+.search input{background:#fff;border:2px solid var(--navy);color:#0b1a52}
+.mnav a[aria-current="page"]{background:var(--yellow);color:var(--navy)}
+
+/* panels with a double frame (white inside, navy outside) */
+.tile{background:var(--paper);border:3px solid #fff;border-radius:20px;box-shadow:var(--frame)}
+a.tile:hover,.tile.hov:hover{transform:translateY(-6px) rotate(-.4deg);border-color:#fff;box-shadow:0 0 0 3px var(--navy),0 0 0 7px var(--yellow),0 18px 30px -12px rgba(10,40,120,.55)}
+.why .tile{border:3px solid #fff;box-shadow:0 0 0 2px var(--line)}
+
+/* buttons: glossy promo pills with a light sweep */
+.btn{background:linear-gradient(180deg,#ffe866,var(--yellow) 45%,var(--orange));color:var(--navy);font:900 16px var(--promo);border:3px solid #fff;box-shadow:0 0 0 3px var(--navy),0 5px 0 3px var(--navy);position:relative;overflow:hidden}
+.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.75) 50%,transparent 70%);transform:translateX(-120%);transition:transform .6s var(--ease)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 0 3px var(--navy),0 7px 0 3px var(--navy)}
+.btn:hover::after{transform:translateX(120%)}
+.btn:active{transform:translateY(3px);box-shadow:0 0 0 3px var(--navy),0 1px 0 3px var(--navy)}
+.btn.ghost{background:linear-gradient(180deg,#ffffff,#d9f3ff)}
+.btn.sun{background:linear-gradient(180deg,#ff6b7d,var(--red));color:#fff}
+.chip{background:#fff;color:#0b1a52;border:2px solid var(--navy);font:900 14px var(--promo)}
+.chip:hover{background:#fff7c2}
+.chip[aria-pressed="true"]{background:linear-gradient(180deg,#4f7dff,var(--royal));color:#fff;border-color:var(--navy)}
+
+/* stickers become starbursts */
+.sticker{background:var(--yellow);color:var(--navy);font:900 13px var(--promo);border-radius:0;padding:14px 16px;clip-path:polygon(50% 0,61% 12%,76% 6%,79% 22%,95% 24%,89% 39%,100% 50%,89% 61%,95% 76%,79% 78%,76% 94%,61% 88%,50% 100%,39% 88%,24% 94%,21% 78%,5% 76%,11% 61%,0 50%,11% 39%,5% 24%,21% 22%,24% 6%,39% 12%);transform:rotate(-8deg)}
+.sticker.mint{background:var(--mint);color:var(--navy)}
+.sticker.coral{background:var(--red);color:#fff}
+.sticker.sky{background:var(--cyan);color:var(--navy)}
+.valuerow .sticker,.story .sticker,.top .sticker{clip-path:none;border-radius:999px;padding:5px 14px;box-shadow:0 0 0 2px var(--navy)}
+.deal .sticker{top:-22px;right:12px;padding:20px 18px}
+
+/* hero: slab fan on a burst, sparkles that twinkle */
+.hero{position:relative}
+.fan::before{width:440px;height:440px;border-radius:0;filter:none;background:conic-gradient(from 0deg,rgba(255,255,255,.55) 0 6deg,transparent 6deg 18deg);-webkit-mask:radial-gradient(circle,#000 0 40%,transparent 70%);mask:radial-gradient(circle,#000 0 40%,transparent 70%)}
+@media (prefers-reduced-motion:no-preference){.fan::before{animation:spin 40s linear infinite}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spark{position:absolute;width:26px;height:26px;background:#fff;clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);pointer-events:none}
+.spark.s1{left:2%;top:12%}.spark.s2{left:46%;top:8%;width:18px;height:18px}.spark.s3{right:6%;top:70%;width:34px;height:34px;background:var(--yellow)}.spark.s4{left:38%;bottom:6%;width:16px;height:16px;background:var(--pink)}
+@media (prefers-reduced-motion:no-preference){.spark{animation:twinkle 2.4s ease-in-out infinite}.spark.s2{animation-delay:.6s}.spark.s3{animation-delay:1.2s}.spark.s4{animation-delay:1.8s}}
+@keyframes twinkle{0%,100%{transform:scale(.6) rotate(0);opacity:.6}50%{transform:scale(1.15) rotate(45deg);opacity:1}}
+.hero .lead{color:var(--navy);background:rgba(255,255,255,.75);padding:10px 16px;border-radius:14px;font-weight:700}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .hero .lead{color:#fff;background:rgba(11,26,82,.6)}}
+:root[data-theme="dark"] .hero .lead{color:#fff;background:rgba(11,26,82,.6)}
+.promise .tile b,.ctile h3{font-family:var(--promo);font-weight:900}
+
+/* numbers: royal blue, heavy, no misregistration (that belonged to Riso pop) */
+.big,.era .v,.ctile .val,.why b{font-family:var(--promo);color:var(--royal);text-shadow:none}
+.big{-webkit-text-stroke:0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .big,:root:not([data-theme="light"]) .era .v,:root:not([data-theme="light"]) .ctile .val,:root:not([data-theme="light"]) .why b{color:#ffd400}}
+:root[data-theme="dark"] .big,:root[data-theme="dark"] .era .v,:root[data-theme="dark"] .ctile .val,:root[data-theme="dark"] .why b{color:#ffd400}
+
+/* forchetta: blue capsule with a yellow star pin */
+.fork .track{background:#dff3ff;box-shadow:inset 0 0 0 2px var(--navy)}
+.fork .band{background:linear-gradient(180deg,#4f7dff,var(--royal));box-shadow:inset 0 0 0 2px var(--navy)}
+.fork:hover .band{box-shadow:inset 0 0 0 2px var(--navy),0 0 0 3px var(--yellow)}
+.fork .pin{width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:0;background:var(--yellow);box-shadow:none;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.fork.mini .pin{width:15px;height:15px;margin:-7.5px 0 0 -7.5px}
+.fork.mini .band{box-shadow:inset 0 0 0 1.5px var(--navy)}
+.ladder .lt{background:#dff3ff;box-shadow:inset 0 0 0 2px var(--navy)}
+.ladder .lt i{background:linear-gradient(180deg,#4f7dff,var(--royal))}
+.ladder .r.on{background:#fff7c2}
+
+/* question panels: a blue header band like the flyer's side panels */
+.q{padding:0;overflow:hidden}
+.q>*:not(.qhead){margin-inline:22px}
+.q>*:last-child{margin-bottom:22px}
+.qhead{background:linear-gradient(180deg,#4f7dff,var(--royal));padding:12px 18px;border-bottom:3px solid var(--navy)}
+.qhead h2{color:#fff;-webkit-text-stroke:6px var(--navy);paint-order:stroke fill;font-size:22px}
+.qn{background:var(--yellow);color:var(--navy);font-family:var(--promo);box-shadow:0 0 0 2px var(--navy)}
+.story .n,.deal .ring b{font-family:var(--promo)}
+.story .n{background:var(--yellow);color:var(--navy);box-shadow:0 0 0 3px var(--navy)}
+.ctile .rank{font-family:var(--promo);color:var(--royal)}
+.ring circle.f{filter:drop-shadow(0 0 0 var(--navy))}
+.prob{font-family:var(--promo)}
+.receipt{background:#fffbe0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .receipt{background:#13348a}}
+:root[data-theme="dark"] .receipt{background:#13348a}
+.slab{border:3px solid #fff;box-shadow:0 0 0 3px var(--navy),0 22px 40px -18px rgba(10,40,120,.6)}
+.slab .gr strong{color:#1d3fd1;text-shadow:none}
+footer{background:var(--navy);color:#fff;border-top:4px solid var(--yellow)}
+footer .wrap{color:#cfe3ff}
+.crumbs{color:var(--navy)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .crumbs{color:#fff}}
+:root[data-theme="dark"] .crumbs{color:#fff}
+.note{color:var(--muted)}
+.sechead .note,.sechead p.muted{background:rgba(255,255,255,.7);padding:6px 12px;border-radius:12px;color:var(--navy)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .sechead .note,:root:not([data-theme="light"]) .sechead p.muted{background:rgba(11,26,82,.6);color:#fff}}
+:root[data-theme="dark"] .sechead .note,:root[data-theme="dark"] .sechead p.muted{background:rgba(11,26,82,.6);color:#fff}
+
+/* Slabby's bubble becomes a comic panel */
+.slabby .sb-bubble{border:3px solid #fff;box-shadow:0 0 0 3px var(--navy),0 14px 26px -12px rgba(10,40,120,.6);border-radius:20px 20px 4px 20px;font-weight:700}
+.slabby .sb-actions button{background:linear-gradient(180deg,#ffe866,var(--yellow) 45%,var(--orange));color:var(--navy);font-family:var(--promo);box-shadow:0 0 0 2px var(--navy)}
+.slabby .sb-actions button.ghost{background:#fff}
+.sb-spot{animation:spotP 2.4s var(--ease)}
+@keyframes spotP{0%{box-shadow:0 0 0 0 rgba(255,212,0,0)}15%{box-shadow:0 0 0 6px var(--yellow),0 0 0 10px var(--navy)}100%{box-shadow:0 0 0 0 rgba(255,212,0,0)}}
+
+.top .sticker{color:#0b1a52}
+/* phones: thinner outlines so the sticker titles stay legible */
+@media (max-width:600px){
+ h1{-webkit-text-stroke:6px var(--navy);filter:drop-shadow(0 4px 0 var(--navy))}
+ h1::before{-webkit-text-stroke:14px #fff}
+ .sechead h2{-webkit-text-stroke:5px var(--navy)}
+ .sechead h2::before{-webkit-text-stroke:11px #fff}
+ .label{white-space:normal;max-width:calc(100% - 10px)}
+ .hero h1{transform:rotate(-1.5deg)}
+}
+
+/* the flyer's forward slant: titles, ribbons, buttons, dates and prices lean like 「予約購入がお得!」 */
+h1,.sechead h2,.qhead h2{transform:skewX(-9deg);transform-origin:left bottom;letter-spacing:-.01em}
+.hero h1{transform:rotate(-2deg) skewX(-9deg)}
+.hero h1:hover{transform:rotate(-2deg) skewX(-9deg) scale(1.02)}
+.label,.btn,.chip,nav.main a,.mnav a,.sticker,.qn,.story .n{font-style:normal}
+.label>*,.btn{letter-spacing:.02em}
+.label{transform:skewX(-9deg);transform-origin:left}
+.big,.ctile .val,.era .v,.fact b,.prob,.deal .ring b{display:inline-block;transform:skewX(-7deg);font-weight:900;letter-spacing:-.01em}
+.ctile .val,.era .v,.fact b{font-family:var(--promo)}
+.hook{font-family:var(--promo);font-weight:900;transform:skewX(-6deg);transform-origin:left}
+body{font-family:var(--body)}
+@media (max-width:600px){.hero h1{transform:rotate(-1.5deg) skewX(-8deg)}}

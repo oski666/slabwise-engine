@@ -1,0 +1,38 @@
+params {'q_L': 0.0025, 'q_d': 0.0001, 'sigma_e': 0.1, 'sigma_a': 0.08, 'sigma_q': 0.03, 'tau_f': 0.08, 'tau_s': 0.0, 'phi': 0.9, 'window': 156, 'max_obs': 80, 'iters': 8, 'card_drift': False, 'era_gaps': False, 'venue_gaps': True, 'gap_start': True, 'grade_keep': 0, 'roll_bound': 3.0} W 196 train 65
+/home/claude/slabwise-engine/slabwise/baselines.py:177: RuntimeWarning: All-NaN slice encountered
+  gaps = np.nanmedian(own[:, :-1] - own[:, 1:], axis=0)            # global ladder ratios
+offs [0.0, -0.0812, 0.0]
+{
+ "n_sales": 14212,
+ "ES": {
+  "Ultima vendita": 0.09097177820572622,
+  "tcgcharts (mediana a fasce)": 0.0749013081731178,
+  "PriceCharting (media pesata per età)": 0.09034117133611952,
+  "Card Ladder (ultima vendita × indice)": 0.09077207528533426,
+  "Slabwise v0 (regole, tipo TCGBerg)": 0.09408106874486011,
+  "Slabwise LVM": 0.07318788803807674
+ },
+ "R2": {
+  "passed": true,
+  "best_competitor": "tcgcharts (mediana a fasce)"
+ },
+ "R3": {
+  "alta (≥26)": {
+   "lvm": 0.06808951090140081,
+   "best": 0.06966956555479076,
+   "passed": true
+  },
+  "bassa (≤5)": {
+   "lvm": 0.1759437517416531,
+   "best": 0.14244798045241014,
+   "passed": false
+  },
+  "media (6-25)": {
+   "lvm": 0.13561880040796037,
+   "best": 0.13362356701873734,
+   "passed": true
+  }
+ },
+ "R3_passed": false,
+ "R4_coverage": 0.8086124401913876
+}

@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>Slabby neon sheet</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#1D3FD1}a:hover{color:#0E1A5C}
+</style>
+</helmet>
+<div style="width: 1200px; height: 1800px; background: #ffffff; position: relative; overflow: hidden; font-family: 'Mochiy Pop One', sans-serif">
+
+<svg width="0" height="0" style="position: absolute" aria-hidden="true">
+<defs>
+<filter id="ppFuzz" x="-20%" y="-20%" width="140%" height="140%">
+<feTurbulence type="fractalNoise" baseFrequency="0.11" numOctaves="2" seed="4" result="n"></feTurbulence>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+</filter>
+<filter id="ppWob" x="-20%" y="-20%" width="140%" height="140%">
+<feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="9" result="n"></feTurbulence>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="3" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+</filter>
+<g id="pp-trunk">
+<path d="M100 30 C150 30 172 70 170 120 C168 170 150 196 100 196 C50 196 32 170 30 120 C28 70 50 30 100 30 Z"></path>
+<ellipse cx="76" cy="196" rx="20" ry="11"></ellipse>
+<ellipse cx="124" cy="196" rx="20" ry="11"></ellipse>
+</g>
+<g id="pp-horns">
+<path d="M66 50 Q54 22 72 12 Q80 30 86 44 Z"></path>
+<path d="M134 50 Q146 22 128 12 Q120 30 114 44 Z"></path>
+</g>
+<g id="pp-armsD">
+<path d="M36 112 Q12 124 20 144 Q32 152 42 138 Z"></path>
+<path d="M164 112 Q188 124 180 144 Q168 152 158 138 Z"></path>
+</g>
+<g id="pp-armsU">
+<path d="M40 108 Q12 94 16 70 Q28 60 38 76 Q38 94 50 100 Z"></path>
+<path d="M160 108 Q188 94 184 70 Q172 60 162 76 Q162 94 150 100 Z"></path>
+</g>
+<g id="pp-detail" fill="none" stroke-linecap="round">
+<path d="M62 160 Q100 188 138 160" stroke="#2EE6FF" stroke-width="3.5"></path>
+<path d="M24 132 Q30 142 40 134" stroke="#FF2E93" stroke-width="3"></path>
+<path d="M176 132 Q170 142 160 134" stroke="#FF2E93" stroke-width="3"></path>
+<path d="M70 204 L70 196 M80 205 L80 197 M120 205 L120 197 M130 204 L130 196" stroke="#39F2A6" stroke-width="3"></path>
+<path d="M140 52 Q156 66 160 90" stroke="#2EE6FF" stroke-width="3" opacity="0.8"></path>
+</g>
+<g id="pp-cheeks">
+<ellipse cx="58" cy="116" rx="11" ry="6" fill="#FF2E93" opacity="0.8"></ellipse>
+<ellipse cx="142" cy="116" rx="11" ry="6" fill="#FF2E93" opacity="0.8"></ellipse>
+</g>
+<g id="pp-smug">
+<path d="M68 90 L92 96 M132 90 L108 96" stroke="#FF2E93" stroke-width="6" stroke-linecap="round"></path>
+<path d="M72 93 Q84 104 90 97 Z M128 93 Q116 104 110 97 Z" fill="#FFC93C"></path>
+</g>
+<linearGradient id="ppTeeth" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#FFF7D6"></stop>
+<stop offset="1" stop-color="#F2CF5B"></stop>
+</linearGradient>
+<g id="pp-grin">
+<path d="M50 110 Q100 138 150 110 Q100 222 50 110 Z" fill="url(#ppTeeth)"></path>
+<path d="M60 128 Q100 158 140 128 Q100 200 60 128 Z" fill="#D9A632" opacity="0.3"></path>
+<path d="M52 111 L62 132 L70 120 L78 153 L86 123 L94 163 L102 124 L110 162 L118 122 L126 149 L134 118 L142 125 L148 111" fill="none" stroke="#0E1A5C" stroke-width="2.6" stroke-linejoin="miter"></path>
+<path d="M64 128 L67 138" stroke="#0E1A5C" stroke-width="2" stroke-linecap="round"></path>
+<path d="M50 110 Q100 138 150 110 Q100 222 50 110 Z" fill="none" stroke="#0E1A5C" stroke-width="3.5" stroke-linejoin="round"></path>
+<path d="M52 104 Q100 132 148 104" fill="none" stroke="#2EE6FF" stroke-width="3.5" stroke-linecap="round"></path>
+<path d="M60 136 Q100 206 140 136" fill="none" stroke="#FF2E93" stroke-width="3" stroke-linecap="round"></path>
+<path d="M44 102 Q49 111 46 120 M156 102 Q151 111 154 120" fill="none" stroke="#FF2E93" stroke-width="3" stroke-linecap="round"></path>
+<path d="M88 178 L112 178" stroke="#2EE6FF" stroke-width="2.5" stroke-linecap="round" opacity="0.8"></path>
+</g>
+<g id="pp-open">
+<path d="M50 108 Q100 132 150 108 Q100 236 50 108 Z" fill="#2A0A3A"></path>
+<ellipse cx="100" cy="160" rx="24" ry="9" fill="#FF2E93"></ellipse>
+<path d="M100 154 L100 166" stroke="#C2186E" stroke-width="2.5" stroke-linecap="round"></path>
+<path d="M50 108 Q100 132 150 108 L142 126 L134 117 L126 133 L118 122 L110 136 L102 124 L94 137 L86 123 L78 133 L70 119 L62 126 L56 111 Z" fill="url(#ppTeeth)" stroke="#0E1A5C" stroke-width="2.2" stroke-linejoin="round"></path>
+<path d="M56 122 L68 132 L74 155 L80 148 L86 167 L93 157 L100 172 L107 157 L114 167 L120 148 L126 155 L132 132 L144 122 Q100 222 56 122 Z" fill="url(#ppTeeth)" stroke="#0E1A5C" stroke-width="2.2" stroke-linejoin="round"></path>
+<path d="M50 108 Q100 132 150 108 Q100 236 50 108 Z" fill="none" stroke="#0E1A5C" stroke-width="3.5" stroke-linejoin="round"></path>
+<path d="M52 102 Q100 128 148 102" fill="none" stroke="#2EE6FF" stroke-width="3.5" stroke-linecap="round"></path>
+<path d="M44 100 Q49 109 46 118 M156 100 Q151 109 154 118" fill="none" stroke="#FF2E93" stroke-width="3" stroke-linecap="round"></path>
+</g>
+</defs>
+</svg>
+
+<svg viewBox="-30 -10 260 240" style="position: absolute; left: 30px; top: 20px; width: 330px; height: 305px" role="img" aria-label="Slabby imbronciato">
+<g filter="url(#ppFuzz)">
+<g transform="translate(-6 4)" fill="#2EE6FF"><use href="#pp-trunk"></use><use href="#pp-horns"></use><use href="#pp-armsD"></use></g>
+<g transform="translate(6 -3)" fill="#FF2E93"><use href="#pp-trunk"></use><use href="#pp-horns"></use><use href="#pp-armsD"></use></g>
+<g fill="#1D3FD1"><use href="#pp-trunk"></use><use href="#pp-armsD"></use></g>
+<use href="#pp-horns" fill="#FFC93C"></use>
+</g>
+<g filter="url(#ppWob)">
+<use href="#pp-detail"></use><use href="#pp-cheeks"></use>
+<path d="M68 98 L92 98 M108 98 L132 98" stroke="#FF2E93" stroke-width="6" stroke-linecap="round"></path>
+<path d="M75 100 Q80 107 85 100 Z M115 100 Q120 107 125 100 Z" fill="#FFC93C"></path>
+<use href="#pp-grin" transform="translate(100 140) scale(0.8 -0.8) translate(-100 -139)"></use>
+</g>
+</svg>
+
+<svg viewBox="-30 -10 260 254" style="position: absolute; left: 400px; top: 10px; width: 330px; height: 322px" role="img" aria-label="Slabby stringe una carta gradata e sbava">
+<g filter="url(#ppFuzz)">
+<g transform="translate(-6 4)" fill="#2EE6FF"><use href="#pp-trunk"></use><use href="#pp-horns"></use><use href="#pp-armsD"></use></g>
+<g transform="translate(6 -3)" fill="#FF2E93"><use href="#pp-trunk"></use><use href="#pp-horns"></use><use href="#pp-armsD"></use></g>
+<g fill="#1D3FD1"><use href="#pp-trunk"></use><use href="#pp-armsD"></use></g>
+<use href="#pp-horns" fill="#FFC93C"></use>
+</g>
+<g filter="url(#ppWob)">
+<use href="#pp-cheeks"></use>
+<circle cx="80" cy="94" r="10" fill="#FFC93C" stroke="#FF2E93" stroke-width="3"></circle>
+<circle cx="120" cy="94" r="10" fill="#FFC93C" stroke="#FF2E93" stroke-width="3"></circle>
+<circle cx="83" cy="90" r="3" fill="#ffffff"></circle><circle cx="123" cy="90" r="3" fill="#ffffff"></circle>
+<use href="#pp-open" transform="translate(100 108) scale(0.78) translate(-100 -108)"></use>
+<path d="M136 112 Q142 134 137 146 Q131 134 133 114 Z" fill="#2EE6FF"></path>
+<g transform="translate(0 18) rotate(-6 100 170)">
+<rect x="64" y="134" width="72" height="86" rx="6" fill="#0E1A5C" stroke="#2EE6FF" stroke-width="4"></rect>
+<rect x="70" y="140" width="60" height="18" rx="3" fill="#FFC93C"></rect>
+<text x="100" y="153" text-anchor="middle" font-family="Mochiy Pop One, sans-serif" font-size="11" fill="#0E1A5C">GEM 10</text>
+<rect x="72" y="164" width="56" height="48" rx="3" fill="#FF2E93" opacity="0.75"></rect>
+<path d="M88 180 l6 -12 l6 12 l12 4 l-12 4 l-6 12 l-6 -12 l-12 -4 z" fill="#39F2A6"></path>
+<path d="M60 140 L52 132 M60 152 L48 150" stroke="#39F2A6" stroke-width="3" stroke-linecap="round"></path>
+</g>
+<circle cx="60" cy="192" r="11" fill="#1D3FD1"></circle>
+<circle cx="142" cy="186" r="11" fill="#1D3FD1"></circle>
+<path d="M54 190 Q58 196 64 194 M136 184 Q140 190 146 188" fill="none" stroke="#FF2E93" stroke-width="2.5" stroke-linecap="round"></path>
+</g>
+</svg>
+
+<svg viewBox="-20 60 240 180" style="position: absolute; left: 790px; top: 70px; width: 380px; height: 285px" role="img" aria-label="Slabby sciolto in una pozza neon con gli occhi a spirale">
+<g filter="url(#ppFuzz)">
+<ellipse cx="100" cy="202" rx="116" ry="18" fill="#FF2E93"></ellipse>
+<ellipse cx="96" cy="199" rx="98" ry="11" fill="#2EE6FF"></ellipse>
+<ellipse cx="108" cy="197" rx="64" ry="6" fill="#39F2A6"></ellipse>
+<g transform="translate(-6 4)" fill="#2EE6FF"><path d="M8 196 C8 128 52 96 100 96 C148 96 192 128 192 196 Z"></path><use href="#pp-horns" transform="translate(0 82)"></use></g>
+<g transform="translate(6 -3)" fill="#FF2E93"><path d="M8 196 C8 128 52 96 100 96 C148 96 192 128 192 196 Z"></path><use href="#pp-horns" transform="translate(0 82)"></use></g>
+<path d="M8 196 C8 128 52 96 100 96 C148 96 192 128 192 196 Z" fill="#1D3FD1"></path>
+<use href="#pp-horns" transform="translate(0 82)" fill="#FFC93C"></use>
+</g>
+<g filter="url(#ppWob)">
+<ellipse cx="68" cy="148" rx="22" ry="15" fill="#FF2E93"></ellipse>
+<ellipse cx="132" cy="148" rx="22" ry="15" fill="#FF2E93"></ellipse>
+<path d="M62 148 a6 6 0 1 1 6 6 a3 3 0 1 1 -3 -3" fill="none" stroke="#FFC93C" stroke-width="3" stroke-linecap="round"></path>
+<path d="M126 148 a6 6 0 1 1 6 6 a3 3 0 1 1 -3 -3" fill="none" stroke="#FFC93C" stroke-width="3" stroke-linecap="round"></path>
+<path d="M88 178 Q94 172 100 178 Q106 184 112 178" fill="none" stroke="#2EE6FF" stroke-width="4" stroke-linecap="round"></path>
+<path d="M-6 188 L20 188 M180 186 L210 186" stroke="#FFC93C" stroke-width="3" stroke-linecap="round"></path>
+</g>
+</svg>
+
+<svg viewBox="-30 -10 260 240" style="position: absolute; left: 30px; top: 400px; width: 300px; height: 277px" role="img" aria-label="Slabby dorme con la bolla al naso">
+<g filter="url(#ppFuzz)">
+<g transform="translate(-6 4)" fill="#2EE6FF"><use href="#pp-trunk"></use><use href="#pp-horns"></use><use href="#pp-armsD"></use></g>
+<g transform="translate(6 -3)" fill="#FF2E93"><use href="#pp-trunk"></use><use href="#pp-horns"></use><use href="#pp-armsD"></use></g>
+<g fill="#1D3FD1"><use href="#pp-trunk"></use><use href="#pp-armsD"></use></g>
+<use href="#pp-horns" fill="#FFC93C"></use>
+</g>
+<g filter="url(#ppWob)">
+<use href="#pp-detail"></use><use href="#pp-cheeks"></use>
+<path d="M68 98 Q80 108 92 98 M108 98 Q120 108 132 98" fill="none" stroke="#FF2E93" stroke-width="5" stroke-linecap="round"></path>
+<path d="M72 106 l-2 6 M80 108 l0 6 M88 106 l2 6 M112 106 l-2 6 M120 108 l0 6 M128 106 l2 6" stroke="#FFC93C" stroke-width="2.5" stroke-linecap="round"></path>
+<ellipse cx="100" cy="132" rx="7" ry="8" fill="#FF2E93"></ellipse>
+<circle cx="126" cy="120" r="15" fill="#2EE6FF" fill-opacity="0.25" stroke="#2EE6FF" stroke-width="3"></circle>
+<path d="M120 114 Q123 110 128 111" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"></path>
+</g>
+<text x="152" y="22" font-family="Mochiy Pop One, sans-serif" font-size="30" fill="#2EE6FF">Z</text>
+<text x="180" y="2" font-family="Mochiy Pop One, sans-serif" font-size="22" fill="#FF2E93">z</text>
+<text x="200" y="-8" font-family="Mochiy Pop One, sans-serif" font-size="16" fill="#39F2A6">z</text>
+</svg>
+
+<svg viewBox="-30 -10 260 240" style="position: absolute; left: 880px; top: 390px; width: 300px; height: 277px" role="img" aria-label="Slabby ride fino alle lacrime">
+<g fill="none" stroke="#1B1446" stroke-width="2.5" stroke-linecap="round">
+<path d="M-20 60 Q-12 80 -20 100 M-8 50 Q2 76 -8 104 M220 60 Q212 80 220 100 M208 50 Q198 76 208 104"></path>
+</g>
+<g filter="url(#ppFuzz)">
+<g transform="translate(-6 4)" fill="#2EE6FF"><use href="#pp-trunk"></use><use href="#pp-horns"></use><use href="#pp-armsU"></use></g>
+<g transform="translate(6 -3)" fill="#FF2E93"><use href="#pp-trunk"></use><use href="#pp-horns"></use><use href="#pp-armsU"></use></g>
+<g fill="#1D3FD1"><use href="#pp-trunk"></use><use href="#pp-armsU"></use></g>
+<use href="#pp-horns" fill="#FFC93C"></use>
+</g>
+<g filter="url(#ppWob)">
+<use href="#pp-cheeks"></use>
+<path d="M62 160 Q100 188 138 160" fill="none" stroke="#2EE6FF" stroke-width="3.5" stroke-linecap="round"></path>
+<path d="M68 100 Q80 86 92 100 M108 100 Q120 86 132 100" fill="none" stroke="#2EE6FF" stroke-width="5.5" stroke-linecap="round"></path>
+<use href="#pp-open"></use>
+<path d="M60 100 Q50 112 58 118 Q64 112 60 100 Z M140 100 Q150 112 142 118 Q136 112 140 100 Z" fill="#2EE6FF"></path>
+</g>
+</svg>
+
+<svg viewBox="-60 -20 320 560" style="position: absolute; left: 300px; top: 300px; width: 600px; height: 1050px" role="img" aria-label="Slabby, posa principale: sorride furbo a braccia aperte mentre si scioglie in una colata di colore rosa, ciano e verde">
+<g filter="url(#ppFuzz)">
+<path d="M30 150 C20 220 34 250 40 300 Q44 340 58 312 L62 260 Q66 400 90 380 L94 300 Q100 470 124 450 L126 330 Q134 400 152 384 L156 290 Q162 340 176 318 C182 260 178 190 170 150 Z" fill="#FF2E93"></path>
+<path d="M46 160 C38 220 50 250 54 280 Q58 304 68 286 L72 250 Q78 340 96 326 L100 280 Q106 380 122 366 L124 300 Q132 330 144 316 L148 240 C154 210 154 180 150 160 Z" fill="#2EE6FF"></path>
+<path d="M64 168 C58 210 66 240 72 262 Q78 284 88 262 L92 240 Q100 300 114 288 L116 240 Q124 262 134 248 C138 220 138 190 134 168 Z" fill="#39F2A6"></path>
+<g transform="translate(-7 5)" fill="#2EE6FF"><use href="#pp-trunk"></use><use href="#pp-horns"></use><use href="#pp-armsU"></use></g>
+<g transform="translate(7 -4)" fill="#FF2E93"><use href="#pp-trunk"></use><use href="#pp-horns"></use><use href="#pp-armsU"></use></g>
+<g fill="#1D3FD1"><use href="#pp-trunk"></use><use href="#pp-armsU"></use></g>
+<use href="#pp-horns" fill="#FFC93C"></use>
+</g>
+<g filter="url(#ppWob)">
+<path d="M62 160 Q100 188 138 160" fill="none" stroke="#2EE6FF" stroke-width="3.5" stroke-linecap="round"></path>
+<path d="M140 52 Q156 66 160 90" fill="none" stroke="#2EE6FF" stroke-width="3" stroke-linecap="round" opacity="0.8"></path>
+<path d="M26 78 Q30 90 38 92 M174 78 Q170 90 162 92" fill="none" stroke="#FF2E93" stroke-width="3" stroke-linecap="round"></path>
+<use href="#pp-cheeks"></use><use href="#pp-smug"></use><use href="#pp-grin"></use>
+<path d="M84 70 L96 80 M116 70 L104 80" stroke="#FF2E93" stroke-width="4" stroke-linecap="round"></path>
+<g fill="none" stroke="#1B1446" stroke-width="2.2" stroke-linecap="round">
+<path d="M-6 56 Q-14 74 -8 92 M2 40 Q-10 64 -2 84 M206 56 Q214 74 208 92 M198 40 Q210 64 202 84"></path>
+</g>
+<path d="M170 330 l0 30 M180 300 l0 18 M44 330 l0 24" stroke="#FF2E93" stroke-width="5" stroke-linecap="round"></path>
+</g>
+</svg>
+
+<svg viewBox="-30 -10 260 240" style="position: absolute; left: 30px; top: 770px; width: 300px; height: 277px" role="img" aria-label="Slabby visto da dietro con la codina">
+<g filter="url(#ppFuzz)">
+<g transform="translate(-6 4)" fill="#2EE6FF"><use href="#pp-trunk"></use><use href="#pp-horns"></use><use href="#pp-armsD"></use></g>
+<g transform="translate(6 -3)" fill="#FF2E93"><use href="#pp-trunk"></use><use href="#pp-horns"></use><use href="#pp-armsD"></use></g>
+<g fill="#1D3FD1"><use href="#pp-trunk"></use><use href="#pp-armsD"></use><path d="M100 170 Q134 162 136 186 Q128 196 116 186 Z"></path></g>
+<use href="#pp-horns" fill="#FFC93C"></use>
+</g>
+<g filter="url(#ppWob)" fill="none" stroke-linecap="round" stroke-width="3.5">
+<path d="M58 72 Q72 60 86 74" stroke="#2EE6FF"></path>
+<path d="M110 58 Q124 50 136 66" stroke="#FF2E93"></path>
+<path d="M66 126 Q86 114 98 134" stroke="#39F2A6"></path>
+<path d="M118 146 Q138 136 148 156" stroke="#2EE6FF"></path>
+<path d="M50 166 Q64 160 72 172" stroke="#FF2E93"></path>
+<path d="M120 182 Q126 190 132 184" stroke="#39F2A6" stroke-width="3"></path>
+</g>
+</svg>
+
+<svg viewBox="-30 -10 260 240" style="position: absolute; left: 880px; top: 750px; width: 300px; height: 277px" role="img" aria-label="Slabby sconvolto in mezzo a una pozza neon">
+<g filter="url(#ppFuzz)">
+<ellipse cx="100" cy="208" rx="110" ry="14" fill="#FF2E93"></ellipse>
+<ellipse cx="92" cy="205" rx="90" ry="8" fill="#2EE6FF"></ellipse>
+<g transform="translate(-6 4)" fill="#2EE6FF"><use href="#pp-trunk"></use><use href="#pp-horns"></use><use href="#pp-armsU"></use></g>
+<g transform="translate(6 -3)" fill="#FF2E93"><use href="#pp-trunk"></use><use href="#pp-horns"></use><use href="#pp-armsU"></use></g>
+<g fill="#1D3FD1"><use href="#pp-trunk"></use><use href="#pp-armsU"></use></g>
+<use href="#pp-horns" fill="#FFC93C"></use>
+</g>
+<g filter="url(#ppWob)">
+<path d="M62 160 Q100 188 138 160" fill="none" stroke="#2EE6FF" stroke-width="3.5" stroke-linecap="round"></path>
+<ellipse cx="80" cy="96" rx="12" ry="15" fill="#FFC93C" stroke="#FF2E93" stroke-width="3"></ellipse>
+<ellipse cx="120" cy="96" rx="12" ry="15" fill="#FFC93C" stroke="#FF2E93" stroke-width="3"></ellipse>
+<circle cx="80" cy="97" r="2.5" fill="#0E1A5C"></circle>
+<circle cx="120" cy="97" r="2.5" fill="#0E1A5C"></circle>
+<use href="#pp-grin" transform="translate(100 118) scale(0.8 0.55) translate(-100 -110)"></use>
+<path d="M164 40 Q156 54 164 60 Q172 54 164 40 Z M184 66 Q178 76 184 80 Q190 76 184 66 Z" fill="#2EE6FF"></path>
+<path d="M76 44 L76 70 M90 40 L90 72 M104 40 L104 72 M118 44 L118 70" stroke="#2EE6FF" stroke-width="2.5" stroke-linecap="round" opacity="0.8"></path>
+</g>
+</svg>
+
+<svg viewBox="-20 0 240 130" style="position: absolute; left: 900px; top: 1060px; width: 260px; height: 141px" role="img" aria-label="Slabby sbuca dal bordo e spia">
+<g filter="url(#ppFuzz)">
+<g transform="translate(-6 4)" fill="#2EE6FF"><use href="#pp-trunk"></use><use href="#pp-horns"></use></g>
+<g transform="translate(6 -3)" fill="#FF2E93"><use href="#pp-trunk"></use><use href="#pp-horns"></use></g>
+<use href="#pp-trunk" fill="#1D3FD1"></use>
+<use href="#pp-horns" fill="#FFC93C"></use>
+<rect x="-20" y="114" width="240" height="20" fill="#ffffff"></rect>
+</g>
+<g filter="url(#ppWob)">
+<path d="M68 94 L92 94 M108 94 L132 94" stroke="#FF2E93" stroke-width="6" stroke-linecap="round"></path>
+<path d="M78 96 Q83 106 88 96 Z M118 96 Q123 106 128 96 Z" fill="#FFC93C"></path>
+<path d="M-10 114 L210 114" stroke="#FF2E93" stroke-width="5" stroke-linecap="round"></path>
+<path d="M0 121 L196 121" stroke="#2EE6FF" stroke-width="4" stroke-linecap="round"></path>
+<path d="M30 127 L150 127" stroke="#FFC93C" stroke-width="3" stroke-linecap="round"></path>
+</g>
+</svg>
+
+<svg viewBox="-40 0 300 236" style="position: absolute; left: 20px; top: 1160px; width: 390px; height: 307px" role="img" aria-label="Slabby sdraiato su un fianco fa l'occhiolino sopra strisce di colore">
+<g filter="url(#ppWob)" stroke-linecap="round">
+<path d="M-30 214 L240 214" stroke="#FF2E93" stroke-width="7"></path>
+<path d="M-10 224 L210 224" stroke="#2EE6FF" stroke-width="6"></path>
+<path d="M20 232 L170 232" stroke="#FFC93C" stroke-width="5"></path>
+<path d="M60 204 L250 204" stroke="#39F2A6" stroke-width="4"></path>
+</g>
+<g transform="translate(18 40) rotate(-78 100 113)">
+<g filter="url(#ppFuzz)">
+<g transform="translate(-6 4)" fill="#2EE6FF"><use href="#pp-trunk"></use><use href="#pp-horns"></use><use href="#pp-armsD"></use></g>
+<g transform="translate(6 -3)" fill="#FF2E93"><use href="#pp-trunk"></use><use href="#pp-horns"></use><use href="#pp-armsD"></use></g>
+<g fill="#1D3FD1"><use href="#pp-trunk"></use><use href="#pp-armsD"></use></g>
+<use href="#pp-horns" fill="#FFC93C"></use>
+</g>
+<g filter="url(#ppWob)">
+<use href="#pp-cheeks"></use>
+<path d="M68 94 L92 94" stroke="#FF2E93" stroke-width="6" stroke-linecap="round"></path>
+<path d="M74 96 Q80 106 86 96 Z" fill="#FFC93C"></path>
+<path d="M108 98 Q120 90 132 98" fill="none" stroke="#FF2E93" stroke-width="5.5" stroke-linecap="round"></path>
+<use href="#pp-grin"></use>
+</g>
+</g>
+<path d="M226 30 l5 -14 l5 14 l14 5 l-14 5 l-5 14 l-5 -14 l-14 -5 z" fill="#FFC93C"></path>
+</svg>
+
+<svg viewBox="-30 -10 260 240" style="position: absolute; left: 760px; top: 1220px; width: 420px; height: 388px" role="img" aria-label="Slabby beato a occhi chiusi con un sorriso soddisfatto">
+<g filter="url(#ppFuzz)">
+<g transform="translate(-7 5)" fill="#2EE6FF"><use href="#pp-trunk"></use><use href="#pp-horns"></use><use href="#pp-armsD"></use></g>
+<g transform="translate(7 -4)" fill="#FF2E93"><use href="#pp-trunk"></use><use href="#pp-horns"></use><use href="#pp-armsD"></use></g>
+<g fill="#1D3FD1"><use href="#pp-trunk"></use><use href="#pp-armsD"></use></g>
+<use href="#pp-horns" fill="#FFC93C"></use>
+</g>
+<g filter="url(#ppWob)">
+<use href="#pp-detail"></use><use href="#pp-cheeks"></use>
+<path d="M66 100 Q80 86 94 100 M106 100 Q120 86 134 100" fill="none" stroke="#FF2E93" stroke-width="6" stroke-linecap="round"></path>
+<use href="#pp-grin"></use>
+</g>
+</svg>
+
+<div style="position: absolute; left: 440px; top: 1640px; transform: rotate(-6deg); color: #1D3FD1; display: flex; flex-direction: column; align-items: center; line-height: 1">
+<div style="font-size: 34px">SLABBY</div>
+<div style="font-size: 16px; color: #FF2E93; margin-top: 6px">slabwise · 2026</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":1800}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<title>Slabwise Reel</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Manrope:wght@500;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: palco 9:16 centrato (1080×1920 in scala), controlli sotto. Look notturno unico e voluto, olografico solo su carta, prezzo e logo. */
+:root{
+  --ink:#0b0d1a; --ink-2:#141834; --line:#2a3160; --fg:#f1f2ff; --muted:#a3a8d4;
+  --cyan:#6ef0ff; --violet:#9d8cff; --pink:#ff8ad8; --gold:#ffd46b; --up:#4fe3a1; --down:#ff6b81;
+  --holo:linear-gradient(105deg,var(--cyan) 0%,var(--violet) 30%,var(--pink) 58%,var(--gold) 82%,var(--cyan) 100%);
+  --f-d:"Unbounded","Arial Black",system-ui,sans-serif; --f-b:"Manrope","Segoe UI",system-ui,sans-serif; --f-m:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:#05060e;color:var(--fg);font-family:var(--f-b);display:grid;place-items:center;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px}
+.wrapall{display:grid;gap:14px;justify-items:center;width:100%}
+.stage{position:relative;width:min(100%,calc((100vh - 120px)*9/16),460px);aspect-ratio:9/16;border-radius:22px;overflow:hidden;background:radial-gradient(120% 70% at 80% 0%,#2a2066 0%,transparent 60%),radial-gradient(90% 60% at 0% 100%,#0f3a4a 0%,transparent 60%),var(--ink);box-shadow:0 40px 90px -40px rgba(157,140,255,.55),0 0 0 1px rgba(255,255,255,.06);container-type:inline-size}
+.stage *{position:absolute}
+.u{font-size:1cqw}
+/* testo */
+.cap{left:7cqw;right:7cqw;font:800 7.6cqw/1.08 var(--f-d);letter-spacing:-.03em;text-wrap:balance;opacity:0;transform:translateY(4cqw);transition:opacity .45s,transform .55s cubic-bezier(.2,.8,.2,1)}
+.cap.on{opacity:1;transform:none}
+.cap em{font-style:normal;background:var(--holo);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:foil 3s linear infinite}
+.sub{left:7cqw;right:7cqw;font:600 3.6cqw/1.35 var(--f-b);color:var(--muted);opacity:0;transition:opacity .5s .15s}
+.sub.on{opacity:1}
+@keyframes foil{to{background-position:200% 0}}
+/* slab */
+.slab{left:50%;top:22%;width:54cqw;aspect-ratio:63/96;margin-left:-27cqw;border-radius:4cqw;background:linear-gradient(160deg,#232a55,#141834);border:.5cqw solid rgba(255,255,255,.16);box-shadow:0 6cqw 12cqw -4cqw rgba(0,0,0,.7);transform:translateY(-120cqw) rotate(-14deg);transition:transform 1.1s cubic-bezier(.2,1.25,.3,1),top .8s,width .8s,margin .8s,opacity .5s}
+.slab.in{transform:rotate(-4deg)}
+.slab.small{top:9%;width:30cqw;margin-left:-15cqw;transform:rotate(0)}
+.slab.out{opacity:0;transform:scale(.8)}
+.lab{left:3cqw;right:3cqw;top:3cqw;height:10cqw;border-radius:1.6cqw;background:var(--fg);color:var(--ink);display:flex;align-items:center;justify-content:space-between;padding:0 2.6cqw;font:700 2.1cqw/1.2 var(--f-m)}
+.lab *{position:static}
+.lab b{font:800 6cqw/1 var(--f-d)}
+.art{left:3cqw;right:3cqw;top:15.5cqw;bottom:3cqw;border-radius:2cqw;overflow:hidden;background:#0d1030}
+.art .foil{inset:0;background:conic-gradient(from 210deg at 50% 45%,var(--cyan),var(--violet),var(--pink),var(--gold),var(--cyan));opacity:.85;animation:spin 9s linear infinite}
+.art .frame{inset:5%;border-radius:1.4cqw;background:linear-gradient(180deg,rgba(11,13,26,.15),rgba(11,13,26,.55));border:.4cqw solid rgba(255,255,255,.55)}
+.art .orb{left:50%;top:38%;width:46%;aspect-ratio:1;margin-left:-23%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0 8%,rgba(255,255,255,.2) 30%,transparent 62%),conic-gradient(var(--gold),var(--pink),var(--violet),var(--cyan),var(--gold));box-shadow:0 0 8cqw rgba(255,212,107,.6);animation:pulse 2.4s ease-in-out infinite}
+.art .lines{left:12%;right:12%;bottom:9%;height:14%;background:repeating-linear-gradient(180deg,rgba(255,255,255,.55) 0 .5cqw,transparent .5cqw 2.6cqw);opacity:.7}
+.art .sheen{inset:-30%;background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.55) 50%,transparent 58%);animation:sheen 2.6s ease-in-out infinite}
+@keyframes spin{to{transform:rotate(360deg) scale(1.6)}}
+@keyframes pulse{50%{transform:scale(1.08)}}
+@keyframes sheen{0%{transform:translateX(-60%)}60%,100%{transform:translateX(60%)}}
+/* chip prezzi */
+.chip{font:700 4.4cqw/1 var(--f-m);padding:2.2cqw 3.2cqw;border-radius:2.4cqw;background:rgba(157,140,255,.16);border:.35cqw solid rgba(157,140,255,.5);color:var(--fg);opacity:0;transform:translateY(-40cqw) scale(.6);transition:transform .7s cubic-bezier(.2,1.3,.3,1),opacity .3s,background .3s,border-color .3s,color .3s}
+.chip.in{opacity:1;transform:none}
+.chip.x{background:rgba(255,107,129,.12);border-color:rgba(255,107,129,.6);color:rgba(241,242,255,.45);text-decoration:line-through}
+.chip .why{position:absolute;left:0;right:0;top:-3.4cqw;font:700 2.2cqw/1 var(--f-m);color:var(--down);text-align:center;text-decoration:none;opacity:0;transition:opacity .3s}
+.chip.x .why{opacity:1}
+.chip.big{font-size:6.4cqw;background:rgba(110,240,255,.12);border-color:var(--cyan)}
+.chip.big.ok{box-shadow:0 0 0 .6cqw rgba(79,227,161,.25),0 0 10cqw rgba(110,240,255,.45);border-color:var(--up)}
+.cert{font:700 2.6cqw/1 var(--f-m);color:var(--up);opacity:0;transition:opacity .3s}
+.cert.on{opacity:1}
+/* barra prezzo */
+.meter{left:7cqw;right:7cqw;top:70%;height:20cqw;border-radius:4cqw;background:rgba(20,24,52,.85);border:.35cqw solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 5cqw;opacity:0;transform:translateY(6cqw);transition:opacity .4s,transform .5s,border-color .4s}
+.meter *{position:static}
+.meter.on{opacity:1;transform:none}
+.meter span{font:700 3cqw/1 var(--f-m);color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.meter b{font:800 8.4cqw/1 var(--f-d);letter-spacing:-.03em;color:var(--down);transition:color .3s}
+.meter.good{border-color:rgba(79,227,161,.6)}
+.meter.good b{background:var(--holo);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:foil 3s linear infinite}
+/* scontrino */
+.rcpt{left:9cqw;right:9cqw;top:31%;border-radius:4cqw;background:rgba(20,24,52,.92);border:.35cqw solid var(--line);padding:5cqw;display:grid;gap:2.4cqw;opacity:0;transform:translateY(10cqw);transition:opacity .4s,transform .6s cubic-bezier(.2,1,.3,1)}
+.rcpt *{position:static}
+.rcpt.on{opacity:1;transform:none}
+.rcpt .r{display:flex;justify-content:space-between;font:600 3.7cqw/1.2 var(--f-b);color:var(--muted);opacity:0;transform:translateX(-4cqw);transition:opacity .3s,transform .4s}
+.rcpt .r.on{opacity:1;transform:none}
+.rcpt .r b{font:700 3.7cqw/1.2 var(--f-m);color:var(--fg)}
+.rcpt .tot{border-top:.3cqw solid var(--line);padding-top:3cqw;margin-top:1cqw;font-weight:800;color:var(--fg)}
+.rcpt .tot b{font-size:4.6cqw}
+.rcpt .vs{display:flex;justify-content:space-between;align-items:end;margin-top:2cqw;opacity:0;transition:opacity .4s}
+.rcpt .vs.on{opacity:1}
+.rcpt .vs span{font:600 3.2cqw/1.3 var(--f-b);color:var(--muted)}
+.rcpt .vs .a{font:800 6cqw/1 var(--f-d);color:var(--down);text-decoration:line-through;text-decoration-thickness:.6cqw}
+.rcpt .vs .b{font:800 9cqw/1 var(--f-d);color:var(--gold)}
+/* finale */
+.brand{left:0;right:0;top:36%;display:grid;justify-items:center;gap:4cqw;opacity:0;transform:scale(.92);transition:opacity .6s,transform .8s cubic-bezier(.2,1.2,.3,1)}
+.brand *{position:static}
+.brand.on{opacity:1;transform:none}
+.mark{width:16cqw;aspect-ratio:26/32;border-radius:3cqw;background:var(--holo);background-size:200% 100%;animation:foil 3s linear infinite;position:relative!important;box-shadow:0 0 12cqw rgba(157,140,255,.7)}
+.mark::after{content:"";position:absolute;inset:1.6cqw;border-radius:1.8cqw;background:var(--ink)}
+.mark::before{content:"";position:absolute;left:3.4cqw;right:3.4cqw;top:3.4cqw;height:2.6cqw;border-radius:.8cqw;background:var(--holo);z-index:1}
+.word{font:800 11cqw/1 var(--f-d);letter-spacing:-.04em}
+.tag{font:700 4.2cqw/1.3 var(--f-b);color:var(--muted);text-align:center;padding:0 10cqw}
+.cta{font:700 3.6cqw/1 var(--f-m);letter-spacing:.06em;text-transform:uppercase;padding:3.4cqw 5.4cqw;border-radius:99px;background:var(--fg);color:var(--ink)}
+.demo{left:5cqw;bottom:4cqw;font:700 2.2cqw/1 var(--f-m);letter-spacing:.08em;text-transform:uppercase;color:rgba(241,242,255,.42)}
+.handle{right:5cqw;bottom:4cqw;font:700 2.4cqw/1 var(--f-m);color:rgba(241,242,255,.55)}
+.prog{left:4cqw;right:4cqw;top:3cqw;height:.7cqw;display:flex;gap:1cqw}
+.prog i{position:relative;flex:1;border-radius:1cqw;background:rgba(255,255,255,.18);overflow:hidden}
+.prog i b{position:absolute;inset:0;background:var(--fg);transform-origin:left;transform:scaleX(0)}
+.flash{inset:0;background:radial-gradient(circle at 50% 45%,rgba(255,255,255,.55),transparent 60%);opacity:0;pointer-events:none}
+.flash.go{animation:flash .7s ease-out}
+@keyframes flash{0%{opacity:.9}100%{opacity:0}}
+/* controlli */
+.ctrls{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.ctrls button{height:38px;padding:0 14px;border-radius:10px;border:1px solid #2a3160;background:#141834;color:var(--fg);font:700 13px var(--f-b);cursor:pointer}
+.ctrls button.on{background:var(--fg);color:var(--ink)}
+.ctrls button:focus-visible{outline:2px solid var(--violet);outline-offset:2px}
+.hint{color:var(--muted);font-size:12.5px;text-align:center;max-width:460px;margin:0}
+@media (prefers-reduced-motion:reduce){.art .foil,.art .sheen,.art .orb,.mark,.cap em,.meter.good b{animation:none}}
+</style>
+
+<div class="wrapall">
+  <div class="stage" id="stage" role="img" aria-label="">
+    <div class="prog" id="prog"></div>
+    <div class="cap" id="c1" style="top:9%"></div>
+    <div class="slab" id="slab">
+      <div class="lab"><span id="labt">SLABWISE<br>HOLO PROMO · 001</span><b>10</b></div>
+      <div class="art"><div class="foil"></div><div class="frame"></div><div class="orb"></div><div class="lines"></div><div class="sheen"></div></div>
+    </div>
+    <div class="cap" id="c2" style="top:30%"></div>
+    <div class="sub" id="s2" style="top:46%"></div>
+    <div id="chips" style="inset:0"></div>
+    <div class="cert" id="cert" style="left:50%;top:41%;transform:translateX(-50%)"></div>
+    <div class="meter" id="meter"><span id="mlab"></span><b id="mval">€30</b></div>
+    <div class="cap" id="c3" style="top:13%"></div>
+    <div class="rcpt" id="rcpt"></div>
+    <div class="brand" id="brand"><span class="mark"></span><span class="word">slabwise</span><span class="tag" id="tag"></span><span class="cta" id="cta"></span></div>
+    <div class="flash" id="flash"></div>
+    <div class="demo" id="demo"></div>
+    <div class="handle">@slabwise</div>
+  </div>
+  <div class="ctrls">
+    <button id="play"></button><button id="replay"></button>
+    <button data-l="it">IT</button><button data-l="en">EN</button>
+  </div>
+  <p class="hint" id="hint"></p>
+</div>
+
+<script>
+let LANG=/^it/i.test(navigator.language||"")?"it":"en";
+const T={
+  it:{c1:"Questo PSA 10 vale <em>30 €?</em>",c2:"10 vendite a 30 €.<br>1 a 35.000 €.",s2:"Un algoritmo che guarda solo i prezzi dà ragione alla maggioranza.",mlab:"Mediana",
+      why:["CARTA RAW","LOTTO","BEST OFFER","CARTA RAW","RISTAMPA","LOTTO","CARTA RAW","NON PAGATA","CARTA RAW","RISTAMPA"],cert:"✓ CERT PSA VERIFICATO",mlab2:"Fair value",
+      c3:"Lo sconto del <em>-20%</em> dagli USA?",rows:[["Prezzo","€800"],["Spedizione","€38"],["IVA import 22%","€184"],["Sdoganamento","€15"]],tot:["Costo reale","€1.037"],vs:["Fair value €1.000","-20%","+4%"],
+      tag:"Il prezzo giusto per ogni slab. Ogni vendita scartata, spiegata.",cta:"Lista d'attesa aperta",demo:"Esempio illustrativo",
+      play:"▶ Riproduci",pause:"❚❚ Pausa",replay:"↺ Da capo",hint:"Formato 9:16 per Reel, TikTok e Shorts. Per esportarlo, registra lo schermo di questo riquadro (15 secondi, poi ricomincia).",aria:"Reel: dieci vendite a 30 euro contro una vera a 35.000; Slabwise scarta le sbagliate e mostra il costo reale."},
+  en:{c1:"Is this PSA 10 worth <em>$30?</em>",c2:"10 sales at $30.<br>1 at $35,000.",s2:"An algorithm that only looks at prices sides with the majority.",mlab:"Median",
+      why:["RAW CARD","LOT","BEST OFFER","RAW CARD","REPRINT","LOT","RAW CARD","UNPAID","RAW CARD","REPRINT"],cert:"✓ PSA CERT VERIFIED",mlab2:"Fair value",
+      c3:"That <em>-20%</em> deal from overseas?",rows:[["Price","€800"],["Shipping","€38"],["Import VAT 22%","€184"],["Customs fee","€15"]],tot:["Landed cost","€1,037"],vs:["Fair value €1,000","-20%","+4%"],
+      tag:"The right price for every slab. Every rejected sale, explained.",cta:"Waitlist open",demo:"Illustrative example",
+      play:"▶ Play",pause:"❚❚ Pause",replay:"↺ Restart",hint:"9:16 format for Reels, TikTok and Shorts. To export it, screen-record this frame (15 seconds, then it loops).",aria:"Reel: ten sales at 30 dollars against one real one at 35,000; Slabwise rejects the wrong ones and shows the landed cost."}};
+const $=id=>document.getElementById(id);
+const SCN=[2.6,3.4,3.4,3.4,3.2]; // durata delle scene in secondi
+const TOTAL=SCN.reduce((a,b)=>a+b,0);
+$("prog").innerHTML=SCN.map(()=>"<i><b></b></i>").join("");
+const POS=[[10,57],[33,54],[58,56],[78,53],[18,63],[45,62],[70,64],[12,71],[38,70],[64,72]];
+function build(){const t=T[LANG];document.documentElement.lang=LANG;
+  $("c1").innerHTML=t.c1;$("c2").innerHTML=t.c2;$("s2").textContent=t.s2;$("c3").innerHTML=t.c3;$("cert").textContent=t.cert;
+  $("chips").innerHTML=POS.map((p,i)=>`<span class="chip" style="left:${p[0]}cqw;top:${p[1]}%"><span class="why">${t.why[i]}</span>${LANG==="it"?"€30":"$30"}</span>`).join("")+`<span class="chip big" id="big" style="left:50%;top:31%;margin-left:-19cqw;width:38cqw;text-align:center">${LANG==="it"?"€35.000":"$35,000"}</span>`;
+  $("rcpt").innerHTML=t.rows.map(r=>`<div class="r"><span>${r[0]}</span><b>${r[1]}</b></div>`).join("")+`<div class="r tot"><span>${t.tot[0]}</span><b>${t.tot[1]}</b></div><div class="vs"><span>${t.vs[0]}</span><span class="a">${t.vs[1]}</span><span class="b">${t.vs[2]}</span></div>`;
+  $("tag").textContent=t.tag;$("cta").textContent=t.cta;$("demo").textContent=t.demo;$("replay").textContent=t.replay;$("hint").textContent=t.hint;$("stage").setAttribute("aria-label",t.aria);
+  document.querySelectorAll("[data-l]").forEach(b=>b.classList.toggle("on",b.dataset.l===LANG));setPlayLabel()}
+let t0=performance.now(),paused=false,pauseAt=0,last=-1;
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function setPlayLabel(){$("play").textContent=paused?T[LANG].play:T[LANG].pause}
+function flash(){const f=$("flash");f.classList.remove("go");void f.offsetWidth;f.classList.add("go")}
+const on=(id,v)=>$(id).classList.toggle("on",v);
+function apply(s){ // stato visivo per il secondo s del reel (dichiarativo, così pausa e ripresa sono esatte)
+  const t=T[LANG],e=[0,...SCN.map((_,i)=>SCN.slice(0,i+1).reduce((a,b)=>a+b,0))];
+  const sc=e.findIndex((x,i)=>s>=x&&s<e[i+1]);
+  const slab=$("slab");slab.classList.toggle("in",s>0.15&&sc<=2);slab.classList.toggle("small",sc>=1&&sc<=2);slab.classList.toggle("out",sc>=3);
+  on("c1",sc===0&&s>0.6);
+  on("c2",sc===1&&s>e[1]+0.2);on("s2",sc===1&&s>e[1]+0.9);
+  const chips=[...document.querySelectorAll("#chips .chip:not(.big)")];
+  chips.forEach((c,i)=>{c.classList.toggle("in",(sc===1&&s>e[1]+0.3+i*0.12)||sc===2);c.classList.toggle("x",sc===2&&s>e[2]+0.5+i*0.09)});
+  const big=$("big");big.classList.toggle("in",(sc===1&&s>e[1]+1.6)||sc===2);big.classList.toggle("ok",sc===2&&s>e[2]+1.5);
+  on("cert",sc===2&&s>e[2]+1.5);
+  const m=$("meter");m.classList.toggle("on",sc===1&&s>e[1]+1.9||sc===2);const good=sc===2&&s>e[2]+1.8;m.classList.toggle("good",good);
+  $("mlab").textContent=good?t.mlab2:t.mlab;$("mval").textContent=good?(LANG==="it"?"€35.000":"$35,000"):(LANG==="it"?"€30":"$30");
+  on("c3",sc===3&&s>e[3]+0.15);on("rcpt",sc===3&&s>e[3]+0.5);
+  [...document.querySelectorAll("#rcpt .r")].forEach((r,i)=>r.classList.toggle("on",sc===3&&s>e[3]+0.8+i*0.32));
+  $("rcpt").querySelector(".vs").classList.toggle("on",sc===3&&s>e[3]+2.5);
+  on("brand",sc===4&&s>e[4]+0.2);
+  if(sc!==last){if(sc===2||sc===4)setTimeout(flash,sc===2?1500:200);last=sc}
+  document.querySelectorAll("#prog b").forEach((b,i)=>b.style.transform=`scaleX(${Math.max(0,Math.min(1,(s-e[i])/SCN[i]))})`);
+}
+function tick(now){if(!paused){let s=((now-t0)/1000)%TOTAL;if((now-t0)/1000>=TOTAL){t0=now-s*1000;last=-1}apply(s)}requestAnimationFrame(tick)}
+$("play").onclick=()=>{if(paused){t0=performance.now()-pauseAt*1000;paused=false}else{pauseAt=((performance.now()-t0)/1000)%TOTAL;paused=true}setPlayLabel()};
+$("replay").onclick=()=>{t0=performance.now();last=-1;paused=false;setPlayLabel()};
+document.querySelectorAll("[data-l]").forEach(b=>b.onclick=()=>{LANG=b.dataset.l;build();last=-1});
+build();
+if(RM){paused=true;pauseAt=SCN[0]+SCN[1]+SCN[2]-0.2;apply(pauseAt);setPlayLabel()}
+requestAnimationFrame(tick);
+</script>

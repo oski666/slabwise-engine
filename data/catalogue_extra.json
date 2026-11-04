@@ -1,0 +1,1712 @@
+{
+ "base1-16": [
+  "zapdos",
+  "\\bbase\\s+set\\b",
+  16,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "base1-6": [
+  "gyarados",
+  "\\bbase\\s+set\\b",
+  6,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "base1-12": [
+  "ninetales",
+  "\\bbase\\s+set\\b",
+  12,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "base1-14": [
+  "raichu",
+  "\\bbase\\s+set\\b",
+  14,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "base1-5": [
+  "clefairy",
+  "\\bbase\\s+set\\b",
+  5,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "base1-7": [
+  "hitmonchan",
+  "\\bbase\\s+set\\b",
+  7,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "base1-13": [
+  "poliwrath",
+  "\\bbase\\s+set\\b",
+  13,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "base3-10": [
+  "lapras",
+  "\\bfossil\\b",
+  10,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "base3-2": [
+  "articuno",
+  "\\bfossil\\b",
+  2,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "base3-12": [
+  "moltres",
+  "\\bfossil\\b",
+  12,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "base2-12": [
+  "vaporeon",
+  "\\bjungle\\b",
+  12,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "base2-3": [
+  "flareon",
+  "\\bjungle\\b",
+  3,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "base5-3": [
+  "dark blastoise",
+  "\\bteam\\s+rocket\\b",
+  3,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "neo4-107": [
+  "shining charizard",
+  "\\bneo\\s+destiny\\b",
+  107,
+  [
+   2002,
+   2003
+  ]
+ ],
+ "neo3-65": [
+  "shining gyarados",
+  "\\bneo\\s+revelation\\b",
+  65,
+  [
+   2001,
+   2002
+  ]
+ ],
+ "neo4-109": [
+  "shining mewtwo",
+  "\\bneo\\s+destiny\\b",
+  109,
+  [
+   2002,
+   2003
+  ]
+ ],
+ "swsh7-218": [
+  "rayquaza vmax",
+  "\\bevolving\\s+skies\\b",
+  218,
+  [
+   2021,
+   2022
+  ]
+ ],
+ "swsh7-189": [
+  "umbreon v",
+  "\\bevolving\\s+skies\\b",
+  189,
+  [
+   2021,
+   2022
+  ]
+ ],
+ "swsh12-186": [
+  "lugia v",
+  "\\bsilver\\s+tempest\\b",
+  186,
+  [
+   2022,
+   2023
+  ]
+ ],
+ "swsh9-154": [
+  "charizard v",
+  "\\bbrilliant\\s+stars\\b",
+  154,
+  [
+   2022,
+   2023
+  ]
+ ],
+ "sv03-223": [
+  "charizard ex",
+  "\\bobsidian\\s+flames\\b",
+  223,
+  [
+   2023,
+   2024
+  ]
+ ],
+ "sv08-238": [
+  "pikachu ex",
+  "\\bsurging\\s+sparks\\b",
+  238,
+  [
+   2024,
+   2025
+  ]
+ ],
+ "sv02-203": [
+  "magikarp",
+  "\\bpaldea\\s+evolved\\b",
+  203,
+  [
+   2023,
+   2024
+  ]
+ ],
+ "sv02-269": [
+  "iono",
+  "\\bpaldea\\s+evolved\\b",
+  269,
+  [
+   2023,
+   2024
+  ]
+ ],
+ "sv06-214": [
+  "greninja ex",
+  "\\btwilight\\s+masquerade\\b",
+  214,
+  [
+   2024,
+   2025
+  ]
+ ],
+ "swsh4-188": [
+  "pikachu vmax",
+  "\\bvivid\\s+voltage\\b",
+  188,
+  [
+   2020,
+   2021
+  ]
+ ],
+ "base5-5": [
+  "dark dragonite",
+  "\\bteam\\W*rocket\\b",
+  5,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "ecard2-149": [
+  "lugia",
+  "\\baquapolis\\b",
+  149,
+  [
+   2003,
+   2004
+  ]
+ ],
+ "sm9-170": [
+  "latias \\& latios gx",
+  "\\bteam\\W*up\\b",
+  170,
+  [
+   2019,
+   2020
+  ]
+ ],
+ "sv08.5-161": [
+  "umbreon ex",
+  "\\bprismatic\\W*evolutions\\b",
+  161,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "swsh8-271": [
+  "gengar vmax",
+  "\\bfusion\\W*strike\\b",
+  271,
+  [
+   2021,
+   2022
+  ]
+ ],
+ "swsh11-186": [
+  "giratina v",
+  "\\blost\\W*origin\\b",
+  186,
+  [
+   2022,
+   2023
+  ]
+ ],
+ "sm3.5-78": [
+  "mewtwo gx",
+  "\\bshining\\W*legends\\b",
+  78,
+  [
+   2017,
+   2018
+  ]
+ ],
+ "sv04.5-234": [
+  "charizard ex",
+  "\\bpaldean\\W*fates\\b",
+  234,
+  [
+   2024,
+   2025
+  ]
+ ],
+ "bw8-136": [
+  "charizard",
+  "\\bplasma\\W*storm\\b",
+  136,
+  [
+   2013,
+   2014
+  ]
+ ],
+ "swsh7-192": [
+  "dragonite v",
+  "\\bevolving\\W*skies\\b",
+  192,
+  [
+   2021,
+   2022
+  ]
+ ],
+ "sv03.5-200": [
+  "blastoise ex",
+  "\\b151\\b",
+  200,
+  [
+   2023,
+   2024
+  ]
+ ],
+ "ex13-100": [
+  "mew ex",
+  "\\bholon\\W*phantoms\\b",
+  100,
+  [
+   2006,
+   2007
+  ]
+ ],
+ "swsh7-194": [
+  "rayquaza v",
+  "\\bevolving\\W*skies\\b",
+  194,
+  [
+   2021,
+   2022
+  ]
+ ],
+ "ex15-101": [
+  "mew",
+  "\\bdragon\\W*frontiers\\b",
+  101,
+  [
+   2006,
+   2007
+  ]
+ ],
+ "ex13-103": [
+  "mewtwo",
+  "\\bholon\\W*phantoms\\b",
+  103,
+  [
+   2006,
+   2007
+  ]
+ ],
+ "ex14-100": [
+  "celebi",
+  "\\bcrystal\\W*guardians\\b",
+  100,
+  [
+   2006,
+   2007
+  ]
+ ],
+ "ex13-16": [
+  "rayquaza",
+  "\\bholon\\W*phantoms\\b",
+  16,
+  [
+   2006,
+   2007
+  ]
+ ],
+ "ex10-113": [
+  "entei",
+  "\\bunseen\\W*forces\\b",
+  113,
+  [
+   2005,
+   2006
+  ]
+ ],
+ "ex10-115": [
+  "suicune",
+  "\\bunseen\\W*forces\\b",
+  115,
+  [
+   2005,
+   2006
+  ]
+ ],
+ "ex10-114": [
+  "raikou",
+  "\\bunseen\\W*forces\\b",
+  114,
+  [
+   2005,
+   2006
+  ]
+ ],
+ "ex16-102": [
+  "vaporeon",
+  "\\bpower\\W*keepers\\b",
+  102,
+  [
+   2007,
+   2008
+  ]
+ ],
+ "sm9-165": [
+  "gengar \\& mimikyu gx",
+  "\\bteam\\W*up\\b",
+  165,
+  [
+   2019,
+   2020
+  ]
+ ],
+ "me02.5-284": [
+  "mega gengar ex",
+  "\\bascended\\W*heroes\\b",
+  284,
+  [
+   2026,
+   2027
+  ]
+ ],
+ "sv10-231": [
+  "team rocket's mewtwo ex",
+  "\\bdestined\\W*rivals\\b",
+  231,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "ex3-90": [
+  "dragonite ex",
+  "\\bdragon\\b",
+  90,
+  [
+   2003,
+   2004
+  ]
+ ],
+ "ex1-101": [
+  "mewtwo ex",
+  "\\bruby\\W*sapphire\\b",
+  101,
+  [
+   2003,
+   2004
+  ]
+ ],
+ "neo4-113": [
+  "shining tyranitar",
+  "\\bneo\\W*destiny\\b",
+  113,
+  [
+   2002,
+   2003
+  ]
+ ],
+ "bw6-128": [
+  "rayquaza",
+  "\\bdragons\\W*exalted\\b",
+  128,
+  [
+   2012,
+   2013
+  ]
+ ],
+ "xy4-34": [
+  "gengar ex",
+  "\\bphantom\\W*forces\\b",
+  34,
+  [
+   2014,
+   2015
+  ]
+ ],
+ "ecard2-150": [
+  "nidoking",
+  "\\baquapolis\\b",
+  150,
+  [
+   2003,
+   2004
+  ]
+ ],
+ "neo2-13": [
+  "umbreon",
+  "\\bneo\\W*discovery\\b",
+  13,
+  [
+   2001,
+   2002
+  ]
+ ],
+ "swsh3.5-79": [
+  "charizard v",
+  "\\bchampion\\W*s\\W*path\\b",
+  79,
+  [
+   2020,
+   2021
+  ]
+ ],
+ "pl4-97": [
+  "gengar lv\\.x",
+  "\\barceus\\b",
+  97,
+  [
+   2009,
+   2010
+  ]
+ ],
+ "swsh7-212": [
+  "sylveon vmax",
+  "\\bevolving\\W*skies\\b",
+  212,
+  [
+   2021,
+   2022
+  ]
+ ],
+ "sv03.5-198": [
+  "venusaur ex",
+  "\\b151\\b",
+  198,
+  [
+   2023,
+   2024
+  ]
+ ],
+ "xy9-123": [
+  "gyarados ex",
+  "\\bbreakpoint\\b",
+  123,
+  [
+   2016,
+   2017
+  ]
+ ],
+ "swsh8-270": [
+  "espeon vmax",
+  "\\bfusion\\W*strike\\b",
+  270,
+  [
+   2021,
+   2022
+  ]
+ ],
+ "sm3-150": [
+  "charizard gx",
+  "\\bburning\\W*shadows\\b",
+  150,
+  [
+   2017,
+   2018
+  ]
+ ],
+ "sm12-241": [
+  "pikachu",
+  "\\bcosmic\\W*eclipse\\b",
+  241,
+  [
+   2019,
+   2020
+  ]
+ ],
+ "sv10.5b-172": [
+  "zekrom ex",
+  "\\bblack\\W*bolt\\b",
+  172,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "dp7-103": [
+  "charizard",
+  "\\bstormfront\\b",
+  103,
+  [
+   2008,
+   2009
+  ]
+ ],
+ "xy10-125": [
+  "alakazam ex",
+  "\\bfates\\W*collide\\b",
+  125,
+  [
+   2016,
+   2017
+  ]
+ ],
+ "swsh3.5-74": [
+  "charizard vmax",
+  "\\bchampion\\W*s\\W*path\\b",
+  74,
+  [
+   2020,
+   2021
+  ]
+ ],
+ "sm9-53": [
+  "gengar \\& mimikyu gx",
+  "\\bteam\\W*up\\b",
+  53,
+  [
+   2019,
+   2020
+  ]
+ ],
+ "gym1-14": [
+  "sabrina's gengar",
+  "\\bgym\\W*heroes\\b",
+  14,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "me02.5-290": [
+  "mega dragonite ex",
+  "\\bascended\\W*heroes\\b",
+  290,
+  [
+   2026,
+   2027
+  ]
+ ],
+ "swsh12.5-160": [
+  "pikachu",
+  "\\bcrown\\W*zenith\\b",
+  160,
+  [
+   2023,
+   2024
+  ]
+ ],
+ "ex8-102": [
+  "rayquaza ex",
+  "\\bdeoxys\\b",
+  102,
+  [
+   2005,
+   2006
+  ]
+ ],
+ "xy7-94": [
+  "lugia ex",
+  "\\bancient\\W*origins\\b",
+  94,
+  [
+   2015,
+   2016
+  ]
+ ],
+ "xy2-100": [
+  "charizard ex",
+  "\\bflashfire\\b",
+  100,
+  [
+   2014,
+   2015
+  ]
+ ],
+ "neo3-66": [
+  "shining magikarp",
+  "\\bneo\\W*revelation\\b",
+  66,
+  [
+   2001,
+   2002
+  ]
+ ],
+ "g1-RC28": [
+  "flareon ex",
+  "\\bgenerations\\b",
+  "rc28",
+  [
+   2016,
+   2017
+  ]
+ ],
+ "dc1-6": [
+  "team aqua's kyogre ex",
+  "\\bdouble\\W*crisis\\b",
+  6,
+  [
+   2015,
+   2016
+  ]
+ ],
+ "bw1-115": [
+  "pikachu",
+  "\\bblack\\W*white\\b",
+  115,
+  [
+   2011,
+   2012
+  ]
+ ],
+ "me02-106": [
+  "meowth",
+  "\\bphantasmal\\W*flames\\b",
+  106,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "xy9-114": [
+  "gyarados ex",
+  "\\bbreakpoint\\b",
+  114,
+  [
+   2016,
+   2017
+  ]
+ ],
+ "bw11-19": [
+  "charizard",
+  "\\blegendary\\W*treasures\\b",
+  19,
+  [
+   2013,
+   2014
+  ]
+ ],
+ "xy7-21": [
+  "gyarados",
+  "\\bancient\\W*origins\\b",
+  21,
+  [
+   2015,
+   2016
+  ]
+ ],
+ "sm12-38": [
+  "blastoise \\& piplup gx",
+  "\\bcosmic\\W*eclipse\\b",
+  38,
+  [
+   2019,
+   2020
+  ]
+ ],
+ "g1-RC6": [
+  "flareon ex",
+  "\\bgenerations\\b",
+  "rc6",
+  [
+   2016,
+   2017
+  ]
+ ],
+ "sm12-157": [
+  "reshiram \\& zekrom gx",
+  "\\bcosmic\\W*eclipse\\b",
+  157,
+  [
+   2019,
+   2020
+  ]
+ ],
+ "sm8-207": [
+  "lugia gx",
+  "\\blost\\W*thunder\\b",
+  207,
+  [
+   2018,
+   2019
+  ]
+ ],
+ "me01-187": [
+  "mega gardevoir ex",
+  "\\bmega\\W*evolution\\b",
+  187,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "sm11-35": [
+  "slowpoke \\& psyduck gx",
+  "\\bunified\\W*minds\\b",
+  35,
+  [
+   2019,
+   2020
+  ]
+ ],
+ "g1-RC5": [
+  "charizard",
+  "\\bgenerations\\b",
+  "rc5",
+  [
+   2016,
+   2017
+  ]
+ ],
+ "sm115-9": [
+  "charizard gx",
+  "\\bhidden\\W*fates\\b",
+  9,
+  [
+   2019,
+   2020
+  ]
+ ],
+ "ex15-100": [
+  "charizard",
+  "\\bdragon\\W*frontiers\\b",
+  100,
+  [
+   2006,
+   2007
+  ]
+ ],
+ "ex13-104": [
+  "pikachu",
+  "\\bholon\\W*phantoms\\b",
+  104,
+  [
+   2006,
+   2007
+  ]
+ ],
+ "ex7-107": [
+  "mudkip",
+  "\\bteam\\W*rocket\\W*returns\\b",
+  107,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "ex13-102": [
+  "gyarados",
+  "\\bholon\\W*phantoms\\b",
+  102,
+  [
+   2006,
+   2007
+  ]
+ ],
+ "ex7-109": [
+  "treecko",
+  "\\bteam\\W*rocket\\W*returns\\b",
+  109,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "ecard3-H30": [
+  "umbreon",
+  "\\bskyridge\\b",
+  "h30",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "ex11-111": [
+  "groudon",
+  "\\bdelta\\W*species\\b",
+  111,
+  [
+   2005,
+   2006
+  ]
+ ],
+ "ex16-100": [
+  "flareon",
+  "\\bpower\\W*keepers\\b",
+  100,
+  [
+   2007,
+   2008
+  ]
+ ],
+ "ex11-112": [
+  "kyogre",
+  "\\bdelta\\W*species\\b",
+  112,
+  [
+   2005,
+   2006
+  ]
+ ],
+ "ex10-105": [
+  "lugia ex",
+  "\\bunseen\\W*forces\\b",
+  105,
+  [
+   2005,
+   2006
+  ]
+ ],
+ "hgss3-86": [
+  "umbreon",
+  "\\bundaunted\\b",
+  86,
+  [
+   2010,
+   2011
+  ]
+ ],
+ "ecard2-H29": [
+  "umbreon",
+  "\\baquapolis\\b",
+  "h29",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "ecard3-149": [
+  "ho\\-oh",
+  "\\bskyridge\\b",
+  149,
+  [
+   2003,
+   2004
+  ]
+ ],
+ "ex11-113": [
+  "metagross",
+  "\\bdelta\\W*species\\b",
+  113,
+  [
+   2005,
+   2006
+  ]
+ ],
+ "hgss4-94": [
+  "gengar",
+  "\\btriumphant\\b",
+  94,
+  [
+   2010,
+   2011
+  ]
+ ],
+ "ex16-101": [
+  "jolteon",
+  "\\bpower\\W*keepers\\b",
+  101,
+  [
+   2007,
+   2008
+  ]
+ ],
+ "ex12-91": [
+  "regirock",
+  "\\blegend\\W*maker\\b",
+  91,
+  [
+   2006,
+   2007
+  ]
+ ],
+ "hgss3-81": [
+  "espeon",
+  "\\bundaunted\\b",
+  81,
+  [
+   2010,
+   2011
+  ]
+ ],
+ "hgss4-97": [
+  "mew",
+  "\\btriumphant\\b",
+  97,
+  [
+   2010,
+   2011
+  ]
+ ],
+ "sv08.5-156": [
+  "sylveon ex",
+  "\\bprismatic\\W*evolutions\\b",
+  156,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "sv03.5-202": [
+  "zapdos ex",
+  "\\b151\\b",
+  202,
+  [
+   2023,
+   2024
+  ]
+ ],
+ "swsh7-205": [
+  "leafeon vmax",
+  "\\bevolving\\W*skies\\b",
+  205,
+  [
+   2021,
+   2022
+  ]
+ ],
+ "gym2-2": [
+  "blaine's charizard",
+  "\\bgym\\W*challenge\\b",
+  2,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "hgss4-92": [
+  "celebi",
+  "\\btriumphant\\b",
+  92,
+  [
+   2010,
+   2011
+  ]
+ ],
+ "ex14-4": [
+  "charizard",
+  "\\bcrystal\\W*guardians\\b",
+  4,
+  [
+   2006,
+   2007
+  ]
+ ],
+ "xy10-119": [
+  "umbreon ex",
+  "\\bfates\\W*collide\\b",
+  119,
+  [
+   2016,
+   2017
+  ]
+ ],
+ "dp3-3": [
+  "charizard",
+  "\\bsecret\\W*wonders\\b",
+  3,
+  [
+   2007,
+   2008
+  ]
+ ],
+ "sm3.5-40": [
+  "shining mew",
+  "\\bshining\\W*legends\\b",
+  40,
+  [
+   2017,
+   2018
+  ]
+ ],
+ "dp5-98": [
+  "glaceon",
+  "\\bmajestic\\W*dawn\\b",
+  98,
+  [
+   2008,
+   2009
+  ]
+ ],
+ "ex3-94": [
+  "latios ex",
+  "\\bdragon\\b",
+  94,
+  [
+   2003,
+   2004
+  ]
+ ],
+ "swsh5-155": [
+  "tyranitar v",
+  "\\bbattle\\W*styles\\b",
+  155,
+  [
+   2021,
+   2022
+  ]
+ ],
+ "sv07-148": [
+  "squirtle",
+  "\\bstellar\\W*crown\\b",
+  148,
+  [
+   2024,
+   2025
+  ]
+ ],
+ "swsh7-209": [
+  "glaceon vmax",
+  "\\bevolving\\W*skies\\b",
+  209,
+  [
+   2021,
+   2022
+  ]
+ ],
+ "bw11-RC7": [
+  "pikachu",
+  "\\blegendary\\W*treasures\\b",
+  "rc7",
+  [
+   2013,
+   2014
+  ]
+ ],
+ "sv10.5w-173": [
+  "reshiram ex",
+  "\\bwhite\\W*flare\\b",
+  173,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "sv04.5-233": [
+  "gardevoir ex",
+  "\\bpaldean\\W*fates\\b",
+  233,
+  [
+   2024,
+   2025
+  ]
+ ],
+ "ecard3-H11": [
+  "houndoom",
+  "\\bskyridge\\b",
+  "h11",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "ecard2-H22": [
+  "slowking",
+  "\\baquapolis\\b",
+  "h22",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "swsh7-180": [
+  "espeon v",
+  "\\bevolving\\W*skies\\b",
+  180,
+  [
+   2021,
+   2022
+  ]
+ ],
+ "sm9-113": [
+  "latias \\& latios gx",
+  "\\bteam\\W*up\\b",
+  113,
+  [
+   2019,
+   2020
+  ]
+ ],
+ "sv03.5-169": [
+  "charmeleon",
+  "\\b151\\b",
+  169,
+  [
+   2023,
+   2024
+  ]
+ ],
+ "ex8-108": [
+  "rocket's raikou ex",
+  "\\bdeoxys\\b",
+  108,
+  [
+   2005,
+   2006
+  ]
+ ],
+ "swsh3-20": [
+  "charizard vmax",
+  "\\bdarkness\\W*ablaze\\b",
+  20,
+  [
+   2020,
+   2021
+  ]
+ ],
+ "neo4-108": [
+  "shining kabutops",
+  "\\bneo\\W*destiny\\b",
+  108,
+  [
+   2002,
+   2003
+  ]
+ ],
+ "hgss4-95": [
+  "machamp",
+  "\\btriumphant\\b",
+  95,
+  [
+   2010,
+   2011
+  ]
+ ],
+ "hgss3-10": [
+  "umbreon",
+  "\\bundaunted\\b",
+  10,
+  [
+   2010,
+   2011
+  ]
+ ],
+ "bw11-114": [
+  "reshiram",
+  "\\blegendary\\W*treasures\\b",
+  114,
+  [
+   2013,
+   2014
+  ]
+ ],
+ "ecard3-H10": [
+  "gyarados",
+  "\\bskyridge\\b",
+  "h10",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "ex16-6": [
+  "charizard",
+  "\\bpower\\W*keepers\\b",
+  6,
+  [
+   2007,
+   2008
+  ]
+ ],
+ "neo4-106": [
+  "shining celebi",
+  "\\bneo\\W*destiny\\b",
+  106,
+  [
+   2002,
+   2003
+  ]
+ ],
+ "sv03.5-170": [
+  "squirtle",
+  "\\b151\\b",
+  170,
+  [
+   2023,
+   2024
+  ]
+ ],
+ "neo4-111": [
+  "shining raichu",
+  "\\bneo\\W*destiny\\b",
+  111,
+  [
+   2002,
+   2003
+  ]
+ ],
+ "ex3-93": [
+  "latias ex",
+  "\\bdragon\\b",
+  93,
+  [
+   2003,
+   2004
+  ]
+ ],
+ "ex15-91": [
+  "dragonite ex",
+  "\\bdragon\\W*frontiers\\b",
+  91,
+  [
+   2006,
+   2007
+  ]
+ ],
+ "xy6-105": [
+  "m rayquaza ex",
+  "\\broaring\\W*skies\\b",
+  105,
+  [
+   2015,
+   2016
+  ]
+ ],
+ "ex7-105": [
+  "rocket's suicune ex",
+  "\\bteam\\W*rocket\\W*returns\\b",
+  105,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "me01-133": [
+  "bulbasaur",
+  "\\bmega\\W*evolution\\b",
+  133,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "dp6-14": [
+  "rayquaza",
+  "\\blegends\\W*awakened\\b",
+  14,
+  [
+   2008,
+   2009
+  ]
+ ],
+ "me02.5-295": [
+  "mega dragonite ex",
+  "\\bascended\\W*heroes\\b",
+  295,
+  [
+   2026,
+   2027
+  ]
+ ],
+ "me02-098": [
+  "piplup",
+  "\\bphantasmal\\W*flames\\b",
+  98,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "hgss3-84": [
+  "scizor",
+  "\\bundaunted\\b",
+  84,
+  [
+   2010,
+   2011
+  ]
+ ],
+ "me03-094": [
+  "clefairy",
+  "\\bperfect\\W*order\\b",
+  94,
+  [
+   2026,
+   2027
+  ]
+ ],
+ "sm8-159": [
+  "lugia gx",
+  "\\blost\\W*thunder\\b",
+  159,
+  [
+   2018,
+   2019
+  ]
+ ],
+ "ex6-108": [
+  "gengar ex",
+  "(?:\\bfire\\W?red\\W*(?:(?:of|the|and)\\W*)?leaf\\W?green\\b|\\bfrlg\\b)",
+  108,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "ex6-105": [
+  "charizard ex",
+  "(?:\\bfire\\W?red\\W*(?:(?:of|the|and)\\W*)?leaf\\W?green\\b|\\bfrlg\\b)",
+  105,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "swshp-SWSH074": [
+  "special delivery pikachu",
+  "\\bpromo",
+  "swsh74",
+  [
+   2019,
+   2020
+  ]
+ ],
+ "basep-9": [
+  "mew",
+  "\\bpromo",
+  9,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "col1-15": [
+  "lugia",
+  "\\bcall\\W*(?:(?:of|the|and)\\W*)?legends\\b",
+  15,
+  [
+   2011,
+   2012
+  ]
+ ],
+ "smp-SM70": [
+  "shining ho\\-oh",
+  "\\bpromo",
+  "sm70",
+  [
+   2017,
+   2018
+  ]
+ ],
+ "smp-SM226": [
+  "charizard",
+  "\\bpromo",
+  "sm226",
+  [
+   2017,
+   2018
+  ]
+ ],
+ "smp-SM163": [
+  "mimikyu",
+  "\\bpromo",
+  "sm163",
+  [
+   2017,
+   2018
+  ]
+ ],
+ "col1-4": [
+  "espeon",
+  "\\bcall\\W*(?:(?:of|the|and)\\W*)?legends\\b",
+  4,
+  [
+   2011,
+   2012
+  ]
+ ],
+ "hgssp-HGSS03": [
+  "pikachu",
+  "\\bpromo",
+  "hgss3",
+  [
+   2010,
+   2011
+  ]
+ ],
+ "basep-11": [
+  "eevee",
+  "\\bpromo",
+  11,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "swshp-SWSH050": [
+  "charizard v",
+  "\\bpromo",
+  "swsh50",
+  [
+   2019,
+   2020
+  ]
+ ],
+ "ex6-112": [
+  "venusaur ex",
+  "(?:\\bfire\\W?red\\W*(?:(?:of|the|and)\\W*)?leaf\\W?green\\b|\\bfrlg\\b)",
+  112,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "col1-22": [
+  "umbreon",
+  "\\bcall\\W*(?:(?:of|the|and)\\W*)?legends\\b",
+  22,
+  [
+   2011,
+   2012
+  ]
+ ],
+ "basep-5": [
+  "dragonite",
+  "\\bpromo",
+  5,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "smp-SM162": [
+  "pikachu",
+  "\\bpromo",
+  "sm162",
+  [
+   2017,
+   2018
+  ]
+ ],
+ "ex6-109": [
+  "gyarados ex",
+  "(?:\\bfire\\W?red\\W*(?:(?:of|the|and)\\W*)?leaf\\W?green\\b|\\bfrlg\\b)",
+  109,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "ex6-104": [
+  "blastoise ex",
+  "(?:\\bfire\\W?red\\W*(?:(?:of|the|and)\\W*)?leaf\\W?green\\b|\\bfrlg\\b)",
+  104,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "swsh6-201": [
+  "blaziken vmax",
+  "\\bchilling\\W*(?:(?:of|the|and)\\W*)?reign\\b",
+  201,
+  [
+   2021,
+   2022
+  ]
+ ],
+ "g1-RC29": [
+  "pikachu",
+  "\\bgenerations\\b",
+  "rc29",
+  [
+   2016,
+   2017
+  ]
+ ],
+ "sv10-232": [
+  "cynthia's garchomp ex",
+  "\\bdestined\\W*(?:(?:of|the|and)\\W*)?rivals\\b",
+  232,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "sv07-143": [
+  "bulbasaur",
+  "\\bstellar\\W*(?:(?:of|the|and)\\W*)?crown\\b",
+  143,
+  [
+   2024,
+   2025
+  ]
+ ],
+ "xy2-69": [
+  "m charizard ex",
+  "\\bflashfire\\b",
+  69,
+  [
+   2014,
+   2015
+  ]
+ ],
+ "sv03.5-173": [
+  "pikachu",
+  "\\b151\\b",
+  173,
+  [
+   2023,
+   2024
+  ]
+ ],
+ "ecard3-H31": [
+  "vaporeon",
+  "\\bskyridge\\b",
+  "h31",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "sv08-239": [
+  "latias ex",
+  "\\bsurging\\W*(?:(?:of|the|and)\\W*)?sparks\\b",
+  239,
+  [
+   2024,
+   2025
+  ]
+ ],
+ "swsh8-269": [
+  "mew vmax",
+  "\\bfusion\\W*(?:(?:of|the|and)\\W*)?strike\\b",
+  269,
+  [
+   2021,
+   2022
+  ]
+ ],
+ "me01-179": [
+  "mega lucario ex",
+  "\\bmega\\W*(?:(?:of|the|and)\\W*)?evolution\\b",
+  179,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "g1-RC32": [
+  "sylveon ex",
+  "\\bgenerations\\b",
+  "rc32",
+  [
+   2016,
+   2017
+  ]
+ ],
+ "sv10.5b-171": [
+  "victini",
+  "\\bblack\\W*(?:(?:of|the|and)\\W*)?bolt\\b",
+  171,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "col1-20": [
+  "rayquaza",
+  "\\bcall\\W*(?:(?:of|the|and)\\W*)?legends\\b",
+  20,
+  [
+   2011,
+   2012
+  ]
+ ],
+ "swsh11-180": [
+  "aerodactyl v",
+  "\\blost\\W*(?:(?:of|the|and)\\W*)?origin\\b",
+  180,
+  [
+   2022,
+   2023
+  ]
+ ],
+ "sv08.5-150": [
+  "glaceon ex",
+  "\\bprismatic\\W*(?:(?:of|the|and)\\W*)?evolutions\\b",
+  150,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "swsh7-184": [
+  "sylveon v",
+  "\\bevolving\\W*(?:(?:of|the|and)\\W*)?skies\\b",
+  184,
+  [
+   2021,
+   2022
+  ]
+ ],
+ "ecard3-H20": [
+  "moltres",
+  "\\bskyridge\\b",
+  "h20",
+  [
+   2003,
+   2004
+  ]
+ ]
+}

@@ -1,0 +1,215 @@
+<title>Slabwise vendite vere</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: the engine's lab notebook, second chapter. Verdict first, then one chart per slab to study, then the numbers per card. */
+:root{
+  --bg:#f6f6fb; --panel:#ffffff; --ink:#16172b; --muted:#5a5d7d; --line:#dedff0;
+  --accent:#5b45e0; --accent-soft:#ecebff; --band:rgba(91,69,224,.14); --good:#0d8a58; --bad:#c42747;
+  --ebay:#e07a12; --auction:#16172b; --r1:#9a9db8; --r2:#2f9e8f; --r3:#c2508a;
+  --display:"Bricolage Grotesque","Avenir Next",system-ui,sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0c0d1a; --panel:#151730; --ink:#eceeff; --muted:#a2a6cc; --line:#2a2e58;
+  --accent:#a593ff; --accent-soft:#23214a; --band:rgba(165,147,255,.18); --good:#4fe3a1; --bad:#ff7a92;
+  --ebay:#ffad5c; --auction:#eceeff; --r1:#6c71a3; --r2:#5fd3c3; --r3:#f08cc0; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c0d1a; --panel:#151730; --ink:#eceeff; --muted:#a2a6cc; --line:#2a2e58;
+  --accent:#a593ff; --accent-soft:#23214a; --band:rgba(165,147,255,.18); --good:#4fe3a1; --bad:#ff7a92;
+  --ebay:#ffad5c; --auction:#eceeff; --r1:#6c71a3; --r2:#5fd3c3; --r3:#f08cc0; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:17px/1.6 var(--body);margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:40px 80px;display:flex;flex-direction:column;gap:52px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.02em}
+h1{font-size:clamp(32px,5.6vw,54px);line-height:1.05;font-weight:800}
+h2{font-size:clamp(23px,3.2vw,30px);font-weight:800}
+p{margin:0;max-width:68ch}
+.eyebrow{font:700 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+section{display:flex;flex-direction:column;gap:18px;min-width:0}
+.hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:36px;align-items:end}
+@media (max-width:820px){.hero{grid-template-columns:1fr;gap:22px}}
+.lead{font-size:19px;color:var(--muted)}
+.tag{display:inline-flex;gap:8px;align-items:center;font:700 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--good);background:color-mix(in srgb,var(--good) 12%,transparent);padding:5px 10px;border-radius:999px;align-self:flex-start}
+.score{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;display:grid;gap:10px}
+.vs{display:grid;grid-template-columns:minmax(0,auto) 1fr auto;gap:7px 12px;align-items:center;font-size:15px}
+.vs .bar{height:10px;border-radius:5px;background:var(--r1)}
+.vs .bar.me{background:var(--accent)}
+.vs b{font:700 14px var(--mono);font-variant-numeric:tabular-nums}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:720px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fact{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:grid;gap:2px}
+.fact b{font:800 26px/1.1 var(--display);font-variant-numeric:tabular-nums}
+.fact span{font-size:14px;color:var(--muted)}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.controls .lab{font:700 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+button.chip{font:600 15px var(--body);color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:6px 13px;cursor:pointer}
+button.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+button.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.chip .sw{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:0}
+.chart{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 8px 6px;overflow-x:auto}
+.chart svg{display:block;width:100%;min-width:560px;height:auto}
+.chart text{font:12px var(--mono);fill:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;margin-right:6px;vertical-align:-1px}
+.readout{font:600 14px var(--mono);color:var(--muted);min-height:1.6em;font-variant-numeric:tabular-nums}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font:700 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--bg)}
+tr:last-child td{border-bottom:0}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+td.best{color:var(--good);font-weight:700}
+td.me{background:var(--accent-soft)}
+ul.notes{margin:0;padding-left:20px;display:grid;gap:8px;max-width:72ch}
+code{font-family:var(--mono);font-size:.88em}
+</style>
+
+<div class="wrap">
+  <section class="hero">
+    <div style="display:grid;gap:16px;min-width:0">
+      <span class="tag">● Dati reali · niente simulazione</span>
+      <h1>Il motore sulle prime vendite vere</h1>
+      <p class="lead" id="lead"></p>
+    </div>
+    <div class="score">
+      <div class="eyebrow">Errore mediano sulla vendita successiva</div>
+      <div class="vs" id="vs"></div>
+      <p class="muted" style="font-size:14px">Più basso è meglio. Ogni metodo stima il prezzo con le vendite fino alla settimana prima; si misura quanto sbaglia sulla vendita vera successiva.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">I dati</div>
+    <div class="facts" id="facts"></div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Studia i grafici</div>
+    <h2>Le vendite vere e cosa ne ha capito ogni metodo</h2>
+    <p class="muted">Punti: vendite vere (arancio eBay, scuro case d'asta; le croci sono Best Offer escluse perché eBay mostra il prezzo chiesto, non quello accettato). Linee: la stima di ogni metodo settimana per settimana. La fascia viola è la forchetta all'80% del nostro modello. Scala dei prezzi logaritmica.</p>
+    <div class="controls" id="cardpick"><span class="lab">Carta</span></div>
+    <div class="controls" id="gradepick"><span class="lab">Voto</span></div>
+    <div class="controls" id="methpick"><span class="lab">Metodi</span></div>
+    <div class="chart"><svg id="svg" viewBox="0 0 1000 440" role="img" aria-label="Grafico delle vendite e delle stime"></svg></div>
+    <div class="readout" id="readout">Passa sopra un punto per leggere la vendita.</div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Carta per carta</div>
+    <h2>Dove il modello vince e dove perde</h2>
+    <div class="tbl"><table id="pertab"></table></div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Come leggerlo</div>
+    <ul class="notes" id="notes"></ul>
+  </section>
+</div>
+
+<script>
+const D = __DATA__;
+const NAMES = __NAMES__;
+const SHORT = {"Ultima vendita":"Ultima vendita","tcgcharts (mediana a fasce)":"tcgcharts","PriceCharting (media pesata per età)":"PriceCharting","Card Ladder (ultima vendita × indice)":"Card Ladder","Slabwise v0 (regole, tipo TCGBerg)":"Slabwise v0","Slabwise LVM":"Slabwise LVM"};
+const COL = {"Ultima vendita":"--r1","tcgcharts (mediana a fasce)":"--r2","PriceCharting (media pesata per età)":"--r3","Card Ladder (ultima vendita × indice)":"--muted","Slabwise v0 (regole, tipo TCGBerg)":"--line","Slabwise LVM":"--accent"};
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const pct = x => (x*100).toFixed(1).replace(".", ",") + "%";
+const usd = x => "$" + Math.round(x).toLocaleString("it-IT");
+const cardName = id => { const [b, ed] = id.split("/"); const n = NAMES[b] || b; return n + (ed === "1st" ? " 1st Ed." : ed === "shadowless" ? " Shadowless" : ""); };
+
+// hero
+const methods = D.methods;
+const best = Math.min(...methods.map(m => D.error[m]));
+const me = D.error["Slabwise LVM"];
+const rank = [...methods].sort((a,b) => D.error[a]-D.error[b]).indexOf("Slabwise LVM") + 1;
+document.getElementById("lead").textContent =
+  `${D.n_clean} vendite vere di slab PSA 7–10 (eBay, Goldin, Fanatics Collect). Sul periodo di verifica il nostro modello sbaglia del ${pct(me)} in mediana: ${rank}° su ${methods.length} metodi. Sulle carte rare vince, su quelle che vendono ogni settimana perde contro l'ultima vendita.`;
+const maxE = Math.max(...methods.map(m => D.error[m]));
+document.getElementById("vs").innerHTML = [...methods].sort((a,b)=>D.error[a]-D.error[b]).map(m =>
+  `<span>${SHORT[m]}</span><span class="bar${m==="Slabwise LVM"?" me":""}" style="width:${(D.error[m]/maxE*100).toFixed(1)}%"></span><b>${pct(D.error[m])}</b>`).join("");
+
+const fmtDate = s => new Date(s+"T00:00:00Z").toLocaleDateString("it-IT",{day:"numeric",month:"short",year:"numeric",timeZone:"UTC"});
+document.getElementById("facts").innerHTML = [
+  [D.n_clean, "vendite usate"], [D.venues.ebay||0, "da eBay (ultime settimane)"], [D.venues.auction||0, "da case d'asta"],
+  [D.n_test, "vendite di verifica"]].map(([b,s]) => `<div class="fact"><b>${b.toLocaleString("it-IT")}</b><span>${s}</span></div>`).join("");
+
+// chart
+let cur = {card: D.charts.find(c => c.card==="sv03.5-199") ? "sv03.5-199" : D.charts[0].card, grade: null, on: new Set(["Slabwise LVM","Ultima vendita","tcgcharts (mediana a fasce)"])};
+const cardPick = document.getElementById("cardpick"), gradePick = document.getElementById("gradepick"), methPick = document.getElementById("methpick");
+D.charts.forEach(c => { const b = document.createElement("button"); b.className="chip"; b.type="button"; b.id="card-"+c.card.replace(/[^a-z0-9]/gi,"_");
+  b.textContent = cardName(c.card); b.onclick = () => { cur.card = c.card; cur.grade = null; render(); }; b.dataset.card = c.card; cardPick.appendChild(b); });
+methods.forEach((m,i) => { const b = document.createElement("button"); b.className="chip"; b.type="button"; b.id="meth-"+i;
+  b.innerHTML = `<span class="sw" style="background:var(${COL[m]})"></span>${SHORT[m]}`;
+  b.onclick = () => { cur.on.has(m) ? cur.on.delete(m) : cur.on.add(m); render(); }; b.dataset.m = m; methPick.appendChild(b); });
+
+const svg = document.getElementById("svg"), W = 1000, H = 440, L = 70, R = 16, T = 16, B = 40;
+const ns = "http://www.w3.org/2000/svg";
+const el = (tag, attrs, parent) => { const e = document.createElementNS(ns, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); (parent||svg).appendChild(e); return e; };
+
+function render(){
+  const c = D.charts.find(x => x.card === cur.card);
+  if (!cur.grade || !c.grades.find(g => g.grade === cur.grade)) cur.grade = c.grades.slice().sort((a,b)=>b.sales.length-a.sales.length)[0].grade;
+  [...cardPick.querySelectorAll("button")].forEach(b => b.setAttribute("aria-pressed", b.dataset.card === cur.card));
+  gradePick.querySelectorAll("button").forEach(b => b.remove());
+  c.grades.forEach(g => { const b = document.createElement("button"); b.className="chip"; b.type="button"; b.id="grade-"+g.grade;
+    b.textContent = `PSA ${g.grade} · ${g.sales.length}`; b.setAttribute("aria-pressed", g.grade===cur.grade);
+    b.onclick = () => { cur.grade = g.grade; render(); }; gradePick.appendChild(b); });
+  [...methPick.querySelectorAll("button")].forEach(b => b.setAttribute("aria-pressed", cur.on.has(b.dataset.m)));
+  const g = c.grades.find(x => x.grade === cur.grade);
+  svg.innerHTML = "";
+  const t = s => Date.parse(s+"T00:00:00Z");
+  const first = Math.min(...g.sales.map(s => t(s[0])));
+  const t0 = first - 30*864e5, t1 = Math.max(...g.sales.map(s => t(s[0])), ...g.history.map(h => t(h[0]))) + 7*864e5;
+  const hist = g.history.filter(h => t(h[0]) >= t0);
+  const vals = [...g.sales.map(s=>s[1]), ...g.removed.map(s=>s[1])];
+  hist.forEach(h => { if (cur.on.has("Slabwise LVM")) vals.push(h[7], h[8]); methods.forEach((m,i) => { if (cur.on.has(m) && h[i+1]) vals.push(h[i+1]); }); });
+  let lo = Math.log(Math.min(...vals)), hi = Math.log(Math.max(...vals)); const pad = (hi-lo)*0.08 || 0.2; lo -= pad; hi += pad;
+  const x = v => L + (v - t0) / (t1 - t0) * (W - L - R), y = v => T + (hi - Math.log(v)) / (hi - lo) * (H - T - B);
+  // grid: price ticks at 1-2-5 steps
+  const ticks = []; for (let e = Math.floor(lo/Math.LN10); e <= Math.ceil(hi/Math.LN10); e++) for (const m of [1,2,5]) { const v = m*10**e; if (Math.log(v) >= lo && Math.log(v) <= hi) ticks.push(v); }
+  ticks.forEach(v => { el("line",{x1:L,x2:W-R,y1:y(v),y2:y(v),stroke:css("--line"),"stroke-width":1}); const tx = el("text",{x:L-8,y:y(v)+4,"text-anchor":"end"}); tx.textContent = usd(v); });
+  const months = []; const d = new Date(t0); d.setUTCDate(1); d.setUTCMonth(d.getUTCMonth()+1);
+  const span = (t1-t0)/864e5, stepM = span > 900 ? 6 : span > 400 ? 3 : span > 120 ? 1 : 1;
+  while (d.getTime() < t1) { months.push(d.getTime()); d.setUTCMonth(d.getUTCMonth()+stepM); }
+  months.forEach(m => { const tx = el("text",{x:x(m),y:H-14,"text-anchor":"middle"}); tx.textContent = new Date(m).toLocaleDateString("it-IT",{month:"short",year:"2-digit",timeZone:"UTC"}); });
+  // LVM band
+  if (cur.on.has("Slabwise LVM") && hist.length) {
+    const up = hist.map(h => `${x(t(h[0]))},${y(h[8])}`), dn = hist.slice().reverse().map(h => `${x(t(h[0]))},${y(h[7])}`);
+    el("polygon",{points:[...up,...dn].join(" "),fill:css("--band"),stroke:"none"});
+  }
+  methods.forEach((m,i) => { if (!cur.on.has(m)) return;
+    const pts = hist.filter(h => h[i+1]).map(h => `${x(t(h[0]))},${y(h[i+1])}`);
+    if (pts.length) el("polyline",{points:pts.join(" "),fill:"none",stroke:css(COL[m]),"stroke-width":m==="Slabwise LVM"?2.6:1.6,"stroke-linejoin":"round"}); });
+  const ro = document.getElementById("readout");
+  g.removed.forEach(s => { const cx = x(t(s[0])), cy = y(s[1]); const p = el("path",{d:`M${cx-4},${cy-4}L${cx+4},${cy+4}M${cx-4},${cy+4}L${cx+4},${cy-4}`,stroke:css("--bad"),"stroke-width":1.6,fill:"none"});
+    p.addEventListener("mouseenter", () => ro.textContent = `${fmtDate(s[0])} · ${usd(s[1])} · escluso: ${s[2]}`); });
+  g.sales.forEach(s => { const isE = s[2] === "ebay";
+    const cxy = {cx:x(t(s[0])), cy:y(s[1])};
+    const p = isE ? el("circle",{...cxy,r:4.2,fill:css("--ebay"),stroke:css("--panel"),"stroke-width":1})
+                  : el("rect",{x:cxy.cx-4,y:cxy.cy-4,width:8,height:8,fill:css("--auction"),stroke:css("--panel"),"stroke-width":1});
+    p.style.cursor = "pointer";
+    p.addEventListener("mouseenter", () => ro.textContent = `${fmtDate(s[0])} · ${usd(s[1])} · ${isE ? "eBay" : "casa d'aste"}`); });
+  ro.textContent = `${cardName(c.card)} PSA ${g.grade}: ${g.sales.length} vendite. Passa sopra un punto per leggerlo.`;
+}
+render();
+matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", render);
+new MutationObserver(render).observe(document.documentElement, {attributes:true, attributeFilter:["data-theme"]});
+
+// per-card table
+const rows = D.per_card.filter(r => r.n >= 3).sort((a,b) => b.n - a.n);
+document.getElementById("pertab").innerHTML = `<thead><tr><th>Carta</th><th style="text-align:right">Vendite</th>${methods.map(m=>`<th style="text-align:right">${SHORT[m]}</th>`).join("")}</tr></thead><tbody>` +
+  rows.map(r => { const b = Math.min(...methods.map(m => r.err[m]));
+    return `<tr><td>${cardName(r.card)}</td><td class="n">${r.n}</td>${methods.map(m => `<td class="n${r.err[m]===b?" best":""}${m==="Slabwise LVM"?" me":""}">${pct(r.err[m])}</td>`).join("")}</tr>`; }).join("") + "</tbody>";
+
+const ebayDates = D.charts.flatMap(c => c.grades.flatMap(g => g.sales.filter(s => s[2]==="ebay").map(s => s[0]))).sort();
+document.getElementById("notes").innerHTML = [
+  `Vendite eBay: solo 4 carte e solo le ultime settimane (dal ${fmtDate(ebayDates[0])}), raccolte con il credito gratuito di Apify. Vendite d'asta: Goldin e Fanatics Collect dal 2023.`,
+  `I parametri del modello sono stimati sulle prime ${D.train_weeks} settimane (fino al ${fmtDate(D.train_end)}), poi restano fermi. Quel periodo contiene quasi solo aste Goldin del 2023 di carte Wizards: per le carte moderne il modello parte con parametri poco adatti.`,
+  `Scarto stimato tra case d'asta ed eBay: ${(D.venue_offset*100).toFixed(1).replace(".",",")}% in log (le aste, commissione compresa, risultano un po' sotto eBay su queste carte).`,
+  `Best Offer: ${D.removed_reasons["Best Offer senza prezzo accettato"]||0} vendite eBay escluse, perché il prezzo accettato non è pubblico.`,
+  `Motore: ${D.version}. ${D.note}`
+].map(s => `<li>${s}</li>`).join("");
+</script>

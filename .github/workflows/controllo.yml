@@ -1,0 +1,40 @@
+# Daily check of the published site (D110), on GitHub's machines: every page on a phone and a desktop screen.
+# When it fails, it opens an issue in this repository, so the owner gets a notification.
+name: Controllo del sito
+on:
+  workflow_run:                 # D116: after every build of the site, whenever it happens
+    workflows: ["Sito"]
+    types: [completed]
+  workflow_dispatch: {}
+permissions:
+  contents: read
+  issues: write
+jobs:
+  smoke:
+    # 4 Nov (GitHub minutes): once a day, after the morning build; not after the extra builds started by hand or by approvals
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.event != 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Private data (D163)
+        uses: ./.github/actions/private-data
+        with:
+          mode: pull
+          token: ${{ secrets.DATA_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Browser
+        run: |
+          pip install -q playwright
+          python -m playwright install --with-deps chromium
+      - name: Check
+        id: check
+        run: python scripts/smoke.py https://slabwise.pages.dev/ | tee smoke.txt
+      - name: Open an issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create --title "Controllo del sito: problemi del $(date -u +%F)" --body "$(printf 'Il controllo automatico ha trovato:\n\n```\n%s\n```\n\nRun: %s' "$(cat smoke.txt)" "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID")"

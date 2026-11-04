@@ -1,0 +1,253 @@
+"""Auction-house sales (Goldin, Fanatics Collect via Apify actors) -> sales CSV schema.
+
+Each record is matched to one catalogue printing from its title, or dropped with a
+reason. Rules are deliberately strict: an unmatched sale costs little, a sale matched
+to the wrong card poisons a whole series. Seller and buyer names are never kept.
+
+Card key: the catalogue id, plus "/1st" or "/shadowless" for Wizards-era editions
+(different printings, different prices). Only English cards, only PSA 7-10 single
+cards (no lots, packs, signed or altered cards, reprints).
+"""
+from __future__ import annotations
+
+import re
+
+# catalogue id -> (name regex, set regex or None, card number, allowed years)
+CATALOGUE = {
+    "base1-4": (r"(?<!dark )(?<!mega )charizard(?! ex| v| gx| vmax)", r"base|game|holo", 4, (1999, 2000)),
+    "base1-2": (r"blastoise(?! ex| v)", r"base|game|holo", 2, (1999, 2000)),
+    "base1-15": (r"venusaur(?! ex| v)", r"base|game|holo", 15, (1999, 2000)),
+    "base1-10": (r"mewtwo(?! ex| v)", r"base|game|holo", 10, (1999, 2000)),
+    "base1-3": (r"chansey", r"base|game|holo", 3, (1999, 2000)),
+    "base1-1": (r"alakazam(?! ex| v)", r"base|game|holo", 1, (1999, 2000)),
+    "base1-8": (r"machamp", r"base|game|holo", 8, (1999, 2000)),
+    "base1-58": (r"pikachu", r"base|game", 58, (1999, 2000)),
+    "base2-11": (r"snorlax", r"jungle", 11, (1999, 2000)),
+    "base3-5": (r"gengar", r"fossil", 5, (1999, 2000)),
+    "base3-4": (r"dragonite", r"fossil", 4, (1999, 2000)),
+    "base5-4": (r"dark charizard", r"rocket", 4, (2000,)),
+    "neo1-9": (r"lugia", r"neo genesis", 9, (2000, 2001)),
+    "neo3-14": (r"suicune", r"neo revelation", 14, (2001,)),
+    "gym2-1": (r"blaine'?s arcanine", r"gym challenge", 1, (2000,)),
+    "gym2-13": (r"misty'?s gyarados", r"gym challenge", 13, (2000,)),
+    "sv03.5-199": (r"charizard ex", r"151", 199, (2023,)),
+    "sv03.5-205": (r"mew ex", r"151", 205, (2023,)),
+    "sv04.5-232": (r"mew ex", r"paldean fates", 232, (2024,)),
+    "swsh7-215": (r"umbreon vmax", r"evolving skies", 215, (2021,)),
+    "svp-085": (r"pikachu.*grey felt hat|grey felt hat.*pikachu", None, 85, (2023, 2024)),
+    "me02-125": (r"mega charizard x ex", r"phantasmal flames", 125, (2025,)),
+    "sv03.5-168": (r"charmander", r"151", 168, (2023,)),
+}
+WOTC = ("base", "neo", "gym")
+
+def card_no(no):
+    """A card number as the matcher compares it: 65 for "065", "sv49" for "SV49" (Hidden Fates shiny vault), "tg05"."""
+    no = str(no).strip().lower()
+    m = re.fullmatch(r"([a-z]*)0*(\d+)", no)
+    if not m:
+        return -1
+    return int(m.group(2)) if not m.group(1) else m.group(1) + m.group(2)
+
+
+# D102: cards added from visitors' requests (scripts/add_cards.py) live in data/catalogue_extra.json
+import json as _json
+import os as _os
+_EXTRA = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "data", "catalogue_extra.json")
+if _os.path.exists(_EXTRA):
+    for _k, (_name, _setre, _no, _yrs) in _json.load(open(_EXTRA)).items():
+        CATALOGUE.setdefault(_k, (_name, _setre, card_no(_no), tuple(_yrs)))
+
+EXCLUDE = re.compile(
+    r"japanese|korean|chinese|german|french|italian|spanish|portuguese|dutch|indonesian|thai"
+    r"|\b(?:ita|italiano|italiana|ger|deu|deutsch|fr|fra|francais|français|esp|español|espanol|kor|chn|ptbr)\b"   # D160: short language tags ("Holo ITA")
+    r"|\blot\b|collection \(|\(\d+\)|\bset of\b|complete set|sealed|unopened|booster|\bpack\b|\bbox\b"
+    r"|jumbo|oversize|celebrations|classic collection|(?<!prismatic )evolutions|expedition|base set 2|base set ii\b|base ii\b|legendary collection"
+    r"|signed|sketch|autograph|psa/dna|authentic|\bauto\b|topps|sticker|bandai|metal|\bgold\b(?! star)|staff|prerelease"
+    r"|stamp|\berror\b|misprint|miscut|no set symbol|no symbol|\bproof\b|test print|\bdeck\b|reverse|cosmos|trainer kit|\bbgs\b|\bcgc\b|\bsgc\b")
+NUM = re.compile(r"#\s*0*(\d+)|\b0*(\d+)\s*/\s*\d+")
+NUM_PREFIX = re.compile(r"\b(sv|tg|gg|rc|sh|sl|h|hgss|dp|bw|xy|sm|swsh)\s*0*(\d+)\b")     # SV49/SV94, TG05/TG30, GG44/GG70; D150: H9/H32 (Skyridge, Aquapolis), SL10 (Call of Legends); D153: promo numbers HGSS03, DP38, BW54, XY121, SM60, SWSH050
+
+SPLIT = {"firered": r"fire\W?red", "leafgreen": r"leaf\W?green", "heartgold": r"heart\W?gold", "soulsilver": r"soul\W?silver"}
+STOP = ("the", "of", "and")
+
+
+def set_re(name):
+    """Title regex for a set name (D153). Small words are optional ("Call Legends" and "Call of Legends"), compound
+    words may be split ("Fire Red"), FireRed & LeafGreen and HeartGold & SoulSilver also go by FRLG and HGSS; a Black
+    Star Promos set only needs "promo", since its numbers (HGSS03, DP38) already name the set."""
+    low = (name or "").lower().replace("é", "e")
+    if "black star promo" in low:
+        return r"\bpromo"
+    words = re.findall(r"[a-z0-9]+", low)
+    parts = [SPLIT.get(w, re.escape(w)) for w in words if w not in STOP]
+    if not parts:
+        return None
+    rx = r"\b" + r"\W*(?:(?:of|the|and)\W*)?".join(parts) + r"\b"
+    if "firered" in words and "leafgreen" in words:
+        rx = rf"(?:{rx}|\bfrlg\b)"
+    if "heartgold" in words and "soulsilver" in words:
+        rx = rf"(?:{rx}|\bhgss\b)"
+    return rx
+YEAR = re.compile(r"\b(199\d|20[0-2]\d)\b")
+
+
+# Japanese printings (D28: separate catalogue cards). key -> (name regex EN|JP, card number, set size, set regex or None)
+# Verified on TCGdex (ja) by number and illustrator, except s6a-095 (not on TCGdex; known numbering).
+JA_CATALOGUE = {
+    # (name, number, set total, set name in English titles such as Fanatics' "... Japanese ... 151 ... #201")
+    "ja:sv2a-201": (r"charizard ex|リザードンex|リザードン ex", 201, 165, r"\b151\b"),
+    "ja:sv2a-208": (r"mew ex|ミュウex|ミュウ ex", 208, 165, r"\b151\b"),
+    "ja:sv2a-168": (r"charmander|ヒトカゲ", 168, 165, r"\b151\b"),
+    "ja:sv4a-347": (r"mew ex|ミュウex|ミュウ ex", 347, 190, r"shiny treasure"),
+    "ja:s6a-095": (r"umbreon vmax|ブラッキーvmax|ブラッキー vmax", 95, 69, r"eevee heroes"),
+    "ja:m2-110": (r"mega charizard x ex|メガリザードンxex|メガリザードンx ex", 110, 80, r"inferno x|\bm2\b"),
+}
+# D134: Japanese counterparts added from the candidate queue (scripts/add_batch.py) live in data/catalogue_ja_extra.json
+_JA_EXTRA = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "data", "catalogue_ja_extra.json")
+if _os.path.exists(_JA_EXTRA):
+    for _k, (_name, _no, _tot, _setre) in _json.load(open(_JA_EXTRA, encoding="utf-8")).items():
+        JA_CATALOGUE.setdefault(_k, (_name, _no, _tot, _setre))
+JP_CHARS = re.compile(r"[\u3040-\u30ff\u4e00-\u9fff]")
+JA_EXCLUDE = re.compile(
+    r"\blot\b|\(\d+\)|まとめ|セット売り|未開封|box|ボックス|パック|\bpack\b|sealed|signed|サイン|proxy|プロキシ|"
+    r"\bbgs\b|\bcgc\b|\bsgc\b|\bars\b|korean|chinese|韓国|中国|簡体|繁体")
+NUM_TOT = re.compile(r"0*(\d+)\s*/\s*0*(\d+)")
+
+
+def is_japanese(title: str) -> bool:
+    t = title.lower()
+    return bool(JP_CHARS.search(title) or re.search(r"\bjapanese\b|\bjpn\b|\bjp\b|japan", t))
+
+
+def match_japanese(title: str):
+    t = " ".join(title.lower().split())
+    if JA_EXCLUDE.search(t):
+        return None, "esclusa (lotto, sigillato, firmata, altro grader...)"
+    pairs = {(int(a), int(b)) for a, b in NUM_TOT.findall(t)}
+    nums = {int(x) for x in re.findall(r"#\s*0*(\d+)", t)}
+    hits = [k for k, (name, no, tot, setre) in JA_CATALOGUE.items() if re.search(name, t)
+            and ((no, tot) in pairs or (no in nums and setre and re.search(setre, t)))]
+    if len(hits) != 1:
+        return None, "nessuna carta giapponese del catalogo" if not hits else "ambigua"
+    return hits[0], None
+
+
+def match_title(title: str):
+    """Return (card_key, None) or (None, reason). Japanese titles go to the Japanese catalogue."""
+    if is_japanese(title):
+        return match_japanese(title)
+    t = " ".join(title.lower().replace("’", "'").split())
+    if EXCLUDE.search(t):
+        return None, "esclusa (lingua, lotto, sigillato, firmata, ristampa...)"
+    years = {int(y) for y in YEAR.findall(t)}
+    nums = {int(a or b) for a, b in NUM.findall(t)} | {p + n for p, n in NUM_PREFIX.findall(t)}
+    hits = []
+    for cid, (name, setre, no, yrs) in CATALOGUE.items():
+        if not re.search(name, t):
+            continue
+        if setre and not re.search(setre, t):
+            continue
+        if years and not years & set(yrs):
+            continue
+        if not nums or no not in nums:
+            continue
+        hits.append(cid)
+    if len(hits) != 1:
+        return None, "nessuna carta del catalogo" if not hits else "ambigua"
+    cid = hits[0]
+    if cid.startswith(WOTC):
+        if re.search(r"1st ed|first ed", t):
+            cid += "/1st"
+        elif "shadowless" in t:
+            cid += "/shadowless"
+    return refine_variant(cid, t)
+
+
+def refine_variant(cid, title):
+    """Printings that PSA and tcgcharts keep apart (D81): Pikachu's cheeks, Machamp's 1st edition shadowless."""
+    t = (title or "").lower()
+    if cid in ("base1-58/1st", "base1-58/shadowless"):
+        if "red cheek" in t:
+            return cid + "-red", None
+        if "yellow cheek" in t:
+            return cid + "-yellow", None
+        return None, "variante ambigua"
+    if cid == "base1-8/1st" and "shadowless" in t:
+        return "base1-8/1st-shadowless", None
+    return cid, None
+
+
+def to_rows(records, venue):
+    """Apify actor records -> (rows for the sales CSV, Counter of drop reasons)."""
+    from collections import Counter
+    rows, why = [], Counter()
+    for r in records:
+        grader = (r.get("grader") or "").upper()
+        grade = r.get("grade_numeric")
+        price = r.get("final_price_with_premium") or r.get("final_sale_price")
+        date = r.get("sold_at") or r.get("auction_end_date")
+        status = str(r.get("listing_status") or "").lower()
+        if "sold" not in status:
+            why["non venduta"] += 1
+            continue
+        if grader != "PSA" or grade is None or int(grade) not in (7, 8, 9, 10) or float(grade) != int(grade):
+            why["non PSA 7-10"] += 1
+            continue
+        if not price or not date:
+            why["prezzo o data mancanti"] += 1
+            continue
+        card, reason = match_title(r.get("title") or "")
+        if not card:
+            why[reason] += 1
+            continue
+        cert = r.get("certification_number") or None
+        rows.append({"item_id": f"{venue}:{r['lot_id']}", "date": date, "card": card, "grade": int(grade),
+                     "price_usd": float(price), "venue": venue, "cert": cert,
+                     "title": r.get("title")})
+        why["tenuta"] += 1
+    return rows, why
+
+
+GRADE_IN_TITLE = re.compile(
+    r"\bpsa\s*(?:gem\s*-?\s*mi?n?t|gem\s*mt|mint|nm\s*-?\s*mt|nm|ex\s*-?\s*mt|ex)?\s*\+?\s*(10|[1-9](?:\.5)?)\b")
+
+
+def grade_from_title(title: str):
+    """PSA grade stated in an eBay title, or None if absent or ambiguous (two grades = lot)."""
+    t = title.lower()
+    found = {float(x) for x in GRADE_IN_TITLE.findall(t)}
+    return int(found.pop()) if len(found) == 1 and float(int(min(found))) == min(found) else None
+
+
+def ebay_rows(records, site="ebay.com"):
+    """eBay sold records (Apify caffein.dev/ebay-sold-listings) -> (sales CSV rows, drop reasons).
+    Price = sold price without shipping (schema). Best Offer accepted: eBay shows the asking
+    price, not the accepted one, so the row is flagged (the model treats it as an upper bound)."""
+    from collections import Counter
+    rows, why = [], Counter()
+    for r in records:
+        if (r.get("soldCurrency") or "USD") != "USD":
+            why["valuta non USD"] += 1
+            continue
+        title = r.get("title") or ""
+        if re.search(r"\b(cgc|bgs|sgc|beckett|tag)\b", title.lower()):
+            why["altro grader"] += 1
+            continue
+        grade = grade_from_title(title)
+        if grade not in (7, 8, 9, 10):
+            why["non PSA 7-10"] += 1
+            continue
+        card, reason = match_title(title)
+        if not card:
+            why[reason] += 1
+            continue
+        try:
+            price = float(str(r.get("soldPrice")).replace(",", ""))
+        except ValueError:
+            why["prezzo mancante"] += 1
+            continue
+        rows.append({"item_id": f"ebay:{r['itemId']}", "date": r.get("endedAt"), "card": card, "grade": grade,
+                     "price_usd": price, "venue": "ebay", "cert": None,
+                     "best_offer_hidden": bool(r.get("isBestOfferAccepted")), "title": title})
+        why["tenuta"] += 1
+    return rows, why
