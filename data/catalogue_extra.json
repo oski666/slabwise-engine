@@ -1870,5 +1870,32 @@
    2001,
    2002
   ]
+ ],
+ "sv10-230": [
+  "ethan's ho\\-oh ex",
+  "\\bdestined\\W*(?:(?:of|the|and)\\W*)?rivals\\b",
+  230,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "sv10-193": [
+  "misty's psyduck",
+  "\\bdestined\\W*(?:(?:of|the|and)\\W*)?rivals\\b",
+  193,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "sv08.5-149": [
+  "vaporeon ex",
+  "\\bprismatic\\W*(?:(?:of|the|and)\\W*)?evolutions\\b",
+  149,
+  [
+   2025,
+   2026
+  ]
  ]
 }

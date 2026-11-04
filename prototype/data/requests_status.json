@@ -3403,5 +3403,50 @@
   "requests": 0,
   "source": "catalogo (D111)",
   "added": "2026-11-04"
+ },
+ "en:sv10-230": {
+  "n": 208,
+  "recognised": 151,
+  "share": 0.726,
+  "tc_id": 491,
+  "tc_set": "Destined Rivals",
+  "tc_url": "/pokemon/destined-rivals/ethans-ho-oh-ex-230",
+  "tc_type": "base",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-04",
+  "requests": 0,
+  "source": "catalogo (D111)",
+  "added": "2026-11-04"
+ },
+ "en:sv10-193": {
+  "n": 241,
+  "recognised": 214,
+  "share": 0.888,
+  "tc_id": 449,
+  "tc_set": "Destined Rivals",
+  "tc_url": "/pokemon/destined-rivals/mistys-psyduck-193",
+  "tc_type": "base",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-04",
+  "requests": 0,
+  "source": "catalogo (D111)",
+  "added": "2026-11-04"
+ },
+ "en:sv08.5-149": {
+  "n": 173,
+  "recognised": 123,
+  "share": 0.711,
+  "tc_id": 834,
+  "tc_set": "Prismatic Evolutions",
+  "tc_url": "/pokemon/prismatic-evolutions/vaporeon-ex-149",
+  "tc_type": "base",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-04",
+  "requests": 0,
+  "source": "catalogo (D111)",
+  "added": "2026-11-04"
  }
 }
