@@ -62,9 +62,9 @@ sd = np.full((W, len(cards), 4), np.nan)
 ix_group = lambda c: "Giappone" if c.startswith("ja:") else (None if is_promo(c) else series_of(c.split("/")[0]))  # noqa: E731
 series_names = sorted({ix_group(c) for c in cards} - {None})
 ser_id = np.array([series_names.index(ix_group(c)) if ix_group(c) else -1 for c in cards])
-eidx = EraIndex(ser_id, len(series_names), k=int(os.environ.get("SLABWISE_IX_K", "10")))   # §31: basket size under test
+eidx = EraIndex(ser_id, len(series_names), k=int(os.environ.get("SLABWISE_IX_K", "20")))   # §31 passed (D169): 20 items per era
 # D136: the general index (whole catalogue, 30 items) and set indices (sets with at least 8 catalogue cards)
-aidx = EraIndex(np.array([-1 if c.startswith("ja:") or is_promo(c) else 0 for c in cards]), 1, k=int(os.environ.get("SLABWISE_IX_KALL", "30")))
+aidx = EraIndex(np.array([-1 if c.startswith("ja:") or is_promo(c) else 0 for c in cards]), 1, k=int(os.environ.get("SLABWISE_IX_KALL", "60")))   # D169: 60 for the general index
 SET_MIN = 8
 _set_of = lambda c: c.split("/")[0].rsplit("-", 1)[0]
 _base_cards = [c for c in cards if "/" not in c and not c.startswith("ja:")]

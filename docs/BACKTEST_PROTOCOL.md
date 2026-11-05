@@ -555,3 +555,5 @@ Solo riportato: quante delle 23 carte fermate il 4 novembre passano il controllo
 | Q3 | rumore | non oltre quello attuale più 10% |
 
 Si adotta la K più grande che passa Q1–Q3 (prima 20, poi 15; per il generale 60). Se nessuna passa, resta 10 (30). Lo script è `scripts/index_k_test.py`, che gira sul workflow `prova-indici.yml`; risultati in `results/index_k/summary.json`.
+
+**Esito §31 (5 novembre 2026): superata, si adottano 20 voci per era e 60 per il generale.** Su 717 coppie di rivendite (indici d'era): riduzione dell'errore Q1 0.332 con 10 voci, 0.333 con 15, 0.370 con 20; pendenza Q2 1.27, 1.25, 1.29 (intervallo con 20: 1.07–1.51); rumore Q3 0.0180, 0.0176, 0.0178. Generale, 630 coppie: Q1 0.344 con 30 voci, 0.366 con 60; pendenza 1.01 e 1.03; rumore 0.0143 e 0.0121. Passano K15, K20 e G60; per la regola si prende la più grande.

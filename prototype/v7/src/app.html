@@ -753,7 +753,7 @@ function viewIndex(key) {
   const ix = ixOf(key), kind = key === "tutto" ? "generale" : key.startsWith("set:") ? "set" : "era";
   const r = kind === "era" ? (D.rollups || []).find(x => x.series === key) : null;
   const own = kind === "generale" ? D.cards.filter(c => c.lang !== "ja") : key === "Giappone" ? D.cards.filter(c => c.lang === "ja") : kind === "set" ? D.cards.filter(c => c.lang !== "ja" && c.id.split("/")[0].replace(/-[^-]+$/, "") === key.slice(4)) : D.cards.filter(c => c.series === key);
-  const name = ixName(key), K = kind === "generale" ? 30 : 10;
+  const name = ixName(key), K = kind === "generale" ? 60 : kind === "set" ? 10 : 20;   /* D169 */
   const comps = ix ? (ix.components || []).map(x => { const base = x.id.split("/")[0], c = cardById[x.id] || cardById[base];
     return c ? {...x, c, ed: x.id.includes("/1st") ? tx("1ª edizione", "1st edition") : x.id.includes("/shadowless") ? "Shadowless" : ""} : null; }).filter(Boolean) : [];
   const last = ix ? ix.points[ix.points.length - 1][1] : null;
