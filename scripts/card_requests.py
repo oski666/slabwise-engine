@@ -84,7 +84,13 @@ def tc_find(card, lang, en_name=None, en_set=None):
 def name_re(name):
     """Title regex for a card name. Sellers mostly leave out the δ of delta species cards ("Rayquaza 16/110 Holon
     Phantoms"): the set and the number already tell them apart, so the name keeps only the Pokémon."""
-    r = re.escape(re.sub(r"\s*(?:[δ☆★]|\bstar\b)\s*", " ", name.lower()).strip()).replace(r"\ ", " ")   # gold star: "Charizard ☆"
+    n = re.sub(r"\s*(?:[δ☆★]|\bstar\b)\s*", " ", name.lower()).strip()            # gold star: "Charizard ☆"
+    m = re.match(r"(.+?)\s*&\s*(.+?)(\s+(?:gx|ex|v|vmax|legend))?$", n)
+    if m:                                                 # D168: tag teams are written in both orders ("Latios & Latias")
+        a, b, suf = re.escape(m.group(1)), re.escape(m.group(2)), re.escape(m.group(3) or "")
+        r = rf"(?:{a}\s*(?:&|and)\s*{b}|{b}\s*(?:&|and)\s*{a}){suf}".replace(r"\ ", " ")
+    else:
+        r = re.escape(n).replace(r"\ ", " ")
     return r.replace("é", "[eé]")
 
 
@@ -120,11 +126,17 @@ def check(req, catalogue_ids):
     return measure(it, key, GRAIL_MIN_SALES if grail else MIN_SALES)
 
 
-JA_SET_ALIAS = {"expansion pack": r"base\W*set|basic", "jungle": r"jungle", "mystery fossils": r"fossil",
-                "rocket gang": r"rocket", "gold silver to new world": r"neo\W*genesis|gold\W*silver",
-                "crossing ruins": r"neo\W*discovery", "awakening legends": r"neo\W*revelation",
-                "darkness to light": r"neo\W*destiny", "challenge from darkness": r"gym\W*challenge|challenge\W*from",
-                "leaders stadium": r"gym\W*heroes|leaders?\W*stadium"}
+JA_SET_ALIAS = {"expansion pack": r"base\W*set|basic|拡張パック", "jungle": r"jungle|ジャングル", "mystery fossils": r"fossil|化石の秘密",
+                "rocket gang": r"rocket|ロケット団", "gold silver to a new world": r"neo\W*genesis|neo\W*1|gold\W*silver|金、?・?銀、?・?新世界へ",
+                "crossing ruins": r"neo\W*discovery|neo\W*2|crossing\W*the\W*ruins|遺跡をこえて", "awakening legends": r"neo\W*revelation|neo\W*3|めざめる伝説",
+                "darkness to light": r"neo\W*destiny|neo\W*4|闇、?そして光へ", "challenge from darkness": r"gym\W*challenge|gym\W*2|challenge\W*from|闇からの挑戦",
+                "leaders stadium": r"gym\W*heroes|gym\W*1|leaders?\W*stadium|リーダーズスタジアム",
+                "miracle crystal": r"miracle\W*crystal|きせきの結晶", "golden sky silvery ocean": r"golden\W*sky|金の空、?銀の海",
+                "offense defense furthest ends": r"dragon\W*frontiers|furthest\W*ends|さいはての攻防",
+                "rulers heavens": r"rulers\W*of\W*the\W*heavens|天空の覇者", "holon phantom": r"holon\W*phantoms?|ホロンの幻影",
+                "wind from sea": r"wind\W*from\W*the\W*sea|海からの風", "advent arceus": r"advent\W*of\W*arceus|アルセウス光臨",
+                "mega dream ex": r"mega\W*dream|m2a", "tag bolt": r"tag\W*bolt|sm9\b",
+                "to have seen battle rainbow": r"battle\W*rainbow|sm3h", "shining legends": r"shining\W*legends|sm3\+"}
 
 
 def ja_entry(en_name, ja_name, no, tot, set_en):
@@ -136,8 +148,10 @@ def ja_entry(en_name, ja_name, no, tot, set_en):
     words = [w for w in re.findall(r"[a-z0-9]+", (set_en or "").lower()) if w not in ("the", "of", "and", "pokemon", "card", "japanese")]
     setre = r"\b" + r"\W*".join(map(re.escape, words)) + r"\b" if words else None
     alias = JA_SET_ALIAS.get(" ".join(words))              # D158: vintage Japanese sets go by their English names in titles
-    if alias:
-        setre = r"\b(?:" + alias + (("|" + setre[2:-2]) if setre else "") + r")\b"
+    if alias:                                             # Japanese words have no \b between them: no boundaries there
+        asc = [a for a in alias.split("|") if re.match(r"^[\x00-\x7f]+$", a)]
+        jp = [a for a in alias.split("|") if a not in asc]
+        setre = r"(?:\b(?:" + "|".join(asc + ([setre[2:-2]] if setre else [])) + r")\b" + "".join("|" + a for a in jp) + ")"
     return ["|".join(dict.fromkeys(alts)), int(no) if str(no).isdigit() else -1, int(tot) if str(tot or "").isdigit() else -1, setre]
 
 

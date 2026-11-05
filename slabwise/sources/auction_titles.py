@@ -126,6 +126,8 @@ def match_japanese(title: str):
         return None, "esclusa (lotto, sigillato, firmata, altro grader...)"
     pairs = {(int(a), int(b)) for a, b in NUM_TOT.findall(t)}
     nums = {int(x) for x in re.findall(r"#\s*0*(\d+)", t)} | {int(x) for x in re.findall(r"\bno\.?\s*0*(\d+)\b", t)}   # D158: vintage "No. 006"
+    nums |= {a for a, _ in pairs}                         # D168: "088/087" with the set named also counts as the number
+    nums |= {int(x) for x in re.findall(r"(?<![\d/])\b0\d{2}\b(?!\s*/)", t)}   # D168: vintage labels "Base Set Japanese 003"
     hits = [k for k, (name, no, tot, setre) in JA_CATALOGUE.items() if re.search(name, t)
             and ((no, tot) in pairs or (no in nums and setre and re.search(setre, t)))]
     if len(hits) != 1:
