@@ -1736,8 +1736,19 @@
   "added": "2026-11-04"
  },
  "en:bw1-114": {
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora"
+  "n": 80,
+  "recognised": 80,
+  "share": 1.0,
+  "tc_id": 13572,
+  "tc_set": "Black & White",
+  "tc_url": "/pokemon/black-white/zekrom-114",
+  "tc_type": "base",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-05",
+  "requests": 0,
+  "source": "catalogo (D111)",
+  "added": "2026-11-05"
  },
  "en:ex3-94": {
   "status": "aggiunta",
@@ -1760,8 +1771,18 @@
   "added": "2026-11-04"
  },
  "en:ex12-5": {
+  "n": 102,
+  "recognised": 94,
+  "share": 0.922,
+  "tc_id": 16356,
+  "tc_set": "Legend Maker",
+  "tc_url": "/pokemon/legend-maker/gengar-5",
+  "tc_type": "base",
   "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora"
+  "detail": "i controlli del motore non tornano ancora",
+  "checked": "2026-11-05",
+  "requests": 0,
+  "source": "catalogo (D111)"
  },
  "en:bw11-RC7": {
   "n": 69,
