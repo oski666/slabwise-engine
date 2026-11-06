@@ -559,3 +559,18 @@ Si adotta la K più grande che passa Q1–Q3 (prima 20, poi 15; per il generale 
 **Esito §31 (5 novembre 2026): superata, si adottano 20 voci per era e 60 per il generale.** Su 717 coppie di rivendite (indici d'era): riduzione dell'errore Q1 0.332 con 10 voci, 0.333 con 15, 0.370 con 20; pendenza Q2 1.27, 1.25, 1.29 (intervallo con 20: 1.07–1.51); rumore Q3 0.0180, 0.0176, 0.0178. Generale, 630 coppie: Q1 0.344 con 30 voci, 0.366 con 60; pendenza 1.01 e 1.03; rumore 0.0143 e 0.0121. Passano K15, K20 e G60; per la regola si prende la più grande.
 
 **Esito L8 della v1.14 (5 novembre 2026): non superata.** Vendite pulite dopo il 30 ottobre: 2.021 (2.020 valutate in fase R, stimatori addestrati sui dati precedenti). L1 **no**: R1 5 voci su 1.003 (base1-8, col1-15, dc1-6, hgssp-HGSS03, neo1-9/1st, tutte PSA 10). L4 sì: v1.14 meno v1.10 −0,20 punti [−0,42; −0,02]. L5 **no**: copertura 66,7% (v1.10: 65,6%). Confronto riportato, sugli stessi dati: la v1.10 ha R1 85 voci su 1.003; la v1.15, che il sito usa dal 2 novembre, R1 0 voci su 1.058, fase R −0,80 punti [−1,26; −0,42] contro la v1.10, copertura 68,1%. La regola di D103 ("se L8 non passa, il sito torna alla v1.10") era scritta quando la v1.14 era il motore del sito; oggi tornare alla v1.10 peggiorerebbe molto i prezzi (85 voci R1 contro 0). Il ritorno è sospeso e la scelta passa a Oscar (D171). La copertura sotto il 75% riguarda tutte le versioni: nel rialzo di ottobre le forchette sono troppo strette; la prova S6 della v1.15 (vendite dopo il 2 novembre, oggi 630) lo misurerà di nuovo.
+
+## 32. Due bande: il valore (blu) e il mercato (rosa) (registrato il 6 novembre 2026, prima del codice; D173)
+
+**Domanda (Oscar).** Forchette troppo larghe renderebbero i grafici poco leggibili; meglio tenere il fair value nella sua banda e "avvertire con una seconda forchetta dell'alta volatilità in corso". Dopo il 30 ottobre la copertura delle vendite è 66–68% (D171–D172).
+
+**Modifica.** La banda **blu** resta quella di oggi (valore stimato ± incertezza della stima, 80%). Nuova banda **rosa**: dove cadono le vendite. Per ogni vendita, scarto standardizzato z = (log prezzo − stima della settimana prima con lo scarto di sede) / s, con s² = sd² + (σ² della sede + σ_q²)·κ (la banda del controllo R4). Per ogni era (e Giappone): v_e(t) = media esponenziale di z² con emivita 4 settimane fino alla settimana precedente; v0_e(t) = media di z² di tutta la storia dell'era fino alla settimana precedente; fattore f_e(t) = √max(1, v_e/v0_e). Correzione automatica della copertura (adaptive conformal inference): moltiplicatore c, all'inizio 1, ogni settimana c ← c·exp(0,5·(quota di vendite fuori dalla rosa la settimana prima − 0,20)), tra 0,8 e 3. Rosa = stima ± 1,2816·s·f_e·c. **Avviso "mercato agitato"** quando f_e ≥ 1,5. Parametri fissati qui: emivita 4, γ 0,5, limiti 0,8–3, soglia 1,5.
+
+| # | Criterio (vendite di `sales_all` con tcgcharts del 5 novembre, fase R) | Soglia |
+|---|---|---|
+| V1 | copertura della rosa sulle vendite dopo il 30 ottobre | tra 75% e 85% |
+| V2 | copertura della rosa su tutto il periodo | tra 75% e 85% |
+| V3 | per ogni era, copertura su tutto il periodo | tra 70% e 90% |
+| V4 | mercati calmi (settimane ed ere con f_e ≤ 1,1): mediana di f_e·c | non oltre 1,10 |
+
+Solo riportato: quota di settimane ed ere con avviso, copertura della banda di oggi. Se V1–V4 passano, la rosa e l'avviso vanno sul sito (grafici e schede) e la promessa dell'80% si riferisce alla rosa; la blu resta il fair value. Script `scripts/band_test.py` sulle righe della fase R (`PHASE_R_ROWS`).
