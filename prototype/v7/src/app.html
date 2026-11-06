@@ -259,10 +259,10 @@ function spark(points) {
 const corner = () => `<span class="corner" aria-hidden="true"><i></i><u></u><b></b></span>`;
 const twinkle = (x, y, k = 0, cls = "") => `<i class="twinkle ${cls}" style="left:${x}%;top:${y}%;--k:${k}" aria-hidden="true"></i>`;
 const chevron = id => `<a class="chev" href="#mercato" data-sec="${id}" aria-label="${tx("Sezione successiva", "Next section")}"><i></i><i></i></a>`;
-const SECS = ["home", "ere", "star", "slab", "jp"];
+const SECS = ["home", "ere", "star", "meter", "slab", "jp"];
 function boxTitle(title, sub, id) {
   const n = SECS.indexOf(id);
-  const kick = n > 0 ? `<span class="kick">${String(n).padStart(2, "0")} / ${String(SECS.length - 1).padStart(2, "0")} <span lang="ja">${{ere: "時代", star: "注目", slab: "一覧", week: "今週", jp: "日本"}[id] || ""}</span></span>` : "";
+  const kick = n > 0 ? `<span class="kick">${String(n).padStart(2, "0")} / ${String(SECS.length - 1).padStart(2, "0")} <span lang="ja">${{ere: "時代", star: "注目", meter: "温度", slab: "一覧", week: "今週", jp: "日本"}[id] || ""}</span></span>` : "";
   return `<div class="boxtitle rv">${kick}<h2>${title}</h2>${sub ? `<p>${sub}</p>` : ""}</div>`;
 }
 const words = (s, k0 = 0) => s.split(/(<br>)/).map(x => x === "<br>" ? x : x.split(" ").map((w, i) => `<span class="w" style="--i:${k0 + i}">${w}</span>`).join(" ")).join("");
@@ -376,6 +376,33 @@ function starInner() {
 function starSection() {
   return `<section class="cs star7" id="sec-star" data-sec-id="star"><span class="wm" aria-hidden="true">STAR</span>${boxTitle(tx("In <em>evidenza</em>", "<em>Featured</em>"), tx("Le 6 carte che si sono mosse di più nell'ultimo mese, tra quelle con un prezzo affidabile. Si aggiornano ogni mattina; passaci sopra per fermarle", "The 6 cards that moved most in the last month, among those with a reliable price. Updated every morning; hover to pause them"), "star")}<div class="star-stage" id="star-stage">${starInner()}</div>${twinkle(88, 30, 0)}${twinkle(12, 40, 2, "s")}${chevron("slab")}${corner()}</section>`;
 }
+/* D194: the Slab-Meter. One temperature from four facts; the thermometer fills when the section comes into view, then
+   bursts (esplode), shakes (caldo), sways (tiepido), frosts (freddo) or cracks and shatters (gelo). */
+const METER_SAY = {
+  esplode: ["Il mercato ha la febbre: si compra tutto, e in fretta.", "The market has a fever: everything sells, and fast."],
+  caldo: ["Aria calda: salgono più carte di quante ne scendano.", "Warm air: more cards are rising than falling."],
+  tiepido: ["Mercato in pausa: nessuno ha fretta, né di comprare né di vendere.", "The market is on pause: nobody is in a hurry to buy or sell."],
+  freddo: ["Si raffredda: le vendite rallentano e i prezzi cedono un po'.", "Cooling down: sales slow and prices give a little."],
+  gelo: ["Mercato ghiacciato: chi compra adesso sceglie il prezzo.", "A frozen market: whoever buys now names the price."]};
+function meterSection() {
+  const m = D.slabmeter;
+  if (!m) return "";
+  const lv = Math.max(4, Math.min(100, m.score)), dg = nf1.format(m.degrees);
+  const shards = Array.from({length: 9}, (_, i) => `<i style="--a:${i * 40 - 160}deg;--k:${i}"></i>`).join("");
+  const facts = [
+    tx(`<b>${m.up}</b> carte salgono e <b>${m.down}</b> scendono in 30 giorni`, `<b>${m.up}</b> cards rise and <b>${m.down}</b> fall over 30 days`),
+    tx(`<b>${nf0.format(m.sales_week)}</b> vendite l'ultima settimana, ${m.sales_week >= m.sales_avg8 ? "sopra" : "sotto"} la media di ${nf0.format(m.sales_avg8)}`, `<b>${nf0.format(m.sales_week)}</b> sales last week, ${m.sales_week >= m.sales_avg8 ? "above" : "below"} the average of ${nf0.format(m.sales_avg8)}`),
+    tx(`<b>${m.highs}</b> carte ai massimi dell'anno, <b>${m.lows}</b> ai minimi`, `<b>${m.highs}</b> cards at a one-year high, <b>${m.lows}</b> at a low`),
+    tx(`SlabDex <b>${pct(m.index_4w)}</b> in 4 settimane`, `SlabDex <b>${pct(m.index_4w)}</b> over 4 weeks`)];
+  const inner = `<div class="cs-in">${boxTitle(tx("Lo <em>Slab-Meter</em>", "The <em>Slab-Meter</em>"), tx("La temperatura del mercato delle carte gradate, da 33° (gelo) a 42° (febbre). Si aggiorna ogni mattina", "The temperature of the graded card market, from 33° (frozen) to 42° (fever). Updated every morning"), "meter")}
+    <div class="meter7 st-${m.state}" style="--lv:${lv}">
+      <div class="thermo" aria-hidden="true"><div class="tube"><span class="merc"></span><span class="frost"></span><svg class="crack" viewBox="0 0 40 300"><path d="M20 10 L12 60 L26 95 L10 150 L28 190 L14 250 L22 290"/><path d="M26 95 L36 120 M10 150 L2 175 M28 190 L38 215"/></svg></div><div class="bulb"><span></span></div><div class="shards">${shards}</div><div class="steam"><i></i><i></i><i></i></div></div>
+      <div class="meter-txt"><span class="label">${tx("Oggi", "Today")}</span><b class="deg num">${dg}°</b><p class="say">${tx(...METER_SAY[m.state])}</p>
+        <ul class="mfacts">${facts.map(f => `<li>${f}</li>`).join("")}</ul>
+        <p class="note">${tx("Quattro misure, ognuna da 0 a 100, in media: quante carte salgono (sul voto più scambiato), quante vendite rispetto alle 8 settimane prima, massimi contro minimi dell'anno, lo SlabDex in 4 settimane.", "Four measures, each from 0 to 100, averaged: how many cards rise (on their most traded grade), sales against the 8 weeks before, one-year highs against lows, the SlabDex over 4 weeks.")}</p></div>
+    </div></div>`;
+  return sectionWrap("meter", "HEAT", inner, "slab", "温度");
+}
 function collectionSection() {
   const inner = `<div class="cs-in">${boxTitle(tx("Il <em>catalogo</em>", "The <em>catalogue</em>"), tx("Slabprice di oggi, SlabRange e Market Cap PSA 7–10 (Slabprice × copie gradate). Si aggiorna ogni mattina", "Today's Slabprice, SlabRange and PSA 7–10 Market Cap (Slabprice × graded copies). Updated every morning"), "slab")}
     <div class="filters rv">
@@ -412,7 +439,7 @@ function japanSection7() {
   return sectionWrap("jp", "JAPAN", inner, null, "日本");
 }
 function viewMarket() {
-  return comicHero() + tickers() + erasSection() + starSection() + collectionSection() + japanSection7();   // D185: the week is in the studio
+  return comicHero() + tickers() + erasSection() + starSection() + meterSection() + collectionSection() + japanSection7();   // D185: the week is in the studio; D194: the Slab-Meter before the catalogue
 }
 function tiles(list) {
   const key = {cap: c => capOf(c), mcap: c => capPSA(c), ch30: c => gradeOf(c, S.g).ch30 ?? -Infinity, sales: c => gradeOf(c, S.g).sales90, sure: c => -halfw(gradeOf(c, S.g))}[S.sort] || (c => capOf(c));

@@ -555,3 +555,40 @@ footer .wrap{color:var(--c-on-dark-dim)}
 .wall7-tint{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(160deg,transparent 35%,var(--c-blue) 150%);mix-blend-mode:multiply;opacity:.55}
 .wall7-dots{position:absolute;inset:0;z-index:1;pointer-events:none;background-image:radial-gradient(var(--c-halftone) 1.4px,transparent 1.6px);background-size:9px 9px;mix-blend-mode:multiply}
 @media (prefers-reduced-motion:reduce){.wall7 .col{animation:none}}
+
+/* D194: Slab-Meter */
+.meter7{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,5vw,72px);align-items:center;margin-top:18px}
+.thermo{position:relative;width:96px;height:380px;margin:0 auto}
+.thermo .tube{position:absolute;left:28px;top:0;width:40px;height:300px;border:5px solid var(--c-ink);border-bottom:0;border-radius:22px 22px 0 0;background:var(--c-paper);overflow:hidden}
+.thermo .merc{position:absolute;left:6px;right:6px;bottom:0;height:0;border-radius:12px 12px 0 0;background:linear-gradient(var(--c-pink),#ff5b3a);transition:height 2.4s cubic-bezier(.2,.8,.2,1) .3s}
+.cs.in .meter7 .merc{height:calc(var(--lv) * 1%)}
+.thermo .bulb{position:absolute;left:12px;top:282px;width:72px;height:72px;border:5px solid var(--c-ink);border-radius:50%;background:#ff5b3a;box-shadow:inset -8px -8px 0 rgba(0,0,0,.18)}
+.thermo .frost{position:absolute;inset:0;opacity:0;background:repeating-linear-gradient(35deg,rgba(255,255,255,.9) 0 2px,transparent 2px 7px),linear-gradient(#dff4ff,#bfe6ff);transition:opacity 2s 2.4s}
+.thermo .crack{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:var(--c-ink);stroke-width:2.5;stroke-dasharray:400;stroke-dashoffset:400;opacity:0}
+.thermo .shards i{position:absolute;left:44px;top:18px;width:14px;height:10px;background:#cfe9ff;border:2px solid var(--c-ink);clip-path:polygon(0 0,100% 30%,60% 100%);opacity:0}
+.thermo .steam i{position:absolute;left:38px;top:-10px;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.9);border:3px solid var(--c-ink);opacity:0}
+.meter-txt .deg{display:block;font:400 clamp(64px,9vw,120px)/1 var(--f-grot);letter-spacing:.01em}
+.meter-txt .say{font:600 clamp(20px,2.2vw,28px)/1.25 var(--display);margin:6px 0 14px;max-width:32ch}
+.mfacts{list-style:none;padding:0;margin:0 0 12px;display:grid;gap:6px;font:500 16px/1.35 var(--f-body)}
+.mfacts li::before{content:"";display:inline-block;width:10px;height:10px;margin-right:8px;background:var(--c-yellow);border:2px solid var(--c-ink);transform:rotate(45deg)}
+@media (prefers-reduced-motion:no-preference){
+  .cs.in .st-esplode .merc{animation:mshake .12s linear 2.7s 8}
+  .cs.in .st-esplode .shards i{animation:shard 1.1s cubic-bezier(.1,.7,.3,1) 3.6s forwards}
+  .cs.in .st-esplode .steam i{animation:steam 2.4s ease-out 3.6s infinite}
+  .cs.in .st-esplode .steam i:nth-child(2){animation-delay:4.2s}.cs.in .st-esplode .steam i:nth-child(3){animation-delay:4.8s}
+  .cs.in .st-caldo .thermo{animation:mshake .2s linear 2.8s 10}
+  .cs.in .st-caldo .steam i{animation:steam 3s ease-out 3s infinite}
+  .cs.in .st-tiepido .merc{animation:msway 4s ease-in-out 2.8s infinite}
+  .cs.in .st-freddo .frost{opacity:.55}
+  .cs.in .st-gelo .frost{opacity:.85}
+  .cs.in .st-gelo .crack{animation:crack 1.4s ease-out 3.6s forwards}
+  .cs.in .st-gelo .shards i{background:#e8f6ff;animation:shardfall 1.6s cubic-bezier(.5,0,.8,.6) 5s forwards}
+}
+@keyframes mshake{0%,100%{translate:0 0}25%{translate:-2px 1px}75%{translate:2px -1px}}
+@keyframes msway{0%,100%{height:calc(var(--lv) * 1%)}50%{height:calc(var(--lv) * 1% - 4%)}}
+@keyframes shard{0%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:0;transform:rotate(var(--a)) translateY(-120px) rotate(calc(var(--k) * 70deg))}}
+@keyframes shardfall{0%{opacity:1;transform:translate(0,calc(var(--k) * 26px))}100%{opacity:0;transform:translate(calc((var(--k) - 4) * 14px),340px) rotate(calc(var(--k) * 90deg))}}
+@keyframes steam{0%{opacity:0;transform:translate(0,0) scale(.5)}20%{opacity:1}100%{opacity:0;transform:translate(14px,-90px) scale(1.6)}}
+@keyframes crack{0%{opacity:1;stroke-dashoffset:400}100%{opacity:1;stroke-dashoffset:0}}
+@media (max-width:640px){.meter7{grid-template-columns:1fr}.thermo{height:300px;transform:scale(.8)}}
+.st-freddo .bulb,.st-gelo .bulb{background:#6ec6ff}.st-freddo .merc,.st-gelo .merc{background:linear-gradient(#bfe6ff,#6ec6ff)}

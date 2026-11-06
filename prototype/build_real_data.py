@@ -399,7 +399,35 @@ if os.path.exists(_if) and not os.environ.get("SLABWISE_TC_HISTORY") and os.envi
         print("index_full.json ha gruppi diversi da quelli di oggi: indici senza storico")
 _ih = os.path.join(HERE, "data", "index_history.json")       # D138: rebuilt index history, only once §27 passed
 index_history = json.load(open(_ih)) if os.path.exists(_ih) else None
-res = dict(real=True, rarity_fit=rarity_fit, engine=ENGINE, deals_asof=deals_asof, deal_stats=deal_stats, ja_pending=ja_pending, indexes=indexes, index_history=index_history, index_all=index_all, index_sets=index_sets, index_base=(index_source["base"] if index_source else wk(index_base_w)), index_source=index_source, asof=str(asof), eur_rate=EUR, eur_rate_date=rate_date, cards=out_cards, rollups=rollups, pulse=pulse,
+# D194: the Slab-Meter, the market's temperature, from four facts of this build (no new data, no effect on prices)
+def _main_grade(c):                       # the card's most traded grade with a shown 30-day change
+    gs = [g for g in c["grades"] if g.get("ch30") is not None and not g.get("off") and not g.get("stale") and g.get("sales_all")]
+    return max(gs, key=lambda g: g["sales90"]) if gs else None
+
+
+_mg = [(c, _main_grade(c)) for c in out_cards if c["lang"] != "ja"]
+_mg = [(c, g) for c, g in _mg if g]
+_up = sum(1 for _, g in _mg if g["ch30"] > 0.005); _dn = sum(1 for _, g in _mg if g["ch30"] < -0.005)
+_breadth = _up / max(1, _up + _dn)
+_wk = clean.groupby("week").size()
+_last = float(_wk.get(W - 2, 0)); _base = float(np.mean([_wk.get(w, 0) for w in range(W - 10, W - 2)]))   # the last full week against the 8 before
+_vol = _last / _base if _base else 1.0
+_hi = _lo = 0
+for _c, _g in _mg:
+    _h = [r[1] for r in (_g.get("history") or [])][-52:]
+    if len(_h) >= 13:
+        _hi += _h[-1] >= max(_h) * 0.999; _lo += _h[-1] <= min(_h) * 1.001
+_hl = _hi / (_hi + _lo) if _hi + _lo else 0.5
+_ix = (index_all or {}).get("points") or []
+_ixch = _ix[-1][1] / _ix[-5][1] - 1 if len(_ix) > 4 and _ix[-5][1] else 0.0
+_clip = lambda x: max(-1.0, min(1.0, x))  # noqa: E731
+_parts = dict(breadth=100 * _breadth, volume=50 + 50 * _clip((_vol - 1) / 0.5), highs=100 * _hl, index=50 + 50 * _clip(_ixch / 0.10))
+_score = float(np.mean(list(_parts.values())))
+_state = "esplode" if _score >= 80 else "caldo" if _score >= 60 else "tiepido" if _score >= 40 else "freddo" if _score >= 20 else "gelo"
+slabmeter = dict(score=round(_score, 1), degrees=round(33 + _score * 0.09, 1), state=_state, parts={k: round(v, 1) for k, v in _parts.items()},
+                 up=_up, down=_dn, sales_week=int(_last), sales_avg8=round(_base, 1), highs=int(_hi), lows=int(_lo), index_4w=round(_ixch, 4))
+print("slab-meter", slabmeter)
+res = dict(real=True, rarity_fit=rarity_fit, engine=ENGINE, deals_asof=deals_asof, deal_stats=deal_stats, ja_pending=ja_pending, indexes=indexes, index_history=index_history, index_all=index_all, index_sets=index_sets, index_base=(index_source["base"] if index_source else wk(index_base_w)), index_source=index_source, asof=str(asof), eur_rate=EUR, eur_rate_date=rate_date, cards=out_cards, rollups=rollups, pulse=pulse, slabmeter=slabmeter,
            params={k: v for k, v in params.__dict__.items()}, n_sales=int(len(clean)), n_removed=int(len(removed)), venues=venues,
            venue_gaps={v: round(float(lvm.offs[k]), 4) for k, v in enumerate(("ebay", "auction", "fixed"))},
            note="Dati veri: vendite concluse eBay (anche tramite Alt e tcgcharts), Goldin e Fanatics Collect (dal 2023). "
