@@ -1,3 +1,36 @@
 {
- "_note": "D182: curiosità per i copioni settimanali, per carta (id del catalogo): {\"it\": [...], \"en\": [...], \"checked\": data}. Parole nostre; le pagine consultate stanno solo in data/raw/curiosita nel repository privato."
+ "_note": "D182: curiosità per i copioni settimanali, per carta (id del catalogo): {\"it\": [...], \"en\": [...], \"checked\": data}. Parole nostre; le pagine consultate stanno solo in data/raw/curiosita nel repository privato.",
+ "xy4-34": {
+  "it": [
+   "Questo Gengar EX ha due papà: Eske Yoshinob ha disegnato la versione normale, Ryo Ueda la Full Art. Stesso fantasma, due pennelli!",
+   "Prima di arrivare in inglese, Gengar EX si è fatto vedere in Giappone nel set Phantom Gate. Un fantasma che anticipa sempre tutti."
+  ],
+  "en": [
+   "This Gengar EX has two dads: Eske Yoshinob drew the regular print, Ryo Ueda the Full Art. Same ghost, two brushes!",
+   "Before haunting English packs, Gengar EX showed up first in Japan in the Phantom Gate set. A ghost always one step ahead."
+  ],
+  "checked": "2026-11-06"
+ },
+ "base1-3": {
+  "it": [
+   "Chansey del Base Set ha 120 PS e un attacco da 80 danni… che ne fa 80 anche a lei. Il colpo più generoso del 1999.",
+   "L'illustrazione è di Ken Sugimori, il papà dei primi design Pokémon. Mica un disegnatore qualunque."
+  ],
+  "en": [
+   "Base Set Chansey has 120 HP and an 80-damage attack… that also does 80 to herself. The most generous hit of 1999.",
+   "The art is by Ken Sugimori, the man behind the first Pokémon designs. Not just any illustrator."
+  ],
+  "checked": "2026-11-06"
+ },
+ "base1-4": {
+  "it": [
+   "Il Charizard più famoso del mondo è firmato Mitsuhiro Arita, che anni dopo lo ha ridisegnato anche per Stormfront.",
+   "In Giappone una versione si otteneva per posta nel 1998, con il logo di Pikachu Records al posto del simbolo del set."
+  ],
+  "en": [
+   "The world's most famous Charizard is by Mitsuhiro Arita, who years later redrew it for Stormfront too.",
+   "In Japan one version came by mail-in in 1998, with a Pikachu Records logo instead of the set symbol."
+  ],
+  "checked": "2026-11-06"
+ }
 }
