@@ -42,10 +42,14 @@ def simple(s):
 
 
 BASE_PAR = {"", "base", "holo", "none", "unlimited"}
+# D207: for modern cards GemRate writes the rarity in "parallel" (there is no other printing of the card): these labels are
+# the base printing too. Any other label (1st Edition, Shadowless, Trainer Deck, Cracked Ice, Russian...) stays a variant.
+RARITY_PAR = {"special illustration rare", "illustration rare", "secret", "hyper rare", "mega hyper rare", "ultra rare",
+              "black white rare", "gold star", "pokemon x van gogh"}
 res = {}
 for s in sets.values() if isinstance(sets, dict) else sets:
     for cid, name, no in s["cards"]:
-        for edition, par_ok in ((None, BASE_PAR), ("/1st", {"1st edition"}), ("/shadowless", {"shadowless"})):
+        for edition, par_ok in ((None, BASE_PAR | RARITY_PAR), ("/1st", {"1st edition"}), ("/shadowless", {"shadowless"})):
             rows = [r for r in s["rows"] if norm_no(r["card_number"]) == norm_no(no)
                     and (r.get("parallel") or "").strip().lower() in par_ok
                     and simple(name.split(" ")[0]) in simple(r.get("name"))]

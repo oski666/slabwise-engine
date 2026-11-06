@@ -148,6 +148,8 @@ for c in catalog + variants:
                           ch90=ch90, pop=POP.get(c["id"], {}).get(str(g)) or POP.get(c["id"], {}).get(g), sales_all=n_g,
                           sales90=n13, tier=TIERS[int(tier_of(n13, Z * s_now))],      # confidence tier (D47)
                           med90=round(med13, 2) if med13 else None, off=off, stale=stale,
+                          # D208: how far a sale of the last 13 weeks usually lands from the value (median |log|), on all of them
+                          disp90=round(float(np.median(np.abs(np.log(rec.to_numpy()) - float(now)))), 4) if n13 >= 5 else None,
                           history=hist))
     ob, pg = lvm.obs[i], lvm.fit[i]["pgen"]
     sl = []
