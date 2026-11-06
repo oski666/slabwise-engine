@@ -60,6 +60,8 @@ if _os.path.exists(_EXTRA):
 EXCLUDE = re.compile(
     r"japanese|korean|chinese|german|french|italian|spanish|portuguese|dutch|indonesian|thai"
     r"|\b(?:ita|italiano|italiana|ger|deu|deutsch|fr|fra|francais|français|esp|español|espanol|kor|chn|ptbr)\b"   # D160: short language tags ("Holo ITA")
+    r"|\b(?:tedesc[oaie]|francese|spagnol[oaie]|portoghese|olandese|corean[oa]|cinese|polacc[oa]|deutsche[nr]?|franz[öo]sisch|spanisch|italienisch"
+    r"|koreanisch|chinesisch|allemand|anglais|italien|espagnol|alem[aá]n|franc[eé]s|coreano|chino)\b"   # D187: language words in Italian, German, French, Spanish
     r"|\blot\b|collection \(|\(\d+\)|\bset of\b|complete set|sealed|unopened|booster|\bpack\b|\bbox\b"
     r"|jumbo|oversize|celebrations|classic collection|(?<!prismatic )evolutions|expedition|base set 2|base set ii\b|base ii\b|legendary collection"
     r"|signed|sketch|autograph|psa/dna|authentic|\bauto\b|topps|sticker|bandai|metal|\bgold\b(?! star)|staff|prerelease"
@@ -159,7 +161,7 @@ def match_title(title: str):
         return None, "nessuna carta del catalogo" if not hits else "ambigua"
     cid = hits[0]
     if cid.startswith(WOTC):
-        if re.search(r"1st ed|first ed", t):
+        if re.search(r"1st ed|first ed|1\s*[°ºa]\s*ed|prima ed|\b1\.\s*ed|erste ed|1(?:re|ère)\s*[ée]d", t):   # D187: 1st edition in Italian, German, French
             cid += "/1st"
         elif "shadowless" in t:
             cid += "/shadowless"

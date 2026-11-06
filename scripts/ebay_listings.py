@@ -19,6 +19,11 @@ import urllib.request
 from datetime import datetime, timezone
 
 from slabwise.sources.auction_titles import grade_from_title, match_title
+# D187: German and French names of Pokémon in the catalogue whose English name differs (a listing may not say the language)
+FOREIGN_NAME = re.compile(r"\b(?:glurak|turtok|bisaflor|glumanda|schiggy|bisasam|flamara|aquana|blitza|nachtara|psiana|folipurba|glaziola|feelinara"
+                          r"|mewtu|relaxo|garados|simsala|lavados|arktos|despotar|maxax|ultrigaria|pummeluff|dragoran|evoli|smettbo"
+                          r"|dracaufeu|tortank|florizarre|salam[eè]che|carapuce|bulbizarre|pyroli|aquali|voltali|noctali|mentali|phyllali|givrali|nymphali"
+                          r"|ronflex|l[ée]viator|sulfura|artikodin|[ée]lecthor|tyranocif|dracolosse|[ée]voli|lokhlass|ectoplasma)\b")
 
 HOME = os.path.expanduser("~/.slabwise")
 API = "https://api.ebay.com"
@@ -130,6 +135,8 @@ def parse_item(it, market, queries, eur):
         return None
     if not card.startswith("ja:") and re.search(r"\b(japanese|japan|jpn|jap|giapponese|japanisch|sv2a|sv4a|s6a|m2|korean|chinese)\b", low):
         return None                                          # an Asian printing is another catalogue card
+    if FOREIGN_NAME.search(low):
+        return None                                          # D187: German or French name of the Pokémon, so not the English card
     ask = money(it.get("price"), eur)
     ship_opts = it.get("shippingOptions") or []
     ship = money(ship_opts[0].get("shippingCost"), eur) if ship_opts else None
