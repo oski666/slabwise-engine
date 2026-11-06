@@ -313,8 +313,8 @@ rollups = [dict(series=r_["series"], n=r_["n"], sales=r_["sales"], ch30=round(fl
 # the stories of the week, from real sales only
 # D182: only movements the site itself shows (ch30, D161: own sales at the start of the period), never the jump from a
 # new card's prior; only grades with at least 3 recent sales of their own
-def _story_ok(g):
-    return g["sales90"] >= 3 and not g.get("off") and not g.get("stale")
+def _story_ok(g):                       # also an established history: the 90-day change is shown (D161), so not a newcomer
+    return g["sales90"] >= 3 and g.get("ch90") is not None and not g.get("off") and not g.get("stale")
 
 
 cand = [(abs(g["ch30"]), c, gi) for c in out_cards for gi, g in enumerate(c["grades"])
