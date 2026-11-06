@@ -10,9 +10,9 @@ on:
   schedule:
     - cron: "17 9 * * *"           # fallback: if the collection never ran, build anyway (skipped when today's build exists)
   workflow_dispatch: {}
-  push:                          # D199: a new character image (Slabby, Slab-Meter, stickers) rebuilds the site by itself
+  push:                          # D199, D202: a change to the site, the engine or a character image rebuilds the site by itself
     branches: [main]
-    paths: ["prototype/character/**"]
+    paths: ["prototype/character/**", "prototype/v7/**", "prototype/build_real_data.py", "slabwise/**", "functions/**", "social/reel-studio/**", "prototype/data/curiosita.json"]
 permissions:
   contents: write                # D105: the weekly sealed snapshot is committed
 concurrency:
