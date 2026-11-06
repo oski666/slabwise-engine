@@ -592,3 +592,19 @@ footer .wrap{color:var(--c-on-dark-dim)}
 @keyframes crack{0%{opacity:1;stroke-dashoffset:400}100%{opacity:1;stroke-dashoffset:0}}
 @media (max-width:640px){.meter7{grid-template-columns:1fr}.thermo{height:300px;transform:scale(.8)}}
 .st-freddo .bulb,.st-gelo .bulb{background:#6ec6ff}.st-freddo .merc,.st-gelo .merc{background:linear-gradient(#bfe6ff,#6ec6ff)}
+
+/* D195: card page levels */
+.lvl{display:flex;align-items:center;gap:12px;margin:34px 0 12px}
+.lvl:first-of-type{margin-top:0}
+.lvl-n{display:grid;place-items:center;width:34px;height:34px;background:var(--c-ink);color:var(--c-yellow);font:400 20px var(--f-grot)}
+.lvl h2{font:400 clamp(22px,2.6vw,30px)/1.1 var(--f-serif)}
+.verdict{padding:16px 20px;margin:12px 0}
+.verdict ul{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:8px}
+.verdict li{position:relative;padding-left:28px;font:500 17px/1.4 var(--f-body)}
+.verdict li::before{position:absolute;left:0;top:1px;width:20px;height:20px;display:grid;place-items:center;border:2px solid var(--c-ink);font:800 13px var(--f-body)}
+.verdict li.sig-up::before{content:"▲";background:var(--mint)}
+.verdict li.sig-down::before{content:"▼";background:var(--c-pink);color:#fff}
+.verdict li.sig-flat::before{content:"●";background:var(--c-yellow)}
+.tapbars{display:flex;align-items:flex-end;gap:2px;height:90px;margin:10px 0;padding:6px;border:2px solid var(--c-ink);background:var(--c-paper)}
+.tapbars i{flex:1;background:var(--c-blue);min-width:2px}
+.tapbars i:nth-last-child(-n+13){background:var(--c-pink)}

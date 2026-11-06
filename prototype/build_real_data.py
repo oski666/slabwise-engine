@@ -427,7 +427,18 @@ _state = "esplode" if _score >= 80 else "caldo" if _score >= 60 else "tiepido" i
 slabmeter = dict(score=round(_score, 1), degrees=round(33 + _score * 0.09, 1), state=_state, parts={k: round(v, 1) for k, v in _parts.items()},
                  up=_up, down=_dn, sales_week=int(_last), sales_avg8=round(_base, 1), highs=int(_hi), lows=int(_lo), index_4w=round(_ixch, 4))
 print("slab-meter", slabmeter)
-res = dict(real=True, rarity_fit=rarity_fit, engine=ENGINE, deals_asof=deals_asof, deal_stats=deal_stats, ja_pending=ja_pending, indexes=indexes, index_history=index_history, index_all=index_all, index_sets=index_sets, index_base=(index_source["base"] if index_source else wk(index_base_w)), index_source=index_source, asof=str(asof), eur_rate=EUR, eur_rate_date=rate_date, cards=out_cards, rollups=rollups, pulse=pulse, slabmeter=slabmeter,
+# D190, D195: the tap, from the GemRate reads (data/raw/gemrate/tap.json, private, written by scripts/gemrate_tap.py)
+tap = {}
+_tp = os.path.join(HERE, "..", "data", "raw", "gemrate", "tap.json")
+if os.path.exists(_tp):
+    _ids = {c["id"] for c in out_cards}
+    for _k, _v in json.load(open(_tp)).items():
+        if _k in _ids and _v.get("trend"):
+            _w = [int(b - a) for a, b in zip(_v["trend"], _v["trend"][1:])]
+            tap[_k] = dict(state=_v.get("tap_state"), new10=_v.get("new10_30"), sold10=_v.get("sold10_30"), ratio=_v.get("tap10"),
+                           weekly=_w[-52:], total=_v.get("total"), psa10=_v.get("psa10"), asof=_v.get("updated"))
+    print("rubinetto", len(tap), "carte")
+res = dict(real=True, rarity_fit=rarity_fit, engine=ENGINE, deals_asof=deals_asof, deal_stats=deal_stats, ja_pending=ja_pending, indexes=indexes, index_history=index_history, index_all=index_all, index_sets=index_sets, index_base=(index_source["base"] if index_source else wk(index_base_w)), index_source=index_source, asof=str(asof), eur_rate=EUR, eur_rate_date=rate_date, cards=out_cards, rollups=rollups, pulse=pulse, slabmeter=slabmeter, tap=tap,
            params={k: v for k, v in params.__dict__.items()}, n_sales=int(len(clean)), n_removed=int(len(removed)), venues=venues,
            venue_gaps={v: round(float(lvm.offs[k]), 4) for k, v in enumerate(("ebay", "auction", "fixed"))},
            note="Dati veri: vendite concluse eBay (anche tramite Alt e tcgcharts), Goldin e Fanatics Collect (dal 2023). "

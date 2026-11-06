@@ -132,6 +132,11 @@ Il costo finale in Italia (IVA, dogana, spedizione, cambio BCE) si applica al pr
 - **Concentrazione**: quota delle prime 3 carte. **Copertura**: carte seguite ÷ carte del set.
 - **Indice d'era** (da costruire, v1.2): regressione robusta a vendite ripetute / effetti temporali sulle vendite pulite, pesate per probabilità genuina; non una somma di market cap, quindi non lo muovono né i nuovi slab né il cambio di composizione.
 
+## 8b. Misure di mercato mostrate sul sito, fuori dai prezzi (D190, D194)
+
+- **Slab-Meter** (`prototype/build_real_data.py`, `slabmeter`): media di quattro punteggi da 0 a 100. (1) Quota di carte inglesi in rialzo tra quelle che si muovono più di ±0,5% in 30 giorni, sul voto con più vendite in 90 giorni tra quelli con variazione mostrata (D161), non in revisione; (2) vendite pulite dell'ultima settimana completa contro la media delle 8 prima: 50 + 50·clip((r − 1)/0,5); (3) carte al massimo contro carte al minimo delle ultime 52 settimane di Slabprice (stesso voto; 50 se nessuna); (4) SlabDex in 4 settimane: 50 + 50·clip(Δ/0,10). Gradi = 33 + 0,09 × punteggio. Stati: ≥80 esplode, 60–80 caldo, 40–60 tiepido, 20–40 freddo, <20 gelo.
+- **Rubinetto** (`scripts/gemrate_tap.py`): dalle pagine dei set di GemRate (D189), per ogni carta abbinata per numero, nome e stampa: nuovi PSA 10 negli ultimi 30 giorni (`c10_diff_p1`) contro PSA 10 venduti in 30 giorni nei nostri dati (media delle ultime 13 settimane × 30/7). Rapporto > 1,5 aperto, 0,67–1,5 in equilibrio, < 0,67 chiuso; senza PSA 10 venduti non si calcola. Il grafico usa le copie gradate a settimana (tutti i voti) delle ultime 52 settimane.
+
 ## 9. Limiti noti (P17)
 
 - Testato finora solo su un mercato simulato. La fase con dati reali è obbligatoria prima di qualsiasi uso pubblico (P14).

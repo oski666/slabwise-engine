@@ -70,6 +70,10 @@ jobs:
           SLABWISE_TC_HISTORY=1 PYTHONPATH=. python scripts/build_sales.py data/raw/sales_base.csv data/raw/alt /tmp/sales_hist.csv data/raw/tcgcharts
           SLABWISE_TC_HISTORY=1 SLABWISE_OUT=/tmp/real_hist.json PYTHONPATH=. python prototype/build_real_data.py /tmp/sales_hist.csv data/raw/era_map.json
           PYTHONPATH=. python scripts/index_full_extract.py /tmp/real_hist.json
+      - name: The tap from the GemRate reads (D190)
+        continue-on-error: true
+        run: |
+          if [ -f data/raw/gemrate/sets.json ]; then PYTHONPATH=. python scripts/gemrate_tap.py data/raw/gemrate/sets.json data/raw/sales_all.csv data/raw/gemrate/tap.json; fi
       - name: Values
         run: PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json
       - name: eBay listings and deals (D112)

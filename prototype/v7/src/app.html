@@ -600,6 +600,7 @@ function viewCard(id) {
   const sales = c.sales.filter(s => s.grade === g.grade);
   const low = c.sales.filter(s => s.pgen < 0.5);
   const crumbSeries = c.lang === "ja" ? t("japan") : esc(ser(c.series));
+  const parts = cardMore(c, g);                                  // D195: the page in three levels
   return `<div class="wrap">
   <div class="crumbs"><a href="#mercato">${t("market")}</a> › ${crumbSeries} › <span${c.lang === "ja" ? ' lang="ja"' : ""}>${esc(c.set)}</span> › <span${c.lang === "ja" ? ' lang="ja"' : ""}>${esc(c.name)}</span></div>
   <div class="cardpage">
@@ -616,7 +617,8 @@ function viewCard(id) {
     <div>
       <div style="padding-bottom:20px;display:flex;flex-direction:column;align-items:flex-start;gap:8px"><span class="label">${crumbSeries} · <span${c.lang === "ja" ? ' lang="ja"' : ""}>${esc(c.set)}</span> · #${esc(c.no)}${c.tot ? "/" + c.tot : ""}</span><h1${c.lang === "ja" ? ' lang="ja"' : ""} style="font-size:clamp(34px,4.6vw,52px);margin-top:4px">${esc(c.name)}</h1>${watchBtn(c, g)}</div>
 
-      <div class="tile q"><div class="qhead"><span class="qn">1</span><h2>${tx("Quanto vale?", "What is it worth?")}</h2></div>
+      <div class="lvl"><span class="lvl-n">1</span><h2>${tx("Il verdetto", "The verdict")}</h2></div>
+      <div class="tile q"><div class="qhead"><span class="qn">€</span><h2>${tx("Quanto vale?", "What is it worth?")}</h2></div>
         ${noOwn(g) ? `<div class="valuerow"><span class="big">${tx("Stima non disponibile", "No estimate")}</span><span class="sticker sky">${g.stale ? tx("Poche vendite", "Few sales") : g.off ? tx("In revisione", "Under review") : (g.last ? tx(`Ultima vendita: ${monthF(g.last[0])}`, `Last sale: ${monthF(g.last[0])}`) : tx("0 vendite in PSA", "0 sales in PSA") + " " + g.grade)}</span></div>
         <p class="muted">${g.stale ? tx(`In PSA ${g.grade} non passa di mano da più di 3 mesi e la stima del modello si è allontanata troppo dall'ultima vendita: invece di un numero poco sicuro ti mostriamo quella vendita e i voti vicini.`, `In PSA ${g.grade} it has not changed hands for over 3 months and the model's estimate drifted too far from the last sale: instead of an unreliable number we show that sale and the nearby grades.`) : g.off ? tx(`Le ultime vendite in PSA ${g.grade} non tornano con il modello: finché non capiamo perché non mostriamo un numero.`, `Recent PSA ${g.grade} sales disagree with the model: until we know why we show no number.`) : g.last ? tx(`In PSA ${g.grade} questa carta passa di mano raramente: l'ultima vendita che conosciamo è qui sotto. Una vendita sola, magari su un'altra piattaforma, non basta per dare un valore, quindi non inventiamo un numero.`, `In PSA ${g.grade} this card rarely changes hands: the last sale we know of is below. One sale, maybe on another platform, is not enough for a value, so we do not make up a number.`) : tx(`Nei dati che abbiamo (vendite da ${monthF(firstSale(c))}) non c'è nessuna vendita di questa carta in PSA ${g.grade}. Ricavarla dagli altri voti oggi non è affidabile, quindi non inventiamo un numero.`, `In the data we have (sales since ${monthF(firstSale(c))}) there is no sale of this card in PSA ${g.grade}. Deriving it from the other grades is not reliable today, so we do not make up a number.`)}</p>
         ${refBlock(c, g)}` : `
@@ -626,7 +628,16 @@ function viewCard(id) {
         <div class="facts"><div class="fact"><span>${tx("90 giorni", "90 days")}</span>${noOwn(g) ? "<b>—</b>" : `<b class="${g.ch90 >= 0 ? "up" : "down"}">${pct(g.ch90)}</b>`}</div><div class="fact"><span>${tx("Vendite 90 gg", "Sales 90 d")}</span><b>${g.sales90}</b></div><div class="fact" title="${tx("Quante volte PSA ha dato questo voto. Una copia rimandata a PSA può essere contata più volte, soprattutto nel vintage: le copie vere sono di meno.", "How many times PSA gave this grade. A resubmitted copy can be counted more than once, especially in vintage: the real copies are fewer.")}"><span>${tx("Gradaggi PSA", "PSA gradings")}</span><b>${g.pop == null ? tx("n/d", "n/a") : nf0.format(g.pop)}</b></div><div class="fact"><span>${g.pop == null ? tx("Vendite in tutto", "Sales overall") : tx("Valore dei gradaggi", "Value of gradings")}</span><b>${g.pop == null ? g.sales_all : noOwn(g) ? "—" : usdK(g.value * g.pop)}</b></div></div>
       </div>
 
-      <div class="tile q"><div class="qhead"><span class="qn">2</span><h2>${tx("Quanto ne siamo sicuri?", "How sure are we?")}</h2></div>
+      ${verdictBox(c, g, parts.signals)}
+      <div class="lvl"><span class="lvl-n">2</span><h2>${tx("Le domande di chi compra o vende", "What buyers and sellers ask")}</h2></div>
+      ${parts.grade}${sellBox(c, g)}${parts.tap}${jaTwinBox(c)}
+      <div class="tile q"><div class="qhead"><span class="qn">?</span><h2>${tx("Conviene comprarla dall'Italia?", "Is it worth buying from Italy?")}</h2></div>
+        ${dealsOf(c).length ? `<div class="deals">${dealsOf(c).slice(0, 4).map(d => dealRow(c, d, false)).join("")}</div>` : `<div class="empty">${c.deals_off ? tx("Per questa carta non stiamo ancora controllando gli annunci in vendita: il prezzo è aggiornato, le occasioni arriveranno.", "We are not checking the listings for this card yet: the price is up to date, deals will come.") : !D.real ? tx("Nessun annuncio nelle ultime due settimane.", "No listings in the last two weeks.") : !D.deals_asof ? tx("Annunci in vendita non ancora raccolti.", "Listings not collected yet.") : !dealsLive() ? tx("Annunci in aggiornamento: mostriamo solo annunci controllati nelle ultime 6 ore.", "Listings being refreshed: we only show listings checked in the last 6 hours.") : tx("Oggi nessun annuncio di questa carta è un'occasione.", "No listing of this card is a deal today.")}</div>`}
+        ${D.real && D.deals_asof ? `<p class="note">${dealNote()}</p>` : ""}
+        <p class="note">${tx("Probabilità di occasione = l'annuncio è davvero la carta descritta × la copia vale almeno il 10% in più di quanto ti costa in Italia. Cambio", "Deal probability = the listing really is the card described × the copy is worth at least 10% more than it costs you in Italy. Rate")} 1 $ = ${D.eur_rate.toLocaleString(LOC, {minimumFractionDigits: 2})} €.</p>
+      </div>
+      <div class="lvl"><span class="lvl-n">3</span><h2>${tx("Per chi vuole scavare", "For those who want to dig")}</h2></div>
+      <div class="tile q"><div class="qhead"><span class="qn">?</span><h2>${tx("Quanto ne siamo sicuri?", "How sure are we?")}</h2></div>
         <div data-tour="chart">${noOwn(g) ? `<p class="note">${noEst(g.grade, g)}.</p>` : chart(g, sales)}</div>
         <div class="legend"><span><i style="background:var(--brand)"></i>${tx("Slabprice e SlabRange", "Slabprice and SlabRange")}</span><span><i style="background:var(--ink)"></i>${tx("Vendita attendibile", "Reliable sale")}</span><span><i style="background:var(--coral)"></i>${tx("Vendita poco credibile", "Implausible sale")}</span><span>${tx("Passa sopra un punto", "Hover a point")}</span></div>
         <div class="why">
@@ -634,23 +645,13 @@ function viewCard(id) {
           <div class="tile"><b class="num" data-count="${low.length}">${low.length}</b><span class="muted" style="font-size:15px">${tx("vendite troppo strane per crederci", "sales too odd to believe")}</span></div>
           <div class="tile"><b class="num" data-count="${c.excluded.length}">${c.excluded.length}</b><span class="muted" style="font-size:15px">${tx("record scartati prima: doppioni, lotti, Best Offer, aste non pagate", "records removed first: duplicates, lots, Best Offers, unpaid auctions")}</span></div>
         </div>
-        <details><summary>${tx("Apri tutte le vendite e le loro probabilità", "Show all sales and their probabilities")}</summary>
-          <div class="tbl" style="margin-top:12px"><table><thead><tr><th>${tx("Data", "Date")}</th><th>${tx("Voto", "Grade")}</th><th class="n">${tx("Prezzo", "Price")}</th><th>${tx("Dove", "Where")}</th><th>${tx("Attendibile?", "Genuine?")}</th><th>${tx("Perché", "Why")}</th></tr></thead><tbody>
-          ${[...c.sales].reverse().slice(0, 40).map(s => `<tr><td>${dateF(s.date)}</td><td>PSA ${s.grade}</td><td class="n">${usd(s.price)}</td><td>${esc(ven(s.venue))}${s.cert ? " · cert" : ""}</td><td>${probTag(s.pgen)}</td><td class="muted" style="font-size:14px">${esc(rsn(s.why) || "")}</td></tr>`).join("")}
-          ${c.excluded.slice(-10).reverse().map(s => `<tr><td>${dateF(s.date)}</td><td>PSA ${s.grade}</td><td class="n">${usd(s.price)}</td><td>—</td><td><span class="prob lo">${tx("scartata", "removed")}</span></td><td class="muted" style="font-size:14px">${esc(rsn(s.why))}</td></tr>`).join("")}
-          </tbody></table></div></details>
         <h3 style="font-size:20px">${tx("La scala dei voti", "The grade ladder")}</h3>
         ${ladder(c, g.grade)}
         ${resold(c)}
       </div>
 
       ${noOwn(g) ? "" : cardScore(c, g)}
-      <div class="tile q"><div class="qhead"><span class="qn">3</span><h2>${tx("Conviene comprarla dall'Italia?", "Is it worth buying from Italy?")}</h2></div>
-        ${dealsOf(c).length ? `<div class="deals">${dealsOf(c).slice(0, 4).map(d => dealRow(c, d, false)).join("")}</div>` : `<div class="empty">${c.deals_off ? tx("Per questa carta non stiamo ancora controllando gli annunci in vendita: il prezzo è aggiornato, le occasioni arriveranno.", "We are not checking the listings for this card yet: the price is up to date, deals will come.") : !D.real ? tx("Nessun annuncio nelle ultime due settimane.", "No listings in the last two weeks.") : !D.deals_asof ? tx("Annunci in vendita non ancora raccolti.", "Listings not collected yet.") : !dealsLive() ? tx("Annunci in aggiornamento: mostriamo solo annunci controllati nelle ultime 6 ore.", "Listings being refreshed: we only show listings checked in the last 6 hours.") : tx("Oggi nessun annuncio di questa carta è un'occasione.", "No listing of this card is a deal today.")}</div>`}
-        ${D.real && D.deals_asof ? `<p class="note">${dealNote()}</p>` : ""}
-        <p class="note">${tx("Probabilità di occasione = l'annuncio è davvero la carta descritta × la copia vale almeno il 10% in più di quanto ti costa in Italia. Cambio", "Deal probability = the listing really is the card described × the copy is worth at least 10% more than it costs you in Italy. Rate")} 1 $ = ${D.eur_rate.toLocaleString(LOC, {minimumFractionDigits: 2})} €.</p>
-      </div>
-      ${cardMore(c, g)}
+      ${parts.market}${parts.liq}${parts.sales}${parts.sheet}
     </div>
   </div></div>`;
 }
@@ -672,7 +673,7 @@ function cardMore(c, g) {
   const sh = share10(c), peersSet = D.cards.filter(x => x !== c && x.lang === c.lang && setOf(x) === setOf(c)), peersEra = D.cards.filter(x => x !== c && x.lang === c.lang && x.series === c.series);
   const mSet = peersSet.length >= 2 ? median(peersSet.map(share10)) : null, mEra = median(peersEra.map(share10));
   const g10 = gradeOf(c, 10), g9 = gradeOf(c, 9), p109 = g10 && g9 && !noOwn(g10) && !noOwn(g9) ? g10.value / g9.value : null;
-  const q4 = `<div class="tile q"><div class="qhead"><span class="qn">4</span><h2>${tx("Che differenza fa il voto?", "What difference does the grade make?")}</h2></div>
+  const q4 = `<div class="tile q"><div class="qhead"><span class="qn">?</span><h2>${tx("Che differenza fa il voto?", "What difference does the grade make?")}</h2></div>
     <div class="ladder" role="table"><div class="lrow lhead" role="row"><span>${tx("Voto", "Grade")}</span><span>${"Slabprice"}</span><span title="${tx("Vendite negli ultimi 90 giorni", "Sales in the last 90 days")}">${tx("Vendite", "Sales")}</span><span>${tx("Pop.", "Pop.")}</span><span>30 ${tx("gg", "d")}</span><span title="${tx("Quante volte vale il voto subito sotto", "How many times the grade just below")}">${tx("Premio", "Premium")}</span></div>${rows}</div>
     ${p109 ? `<p style="font:600 19px var(--display);margin-top:10px">${tx(`Un PSA 10 vale ${nf1.format(p109)} volte un PSA 9.`, `A PSA 10 is worth ${nf1.format(p109)} times a PSA 9.`)}</p>` : ""}
     ${sh != null ? `<p class="muted">${tx(`<b>Gem Rate ${nf1.format(sh * 100)}%</b>: su ${nf0.format(c.psa_total)} copie gradate da PSA, il ${nf1.format(sh * 100)}% ha preso 10.`, `<b>Gem Rate ${nf1.format(sh * 100)}%</b>: of ${nf0.format(c.psa_total)} copies graded by PSA, ${nf1.format(sh * 100)}% got a 10.`)}${mSet != null ? tx(` Nelle altre carte dello stesso set di solito il ${nf1.format(mSet * 100)}%`, ` In the other cards of the same set usually ${nf1.format(mSet * 100)}%`) : ""}${mEra != null ? (mSet != null ? tx(", nella sua era il ", ", in its era ") : tx(" Nella sua era di solito il ", " In its era usually ")) + nf1.format(mEra * 100) + "%" : ""}${mSet != null || mEra != null ? "." : ""} ${sh < (mEra ?? sh) * 0.7 ? tx("Un 10 qui è più raro della media: è uno dei motivi del premio.", "A 10 here is rarer than usual: one reason for the premium.") : ""}</p>
@@ -683,7 +684,7 @@ function cardMore(c, g) {
     const disp = !noOwn(x) && ss.length >= 5 ? median(ss.map(s => Math.abs(Math.log(s.price / x.value)))) : null;
     return {x, days: x.sales90 ? 90 / x.sales90 : null, disp, n: ss.length}; });
   const lg = liq.find(l => l.x.grade === g.grade);
-  const q5 = `<div class="tile q"><div class="qhead"><span class="qn">5</span><h2>${tx("Liquidità: quanto è facile rivenderla?", "Liquidity: how easy is it to resell?")}</h2></div>
+  const q5 = `<div class="tile q"><div class="qhead"><span class="qn">?</span><h2>${tx("Liquidità: quanto è facile rivenderla?", "Liquidity: how easy is it to resell?")}</h2></div>
     ${lg ? `<p style="font:600 19px var(--display)">${lg.days ? (lg.days <= 1.5 ? tx(`In PSA ${g.grade} passa di mano quasi ogni giorno.`, `In PSA ${g.grade} it changes hands almost every day.`) : tx(`In PSA ${g.grade} passa di mano in media ogni ${nf0.format(Math.round(lg.days))} giorni.`, `In PSA ${g.grade} it changes hands every ${nf0.format(Math.round(lg.days))} days on average.`)) : tx(`In PSA ${g.grade} non è passata di mano negli ultimi 90 giorni: rivenderla può richiedere tempo.`, `In PSA ${g.grade} it has not changed hands in the last 90 days: reselling may take time.`)}
       ${lg.disp != null ? tx(` Le vendite stanno di solito entro il ${nf0.format(Math.round((Math.exp(lg.disp) - 1) * 100))}% dal valore.`, ` Sales usually land within ${nf0.format(Math.round((Math.exp(lg.disp) - 1) * 100))}% of the value.`) : ""}</p>` : ""}
     <div class="facts">${liq.map(l => `<div class="fact"><span>PSA ${l.x.grade}</span><b>${l.days ? (l.days <= 1.5 ? tx("ogni giorno", "daily") : tx(`ogni ${nf0.format(Math.round(l.days))} gg`, `every ${nf0.format(Math.round(l.days))} d`)) : tx("ferma", "idle")}</b>${l.disp != null ? `<small class="note">±${nf0.format(Math.round((Math.exp(l.disp) - 1) * 100))}%</small>` : ""}</div>`).join("")}</div>
@@ -694,7 +695,7 @@ function cardMore(c, g) {
   const caps = D.cards.map(x => [x, capPSA(x)]).filter(([, v]) => v > 0).sort((a, b) => b[1] - a[1]), myCap = capPSA(c), rank = caps.findIndex(([x]) => x === c) + 1;
   const bar = (l, v, href) => `<div class="vsrow"><span>${href ? `<a href="${href}">${l}</a>` : l}</span><span class="vsbar"><i class="${v == null ? "" : v >= 0 ? "pos" : "neg"}" style="width:${v == null ? 0 : Math.min(50, Math.abs(v) * 100)}%"></i></span><b class="num ${v == null ? "" : v >= 0 ? "up" : "down"}">${pct(v)}</b></div>`;
   const verdict = ch13 != null && eW != null ? (ch13 - eW > 0.03 ? tx("Negli ultimi 3 mesi ha fatto meglio della sua era.", "In the last 3 months it did better than its era.") : ch13 - eW < -0.03 ? tx("Negli ultimi 3 mesi ha fatto peggio della sua era.", "In the last 3 months it did worse than its era.") : tx("Negli ultimi 3 mesi si è mossa come la sua era.", "In the last 3 months it moved like its era.")) : "";
-  const q6 = `<div class="tile q"><div class="qhead"><span class="qn">6</span><h2>${tx("Come va rispetto al mercato?", "How is it doing against the market?")}</h2></div>
+  const q6 = `<div class="tile q"><div class="qhead"><span class="qn">?</span><h2>${tx("Come va rispetto al mercato?", "How is it doing against the market?")}</h2></div>
     ${verdict ? `<p style="font:600 19px var(--display)">${verdict}</p>` : ""}
     <div class="vs">${bar(`${esc(c.name)} PSA ${g.grade}`, ch13)}${eraIx ? bar(tx("Indice ", "Index ") + esc(ser(c.series)), eW, `#indice-${encodeURIComponent(c.series)}`) : ""}${D.index_all ? bar(tx("SlabDex", "SlabDex"), aW, "#indice-tutto") : ""}</div>
     <p class="note">${tx("Variazione in 13 settimane.", "Change over 13 weeks.")}${D.index_source ? tx(" Gli indici usano anche le vendite più vecchie, il prezzo della carta solo quelle recenti.", " Indices also use older sales, the card price only recent ones.") : ""}</p>
@@ -705,7 +706,7 @@ function cardMore(c, g) {
   const OUT = {ok: [tx("usata", "used"), "up"], low: [tx("poco credibile", "implausible"), "down"], x: [tx("scartata", "removed"), ""]};
   const srow = s => `<div class="srow"><span>${dateF(s.date)}</span><span>PSA ${s.grade}</span><span class="num">${usd(s.price)}</span><span>${esc(s.venue ? (LANG === "en" ? VENUE_EN[s.venue] || s.venue : s.venue) : "eBay")}</span><span><b class="${OUT[s.out][1]}">${OUT[s.out][0]}</b>${s.why ? ` <small class="note">${esc(LANG === "en" ? REASON_EN[s.why] || s.why : s.why)}</small>` : ""}</span></div>`;
   const head = `<div class="srow shead"><span>${tx("Data", "Date")}</span><span>${tx("Voto", "Grade")}</span><span class="num">${tx("Prezzo", "Price")}</span><span>${tx("Dove", "Where")}</span><span>${tx("Esito", "Outcome")}</span></div>`;
-  const q7 = all.length ? `<div class="tile q"><div class="qhead"><span class="qn">7</span><h2>${tx("Le ultime vendite", "The latest sales")}</h2></div>
+  const q7 = all.length ? `<div class="tile q"><div class="qhead"><span class="qn">?</span><h2>${tx("Le ultime vendite", "The latest sales")}</h2></div>
     <div class="sgrid">${head}${all.slice(0, 12).map(srow).join("")}</div>
     ${all.length > 12 ? `<details style="margin-top:8px"><summary class="note" style="cursor:pointer">${tx(`Mostra tutte (${all.length})`, `Show all (${all.length})`)}</summary><div class="sgrid">${head}${all.slice(12, 200).map(srow).join("")}</div></details>` : ""}
     <p class="note">${tx("Usata = entra nel valore. Poco credibile = pesa poco perché il prezzo non torna. Scartata = tolta prima: doppioni, lotti, Best Offer senza prezzo, aste non pagate.", "Used = counts in the value. Implausible = weighs little because the price does not add up. Removed = taken out first: duplicates, lots, Best Offers without price, unpaid auctions.")}</p></div>` : "";
@@ -724,7 +725,62 @@ function cardMore(c, g) {
         .flatMap(([k, v]) => ((v && v.components) || []).filter(x => x.id === c.id).map(x => `<a href="#indice-${encodeURIComponent(k)}">${esc(ixName(k))}</a> (PSA ${x.grade}, ${nf1.format(x.weight * 100)}%)`));
       return `<p class="muted" style="margin-top:10px">${ins.length ? tx("Pesa negli indici: ", "Counts in the indices: ") + ins.join(" · ") : tx("Oggi non è nel paniere di nessun indice: ci entrano le combinazioni carta e voto più scambiate.", "Not in any index basket today: the most traded card and grade pairs go in.")}</p>`; })()}
     ${fam.length || ja || en ? `<p class="muted" style="margin-top:10px">${tx("Altre stampe, ognuna con un prezzo a parte: ", "Other printings, each with its own price: ")}${[...fam.map(x => `<a href="#c-${x.id}">${edName(x)}</a> (PSA 10 ${usdV(gradeOf(x, 10) || {})})`), ja ? `<a href="#c-${ja.id}">${tx("giapponese", "Japanese")}</a>` : "", en ? `<a href="#c-${en.id}">${tx("inglese", "English")}</a>` : ""].filter(Boolean).join(", ")}.</p>` : ""}</div>`;
-  return q4 + q5 + q6 + q7 + sheet;
+  return {grade: q4, liq: q5, market: q6, sales: q7, sheet, tap: tapBox(c), signals: {ch13, eW, lg, sh, mEra}};
+}
+/* D195: level 1, the verdict in a few plain signals (each says why) */
+function verdictBox(c, g, sg) {
+  const out = [];
+  if (sg.ch13 != null && sg.eW != null) { const d = sg.ch13 - sg.eW;
+    out.push(d > 0.03 ? ["up", tx(`<b>Corre più della sua era</b>: ${pct(sg.ch13)} in 3 mesi contro ${pct(sg.eW)}.`, `<b>Outrunning its era</b>: ${pct(sg.ch13)} in 3 months against ${pct(sg.eW)}.`)]
+      : d < -0.03 ? ["down", tx(`<b>Resta indietro rispetto alla sua era</b>: ${pct(sg.ch13)} in 3 mesi contro ${pct(sg.eW)}.`, `<b>Lagging its era</b>: ${pct(sg.ch13)} in 3 months against ${pct(sg.eW)}.`)]
+      : ["flat", tx(`<b>Si muove con la sua era</b>: ${pct(sg.ch13)} in 3 mesi.`, `<b>Moving with its era</b>: ${pct(sg.ch13)} in 3 months.`)]); }
+  if (sg.lg) out.push(sg.lg.days ? (sg.lg.days <= 7 ? ["up", tx(`<b>Liquida</b>: in PSA ${g.grade} passa di mano ${sg.lg.days <= 1.5 ? "quasi ogni giorno" : `ogni ${nf0.format(Math.round(sg.lg.days))} giorni`}.`, `<b>Liquid</b>: in PSA ${g.grade} it changes hands ${sg.lg.days <= 1.5 ? "almost daily" : `every ${nf0.format(Math.round(sg.lg.days))} days`}.`)]
+      : ["flat", tx(`<b>Si vende con calma</b>: in PSA ${g.grade} passa di mano ogni ${nf0.format(Math.round(sg.lg.days))} giorni.`, `<b>Sells slowly</b>: in PSA ${g.grade} it changes hands every ${nf0.format(Math.round(sg.lg.days))} days.`)])
+    : ["down", tx(`<b>Poco liquida</b>: in PSA ${g.grade} nessuna vendita in 90 giorni.`, `<b>Illiquid</b>: no PSA ${g.grade} sale in 90 days.`)]);
+  if (c.rarity_price && c.rarity_price.x < 0.5) out.push(["up", tx(`<b>Gemma nascosta</b>: costa ${nf1.format(1 / c.rarity_price.x)} volte meno delle carte con altrettanti PSA 10.`, `<b>Hidden Gem</b>: it costs ${nf1.format(1 / c.rarity_price.x)} times less than cards with as many PSA 10s.`)]);
+  else if (sg.sh != null && sg.mEra != null && sg.sh < sg.mEra * 0.7) out.push(["up", tx(`<b>Gem Rate basso</b>: solo il ${nf1.format(sg.sh * 100)}% delle copie gradate ha preso 10.`, `<b>Low Gem Rate</b>: only ${nf1.format(sg.sh * 100)}% of graded copies got a 10.`)]);
+  const tp = (D.tap || {})[c.id];
+  if (tp && tp.state) out.push(tp.state === "aperto" ? ["down", tx(`<b>Rubinetto aperto</b>: ${nf0.format(tp.new10)} nuovi PSA 10 in 30 giorni, ne passano di mano circa ${nf0.format(tp.sold10)}.`, `<b>Tap open</b>: ${nf0.format(tp.new10)} new PSA 10s in 30 days, about ${nf0.format(tp.sold10)} change hands.`)]
+    : tp.state === "chiuso" ? ["up", tx(`<b>Rubinetto chiuso</b>: in 30 giorni ${tp.new10 > 0 ? `solo ${nf0.format(tp.new10)} nuovi PSA 10` : "nessun nuovo PSA 10"}.`, `<b>Tap closed</b>: ${tp.new10 > 0 ? `only ${nf0.format(tp.new10)} new PSA 10s` : "no new PSA 10"} in 30 days.`)]
+    : ["flat", tx(`<b>Rubinetto in equilibrio</b>: i nuovi PSA 10 sono quanti ne passano di mano.`, `<b>Tap balanced</b>: new PSA 10s match those changing hands.`)]);
+  if (!out.length) return "";
+  return `<div class="tile verdict"><span class="label">${tx("In due parole", "In a nutshell")}</span><ul>${out.map(([k, t_]) => `<li class="sig-${k}">${t_}</li>`).join("")}</ul></div>`;
+}
+/* D195: if I sell it today */
+function sellBox(c, g) {
+  if (noOwn(g)) return "";
+  const days = g.sales90 ? 90 / g.sales90 : null;
+  return `<div class="tile q"><div class="qhead"><span class="qn">?</span><h2>${tx("Se la vendo oggi, quanto incasso?", "If I sell it today, what do I get?")}</h2></div>
+    <div class="facts"><div class="fact"><span>${tx("Vendita veloce", "Quick sale")}</span><b>${usd(g.lo)}</b><small class="note">${tx("circa", "about")} ${eur(g.lo * D.eur_rate)}</small></div>
+      <div class="fact"><span>${tx("Prezzo giusto", "Fair price")}</span><b>${usd(g.value)}</b><small class="note">Slabprice</small></div>
+      <div class="fact"><span>${tx("Se aspetti", "If you wait")}</span><b>${usd(g.hi)}</b><small class="note">${tx("il compratore giusto", "the right buyer")}</small></div></div>
+    <p class="muted">${tx(`Chi vuole vendere subito di solito chiude verso il basso dello SlabRange; chi aspetta può arrivare verso l'alto.${days ? (days <= 1.5 ? ` In PSA ${g.grade} una copia passa di mano quasi ogni giorno.` : ` In PSA ${g.grade} una copia passa di mano in media ogni ${nf0.format(Math.round(days))} giorni.`) : ""}`, `Selling fast usually closes near the bottom of the SlabRange; waiting can reach the top.${days ? (days <= 1.5 ? ` In PSA ${g.grade} a copy changes hands almost every day.` : ` In PSA ${g.grade} a copy changes hands every ${nf0.format(Math.round(days))} days on average.`) : ""}`)}</p>
+    <p class="note">${tx("Prezzi prima delle commissioni della piattaforma e della spedizione.", "Prices before platform fees and shipping.")}</p></div>`;
+}
+/* D195: the Japanese (or English) twin side by side */
+function jaTwinBox(c) {
+  const tw = c.lang === "ja" ? enOf(c) : jaOf(c);
+  if (!tw || !tw.grades) return "";
+  const a = gradeOf(c, 10), b = gradeOf(tw, 10);
+  if (!a || !b || noOwn(a) || noOwn(b)) return "";
+  const [en, ja] = c.lang === "ja" ? [b, a] : [a, b], r = ja.value / en.value, avg = D.rarity_fit && D.rarity_fit.ja_vs_en;
+  return `<div class="tile q"><div class="qhead"><span class="qn">?</span><h2>${tx("E la giapponese?", "And the Japanese one?")}</h2></div>
+    <div class="facts"><div class="fact"><span>${tx("Inglese PSA 10", "English PSA 10")}</span><b>${usd(en.value)}</b></div><div class="fact"><span>${tx("Giapponese PSA 10", "Japanese PSA 10")}</span><b>${usd(ja.value)}</b></div><div class="fact"><span>${tx("Rapporto", "Ratio")}</span><b>${nf0.format(r * 100)}%</b></div></div>
+    <p class="muted">${tx(`Qui la giapponese costa il ${nf0.format(r * 100)}% dell'inglese${avg ? `; in media, a parità di copie in PSA 10, il ${nf0.format(avg * 100)}%` : ""}. Stessa illustrazione, mercati diversi.`, `Here the Japanese one costs ${nf0.format(r * 100)}% of the English one${avg ? `; on average, for the same PSA 10 copies, ${nf0.format(avg * 100)}%` : ""}. Same art, different markets.`)} <a href="#c-${tw.id}">${tx("Apri l'altra scheda", "Open the other page")}</a></p></div>`;
+}
+/* D190, D195: the tap (filled by tapBox when the data is in the build) */
+function tapBox(c) {
+  const tp = (D.tap || {})[c.id];
+  if (!tp || !tp.weekly || !tp.weekly.length) return "";
+  const w = tp.weekly, mx = Math.max(1, ...w), last13 = w.slice(-13).reduce((a, b) => a + b, 0) / Math.min(13, w.length), before = w.length > 13 ? w.slice(0, -13).reduce((a, b) => a + b, 0) / (w.length - 13) : null;
+  const ST = {aperto: [tx("Rubinetto aperto", "Tap open"), "coral"], equilibrio: [tx("In equilibrio", "Balanced"), "sky"], chiuso: [tx("Rubinetto chiuso", "Tap closed"), "mint"]};
+  const bars = w.map((v, i) => `<i style="height:${Math.max(2, v / mx * 100)}%" title="${v}"></i>`).join("");
+  return `<div class="tile q"><div class="qhead"><span class="qn">?</span><h2>${tx("Ne arrivano di nuove? Il Rubinetto", "Are new copies coming? The Tap")}</h2></div>
+    ${tp.state ? `<div class="valuerow"><span class="sticker ${ST[tp.state][1]}">${ST[tp.state][0]}</span></div>
+    <p style="font:600 19px var(--display)">${tx(`Negli ultimi 30 giorni PSA ha dato ${nf0.format(tp.new10 || 0)} nuovi 10; nello stesso tempo ne passano di mano circa ${nf0.format(tp.sold10 || 0)}.`, `In the last 30 days PSA gave ${nf0.format(tp.new10 || 0)} new 10s; in the same time about ${nf0.format(tp.sold10 || 0)} change hands.`)}</p>` : `<p class="muted">${tx("Nessun PSA 10 venduto di recente: il confronto con le copie nuove non si può fare.", "No recent PSA 10 sale: the comparison with new copies cannot be made.")}</p>`}
+    <div class="tapbars" aria-label="${tx("Copie gradate da PSA ogni settimana, ultimo anno", "Copies graded by PSA each week, last year")}">${bars}</div>
+    <p class="muted">${tx(`Copie gradate a settimana (tutti i voti): ${nf0.format(Math.round(last13))} negli ultimi 3 mesi${before != null ? `, ${nf0.format(Math.round(before))} prima` : ""}. In tutto ${nf0.format(tp.total)} gradate, ${nf0.format(tp.psa10)} in PSA 10.`, `Copies graded per week (all grades): ${nf0.format(Math.round(last13))} in the last 3 months${before != null ? `, ${nf0.format(Math.round(before))} before` : ""}. ${nf0.format(tp.total)} graded in all, ${nf0.format(tp.psa10)} in PSA 10.`)}</p>
+    <p class="note">${tx("Aperto: arrivano più PSA 10 nuovi di quanti ne passino di mano (rischio diluizione). Chiuso: ne arrivano pochi. Contiamo solo le vendite che vediamo, quindi il rapporto può essere un po' più alto del vero; la popolazione conta le gradazioni, non le copie.", "Open: more new PSA 10s arrive than change hands (dilution risk). Closed: few arrive. We only count the sales we see, so the ratio may run a little high; the population counts gradings, not copies.")}</p></div>`;
 }
 function chart(g, sales) {
   const W = 720, H = 290, L = 8, R = 66, T = 14, B = 28;
