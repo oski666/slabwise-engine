@@ -2,7 +2,7 @@
 // (STUDIO_PASSWORD, user "slabwise"; without it the page is closed). The file name says where the image goes:
 // a Slabby pose, a Slab-Meter state or a reliability sticker. Each file is committed to GitHub with the contents API
 // (Cloudflare secret GITHUB_UPLOAD_TOKEN: a fine-grained token for oski666/slabwise-engine only, "Contents: read and
-// write" and "Actions: read and write"), then the site build is started. Only PNG, at most 8 MB each.
+// write"); the push starts the site build by itself (sito.yml, D199). Only PNG, at most 8 MB each.
 const REPO = "oski666/slabwise-engine";
 const TARGETS = {
   "prototype/character/slabby/": ["smug", "bliss", "laugh", "drool", "shock", "sleep", "peek", "run", "cling", "sit", "tongue", "wave",
@@ -83,10 +83,6 @@ export async function onRequest({request, env}) {
     if (put.status === 200 || put.status === 201) { saved++; out.push(`<li class="ok">${esc(f.name)} → <code>${esc(dest)}</code> ${cur.status === 200 ? "(sostituita)" : "(nuova)"}</li>`); }
     else out.push(`<li class="ko">${esc(f.name)}: GitHub ha risposto ${put.status}</li>`);
   }
-  let build = "";
-  if (saved) {
-    const d = await gh(env, "POST", "actions/workflows/sito.yml/dispatches", {ref: "main"});
-    build = d.status === 204 ? `<p class="ok">Ricostruzione del sito avviata.</p>` : `<p class="ko">Immagini salvate, ma la ricostruzione non è partita (GitHub ${d.status}): partirà con il prossimo aggiornamento.</p>`;
-  }
+  const build = saved ? `<p class="ok">Il sito si ricostruisce da solo (parte con il salvataggio su GitHub, circa 30 minuti).</p>` : "";
   return page(`<h2>Risultato</h2><ul>${out.join("")}</ul>${build}`);
 }

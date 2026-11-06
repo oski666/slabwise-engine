@@ -10,6 +10,9 @@ on:
   schedule:
     - cron: "17 9 * * *"           # fallback: if the collection never ran, build anyway (skipped when today's build exists)
   workflow_dispatch: {}
+  push:                          # D199: a new character image (Slabby, Slab-Meter, stickers) rebuilds the site by itself
+    branches: [main]
+    paths: ["prototype/character/**"]
 permissions:
   contents: write                # D105: the weekly sealed snapshot is committed
 concurrency:
