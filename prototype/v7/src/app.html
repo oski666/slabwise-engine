@@ -27,7 +27,6 @@ __SLABBY_SVG__
   </nav>
   <span class="side-kana" lang="ja" aria-hidden="true">グレーディング相場</span>
   <svg class="side-peek" id="sidepeek" aria-hidden="true"><use href="#slabby-peek"/></svg>
-  <span class="side-badge" id="datamode">DEMO</span>
 </aside>
 <div class="topright">
   <div class="search pill-light" role="search">
@@ -47,7 +46,7 @@ __SLABBY_SVG__
 </nav>
 <main id="app"></main>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<footer><div class="wrap"><span data-i="foot_build"></span><span id="foot"></span><a href="#privacy" style="color:inherit" data-i="privacy_link"></a> · <a href="#termini" style="color:inherit" data-i="terms_link"></a> · <a href="#contatti" style="color:inherit" data-i="contact_link"></a> · <a href="#pose" style="color:inherit" data-i="poses_link"></a></div></footer>
+<footer><div class="wrap"><span data-i="foot_build"></span><span id="foot"></span><a href="#privacy" style="color:inherit" data-i="privacy_link"></a> · <a href="#termini" style="color:inherit" data-i="terms_link"></a> · <a href="#contatti" style="color:inherit" data-i="contact_link"></a></div></footer>
 
 <script>
 const D = __DATA__;
@@ -74,7 +73,7 @@ const UI = {   // labels of the fixed page parts (data-i / data-ia)
   a_week: ["Storie della settimana", "Stories of the week"], a_lang: ["Lingua: italiano / English", "Language: italiano / English"],
   a_theme: ["Cambia tema", "Switch theme"],
   privacy_link: ["Privacy", "Privacy"], terms_link: ["Condizioni d'uso", "Terms of use"], contact_link: ["Contatti", "Contact"],
-  foot_build: ['Slabwise · prototipo v7.2 "Comic Rush" · motore LVM v1.15 · indice d\'era v1.4 · con Slabby', 'Slabwise · prototype v7.2 "Comic Rush" · LVM engine v1.15 · era index v1.4 · with Slabby'],
+  foot_build: ["Slabwise · valori di carte Pokémon gradate PSA · ", "Slabwise · values of PSA-graded Pokémon cards · "],
 };
 const t = k => { const e = GLOSSARY[k] || UI[k]; return e ? e[LANG === "it" ? 0 : 1] : k; };
 let LOC, nf0, nf1;
@@ -124,11 +123,8 @@ function applyStatic() {
   document.querySelectorAll("[data-i]").forEach(el => { el.textContent = t(el.dataset.i); });
   document.querySelectorAll("[data-ia]").forEach(el => el.dataset.ia.split(";").forEach(p => { const [a, k] = p.split(":"); el.setAttribute(a, t(k)); }));
   document.querySelectorAll("#lang [data-l]").forEach(s => s.classList.toggle("on", s.dataset.l === LANG));
-  $("#foot").textContent = (D.real ? tx(`Vendite vere al ${dateF(D.asof)} · eBay (anche tramite Alt), Goldin, Fanatics Collect · ${nf0.format(D.n_sales)} vendite`, `Real sales as of ${dateF(D.asof)} · eBay (also via Alt), Goldin, Fanatics Collect · ${nf0.format(D.n_sales)} sales`)
+  $("#foot").textContent = (D.real ? tx(`Vendite al ${dateF(D.asof)} · ${nf0.format(D.n_sales)} vendite`, `Sales as of ${dateF(D.asof)} · ${nf0.format(D.n_sales)} sales`)
     : tx("Dati dimostrativi al ", "Demo data as of ") + dateF(D.asof)) + tx(" · carte e immagini TCGdex", " · cards and images TCGdex");
-  const m = $("#datamode");
-  if (D.real) { m.textContent = tx("DATI VERI", "REAL DATA"); m.title = tx(D.note, "Real data: completed eBay sales (recent weeks), Goldin and Fanatics Collect (since 2023). Populations and listings not collected yet."); }
-  else { m.textContent = "DEMO"; m.title = tx("Carte e immagini reali; vendite, popolazioni e annunci simulati", "Real cards and images; simulated sales, populations and listings"); }
 }
 applyStatic();
 $("#lang").onclick = () => {
@@ -261,7 +257,7 @@ function spark(points) {
 const corner = () => `<span class="corner" aria-hidden="true"><i></i><u></u><b></b></span>`;
 const twinkle = (x, y, k = 0, cls = "") => `<i class="twinkle ${cls}" style="left:${x}%;top:${y}%;--k:${k}" aria-hidden="true"></i>`;
 const chevron = id => `<a class="chev" href="#mercato" data-sec="${id}" aria-label="${tx("Sezione successiva", "Next section")}"><i></i><i></i></a>`;
-const SECS = ["home", "ere", "star", "slab", "week", "jp"];
+const SECS = ["home", "ere", "star", "slab", "jp"];
 function boxTitle(title, sub, id) {
   const n = SECS.indexOf(id);
   const kick = n > 0 ? `<span class="kick">${String(n).padStart(2, "0")} / ${String(SECS.length - 1).padStart(2, "0")} <span lang="ja">${{ere: "時代", star: "注目", slab: "一覧", week: "今週", jp: "日本"}[id] || ""}</span></span>` : "";
@@ -306,10 +302,9 @@ function comicHero() {
     <div class="h-buttons">
       <a class="nbtn" href="#mercato" data-sec="slab" style="--i:0"><b>${t("catalog")}</b><small>${plural(D.cards.length, tx("carta seguita", "card tracked"), tx("carte seguite", "cards tracked"))}</small></a>
       <a class="nbtn" href="#mercato" data-sec="ere" style="--i:1"><b>${tx("Indice d'era", "Era index")}</b><small>${tx("base 100", "base 100")}</small></a>
-      <a class="nbtn" href="#mercato" data-sec="week" style="--i:2"><b>${t("week")}</b><small>${plural((D.pulse.stories || []).length, tx("storia", "story"), tx("storie", "stories"))}</small></a>
-      <a class="nbtn" href="#deal" style="--i:3"><b>${t("deals")}</b><small>${tx("in euro, tasse comprese", "in euros, taxes included")}</small></a>
-      <a class="nbtn" href="#metodo" style="--i:4"><b>${t("method")}</b><small>${tx("come facciamo i conti", "how we do the maths")}</small></a>
-      <a class="nbtn hot" href="#mercato" data-sec="jp" style="--i:5"><b>${t("japan")}</b><small>${tx("stampe giapponesi", "Japanese printings")}</small></a>
+      <a class="nbtn" href="#deal" style="--i:2"><b>${t("deals")}</b><small>${tx("in euro, tasse comprese", "in euros, taxes included")}</small></a>
+      <a class="nbtn" href="#metodo" style="--i:3"><b>${t("method")}</b><small>${tx("come facciamo i conti", "how we do the maths")}</small></a>
+      <a class="nbtn hot" href="#mercato" data-sec="jp" style="--i:4"><b>${t("japan")}</b><small>${tx("stampe giapponesi", "Japanese printings")}</small></a>
     </div></div>
     ${chevron("ere")}
   </section>`;
@@ -381,7 +376,7 @@ function collectionSection() {
       ${sortChips()}
     </div>
     <div class="cgrid" data-tour="grid">${tiles()}</div></div>`;
-  return sectionWrap("slab", "CARDS", inner, "week", "一覧");
+  return sectionWrap("slab", "CARDS", inner, "jp", "一覧");
 }
 const KIND = {mover: ["In movimento", "On the move"], caught: ["Vendita anomala", "Outlier sale"], ladder: ["PSA 10 o 9?", "PSA 10 or 9?"], deal: ["Occasione", "Deal"], era: ["Era", "Era"]};
 function weekBand() {
@@ -410,7 +405,7 @@ function japanSection7() {
   return sectionWrap("jp", "JAPAN", inner, null, "日本");
 }
 function viewMarket() {
-  return comicHero() + tickers() + erasSection() + starSection() + collectionSection() + weekBand() + japanSection7();
+  return comicHero() + tickers() + erasSection() + starSection() + collectionSection() + japanSection7();   // D185: the week is in the studio
 }
 function tiles(list) {
   const key = {cap: c => capOf(c), mcap: c => capPSA(c), ch30: c => gradeOf(c, S.g).ch30 ?? -Infinity, sales: c => gradeOf(c, S.g).sales90, sure: c => -halfw(gradeOf(c, S.g))}[S.sort] || (c => capOf(c));
@@ -796,14 +791,14 @@ function viewIndex(key) {
       <p class="muted" style="max-width:66ch;margin-top:8px">${ix ? tx(`Un numero solo per il valore ${scope}: segue le ${comps.length} combinazioni carta e voto più vendute, tutte con lo stesso peso. Vale 100 il ${dateF(base)}: a 130 vuol dire +30% da allora.`, `One number for the value ${scope}: it tracks the ${comps.length} card and grade pairs sold most, all with the same weight. It is 100 on ${dateF(base)}: 130 means +30% since then.`)
         : tx(`Per un indice servono almeno sei mesi di vendite: ${name} ancora non li ha.`, `An index needs at least six months of sales: ${name} does not have them yet.`)}</p>
       ${story ? `<p style="max-width:66ch;margin-top:8px;font:600 19px var(--display)">${story}</p>` : ""}
-      ${D.index_source && ix ? `<p class="note" style="max-width:66ch;margin-top:8px">${tx(`Calcolato con tutte le vendite dal ${dateF(ix.start || base)}, compreso lo storico che i prezzi delle carte non usano ancora: abbiamo verificato che segue le rivendite vere della stessa copia (protocollo §29).`, `Computed with every sale since ${dateF(ix.start || base)}, including the history card prices do not use yet: we checked that it follows real resales of the same copy (protocol §29).`)}</p>` : ""}</div></div>
-    ${ix ? `<div class="tile" style="padding:18px">${(D.index_history || {})[key] || (ix.start && ix.start < base) ? `<div class="chips" style="margin-bottom:8px"><button class="chip" data-ixr="all" aria-pressed="${S.ixr !== "base"}">${tx(`Dal ${(((D.index_history || {})[key] || ix).start || "").slice(0, 4)}`, `Since ${(((D.index_history || {})[key] || ix).start || "").slice(0, 4)}`)}</button><button class="chip" data-ixr="base" aria-pressed="${S.ixr === "base"}">${tx(`Dal ${dateF(base)}`, `Since ${dateF(base)}`)}</button></div>` : ""}${indexChart(key)}<p class="note">${tx(`In colore ${name}, in grigio gli altri indici, tutti a 100 il ${dateF(D.index_base || base)}${D.index_source ? " (quelli nati dopo, a 100 al loro inizio)" : ""}. Scala logaritmica: la stessa distanza vuol dire la stessa percentuale.`, `${name} in colour, the other indices in grey, all at 100 on ${dateF(D.index_base || base)}${D.index_source ? " (later ones at 100 on their start)" : ""}. Log scale: equal distances mean equal percentages.`)}${(D.index_history || {})[key] && S.ixr !== "base" ? tx(" Il tratto a puntini prima della base è <b>ricostruito con le vendite passate</b> (protocollo §27): stesso metodo, dati più scarsi.", " The dotted stretch before the base is <b>rebuilt from past sales</b> (protocol §27): same method, thinner data.") : ""}</p></div>
+      ${D.index_source && ix ? `<p class="note" style="max-width:66ch;margin-top:8px">${tx(`Calcolato con tutte le vendite dal ${dateF(ix.start || base)}, compreso lo storico che i prezzi delle carte non usano ancora: abbiamo verificato che segue le rivendite vere della stessa copia.`, `Computed with every sale since ${dateF(ix.start || base)}, including the history card prices do not use yet: we checked that it follows real resales of the same copy.`)}</p>` : ""}</div></div>
+    ${ix ? `<div class="tile" style="padding:18px">${(D.index_history || {})[key] || (ix.start && ix.start < base) ? `<div class="chips" style="margin-bottom:8px"><button class="chip" data-ixr="all" aria-pressed="${S.ixr !== "base"}">${tx(`Dal ${(((D.index_history || {})[key] || ix).start || "").slice(0, 4)}`, `Since ${(((D.index_history || {})[key] || ix).start || "").slice(0, 4)}`)}</button><button class="chip" data-ixr="base" aria-pressed="${S.ixr === "base"}">${tx(`Dal ${dateF(base)}`, `Since ${dateF(base)}`)}</button></div>` : ""}${indexChart(key)}<p class="note">${tx(`In colore ${name}, in grigio gli altri indici, tutti a 100 il ${dateF(D.index_base || base)}${D.index_source ? " (quelli nati dopo, a 100 al loro inizio)" : ""}. Scala logaritmica: la stessa distanza vuol dire la stessa percentuale.`, `${name} in colour, the other indices in grey, all at 100 on ${dateF(D.index_base || base)}${D.index_source ? " (later ones at 100 on their start)" : ""}. Log scale: equal distances mean equal percentages.`)}${(D.index_history || {})[key] && S.ixr !== "base" ? tx(" Il tratto a puntini prima della base è <b>ricostruito con le vendite passate</b>: stesso metodo, dati più scarsi.", " The dotted stretch before the base is <b>rebuilt from past sales</b>: same method, thinner data.") : ""}</p></div>
     <div class="facts ixret">${retCell("w1", tx("1 settimana", "1 week"))}${retCell("w4", tx("1 mese", "1 month"))}${retCell("w13", tx("3 mesi", "3 months"))}${retCell("w26", tx("6 mesi", "6 months"))}${retCell("ytd", tx("Da inizio anno", "Year to date"))}${retCell("w52", tx("1 anno", "1 year"))}
       <div class="fact" title="${tx("Quanto oscilla di settimana in settimana, riportato a un anno: più è alto, più l'indice va su e giù.", "How much it swings week to week, scaled to a year: the higher, the bumpier.")}"><span>${tx("Volatilità annua", "Annual volatility")}</span><b>${ix.vol != null ? nf1.format(ix.vol * 100) + "%" : "—"}</b></div>
       <div class="fact" title="${ix.mdd ? tx(`Dal massimo del ${dateF(ix.mdd.peak)} al minimo del ${dateF(ix.mdd.at)}`, `From the high of ${dateF(ix.mdd.peak)} to the low of ${dateF(ix.mdd.at)}`) : ""}"><span>${tx("Calo massimo dal picco", "Maximum drawdown")}</span><b class="down">${ix.mdd ? pct(ix.mdd.value) : "—"}</b></div></div>
     <h3 style="margin:26px 0 6px">${tx("Componenti", "Components")}</h3>
     <p class="note" style="max-width:70ch">${tx("Contributo = quanto la voce ha spostato l'indice nelle ultime 4 settimane, in punti percentuali: la sua variazione divisa per il numero di voci.", "Contribution = how much the item moved the index in the last 4 weeks, in percentage points: its change divided by the number of items.")}</p>
-    ${(() => { const gs = [...new Set(comps.map(x => x.grade))].sort((a, b) => b - a); return gs.length && gs.length < 4 ? `<p class="note" style="max-width:70ch">${tx(`In questo paniere ci sono solo PSA ${gs.join(", ")}: sono i voti che qui passano di mano abbastanza spesso da misurare un movimento settimana per settimana. Abbiamo provato a riservare posti agli altri voti, ma l'indice seguiva peggio il mercato (protocollo §28).`, `This basket holds only PSA ${gs.join(", ")}: the grades that change hands often enough here to measure a weekly move. We tried reserving seats for the other grades, but the index tracked the market worse (protocol §28).`)}</p>` : ""; })()}
+    ${(() => { const gs = [...new Set(comps.map(x => x.grade))].sort((a, b) => b - a); return gs.length && gs.length < 4 ? `<p class="note" style="max-width:70ch">${tx(`In questo paniere ci sono solo PSA ${gs.join(", ")}: sono i voti che qui passano di mano abbastanza spesso da misurare un movimento settimana per settimana. Abbiamo provato a riservare posti agli altri voti, ma l'indice seguiva peggio il mercato.`, `This basket holds only PSA ${gs.join(", ")}: the grades that change hands often enough here to measure a weekly move. We tried reserving seats for the other grades, but the index tracked the market worse.`)}</p>` : ""; })()}
     <div class="ixtable"><div class="ixrow ixhead"><span>${tx("Carta e voto", "Card and grade")}</span><span>${tx("Peso", "Weight")}</span><span>${tx("Valore", "Value")}</span><span>${tx("4 sett.", "4 wk")}</span><span>${tx("Contributo", "Contribution")}</span></div>${comps.map(compRow).join("")}</div>
     ${own.length > comps.length ? `<p class="note" style="margin-top:10px">${tx(`Seguiamo altre ${own.length - comps.length} carte qui dentro: entrano quando sono tra le più vendute alla prossima revisione.`, `We follow ${own.length - comps.length} more cards here: they join when they are among the most sold at the next review.`)}</p>` : ""}
     <details class="tile ixrules" style="margin-top:22px;padding:16px 20px"><summary><b>${tx("Regolamento dell'indice", "Index rules")}</b></summary>
@@ -1305,7 +1300,7 @@ function route() {
   else if (h === "settimana") { if (!/(^|; )sw_staff=1/.test(document.cookie)) { location.hash = "mercato"; return; } html = viewWeek(); }
   else if (h.startsWith("elenco-")) { html = viewList(h.slice(7)); nav = "mercato"; }
   else if (h.startsWith("indice-")) { html = viewIndex(decodeURIComponent(h.slice(7))); nav = "mercato"; }
-  else if (h === "pose") html = viewPose();
+  else if (h === "pose") { if (!/(^|; )sw_staff=1/.test(document.cookie)) { location.hash = "mercato"; return; } html = viewPose(); }
   else if (h === "privacy") html = viewLegal("privacy");
   else if (h === "termini") html = viewLegal("termini");
   else if (h === "contatti") html = viewContact();
