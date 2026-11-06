@@ -1,0 +1,34 @@
+# Daily collection of concluded PSA sales from Pokecolor's public sales history (D180), on GitHub's own machines:
+# it does not use Claude. Permission: Pokecolor team to Oscar, 6 Nov 2026. Raw data only in slabwise-data (D163).
+name: Raccolta Pokecolor
+on:
+  schedule:
+    - cron: "41 3 * * *"
+  workflow_dispatch: {}
+permissions:
+  contents: read
+concurrency:
+  group: raccolta-pokecolor
+  cancel-in-progress: false
+jobs:
+  pokecolor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Private data (D163)
+        uses: ./.github/actions/private-data
+        with:
+          mode: pull
+          token: ${{ secrets.DATA_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Collect
+        run: PYTHONPATH=. python scripts/pokecolor_sold.py data/raw/pokecolor
+      - name: Save the private data (D163)
+        uses: ./.github/actions/private-data
+        with:
+          mode: push
+          token: ${{ secrets.DATA_TOKEN }}
+          message: "Pokecolor: raccolta del giorno"

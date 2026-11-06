@@ -1,5 +1,6 @@
 # D163: raw source data, kept in the private repository slabwise-data (never in this public repository)
 data/raw/tcgcharts
 data/raw/alt
+data/raw/pokecolor
 data/raw/sales_base.csv
 prototype/data/certs.json

@@ -217,6 +217,19 @@ Ricerca del 3 novembre 2026 (Oscar ha segnalato Traded).
 
 **Esito (D147):** Courtyard e i marketplace in cassaforte o a pacchetti (DOPA e simili) **esclusi** dalle fonti dei prezzi. **Proposta originale (D146):** (1) Oscar chiede a Traded condizioni e accesso anticipato all'API; (2) prova registrata sulle vendite Courtyard delle carte del catalogo: quante vendite di mercato in 90 giorni, quota riconosciuta, scarto dal nostro valore, sovrapposizione per cert; solo dopo l'eventuale ingresso nei prezzi, come le altre case.
 
+## Pokecolor (pokecolor.com): vendite concluse, con permesso (D180)
+
+| Cosa | Dettaglio |
+|---|---|
+| Permesso | email di Lian (team Pokecolor) a Oscar del 6 novembre 2026: non hanno un'API, ma la storia delle vendite è pubblica; possiamo interrogare i loro endpoint "in a timely manner" e usare i dati di vendita pubblici per il nostro sito |
+| Chi sono | marketplace di Hong Kong (aste, acquisto diretto, cassaforte) con carte giapponesi, inglesi, cinesi e coreane; un ufficio nuovo negli Stati Uniti |
+| Cosa dà | la lista pubblica della pagina "Sales History" (`/api/overseas/trade/sellorder/?status_filter=sold_finish`, filtri per gioco ed ente) e il dettaglio di ogni vendita: titolo, data di chiusura, prezzo in HKD, prezzo in dollari e cambio della vendita, ente e voto, asta o prezzo fisso, numero di offerte; nel dettaglio la carta strutturata (nome, numero, rarità, anno, lingua, codice e nome del set). Alcuni titoli contengono il numero di cert PSA |
+| Prima prova (6 novembre 2026) | 290 vendite PSA di carte Pokémon dal 21 giugno al 1 novembre 2026 (circa 70 al mese), 251 giapponesi; 13 su 7 carte del nostro catalogo giapponese |
+| Da scartare | carte firmate (签绘), lotti di più carte (连号, ×N), lingue diverse dalla carta (il titolo e la lingua del dettaglio lo dicono); il prezzo è quello di aggiudicazione, la commissione del compratore va verificata |
+| Rischi | endpoint non documentati, che possono cambiare; volume piccolo; doppioni possibili con eBay per i lotti venduti anche lì (si riconoscono dal cert) |
+| Regole | raccolta giornaliera (`raccolta-pokecolor.yml`), una richiesta ogni 4 s, si ferma alla prima pagina già nota; nessun dato di compratori o venditori; dati grezzi in `data/raw/pokecolor/` nel repository privato `slabwise-data` (D163); nei prezzi solo dopo un controllo registrato prima (D180) |
+| Script | `scripts/pokecolor_sold.py data/raw/pokecolor` |
+
 ## Dove stanno i dati grezzi (D163)
 
-Il repository `slabwise-engine` è pubblico. I dati grezzi delle fonti (tcgcharts: vendite, schede, storico, popolazioni; Alt; base delle vendite; cert delle aste) non si redistribuiscono e stanno nel repository privato `slabwise-data`, con gli stessi percorsi; l'elenco è in `.github/private-paths.txt`. Le corse li scaricano e li salvano con `.github/actions/private-data`.
+Il repository `slabwise-engine` è pubblico. I dati grezzi delle fonti (tcgcharts: vendite, schede, storico, popolazioni; Alt; Pokecolor; base delle vendite; cert delle aste) non si redistribuiscono e stanno nel repository privato `slabwise-data`, con gli stessi percorsi; l'elenco è in `.github/private-paths.txt`. Le corse li scaricano e li salvano con `.github/actions/private-data`.
