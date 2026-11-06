@@ -464,6 +464,14 @@ if os.path.exists(_tp):
             tap[_k] = dict(state=_v.get("tap_state"), new10=_v.get("new10_30"), sold10=_v.get("sold10_30"), ratio=_v.get("tap10"),
                            weekly=_w[-52:], total=_v.get("total"), psa10=_v.get("psa10"), asof=_v.get("updated"))
     print("rubinetto", len(tap), "carte")
+# D212: when the PSA 10 share from our populations and the one from GemRate's own counts differ by more than 5 points,
+# the page gives no single Gem Rate: it says the two counts disagree and shows both; the card leaves the comparisons.
+for c in out_cards:
+    _t, _g10 = tap.get(c["id"]), next((g for g in c["grades"] if g["grade"] == 10), None)
+    if _t and _t.get("total") and _t.get("psa10") is not None and _g10 and _g10.get("pop") and c.get("psa_total"):
+        _a, _b = _g10["pop"] / c["psa_total"], _t["psa10"] / _t["total"]
+        if abs(_a - _b) > 0.05:
+            c["gem_conflict"] = [round(_a, 4), round(_b, 4)]
 res = dict(real=True, rarity_fit=rarity_fit, engine=ENGINE, deals_asof=deals_asof, deal_stats=deal_stats, ja_pending=ja_pending, indexes=indexes, index_history=index_history, index_all=index_all, index_sets=index_sets, index_base=(index_source["base"] if index_source else wk(index_base_w)), index_source=index_source, asof=str(asof), eur_rate=EUR, eur_rate_date=rate_date, cards=out_cards, rollups=rollups, pulse=pulse, slabmeter=slabmeter, tap=tap,
            params={k: v for k, v in params.__dict__.items()}, n_sales=int(len(clean)), n_removed=int(len(removed)), venues=venues,
            venue_gaps={v: round(float(lvm.offs[k]), 4) for k, v in enumerate(("ebay", "auction", "fixed"))},

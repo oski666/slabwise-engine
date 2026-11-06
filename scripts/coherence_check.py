@@ -61,7 +61,7 @@ for c in C:
     t = tap.get(c["id"])
     if t and tot and pops.get(10) and t.get("total") and t.get("psa10") is not None:
         ours, theirs = pops[10] / tot, t["psa10"] / t["total"]
-        if abs(ours - theirs) > 0.05:
+        if abs(ours - theirs) > 0.05 and not c.get("gem_conflict"):  # D212: a declared disagreement is shown as such
             add("C4", (c["id"], c["name"], round(ours * 100, 1), round(theirs * 100, 1)))
     if t and t.get("new10") is not None and t.get("psa10") is not None and t["new10"] > t["psa10"]:
         add("C5", (c["id"], t["new10"], t["psa10"]))
