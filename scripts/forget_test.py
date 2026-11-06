@@ -46,9 +46,9 @@ for tag, hist in (("now", "0"), ("hist", "1")):
              os.path.join(RAW, "tcgcharts")], {"SLABWISE_TC_HISTORY": hist})
 
 # (name, sales, extra engine flag, site environment)
-RUNS = (("ref", "now", [], {"SLABWISE_TC_HISTORY": "0"}),
-        ("A", "hist", [], {"SLABWISE_TC_HISTORY": "1", "SLABWISE_REVIEW_RECENT": "1"}),
-        ("B", "hist", ["--v119"], {"SLABWISE_TC_HISTORY": "1", "SLABWISE_REVIEW_RECENT": "1", "SLABWISE_CARD_DRIFT": "1"}))
+RUNS = (("ref", "now", [], {"SLABWISE_TC_HISTORY": "0", "SLABWISE_REVIEW_RECENT": "0", "SLABWISE_GRADE_JUMP": "0"}),
+        ("A", "hist", [], {"SLABWISE_TC_HISTORY": "1", "SLABWISE_REVIEW_RECENT": "1", "SLABWISE_GRADE_JUMP": "0"}),
+        ("B", "hist", ["--v119"], {"SLABWISE_TC_HISTORY": "1", "SLABWISE_REVIEW_RECENT": "1", "SLABWISE_CARD_DRIFT": "1", "SLABWISE_GRADE_JUMP": "0"}))
 res = {}
 for name, tag, flag, env in RUNS:
     sales = os.path.join(work, f"sales_{tag}.csv")

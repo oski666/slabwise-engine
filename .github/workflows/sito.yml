@@ -64,14 +64,13 @@ jobs:
           printf '%s' "$EBAY_CLIENT_ID" > ~/.slabwise/ebay_client_id
           printf '%s' "$EBAY_CLIENT_SECRET" > ~/.slabwise/ebay_client_secret
           printf '%s' "$EPN_CAMPAIGN_ID" > ~/.slabwise/epn_campaign_id
-      - name: Sales (base + Alt + tcgcharts, D82)
-        run: PYTHONPATH=. python scripts/build_sales.py data/raw/sales_base.csv data/raw/alt data/raw/sales_all.csv data/raw/tcgcharts
-      - name: Indices with the long history (D149, protocol §29)
+      - name: Sales (base + Alt + tcgcharts with the long history, D82, D210)
+        run: SLABWISE_TC_HISTORY=1 PYTHONPATH=. python scripts/build_sales.py data/raw/sales_base.csv data/raw/alt data/raw/sales_all.csv data/raw/tcgcharts
+      - name: Indices with the long history (D149, protocol §29; same sales as the prices since D210)
         continue-on-error: true          # if it fails, yesterday's index_full.json stays
         timeout-minutes: 40
         run: |
-          SLABWISE_TC_HISTORY=1 PYTHONPATH=. python scripts/build_sales.py data/raw/sales_base.csv data/raw/alt /tmp/sales_hist.csv data/raw/tcgcharts
-          SLABWISE_TC_HISTORY=1 SLABWISE_OUT=/tmp/real_hist.json PYTHONPATH=. python prototype/build_real_data.py /tmp/sales_hist.csv data/raw/era_map.json
+          SLABWISE_TC_HISTORY=1 SLABWISE_OUT=/tmp/real_hist.json PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json
           PYTHONPATH=. python scripts/index_full_extract.py /tmp/real_hist.json
       - name: The tap from the GemRate reads (D190)
         continue-on-error: true

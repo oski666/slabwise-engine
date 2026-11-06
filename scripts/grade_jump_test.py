@@ -47,8 +47,8 @@ for tag, hist in (("now", "0"), ("hist", "1")):
              os.path.join(RAW, "tcgcharts")], {"SLABWISE_TC_HISTORY": hist})
 
 # (name, sales, extra engine flag, site environment)
-RUNS = (("ref", "now", [], {"SLABWISE_TC_HISTORY": "0"}),
-        ("A", "hist", [], {"SLABWISE_TC_HISTORY": "1", "SLABWISE_REVIEW_RECENT": "1"}),
+RUNS = (("ref", "now", [], {"SLABWISE_TC_HISTORY": "0", "SLABWISE_REVIEW_RECENT": "0", "SLABWISE_GRADE_JUMP": "0"}),
+        ("A", "hist", [], {"SLABWISE_TC_HISTORY": "1", "SLABWISE_REVIEW_RECENT": "1", "SLABWISE_GRADE_JUMP": "0"}),
         ("C", "hist", ["--v120"], {"SLABWISE_TC_HISTORY": "1", "SLABWISE_REVIEW_RECENT": "1", "SLABWISE_GRADE_JUMP": "1"}))
 res = {}
 for name, tag, flag, env in RUNS:

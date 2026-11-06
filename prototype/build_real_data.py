@@ -48,8 +48,8 @@ _v = os.environ.get("SLABWISE_LADDER", "")             # test switch for v1.14 (
 params.step_prior = params.step_prior or _v in ("steps", "pops")
 params.pop_steps = params.pop_steps or _v == "pops"
 params.card_drift = params.card_drift or os.environ.get("SLABWISE_CARD_DRIFT") == "1"   # protocol §36 arm B (D204); off on the site
-params.grade_jump = params.grade_jump or os.environ.get("SLABWISE_GRADE_JUMP") == "1"   # protocol §37 arm C (D206); off on the site
-REVIEW_RECENT = os.environ.get("SLABWISE_REVIEW_RECENT") == "1"   # protocol §36 (D204): review against the recent sales of E2r; off on the site
+params.grade_jump = os.environ.get("SLABWISE_GRADE_JUMP", "1") == "1"   # v1.20 (D210): jumps of a single grade; "0" = v1.15 (tests)
+REVIEW_RECENT = os.environ.get("SLABWISE_REVIEW_RECENT", "1") == "1"   # v1.20 (D210): review against the recent sales of E2r; "0" = D98 on 13 weeks
 lvm = LatentValueModel(len(cards), era, len(eras), params)
 lvm.set_parents([cards.index(c.split("/")[0]) if "/" in c and c.split("/")[0] in cards else -1 for c in cards])   # variants (v1.13/v1.15 switches)
 _tc_cards = os.path.join(HERE, "..", "data", "raw", "tcgcharts", "cards.json")
@@ -409,7 +409,7 @@ ja_pending = [dict(id=c["id"], name=c["n"], set=c["set"], no=c["no"], tot=c.get(
                    img=c.get("img"), en=c.get("en"), en_same=c.get("en_same"), series=series_of(c["id"]), source=c.get("source"),
                    sales=int((clean["card"] == cid[c["id"]]).sum()) if c["id"] in cid else 0)
               for c in catalog_ja if c["id"] not in sold]
-ENGINE = ("LVM v1.15" if params.step_t > 0 else "LVM v1.14") if params.step_prior and params.pop_steps else "LVM v1.10"      # shown in the seals (D105)
+ENGINE = ("LVM v1.20" if params.grade_jump and params.step_t > 0 else "LVM v1.15" if params.step_t > 0 else "LVM v1.14") if params.step_prior and params.pop_steps else "LVM v1.10"      # shown in the seals (D105)
 # D149: indices computed with the long history (protocol §29), when the daily run has written them
 _if = os.path.join(HERE, "data", "index_full.json")
 index_source = None
