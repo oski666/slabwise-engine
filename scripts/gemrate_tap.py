@@ -9,7 +9,8 @@ edition pages (D141).
 For each card: weekly new gradings (all grades) from the 52-week cumulative trend; the last 13 weeks against the 39
 before; new PSA 10 in the last two periods GemRate reports; PSA sales of the card per week in our data (last 13
 weeks); the ratio new gradings / sales ("tap ratio": above 1, more copies arrive than change hands).
-Writes one entry per card. Nothing here enters the prices.
+Main measure (D190): new PSA 10 in the last 30 days (GemRate) against PSA 10 sold in 30 days in our data; above 1.5
+"aperto", 0.67-1.5 "equilibrio", below 0.67 "chiuso". Writes one entry per card. Nothing here enters the prices.
 """
 import json
 import re
@@ -27,6 +28,7 @@ sales["date"] = pd.to_datetime(sales["date"], utc=True, format="mixed")
 t1 = sales["date"].max()
 recent = sales[sales["date"] > t1 - pd.Timedelta(weeks=13)]
 per_card = recent.groupby("card").size()
+per_card10 = recent[recent["grade"] == 10].groupby("card").size()
 
 
 def norm_no(s):
@@ -57,7 +59,12 @@ for s in sets.values() if isinstance(sets, dict) else sets:
             last13, before = wk[-13:].mean(), (wk[:-13].mean() if len(wk) > 13 else np.nan)
             key = cid + (edition or "")
             sold = int(per_card.get(key, 0))
-            res[key] = dict(gemrate=r["gemrate_id"], set_name=s["set_name"], year=s["year"], parallel=r.get("parallel"),
+            sold10_30 = float(per_card10.get(key, 0)) / 13 * 30 / 7          # D190: PSA 10 sold in 30 days, from the last 13 weeks
+            new10_30 = r.get("c10_diff_p1")                                    # new PSA 10 in the last 30 days (GemRate)
+            ratio10 = round(new10_30 / sold10_30, 2) if new10_30 is not None and sold10_30 > 0 else None
+            state = None if ratio10 is None else "aperto" if ratio10 > 1.5 else "chiuso" if ratio10 < 0.67 else "equilibrio"
+            res[key] = dict(new10_30=new10_30, sold10_30=round(sold10_30, 1), tap10=ratio10, tap_state=state,
+                            new_all_30=r.get("ct_diff_p1"), gemrate=r["gemrate_id"], set_name=s["set_name"], year=s["year"], parallel=r.get("parallel"),
                             total=int(r["card_total_grades"]), psa10=int(r["g10"] or 0), psa9=int(r["g9"] or 0),
                             gem_rate=r.get("card_gem_rate"), new_week_13=round(float(last13), 1),
                             new_week_before=round(float(before), 1) if before == before else None,
