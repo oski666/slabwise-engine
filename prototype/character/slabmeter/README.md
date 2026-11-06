@@ -1,4 +1,17 @@
-# Slab-Meter: il personaggio del termometro (D194, D196, D197)
+# Slab-Meter: i personaggi del termometro (D194, D196, D197, D203)
+
+**Il modo più semplice (D203): tre PNG**, una per personaggio:
+
+| File | Stati | Effetto aggiunto dal sito |
+|---|---|---|
+| `hot.png` | esplode e caldo | lava che schizza dalla bocca (di più quando esplode; il personaggio saltella) |
+| `warm.png` | tiepido | sbuffi di fumo dal guscio |
+| `cold.png` | freddo e gelo | getti d'acqua (di più al gelo; il personaggio trema) |
+
+Lava, fumo e acqua partono dal centro alto della figura: se il disegno ha la bocca o i cannoni altrove, Claude sposta il punto di partenza.
+
+Le PNG per stato qui sotto restano valide e vincono su queste tre.
+
 
 Metti in questa cartella **una PNG con lo sfondo trasparente per ogni stato del mercato**. Il sito mostra quella dello stato di oggi nella sezione Slab-Meter della home. Se una PNG manca, il sito usa il termometro disegnato di serie (SVG, in `prototype/v7/src/app.html`, funzione `thermoSvg`).
 

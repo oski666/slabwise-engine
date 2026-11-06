@@ -137,8 +137,10 @@ data["stickers"] = STICKERS
 # D197: the Slab-Meter poses (prototype/character/slabmeter/<state>.png), when present: they replace the drawn thermometer
 METER_POSES = {}
 _md = os.path.join(here, "..", "character", "slabmeter")
+# D203: three characters (hot, warm, cold) serve the five states; a file named after a state still wins
+_FILE = {"esplode": ("esplode", "hot"), "caldo": ("caldo", "hot"), "tiepido": ("tiepido", "warm"), "freddo": ("freddo", "cold"), "gelo": ("gelo", "cold")}
 for _st in ("esplode", "caldo", "tiepido", "freddo", "gelo"):
-    _p = os.path.join(_md, _st + ".png")
+    _p = next((os.path.join(_md, f + ".png") for f in _FILE[_st] if os.path.exists(os.path.join(_md, f + ".png"))), "")
     if os.path.exists(_p):
         try:
             from PIL import Image

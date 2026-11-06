@@ -7,7 +7,7 @@ const REPO = "oski666/slabwise-engine";
 const TARGETS = {
   "prototype/character/slabby/": ["smug", "bliss", "laugh", "drool", "shock", "sleep", "peek", "run", "cling", "sit", "tongue", "wave",
                                    "peek_top", "peek_side", "teacher", "side"],
-  "prototype/character/slabmeter/": ["esplode", "caldo", "tiepido", "freddo", "gelo"],
+  "prototype/character/slabmeter/": ["hot", "warm", "cold", "esplode", "caldo", "tiepido", "freddo", "gelo"],
   "prototype/character/stickers/": ["fresche", "stimato", "poco_sicuro"],
 };
 const WHERE = {"prototype/character/slabby/": "Slabby", "prototype/character/slabmeter/": "Slab-Meter", "prototype/character/stickers/": "sticker"};

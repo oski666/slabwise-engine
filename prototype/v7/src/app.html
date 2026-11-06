@@ -394,12 +394,12 @@ const METER_SAY = {
    big eyes, rosy cheeks, bouncy motion). One drawing; the state class picks face, props and motion. */
 /* D197: Oscar's own pose for today's state (prototype/character/slabmeter/<state>.png); same motion and props as the drawing */
 function thermoPose(src) {
-  const stars = Array.from({length: 10}, (_, i) => `<path class="cf cf${i % 3}" style="--a:${i * 36}deg;--d:${0.9 + (i % 4) * 0.12}s" d="M0 -7 L2 -2 L7 0 L2 2 L0 7 L-2 2 L-7 0 L-2 -2Z"/>`).join("");
-  const flakes = Array.from({length: 7}, (_, i) => `<text class="flake" x="${18 + i * 26}" y="0" style="--k:${i}">❄</text>`).join("");
+  /* D203: hot (lava from the mouth, more when it explodes), warm (smoke puffs from the shell), cold (water jets, more at frost) */
+  const lava = Array.from({length: 12}, (_, i) => `<circle class="lv" r="${4 + (i % 3) * 2}" style="--x:${(i % 6 - 2.5) * 22}px;--h:${90 + (i % 4) * 30}px;--d:${1.1 + (i % 5) * .18}s;--w:${(i * .23) % 1.4}s"/>`).join("");
+  const smoke = Array.from({length: 5}, (_, i) => `<circle class="sm" r="${12 + i * 3}" style="--x:${(i % 2 ? 1 : -1) * (8 + i * 4)}px;--d:${3 + i * .4}s;--w:${i * .7}s"/>`).join("");
+  const water = Array.from({length: 14}, (_, i) => `<circle class="wt" r="${3 + (i % 3)}" style="--x:${(i % 2 ? 1 : -1) * (60 + (i % 5) * 18)}px;--y:${-10 - (i % 4) * 14}px;--d:${.9 + (i % 4) * .15}s;--w:${(i * .17) % 1.2}s"/>`).join("");
   return `<div class="tm tm-png"><img class="tm-bob" src="${src}" alt="">
-    <svg viewBox="0 0 200 380" class="tm-fx"><g class="tm-steam"><circle cx="100" cy="0" r="10"/><circle cx="100" cy="0" r="8"/><circle cx="100" cy="0" r="12"/></g>
-      <g class="tm-pop" transform="translate(100 14)">${stars}</g><g class="tm-snow">${flakes}</g>
-      <g class="tm-ice"><rect x="20" y="4" width="160" height="368" rx="22"/><path class="crk" d="M40 60 L70 110 L58 150 L92 190 L80 240 L112 290 L100 340"/><path class="crk" d="M150 40 L132 90 L156 130 L138 180"/></g></svg></div>`;
+    <svg viewBox="0 0 200 380" class="tm-fx"><g class="fx-lava" transform="translate(100 120)">${lava}</g><g class="fx-smoke" transform="translate(100 150)">${smoke}</g><g class="fx-water" transform="translate(100 130)">${water}</g></svg></div>`;
 }
 function thermoSvg() {
   const stars = Array.from({length: 10}, (_, i) => `<path class="cf cf${i % 3}" style="--a:${i * 36}deg;--d:${0.9 + (i % 4) * 0.12}s" d="M0 -7 L2 -2 L7 0 L2 2 L0 7 L-2 2 L-7 0 L-2 -2Z"/>`).join("");
@@ -877,7 +877,7 @@ function viewWeek() {
 /* D130: the index chart: this series in colour, the other series in grey on the same base, the 100 line marked */
 /* D136: an index by its page key: "tutto" (general), "set:<id>", or an era name */
 const ixOf = k => k === "tutto" ? D.index_all : k.startsWith("set:") ? (D.index_sets || {})[k.slice(4)] : (D.indexes || {})[k];
-const ixName = k => k === "tutto" ? "SlabDex" : k.startsWith("set:") ? (ixOf(k) || {}).label || k.slice(4) : ser(k);
+const ixName = k => k === "tutto" ? "SlabDex" : k === "Giappone" ? "SlabJap" : k.startsWith("set:") ? (ixOf(k) || {}).label || k.slice(4) : ser(k);
 function indexChart(series) {
   const me = ixOf(series);
   if (!me) return "";
@@ -1055,7 +1055,7 @@ function viewPose() {
     <p class="note" style="max-width:56ch">${tx("Una PNG per stato nella cartella", "One PNG per state in the folder")} <code>prototype/character/slabmeter/</code>. ${tx("Se manca, il sito usa il termometro disegnato.", "If missing, the site uses the drawn thermometer.")}</p></div>
     <div class="posegrid">${["esplode", "caldo", "tiepido", "freddo", "gelo"].map(st => { const own = (D.meter_poses || {})[st];
       return `<article class="tile poseslot${own ? "" : " missing"}"><div class="poseimg meter7 st-${st}" style="--lv:${{esplode: 92, caldo: 70, tiepido: 50, freddo: 30, gelo: 10}[st]}"><div class="tmc">${own ? thermoPose(own) : thermoSvg()}</div></div>
-        <div><b><code>${st}.png</code></b><p class="note">${esc(tx(...METER_SAY[st]))}</p><span class="${own ? "tierbadge t-live" : "tierbadge t-low"}">${own ? tx("c'è", "present") : tx("manca: ora usa il disegno", "missing: the drawing is used")}</span></div></article>`; }).join("")}</div>
+        <div><b><code>${{esplode: "hot", caldo: "hot", tiepido: "warm", freddo: "cold", gelo: "cold"}[st]}.png</code></b> · ${st}<p class="note">${esc(tx(...METER_SAY[st]))}</p><span class="${own ? "tierbadge t-live" : "tierbadge t-low"}">${own ? tx("c'è", "present") : tx("manca: ora usa il disegno", "missing: the drawing is used")}</span></div></article>`; }).join("")}</div>
     <div class="sechead" style="margin-top:34px"><div><span class="label">${tx("Sticker", "Stickers")}</span><h2>${tx("Gli sticker dell'affidabilità", "The reliability stickers")}</h2></div>
     <p class="note" style="max-width:56ch"><code>prototype/character/stickers/</code></p></div>
     <div class="posegrid">${[["hi", "fresche.png"], ["mid", "stimato.png"], ["lo", "poco_sicuro.png"]].map(([k, f]) => `<article class="tile poseslot${STK[k] ? "" : " missing"}"><div class="poseimg">${STK[k] ? `<img src="${STK[k]}" alt="" style="width:120px">` : `<span class="tierbadge ${TIER_CLS[k]}">${esc(t("tier_" + k))}</span>`}</div>
