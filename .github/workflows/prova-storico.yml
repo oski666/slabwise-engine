@@ -1,0 +1,31 @@
+# Protocol §35 (D188): the long tcgcharts history in the prices, adopted engine v1.15. Runs on GitHub's machines.
+name: Prova storico
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - name: Private data (D163)
+        uses: ./.github/actions/private-data
+        with:
+          mode: pull
+          token: ${{ secrets.DATA_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test
+        run: |
+          pip install -q numpy pandas scipy
+          PYTHONPATH=. python scripts/history_test.py /tmp/hist | tee /tmp/hist.txt
+      - name: Save
+        if: always()
+        run: |
+          git config user.name "slabwise-bot"
+          git config user.email "slabwise-bot@users.noreply.github.com"
+          git add results/history || true
+          git diff --cached --quiet || { git commit -m "Prova storico (§35): risultati"; git pull --rebase --autostash -q && git push; }

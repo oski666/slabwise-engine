@@ -611,3 +611,21 @@ Se V1–V4 passano, la rosa e l'avviso vanno sul sito subito, con la nota che la
 Se W1–W6 passano, la v1.18 si adotta e W7 diventa obbligatoria. Il mercato simulato gira sul workflow `prova-motore.yml`.
 
 **Esito §34 (6 novembre 2026): non superata, la v1.18 non si adotta.** W1 sì (R1 0 voci su 1.058). W2 sì (E2r 1 voce, la v1.15 ne ha 3). W3 sì: v1.18 meno v1.15 −0,02 punti [−0,06; +0,01] su 56.191 vendite. **W4 no**: copertura 74,4% (dopo il 30 ottobre 69,7%). **W5 no**: Classica 58,5%, Di mezzo 47,2%, Moderna 60,0%, Giappone 62,4% (Vintage 77,1%, Contemporanea 79,7%); con la v1.15: 50,4%, 41,9%, 61,6%, 65,4%, 69,3%, 81,9%. W6 interrotta (inutile dopo W4–W5). Lettura: il rumore per era migliora la Classica, la Di mezzo e il Vintage di 6–8 punti ma non basta; le ere del motore (wotc, ex_dp, bw_xy, sm_swsh, sv) non coincidono con quelle del sito, e nelle ere scoperte gli scarti sono soprattutto da una parte (il motore in ritardo, D172), che un rumore più grande non corregge. Codice spento (`era_noise=False`).
+
+## 35. Lo storico lungo nei prezzi, con il motore v1.15 (registrato il 6 novembre 2026, prima della prova; D188)
+
+**Problema.** Su 289 carte, 64 voti non mostrano un valore (nessuna vendita propria nei dati dei prezzi, o stima in revisione), tra cui 22 PSA 10, e 46 PSA 10 sono "Stimato". Molte di queste carte passano di mano poche volte l'anno: nei prezzi entrano solo i 90 giorni di tcgcharts più le aste (D77, D121), mentre lo storico lungo (dal 2017, D80, D123) serve agli indici e all'ultima vendita nota. Lo storico è stato provato solo con la v1.10 (D83–D86: H3 mancato di 0,02 punti, H4 copertura 87,9%); da allora il motore è la v1.15 (forchetta tarata sulla copertura, D110, D124).
+
+**Modifica.** Nei prezzi entrano anche le vendite dello storico tcgcharts dal 1° luglio 2022 (D85), con le stesse regole delle altre vendite tcgcharts (titolo riconosciuto dal nostro abbinamento, doppioni per id, pagamenti in attesa fuori). Motore invariato (v1.15, parametri adottati).
+
+| # | Criterio | Soglia |
+|---|---|---|
+| X1 | R1 sulle vendite con lo storico | 0 voci |
+| X2 | E2r sulle stesse | al massimo 3 voci (come la v1.15 oggi) |
+| X3 | Fase R sulle vendite valutate in entrambe le corse (stesso id): errore medio \|log\| con lo scarto di sede, con storico meno senza | estremo superiore dell'intervallo al 95% (bootstrap per carta) ≤ +0,2 punti |
+| X4 | Copertura della forchetta all'80% sulle stesse vendite | con storico ≥ senza − 1 punto, e ≤ 85% |
+| X5 | Build del sito con e senza storico | meno voti senza valore e meno PSA 10 "Stimato" |
+| X6 | Voti con almeno 5 vendite in 90 giorni e valore a più di 0,5 in log dalla loro mediana | non più che senza storico |
+| X7 | Prova prospettica: X1, X3, X4 sulle vendite dopo il 6 novembre, appena sono almeno 2.000 | come sopra |
+
+Se X1–X6 passano, il sito usa lo storico nei prezzi e X7 diventa obbligatoria. Script `scripts/history_test.py`, workflow `prova-storico.yml`; risultati in `results/history/summary.json`.
