@@ -7,6 +7,9 @@ on:
       max:
         description: "Carte inglesi da esaminare in questo giro"
         default: "60"
+      retry:
+        description: "Riprova anche le carte senza immagine di confronto (si/no)"
+        default: "no"
 permissions:
   contents: write
 concurrency:
@@ -29,8 +32,8 @@ jobs:
       - name: Match
         timeout-minutes: 280
         run: |
-          pip install -q numpy pillow
-          PYTHONPATH=. python scripts/ja_complete.py --max ${{ github.event.inputs.max || '60' }}
+          pip install -q numpy pandas pillow
+          PYTHONPATH=. python scripts/ja_complete.py --max ${{ github.event.inputs.max || '60' }} ${{ github.event.inputs.retry == 'si' && '--retry' || '' }}
       - name: Save
         if: always()
         run: |

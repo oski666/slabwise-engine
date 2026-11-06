@@ -1,6 +1,6 @@
 """D158: give every English catalogue card its Japanese printing (same illustration), starting from the card.
 
-Usage: PYTHONPATH=. python scripts/ja_complete.py [--max N] [--no-tc]
+Usage: PYTHONPATH=. python scripts/ja_complete.py [--max N] [--no-tc] [--retry]
 
 For each English base card (variants and cards already matched are skipped):
 1. TCGdex (en): Pokédex numbers, card type, illustrator.
@@ -33,6 +33,7 @@ DATA = os.path.join(ROOT, "prototype", "data")
 STATE = os.path.join(DATA, "ja_match.json")
 MAX = int(sys.argv[sys.argv.index("--max") + 1]) if "--max" in sys.argv else 10 ** 6
 NO_TC = "--no-tc" in sys.argv
+RETRY = "--retry" in sys.argv                                 # look again at cards left without a comparison image
 today = str(date.today())
 tc_ok = not NO_TC
 
@@ -143,7 +144,11 @@ def match(c, hires):
             if tc_items is None:
                 need_tc = True
                 continue
-            img = tc_items[0]["image"].replace("-small.", "-medium.") if len(tc_items) == 1 and tc_items[0].get("image") else None
+            sc = [(art_distance(load_img(it["image"].replace("-small.", "-medium.")), en_im), it) for it in tc_items if it.get("image")]
+            sc = sorted([x for x in sc if x[0] is not None], key=lambda x: x[0])
+            if sc:                                                    # several sets share the number: keep the closest art
+                tc_items = [sc[0][1]]
+                img = sc[0][1]["image"].replace("-small.", "-medium.")
         dist = art_distance(load_img(img), en_im) if img else None
         tried.append([d["id"], dist])
         if dist is not None and dist <= ART_MAX and (best is None or dist < best[1]):
@@ -186,7 +191,7 @@ def main():
     done_en = {x["en"] for x in ja if x.get("en_same")}
     state = j(STATE, {})
     todo = [c for c in cards if "/" not in c["id"] and c["id"] not in done_en and not is_promo(c["id"])
-            and (state.get(c["id"], {}).get("status") not in ("trovata", "nessuna", "senza_pokedex", "senza_immagine")
+            and (state.get(c["id"], {}).get("status") not in ("trovata", "nessuna", "senza_pokedex") + (() if RETRY else ("senza_immagine",))
                  or (state[c["id"]]["status"] == "trovata" and not state[c["id"]].get("tc") and not NO_TC))][:MAX]
     print(f"{len(todo)} carte inglesi da abbinare", flush=True)
     for c in todo:
