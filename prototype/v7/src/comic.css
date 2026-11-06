@@ -608,3 +608,72 @@ footer .wrap{color:var(--c-on-dark-dim)}
 .tapbars{display:flex;align-items:flex-end;gap:2px;height:90px;margin:10px 0;padding:6px;border:2px solid var(--c-ink);background:var(--c-paper)}
 .tapbars i{flex:1;background:var(--c-blue);min-width:2px}
 .tapbars i:nth-last-child(-n+13){background:var(--c-pink)}
+
+/* D196: the cartoon thermometer */
+.tmc{width:clamp(180px,22vw,250px);margin:0 auto}
+.tm{width:100%;height:auto;overflow:visible}
+.tm *{stroke-linecap:round;stroke-linejoin:round}
+.tm-glass{fill:#fff;stroke:var(--c-ink);stroke-width:6}
+.tm-cap{fill:#ffd23f;stroke:var(--c-ink);stroke-width:5;transform-box:fill-box;transform-origin:center}
+.tm-ticks{stroke:#c9c9d6;stroke-width:4}
+.tm-merc{fill:#ff4d4d;transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(.04);transition:transform 2.6s cubic-bezier(.34,1.56,.64,1) .3s}
+.cs.in .tm-merc{transform:scaleY(calc(var(--lv) / 100))}
+.tm-bulb{fill:#ff4d4d;stroke:var(--c-ink);stroke-width:6}
+.tm-shine{fill:rgba(255,255,255,.75)}
+.tm-arm path{fill:none;stroke:var(--c-ink);stroke-width:7}
+.tm-arm circle,.tm-feet ellipse{fill:#fff;stroke:var(--c-ink);stroke-width:5}
+.tm-arm{transform-box:fill-box}.tm-arm.l{transform-origin:100% 0}.tm-arm.r{transform-origin:0 0}
+.cheek{fill:#ff8fb3;opacity:.9}
+.ew{fill:#fff;stroke:var(--c-ink);stroke-width:4}.ep{fill:var(--c-ink)}.eg{fill:#fff}
+.eyes-spin path,.eyes-shut path{fill:none;stroke:var(--c-ink);stroke-width:4}
+.m{fill:none;stroke:var(--c-ink);stroke-width:5;display:none}
+.m-o{fill:#7a1020}.m-teeth rect{fill:#fff;stroke:var(--c-ink);stroke-width:4}.m-teeth path{stroke:var(--c-ink);stroke-width:3}
+.eyes-spin,.eyes-shut,.tm-sweat,.tm-steam,.tm-scarf,.tm-pop,.tm-snow,.tm-ice{display:none}
+.tm-sweat path{fill:#7fd4ff;stroke:var(--c-ink);stroke-width:3}
+.tm-steam circle{fill:#fff;stroke:var(--c-ink);stroke-width:4;opacity:0}
+.tm-scarf path{fill:#3b82f6;stroke:var(--c-ink);stroke-width:4}
+.cf{stroke:var(--c-ink);stroke-width:1.5}.cf0{fill:#ffd23f}.cf1{fill:#ff4fa3}.cf2{fill:#3fd0ff}
+.flake{font-size:18px;fill:#9fd8ff}
+.tm-ice rect{fill:rgba(190,232,255,.55);stroke:#7cc4f0;stroke-width:5}.tm-ice .crk{fill:none;stroke:#fff;stroke-width:4;stroke-dasharray:420;stroke-dashoffset:420}
+/* faces per state */
+.st-esplode .m-o,.st-caldo .m-wave,.st-tiepido .m-smile,.st-freddo .m-flat,.st-gelo .m-teeth{display:inline}
+.st-esplode .eyes-open{display:none}.st-esplode .eyes-spin{display:inline}
+.st-gelo .eyes-open{display:none}.st-gelo .eyes-shut{display:inline}
+.st-caldo .tm-sweat,.st-esplode .tm-steam,.st-caldo .tm-steam,.st-esplode .tm-pop,.st-freddo .tm-scarf,.st-gelo .tm-scarf,.st-freddo .tm-snow,.st-gelo .tm-snow,.st-gelo .tm-ice{display:inline}
+.st-freddo .tm-bulb,.st-gelo .tm-bulb,.st-freddo .tm-merc,.st-gelo .tm-merc{fill:#5ab8f5}
+.st-freddo .cheek,.st-gelo .cheek{fill:#b9e3ff}
+.st-esplode .tm-bulb,.st-esplode .tm-merc{fill:#ff2a2a}
+@media (prefers-reduced-motion:no-preference){
+  .tm-bob{animation:tmbob 2.4s ease-in-out infinite;transform-origin:100px 360px}
+  .ew,.ep,.eg{animation:tmblink 5s infinite;transform-box:fill-box;transform-origin:center}
+  .tm-arm.r{animation:tmwave 3s ease-in-out infinite}
+  .st-esplode .tm-bob{animation:tmjump .45s ease-in-out infinite}
+  .cs.in .st-esplode .tm-cap{animation:tmcork 1.6s cubic-bezier(.2,.8,.3,1) 2.9s both}
+  .cs.in .st-esplode .cf{animation:tmstar var(--d) ease-out 3s infinite;transform-box:fill-box;transform-origin:center}
+  .st-esplode .eyes-spin path{animation:tmspin 1s linear infinite;transform-box:fill-box;transform-origin:center}
+  .st-esplode .tm-steam circle,.st-caldo .tm-steam circle{animation:tmsteam 2.2s ease-out infinite}
+  .tm-steam circle:nth-child(2){animation-delay:.7s!important}.tm-steam circle:nth-child(3){animation-delay:1.4s!important}
+  .st-caldo .tm-bob{animation:tmbob 1.2s ease-in-out infinite}
+  .st-caldo .tm-sweat path{animation:tmdrip 1.4s ease-in infinite}
+  .st-caldo .tm-arm.l{animation:tmfan .35s ease-in-out infinite}
+  .st-tiepido .tm-bob{animation:tmsway 3.2s ease-in-out infinite}
+  .st-freddo .tm-bob,.st-gelo .tm-bob{animation:tmshiver .12s linear infinite}
+  .st-freddo .flake,.st-gelo .flake{animation:tmsnow 4s linear infinite;animation-delay:calc(var(--k) * -.6s)}
+  .cs.in .st-gelo .crk{animation:tmcrack 1.2s ease-out 3.4s forwards}
+  .cs.in .st-gelo .tm-ice{animation:tmshatter 1s ease-in 5s forwards}
+}
+@keyframes tmbob{0%,100%{transform:translateY(0) scale(1,1)}45%{transform:translateY(-8px) scale(.97,1.03)}55%{transform:translateY(-8px) scale(.97,1.03)}90%{transform:translateY(0) scale(1.04,.96)}}
+@keyframes tmjump{0%,100%{transform:translateY(0) scale(1.05,.95)}50%{transform:translateY(-16px) scale(.95,1.06)}}
+@keyframes tmsway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes tmshiver{0%,100%{transform:translateX(-1.5px)}50%{transform:translateX(1.5px)}}
+@keyframes tmblink{0%,46%,50%,100%{transform:scaleY(1)}48%{transform:scaleY(.1)}}
+@keyframes tmwave{0%,100%{transform:rotate(0)}50%{transform:rotate(-14deg)}}
+@keyframes tmfan{0%,100%{transform:rotate(0)}50%{transform:rotate(22deg)}}
+@keyframes tmspin{to{transform:rotate(360deg)}}
+@keyframes tmcork{0%{transform:translateY(0) rotate(0)}40%{transform:translateY(-90px) rotate(200deg)}100%{transform:translateY(-6px) rotate(360deg)}}
+@keyframes tmstar{0%{opacity:0;transform:rotate(var(--a)) translateY(0) scale(.4)}20%{opacity:1}100%{opacity:0;transform:rotate(var(--a)) translateY(-80px) scale(1.2)}}
+@keyframes tmsteam{0%{opacity:0;transform:translate(0,10px) scale(.4)}25%{opacity:1}100%{opacity:0;transform:translate(16px,-60px) scale(1.5)}}
+@keyframes tmdrip{0%{transform:translateY(0);opacity:1}100%{transform:translateY(40px);opacity:0}}
+@keyframes tmsnow{0%{transform:translateY(-10px);opacity:0}15%{opacity:1}100%{transform:translateY(380px);opacity:0}}
+@keyframes tmcrack{to{stroke-dashoffset:0}}
+@keyframes tmshatter{0%{opacity:1;transform:scale(1)}60%{opacity:.6;transform:scale(1.06)}100%{opacity:0;transform:scale(1.15)}}

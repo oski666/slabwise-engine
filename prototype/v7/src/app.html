@@ -384,6 +384,42 @@ const METER_SAY = {
   tiepido: ["Mercato in pausa: nessuno ha fretta, né di comprare né di vendere.", "The market is on pause: nobody is in a hurry to buy or sell."],
   freddo: ["Si raffredda: le vendite rallentano e i prezzi cedono un po'.", "Cooling down: sales slow and prices give a little."],
   gelo: ["Mercato ghiacciato: chi compra adesso sceglie il prezzo.", "A frozen market: whoever buys now names the price."]};
+/* D196: the thermometer as an original cartoon character (children's-cartoon style: round shapes, thick outline,
+   big eyes, rosy cheeks, bouncy motion). One drawing; the state class picks face, props and motion. */
+function thermoSvg() {
+  const stars = Array.from({length: 10}, (_, i) => `<path class="cf cf${i % 3}" style="--a:${i * 36}deg;--d:${0.9 + (i % 4) * 0.12}s" d="M0 -7 L2 -2 L7 0 L2 2 L0 7 L-2 2 L-7 0 L-2 -2Z"/>`).join("");
+  const flakes = Array.from({length: 7}, (_, i) => `<text class="flake" x="${18 + i * 26}" y="0" style="--k:${i}">❄</text>`).join("");
+  return `<svg viewBox="0 0 200 380" class="tm">
+    <g class="tm-bob">
+      <g class="tm-arm l"><path d="M70 150 Q40 160 34 190" /><circle cx="33" cy="194" r="11"/></g>
+      <g class="tm-arm r"><path d="M130 150 Q160 160 166 190" /><circle cx="167" cy="194" r="11"/></g>
+      <g class="tm-feet"><ellipse cx="78" cy="352" rx="22" ry="12"/><ellipse cx="122" cy="352" rx="22" ry="12"/></g>
+      <rect class="tm-glass" x="68" y="22" width="64" height="240" rx="32"/>
+      <rect class="tm-merc" x="85" y="40" width="30" height="230" rx="15"/>
+      <g class="tm-ticks"><path d="M72 70h12M72 110h12M72 150h12M72 190h12M72 230h12"/></g>
+      <rect class="tm-cap" x="78" y="10" width="44" height="22" rx="10"/>
+      <circle class="tm-bulb" cx="100" cy="290" r="58"/>
+      <ellipse class="tm-shine" cx="80" cy="268" rx="12" ry="8"/>
+      <g class="tm-face">
+        <ellipse class="cheek" cx="66" cy="304" rx="11" ry="7"/><ellipse class="cheek" cx="134" cy="304" rx="11" ry="7"/>
+        <g class="eyes-open"><ellipse cx="82" cy="282" rx="11" ry="14" class="ew"/><ellipse cx="118" cy="282" rx="11" ry="14" class="ew"/><circle cx="84" cy="285" r="6" class="ep"/><circle cx="120" cy="285" r="6" class="ep"/><circle cx="86" cy="281" r="2.2" class="eg"/><circle cx="122" cy="281" r="2.2" class="eg"/></g>
+        <g class="eyes-spin"><path d="M82 282 m-9 0 a9 9 0 1 0 18 0 a6 6 0 1 0 -12 0 a3 3 0 1 0 6 0"/><path d="M118 282 m-9 0 a9 9 0 1 0 18 0 a6 6 0 1 0 -12 0 a3 3 0 1 0 6 0"/></g>
+        <g class="eyes-shut"><path d="M71 284 q11 -9 22 0M107 284 q11 -9 22 0"/></g>
+        <path class="m m-smile" d="M84 312 q16 16 32 0"/>
+        <path class="m m-o" d="M100 318 m-9 0 a9 11 0 1 0 18 0 a9 11 0 1 0 -18 0"/>
+        <path class="m m-wave" d="M82 316 q6 -6 12 0 t12 0 t12 0"/>
+        <g class="m m-teeth"><rect x="82" y="308" width="36" height="14" rx="4"/><path d="M91 308v14M100 308v14M109 308v14"/></g>
+        <path class="m m-flat" d="M86 314 h28"/>
+      </g>
+      <g class="tm-sweat"><path d="M142 250 q8 12 0 18 q-8 -6 0 -18z"/><path d="M56 236 q7 10 0 15 q-7 -5 0 -15z"/></g>
+      <g class="tm-steam"><circle cx="100" cy="0" r="10"/><circle cx="100" cy="0" r="8"/><circle cx="100" cy="0" r="12"/></g>
+      <g class="tm-scarf"><path d="M66 238 q34 14 68 0 v14 q-34 14 -68 0z"/><path d="M128 244 q14 18 20 34 l-14 4 q-6 -16 -16 -32z"/></g>
+      <g class="tm-pop" transform="translate(100 14)">${stars}</g>
+    </g>
+    <g class="tm-snow">${flakes}</g>
+    <g class="tm-ice"><rect x="20" y="4" width="160" height="368" rx="22"/><path class="crk" d="M40 60 L70 110 L58 150 L92 190 L80 240 L112 290 L100 340"/><path class="crk" d="M150 40 L132 90 L156 130 L138 180"/></g>
+  </svg>`;
+}
 function meterSection() {
   const m = D.slabmeter;
   if (!m) return "";
@@ -396,7 +432,7 @@ function meterSection() {
     tx(`SlabDex <b>${pct(m.index_4w)}</b> in 4 settimane`, `SlabDex <b>${pct(m.index_4w)}</b> over 4 weeks`)];
   const inner = `<div class="cs-in">${boxTitle(tx("Lo <em>Slab-Meter</em>", "The <em>Slab-Meter</em>"), tx("La temperatura del mercato delle carte gradate, da 33° (gelo) a 42° (febbre). Si aggiorna ogni mattina", "The temperature of the graded card market, from 33° (frozen) to 42° (fever). Updated every morning"), "meter")}
     <div class="meter7 st-${m.state}" style="--lv:${lv}">
-      <div class="thermo" aria-hidden="true"><div class="tube"><span class="merc"></span><span class="frost"></span><svg class="crack" viewBox="0 0 40 300"><path d="M20 10 L12 60 L26 95 L10 150 L28 190 L14 250 L22 290"/><path d="M26 95 L36 120 M10 150 L2 175 M28 190 L38 215"/></svg></div><div class="bulb"><span></span></div><div class="shards">${shards}</div><div class="steam"><i></i><i></i><i></i></div></div>
+      <div class="tmc" aria-hidden="true">${thermoSvg()}</div>
       <div class="meter-txt"><span class="label">${tx("Oggi", "Today")}</span><b class="deg num">${dg}°</b><p class="say">${tx(...METER_SAY[m.state])}</p>
         <ul class="mfacts">${facts.map(f => `<li>${f}</li>`).join("")}</ul>
         <p class="note">${tx("Quattro misure, ognuna da 0 a 100, in media: quante carte salgono (sul voto più scambiato), quante vendite rispetto alle 8 settimane prima, massimi contro minimi dell'anno, lo SlabDex in 4 settimane.", "Four measures, each from 0 to 100, averaged: how many cards rise (on their most traded grade), sales against the 8 weeks before, one-year highs against lows, the SlabDex over 4 weeks.")}</p></div>
