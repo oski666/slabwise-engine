@@ -35,6 +35,8 @@ print("coverage fit", [x[0] for x in _log if "coverage_k" in x[0]], flush=True)
 ADOPTED = "--adopted" in sys.argv                     # D110: the engine the site uses (LVMParams defaults)
 if "--v116" in sys.argv:                              # v1.16 test (protocol §25, D128)
     params.cov_halflife = 13.0
+if "--v118" in sys.argv:                              # v1.18 test (protocol §34, D177)
+    params.era_noise = True
 if "--v117" in sys.argv:                              # v1.17 test (protocol §30, D155)
     params.jump = True
 if "--v114" in sys.argv:                              # the engine before v1.15 (protocol §22, D124)
@@ -69,6 +71,7 @@ for (w, c), n in clean.groupby(["week", "card"]).size().items():
 row_keys = []
 rows = []                     # (bucket, price log, {name: estimate}, lvm sd, venue)
 prev, prev_off, prev_kappa = {}, np.zeros(len(VENUES)), 1.0
+prev_ke = np.ones(E)                                  # v1.18: the per-era noise factors known at that time
 for w in range(W):
     g = groups.get(w, empty)
     if w > train and len(g) and prev:
@@ -80,7 +83,8 @@ for w in range(W):
                 bucket = "alta (≥26)" if n52 >= 26 else "media (6-25)" if n52 >= 6 else "bassa (≤5)"
                 row_keys.append((cards[c], int(s["grade"]), s.get("item_id", "")))
                 rows.append((bucket, float(np.log(s["price"])), ests, float(prev[lvm.name][1][c, gi]), s["venue"],
-                             float(prev_off[VENUES.index(s["venue"])] if s["venue"] in VENUES else 0.0), prev_kappa, w))
+                             float(prev_off[VENUES.index(s["venue"])] if s["venue"] in VENUES else 0.0),
+                             prev_kappa * (float(prev_ke[era[c]]) if params.era_noise else 1.0), w))
     for m in models:
         m.ingest(w, g)
     prev = {}
@@ -90,6 +94,7 @@ for w in range(W):
             prev[m.name] = (mean, sd)
             prev_off = lvm.offs.copy()                # the model's venue offsets known at that time (D69)
             prev_kappa = lvm.kappa                    # v1.12: the noise factor known at that time
+            prev_ke = lvm.kappa_e.copy()
         else:
             prev[m.name] = (m.estimates(w), None)
 

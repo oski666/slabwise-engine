@@ -26,6 +26,8 @@ params, _, _ = calibrate_clean(clean, len(cards), era, len(eras), max(26, W // 3
 ADOPTED = "--adopted" in sys.argv                     # D110: the engine the site uses (LVMParams defaults)
 if "--v116" in sys.argv:                              # v1.16 test (protocol §25, D128)
     params.cov_halflife = 13.0
+if "--v118" in sys.argv:                              # v1.18 test (protocol §34, D177)
+    params.era_noise = True
 if "--v117" in sys.argv:                              # v1.17 test (protocol §30, D155)
     params.jump = True
 if "--v114" in sys.argv:                              # the engine before v1.15 (protocol §22, D124)

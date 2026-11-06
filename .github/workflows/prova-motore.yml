@@ -1,0 +1,59 @@
+# Engine tests on the simulated market (protocol §5): one job per v1.10 seed file, in parallel; then the comparison.
+name: Prova motore
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Versione da provare (script scripts/run_<version>.py, es. v118)"
+        default: "v118"
+permissions:
+  contents: write
+jobs:
+  list:
+    runs-on: ubuntu-latest
+    outputs:
+      jobs: ${{ steps.l.outputs.jobs }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: l
+        run: echo "jobs=$(ls results/v1.10/seed*.json | xargs -n1 basename | jq -R . | jq -cs .)" >> "$GITHUB_OUTPUT"
+  sim:
+    needs: list
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    strategy:
+      fail-fast: false
+      matrix:
+        job: ${{ fromJson(needs.list.outputs.jobs) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: |
+          pip install -q numpy pandas scipy
+          PYTHONPATH=. python scripts/run_${{ github.event.inputs.version }}.py results/v1.10/${{ matrix.job }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sim-${{ matrix.job }}
+          path: results/v1.*/${{ matrix.job }}
+  compare:
+    needs: sim
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: /tmp/sim
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: |
+          pip install -q numpy pandas scipy
+          for d in /tmp/sim/*/; do cp -r "$d"results/* results/ 2>/dev/null || cp -r "$d"* results/; done
+          ls results/v1.18 | wc -l
+          PYTHONPATH=. python scripts/compare_${{ github.event.inputs.version }}.py | tee /tmp/compare.txt
+          git config user.name "slabwise-bot"
+          git config user.email "slabwise-bot@users.noreply.github.com"
+          git add results/v1.18 || true
+          git diff --cached --quiet || { git commit -m "Prova motore ${{ github.event.inputs.version }}: mercato simulato"; git pull --rebase --autostash -q && git push; }

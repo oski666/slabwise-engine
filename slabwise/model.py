@@ -71,6 +71,8 @@ class LVMParams:
     cov_halflife: float = 0.0    # D128: half-life in weeks of the noise factor kappa_t aimed at 80% coverage (v1.16); 0 = off
     grade_keep: int = 15         # D78/D82: also keep the latest N observations of every grade in the window (v1.10); 0 = v1.9
     roll_bound: float | None = 3.0   # D47/D49: max factor (x or /) a card moves with its era since its last fit; None = no bound
+    era_noise: bool = False      # D177: noise factor per era (v1.18, protocol §34)
+    era_noise_half: float = 26.0 # D177: half-life in weeks of the per-era noise factor
     jump: bool = False           # D155: price jumps confirmed by several recent sales (v1.17, protocol §30)
     jump_weeks: float = 4.0      # D155: recent sales compared with the previous estimate
     jump_n: int = 3              # D155: at least this many of them
@@ -115,6 +117,7 @@ class LatentValueModel:
         self.parent = None                                # v1.13 (D94): base card index of each variant, -1 for none
         self.kappa = 1.0                                  # v1.12 (D90): factor on the noise variances, follows recent sales
         self.kappa_path = []                              # (week, kappa) after each update
+        self.kappa_e = np.ones(n_eras)                    # v1.18 (D177): noise factor per era
         self.n_bounded = 0                                # estimates where the roll-forward bound bit (D47)
         self.jumps = [[] for _ in range(n_cards)]         # v1.17 (D155): per card, (week time, variance) of each jump
 
@@ -331,6 +334,7 @@ class LatentValueModel:
     def _factor_step(self, w, cards, gis, y, auction, ok, lang):
         p = self.p
         zs, za = [], []
+        zs_e = {}                                         # v1.18: per era
         num = np.zeros(self.E)
         den = np.zeros(self.E)
         for i in range(len(y)):
@@ -367,12 +371,13 @@ class LatentValueModel:
             qc = self.qc(c)
             pred = (th[0] + (th[gi] if gi else 0) + th[4] * dF + l_off)
             rest = (h @ cov @ h + th[4] ** 2 * dV + l_var
-                    + ((p.sigma_a if auction[i] == 1 else p.sigma_e) ** 2 + p.sigma_q ** 2) * self.kappa)
+                    + ((p.sigma_a if auction[i] == 1 else p.sigma_e) ** 2 + p.sigma_q ** 2) * self.k_eff(c))
             var = rest + qc * (dt + 0.5)
             r = y[i] - pred
             pg, _, _, _ = self._mix(np.array([r]), var, bool(ok[i]))
             if pg[0] > 0.8:
                 zs.append(r * r / var)                    # v1.12: standardised squared residual, estimates of last week
+                zs_e.setdefault(self.era[c], []).append(r * r / var)   # v1.18: the same, per era
             za.append(abs(r) / np.sqrt(var))              # v1.16: every sale, as coverage counts them
             if pg[0] > 0.8:                               # card drift evidence (D29)
                 self._qs[c] += r * r - rest
@@ -403,6 +408,12 @@ class LatentValueModel:
                     self.S[e], self.PS[e] = m, ps
             self.F[e].append(self.F[e][-1] + step)
             self.V[e].append(self.V[e][-1] + var)
+        if p.era_noise:                                   # v1.18 (D177): each era's noise follows its own credible sales
+            lam_e = 1 - 0.5 ** (1 / p.era_noise_half)
+            for e_, zz in zs_e.items():
+                if len(zz) >= 10:
+                    rho = float(np.median(zz)) / 0.455
+                    self.kappa_e[e_] = float(np.clip(self.kappa_e[e_] * max(rho, 1e-3) ** lam_e, 0.25, 4.0))
         if p.cov_halflife > 0 and len(za) >= 20:          # v1.16 (D128): aim the 80% band at 80% of the sales
             ratio = (float(np.quantile(za, 0.8)) / 1.2816) ** 2
             lam = 1 - 0.5 ** (1 / p.cov_halflife)
@@ -413,6 +424,10 @@ class LatentValueModel:
             lam = 1 - 0.5 ** (1 / p.vol_halflife)
             self.kappa = float(np.clip(self.kappa * max(ratio, 1e-3) ** lam, 0.25, 2.25))
             self.kappa_path.append((w, self.kappa))
+
+    def k_eff(self, c):
+        """Noise factor of card c: the market factor (v1.12) times its era's factor (v1.18)."""
+        return self.kappa * (float(self.kappa_e[self.era[c]]) if self.p.era_noise else 1.0)
 
     def _refit(self, c, w):
         p = self.p
@@ -473,7 +488,7 @@ class LatentValueModel:
                 X[i, kidx[ks[i]]] = 1
         one_off = np.array([(k is None) or (k not in kidx) for k in ks])
         age = T - t
-        base = (np.where(a, p.sigma_a ** 2, p.sigma_e ** 2) + np.where(one_off, p.sigma_q ** 2, 0)) * self.kappa
+        base = (np.where(a, p.sigma_a ** 2, p.sigma_e ** 2) + np.where(one_off, p.sigma_q ** 2, 0)) * self.k_eff(c)
         var = base + qc * age                       # marginal variance of each sale today
         shared = qc * np.minimum.outer(age, age)     # sales share the same random-walk path
         same_gap = (g[:, None] == g[None, :]) & (g[:, None] > 0)
@@ -498,7 +513,7 @@ class LatentValueModel:
         for v, j in vidx.items():
             prior_mean[j] = self.offs[v]
             prior_prec[j] = 1 / self.s_venue[v] ** 2
-        prior_prec[5 + NLc + NVc:] = 1 / (p.sigma_q ** 2 * self.kappa)
+        prior_prec[5 + NLc + NVc:] = 1 / (p.sigma_q ** 2 * self.k_eff(c))
         prior_prec[0] = 1e-4
         if p.step_prior and not (p.variant_gaps and self.parent is not None and self.parent[c] >= 0):
             gm2, gcov = self.step_prior(c)                # v1.14 (D101): correlated gaps through independent steps
