@@ -9,7 +9,7 @@ import json
 import os
 import sys
 import urllib.request
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 
 import numpy as np
 import pandas as pd
@@ -341,7 +341,44 @@ if lad:
     lr, lc = max(lad, key=lambda x: x[0])
     stories.append(dict(kind="ladder", title="Il salto di voto", card=lc["id"], ratio=round(lr, 2), v10=lc["grades"][0]["value"], v9=lc["grades"][1]["value"],
                         hook=f"{lc['name']}: un PSA 10 vale {lr:.1f} volte un PSA 9".replace(".", ",")))
-pulse = dict(week=f"{asof - timedelta(days=6)}/{asof}", stories=stories)
+def _nm(c):                              # a Japanese printing is named after its English twin in the reels
+    if c.get("lang") == "ja" and c.get("en"):
+        tw = next((x for x in out_cards if x["id"] == c["en"]), None)
+        if tw:
+            return tw["name"] + " giapponese"
+    return c["name"]
+
+
+# D184: two more stories (the biggest fall, the era that moved most) and the same five all week long
+falls = [(g["ch30"], c, gi) for c in out_cards for gi, g in enumerate(c["grades"])
+         if g.get("ch30") is not None and g["ch30"] < 0 and g["hi"] / g["lo"] < 1.5 and _story_ok(g) and c["id"] not in {x.get("card") for x in stories}]
+if falls:
+    _, fc, fg = min(falls, key=lambda x: x[0])
+    g = fc["grades"][fg]
+    ch = g["ch30"]
+    stories.insert(1, dict(kind="mover", title="In discesa", card=fc["id"], grade=g["grade"], value=g["value"], lo=g["lo"], hi=g["hi"],
+                           change7=round(float(ch), 4), hook=f"{_nm(fc)} PSA {g['grade']}: −{abs(ch) * 100:.0f}% in 30 giorni",
+                           reel=dict(mode="trend", card=fc["id"], grade=g["grade"], prev=round(g["value"] / (1 + ch) * EUR), now=round(g["value"] * EUR), days=30)))
+_em = []
+for e_, ix_ in (indexes or {}).items():
+    pts_ = (ix_ or {}).get("points") or []
+    if len(pts_) > 4 and pts_[-5][1]:
+        _em.append((pts_[-1][1] / pts_[-5][1] - 1, e_))
+if _em:
+    ech, era_ = max(_em, key=lambda x: abs(x[0]))
+    ecap = sum(g["value"] * (g.get("pop") or 0) for c in out_cards if c["series"] == era_ and c["lang"] != "ja" for g in c["grades"]) if era_ != "Giappone" else \
+        sum(g["value"] * (g.get("pop") or 0) for c in out_cards if c["lang"] == "ja" for g in c["grades"])
+    stories.append(dict(kind="era", title="L'era della settimana", series=era_, change=round(float(ech), 4), cap=round(float(ecap)),
+                        hook=f"Indice {era_}: {'+' if ech >= 0 else '−'}{abs(ech) * 100:.1f}% in 4 settimane".replace(".", ",")))
+_monday = date.today() - timedelta(days=date.today().weekday())
+_pp = os.path.join(HERE, "data", "pulse.json")
+_old = json.load(open(_pp)) if os.path.exists(_pp) else None
+_ids = {c["id"] for c in out_cards}
+if _old and _old.get("monday") == str(_monday) and all(not x.get("card") or x["card"] in _ids for x in _old["stories"]):
+    pulse = dict(week=_old["week"], stories=_old["stories"])                  # this week's stories are already chosen
+else:
+    pulse = dict(week=f"{asof - timedelta(days=6)}/{asof}", stories=stories)
+    json.dump(dict(monday=str(_monday), **pulse), open(_pp, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 venues = clean["venue"].value_counts().to_dict()
 sold = {c["id"] for c in out_cards}
 ja_pending = [dict(id=c["id"], name=c["n"], set=c["set"], no=c["no"], tot=c.get("tot"), rarity=c.get("r"), illustrator=c.get("ill"),

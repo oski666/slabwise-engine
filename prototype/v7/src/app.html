@@ -390,7 +390,7 @@ function weekBand() {
   return `<section class="cs band7" id="sec-week" data-sec-id="week"><span class="wm" aria-hidden="true">WEEK</span>
     <div class="band-head">${boxTitle(tx("La <em>settimana</em>", "The <em>week</em>"), tx("Cosa è successo ai prezzi questa settimana. Si aggiorna ogni lunedì", "What happened to prices this week. Updated every Monday"), "week")}</div>
     <div class="band-strip rv" id="bandstrip">${st.map((x, i) => { const s = storyText(x); const c = s.card;
-      return `<a class="bcard" href="${c ? "#c-" + c.id : "#mercato"}"><span class="bnum">${i + 1}</span>${x.kind ? `<span class="bkind">${esc(KIND[x.kind] ? tx(...KIND[x.kind]) : x.kind)}</span>` : ""}${c ? `<span class="bimg" style="background-image:url('${c.thumb || c.img}')"></span>` : ""}<span class="btxt">${markHook(s.hook)}</span></a>`; }).join("")}</div>
+      return `<a class="bcard" href="${c ? "#c-" + c.id : x.series ? "#indice-" + encodeURIComponent(x.series) : "#mercato"}"><span class="bnum">${i + 1}</span>${x.kind ? `<span class="bkind">${esc(KIND[x.kind] ? tx(...KIND[x.kind]) : x.kind)}</span>` : ""}${c ? `<span class="bimg" style="background-image:url('${c.thumb || c.img}')"></span>` : ""}<span class="btxt">${markHook(s.hook)}</span></a>`; }).join("")}</div>
     <div class="band-dots" id="banddots">${st.map((_, i) => `<button aria-label="${tx("Storia", "Story")} ${i + 1}" data-band="${i}" aria-current="${i === 0}"></button>`).join("")}</div>
     ${twinkle(80, 12, 1)}${chevron("jp")}${corner()}</section>`;
 }
@@ -822,7 +822,7 @@ function viewIndex(key) {
 /* the key number of a story under a marker stroke (heavy tight type, idea from Oscar, 2 November) */
 const markHook = h => esc(h).replace(/([+−-]\d[\d.,]*\s?%|\$\d(?:[\d.,]*\d)?|\d[\d.,]*\s(?:volte|times))/, '<mark class="hl">$1</mark>');
 function storyHook(s, c) {
-  const nm = c ? c.name : "";
+  const tw = c && c.lang === "ja" && enOf(c), nm = c ? (tw ? tw.name + tx(" giapponese", " Japanese") : c.name) : "";
   if (s.kind === "mover" && s.change7 != null) return `${nm} PSA ${s.grade}: ${s.change7 > 0 ? "+" : "−"}${Math.round(Math.abs(s.change7) * 100)}% ${s.reel && s.reel.days === 30 ? tx("in 30 giorni", "in 30 days") : tx("in 4 settimane", "in 4 weeks")}`;
   if (s.kind === "caught" && s.price) return tx(`Venduta a ${usd(s.price)}, ma per il nostro modello non è credibile`, `Sold for ${usd(s.price)}, but our model does not believe it`);
   if (s.kind === "ladder" && s.ratio) return tx(`${nm}: un PSA 10 vale ${nf1.format(s.ratio)} volte un PSA 9`, `${nm}: a PSA 10 is worth ${nf1.format(s.ratio)} times a PSA 9`);

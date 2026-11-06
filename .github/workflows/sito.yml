@@ -88,7 +88,7 @@ jobs:
           ots upgrade data/seals/*.ots || true
           git config user.name "slabwise-bot"
           git config user.email "slabwise-bot@users.noreply.github.com"
-          git add data/seals
+          git add data/seals prototype/data/pulse.json   # D184: the stories of the week, chosen on Monday
           git diff --cached --quiet || (git commit -m "Istantanea sigillata dei valori" && git pull --rebase --autostash -q && git push)
       - name: Scorecard (D105)
         continue-on-error: true
