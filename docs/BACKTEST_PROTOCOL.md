@@ -574,3 +574,18 @@ Si adotta la K più grande che passa Q1–Q3 (prima 20, poi 15; per il generale 
 | V4 | mercati calmi (settimane ed ere con f_e ≤ 1,1): mediana di f_e·c | non oltre 1,10 |
 
 Solo riportato: quota di settimane ed ere con avviso, copertura della banda di oggi. Se V1–V4 passano, la rosa e l'avviso vanno sul sito (grafici e schede) e la promessa dell'80% si riferisce alla rosa; la blu resta il fair value. Script `scripts/band_test.py` sulle righe della fase R (`PHASE_R_ROWS`).
+
+**Esito §32 (6 novembre 2026): non superata, la rosa così non si adotta.** Fase R della v1.15 su 56.191 vendite. V1 sì: copertura dopo il 30 ottobre 77.6% (oggi 68.9%). **V2 no**: 73.9% su tutto il periodo (oggi 74.5%). **V3 no**: Classica 51%, Contemporanea 81%, Di mezzo 42%, Giappone 65%, Moderna 62%, Vintage 68%. V4 sì: 0.96. Avvisi: 0% delle settimane ed ere. Diagnosi: il fattore di volatilità quasi non scatta (la media di lungo periodo comprende già i periodi agitati), e il moltiplicatore unico c segue la Contemporanea, che ha metà delle vendite; le ere con meno vendite (Classica, Di mezzo) restano scoperte tutto il tempo, non solo a ottobre. Il problema principale non è la volatilità del momento ma una banda tarata male per era.
+
+## 33. Banda rosa tarata per era (registrato il 6 novembre 2026, dopo l'esito del §32 e prima di questa prova; D175)
+
+**Trasparenza.** Questa variante nasce dalla diagnosi del §32, quindi dopo aver visto quei dati: per questo, oltre a V1–V4 sugli stessi dati, serve una prova sul futuro (V5) prima di considerarla confermata.
+
+**Modifica rispetto al §32.** Tutto uguale (z, f_e, emivita 4, avviso a 1,5), ma il moltiplicatore della correzione automatica è **uno per era** (c_e, Giappone compreso), aggiornato solo con le vendite di quell'era: c_e ← c_e·exp(0,5·(quota fuori la settimana prima − 0,20)), tra 0,8 e 3.
+
+| # | Criterio | Soglia |
+|---|---|---|
+| V1–V4 | come §32, sugli stessi dati | come §32 |
+| V5 | V1 e V3 sulle vendite dopo il 6 novembre, appena sono almeno 2.000 | come sopra |
+
+Se V1–V4 passano, la rosa e l'avviso vanno sul sito subito, con la nota che la prova sul futuro è in corso; se V5 non passa, si tolgono.
