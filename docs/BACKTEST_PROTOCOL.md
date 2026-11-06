@@ -652,3 +652,5 @@ Se X1–X6 passano, il sito usa lo storico nei prezzi e X7 diventa obbligatoria.
 | Y7 | Prova prospettica: Y1–Y4 sulle vendite dopo il 6 novembre, appena sono almeno 2.000 | come sopra |
 
 Se passano entrambi, si adotta quello con l'errore Y3 più basso; se ne passa uno, quello; se nessuno, il sito resta com'è. Il braccio adottato rende Y7 obbligatoria (il criterio Y5 è stato pensato dopo aver visto i dati del §35). Solo riportati: voti in revisione, voti senza vendite, PSA 10 "Stimato" separatamente. Script `scripts/forget_test.py`, workflow `prova-dimenticare.yml`; risultati in `results/forget/summary.json`.
+
+**Esito (6 novembre 2026, D205).** Nessun braccio adottato. A: Y1 0 voci; Y2 **4 voci** (soglia 3) → non passa; Y3 −0,28 punti [−0,39; −0,18]; Y4 73,9% → 83,4%; Y5 111 → 83; Y6 33 → 3. B: Y1 1 voce, Y2 12 voci, Y5 130 → non passa. Y7 non si applica.
