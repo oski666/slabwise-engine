@@ -3,6 +3,7 @@ character package (prototype/character/slabby/character.json) and data/demo.json
 import json
 import os
 import sys
+import base64
 
 here = os.path.dirname(os.path.abspath(__file__))
 src = open(os.path.join(here, "src", "app.html"), encoding="utf-8").read()
@@ -113,6 +114,26 @@ def self_host_fonts(html, extra_link, folder):
 
 if split:
     src, font_link = self_host_fonts(src, font_link, split)
+# D191: the three reliability stickers (prototype/character/stickers/<fresche|stimato|poco_sicuro>.png), when present
+STICKERS = {}
+_sd = os.path.join(here, "..", "character", "stickers")
+for _k, _f in (("hi", "fresche.png"), ("mid", "stimato.png"), ("lo", "poco_sicuro.png")):
+    _p = os.path.join(_sd, _f)
+    if os.path.exists(_p):
+        try:
+            from PIL import Image
+            import io as _io
+            _im = Image.open(_p).convert("RGBA")
+            _bb = _im.getbbox()
+            if _bb:
+                _im = _im.crop(_bb)
+            _im.thumbnail((192, 192))
+            _buf = _io.BytesIO()
+            _im.save(_buf, "WEBP", quality=90)
+            STICKERS[_k] = "data:image/webp;base64," + base64.b64encode(_buf.getvalue()).decode()
+        except ImportError:
+            STICKERS[_k] = "data:image/png;base64," + base64.b64encode(open(_p, "rb").read()).decode()
+data["stickers"] = STICKERS
 out = (src.replace("__CHAR_FONT__", font_link).replace("__STYLE__", css + "\n" + char["css"]).replace("__SLABBY_SVG__", char["svg"]).replace("__SLABBY__", js)
        .replace("__DATA__", json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")))
 open(os.path.join(split, "index.html") if split else os.path.join(here, "slabwise.html"), "w", encoding="utf-8").write(out)

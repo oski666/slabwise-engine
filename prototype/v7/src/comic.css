@@ -540,3 +540,18 @@ footer .wrap{color:var(--c-on-dark-dim)}
 @media (prefers-reduced-motion: no-preference) { .slabby .sb-char[data-pose="teacher"] svg { animation: sbTeach .9s ease-in-out 4; transform-origin: 50% 90% } }
 /* wide screens: the catalogue and the eras use the whole width instead of stopping at 1180 px (Oscar, 4 November) */
 @media (min-width:1500px){#sec-slab .cs-in,#sec-ere .cs-in,#sec-jp .cs-in{max-width:none}}   /* D151, 4 Nov: the grid fills any width */
+
+/* D191: reliability stickers */
+.tiersticker{width:56px;height:56px;object-fit:contain;vertical-align:middle;transform:rotate(-6deg);filter:drop-shadow(2px 2px 0 rgba(0,0,0,.35))}
+.ct-art .ct-sticker{position:absolute;z-index:2;inset:auto auto 8px 8px;width:44px;height:44px;object-fit:contain;transform:rotate(-8deg);filter:drop-shadow(2px 2px 0 rgba(0,0,0,.4))}
+
+/* D192: the hero is one full-bleed wall of cards drifting slowly upwards; a column changes its cards each time it loops */
+.wall7{position:absolute;inset:-18% -12%;z-index:1;display:flex;gap:16px;justify-content:center;rotate:-9deg;overflow:hidden;background:var(--c-ink)}
+.wall7 .col{display:flex;flex-direction:column;gap:16px;flex:none;width:clamp(120px,11vw,190px);animation:wallup var(--t,140s) linear infinite;animation-delay:var(--dl,0s)}
+.wall7 .col a{display:block;flex:none}
+.wall7 img{display:block;width:100%;aspect-ratio:63/88;object-fit:cover;border-radius:7px;box-shadow:0 3px 0 rgba(0,0,0,.35);transition:opacity 1.2s}
+.wall7 img.swap{opacity:0}
+@keyframes wallup{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+.wall7-tint{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(160deg,transparent 35%,var(--c-blue) 150%);mix-blend-mode:multiply;opacity:.55}
+.wall7-dots{position:absolute;inset:0;z-index:1;pointer-events:none;background-image:radial-gradient(var(--c-halftone) 1.4px,transparent 1.6px);background-size:9px 9px;mix-blend-mode:multiply}
+@media (prefers-reduced-motion:reduce){.wall7 .col{animation:none}}
