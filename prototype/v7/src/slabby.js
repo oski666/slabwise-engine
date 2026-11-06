@@ -7,7 +7,7 @@
   // a symbol "slabby-<pose>" for each pose. Replacing the character = replacing that file (see its README).
   const POSES = ["smug", "drool", "sleep", "laugh", "shock", "bliss", "peek"];
   // optional poses for the antics (D44): taken from the folder when present, otherwise a required pose stands in
-  const EXTRA = {run: "laugh", cling: "peek", sit: "smug", tongue: "laugh", wave: "bliss", peek_top: "peek", peek_side: "smug", teacher: "smug"};   // teacher (D108): glasses and pointer, for the card's scorecard
+  const EXTRA = {run: "laugh", cling: "peek", sit: "smug", tongue: "laugh", wave: "bliss", peek_top: "peek", peek_side: "smug", teacher: "smug", side: "peek"};   // teacher (D108): glasses and pointer, for the card's scorecard
   const POSE = {};
   for (const p of POSES.concat(Object.keys(EXTRA))) {
     const id = document.getElementById("slabby-" + p) ? p : EXTRA[p];
@@ -168,6 +168,7 @@
       const io = teachIO = new IntersectionObserver(ents => {
         if (!ents.some(x => x.isIntersecting)) return;
         io.disconnect(); if (teachIO === io) teachIO = null;
+        return;                                                  // D201: the teacher now taps the price when a card opens (app.html)
         if (muted || store.get("teacher") >= 3) return;
         store.set("teacher", (store.get("teacher") || 0) + 1);
         setPose("teacher", 6000);

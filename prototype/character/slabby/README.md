@@ -77,3 +77,11 @@ Ogni posa: personaggio intero e centrato, piedi in basso, nessuna scritta dentro
 3. Carica tutto su GitHub in `prototype/character/slabby/` (o dimmi dove sono): io aggiorno, eseguo `python prototype/v6/build.py` e ripubblico il sito allo stesso link.
 
 Se manca una posa o un colore, la costruzione si ferma e dice cosa manca. La cartella `generations/` conserva i file dei generatori d'immagini: il sito non li usa.
+
+
+## Pose facoltative aggiunte dopo (D201)
+
+| File | Dove appare | Se manca |
+|---|---|---|
+| `teacher.png` | quando apri una carta entra accanto al prezzo, ci batte sopra la bacchetta e se ne va | non appare |
+| `side.png` | in basso nella barra del menu, sempre visibile (computer) | usa `peek.png` |

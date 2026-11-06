@@ -705,3 +705,15 @@ footer .wrap{color:var(--c-on-dark-dim)}
 @keyframes stkwob{0%,100%{transform:rotate(10deg)}25%{transform:rotate(-4deg) scale(1.08)}75%{transform:rotate(16deg)}}
 @media (max-width:640px){.stkpop{width:60px;height:60px;margin-left:50px}.stkpop img{width:60px;height:60px}}
 @media (max-width:640px){.fork .ends-mid{display:none}}
+
+/* D201: the teacher taps the price */
+.valuerow{position:relative}
+.teachtap{position:absolute;right:-8px;top:-70px;width:120px;pointer-events:none;opacity:0}
+.teachtap svg{width:100%;height:auto;display:block;transform:scaleX(-1)}
+@media (prefers-reduced-motion:no-preference){
+  .teachtap{animation:teachin 4.6s ease-in-out .9s forwards;transform-origin:30% 90%}
+}
+@keyframes teachin{0%{opacity:0;transform:translateX(60px) rotate(8deg)}12%{opacity:1;transform:translateX(0) rotate(0)}
+  22%{transform:rotate(-12deg)}28%{transform:rotate(0)}36%{transform:rotate(-12deg)}42%{transform:rotate(0)}50%{transform:rotate(-12deg)}56%{transform:rotate(0)}
+  85%{opacity:1;transform:translateX(0)}100%{opacity:0;transform:translateX(60px) rotate(8deg)}}
+@media (max-width:640px){.teachtap{width:86px;top:-50px}}

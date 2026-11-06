@@ -19,9 +19,9 @@ import struct
 POSES = ("smug", "bliss", "laugh", "drool", "shock", "sleep", "peek")
 # optional poses for Slabby's antics (D44, D61): used when <pose>.png is in the folder, otherwise the site
 # falls back to a required pose (see EXTRA_FALLBACK, the same table as in slabby.js)
-EXTRA = ("run", "cling", "sit", "tongue", "wave", "peek_top", "peek_side", "teacher")
+EXTRA = ("run", "cling", "sit", "tongue", "wave", "peek_top", "peek_side", "teacher", "side")   # D201: side = the sidebar
 EXTRA_FALLBACK = {"run": "laugh", "cling": "peek", "sit": "smug", "tongue": "laugh", "wave": "bliss",
-                  "peek_top": "peek", "peek_side": "smug", "teacher": "smug"}
+                  "peek_top": "peek", "peek_side": "smug", "teacher": "smug", "side": "peek"}
 COLORS = ("main", "accent", "gold", "ink", "bubble", "bubble_ink")
 MIME = {".png": "image/png", ".webp": "image/webp", ".svg": "image/svg+xml", ".jpg": "image/jpeg", ".jpeg": "image/jpeg"}
 
