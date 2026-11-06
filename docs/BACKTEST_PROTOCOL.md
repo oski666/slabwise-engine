@@ -591,3 +591,21 @@ Solo riportato: quota di settimane ed ere con avviso, copertura della banda di o
 Se V1–V4 passano, la rosa e l'avviso vanno sul sito subito, con la nota che la prova sul futuro è in corso; se V5 non passa, si tolgono.
 
 **Esito §33 (6 novembre 2026): non superata.** V1 sì (78.2%), V2 sì (75.1%), **V3 no** (Classica 66%, Contemporanea 78%, Di mezzo 61%, Giappone 73%, Moderna 70%, Vintage 74%), V4 sì (0.94). Moltiplicatori finali per era: Classica 2.21, Contemporanea 0.97, Di mezzo 2.93, Giappone 1.47, Moderna 1.68, Vintage 1.40; quello della Di mezzo arriva quasi al limite di 3. Lettura: la banda di partenza è troppo stretta proprio nelle ere con meno vendite, in modo stabile; una correzione a valle insegue il problema senza risolverlo. La causa sta nel motore: il rumore delle singole vendite (σ della sede) è stimato uguale per tutte le ere. Non si fanno altri ritocchi a questa famiglia di prove; il prossimo passo è un rumore delle vendite per era nel motore, da registrare come nuova versione.
+
+## 34. v1.18: rumore delle vendite per era (registrato il 6 novembre 2026, prima del codice; D177)
+
+**Problema (§32–§33, D176).** Le forchette coprono bene la Contemporanea (78–81%) e male le ere con meno vendite (Classica 51–66%, Di mezzo 42–61%), in modo stabile nel tempo. Il motore usa un solo rumore delle vendite (σ di eBay e delle aste, per un fattore κ unico) per tutte le carte.
+
+**Modifica (v1.18, `era_noise` = vero).** Un fattore di rumore per ogni era del motore, κ_e, all'inizio 1. Ogni settimana, per ogni era con almeno 10 vendite credibili (probabilità di essere buone > 0,8): rapporto ρ_e = mediana(r²/var)/0,455 (come la v1.12, ma per era); κ_e ← κ_e·ρ_e^λ con λ = 1 − 0,5^(1/26) (emivita 26 settimane), tra 0,25 e 4. La varianza del rumore di ogni vendita (e della copia singola) è moltiplicata per κ·κ_e della sua era. La banda R4 usa lo stesso fattore. Parametri fissati qui: 10 vendite, emivita 26, limiti 0,25–4.
+
+| # | Criterio (regole del §18) | Soglia |
+|---|---|---|
+| W1 | R1 su `sales_all` con tcgcharts del 5 novembre | 0 voci |
+| W2 | E2r sullo stesso insieme | non più voci della v1.15 (3) |
+| W3 | Fase R sullo stesso insieme: v1.18 meno v1.15 | estremo superiore dell'intervallo al 95% ≤ +0,2 punti |
+| W4 | Copertura R4 sullo stesso insieme | tra 75% e 85% |
+| W5 | Copertura R4 per era del sito (Vintage, Classica, Di mezzo, Moderna, Contemporanea, Giappone) | ognuna tra 70% e 90% |
+| W6 | Mercato simulato: le 23 prove del §5 contro la v1.15 | N1–N6 |
+| W7 | Prova prospettica: W1, W3, W4, W5 sulle vendite dopo il 6 novembre, appena sono almeno 2.000 | come sopra |
+
+Se W1–W6 passano, la v1.18 si adotta e W7 diventa obbligatoria. Il mercato simulato gira sul workflow `prova-motore.yml`.
