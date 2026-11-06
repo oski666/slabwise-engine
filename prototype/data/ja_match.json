@@ -593,20 +593,20 @@
   "checked": "2026-11-04"
  },
  "base1-2": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "nessuna",
+  "detail": "6 dello stesso illustratore, nessuna con la stessa illustrazione",
   "tried": [
    [
     "web1-044",
-    null
+    110
    ],
    [
     "VS1-046",
-    null
+    112
    ],
    [
     "PCG8-049",
-    null
+    126
    ],
    [
     "SM9b-064",
@@ -614,14 +614,14 @@
    ],
    [
     "E1-076",
-    null
+    119
    ],
    [
     "E1-108",
     126
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "base1-15": {
   "status": "trovata",
@@ -679,7 +679,7 @@
    ],
    [
     "PMCG1-050",
-    null
+    127
    ],
    [
     "PCG3-064",
@@ -706,7 +706,7 @@
     118
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "base1-3": {
   "status": "trovata",
@@ -826,7 +826,7 @@
   "tried": [
    [
     "web1-048",
-    null
+    116
    ],
    [
     "PCG5-049",
@@ -834,11 +834,11 @@
    ],
    [
     "E5-052",
-    null
+    115
    ],
    [
     "E5-053",
-    null
+    110
    ],
    [
     "PMCG1-057",
@@ -858,7 +858,7 @@
    ],
    [
     "VS1-081",
-    null
+    106
    ],
    [
     "E1-089",
@@ -869,15 +869,16 @@
     102
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "base1-58": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "trovata",
+  "tcgdex": "E4-033",
+  "dist": 77,
   "tried": [
    [
     "E1-016",
-    null
+    109
    ],
    [
     "web1-025",
@@ -885,7 +886,7 @@
    ],
    [
     "E4-033",
-    null
+    77
    ],
    [
     "PMCG1-035",
@@ -893,18 +894,31 @@
    ],
    [
     "neo1-036",
-    null
+    100
    ],
    [
     "PCG1-037",
-    null
+    109
    ],
    [
     "PCG7-041",
-    null
+    133
    ]
   ],
-  "checked": "2026-11-04"
+  "ja_name": "ピカチュウ",
+  "no": "033",
+  "set": "裂けた大地",
+  "tot": 88,
+  "rarity": "Common",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 122973,
+   "url": "/pokemon/expansion-pack-20th-anniversary-japanese/pikachu-33",
+   "set": "Expansion Pack 20th Anniversary",
+   "type": "base"
+  },
+  "checked": "2026-11-06"
  },
  "base2-11": {
   "status": "trovata",
@@ -958,7 +972,7 @@
   "tried": [
    [
     "VS1-021",
-    null
+    107
    ],
    [
     "PMCG3-031",
@@ -970,7 +984,7 @@
    ],
    [
     "E5-043",
-    null
+    104
    ],
    [
     "E5-044",
@@ -978,11 +992,11 @@
    ],
    [
     "web1-047",
-    null
+    126
    ],
    [
     "PCG1-048",
-    null
+    110
    ],
    [
     "neo4-066",
@@ -997,11 +1011,11 @@
     107
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "base3-4": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "nessuna",
+  "detail": "11 dello stesso illustratore, nessuna con la stessa illustrazione",
   "tried": [
    [
     "PCG9-004",
@@ -1009,23 +1023,23 @@
    ],
    [
     "web1-038",
-    null
+    126
    ],
    [
     "PCG6-039",
-    null
+    110
    ],
    [
     "PMCG3-043",
-    null
+    132
    ],
    [
     "VS1-049",
-    null
+    120
    ],
    [
     "SM6a-062",
-    null
+    115
    ],
    [
     "E1-094",
@@ -1037,7 +1051,7 @@
    ],
    [
     "VS1-100",
-    null
+    107
    ],
    [
     "SM11-112",
@@ -1045,10 +1059,10 @@
    ],
    [
     "E1-126",
-    null
+    130
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "base5-4": {
   "status": "senza_immagine",
@@ -1099,7 +1113,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "neo1-9": {
   "status": "trovata",
@@ -1316,7 +1330,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "base1-16": {
   "status": "senza_immagine",
@@ -1328,7 +1342,7 @@
    ],
    [
     "E2-037",
-    null
+    108
    ],
    [
     "E2-038",
@@ -1340,7 +1354,7 @@
    ],
    [
     "PCG1-043",
-    null
+    115
    ],
    [
     "web1-046",
@@ -1351,7 +1365,7 @@
     123
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "base1-6": {
   "status": "trovata",
@@ -1605,14 +1619,14 @@
    ],
    [
     "PCG1-065",
-    null
+    109
    ],
    [
     "PMCG1-067",
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "base1-7": {
   "status": "senza_immagine",
@@ -1632,7 +1646,7 @@
    ],
    [
     "PCG3-060",
-    null
+    130
    ],
    [
     "neo4-070",
@@ -1647,7 +1661,7 @@
     105
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "base1-13": {
   "status": "trovata",
@@ -1716,16 +1730,16 @@
   "checked": "2026-11-04"
  },
  "base3-10": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "nessuna",
+  "detail": "7 dello stesso illustratore, nessuna con la stessa illustrazione",
   "tried": [
    [
     "PCG5-022",
-    null
+    112
    ],
    [
     "PMCG3-022",
-    null
+    112
    ],
    [
     "SM9-029",
@@ -1733,7 +1747,7 @@
    ],
    [
     "E5-029",
-    null
+    123
    ],
    [
     "VS1-041",
@@ -1748,11 +1762,11 @@
     119
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "base3-2": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "nessuna",
+  "detail": "9 dello stesso illustratore, nessuna con la stessa illustrazione",
   "tried": [
    [
     "SV10-022",
@@ -1764,7 +1778,7 @@
    ],
    [
     "E5-030",
-    null
+    127
    ],
    [
     "E5-031",
@@ -1791,7 +1805,7 @@
     128
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "base3-12": {
   "status": "trovata",
@@ -1849,26 +1863,26 @@
    ],
    [
     "PCG4-025",
-    null
+    117
    ],
    [
     "E4-026",
-    null
+    133
    ],
    [
     "E4-027",
-    null
+    106
    ],
    [
     "PCG6-030",
-    null
+    123
    ],
    [
     "neo4-034",
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "base2-3": {
   "status": "trovata",
@@ -1965,7 +1979,7 @@
     98
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "neo4-107": {
   "status": "trovata",
@@ -2136,7 +2150,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "swsh7-218": {
   "status": "senza_immagine",
@@ -2147,7 +2161,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "swsh7-189": {
   "status": "senza_immagine",
@@ -2183,14 +2197,14 @@
    ],
    [
     "VS1-091",
-    null
+    123
    ],
    [
     "PCG4-091",
-    null
+    123
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "swsh12-186": {
   "status": "senza_immagine",
@@ -2213,11 +2227,12 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "swsh9-154": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "trovata",
+  "tcgdex": "E1-103",
+  "dist": 39,
   "tried": [
    [
     "SM6a-003",
@@ -2225,19 +2240,19 @@
    ],
    [
     "neo4-025",
-    null
+    117
    ],
    [
     "PCG8-032",
-    null
+    127
    ],
    [
     "web1-042",
-    null
+    127
    ],
    [
     "PCG9-052",
-    null
+    116
    ],
    [
     "SM3H-058",
@@ -2257,10 +2272,23 @@
    ],
    [
     "E1-103",
-    null
+    39
    ]
   ],
-  "checked": "2026-11-04"
+  "ja_name": "カリザード",
+  "no": "103",
+  "set": "基本拡張パック",
+  "tot": 128,
+  "rarity": "Holo Rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 116511,
+   "url": "/pokemon/star-birth-japanese/charizard-v-103",
+   "set": "Star Birth",
+   "type": "base"
+  },
+  "checked": "2026-11-06"
  },
  "sv03-223": {
   "status": "senza_immagine",
@@ -2300,10 +2328,10 @@
    ],
    [
     "E1-103",
-    null
+    124
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "swsh4-188": {
   "status": "senza_immagine",
@@ -2358,7 +2386,7 @@
     126
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "base5-5": {
   "status": "senza_immagine",
@@ -2409,11 +2437,12 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "ecard2-149": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "trovata",
+  "tcgdex": "E3-090",
+  "dist": 47,
   "tried": [
    [
     "neo1-072",
@@ -2421,18 +2450,31 @@
    ],
    [
     "E3-090",
-    null
+    47
    ],
    [
     "PCG4-090",
-    null
+    47
    ],
    [
     "SM8-108",
     135
    ]
   ],
-  "checked": "2026-11-04"
+  "ja_name": "ルギア",
+  "no": "090",
+  "set": "海からの風",
+  "tot": 87,
+  "rarity": "Secret Rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 129501,
+   "url": "/pokemon/wind-from-the-sea-japanese/lugia-90",
+   "set": "Wind from the Sea",
+   "type": "base"
+  },
+  "checked": "2026-11-06"
  },
  "sv08.5-161": {
   "status": "senza_immagine",
@@ -2475,7 +2517,7 @@
     118
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "swsh8-271": {
   "status": "senza_immagine",
@@ -2518,7 +2560,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "sm3.5-78": {
   "status": "trovata",
@@ -2574,24 +2616,24 @@
   "checked": "2026-11-04"
  },
  "bw8-136": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "nessuna",
+  "detail": "9 dello stesso illustratore, nessuna con la stessa illustrazione",
   "tried": [
    [
     "neo4-025",
-    null
+    113
    ],
    [
     "PCG8-032",
-    null
+    101
    ],
    [
     "web1-042",
-    null
+    117
    ],
    [
     "PCG9-052",
-    null
+    119
    ],
    [
     "SM3H-058",
@@ -2603,18 +2645,18 @@
    ],
    [
     "E5-089",
-    null
+    111
    ],
    [
     "VS1-097",
-    null
+    112
    ],
    [
     "E1-103",
-    null
+    127
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "swsh7-192": {
   "status": "senza_immagine",
@@ -2634,7 +2676,7 @@
    ],
    [
     "VS1-049",
-    null
+    115
    ],
    [
     "SM6a-062",
@@ -2661,7 +2703,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "ex13-100": {
   "status": "senza_immagine",
@@ -2684,7 +2726,7 @@
     132
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "swsh7-194": {
   "status": "senza_immagine",
@@ -2695,7 +2737,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "ex15-101": {
   "status": "trovata",
@@ -2767,7 +2809,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "ex14-100": {
   "status": "trovata",
@@ -2827,7 +2869,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "ex10-113": {
   "status": "trovata",
@@ -2989,7 +3031,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "ex3-90": {
   "status": "trovata",
@@ -3085,7 +3127,7 @@
     106
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "neo4-113": {
   "status": "trovata",
@@ -3162,8 +3204,8 @@
   "checked": "2026-11-04"
  },
  "bw6-128": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "nessuna",
+  "detail": "7 dello stesso illustratore, nessuna con la stessa illustrazione",
   "tried": [
    [
     "SM7-068",
@@ -3171,7 +3213,7 @@
    ],
    [
     "M6-095",
-    null
+    109
    ],
    [
     "SM8b-098",
@@ -3194,11 +3236,12 @@
     117
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "xy4-34": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "trovata",
+  "tcgdex": "PCG1-048",
+  "dist": 18,
   "tried": [
    [
     "VS1-021",
@@ -3222,7 +3265,7 @@
    ],
    [
     "PCG1-048",
-    null
+    18
    ],
    [
     "neo4-066",
@@ -3237,7 +3280,20 @@
     131
    ]
   ],
-  "checked": "2026-11-04"
+  "ja_name": "Gengar Ex",
+  "no": "048",
+  "set": "伝説の飛翔",
+  "tot": 82,
+  "rarity": "Holo Rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 123247,
+   "url": "/pokemon/premium-champion-pack-japanese/gengar-ex-48",
+   "set": "Premium Champion Pack",
+   "type": "base"
+  },
+  "checked": "2026-11-06"
  },
  "ecard2-150": {
   "status": "trovata",
@@ -3360,15 +3416,15 @@
    ],
    [
     "neo4-025",
-    null
+    127
    ],
    [
     "PCG8-032",
-    null
+    127
    ],
    [
     "web1-042",
-    null
+    127
    ],
    [
     "SM3H-052",
@@ -3376,7 +3432,7 @@
    ],
    [
     "PCG9-052",
-    null
+    116
    ],
    [
     "SM3H-058",
@@ -3396,14 +3452,14 @@
    ],
    [
     "E1-103",
-    null
+    97
    ],
    [
     "SM8b-209",
     133
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "pl4-97": {
   "status": "trovata",
@@ -3471,7 +3527,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "xy9-123": {
   "status": "senza_immagine",
@@ -3522,7 +3578,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "swsh8-270": {
   "status": "senza_immagine",
@@ -3565,7 +3621,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "sm3-150": {
   "status": "trovata",
@@ -3650,19 +3706,19 @@
    ],
    [
     "neo4-025",
-    null
+    108
    ],
    [
     "PCG8-032",
-    null
+    108
    ],
    [
     "web1-042",
-    null
+    108
    ],
    [
     "PCG9-052",
-    null
+    108
    ],
    [
     "SM3H-058",
@@ -3674,18 +3730,18 @@
    ],
    [
     "E5-089",
-    null
+    110
    ],
    [
     "VS1-097",
-    null
+    123
    ],
    [
     "E1-103",
-    null
+    118
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "xy10-125": {
   "status": "senza_immagine",
@@ -3716,7 +3772,7 @@
     117
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "swsh3.5-74": {
   "status": "senza_immagine",
@@ -3767,7 +3823,7 @@
     141
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "gym1-14": {
   "status": "senza_immagine",
@@ -3814,7 +3870,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "swsh12.5-160": {
   "status": "senza_immagine",
@@ -3822,7 +3878,7 @@
   "tried": [
    [
     "E1-016",
-    null
+    126
    ],
    [
     "web1-025",
@@ -3830,22 +3886,22 @@
    ],
    [
     "E4-033",
-    null
+    123
    ],
    [
     "neo1-036",
-    null
+    118
    ],
    [
     "PCG1-037",
-    null
+    124
    ],
    [
     "PCG7-041",
-    null
+    128
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "ex8-102": {
   "status": "senza_immagine",
@@ -3856,7 +3912,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "xy7-94": {
   "status": "senza_immagine",
@@ -3879,7 +3935,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "xy2-100": {
   "status": "senza_immagine",
@@ -3919,10 +3975,10 @@
    ],
    [
     "E1-103",
-    null
+    141
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "neo3-66": {
   "status": "trovata",
@@ -4015,7 +4071,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "dc1-6": {
   "status": "trovata",
@@ -4052,7 +4108,7 @@
   "tried": [
    [
     "E1-016",
-    null
+    110
    ],
    [
     "web1-025",
@@ -4060,19 +4116,19 @@
    ],
    [
     "E4-033",
-    null
+    114
    ],
    [
     "neo1-036",
-    null
+    112
    ],
    [
     "PCG1-037",
-    null
+    119
    ],
    [
     "PCG7-041",
-    null
+    123
    ],
    [
     "S12a-205",
@@ -4083,7 +4139,7 @@
     109
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "me02-106": {
   "status": "trovata",
@@ -4175,27 +4231,27 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "bw11-19": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "nessuna",
+  "detail": "9 dello stesso illustratore, nessuna con la stessa illustrazione",
   "tried": [
    [
     "neo4-025",
-    null
+    106
    ],
    [
     "PCG8-032",
-    null
+    106
    ],
    [
     "web1-042",
-    null
+    106
    ],
    [
     "PCG9-052",
-    null
+    106
    ],
    [
     "SM3H-058",
@@ -4207,38 +4263,38 @@
    ],
    [
     "E5-089",
-    null
+    110
    ],
    [
     "VS1-097",
-    null
+    119
    ],
    [
     "E1-103",
-    null
+    122
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "xy7-21": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "nessuna",
+  "detail": "10 dello stesso illustratore, nessuna con la stessa illustrazione",
   "tried": [
    [
     "PCG7-008",
-    null
+    135
    ],
    [
     "neo3-023",
-    null
+    125
    ],
    [
     "PCG7-024",
-    null
+    141
    ],
    [
     "PCG2-024",
-    null
+    141
    ],
    [
     "E5-027",
@@ -4246,7 +4302,7 @@
    ],
    [
     "E5-028",
-    null
+    122
    ],
    [
     "PCG1-035",
@@ -4265,7 +4321,7 @@
     125
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "g1-RC6": {
   "status": "senza_immagine",
@@ -4296,7 +4352,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "me01-187": {
   "status": "senza_immagine",
@@ -4331,27 +4387,27 @@
     121
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "g1-RC5": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "nessuna",
+  "detail": "9 dello stesso illustratore, nessuna con la stessa illustrazione",
   "tried": [
    [
     "neo4-025",
-    null
+    113
    ],
    [
     "PCG8-032",
-    null
+    113
    ],
    [
     "web1-042",
-    null
+    109
    ],
    [
     "PCG9-052",
-    null
+    113
    ],
    [
     "SM3H-058",
@@ -4363,18 +4419,18 @@
    ],
    [
     "E5-089",
-    null
+    129
    ],
    [
     "VS1-097",
-    null
+    118
    ],
    [
     "E1-103",
-    null
+    127
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "sm115-9": {
   "status": "senza_immagine",
@@ -4425,7 +4481,7 @@
     120
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "ex15-100": {
   "status": "trovata",
@@ -4517,7 +4573,7 @@
     142
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "ex7-107": {
   "status": "trovata",
@@ -4708,7 +4764,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "ex16-100": {
   "status": "senza_immagine",
@@ -4739,7 +4795,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "ex11-112": {
   "status": "senza_immagine",
@@ -4750,7 +4806,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "ex10-105": {
   "status": "trovata",
@@ -4790,8 +4846,8 @@
   "checked": "2026-11-04"
  },
  "hgss3-86": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "nessuna",
+  "detail": "9 dello stesso illustratore, nessuna con la stessa illustrazione",
   "tried": [
    [
     "neo2-040",
@@ -4799,7 +4855,7 @@
    ],
    [
     "E2-067",
-    null
+    131
    ],
    [
     "E2-068",
@@ -4807,11 +4863,11 @@
    ],
    [
     "PCG6-069",
-    null
+    123
    ],
    [
     "SM1M-069",
-    null
+    123
    ],
    [
     "E4-071",
@@ -4823,14 +4879,14 @@
    ],
    [
     "VS1-091",
-    null
+    125
    ],
    [
     "PCG4-091",
-    null
+    125
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "ecard2-H29": {
   "status": "trovata",
@@ -4899,7 +4955,7 @@
    ],
    [
     "PCG4-020",
-    null
+    111
    ],
    [
     "SM3H-059",
@@ -4910,7 +4966,7 @@
     83
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "ex11-113": {
   "status": "senza_immagine",
@@ -4937,7 +4993,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "hgss4-94": {
   "status": "senza_immagine",
@@ -4945,7 +5001,7 @@
   "tried": [
    [
     "VS1-021",
-    null
+    124
    ],
    [
     "PCG5-040",
@@ -4953,7 +5009,7 @@
    ],
    [
     "E5-043",
-    null
+    125
    ],
    [
     "E5-044",
@@ -4961,11 +5017,11 @@
    ],
    [
     "web1-047",
-    null
+    133
    ],
    [
     "PCG1-048",
-    null
+    119
    ],
    [
     "neo4-066",
@@ -4980,7 +5036,7 @@
     146
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "ex16-101": {
   "status": "senza_immagine",
@@ -5011,7 +5067,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "ex12-91": {
   "status": "trovata",
@@ -5048,15 +5104,15 @@
    ],
    [
     "PCG4-041",
-    null
+    98
    ],
    [
     "E2-045",
-    null
+    127
    ],
    [
     "E2-046",
-    null
+    113
    ],
    [
     "PCG6-049",
@@ -5079,11 +5135,11 @@
     136
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "hgss4-97": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "nessuna",
+  "detail": "4 dello stesso illustratore, nessuna con la stessa illustrazione",
   "tried": [
    [
     "PCG9-015",
@@ -5091,7 +5147,7 @@
    ],
    [
     "PCG5-041",
-    null
+    116
    ],
    [
     "E1-087",
@@ -5099,10 +5155,10 @@
    ],
    [
     "E1-119",
-    null
+    137
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "sv08.5-156": {
   "status": "nessuna",
@@ -5124,7 +5180,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "gym2-2": {
   "status": "senza_immagine",
@@ -5175,7 +5231,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "hgss4-92": {
   "status": "senza_immagine",
@@ -5183,7 +5239,7 @@
   "tried": [
    [
     "PCG8-004",
-    null
+    105
    ],
    [
     "neo4-013",
@@ -5195,7 +5251,7 @@
    ],
    [
     "PCG3-071",
-    null
+    111
    ],
    [
     "S6K-084",
@@ -5206,7 +5262,7 @@
     133
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "ex14-4": {
   "status": "trovata",
@@ -5310,27 +5366,27 @@
     126
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "dp3-3": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "nessuna",
+  "detail": "9 dello stesso illustratore, nessuna con la stessa illustrazione",
   "tried": [
    [
     "neo4-025",
-    null
+    120
    ],
    [
     "PCG8-032",
-    null
+    120
    ],
    [
     "web1-042",
-    null
+    97
    ],
    [
     "PCG9-052",
-    null
+    120
    ],
    [
     "SM3H-058",
@@ -5342,18 +5398,18 @@
    ],
    [
     "E5-089",
-    null
+    122
    ],
    [
     "VS1-097",
-    null
+    109
    ],
    [
     "E1-103",
-    null
+    126
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "dp5-98": {
   "status": "nessuna",
@@ -5391,22 +5447,22 @@
     126
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "sv07-148": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "nessuna",
+  "detail": "2 dello stesso illustratore, nessuna con la stessa illustrazione",
   "tried": [
    [
     "PCG8-018",
-    null
+    117
    ],
    [
     "M-P-103",
     117
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "swsh7-209": {
   "status": "senza_immagine",
@@ -5417,7 +5473,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "bw11-RC7": {
   "status": "senza_immagine",
@@ -5425,7 +5481,7 @@
   "tried": [
    [
     "E1-016",
-    null
+    111
    ],
    [
     "web1-025",
@@ -5433,26 +5489,26 @@
    ],
    [
     "E4-033",
-    null
+    111
    ],
    [
     "neo1-036",
-    null
+    108
    ],
    [
     "PMCG5-036",
-    null
+    108
    ],
    [
     "PCG1-037",
-    null
+    118
    ],
    [
     "PCG7-041",
-    null
+    130
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "sv04.5-233": {
   "status": "senza_immagine",
@@ -5467,23 +5523,24 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "ecard3-H11": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "trovata",
+  "tcgdex": "E2-070",
+  "dist": 70,
   "tried": [
    [
     "PCG4-018",
-    null
+    116
    ],
    [
     "E2-019",
-    null
+    106
    ],
    [
     "PCG3-021",
-    null
+    106
    ],
    [
     "neo2-041",
@@ -5495,19 +5552,19 @@
    ],
    [
     "E5-069",
-    null
+    109
    ],
    [
     "E2-070",
-    null
+    70
    ],
    [
     "E5-070",
-    null
+    70
    ],
    [
     "E2-071",
-    null
+    95
    ],
    [
     "VS1-092",
@@ -5515,10 +5572,23 @@
    ],
    [
     "neo4-229",
-    null
+    104
    ]
   ],
-  "checked": "2026-11-04"
+  "ja_name": "猟犬-070/092",
+  "no": "070",
+  "set": "地図にない町",
+  "tot": 92,
+  "rarity": "Rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 129299,
+   "url": "/pokemon/mysterious-mountains-japanese/houndoom-70",
+   "set": "Mysterious Mountains",
+   "type": "base"
+  },
+  "checked": "2026-11-06"
  },
  "ecard2-H22": {
   "status": "trovata",
@@ -5579,7 +5649,7 @@
    ],
    [
     "PCG4-041",
-    null
+    116
    ],
    [
     "E2-045",
@@ -5610,7 +5680,7 @@
     124
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "ex8-108": {
   "status": "senza_immagine",
@@ -5637,7 +5707,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "swsh3-20": {
   "status": "senza_immagine",
@@ -5688,7 +5758,7 @@
     116
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "neo4-108": {
   "status": "trovata",
@@ -5754,7 +5824,7 @@
   "tried": [
    [
     "web1-048",
-    null
+    118
    ],
    [
     "PCG5-049",
@@ -5762,11 +5832,11 @@
    ],
    [
     "E5-052",
-    null
+    129
    ],
    [
     "E5-053",
-    null
+    131
    ],
    [
     "SM2p-061",
@@ -5778,7 +5848,7 @@
    ],
    [
     "VS1-081",
-    null
+    122
    ],
    [
     "E1-089",
@@ -5789,11 +5859,11 @@
     114
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "hgss3-10": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "nessuna",
+  "detail": "9 dello stesso illustratore, nessuna con la stessa illustrazione",
   "tried": [
    [
     "neo2-040",
@@ -5801,7 +5871,7 @@
    ],
    [
     "E2-067",
-    null
+    125
    ],
    [
     "E2-068",
@@ -5809,11 +5879,11 @@
    ],
    [
     "PCG6-069",
-    null
+    114
    ],
    [
     "SM1M-069",
-    null
+    114
    ],
    [
     "E4-071",
@@ -5825,14 +5895,14 @@
    ],
    [
     "VS1-091",
-    null
+    110
    ],
    [
     "PCG4-091",
-    null
+    110
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "bw11-114": {
   "status": "nessuna",
@@ -5866,24 +5936,25 @@
   "checked": "2026-11-04"
  },
  "ecard3-H10": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "trovata",
+  "tcgdex": "E5-028",
+  "dist": 47,
   "tried": [
    [
     "PCG7-008",
-    null
+    118
    ],
    [
     "neo3-023",
-    null
+    113
    ],
    [
     "PCG7-024",
-    null
+    106
    ],
    [
     "PCG2-024",
-    null
+    106
    ],
    [
     "E5-027",
@@ -5891,7 +5962,7 @@
    ],
    [
     "E5-028",
-    null
+    47
    ],
    [
     "PCG1-035",
@@ -5910,35 +5981,48 @@
     122
    ]
   ],
-  "checked": "2026-11-04"
+  "ja_name": "ギャラドス",
+  "no": "028",
+  "set": "神秘なる山",
+  "tot": 88,
+  "rarity": "Holo Rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 129257,
+   "url": "/pokemon/mysterious-mountains-japanese/gyarados-28",
+   "set": "Mysterious Mountains",
+   "type": "base"
+  },
+  "checked": "2026-11-06"
  },
  "ex16-6": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "nessuna",
+  "detail": "11 dello stesso illustratore, nessuna con la stessa illustrazione",
   "tried": [
    [
     "PMCG4-017",
-    null
+    109
    ],
    [
     "neo4-025",
-    null
+    124
    ],
    [
     "PMCG6-032",
-    null
+    100
    ],
    [
     "PCG8-032",
-    null
+    100
    ],
    [
     "web1-042",
-    null
+    108
    ],
    [
     "PCG9-052",
-    null
+    111
    ],
    [
     "SM3H-058",
@@ -5950,18 +6034,18 @@
    ],
    [
     "E5-089",
-    null
+    120
    ],
    [
     "VS1-097",
-    null
+    133
    ],
    [
     "E1-103",
-    null
+    112
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "neo4-106": {
   "status": "trovata",
@@ -6116,7 +6200,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "ex15-91": {
   "status": "trovata",
@@ -6189,7 +6273,7 @@
    ],
    [
     "M6-095",
-    null
+    128
    ],
    [
     "SM8b-098",
@@ -6212,7 +6296,7 @@
     129
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "ex7-105": {
   "status": "trovata",
@@ -6327,7 +6411,7 @@
     147
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "me02-098": {
   "status": "trovata",
@@ -6368,7 +6452,7 @@
    ],
    [
     "PCG3-066",
-    null
+    127
    ],
    [
     "E3-074",
@@ -6391,7 +6475,7 @@
     139
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "me03-094": {
   "status": "trovata",
@@ -6431,8 +6515,9 @@
   "checked": "2026-11-04"
  },
  "ex6-108": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "trovata",
+  "tcgdex": "PCG1-048",
+  "dist": 58,
   "tried": [
    [
     "VS1-021",
@@ -6456,7 +6541,7 @@
    ],
    [
     "PCG1-048",
-    null
+    58
    ],
    [
     "neo4-066",
@@ -6471,7 +6556,20 @@
     115
    ]
   ],
-  "checked": "2026-11-04"
+  "ja_name": "Gengar Ex",
+  "no": "048",
+  "set": "伝説の飛翔",
+  "tot": 82,
+  "rarity": "Holo Rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 128622,
+   "url": "/pokemon/flight-of-legends-japanese/gengar-ex-48",
+   "set": "Flight of Legends",
+   "type": "base"
+  },
+  "checked": "2026-11-06"
  },
  "ex6-105": {
   "status": "senza_immagine",
@@ -6511,14 +6609,14 @@
    ],
    [
     "E1-103",
-    null
+    124
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "col1-15": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "nessuna",
+  "detail": "4 dello stesso illustratore, nessuna con la stessa illustrazione",
   "tried": [
    [
     "neo1-072",
@@ -6526,18 +6624,18 @@
    ],
    [
     "E3-090",
-    null
+    139
    ],
    [
     "PCG4-090",
-    null
+    139
    ],
    [
     "SM8-108",
     135
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "col1-4": {
   "status": "senza_immagine",
@@ -6549,15 +6647,15 @@
    ],
    [
     "PCG4-041",
-    null
+    117
    ],
    [
     "E2-045",
-    null
+    114
    ],
    [
     "E2-046",
-    null
+    132
    ],
    [
     "PCG6-049",
@@ -6580,7 +6678,7 @@
     143
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "ex6-112": {
   "status": "senza_immagine",
@@ -6588,7 +6686,7 @@
   "tried": [
    [
     "PCG8-003",
-    null
+    119
    ],
    [
     "web1-041",
@@ -6603,11 +6701,11 @@
     127
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "col1-22": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "nessuna",
+  "detail": "9 dello stesso illustratore, nessuna con la stessa illustrazione",
   "tried": [
    [
     "neo2-040",
@@ -6615,7 +6713,7 @@
    ],
    [
     "E2-067",
-    null
+    142
    ],
    [
     "E2-068",
@@ -6623,11 +6721,11 @@
    ],
    [
     "PCG6-069",
-    null
+    126
    ],
    [
     "SM1M-069",
-    null
+    126
    ],
    [
     "E4-071",
@@ -6639,14 +6737,14 @@
    ],
    [
     "VS1-091",
-    null
+    119
    ],
    [
     "PCG4-091",
-    null
+    119
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "ex6-109": {
   "status": "trovata",
@@ -6731,14 +6829,14 @@
    ],
    [
     "E1-076",
-    null
+    121
    ],
    [
     "E1-108",
     114
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "swsh6-201": {
   "status": "senza_immagine",
@@ -6753,7 +6851,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "g1-RC29": {
   "status": "senza_immagine",
@@ -6761,7 +6859,7 @@
   "tried": [
    [
     "E1-016",
-    null
+    123
    ],
    [
     "web1-025",
@@ -6769,37 +6867,37 @@
    ],
    [
     "SM3p-029",
-    null
+    131
    ],
    [
     "E4-033",
-    null
+    128
    ],
    [
     "neo1-036",
-    null
+    129
    ],
    [
     "PCG1-037",
-    null
+    124
    ],
    [
     "PCG7-041",
-    null
+    120
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "sv07-143": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "nessuna",
+  "detail": "1 dello stesso illustratore, nessuna con la stessa illustrazione",
   "tried": [
    [
     "PCG8-001",
-    null
+    117
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "xy2-69": {
   "status": "trovata",
@@ -6875,31 +6973,45 @@
   "checked": "2026-11-04"
  },
  "ecard3-H31": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "trovata",
+  "tcgdex": "E4-027",
+  "dist": 64,
   "tried": [
    [
     "PCG4-025",
-    null
+    110
    ],
    [
     "E4-026",
-    null
+    82
    ],
    [
     "E4-027",
-    null
+    64
    ],
    [
     "PCG6-030",
-    null
+    133
    ],
    [
     "neo4-034",
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "ja_name": "Vaporeon",
+  "no": "027",
+  "set": "裂けた大地",
+  "tot": 88,
+  "rarity": "Holo Rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 129347,
+   "url": "/pokemon/split-earth-japanese/vaporeon-27",
+   "set": "Split Earth",
+   "type": "base"
+  },
+  "checked": "2026-11-06"
  },
  "sv08-239": {
   "status": "senza_immagine",
@@ -6922,7 +7034,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "swsh8-269": {
   "status": "trovata",
@@ -7021,18 +7133,18 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "swsh7-184": {
-  "status": "senza_immagine",
-  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "status": "nessuna",
+  "detail": "1 dello stesso illustratore, nessuna con la stessa illustrazione",
   "tried": [
    [
     "SM1p-064",
-    null
+    129
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "ecard3-H20": {
   "status": "trovata",
@@ -7084,7 +7196,7 @@
     123
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "sm3.5-56": {
   "status": "trovata",
@@ -7254,7 +7366,7 @@
     null
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "xy8-163": {
   "status": "senza_immagine",
@@ -7293,7 +7405,7 @@
     120
    ]
   ],
-  "checked": "2026-11-04"
+  "checked": "2026-11-06"
  },
  "sv10.5w-172": {
   "status": "trovata",
@@ -7458,5 +7570,329 @@
    "type": "base"
   },
   "checked": "2026-11-04"
+ },
+ "sv10.5b-166": {
+  "status": "trovata",
+  "tcgdex": "SV11B-169",
+  "dist": 13,
+  "tried": [
+   [
+    "SV11B-169",
+    13
+   ]
+  ],
+  "ja_name": "ゼクロムex",
+  "no": "169",
+  "set": "ブラックボルト",
+  "tot": 174,
+  "rarity": "Special illustration rare",
+  "ill": "danciao",
+  "img": "https://www.pokemon-card.com/assets/images/card_images/large/SV11B/047993_P_ZEKUROMUEX.jpg",
+  "tc": {
+   "id": 112055,
+   "url": "/pokemon/black-bolt-japanese/zekrom-ex-169",
+   "set": "Black Bolt",
+   "type": "base"
+  },
+  "checked": "2026-11-06"
+ },
+ "sm11-218": {
+  "status": "trovata",
+  "tcgdex": "SM11-096",
+  "dist": 43,
+  "tried": [
+   [
+    "SM11-096",
+    43
+   ],
+   [
+    "SM11-107",
+    126
+   ]
+  ],
+  "ja_name": "ヤドン&コダックGX",
+  "no": "096",
+  "set": "ミラクルツイン",
+  "tot": 94,
+  "rarity": "Ultra Rare",
+  "ill": "Miki Tanaka",
+  "img": "https://assets.tcgdex.net/ja/SM/SM11/096/high.webp",
+  "tc": {
+   "id": 119779,
+   "url": "/pokemon/miracle-twin-japanese/slowpoke-psyduck-gx-96",
+   "set": "Miracle Twin",
+   "type": "base"
+  },
+  "checked": "2026-11-06"
+ },
+ "me01-178": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG6-050",
+    null
+   ],
+   [
+    "SM3N-061",
+    null
+   ],
+   [
+    "M1S-087",
+    126
+   ]
+  ],
+  "checked": "2026-11-06"
+ },
+ "swsh6-177": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "E5-018",
+    null
+   ],
+   [
+    "E5-019",
+    null
+   ],
+   [
+    "PCG1-024",
+    null
+   ],
+   [
+    "web1-043",
+    null
+   ]
+  ],
+  "checked": "2026-11-06"
+ },
+ "xy8-164": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG6-019",
+    112
+   ],
+   [
+    "PCG3-064",
+    129
+   ],
+   [
+    "neo4-068",
+    null
+   ],
+   [
+    "SM3p-080",
+    null
+   ],
+   [
+    "SM3p-082",
+    null
+   ],
+   [
+    "E1-086",
+    114
+   ],
+   [
+    "E1-118",
+    118
+   ],
+   [
+    "M2a-237",
+    117
+   ]
+  ],
+  "checked": "2026-11-06"
+ },
+ "swsh8-245": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG8-004",
+    125
+   ],
+   [
+    "neo4-013",
+    null
+   ],
+   [
+    "neo3-036",
+    null
+   ],
+   [
+    "PCG3-071",
+    109
+   ],
+   [
+    "S6K-084",
+    122
+   ],
+   [
+    "E5-091",
+    null
+   ]
+  ],
+  "checked": "2026-11-06"
+ },
+ "bw11-RC22": {
+  "status": "nessuna",
+  "detail": "1 dello stesso illustratore, nessuna con la stessa illustrazione",
+  "tried": [
+   [
+    "SM6a-060",
+    134
+   ]
+  ],
+  "checked": "2026-11-06"
+ },
+ "neo3-8": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG4-018",
+    128
+   ],
+   [
+    "E2-019",
+    118
+   ],
+   [
+    "PCG3-021",
+    118
+   ],
+   [
+    "neo2-041",
+    null
+   ],
+   [
+    "neo3-044",
+    127
+   ],
+   [
+    "E5-069",
+    127
+   ],
+   [
+    "E2-070",
+    96
+   ],
+   [
+    "E5-070",
+    96
+   ],
+   [
+    "E2-071",
+    105
+   ],
+   [
+    "VS1-092",
+    132
+   ],
+   [
+    "neo4-229",
+    94
+   ]
+  ],
+  "checked": "2026-11-06"
+ },
+ "sv10-230": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "neo3-011",
+    null
+   ],
+   [
+    "PCG4-020",
+    120
+   ],
+   [
+    "SM3H-059",
+    null
+   ],
+   [
+    "E4-091",
+    null
+   ]
+  ],
+  "checked": "2026-11-06"
+ },
+ "sv10-193": {
+  "status": "trovata",
+  "tcgdex": "SV9a-071",
+  "dist": 13,
+  "tried": [
+   [
+    "S6K-009",
+    129
+   ],
+   [
+    "PCG7-018",
+    null
+   ],
+   [
+    "E2-020",
+    null
+   ],
+   [
+    "neo4-026",
+    null
+   ],
+   [
+    "SV9a-071",
+    13
+   ]
+  ],
+  "ja_name": "カスミのコダック",
+  "no": "071",
+  "set": "熱風のアリーナ",
+  "tot": 63,
+  "rarity": "None",
+  "ill": "OKACHEKE",
+  "img": "https://assets.tcgdex.net/ja/SV/SV9a/071/high.webp",
+  "tc": {
+   "id": 112263,
+   "url": "/pokemon/heat-wave-arena-japanese/mistys-psyduck-71",
+   "set": "Hot Air Arena",
+   "type": "base"
+  },
+  "checked": "2026-11-06"
+ },
+ "sv08.5-149": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "PCG4-025",
+    null
+   ],
+   [
+    "E4-026",
+    null
+   ],
+   [
+    "E4-027",
+    null
+   ],
+   [
+    "PCG6-030",
+    131
+   ],
+   [
+    "neo4-034",
+    null
+   ]
+  ],
+  "checked": "2026-11-06"
+ },
+ "bw1-114": {
+  "status": "nessuna",
+  "detail": "24 carte giapponesi dello stesso Pokémon, nessuna dello stesso illustratore",
+  "checked": "2026-11-06"
  }
 }
