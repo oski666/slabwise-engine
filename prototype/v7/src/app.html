@@ -384,7 +384,7 @@ function collectionSection() {
     <div class="cgrid" data-tour="grid">${tiles(D.cards.filter(c => c.lang !== "ja"))}</div></div>`;
   return sectionWrap("slab", "CARDS", inner, "jp", "一覧");
 }
-const KIND = {mover: ["In movimento", "On the move"], caught: ["Colpo di fortuna", "Lucky strike"], ladder: ["PSA 10 o 9?", "PSA 10 or 9?"], deal: ["Occasione", "Deal"], era: ["Era", "Era"]};
+const KIND = {mover: ["In movimento", "On the move"], caught: ["Bufala o Colpo di fortuna?", "Scam or lucky strike?"], ladder: ["PSA 10 o 9?", "PSA 10 or 9?"], deal: ["Occasione", "Deal"], era: ["Era", "Era"]};
 function weekBand() {
   const st = D.pulse.stories || [];
   if (!st.length) return "";
@@ -854,7 +854,7 @@ function storyCard(s, i) {
   let visual = "";
   if (c) visual = `<a href="#c-${c.id}" style="text-decoration:none">${slab(c, s.grade || 10, 150)}</a>`;
   else visual = `<div style="width:140px">${DOODLE[s.series] || ""}</div>`;
-  const tag = {mover: ["sky", tx("Movimento", "Move")], deal: ["mint", t("deals")], caught: ["coral", tx("Colpo di fortuna", "Lucky strike")], ladder: ["", tx("Voti", "Grades")], era: ["sky", "Era"]}[s.kind];
+  const tag = {mover: ["sky", tx("Movimento", "Move")], deal: ["mint", t("deals")], caught: ["coral", tx("Bufala o Colpo di fortuna?", "Scam or lucky strike?")], ladder: ["", tx("Voti", "Grades")], era: ["sky", "Era"]}[s.kind];
   return `<article class="tile story"${i === 0 ? ' data-tour="story"' : ""}><span class="n">${i + 1}</span>
     <div class="visual">${visual}</div>
     <div style="display:grid;gap:10px;min-width:0"><span class="sticker ${tag[0]}" style="justify-self:start">${tag[1]}</span><p class="hook">${markHook(x.hook)}</p><p class="muted">${esc(x.body)}</p></div>
