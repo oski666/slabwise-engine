@@ -78,6 +78,9 @@ jobs:
           if [ -f data/raw/gemrate/sets.json ]; then PYTHONPATH=. python scripts/gemrate_tap.py data/raw/gemrate/sets.json data/raw/sales_all.csv data/raw/gemrate/tap.json; fi
       - name: Values
         run: PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json
+      - name: Coherence checks (D211)
+        continue-on-error: true
+        run: PYTHONPATH=. python scripts/coherence_check.py prototype/data/real.json results/coherence.json
       - name: eBay listings and deals (D112)
         if: env.HAS_EBAY == 'true'
         continue-on-error: true
@@ -94,7 +97,7 @@ jobs:
           ots upgrade data/seals/*.ots || true
           git config user.name "slabwise-bot"
           git config user.email "slabwise-bot@users.noreply.github.com"
-          git add data/seals prototype/data/pulse.json   # D184: the stories of the week, chosen on Monday
+          git add data/seals prototype/data/pulse.json results/coherence.json   # D184: the stories of the week; D211: the coherence report
           git diff --cached --quiet || (git commit -m "Istantanea sigillata dei valori" && git pull --rebase --autostash -q && git push)
       - name: Scorecard (D105)
         continue-on-error: true

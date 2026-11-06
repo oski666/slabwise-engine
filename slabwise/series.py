@@ -9,7 +9,18 @@ SERIES = [("basep", "Vintage"), ("base", "Vintage"), ("gym", "Vintage"), ("neo",
           ("dp", "Di mezzo"), ("pl", "Di mezzo"), ("hgss", "Di mezzo"), ("col", "Di mezzo"), ("bw", "Di mezzo"),
           ("xy", "Moderna"), ("g1", "Moderna"), ("dc", "Moderna"), ("sm", "Moderna"),
           ("swsh", "Contemporanea"), ("cel", "Contemporanea"), ("sv", "Contemporanea"), ("me", "Contemporanea")]
-JA_SERIES = {"ja:s": "Contemporanea", "ja:m": "Contemporanea", "ja:sm": "Moderna"}
-series_of = lambda cid: (next((lab for pre, lab in sorted(JA_SERIES.items(), key=lambda t: -len(t[0])) if cid.startswith(pre)), "Contemporanea")  # noqa: E731
-                         if cid.startswith("ja:") else next((lab for pre, lab in SERIES if cid.startswith(pre)), "Altro"))
+# D211: Japanese printings follow the era of their English counterparts. Modern Japanese set codes are short codes
+# (sv2a, m2a, s6a, sm11b, xy8, bw7); the vintage sets have names in our ids (expansion-pack, jungle, mystery-of-the-fossils,
+# gold-silver-to-a-new-world, challenge-from-the-darkness...): Vintage. Until D211 every Japanese printing that was not
+# "ja:sm" was labelled "Contemporanea", vintage ones included.
+JA_SERIES = ((r"^ja:sv\d", "Contemporanea"), (r"^ja:m\d", "Contemporanea"), (r"^ja:s\d", "Contemporanea"),
+             (r"^ja:sm\d", "Moderna"), (r"^ja:xy\d", "Moderna"), (r"^ja:bw\d", "Di mezzo"))
+
+
+def series_of(cid):
+    if cid.startswith("ja:"):
+        return next((lab for pat, lab in JA_SERIES if re.match(pat, cid)), "Vintage")
+    return next((lab for pre, lab in SERIES if cid.startswith(pre)), "Altro")
+
+
 is_promo = lambda cid: bool(re.match(r"^[a-z]+p-", cid.split("/")[0])) or cid.startswith("svp-")  # noqa: E731  Black Star Promos

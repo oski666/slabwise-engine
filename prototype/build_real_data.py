@@ -143,6 +143,8 @@ for c in catalog + variants:
         _mine = clean.loc[(clean["card"] == i) & (clean["grade"] == g), "week"]
         ch30 = round(float(np.exp(now - est[-5, i, gi]) - 1), 4) if (_mine <= W - 5).sum() >= 3 and np.isfinite(est[-5, i, gi]) else None
         ch90 = round(float(np.exp(now - est[-14, i, gi]) - 1), 4) if (_mine <= W - 14).sum() >= 3 and np.isfinite(est[-14, i, gi]) else None
+        if off or stale:                                  # D211: no change shown on an estimate the page does not show
+            ch30 = ch90 = None
         g_out.append(dict(grade=g, value=round(float(np.exp(now)), 2), lo=round(float(np.exp(now - Z * s_now)), 2),
                           hi=round(float(np.exp(now + Z * s_now)), 2), ch30=ch30,
                           ch90=ch90, pop=POP.get(c["id"], {}).get(str(g)) or POP.get(c["id"], {}).get(g), sales_all=n_g,

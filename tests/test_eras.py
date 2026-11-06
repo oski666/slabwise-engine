@@ -16,3 +16,13 @@ def test_every_catalogue_card_has_an_era():
     assert era_of("ja:mystery-of-the-fossils-146", era_map) == "wotc"
     assert era_of("ja:m2a-240", era_map) == "sv"
     assert era_of("ja:sm9-103", era_map) == "sm_swsh"
+
+
+def test_d211_japanese_site_eras():
+    from slabwise.series import series_of
+    assert series_of("ja:expansion-pack-6") == "Vintage"
+    assert series_of("ja:mystery-of-the-fossils-146") == "Vintage"
+    assert series_of("ja:m2-110") == "Contemporanea"
+    assert series_of("ja:sv2a-201") == "Contemporanea"
+    assert series_of("ja:s6a-095") == "Contemporanea"
+    assert series_of("ja:sm9-103") == "Moderna"

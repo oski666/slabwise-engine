@@ -41,6 +41,12 @@ def simple(s):
     return re.sub(r"[^a-z]", "", str(s).lower().replace("holo", ""))
 
 
+# D211: a GemRate row whose total of PSA gradings is not within half and double the PSA total we already hold for the card
+# (tcgcharts) is another printing or another card under the same number: it is dropped (e.g. Pikachu Base Set 58: 23
+# against 19,499).
+import os
+_TC = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "raw", "tcgcharts", "cards.json")
+TC_TOTAL = {k: (v or {}).get("psa_population") for k, v in json.load(open(_TC)).items()} if os.path.exists(_TC) else {}
 BASE_PAR = {"", "base", "holo", "none", "unlimited"}
 # D207: for modern cards GemRate writes the rarity in "parallel" (there is no other printing of the card): these labels are
 # the base printing too. Any other label (1st Edition, Shadowless, Trainer Deck, Cracked Ice, Russian...) stays a variant.
@@ -56,6 +62,9 @@ for s in sets.values() if isinstance(sets, dict) else sets:
             if len(rows) != 1:
                 continue
             r = rows[0]
+            _tot = TC_TOTAL.get(cid + (edition or ""))
+            if _tot and r.get("card_total_grades") and not 0.5 <= float(r["card_total_grades"]) / _tot <= 2:
+                continue
             tr = np.array(r.get("grading_trend") or [], dtype=float)
             if len(tr) < 14:
                 continue

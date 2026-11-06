@@ -136,6 +136,8 @@ Il costo finale in Italia (IVA, dogana, spedizione, cambio BCE) si applica al pr
 
 ## 8b. Misure di mercato mostrate sul sito, fuori dai prezzi (D190, D194)
 
+- **Gem Rate a confronto** (pagina della carta; D211): PSA 10 ÷ totale PSA della carta, contro la mediana delle carte della stessa lingua con Gem Rate noto: dello stesso set (almeno 3) e della stessa era (almeno 5); la frase dice quante carte. Era delle stampe giapponesi: quella della stampa inglese (codici sv, m, s → Contemporanea; sm, xy → Moderna; bw → Di mezzo; set con nome, cioè i vintage → Vintage).
+- **Coerenza** (`scripts/coherence_check.py`; D211): controlli C1–C10 su `real.json` dopo ogni costruzione, rapporto in `results/coherence.json`; non blocca la pubblicazione.
 - **Gemma nascosta** (`prototype/build_real_data.py`, `rarity_price`; D209): PSA 10 con almeno 3 vendite in 13 settimane, non in revisione; log valore su log popolazione PSA 10, pendenza comune e livello per era e lingua (gruppi ≥ 8); x = e^residuo; gemma se x < 0,5 e popolazione ≤ mediana del gruppo. Il rapporto giapponese/inglese usa la retta unica.
 - **Liquidità** (`prototype/build_real_data.py`, `sales90`, `disp90`; D208): per ogni voto, vendite pulite delle ultime 13 settimane (dopo lo strato d'identità) e, con almeno 5, la mediana di |log prezzo − log valore|. La pagina mostra "ogni 91/n giorni" e ±(e^mediana − 1).
 - **Rubinetto**: abbinamento alle righe GemRate per numero e nome; stampa base = etichetta vuota, Base, Holo, Unlimited o una rarità moderna (D207).
