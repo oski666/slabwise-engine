@@ -21,7 +21,7 @@
   const tr = (it, en) => EN() ? en : it;
   const TOUR = {
     mercato: {pose: "smug", text: ["Qui trovi tutte le carte gradate. Guarda la barra blu: più è corta, più il valore è affidabile.", "Here are all the graded cards. Look at the blue bar: the shorter it is, the more reliable the value."], target: "[data-tour=grid] .fork"},
-    card: {pose: "bliss", text: ["Questo è il valore di oggi. La barra è l'intervallo di valore: con l'80% di probabilità il valore vero sta lì dentro.", "This is today's value. The bar is the value range: there is an 80% chance the true value is inside it."], target: "[data-tour=fork]", next: {text: ["I puntini rosa nel grafico sono vendite che non mi convincono. Passaci sopra!", "The pink dots in the chart are sales I don't believe. Hover them!"], target: "[data-tour=chart]"}},
+    card: {pose: "bliss", text: ["Questo è lo Slabprice di oggi. La barra è lo SlabRange: 8 vendite su 10 finiscono lì dentro.", "This is today's Slabprice. The bar is the SlabRange: 8 sales in 10 land inside it."], target: "[data-tour=fork]", next: {text: ["I puntini rosa nel grafico sono vendite che non mi convincono. Passaci sopra!", "The pink dots in the chart are sales I don't believe. Hover them!"], target: "[data-tour=chart]"}},
     settimana: {pose: "laugh", text: ["Le storie della settimana: ognuna è già un reel. Copia, incolla nel Reel Studio, fatto.", "The stories of the week: each one is already a reel. Copy, paste into the Reel Studio, done."], target: "[data-tour=story]"},
     deal: {pose: "drool", text: ["Occasioni calcolate in euro, con spedizione, IVA e dogana. L'anello è la probabilità che sia un'occasione vera.", "Deals worked out in euros, with shipping, VAT and customs. The ring is the probability that it is a real deal."], target: "[data-tour=dealfilters]"},
     metodo: {pose: "smug", text: ["Qui ti spiego come facciamo i conti. Nessuna magia, solo un modello onesto.", "Here I explain how we do the maths. No magic, just an honest model."], target: null},
@@ -78,7 +78,7 @@
   function menu() {
     if (muted) { mute(false); say(tr("Eccomi di nuovo! Clicca su di me quando vuoi una mano.", "I'm back! Click me whenever you need a hand."), {ms: 4000}); return; }
     say(tr("Cosa ti mostro?", "What shall I show you?"), {sticky: true, menu: true, actions:
-      `<button data-sb="fork">${tr("Cos'è l'intervallo di valore?", "What is the value range?")}</button><button data-sb="deal">${tr("Portami alle occasioni", "Take me to the deals")}</button><button data-sb="week">${tr("Le storie della settimana", "The stories of the week")}</button><button data-sb="req">${tr("Chiedimi una carta che manca", "Ask me for a missing card")}</button><button data-sb="mute" class="ghost">${tr("Fammi stare zitto", "Be quiet")}</button>`});
+      `<button data-sb="fork">${tr("Cos'è lo SlabRange?", "What is the SlabRange?")}</button><button data-sb="deal">${tr("Portami alle occasioni", "Take me to the deals")}</button><button data-sb="week">${tr("Le storie della settimana", "The stories of the week")}</button><button data-sb="req">${tr("Chiedimi una carta che manca", "Ask me for a missing card")}</button><button data-sb="mute" class="ghost">${tr("Fammi stare zitto", "Be quiet")}</button>`});
   }
   /* card requests through Slabby (D100): he searches, asks and reports back */
   const escS = x => String(x ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
@@ -213,7 +213,7 @@
   const LINES = {
     run: [["Scusa, passavo di qua!", "Non mi hai visto.", "Corro a controllare un prezzo!", "Più veloce del mercato!"],
       ["Sorry, just passing through!", "You didn't see me.", "Off to check a price!", "Faster than the market!"]],
-    card: [["Bella eh? È mia.", "Non toccarla, l'ho vista prima io!", "Psst… guarda l'intervallo di valore.", "Questa la voglio in PSA 10."],
+    card: [["Bella eh? È mia.", "Non toccarla, l'ho vista prima io!", "Psst… guarda lo SlabRange.", "Questa la voglio in PSA 10."],
       ["Nice, huh? It's mine.", "Hands off, I saw it first!", "Psst… look at the value range.", "I want this one in PSA 10."]],
     side: [["Bu!", "Ancora qui?", "Ti tengo d'occhio."], ["Boo!", "Still here?", "I'm watching you."]],
     cling: [["Piano! Mi gira la testa!", "Ehi, dove corri?", "Aspettami!"], ["Slow down! I'm dizzy!", "Hey, where are you rushing?", "Wait for me!"]],

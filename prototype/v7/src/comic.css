@@ -687,3 +687,21 @@ footer .wrap{color:var(--c-on-dark-dim)}
 .poseimg .tmc{width:140px}.poseimg.meter7{display:block;margin:0}
 .poseimg.meter7 .tm-merc{transform:scaleY(calc(var(--lv) / 100))}
 .poseimg .tm-png{height:110px;display:flex;justify-content:center}.poseimg .tm-png img{height:100%;width:auto}.poseimg .tm-png .tm-fx{display:none}
+
+/* D200: sticker pop on the card page */
+.slabwrap{position:relative}
+.stkpop{position:relative;display:inline-block;width:76px;height:76px;margin:0 6px 0 54px;vertical-align:middle;transform:rotate(10deg)}
+.stkpop img{display:block;width:76px;height:76px;object-fit:contain;filter:drop-shadow(3px 3px 0 var(--c-ink))}
+.stk-say{position:absolute;left:-58px;top:-14px;padding:5px 10px;background:#fff;border:3px solid var(--c-ink);font:400 18px/1 var(--f-comic);letter-spacing:.03em;white-space:nowrap;transform:rotate(-14deg);box-shadow:3px 3px 0 var(--c-ink)}
+.stk-say::after{content:"";position:absolute;right:10px;bottom:-11px;border:8px solid transparent;border-top-color:var(--c-ink);border-bottom:0}
+.stk-say.st-hi{background:var(--mint)}.stk-say.st-mid{background:var(--c-yellow)}.stk-say.st-lo{background:var(--c-pink);color:#fff}
+@media (prefers-reduced-motion:no-preference){
+  .stkpop{animation:stkin .7s cubic-bezier(.34,1.8,.5,1) .5s both}
+  .stk-say{animation:stksay .45s cubic-bezier(.34,1.8,.5,1) 1.15s both}
+  .stkpop:hover{animation:stkwob .5s ease-in-out}
+}
+@keyframes stkin{0%{opacity:0;transform:rotate(-40deg) scale(0)}60%{opacity:1;transform:rotate(18deg) scale(1.2)}100%{transform:rotate(10deg) scale(1)}}
+@keyframes stksay{0%{opacity:0;transform:rotate(-14deg) scale(0)}100%{opacity:1;transform:rotate(-14deg) scale(1)}}
+@keyframes stkwob{0%,100%{transform:rotate(10deg)}25%{transform:rotate(-4deg) scale(1.08)}75%{transform:rotate(16deg)}}
+@media (max-width:640px){.stkpop{width:60px;height:60px;margin-left:50px}.stkpop img{width:60px;height:60px}}
+@media (max-width:640px){.fork .ends-mid{display:none}}

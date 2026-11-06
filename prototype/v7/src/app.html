@@ -170,7 +170,7 @@ function fork(g, mini = false, span = 0.25) {
   const a = Math.max(0, pos(g.lo)), b = Math.min(100, pos(g.hi));
   return `<div class="fork${mini ? " mini" : ""}" role="img" aria-label="${tx(`Slabprice ${usd(g.value)}, SlabRange da ${usd(g.lo)} a ${usd(g.hi)}`, `Slabprice ${usd(g.value)}, SlabRange from ${usd(g.lo)} to ${usd(g.hi)}`)}">
     <div class="track"><div class="band" style="left:${a}%;width:${b - a}%"></div><div class="pin" style="left:50%"></div></div>
-    ${mini ? "" : `<div class="ends"><span>${usd(g.lo)}</span><span>${tx("80% di probabilità che il valore sia qui", "80% likely to be in this range")}</span><span>${usd(g.hi)}</span></div>`}</div>`;
+    ${mini ? "" : `<div class="ends"><span>${usd(g.lo)}</span><span class="ends-mid">${tx("8 vendite su 10 finiscono nello SlabRange", "8 sales in 10 land in the SlabRange")}</span><span>${usd(g.hi)}</span></div>`}</div>`;
 }
 /* confidence tier of a value (D47); the engine names them "Vendite fresche", "Stimato", "Poco sicuro" */
 const TIER_KEY = {"Vendite fresche": "hi", "Stimato": "mid", "Poco sicuro": "lo"};
@@ -201,8 +201,10 @@ const refBlock = (c, g) => {
 const tierName = g => t("tier_" + tierK(g));
 const tierWhy = g => TIER_WHY[tierK(g)][LANG === "it" ? 0 : 1];
 const STK = D.stickers || {};                               // D191: the reliability stickers, when drawn
-const tierBadge = g => !g.tier ? "" : STK[tierK(g)] ? `<img class="tiersticker" src="${STK[tierK(g)]}" alt="${esc(tierName(g))}" title="${esc(tierName(g) + ": " + tierWhy(g))}">`
-  : `<span class="tierbadge ${TIER_CLS[tierK(g)]}" title="${esc(tierWhy(g))}">${esc(tierName(g))}</span>`;
+const tierBadge = g => g.tier ? `<span class="tierbadge ${TIER_CLS[tierK(g)]}" title="${esc(tierWhy(g))}">${esc(tierName(g))}</span>` : "";
+/* D200: the reliability sticker pops on the slab when a card page opens, with its line; the catalogue stays clean */
+const STK_SAY = {hi: "PWNED!", mid: "SUS…", lo: "NOPE!"};
+const stickerPop = g => !g || !g.tier || noOwn(g) || !STK[tierK(g)] ? "" : `<div class="stkpop" title="${esc(tierName(g) + ": " + tierWhy(g))}"><img src="${STK[tierK(g)]}" alt="${esc(tierName(g))}"><b class="stk-say st-${tierK(g)}">${STK_SAY[tierK(g)]}</b></div>`;
 const probTag = p => `<span class="prob ${p >= 0.8 ? "hi" : p >= 0.4 ? "mid" : "lo"}">${Math.round(p * 100)}%</span>`;
 function ring(p) {
   const r = 30, C = 2 * Math.PI * r, col = p >= 0.8 ? "var(--mint)" : p >= 0.4 ? "var(--sun)" : "var(--line)";
@@ -365,7 +367,7 @@ function starInner() {
     <div class="star-words" aria-hidden="true"><span>${esc(w[0])}</span><span class="blue">${esc(w.slice(1).join(" ") || "PSA 10")}</span></div>
     <a class="star-slab" href="#c-${c.id}" aria-label="${tx("Apri", "Open")} ${esc(c.name)}">${slab(c, 10, 300)}</a>
     <div class="star-name"><span style="--i:0">${esc(c.name)}</span><span style="--i:1">PSA 10 · ${usdV(g)}</span></div>
-    <p class="star-meta">${esc(c.set)} · ${tx("intervallo", "range")} ${usd(g.lo)}–${usd(g.hi)} · ${nf0.format(c.n_sales || g.sales90)} ${tx("vendite", "sales")}</p>
+    <p class="star-meta">${esc(c.set)} · SlabRange ${usd(g.lo)}–${usd(g.hi)} · ${nf0.format(c.n_sales || g.sales90)} ${tx("vendite", "sales")}</p>
     <div class="star-pick" role="group" aria-label="${tx("Scegli la carta in evidenza", "Choose the featured card")}">
       <button class="arrow" data-star="-1" aria-label="${tx("Precedente", "Previous")}">‹</button>
       ${list.map(x => `<button class="thumbbtn" data-star-id="${x.id}" aria-pressed="${x.id === c.id}" aria-label="${esc(x.name)}"><img src="${x.thumb || x.img}" alt=""></button>`).join("")}
@@ -489,7 +491,7 @@ function viewMarket() {
 function tiles(list) {
   const key = {cap: c => capOf(c), mcap: c => capPSA(c), ch30: c => gradeOf(c, S.g).ch30 ?? -Infinity, sales: c => gradeOf(c, S.g).sales90, sure: c => -halfw(gradeOf(c, S.g))}[S.sort] || (c => capOf(c));
   return [...(list || D.cards)].sort((a, b) => noOwn(gradeOf(a, S.g)) - noOwn(gradeOf(b, S.g)) || key(b) - key(a)).map((c, i) => { const g = gradeOf(c, S.g), hid = noOwn(g); return `<a class="ct8 rv" href="#c-${c.id}" style="--cat:var(--cat-${catOf(c)});--i:${i % 4}">
-    <div class="ct-art">${c.thumb || c.img ? `<img src="${c.img || c.thumb}" alt="">` : `<span class="noimg">${tx("foto in arrivo", "photo coming soon")}</span>`}${hid ? "" : `<span class="ct-rank">${i + 1}</span>`}<span class="ct-grade">PSA ${S.g}</span>${g.tier ? (STK[tierK(g)] ? `<img class="ct-sticker" src="${STK[tierK(g)]}" alt="${esc(tierName(g))}" title="${esc(tierName(g))}">` : `<span class="ct-tier ${TIER_CLS[tierK(g)]}" title="${esc(tierName(g))}"></span>`) : ""}</div>
+    <div class="ct-art">${c.thumb || c.img ? `<img src="${c.img || c.thumb}" alt="">` : `<span class="noimg">${tx("foto in arrivo", "photo coming soon")}</span>`}${hid ? "" : `<span class="ct-rank">${i + 1}</span>`}<span class="ct-grade">PSA ${S.g}</span>${g.tier ? `<span class="ct-tier ${TIER_CLS[tierK(g)]}" title="${esc(tierName(g))}"></span>` : ""}</div>
     <div class="ct-body"><h3${c.lang === "ja" ? ' lang="ja"' : ""}>${esc(c.name)}</h3><span class="meta"><span${c.lang === "ja" ? ' lang="ja"' : ""}>${esc(c.set)}</span> · #${esc(c.no)}${c.lang === "ja" && enOf(c) ? ` · ${esc(enOf(c).name)}` : ""}</span>
       ${hid ? `<div class="ct-price"><b class="num">—</b></div><span class="note">${g.last && !g.off ? tx(`Poche vendite per un prezzo. Ultima vendita: ${usd(g.last[1])}, ${monthF(g.last[0])}`, `Too few sales for a price. Last sale: ${usd(g.last[1])}, ${monthF(g.last[0])}`) : noEst(S.g, g)}</span>` : `<div class="ct-price"><b class="num">${usd(g.value)}</b><span class="${g.ch30 >= 0 ? "up" : "down"}">${pct(g.ch30)}</span></div>
       ${fork(g, true)}<span class="note">±${nf1.format(halfw(g) * 100)}% SlabRange</span>`}${capRow(c)}</div></a>`; }).join("") || `<div class="tile empty">${tx("Nessuna carta.", "No cards.")}</div>`;
@@ -667,7 +669,7 @@ function viewCard(id) {
         ${noOwn(g) ? `<div class="valuerow"><span class="big">${tx("Stima non disponibile", "No estimate")}</span><span class="sticker sky">${g.stale ? tx("Poche vendite", "Few sales") : g.off ? tx("In revisione", "Under review") : (g.last ? tx(`Ultima vendita: ${monthF(g.last[0])}`, `Last sale: ${monthF(g.last[0])}`) : tx("0 vendite in PSA", "0 sales in PSA") + " " + g.grade)}</span></div>
         <p class="muted">${g.stale ? tx(`In PSA ${g.grade} non passa di mano da più di 3 mesi e la stima del modello si è allontanata troppo dall'ultima vendita: invece di un numero poco sicuro ti mostriamo quella vendita e i voti vicini.`, `In PSA ${g.grade} it has not changed hands for over 3 months and the model's estimate drifted too far from the last sale: instead of an unreliable number we show that sale and the nearby grades.`) : g.off ? tx(`Le ultime vendite in PSA ${g.grade} non tornano con il modello: finché non capiamo perché non mostriamo un numero.`, `Recent PSA ${g.grade} sales disagree with the model: until we know why we show no number.`) : g.last ? tx(`In PSA ${g.grade} questa carta passa di mano raramente: l'ultima vendita che conosciamo è qui sotto. Una vendita sola, magari su un'altra piattaforma, non basta per dare un valore, quindi non inventiamo un numero.`, `In PSA ${g.grade} this card rarely changes hands: the last sale we know of is below. One sale, maybe on another platform, is not enough for a value, so we do not make up a number.`) : tx(`Nei dati che abbiamo (vendite da ${monthF(firstSale(c))}) non c'è nessuna vendita di questa carta in PSA ${g.grade}. Ricavarla dagli altri voti oggi non è affidabile, quindi non inventiamo un numero.`, `In the data we have (sales since ${monthF(firstSale(c))}) there is no sale of this card in PSA ${g.grade}. Deriving it from the other grades is not reliable today, so we do not make up a number.`)}</p>
         ${refBlock(c, g)}` : `
-        <div class="valuerow"><span class="big num" data-count="${g.value}" data-fmt="usd">${usd(g.value)}</span><span class="sticker ${g.ch30 >= 0 ? "mint" : "coral"}">${pct(g.ch30)} ${in30()}</span><span class="muted" style="font-weight:700">${tx("circa", "about")} ${eur(g.value * D.eur_rate)}</span>${tierBadge(g)}</div>
+        <div class="valuerow"><span class="big num" data-count="${g.value}" data-fmt="usd">${usd(g.value)}</span><span class="sticker ${g.ch30 >= 0 ? "mint" : "coral"}">${pct(g.ch30)} ${in30()}</span><span class="muted" style="font-weight:700">${tx("circa", "about")} ${eur(g.value * D.eur_rate)}</span>${stickerPop(g)}${tierBadge(g)}</div>
         <div data-tour="fork">${fork(g)}</div>
         <p class="muted">${tx(`Una copia tipica in PSA ${g.grade}, venduta oggi su eBay. Con l'80% di probabilità vale tra ${usd(g.lo)} e ${usd(g.hi)}.`, `A typical copy in PSA ${g.grade}, sold today on eBay. With 80% probability it is worth between ${usd(g.lo)} and ${usd(g.hi)}.`)}${g.tier ? ` <b>${esc(tierName(g))}</b>: ${esc(tierWhy(g))}.` : ""}</p>`}
         <div class="facts"><div class="fact"><span>${tx("90 giorni", "90 days")}</span>${noOwn(g) ? "<b>—</b>" : `<b class="${g.ch90 >= 0 ? "up" : "down"}">${pct(g.ch90)}</b>`}</div><div class="fact"><span>${tx("Vendite 90 gg", "Sales 90 d")}</span><b>${g.sales90}</b></div><div class="fact" title="${tx("Quante volte PSA ha dato questo voto. Una copia rimandata a PSA può essere contata più volte, soprattutto nel vintage: le copie vere sono di meno.", "How many times PSA gave this grade. A resubmitted copy can be counted more than once, especially in vintage: the real copies are fewer.")}"><span>${tx("Gradaggi PSA", "PSA gradings")}</span><b>${g.pop == null ? tx("n/d", "n/a") : nf0.format(g.pop)}</b></div><div class="fact"><span>${g.pop == null ? tx("Vendite in tutto", "Sales overall") : tx("Valore dei gradaggi", "Value of gradings")}</span><b>${g.pop == null ? g.sales_all : noOwn(g) ? "—" : usdK(g.value * g.pop)}</b></div></div>
@@ -1021,7 +1023,7 @@ function viewDeals() {
 /* pose sheet (D61): which PNG fills each animation of the character, and what is missing */
 const POSE_USE = {
   smug: [["Posa normale", "In basso a destra quando non fa niente; grande nella testata; seduto sul titolo se manca sit.png; sbuca di lato se manca peek_side.png"], ["Default pose", "Bottom right when idle; large in the header; sits on titles if sit.png is missing; peeks from the side if peek_side.png is missing"]],
-  bliss: [["Contento", "Spiega l'intervallo di valore; saluta vicino alla ricerca se manca wave.png"], ["Happy", "Explains the value range; waves next to search if wave.png is missing"]],
+  bliss: [["Contento", "Spiega lo SlabRange; saluta vicino alla ricerca se manca wave.png"], ["Happy", "Explains the value range; waves next to search if wave.png is missing"]],
   laugh: [["Ride", "Pagina Settimana; corre se manca run.png; linguaccia se manca tongue.png"], ["Laughing", "Week page; runs if run.png is missing; sticks out his tongue if tongue.png is missing"]],
   drool: [["Sbava", "Passi sopra un'occasione"], ["Drooling", "You hover a deal"]],
   shock: [["Spaventato", "Vendita sospetta o annuncio falso"], ["Shocked", "Suspicious sale or fake listing"]],
