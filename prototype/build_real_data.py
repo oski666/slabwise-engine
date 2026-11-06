@@ -295,7 +295,7 @@ if len(_rr) >= 30:
     _b, _a = np.polyfit(_x, _y, 1)
     _res = _y - (_a + _b * _x)
     for (c, lx, _), e in zip(_rr, _res):
-        c["rarity"] = dict(x=round(float(np.exp(e)), 3), pop10=int(round(float(np.exp(lx)))))
+        c["rarity_price"] = dict(x=round(float(np.exp(e)), 3), pop10=int(round(float(np.exp(lx)))))
     _ja = [e for (c, _, _), e in zip(_rr, _res) if c["lang"] == "ja"]
     _en = [e for (c, _, _), e in zip(_rr, _res) if c["lang"] != "ja"]
     rarity_fit = dict(n=len(_rr), slope=round(float(_b), 3), r2=round(float(np.corrcoef(_x, _y)[0, 1] ** 2), 3),

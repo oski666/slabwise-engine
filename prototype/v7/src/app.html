@@ -376,10 +376,9 @@ function starSection() {
   return `<section class="cs star7" id="sec-star" data-sec-id="star"><span class="wm" aria-hidden="true">STAR</span>${boxTitle(tx("In <em>evidenza</em>", "<em>Featured</em>"), tx("Le 6 carte che si sono mosse di più nell'ultimo mese, tra quelle con un prezzo affidabile. Si aggiornano ogni mattina; passaci sopra per fermarle", "The 6 cards that moved most in the last month, among those with a reliable price. Updated every morning; hover to pause them"), "star")}<div class="star-stage" id="star-stage">${starInner()}</div>${twinkle(88, 30, 0)}${twinkle(12, 40, 2, "s")}${chevron("slab")}${corner()}</section>`;
 }
 function collectionSection() {
-  const inner = `<div class="cs-in">${boxTitle(tx("Il <em>catalogo</em>", "The <em>catalogue</em>"), tx("Valore di oggi, intervallo all'80% e vendite degli ultimi 90 giorni. Si aggiorna ogni mattina", "Today's value, 80% range and sales of the last 90 days. Updated every morning"), "slab")}
+  const inner = `<div class="cs-in">${boxTitle(tx("Il <em>catalogo</em>", "The <em>catalogue</em>"), tx("Valore di oggi, intervallo all'80% e capitalizzazione PSA 7–10 (valore × esemplari gradati). Si aggiorna ogni mattina", "Today's value, 80% range and PSA 7–10 market cap (value × graded copies). Updated every morning"), "slab")}
     <div class="filters rv">
-      <div class="chips" role="group" aria-label="${tx("Voto", "Grade")}">${[10, 9, 8, 7].map(g => `<button class="chip" data-g="${g}" aria-pressed="${g === S.g}">PSA ${g}</button>`).join("")}</div>
-      <div class="chips" role="group" aria-label="${tx("Ordina", "Sort")}">${[["cap", tx("Più preziose", "Most valuable")], ["ch30", tx("In salita", "Rising")], ["sales", tx("Più vendute", "Most sold")], ["sure", tx("Più affidabili", "Most reliable")]].map(([k, l]) => `<button class="chip" data-sort="${k}" aria-pressed="${S.sort === k}">${l}</button>`).join("")}</div>
+      ${sortChips()}
     </div>
     <div class="cgrid" data-tour="grid">${tiles()}</div></div>`;
   return sectionWrap("slab", "CARDS", inner, "week", "一覧");
@@ -399,9 +398,9 @@ function japanSection7() {
   const priced = D.cards.filter(c => c.lang === "ja"), waiting = D.ja_pending || [];
   const ja = [...priced, ...waiting.slice(0, Math.max(0, 12 - priced.length))];   /* D158: the priced ones first, a few waiting ones */
   if (!ja.length) return "";
-  const rf = D.rarity_fit, rnote = rf && rf.ja_vs_en && rf.n_ja >= 5 ? `<p class="note">${tx(`A parità di rarità in PSA 10, oggi una stampa giapponese costa in media ${nf1.format(rf.ja_vs_en * 100)}% di una inglese (${rf.n_ja} giapponesi e ${rf.n - rf.n_ja} inglesi con prezzo; solo popolazioni PSA).`, `For the same PSA 10 rarity, a Japanese printing costs on average ${nf1.format(rf.ja_vs_en * 100)}% of an English one today (${rf.n_ja} Japanese and ${rf.n - rf.n_ja} English cards with a price; PSA populations only).`)}</p>` : "";
+  const rf = D.rarity_fit, rnote = rf && rf.ja_vs_en && rf.n_ja >= 5 ? `<p class="note">${tx(`A parità di esemplari in PSA 10, oggi una stampa giapponese costa in media ${nf1.format(rf.ja_vs_en * 100)}% di una inglese (${rf.n_ja} giapponesi e ${rf.n - rf.n_ja} inglesi con prezzo; solo popolazioni PSA).`, `For the same number of PSA 10 copies, a Japanese printing costs on average ${nf1.format(rf.ja_vs_en * 100)}% of an English one today (${rf.n_ja} Japanese and ${rf.n - rf.n_ja} English cards with a price; PSA populations only).`)}</p>` : "";
   const soon = tx("Prezzi in arrivo", "Prices coming soon");
-  const inner = `<div class="cs-in">${boxTitle(tx("<em>Giappone</em>", "<em>Japan</em>"), tx("Stampe giapponesi: carte diverse, con un loro prezzo. Oggi le vendite vengono da Fanatics Collect; arriveranno anche Mercari ed eBay", "Japanese printings: different cards with their own price. Sales come from Fanatics Collect today; Mercari and eBay will follow"), "jp")}
+  const inner = `<div class="cs-in">${boxTitle(tx("<em>Giappone</em>", "<em>Japan</em>"), tx("Stampe giapponesi: carte diverse, con un loro prezzo. Le vendite sono ancora poche: stiamo aggiungendo mercati asiatici", "Japanese printings: different cards with their own price. Sales are still few: we are adding Asian markets"), "jp")}
     <div class="news-row">${ja.map((j, k) => { const en = enOf(j);
       return `<a class="jp8 rv" style="--i:${k}" href="#c-${j.id}">
         <div class="news-img">${j.img ? `<img src="${j.img}" alt="${esc(j.name)}">` : `<span class="noimg">${tx("foto in arrivo", "photo coming soon")}</span>`}${j.grades ? "" : `<span class="hanko" lang="ja" aria-label="${soon}">準備中</span>`}</div>
@@ -413,13 +412,31 @@ function japanSection7() {
 function viewMarket() {
   return comicHero() + tickers() + erasSection() + starSection() + collectionSection() + weekBand() + japanSection7();
 }
-function tiles() {
-  const key = {cap: c => capOf(c), ch30: c => gradeOf(c, S.g).ch30 ?? -Infinity, sales: c => gradeOf(c, S.g).sales90, sure: c => -halfw(gradeOf(c, S.g))}[S.sort];
-  return [...D.cards].sort((a, b) => noOwn(gradeOf(a, S.g)) - noOwn(gradeOf(b, S.g)) || key(b) - key(a)).map((c, i) => { const g = gradeOf(c, S.g), hid = noOwn(g); return `<a class="ct8 rv" href="#c-${c.id}" style="--cat:var(--cat-${catOf(c)});--i:${i % 4}">
+function tiles(list) {
+  const key = {cap: c => capOf(c), mcap: c => capPSA(c), ch30: c => gradeOf(c, S.g).ch30 ?? -Infinity, sales: c => gradeOf(c, S.g).sales90, sure: c => -halfw(gradeOf(c, S.g))}[S.sort] || (c => capOf(c));
+  return [...(list || D.cards)].sort((a, b) => noOwn(gradeOf(a, S.g)) - noOwn(gradeOf(b, S.g)) || key(b) - key(a)).map((c, i) => { const g = gradeOf(c, S.g), hid = noOwn(g); return `<a class="ct8 rv" href="#c-${c.id}" style="--cat:var(--cat-${catOf(c)});--i:${i % 4}">
     <div class="ct-art">${c.thumb || c.img ? `<img src="${c.img || c.thumb}" alt="">` : `<span class="noimg">${tx("foto in arrivo", "photo coming soon")}</span>`}${hid ? "" : `<span class="ct-rank">${i + 1}</span>`}<span class="ct-grade">PSA ${S.g}</span>${g.tier ? `<span class="ct-tier ${TIER_CLS[tierK(g)]}" title="${esc(tierName(g))}"></span>` : ""}</div>
     <div class="ct-body"><h3>${esc(c.name)}</h3><span class="meta">${esc(c.set)} · #${esc(c.no)}</span>
       ${hid ? `<div class="ct-price"><b class="num">—</b></div><span class="note">${g.last && !g.off ? tx(`Poche vendite per un prezzo. Ultima vendita: ${usd(g.last[1])}, ${monthF(g.last[0])}`, `Too few sales for a price. Last sale: ${usd(g.last[1])}, ${monthF(g.last[0])}`) : noEst(S.g, g)}</span>` : `<div class="ct-price"><b class="num">${usd(g.value)}</b><span class="${g.ch30 >= 0 ? "up" : "down"}">${pct(g.ch30)}</span></div>
-      ${fork(g, true)}<span class="note">±${nf1.format(halfw(g) * 100)}% · ${plural(g.sales90, tx("vendita", "sale"), tx("vendite", "sales"))} ${tx("in 90 giorni", "in 90 days")}</span>`}</div></a>`; }).join("");
+      ${fork(g, true)}<span class="note">±${nf1.format(halfw(g) * 100)}% · ${capPSA(c) > 0 ? `<span title="${tx("Capitalizzazione PSA 7–10: valore × esemplari gradati", "PSA 7–10 market cap: value × graded copies")}">${tx("Cap.", "Mkt cap")} ${usdK(capPSA(c))}</span>` : plural(g.sales90, tx("vendita", "sale"), tx("vendite", "sales")) + " " + tx("in 90 giorni", "in 90 days")}</span>`}</div></a>`; }).join("") || `<div class="tile empty">${tx("Nessuna carta.", "No cards.")}</div>`;
+}
+/* D181: every card sharing a set, a printed rarity or an illustrator, from the technical sheet */
+const LIST_KIND = {set: [tx("Set", "Set"), c => c.set], rarita: [tx("Rarità", "Rarity"), c => c.rarity], artista: [tx("Illustratore", "Illustrator"), c => c.illustrator]};
+const listHref = (k, v) => `#elenco-${k}-${encodeURIComponent(v)}`;
+function sortChips() {
+  return `<div class="chips" role="group" aria-label="${tx("Voto", "Grade")}">${[10, 9, 8, 7].map(g => `<button class="chip" data-g="${g}" aria-pressed="${g === S.g}">PSA ${g}</button>`).join("")}</div>
+      <div class="chips" role="group" aria-label="${tx("Ordina", "Sort")}">${[["cap", tx("Più preziose", "Most valuable")], ["mcap", tx("Capitalizzazione", "Market cap")], ["ch30", tx("In salita", "Rising")], ["sales", tx("Più vendute", "Most sold")], ["sure", tx("Più affidabili", "Most reliable")]].map(([k, l]) => `<button class="chip" data-sort="${k}" aria-pressed="${S.sort === k}">${l}</button>`).join("")}</div>`;
+}
+function viewList(spec) {
+  const i = spec.indexOf("-"), k = spec.slice(0, i), v = decodeURIComponent(spec.slice(i + 1)), kind = LIST_KIND[k];
+  if (!kind) return viewMarket();
+  const list = D.cards.filter(c => kind[1](c) === v), cap = list.reduce((t, c) => t + capPSA(c), 0);
+  const sk = k === "set" && list[0] && setOf(list[0]), six = sk && (D.index_sets || {})[sk];
+  return `<div class="wrap"><section class="sec" style="padding-top:36px">
+    <div><span class="label">${kind[0]}</span><h2 style="font-size:clamp(26px,3.4vw,40px)"${list.some(c => c.lang === "ja") ? ' lang="ja"' : ""}>${esc(v)}</h2>
+      <p class="muted" style="max-width:62ch;margin-top:8px">${plural(list.length, tx("carta nel catalogo", "card in the catalogue"), tx("carte nel catalogo", "cards in the catalogue"))}${cap > 0 ? " · " + tx("capitalizzazione PSA 7–10", "PSA 7–10 market cap") + " " + usdK(cap) : ""}${six ? ` · <a href="#indice-${encodeURIComponent("set:" + sk)}">${tx("indice del set", "set index")}</a>` : ""}</p></div>
+    <div class="filters" style="margin-top:18px">${sortChips()}</div>
+    <div class="cgrid" style="margin-top:18px">${tiles(list)}</div></section></div>`;
 }
 
 /* D152: the English card is shown as "the same card" only when the illustration and the Pokémon match (en_same) */
@@ -664,9 +681,9 @@ function cardMore(c, g) {
   const ja = c.lang === "ja" ? null : jaOf(c), en = c.lang === "ja" ? enOf(c) : null;
   const fact = (l, v) => v ? `<div class="fact"><span>${l}</span><b>${v}</b></div>` : "";
   const sheet = `<div class="tile" style="padding:18px 20px"><span class="label">${tx("Scheda tecnica", "Technical sheet")}</span>
-    <div class="facts" style="margin-top:8px">${fact(tx("Set", "Set"), `<span${c.lang === "ja" ? ' lang="ja"' : ""}>${esc(c.set)}</span>`)}${fact(tx("Numero", "Number"), esc(c.no) + (c.tot ? "/" + c.tot : ""))}${fact(tx("Rarità", "Rarity"), esc(c.rarity || ""))}${fact(tx("Illustratore", "Illustrator"), esc(c.illustrator || ""))}${fact(tx("Lingua", "Language"), c.lang === "ja" ? tx("Giapponese", "Japanese") : tx("Inglese", "English"))}${fact(tx("Era", "Era"), `<a href="#indice-${encodeURIComponent(c.series)}">${esc(ser(c.series))}</a>`)}</div>
-    ${c.rarity ? `<p class="muted" style="margin-top:10px">${(() => { const x = c.rarity.x, f = nf1.format(x >= 1 ? x : 1 / x);
-      return tx(`<b>Prezzo per rarità:</b> con ${nf(c.rarity.pop10)} esemplari in PSA 10, questa carta costa ${x >= 1 ? `${f} volte` : `${f} volte meno di`} quanto costano in media le carte altrettanto rare.`, `<b>Price for rarity:</b> with ${nf(c.rarity.pop10)} copies in PSA 10, this card costs ${x >= 1 ? `${f} times` : `${f} times less than`} what equally rare cards cost on average.`); })()}
+    <div class="facts" style="margin-top:8px">${fact(tx("Set", "Set"), `<a href="${listHref("set", c.set)}"${c.lang === "ja" ? ' lang="ja"' : ""}>${esc(c.set)}</a>`)}${fact(tx("Numero", "Number"), esc(c.no) + (c.tot ? "/" + c.tot : ""))}${fact(tx("Rarità", "Rarity"), c.rarity ? `<a href="${listHref("rarita", c.rarity)}">${esc(c.rarity)}</a>` : "")}${fact(tx("Illustratore", "Illustrator"), c.illustrator ? `<a href="${listHref("artista", c.illustrator)}">${esc(c.illustrator)}</a>` : "")}${fact(tx("Lingua", "Language"), c.lang === "ja" ? tx("Giapponese", "Japanese") : tx("Inglese", "English"))}${fact(tx("Era", "Era"), `<a href="#indice-${encodeURIComponent(c.series)}">${esc(ser(c.series))}</a>`)}</div>
+    ${c.rarity_price ? `<p class="muted" style="margin-top:10px">${(() => { const x = c.rarity_price.x, f = nf1.format(x >= 1 ? x : 1 / x);
+      return tx(`<b>Prezzo per scarsità:</b> con ${nf(c.rarity_price.pop10)} esemplari in PSA 10, questa carta costa ${x >= 1 ? `${f} volte` : `${f} volte meno di`} quanto costano in media le carte con altrettanti esemplari in PSA 10 (la scarsità qui è la popolazione PSA, non la rarità stampata).`, `<b>Price for scarcity:</b> with ${nf(c.rarity_price.pop10)} copies in PSA 10, this card costs ${x >= 1 ? `${f} times` : `${f} times less than`} what cards with as many PSA 10 copies cost on average (scarcity here is the PSA population, not the printed rarity).`); })()}
       <small class="note">${tx("Solo popolazioni PSA: non contano BGS, CGC, ARS né le carte non gradate.", "PSA populations only: BGS, CGC, ARS and raw cards are not counted.")}</small></p>` : ""}
     ${(() => { const ins = [["tutto", D.index_all], ...Object.entries(D.indexes || {}), ...Object.entries(D.index_sets || {}).map(([k, v]) => ["set:" + k, v])]
         .flatMap(([k, v]) => ((v && v.components) || []).filter(x => x.id === c.id).map(x => `<a href="#indice-${encodeURIComponent(k)}">${esc(ixName(k))}</a> (PSA ${x.grade}, ${nf1.format(x.weight * 100)}%)`));
@@ -1285,6 +1302,7 @@ function route() {
   else if (h === "richieste") html = viewRequests();
   else if (h === "pagella") { location.hash = "metodo"; return; }
   else if (h === "settimana") { if (!/(^|; )sw_staff=1/.test(document.cookie)) { location.hash = "mercato"; return; } html = viewWeek(); }
+  else if (h.startsWith("elenco-")) { html = viewList(h.slice(7)); nav = "mercato"; }
   else if (h.startsWith("indice-")) { html = viewIndex(decodeURIComponent(h.slice(7))); nav = "mercato"; }
   else if (h === "pose") html = viewPose();
   else if (h === "privacy") html = viewLegal("privacy");
