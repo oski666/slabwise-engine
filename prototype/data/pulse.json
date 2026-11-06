@@ -1,0 +1,72 @@
+{
+ "monday": "2026-11-02",
+ "week": "2026-10-29/2026-11-04",
+ "stories": [
+  {
+   "kind": "mover",
+   "title": "Lo slab del mese",
+   "card": "sm9-113",
+   "grade": 10,
+   "value": 2868.11,
+   "lo": 2679.92,
+   "hi": 3069.51,
+   "change7": 1.9751,
+   "hook": "Latias & Latios GX PSA 10: +198% in 30 giorni",
+   "reel": {
+    "mode": "trend",
+    "card": "sm9-113",
+    "grade": 10,
+    "prev": 859,
+    "now": 2555,
+    "days": 30
+   }
+  },
+  {
+   "kind": "mover",
+   "title": "In discesa",
+   "card": "pl4-97",
+   "grade": 8,
+   "value": 2663.72,
+   "lo": 2473.73,
+   "hi": 2868.3,
+   "change7": -0.5264,
+   "hook": "Gengar LV.X PSA 8: −53% in 30 giorni",
+   "reel": {
+    "mode": "trend",
+    "card": "pl4-97",
+    "grade": 8,
+    "prev": 5011,
+    "now": 2373,
+    "days": 30
+   }
+  },
+  {
+   "kind": "caught",
+   "title": "Smascherata",
+   "card": "base1-4",
+   "grade": 8,
+   "price": 3090.0,
+   "pgen": 0.0,
+   "why": "molto sopra il valore: possibile lotto, asta gonfiata o Best Offer",
+   "value": 1264.28,
+   "hook": "Venduto a $3.090, ma per il nostro modello non è credibile"
+  },
+  {
+   "kind": "ladder",
+   "title": "Il salto di voto",
+   "card": "neo3-14",
+   "ratio": 29.79,
+   "v10": 38434.51,
+   "v9": 1290.18,
+   "hook": "Suicune (Unlimited): un PSA 10 vale 29,8 volte un PSA 9"
+  },
+  {
+   "kind": "era",
+   "title": "L'era della settimana",
+   "series": "Di mezzo",
+   "change": 0.2465,
+   "cap": 169735990,
+   "hook": "Indice Di mezzo: +24,6% in 4 settimane"
+  }
+ ]
+}
