@@ -589,3 +589,5 @@ Solo riportato: quota di settimane ed ere con avviso, copertura della banda di o
 | V5 | V1 e V3 sulle vendite dopo il 6 novembre, appena sono almeno 2.000 | come sopra |
 
 Se V1–V4 passano, la rosa e l'avviso vanno sul sito subito, con la nota che la prova sul futuro è in corso; se V5 non passa, si tolgono.
+
+**Esito §33 (6 novembre 2026): non superata.** V1 sì (78.2%), V2 sì (75.1%), **V3 no** (Classica 66%, Contemporanea 78%, Di mezzo 61%, Giappone 73%, Moderna 70%, Vintage 74%), V4 sì (0.94). Moltiplicatori finali per era: Classica 2.21, Contemporanea 0.97, Di mezzo 2.93, Giappone 1.47, Moderna 1.68, Vintage 1.40; quello della Di mezzo arriva quasi al limite di 3. Lettura: la banda di partenza è troppo stretta proprio nelle ere con meno vendite, in modo stabile; una correzione a valle insegue il problema senza risolverlo. La causa sta nel motore: il rumore delle singole vendite (σ della sede) è stimato uguale per tutte le ere. Non si fanno altri ritocchi a questa famiglia di prove; il prossimo passo è un rumore delle vendite per era nel motore, da registrare come nuova versione.

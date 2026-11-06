@@ -139,9 +139,10 @@ if os.environ.get("PHASE_R_ROWS"):                     # diagnostics only: one l
     import csv as _csv
     with open(os.environ["PHASE_R_ROWS"], "w", newline="") as fh:
         wr = _csv.writer(fh)
-        wr.writerow(["bucket", "card", "grade", "item_id", "week", "venue", "y", "lvm", "lvm_adj", "sd"] + comp)
-        for r, (cc, gg, ii) in zip(rows, row_keys):
-            wr.writerow([r[0], cc, gg, ii, r[7], r[4], round(r[1], 4), round(r[2][L], 4), round(r[2][L] + r[5], 4), round(r[3], 4)] + [round(r[2][n], 4) for n in comp])
+        wr.writerow(["bucket", "card", "grade", "item_id", "week", "venue", "y", "lvm", "lvm_adj", "sd", "s_pred"] + comp)
+        for r, (cc, gg, ii), b_ in zip(rows, row_keys, band):     # s_pred: the R4 band / 1.2816 (protocol §32)
+            wr.writerow([r[0], cc, gg, ii, r[7], r[4], round(r[1], 4), round(r[2][L], 4), round(r[2][L] + r[5], 4), round(r[3], 4),
+                         round(float(b_) / 1.2816, 5)] + [round(r[2][n], 4) for n in comp])
 os.makedirs(os.path.dirname(out), exist_ok=True)
 json.dump(res, open(out, "w"), indent=1, ensure_ascii=False)
 print(json.dumps({k: res[k] for k in ("n_sales", "ES", "R2", "R3", "R3_passed", "R4_coverage", "R4_after") if k in res}, indent=1, ensure_ascii=False))
