@@ -721,11 +721,11 @@ footer .wrap{color:var(--c-on-dark-dim)}
 /* D203: effects of the three characters */
 .fx-lava,.fx-smoke,.fx-water{display:none}
 .st-esplode .tm-png .fx-lava,.st-caldo .tm-png .fx-lava,.st-tiepido .tm-png .fx-smoke,.st-freddo .tm-png .fx-water,.st-gelo .tm-png .fx-water{display:inline}
-.lv{fill:#ff6a1a;stroke:#7a1c00;stroke-width:2;opacity:0}
+.lv{fill:#ff6a1a;stroke:#7a1c00;stroke-width:5;opacity:0}
 .st-esplode .lv:nth-child(odd){fill:#ffc23a}
-.sm{fill:#9a9aa6;stroke:var(--c-ink);stroke-width:2.5;opacity:0}
-.wt{fill:#4fb6ff;stroke:#0b4f8a;stroke-width:1.5;opacity:0}
-.st-caldo .lv:nth-child(n+7),.st-freddo .wt:nth-child(n+8){display:none}
+.sm{fill:#9a9aa6;stroke:var(--c-ink);stroke-width:7;opacity:0}
+.wt{fill:#4fb6ff;stroke:#0b4f8a;stroke-width:4;opacity:0}
+.st-caldo .lv:nth-child(n+7),.st-freddo .wt:nth-child(n+5){display:none}
 @media (prefers-reduced-motion:no-preference){
   .cs.in .tm-png .lv{animation:lava var(--d) cubic-bezier(.2,.6,.4,1) var(--w) infinite}
   .cs.in .st-esplode .tm-png .lv{animation-duration:calc(var(--d) * .7)}
@@ -734,6 +734,6 @@ footer .wrap{color:var(--c-on-dark-dim)}
   .st-esplode .tm-png img{animation:tmjump .45s ease-in-out infinite}
   .st-gelo .tm-png img,.st-freddo .tm-png img{animation:tmshiver .14s linear infinite}
 }
-@keyframes lava{0%{opacity:0;transform:translate(0,0) scale(.6)}15%{opacity:1}55%{transform:translate(var(--x),calc(var(--h) * -1)) scale(1)}100%{opacity:0;transform:translate(calc(var(--x) * 1.4),40px) scale(.7)}}
-@keyframes smoke{0%{opacity:0;transform:translate(0,0) scale(.4)}20%{opacity:.85}100%{opacity:0;transform:translate(var(--x),-150px) scale(1.8)}}
-@keyframes water{0%{opacity:0;transform:translate(0,0)}10%{opacity:1}100%{opacity:0;transform:translate(var(--x),calc(var(--y) + 120px))}}
+@keyframes lava{0%{opacity:0;transform:translate(0,0) scale(.6)}15%{opacity:1}55%{transform:translate(var(--x),calc(var(--h) * -1)) scale(1)}100%{opacity:0;transform:translate(calc(var(--x) * 1.4),calc(var(--f) * .35)) scale(.7)}}
+@keyframes smoke{0%{opacity:0;transform:translate(0,0) scale(.4)}20%{opacity:.85}100%{opacity:0;transform:translate(var(--x),var(--t)) scale(1.8)}}
+@keyframes water{0%{opacity:0;transform:translate(0,0)}10%{opacity:1}45%{transform:translate(calc(var(--x) * .55),calc(var(--y) * 3))}100%{opacity:0;transform:translate(var(--x),calc(var(--y) + var(--f)))}}

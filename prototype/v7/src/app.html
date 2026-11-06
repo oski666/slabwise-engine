@@ -393,13 +393,22 @@ const METER_SAY = {
 /* D196: the thermometer as an original cartoon character (children's-cartoon style: round shapes, thick outline,
    big eyes, rosy cheeks, bouncy motion). One drawing; the state class picks face, props and motion. */
 /* D197: Oscar's own pose for today's state (prototype/character/slabmeter/<state>.png); same motion and props as the drawing */
-function thermoPose(src) {
-  /* D203: hot (lava from the mouth, more when it explodes), warm (smoke puffs from the shell), cold (water jets, more at frost) */
-  const lava = Array.from({length: 12}, (_, i) => `<circle class="lv" r="${4 + (i % 3) * 2}" style="--x:${(i % 6 - 2.5) * 22}px;--h:${90 + (i % 4) * 30}px;--d:${1.1 + (i % 5) * .18}s;--w:${(i * .23) % 1.4}s"/>`).join("");
-  const smoke = Array.from({length: 5}, (_, i) => `<circle class="sm" r="${12 + i * 3}" style="--x:${(i % 2 ? 1 : -1) * (8 + i * 4)}px;--d:${3 + i * .4}s;--w:${i * .7}s"/>`).join("");
-  const water = Array.from({length: 14}, (_, i) => `<circle class="wt" r="${3 + (i % 3)}" style="--x:${(i % 2 ? 1 : -1) * (60 + (i % 5) * 18)}px;--y:${-10 - (i % 4) * 14}px;--d:${.9 + (i % 4) * .15}s;--w:${(i * .17) % 1.2}s"/>`).join("");
+function thermoPose(src, st) {
+  /* D203: hot (lava from Groudon's mouth, more when it explodes), warm (smoke from Torkoal's shell), cold (water from
+     Blastoise's two cannons, more at frost). The effects are drawn on the picture's own pixel grid, so the origins
+     below are pixels of hot.png (600x805), warm.png (779x800) and cold.png (600x600). */
+  const kind = {esplode: "hot", caldo: "hot", tiepido: "warm", freddo: "cold", gelo: "cold"}[st] || "warm";
+  const G = {hot: {w: 600, h: 805, k: 3, at: [[232, 168]]}, warm: {w: 779, h: 800, k: 3.6, at: [[300, 280], [505, 290], [415, 185]]},
+             cold: {w: 600, h: 600, k: 2.6, at: [[162, 78], [468, 122]]}}[kind];
+  const k = G.k;
+  const lava = Array.from({length: 12}, (_, i) => `<circle class="lv" r="${(4 + (i % 3) * 2) * k}" style="--x:${(-(i % 6) * 14 - 10) * k}px;--h:${(70 + (i % 4) * 26) * k}px;--f:${120 * k}px;--d:${1.1 + (i % 5) * .18}s;--w:${(i * .23) % 1.4}s"/>`).join("");
+  const smoke = j => Array.from({length: 4}, (_, i) => `<circle class="sm" r="${(10 + i * 3) * k}" style="--x:${(i % 2 ? 1 : -1) * (6 + i * 4) * k}px;--t:${-130 * k}px;--d:${3 + i * .4}s;--w:${(i + j * 1.3) * .7}s"/>`).join("");
+  const water = dir => Array.from({length: 7}, (_, i) => `<circle class="wt" r="${(3 + (i % 3)) * k}" style="--x:${dir * (70 + (i % 5) * 20) * k}px;--y:${(-10 - (i % 4) * 14) * k}px;--f:${120 * k}px;--d:${.9 + (i % 4) * .15}s;--w:${(i * .17) % 1.2}s"/>`).join("");
+  const fx = kind === "hot" ? G.at.map(([x, y]) => `<g class="fx-lava" transform="translate(${x} ${y})">${lava}</g>`)
+    : kind === "warm" ? G.at.map(([x, y], j) => `<g class="fx-smoke" transform="translate(${x} ${y})">${smoke(j)}</g>`)
+    : G.at.map(([x, y], j) => `<g class="fx-water" transform="translate(${x} ${y})">${water(j ? 1 : -1)}</g>`);
   return `<div class="tm tm-png"><img class="tm-bob" src="${src}" alt="">
-    <svg viewBox="0 0 200 380" class="tm-fx"><g class="fx-lava" transform="translate(100 120)">${lava}</g><g class="fx-smoke" transform="translate(100 150)">${smoke}</g><g class="fx-water" transform="translate(100 130)">${water}</g></svg></div>`;
+    <svg viewBox="0 0 ${G.w} ${G.h}" class="tm-fx">${fx.join("")}</svg></div>`;
 }
 function thermoSvg() {
   const stars = Array.from({length: 10}, (_, i) => `<path class="cf cf${i % 3}" style="--a:${i * 36}deg;--d:${0.9 + (i % 4) * 0.12}s" d="M0 -7 L2 -2 L7 0 L2 2 L0 7 L-2 2 L-7 0 L-2 -2Z"/>`).join("");
@@ -447,7 +456,7 @@ function meterSection() {
     tx(`SlabDex <b>${pct(m.index_4w)}</b> in 4 settimane`, `SlabDex <b>${pct(m.index_4w)}</b> over 4 weeks`)];
   const inner = `<div class="cs-in">${boxTitle(tx("Lo <em>Slab-Meter</em>", "The <em>Slab-Meter</em>"), tx("La temperatura del mercato delle carte gradate, da 33° (gelo) a 42° (febbre). Si aggiorna ogni mattina", "The temperature of the graded card market, from 33° (frozen) to 42° (fever). Updated every morning"), "meter")}
     <div class="meter7 st-${m.state}" style="--lv:${lv}">
-      <div class="tmc" aria-hidden="true">${(D.meter_poses || {})[m.state] ? thermoPose(D.meter_poses[m.state]) : thermoSvg()}</div>
+      <div class="tmc" aria-hidden="true">${(D.meter_poses || {})[m.state] ? thermoPose(D.meter_poses[m.state], m.state) : thermoSvg()}</div>
       <div class="meter-txt"><span class="label">${tx("Oggi", "Today")}</span><b class="deg num">${dg}°</b><p class="say">${tx(...METER_SAY[m.state])}</p>
         <ul class="mfacts">${facts.map(f => `<li>${f}</li>`).join("")}</ul>
         <p class="note">${tx("Quattro misure, ognuna da 0 a 100, in media: quante carte salgono (sul voto più scambiato), quante vendite rispetto alle 8 settimane prima, massimi contro minimi dell'anno, lo SlabDex in 4 settimane.", "Four measures, each from 0 to 100, averaged: how many cards rise (on their most traded grade), sales against the 8 weeks before, one-year highs against lows, the SlabDex over 4 weeks.")}</p></div>
@@ -1054,7 +1063,7 @@ function viewPose() {
     <div class="sechead" style="margin-top:34px"><div><span class="label">Slab-Meter</span><h2>${tx("Le pose del termometro", "The thermometer poses")}</h2></div>
     <p class="note" style="max-width:56ch">${tx("Una PNG per stato nella cartella", "One PNG per state in the folder")} <code>prototype/character/slabmeter/</code>. ${tx("Se manca, il sito usa il termometro disegnato.", "If missing, the site uses the drawn thermometer.")}</p></div>
     <div class="posegrid">${["esplode", "caldo", "tiepido", "freddo", "gelo"].map(st => { const own = (D.meter_poses || {})[st];
-      return `<article class="tile poseslot${own ? "" : " missing"}"><div class="poseimg meter7 st-${st}" style="--lv:${{esplode: 92, caldo: 70, tiepido: 50, freddo: 30, gelo: 10}[st]}"><div class="tmc">${own ? thermoPose(own) : thermoSvg()}</div></div>
+      return `<article class="tile poseslot${own ? "" : " missing"}"><div class="poseimg meter7 st-${st}" style="--lv:${{esplode: 92, caldo: 70, tiepido: 50, freddo: 30, gelo: 10}[st]}"><div class="tmc">${own ? thermoPose(own, st) : thermoSvg()}</div></div>
         <div><b><code>${{esplode: "hot", caldo: "hot", tiepido: "warm", freddo: "cold", gelo: "cold"}[st]}.png</code></b> · ${st}<p class="note">${esc(tx(...METER_SAY[st]))}</p><span class="${own ? "tierbadge t-live" : "tierbadge t-low"}">${own ? tx("c'è", "present") : tx("manca: ora usa il disegno", "missing: the drawing is used")}</span></div></article>`; }).join("")}</div>
     <div class="sechead" style="margin-top:34px"><div><span class="label">${tx("Sticker", "Stickers")}</span><h2>${tx("Gli sticker dell'affidabilità", "The reliability stickers")}</h2></div>
     <p class="note" style="max-width:56ch"><code>prototype/character/stickers/</code></p></div>
