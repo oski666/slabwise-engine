@@ -609,3 +609,5 @@ Se V1–V4 passano, la rosa e l'avviso vanno sul sito subito, con la nota che la
 | W7 | Prova prospettica: W1, W3, W4, W5 sulle vendite dopo il 6 novembre, appena sono almeno 2.000 | come sopra |
 
 Se W1–W6 passano, la v1.18 si adotta e W7 diventa obbligatoria. Il mercato simulato gira sul workflow `prova-motore.yml`.
+
+**Esito §34 (6 novembre 2026): non superata, la v1.18 non si adotta.** W1 sì (R1 0 voci su 1.058). W2 sì (E2r 1 voce, la v1.15 ne ha 3). W3 sì: v1.18 meno v1.15 −0,02 punti [−0,06; +0,01] su 56.191 vendite. **W4 no**: copertura 74,4% (dopo il 30 ottobre 69,7%). **W5 no**: Classica 58,5%, Di mezzo 47,2%, Moderna 60,0%, Giappone 62,4% (Vintage 77,1%, Contemporanea 79,7%); con la v1.15: 50,4%, 41,9%, 61,6%, 65,4%, 69,3%, 81,9%. W6 interrotta (inutile dopo W4–W5). Lettura: il rumore per era migliora la Classica, la Di mezzo e il Vintage di 6–8 punti ma non basta; le ere del motore (wotc, ex_dp, bw_xy, sm_swsh, sv) non coincidono con quelle del sito, e nelle ere scoperte gli scarti sono soprattutto da una parte (il motore in ritardo, D172), che un rumore più grande non corregge. Codice spento (`era_noise=False`).
