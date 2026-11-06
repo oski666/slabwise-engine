@@ -20,6 +20,7 @@ __SLABBY_SVG__
     <a href="#mercato" data-sec="star" data-i="featured"></a>
     <a href="#mercato" data-sec="slab" data-i="catalog"></a>
     <a href="#mercato" data-sec="jp" data-i="japan"></a>
+    <a href="#gemme" data-nav="gemme" data-i="gems"></a>
     <a href="#deal" data-nav="deal" data-i="deals"></a>
     <a href="#metodo" data-nav="metodo" data-i="method"></a>
     <a href="#richieste" data-nav="richieste" data-i="requests"></a>
@@ -60,7 +61,7 @@ let LANG = (() => { let s = null; try { s = localStorage.getItem("sw-lang"); } c
   return s === "it" || s === "en" ? s : /^it\b/i.test(navigator.language || "it") ? "it" : "en"; })();
 const tx = (it, en) => LANG === "it" ? it : en;
 const GLOSSARY = {
-  market: ["Mercato", "Market"], eras: ["Le ere", "Eras"], featured: ["In evidenza", "Featured"], catalog: ["Catalogo", "Catalogue"],
+  market: ["Mercato", "Market"], eras: ["Le ere", "Eras"], featured: ["In evidenza", "Featured"], catalog: ["Catalogo", "Catalogue"], gems: ["Gemme nascoste", "Hidden Gems"],
   japan: ["Giappone", "Japan"], week: ["Settimana", "This week"], deals: ["Occasioni", "Deals"], method: ["Metodo", "Method"],
   requests: ["Richieste", "Requests"], mine: ["Le mie carte", "My cards"], mine_short: ["Mie", "Mine"],
   card: ["carta gradata", "graded card"], cards: ["carte gradate", "graded cards"],
@@ -533,6 +534,22 @@ function viewList(spec) {
     <div class="cgrid" style="margin-top:18px">${tiles(list)}</div></section></div>`;
 }
 
+/* D209: the hidden gems, with the definition */
+function viewGems() {
+  const list = D.cards.filter(c => c.rarity_price && c.rarity_price.gem).sort((a, b) => a.rarity_price.x - b.rarity_price.x);
+  const rf = D.rarity_fit || {};
+  return `<div class="wrap"><section class="sec" style="padding-top:36px">
+    <div><span class="label">${tx("Definizione", "Definition")}</span><h2 style="font-size:clamp(26px,3.4vw,40px)">${tx("Gemme nascoste", "Hidden Gems")}</h2>
+      <p style="max-width:66ch;margin-top:10px;font:600 19px var(--display)">${tx("Una carta è una Gemma nascosta quando il suo PSA 10 è raro per la sua era e costa meno della metà di quanto costano, di solito, le carte della stessa era con altrettante copie in PSA 10.", "A card is a Hidden Gem when its PSA 10 is rare for its era and costs less than half of what cards of the same era with as many PSA 10 copies usually cost.")}</p>
+      <ul class="muted" style="max-width:66ch;margin-top:10px;padding-left:20px;line-height:1.6">
+        <li>${tx("<b>Rara per la sua era</b>: non più copie in PSA 10 della carta a metà classifica tra quelle della stessa era e lingua nel nostro catalogo.", "<b>Rare for its era</b>: no more PSA 10 copies than the middle card among those of the same era and language in our catalogue.")}</li>
+        <li>${tx("<b>Sottovalutata</b>: in genere più copie in PSA 10 vuol dire prezzo più basso. Misuriamo quanto costa ogni carta rispetto a questa tendenza, dentro la sua era; una gemma sta sotto la metà.", "<b>Undervalued</b>: more PSA 10 copies usually means a lower price. We measure how much each card costs against that trend, within its era; a gem sits below half.")}</li>
+        <li>${tx("<b>Prezzo affidabile</b>: almeno 3 vendite in PSA 10 negli ultimi 3 mesi, stima non in revisione.", "<b>Reliable price</b>: at least 3 PSA 10 sales in the last 3 months, estimate not in review.")}</li>
+      </ul>
+      <p class="note" style="max-width:66ch;margin-top:8px">${tx(`Non è un consiglio d'acquisto: una carta può costare poco perché il personaggio piace meno, non solo perché il mercato non se n'è accorto. Solo popolazioni PSA. Oggi ${rf.n ? `${nf0.format(rf.n)} carte confrontate` : "nessun confronto"}.`, `Not buying advice: a card can be cheap because the character is less loved, not only because the market has not noticed. PSA populations only. Today ${rf.n ? `${nf0.format(rf.n)} cards compared` : "no comparison"}.`)}</p></div>
+    <p class="muted" style="margin-top:18px">${list.length ? plural(list.length, tx("gemma nascosta oggi", "hidden gem today"), tx("gemme nascoste oggi", "hidden gems today")) : tx("Oggi nessuna carta passa tutti e tre i controlli.", "Today no card passes all three checks.")}</p>
+    <div class="cgrid" style="margin-top:12px">${tiles(list)}</div></section></div>`;
+}
 /* D152: the English card is shown as "the same card" only when the illustration and the Pokémon match (en_same) */
 const enOf = j => j && j.en_same ? cardById[j.en] : null;
 const jaOf = c => D.cards.find(x => x.lang === "ja" && x.en === c.id && x.en_same) || (D.ja_pending || []).find(x => x.en === c.id && x.en_same);
@@ -776,9 +793,10 @@ function cardMore(c, g) {
   const fact = (l, v) => v ? `<div class="fact"><span>${l}</span><b>${v}</b></div>` : "";
   const sheet = `<div class="tile" style="padding:18px 20px"><span class="label">${tx("Scheda tecnica", "Technical sheet")}</span>
     <div class="facts" style="margin-top:8px">${fact(tx("Set", "Set"), `<a href="${listHref("set", c.set)}"${c.lang === "ja" ? ' lang="ja"' : ""}>${esc(c.set)}</a>`)}${fact(tx("Numero", "Number"), esc(c.no) + (c.tot ? "/" + c.tot : ""))}${fact(tx("Rarità", "Rarity"), c.rarity ? `<a href="${listHref("rarita", c.rarity)}">${esc(c.rarity)}</a>` : "")}${fact(tx("Illustratore", "Illustrator"), c.illustrator ? `<a href="${listHref("artista", c.illustrator)}">${esc(c.illustrator)}</a>` : "")}${fact(tx("Lingua", "Language"), c.lang === "ja" ? tx("Giapponese", "Japanese") : tx("Inglese", "English"))}${fact(tx("Era", "Era"), `<a href="#indice-${encodeURIComponent(c.series)}">${esc(ser(c.series))}</a>`)}</div>
-    ${c.rarity_price ? `<p class="muted" style="margin-top:10px">${(() => { const x = c.rarity_price.x, f = nf1.format(x >= 1 ? x : 1 / x);
-      return x < 0.5 ? tx(`<b>Gemma nascosta:</b> con ${nf(c.rarity_price.pop10)} copie in PSA 10, costa ${f} volte meno delle carte con altrettante copie in PSA 10.`, `<b>Hidden Gem:</b> with ${nf(c.rarity_price.pop10)} copies in PSA 10, it costs ${f} times less than cards with as many PSA 10 copies.`)
-        : tx(`<b>Gemma nascosta?</b> No: con ${nf(c.rarity_price.pop10)} copie in PSA 10, costa ${x >= 1 ? `${f} volte` : `${f} volte meno di`} quanto costano in media le carte con altrettante copie in PSA 10.`, `<b>Hidden Gem?</b> No: with ${nf(c.rarity_price.pop10)} copies in PSA 10, it costs ${x >= 1 ? `${f} times` : `${f} times less than`} what cards with as many PSA 10 copies cost on average.`); })()}
+    ${c.rarity_price ? `<p class="muted" style="margin-top:10px">${(() => { const r = c.rarity_price, x = r.x, f = nf1.format(x >= 1 ? x : 1 / x), G = `<a href="#gemme"><b>${tx("Gemma nascosta", "Hidden Gem")}</b></a>`;
+      const cmp = x >= 1 ? tx(`costa ${f} volte quanto costano`, `costs ${f} times what`) : tx(`costa ${f} volte meno di quanto costano`, `costs ${f} times less than what`);
+      return r.gem ? tx(`${G}: ${nf(r.pop10)} copie in PSA 10 (nella sua era di solito ${nf(r.pop10_med)}), e ${cmp} le carte della sua era con altrettante copie.`, `${G}: ${nf(r.pop10)} PSA 10 copies (usually ${nf(r.pop10_med)} in its era), and it ${cmp} cards of its era with as many copies cost.`)
+        : tx(`${G}? No: ${nf(r.pop10)} copie in PSA 10 (nella sua era di solito ${nf(r.pop10_med)}); ${cmp} le carte della sua era con altrettante copie.`, `${G}? No: ${nf(r.pop10)} PSA 10 copies (usually ${nf(r.pop10_med)} in its era); it ${cmp} cards of its era with as many copies cost.`); })()}
       <small class="note">${tx("Solo popolazioni PSA: non contano BGS, CGC, ARS né le carte non gradate.", "PSA populations only: BGS, CGC, ARS and raw cards are not counted.")}</small></p>` : ""}
     ${(() => { const ins = [["tutto", D.index_all], ...Object.entries(D.indexes || {}), ...Object.entries(D.index_sets || {}).map(([k, v]) => ["set:" + k, v])]
         .flatMap(([k, v]) => ((v && v.components) || []).filter(x => x.id === c.id).map(x => `<a href="#indice-${encodeURIComponent(k)}">${esc(ixName(k))}</a> (PSA ${x.grade}, ${nf1.format(x.weight * 100)}%)`));
@@ -796,7 +814,7 @@ function verdictBox(c, g, sg) {
   if (sg.lg) out.push(sg.lg.days ? (sg.lg.days <= 7 ? ["up", tx(`<b>Liquida</b>: in PSA ${g.grade} passa di mano ${sg.lg.days <= 1.5 ? "quasi ogni giorno" : `ogni ${nf0.format(Math.round(sg.lg.days))} giorni`}.`, `<b>Liquid</b>: in PSA ${g.grade} it changes hands ${sg.lg.days <= 1.5 ? "almost daily" : `every ${nf0.format(Math.round(sg.lg.days))} days`}.`)]
       : ["flat", tx(`<b>Si vende con calma</b>: in PSA ${g.grade} passa di mano ogni ${nf0.format(Math.round(sg.lg.days))} giorni.`, `<b>Sells slowly</b>: in PSA ${g.grade} it changes hands every ${nf0.format(Math.round(sg.lg.days))} days.`)])
     : ["down", tx(`<b>Poco liquida</b>: in PSA ${g.grade} nessuna vendita in 90 giorni.`, `<b>Illiquid</b>: no PSA ${g.grade} sale in 90 days.`)]);
-  if (c.rarity_price && c.rarity_price.x < 0.5) out.push(["up", tx(`<b>Gemma nascosta</b>: costa ${nf1.format(1 / c.rarity_price.x)} volte meno delle carte con altrettanti PSA 10.`, `<b>Hidden Gem</b>: it costs ${nf1.format(1 / c.rarity_price.x)} times less than cards with as many PSA 10s.`)]);
+  if (c.rarity_price && c.rarity_price.gem) out.push(["up", tx(`<a href="#gemme"><b>Gemma nascosta</b></a>: PSA 10 raro per la sua era e costa ${nf1.format(1 / c.rarity_price.x)} volte meno delle carte della sua era con altrettanti PSA 10.`, `<a href="#gemme"><b>Hidden Gem</b></a>: PSA 10 rare for its era and it costs ${nf1.format(1 / c.rarity_price.x)} times less than cards of its era with as many PSA 10s.`)]);
   else if (sg.sh != null && sg.mEra != null && sg.sh < sg.mEra * 0.7) out.push(["up", tx(`<b>Gem Rate basso</b>: solo il ${nf1.format(sg.sh * 100)}% delle copie gradate ha preso 10.`, `<b>Low Gem Rate</b>: only ${nf1.format(sg.sh * 100)}% of graded copies got a 10.`)]);
   const tp = (D.tap || {})[c.id];
   if (tp && tp.state) out.push(tp.state === "aperto" ? ["down", tx(`<b>Rubinetto aperto</b>: ${nf0.format(tp.new10)} nuovi PSA 10 in 30 giorni, ne passano di mano circa ${nf0.format(tp.sold10)}.`, `<b>Tap open</b>: ${nf0.format(tp.new10)} new PSA 10s in 30 days, about ${nf0.format(tp.sold10)} change hands.`)]
@@ -1464,6 +1482,7 @@ function route() {
   else if (h === "pagella") { location.hash = "metodo"; return; }
   else if (h === "settimana") { if (!/(^|; )sw_staff=1/.test(document.cookie)) { location.hash = "mercato"; return; } html = viewWeek(); }
   else if (h.startsWith("elenco-")) { html = viewList(h.slice(7)); nav = "mercato"; }
+  else if (h === "gemme") { html = viewGems(); nav = "gemme"; }
   else if (h.startsWith("indice-")) { html = viewIndex(decodeURIComponent(h.slice(7))); nav = "mercato"; }
   else if (h === "pose") { if (!/(^|; )sw_staff=1/.test(document.cookie)) { location.hash = "mercato"; return; } html = viewPose(); }
   else if (h === "privacy") html = viewLegal("privacy");

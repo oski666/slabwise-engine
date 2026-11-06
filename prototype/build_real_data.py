@@ -288,7 +288,10 @@ for e, name in enumerate(series_names):
 _TCP = json.load(open(tc_cards)) if os.path.exists(tc_cards) else {}
 for c in out_cards:
     c["psa_total"] = (_TCP.get(c["id"]) or {}).get("psa_population")
-# D165: price for rarity (PSA only): log PSA 10 value on log PSA 10 population, the card's distance from the line
+# D165, D209: price for rarity (PSA only). log PSA 10 value on log PSA 10 population, one slope for all and a level for each
+# era and language (groups of at least 8 cards); x = value / value expected for its population, in its group.
+# Hidden gem (D209): x < 0.5 and a PSA 10 population at or below the median of its group. Only PSA 10 grades with at least
+# 3 sales in 13 weeks and not in review.
 _rr = []
 for c in out_cards:
     g10 = next((g for g in c["grades"] if g["grade"] == 10), None)
@@ -296,19 +299,31 @@ for c in out_cards:
         pop10 = float(g10["pop"]) if g10 and g10.get("pop") else 0
     except (TypeError, ValueError):
         pop10 = 0
-    if g10 and pop10 > 0 and g10["sales90"] and not g10.get("off"):
-        _rr.append((c, np.log(pop10), np.log(g10["value"])))
+    if g10 and pop10 > 0 and g10["sales90"] >= 3 and not g10.get("off"):
+        _rr.append((c, np.log(pop10), np.log(g10["value"]), (c.get("lang") == "ja", c["series"])))
+_cnt = {}
+for r in _rr:
+    _cnt[r[3]] = _cnt.get(r[3], 0) + 1
+_rr = [r for r in _rr if _cnt[r[3]] >= 8]
 rarity_fit = None
 if len(_rr) >= 30:
     _x = np.array([r[1] for r in _rr]); _y = np.array([r[2] for r in _rr])
-    _b, _a = np.polyfit(_x, _y, 1)
-    _res = _y - (_a + _b * _x)
-    for (c, lx, _), e in zip(_rr, _res):
-        c["rarity_price"] = dict(x=round(float(np.exp(e)), 3), pop10=int(round(float(np.exp(lx)))))
-    _ja = [e for (c, _, _), e in zip(_rr, _res) if c["lang"] == "ja"]
-    _en = [e for (c, _, _), e in zip(_rr, _res) if c["lang"] != "ja"]
-    rarity_fit = dict(n=len(_rr), slope=round(float(_b), 3), r2=round(float(np.corrcoef(_x, _y)[0, 1] ** 2), 3),
-                      n_ja=len(_ja), ja_vs_en=round(float(np.exp(np.mean(_ja) - np.mean(_en))), 3) if _ja and _en else None)
+    _G = sorted(set(r[3] for r in _rr))
+    _X = np.column_stack([_x] + [[1.0 if r[3] == k else 0.0 for r in _rr] for k in _G])
+    _beta = np.linalg.lstsq(_X, _y, rcond=None)[0]
+    _res = _y - _X @ _beta
+    _med = {k: float(np.median([r[1] for r in _rr if r[3] == k])) for k in _G}
+    for (c, lx, _, k), e in zip(_rr, _res):
+        c["rarity_price"] = dict(x=round(float(np.exp(e)), 3), pop10=int(round(float(np.exp(lx)))),
+                                 pop10_med=int(round(float(np.exp(_med[k])))), gem=bool(np.exp(e) < 0.5 and lx <= _med[k]))
+    # Japanese against English at equal PSA 10 population (one line for all, as in D165): the note on the Japan page
+    _b1, _a1 = np.polyfit(_x, _y, 1)
+    _r1 = _y - (_a1 + _b1 * _x)
+    _ja = [e for r, e in zip(_rr, _r1) if r[3][0]]
+    _en = [e for r, e in zip(_rr, _r1) if not r[3][0]]
+    rarity_fit = dict(n=len(_rr), slope=round(float(_beta[0]), 3), groups=len(_G),
+                      gems=sum(1 for c, *_ in _rr if c["rarity_price"]["gem"]), n_ja=len(_ja),
+                      ja_vs_en=round(float(np.exp(np.mean(_ja) - np.mean(_en))), 3) if _ja and _en else None)
     print("prezzo per rarità", rarity_fit)
 index_all = publish(aidx, 0, "generale", "Generale")
 _set_label = {}
