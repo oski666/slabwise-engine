@@ -130,5 +130,41 @@
   87,
   63,
   "\\bmega\\W*symphonia\\b"
+ ],
+ "ja:sv2a-203": [
+  "alakazam ex|フーディン\\s?ex",
+  203,
+  165,
+  "\\bpok\\W*mon\\W*151\\b"
+ ],
+ "ja:sv4a-348": [
+  "gardevoir ex|サーナイト\\s?ex",
+  348,
+  190,
+  "\\bshiny\\W*treasure\\W*ex\\b"
+ ],
+ "ja:sv5a-078": [
+  "eevee|イーブイ",
+  78,
+  66,
+  "\\bcrimson\\W*haze\\b"
+ ],
+ "ja:sv5a-090": [
+  "greninja ex|ゲッコウガ\\s?ex",
+  90,
+  66,
+  "\\bcrimson\\W*haze\\b"
+ ],
+ "ja:m2-085": [
+  "piplup|ポッチャマ",
+  85,
+  80,
+  "\\binferno\\W*x\\b"
+ ],
+ "ja:sv9a-071": [
+  "misty's psyduck|カスミのコダック",
+  71,
+  63,
+  "\\bhot\\W*air\\W*arena\\b"
  ]
 }
