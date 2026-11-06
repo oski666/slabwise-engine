@@ -134,6 +134,27 @@ for _k, _f in (("hi", "fresche.png"), ("mid", "stimato.png"), ("lo", "poco_sicur
         except ImportError:
             STICKERS[_k] = "data:image/png;base64," + base64.b64encode(open(_p, "rb").read()).decode()
 data["stickers"] = STICKERS
+# D197: the Slab-Meter poses (prototype/character/slabmeter/<state>.png), when present: they replace the drawn thermometer
+METER_POSES = {}
+_md = os.path.join(here, "..", "character", "slabmeter")
+for _st in ("esplode", "caldo", "tiepido", "freddo", "gelo"):
+    _p = os.path.join(_md, _st + ".png")
+    if os.path.exists(_p):
+        try:
+            from PIL import Image
+            import io as _io
+            _im = Image.open(_p).convert("RGBA")
+            _bb = _im.getbbox()
+            if _bb:
+                _im = _im.crop(_bb)
+            if _im.height > 900:
+                _im = _im.resize((round(_im.width * 900 / _im.height), 900))
+            _buf = _io.BytesIO()
+            _im.save(_buf, "WEBP", quality=88)
+            METER_POSES[_st] = "data:image/webp;base64," + base64.b64encode(_buf.getvalue()).decode()
+        except ImportError:
+            METER_POSES[_st] = "data:image/png;base64," + base64.b64encode(open(_p, "rb").read()).decode()
+data["meter_poses"] = METER_POSES
 out = (src.replace("__CHAR_FONT__", font_link).replace("__STYLE__", css + "\n" + char["css"]).replace("__SLABBY_SVG__", char["svg"]).replace("__SLABBY__", js)
        .replace("__DATA__", json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")))
 open(os.path.join(split, "index.html") if split else os.path.join(here, "slabwise.html"), "w", encoding="utf-8").write(out)

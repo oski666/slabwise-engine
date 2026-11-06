@@ -386,6 +386,15 @@ const METER_SAY = {
   gelo: ["Mercato ghiacciato: chi compra adesso sceglie il prezzo.", "A frozen market: whoever buys now names the price."]};
 /* D196: the thermometer as an original cartoon character (children's-cartoon style: round shapes, thick outline,
    big eyes, rosy cheeks, bouncy motion). One drawing; the state class picks face, props and motion. */
+/* D197: Oscar's own pose for today's state (prototype/character/slabmeter/<state>.png); same motion and props as the drawing */
+function thermoPose(src) {
+  const stars = Array.from({length: 10}, (_, i) => `<path class="cf cf${i % 3}" style="--a:${i * 36}deg;--d:${0.9 + (i % 4) * 0.12}s" d="M0 -7 L2 -2 L7 0 L2 2 L0 7 L-2 2 L-7 0 L-2 -2Z"/>`).join("");
+  const flakes = Array.from({length: 7}, (_, i) => `<text class="flake" x="${18 + i * 26}" y="0" style="--k:${i}">❄</text>`).join("");
+  return `<div class="tm tm-png"><img class="tm-bob" src="${src}" alt="">
+    <svg viewBox="0 0 200 380" class="tm-fx"><g class="tm-steam"><circle cx="100" cy="0" r="10"/><circle cx="100" cy="0" r="8"/><circle cx="100" cy="0" r="12"/></g>
+      <g class="tm-pop" transform="translate(100 14)">${stars}</g><g class="tm-snow">${flakes}</g>
+      <g class="tm-ice"><rect x="20" y="4" width="160" height="368" rx="22"/><path class="crk" d="M40 60 L70 110 L58 150 L92 190 L80 240 L112 290 L100 340"/><path class="crk" d="M150 40 L132 90 L156 130 L138 180"/></g></svg></div>`;
+}
 function thermoSvg() {
   const stars = Array.from({length: 10}, (_, i) => `<path class="cf cf${i % 3}" style="--a:${i * 36}deg;--d:${0.9 + (i % 4) * 0.12}s" d="M0 -7 L2 -2 L7 0 L2 2 L0 7 L-2 2 L-7 0 L-2 -2Z"/>`).join("");
   const flakes = Array.from({length: 7}, (_, i) => `<text class="flake" x="${18 + i * 26}" y="0" style="--k:${i}">❄</text>`).join("");
@@ -432,7 +441,7 @@ function meterSection() {
     tx(`SlabDex <b>${pct(m.index_4w)}</b> in 4 settimane`, `SlabDex <b>${pct(m.index_4w)}</b> over 4 weeks`)];
   const inner = `<div class="cs-in">${boxTitle(tx("Lo <em>Slab-Meter</em>", "The <em>Slab-Meter</em>"), tx("La temperatura del mercato delle carte gradate, da 33° (gelo) a 42° (febbre). Si aggiorna ogni mattina", "The temperature of the graded card market, from 33° (frozen) to 42° (fever). Updated every morning"), "meter")}
     <div class="meter7 st-${m.state}" style="--lv:${lv}">
-      <div class="tmc" aria-hidden="true">${thermoSvg()}</div>
+      <div class="tmc" aria-hidden="true">${(D.meter_poses || {})[m.state] ? thermoPose(D.meter_poses[m.state]) : thermoSvg()}</div>
       <div class="meter-txt"><span class="label">${tx("Oggi", "Today")}</span><b class="deg num">${dg}°</b><p class="say">${tx(...METER_SAY[m.state])}</p>
         <ul class="mfacts">${facts.map(f => `<li>${f}</li>`).join("")}</ul>
         <p class="note">${tx("Quattro misure, ognuna da 0 a 100, in media: quante carte salgono (sul voto più scambiato), quante vendite rispetto alle 8 settimane prima, massimi contro minimi dell'anno, lo SlabDex in 4 settimane.", "Four measures, each from 0 to 100, averaged: how many cards rise (on their most traded grade), sales against the 8 weeks before, one-year highs against lows, the SlabDex over 4 weeks.")}</p></div>
@@ -1034,7 +1043,16 @@ function viewPose() {
     <div class="posegrid">${slots.map(x => { const u = POSE_USE[x.pose] ? POSE_USE[x.pose][LANG === "it" ? 0 : 1] : ["", ""];
       return `<article class="tile poseslot${x.own ? "" : " missing"}"><div class="poseimg">${x.svg}</div>
         <div><b><code>${x.pose}.png</code></b> · ${esc(u[0])}<p class="note">${esc(u[1])}</p>
-        <span class="${x.own ? "tierbadge t-live" : "tierbadge t-low"}">${x.own ? tx("c'è", "present") : tx("manca: ora usa ", "missing: now uses ") + x.uses + ".png"}</span></div></article>`; }).join("")}</div></div>`;
+        <span class="${x.own ? "tierbadge t-live" : "tierbadge t-low"}">${x.own ? tx("c'è", "present") : tx("manca: ora usa ", "missing: now uses ") + x.uses + ".png"}</span></div></article>`; }).join("")}</div>
+    <div class="sechead" style="margin-top:34px"><div><span class="label">Slab-Meter</span><h2>${tx("Le pose del termometro", "The thermometer poses")}</h2></div>
+    <p class="note" style="max-width:56ch">${tx("Una PNG per stato nella cartella", "One PNG per state in the folder")} <code>prototype/character/slabmeter/</code>. ${tx("Se manca, il sito usa il termometro disegnato.", "If missing, the site uses the drawn thermometer.")}</p></div>
+    <div class="posegrid">${["esplode", "caldo", "tiepido", "freddo", "gelo"].map(st => { const own = (D.meter_poses || {})[st];
+      return `<article class="tile poseslot${own ? "" : " missing"}"><div class="poseimg meter7 st-${st}" style="--lv:${{esplode: 92, caldo: 70, tiepido: 50, freddo: 30, gelo: 10}[st]}"><div class="tmc">${own ? thermoPose(own) : thermoSvg()}</div></div>
+        <div><b><code>${st}.png</code></b><p class="note">${esc(tx(...METER_SAY[st]))}</p><span class="${own ? "tierbadge t-live" : "tierbadge t-low"}">${own ? tx("c'è", "present") : tx("manca: ora usa il disegno", "missing: the drawing is used")}</span></div></article>`; }).join("")}</div>
+    <div class="sechead" style="margin-top:34px"><div><span class="label">${tx("Sticker", "Stickers")}</span><h2>${tx("Gli sticker dell'affidabilità", "The reliability stickers")}</h2></div>
+    <p class="note" style="max-width:56ch"><code>prototype/character/stickers/</code></p></div>
+    <div class="posegrid">${[["hi", "fresche.png"], ["mid", "stimato.png"], ["lo", "poco_sicuro.png"]].map(([k, f]) => `<article class="tile poseslot${STK[k] ? "" : " missing"}"><div class="poseimg">${STK[k] ? `<img src="${STK[k]}" alt="" style="width:120px">` : `<span class="tierbadge ${TIER_CLS[k]}">${esc(t("tier_" + k))}</span>`}</div>
+      <div><b><code>${f}</code></b><br><span class="${STK[k] ? "tierbadge t-live" : "tierbadge t-low"}">${STK[k] ? tx("c'è", "present") : tx("manca: ora usa la scritta", "missing: the label is used")}</span></div></article>`).join("")}</div></div>`;
 }
 function viewMethod() {
   return `<div class="wrap"><section class="sec" style="padding-top:36px;gap:26px">

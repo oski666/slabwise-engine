@@ -677,3 +677,13 @@ footer .wrap{color:var(--c-on-dark-dim)}
 @keyframes tmsnow{0%{transform:translateY(-10px);opacity:0}15%{opacity:1}100%{transform:translateY(380px);opacity:0}}
 @keyframes tmcrack{to{stroke-dashoffset:0}}
 @keyframes tmshatter{0%{opacity:1;transform:scale(1)}60%{opacity:.6;transform:scale(1.06)}100%{opacity:0;transform:scale(1.15)}}
+
+/* D197: a pose PNG with the same motion and effects */
+.tm-png{position:relative}
+.tm-png img{display:block;width:100%;height:auto;transform-origin:50% 100%}
+.tm-png .tm-fx{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.st-esplode .tm-png .tm-pop,.st-esplode .tm-png .tm-steam,.st-caldo .tm-png .tm-steam,.st-freddo .tm-png .tm-snow,.st-gelo .tm-png .tm-snow,.st-gelo .tm-png .tm-ice{display:inline}
+@media (prefers-reduced-motion:no-preference){.cs.in .st-esplode .tm-png .cf{animation:tmstar var(--d) ease-out .4s infinite;transform-box:fill-box;transform-origin:center}}
+.poseimg .tmc{width:140px}.poseimg.meter7{display:block;margin:0}
+.poseimg.meter7 .tm-merc{transform:scaleY(calc(var(--lv) / 100))}
+.poseimg .tm-png{height:110px;display:flex;justify-content:center}.poseimg .tm-png img{height:100%;width:auto}.poseimg .tm-png .tm-fx{display:none}
