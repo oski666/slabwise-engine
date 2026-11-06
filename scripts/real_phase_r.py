@@ -37,6 +37,8 @@ if "--v116" in sys.argv:                              # v1.16 test (protocol §2
     params.cov_halflife = 13.0
 if "--v118" in sys.argv:                              # v1.18 test (protocol §34, D177)
     params.era_noise = True
+if "--v120" in sys.argv:                              # protocol §37 arm C (D206): jumps of a single grade
+    params.grade_jump = True
 if "--v119" in sys.argv:                              # protocol §36 arm B (D204): own drift per card (D29)
     params.card_drift = True
 if "--v117" in sys.argv:                              # v1.17 test (protocol §30, D155)

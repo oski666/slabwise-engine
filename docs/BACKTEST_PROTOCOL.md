@@ -654,3 +654,11 @@ Se X1–X6 passano, il sito usa lo storico nei prezzi e X7 diventa obbligatoria.
 Se passano entrambi, si adotta quello con l'errore Y3 più basso; se ne passa uno, quello; se nessuno, il sito resta com'è. Il braccio adottato rende Y7 obbligatoria (il criterio Y5 è stato pensato dopo aver visto i dati del §35). Solo riportati: voti in revisione, voti senza vendite, PSA 10 "Stimato" separatamente. Script `scripts/forget_test.py`, workflow `prova-dimenticare.yml`; risultati in `results/forget/summary.json`.
 
 **Esito (6 novembre 2026, D205).** Nessun braccio adottato. A: Y1 0 voci; Y2 **4 voci** (soglia 3) → non passa; Y3 −0,28 punti [−0,39; −0,18]; Y4 73,9% → 83,4%; Y5 111 → 83; Y6 33 → 3. B: Y1 1 voce, Y2 12 voci, Y5 130 → non passa. Y7 non si applica.
+
+## 37. Salti di un singolo voto (registrato il 6 novembre 2026, prima di eseguirla; D206)
+
+**Problema.** Nel braccio A del §36, 3 delle 4 voci E2r sono voti saliti di 2–3 volte in poche settimane (Snorlax Jungle 1st PSA 9, Kyogre EX Double Crisis PSA 9, Lugia Aquapolis PSA 10). Il salto per carta (§30) non basta quando sale un solo voto.
+
+**Modifica (braccio C, `grade_jump` = vero).** Braccio A del §36 (storico nei prezzi, revisione sulle vendite recenti, motore v1.15) più: a ogni nuovo calcolo di una carta, per ogni voto, le vendite di quel voto delle ultime 4 settimane (dopo l'ultimo salto dello stesso voto) si confrontano con la previsione della stima precedente; se sono almeno 3, la mediana degli scarti in log è oltre ±0,35 e almeno il 75% ha lo stesso segno e almeno metà di quella mediana, si registra un salto del voto alla data della prima di quelle vendite, con varianza J = mediana². Le vendite **di quel voto** precedenti il salto ricevono J in più nella varianza e nella parte condivisa tra loro; le vendite degli altri voti no. Soglie di D155, non ritoccate. Il salto per carta resta spento.
+
+**Criteri.** Y1–Y6 del §36, identici, braccio C contro lo stesso riferimento (sito di oggi). Si adotta C solo se li passa tutti; poi Y7 (prospettica, dopo almeno 2.000 vendite nuove) è obbligatoria. Il braccio A si riesegue solo come confronto e non si può adottare. Script `scripts/grade_jump_test.py`, workflow `prova-salti-voto.yml`; risultati in `results/gradejump/summary.json`.

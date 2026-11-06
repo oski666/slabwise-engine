@@ -78,6 +78,7 @@ class LVMParams:
     jump_n: int = 3              # D155: at least this many of them
     jump_min: float = 0.35       # D155: |median log residual| above this
     jump_agree: float = 0.75     # D155: share of residuals with the median's sign and at least half its size
+    grade_jump: bool = False     # D206: the same jump rule (D155 thresholds) for each grade of a card on its own (protocol §37)
 
 
 class LatentValueModel:
@@ -120,6 +121,7 @@ class LatentValueModel:
         self.kappa_e = np.ones(n_eras)                    # v1.18 (D177): noise factor per era
         self.n_bounded = 0                                # estimates where the roll-forward bound bit (D47)
         self.jumps = [[] for _ in range(n_cards)]         # v1.17 (D155): per card, (week time, variance) of each jump
+        self.gjumps = [[] for _ in range(n_cards)]        # D206: per card, (grade index, week time, variance) of each grade jump
 
     ERA_TIE = 2.0                                         # cards' worth of weight tying an era to the shared prior (v1.7b, D56)
 
@@ -570,6 +572,22 @@ class LatentValueModel:
                         self.jumps[c].append((float(t[rec].min()), med * med))
             for tj, J in self.jumps[c]:
                 pre = (t < tj).astype(float)
+                if pre.any():
+                    var = var + J * pre
+                    shared = shared + J * np.outer(pre, pre)
+        if p.grade_jump:                                 # D206: a jump of one grade, confirmed by its own recent sales
+            if prev is not None:
+                for gi in range(4):
+                    last_j = max([tj for gj, tj, _ in self.gjumps[c] if gj == gi], default=-np.inf)
+                    rec = (t > T - p.jump_weeks) & (t > last_j) & (g == gi)
+                    if rec.sum() >= p.jump_n:
+                        r = (y - X @ starts[0])[rec]
+                        med = float(np.median(r))
+                        agree = np.mean((np.sign(r) == np.sign(med)) & (np.abs(r) >= 0.5 * abs(med)))
+                        if abs(med) > p.jump_min and agree >= p.jump_agree:
+                            self.gjumps[c].append((gi, float(t[rec].min()), med * med))
+            for gi, tj, J in self.gjumps[c]:
+                pre = ((t < tj) & (g == gi)).astype(float)   # earlier sales of that grade only: the other grades keep the level
                 if pre.any():
                     var = var + J * pre
                     shared = shared + J * np.outer(pre, pre)
