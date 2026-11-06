@@ -1906,5 +1906,329 @@
    2011,
    2012
   ]
+ ],
+ "ex11-12": [
+  "mewtwo",
+  "\\bdelta\\W*(?:(?:of|the|and)\\W*)?species\\b",
+  12,
+  [
+   2005,
+   2006
+  ]
+ ],
+ "sv04-199": [
+  "groudon",
+  "\\bparadox\\W*(?:(?:of|the|and)\\W*)?rift\\b",
+  199,
+  [
+   2023,
+   2024
+  ]
+ ],
+ "sv05-177": [
+  "gastly",
+  "\\btemporal\\W*(?:(?:of|the|and)\\W*)?forces\\b",
+  177,
+  [
+   2024,
+   2025
+  ]
+ ],
+ "sm115-68": [
+  "(?:jessie\\s*(?:&|and)\\s*james|james\\s*(?:&|and)\\s*jessie)",
+  "\\bhidden\\W*(?:(?:of|the|and)\\W*)?fates\\b",
+  68,
+  [
+   2019,
+   2020
+  ]
+ ],
+ "swsh9-174": [
+  "charizard vstar",
+  "\\bbrilliant\\W*(?:(?:of|the|and)\\W*)?stars\\b",
+  174,
+  [
+   2022,
+   2023
+  ]
+ ],
+ "swsh8-251": [
+  "mew v",
+  "\\bfusion\\W*(?:(?:of|the|and)\\W*)?strike\\b",
+  251,
+  [
+   2021,
+   2022
+  ]
+ ],
+ "basep-8": [
+  "mew",
+  "\\bpromo",
+  8,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "sv03-228": [
+  "charizard ex",
+  "\\bobsidian\\W*(?:(?:of|the|and)\\W*)?flames\\b",
+  228,
+  [
+   2023,
+   2024
+  ]
+ ],
+ "sv03.5-171": [
+  "wartortle",
+  "\\b151\\b",
+  171,
+  [
+   2023,
+   2024
+  ]
+ ],
+ "ex11-13": [
+  "rayquaza",
+  "\\bdelta\\W*(?:(?:of|the|and)\\W*)?species\\b",
+  13,
+  [
+   2005,
+   2006
+  ]
+ ],
+ "neo2-1": [
+  "espeon",
+  "\\bneo\\W*(?:(?:of|the|and)\\W*)?discovery\\b",
+  1,
+  [
+   2001,
+   2002
+  ]
+ ],
+ "xy9-117": [
+  "espeon ex",
+  "\\bbreakpoint\\b",
+  117,
+  [
+   2016,
+   2017
+  ]
+ ],
+ "sv03.5-166": [
+  "bulbasaur",
+  "\\b151\\b",
+  166,
+  [
+   2023,
+   2024
+  ]
+ ],
+ "neo4-112": [
+  "shining steelix",
+  "\\bneo\\W*(?:(?:of|the|and)\\W*)?destiny\\b",
+  112,
+  [
+   2002,
+   2003
+  ]
+ ],
+ "sm12-222": [
+  "(?:reshiram\\s*(?:&|and)\\s*zekrom|zekrom\\s*(?:&|and)\\s*reshiram) gx",
+  "\\bcosmic\\W*(?:(?:of|the|and)\\W*)?eclipse\\b",
+  222,
+  [
+   2019,
+   2020
+  ]
+ ],
+ "xy8-158": [
+  "mewtwo ex",
+  "\\bbreakthrough\\b",
+  158,
+  [
+   2015,
+   2016
+  ]
+ ],
+ "ex7-100": [
+  "rocket's moltres ex",
+  "\\bteam\\W*(?:(?:of|the|and)\\W*)?rocket\\W*(?:(?:of|the|and)\\W*)?returns\\b",
+  100,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "sm9-186": [
+  "(?:gengar\\s*(?:&|and)\\s*mimikyu|mimikyu\\s*(?:&|and)\\s*gengar) gx",
+  "\\bteam\\W*(?:(?:of|the|and)\\W*)?up\\b",
+  186,
+  [
+   2019,
+   2020
+  ]
+ ],
+ "sm10-20": [
+  "(?:reshiram\\s*(?:&|and)\\s*charizard|charizard\\s*(?:&|and)\\s*reshiram) gx",
+  "\\bunbroken\\W*(?:(?:of|the|and)\\W*)?bonds\\b",
+  20,
+  [
+   2019,
+   2020
+  ]
+ ],
+ "pl4-1": [
+  "charizard",
+  "\\barceus\\b",
+  1,
+  [
+   2009,
+   2010
+  ]
+ ],
+ "me02.5-269": [
+  "mega gengar ex",
+  "\\bascended\\W*(?:(?:of|the|and)\\W*)?heroes\\b",
+  269,
+  [
+   2026,
+   2027
+  ]
+ ],
+ "sm12-216": [
+  "(?:solgaleo\\s*(?:&|and)\\s*lunala|lunala\\s*(?:&|and)\\s*solgaleo) gx",
+  "\\bcosmic\\W*(?:(?:of|the|and)\\W*)?eclipse\\b",
+  216,
+  [
+   2019,
+   2020
+  ]
+ ],
+ "g1-12": [
+  "m charizard ex",
+  "\\bgenerations\\b",
+  12,
+  [
+   2016,
+   2017
+  ]
+ ],
+ "swsh4-138": [
+  "rayquaza",
+  "\\bvivid\\W*(?:(?:of|the|and)\\W*)?voltage\\b",
+  138,
+  [
+   2020,
+   2021
+  ]
+ ],
+ "sm8-227": [
+  "lugia gx",
+  "\\blost\\W*(?:(?:of|the|and)\\W*)?thunder\\b",
+  227,
+  [
+   2018,
+   2019
+  ]
+ ],
+ "sv08.5-146": [
+  "flareon ex",
+  "\\bprismatic\\W*(?:(?:of|the|and)\\W*)?evolutions\\b",
+  146,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "me02-109": [
+  "mega charizard x ex",
+  "\\bphantasmal\\W*(?:(?:of|the|and)\\W*)?flames\\b",
+  109,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "sm11-71": [
+  "(?:mewtwo\\s*(?:&|and)\\s*mew|mew\\s*(?:&|and)\\s*mewtwo) gx",
+  "\\bunified\\W*(?:(?:of|the|and)\\W*)?minds\\b",
+  71,
+  [
+   2019,
+   2020
+  ]
+ ],
+ "me01-188": [
+  "mega lucario ex",
+  "\\bmega\\W*(?:(?:of|the|and)\\W*)?evolution\\b",
+  188,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "xy8-160": [
+  "m mewtwo ex",
+  "\\bbreakthrough\\b",
+  160,
+  [
+   2015,
+   2016
+  ]
+ ],
+ "sm5-151": [
+  "lillie",
+  "\\bultra\\W*(?:(?:of|the|and)\\W*)?prism\\b",
+  151,
+  [
+   2018,
+   2019
+  ]
+ ],
+ "me02.5-226": [
+  "psyduck",
+  "\\bascended\\W*(?:(?:of|the|and)\\W*)?heroes\\b",
+  226,
+  [
+   2026,
+   2027
+  ]
+ ],
+ "basep-10": [
+  "meowth",
+  "\\bpromo",
+  10,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "ex2-96": [
+  "gardevoir ex",
+  "\\bsandstorm\\b",
+  96,
+  [
+   2003,
+   2004
+  ]
+ ],
+ "sv08.5-153": [
+  "jolteon ex",
+  "\\bprismatic\\W*(?:(?:of|the|and)\\W*)?evolutions\\b",
+  153,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "neo4-110": [
+  "shining noctowl",
+  "\\bneo\\W*(?:(?:of|the|and)\\W*)?destiny\\b",
+  110,
+  [
+   2002,
+   2003
+  ]
  ]
 }
