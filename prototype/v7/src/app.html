@@ -823,7 +823,7 @@ function viewIndex(key) {
 const markHook = h => esc(h).replace(/([+−-]\d[\d.,]*\s?%|\$\d(?:[\d.,]*\d)?|\d[\d.,]*\s(?:volte|times))/, '<mark class="hl">$1</mark>');
 function storyHook(s, c) {
   const nm = c ? c.name : "";
-  if (s.kind === "mover" && s.change7 != null) return `${nm} PSA ${s.grade}: ${s.change7 > 0 ? "+" : "−"}${Math.round(Math.abs(s.change7) * 100)}% ${tx("in 4 settimane", "in 4 weeks")}`;
+  if (s.kind === "mover" && s.change7 != null) return `${nm} PSA ${s.grade}: ${s.change7 > 0 ? "+" : "−"}${Math.round(Math.abs(s.change7) * 100)}% ${s.reel && s.reel.days === 30 ? tx("in 30 giorni", "in 30 days") : tx("in 4 settimane", "in 4 weeks")}`;
   if (s.kind === "caught" && s.price) return tx(`Venduta a ${usd(s.price)}, ma per il nostro modello non è credibile`, `Sold for ${usd(s.price)}, but our model does not believe it`);
   if (s.kind === "ladder" && s.ratio) return tx(`${nm}: un PSA 10 vale ${nf1.format(s.ratio)} volte un PSA 9`, `${nm}: a PSA 10 is worth ${nf1.format(s.ratio)} times a PSA 9`);
   return s.hook;
@@ -838,7 +838,8 @@ function storyText(s) {
     ladder: [`PSA 10 ${usd(s.v10)} ${tx("contro", "vs")} PSA 9 ${usd(s.v9)}.`, tx("La manderesti a gradare? Scrivilo nei commenti.", "Would you send it for grading? Tell us in the comments.")],
     era: [tx(`Valore di collezione ${usdK(s.cap)}.`, `Collection value ${usdK(s.cap)}.`), tx("Quale era compreresti adesso?", "Which era would you buy now?")],
   }[s.kind];
-  return {hook, body: Lx[0], cta: Lx[1], card: c};
+  const cu = c && (D.curiosita || {})[c.id], fun = cu ? (LANG === "en" && cu.en && cu.en.length ? cu.en : cu.it || [])[0] || "" : "";   /* D182: our own words, checked weekly */
+  return {hook, body: Lx[0], fun, cta: Lx[1], card: c};
 }
 function storyCard(s, i) {
   const x = storyText(s), c = x.card;
@@ -850,7 +851,7 @@ function storyCard(s, i) {
     <div class="visual">${visual}</div>
     <div style="display:grid;gap:10px;min-width:0"><span class="sticker ${tag[0]}" style="justify-self:start">${tag[1]}</span><p class="hook">${markHook(x.hook)}</p><p class="muted">${esc(x.body)}</p></div>
     <div style="display:grid;gap:12px">
-      <div class="script"><div><b>${tx("Gancio", "Hook")} · 0–3 s</b>${esc(x.hook)}</div><div><b>${tx("Numeri", "Numbers")} · 3–15 s</b>${esc(x.body)}</div><div><b>${tx("Chiusura", "Close")}</b>${esc(x.cta)}</div></div>
+      <div class="script"><div><b>${tx("Gancio", "Hook")} · 0–3 s</b>${esc(x.hook)}</div><div><b>${tx("Numeri", "Numbers")} · 3–15 s</b>${esc(x.body)}</div>${x.fun ? `<div><b>${tx("Curiosità", "Fun fact")} · 15–20 s</b>${esc(x.fun)}</div>` : ""}<div><b>${tx("Chiusura", "Close")}</b>${esc(x.cta)}</div></div>
       ${s.reel ? `<button class="btn" data-copy="${i}">${tx("Copia per il Reel Studio", "Copy for the Reel Studio")}</button>` : `<button class="btn ghost" data-copytext="${i}">${tx("Copia il copione", "Copy the script")}</button>`}
     </div></article>`;
 }
@@ -1358,8 +1359,8 @@ document.addEventListener("click", e => {
   else if (el.dataset.min !== undefined) { S.dealMin = +el.dataset.min; route(); }
   else if (el.dataset.or) { S.dealOrigin = el.dataset.or; route(); }
   else if (el.dataset.copy !== undefined) { const s = D.pulse.stories[+el.dataset.copy]; const c = cardById[s.reel.card]; copy(JSON.stringify({slabwise: "reel", lang: LANG, ...s.reel, name: c.name, set: c.set, no: c.no + (c.tot ? "/" + c.tot : "")}), tx("Copiato: incollalo nel Reel Studio", "Copied: paste it into the Reel Studio")); }
-  else if (el.dataset.copytext !== undefined) { const x = storyText(D.pulse.stories[+el.dataset.copytext]); copy(`${x.hook}\n${x.body}\n${x.cta}`, tx("Copione copiato", "Script copied")); }
-  else if (el.id === "copyAll") copy(D.pulse.stories.map((s, i) => { const x = storyText(s); return `${i + 1}. ${x.hook}\n${x.body}\n${x.cta}`; }).join("\n\n"), tx(`${D.pulse.stories.length} copioni copiati`, `${D.pulse.stories.length} scripts copied`));
+  else if (el.dataset.copytext !== undefined) { const x = storyText(D.pulse.stories[+el.dataset.copytext]); copy([x.hook, x.body, x.fun, x.cta].filter(Boolean).join("\n"), tx("Copione copiato", "Script copied")); }
+  else if (el.id === "copyAll") copy(D.pulse.stories.map((s, i) => { const x = storyText(s); return `${i + 1}. ` + [x.hook, x.body, x.fun, x.cta].filter(Boolean).join("\n"); }).join("\n\n"), tx(`${D.pulse.stories.length} copioni copiati`, `${D.pulse.stories.length} scripts copied`));
 });
 function copy(text, msg) {
   const done = () => toast(msg);

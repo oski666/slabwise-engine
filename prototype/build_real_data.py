@@ -311,21 +311,23 @@ rollups = [dict(series=r_["series"], n=r_["n"], sales=r_["sales"], ch30=round(fl
            for r_ in sorted(roll.values(), key=lambda x: ERAS.index(x["series"]) if x["series"] in ERAS else 99)]   # D154: in time order
 
 # the stories of the week, from real sales only
-def move(c, gi, k):
-    i = cid[c["id"]]
-    return float(est[-1, i, gi] - est[-1 - k, i, gi])
+# D182: only movements the site itself shows (ch30, D161: own sales at the start of the period), never the jump from a
+# new card's prior; only grades with at least 3 recent sales of their own
+def _story_ok(g):
+    return g["sales90"] >= 3 and not g.get("off") and not g.get("stale")
 
 
-cand = [(abs(move(c, gi, 4)), c, gi) for c in out_cards for gi, g in enumerate(c["grades"]) if g["hi"] / g["lo"] < 1.5 and g["sales_all"] >= 5]
+cand = [(abs(g["ch30"]), c, gi) for c in out_cards for gi, g in enumerate(c["grades"])
+        if g.get("ch30") is not None and g["hi"] / g["lo"] < 1.5 and _story_ok(g)]
 stories = []
 if cand:
     _, mc, mg = max(cand, key=lambda x: x[0])
     g = mc["grades"][mg]
-    ch = np.exp(move(mc, mg, 4)) - 1
+    ch = g["ch30"]
     stories.append(dict(kind="mover", title="Lo slab del mese", card=mc["id"], grade=g["grade"], value=g["value"], lo=g["lo"], hi=g["hi"],
                         change7=round(float(ch), 4),
-                        hook=f"{mc['name']} PSA {g['grade']}: {'+' if ch > 0 else '−'}{abs(ch) * 100:.0f}% in 4 settimane",
-                        reel=dict(mode="trend", card=mc["id"], grade=g["grade"], prev=round(g["value"] / (1 + ch) * EUR), now=round(g["value"] * EUR), days=28)))
+                        hook=f"{mc['name']} PSA {g['grade']}: {'+' if ch > 0 else '−'}{abs(ch) * 100:.0f}% in 30 giorni",
+                        reel=dict(mode="trend", card=mc["id"], grade=g["grade"], prev=round(g["value"] / (1 + ch) * EUR), now=round(g["value"] * EUR), days=30)))
 recent = str(asof - timedelta(days=60))
 caught = [(s_["pgen"], c, s_) for c in out_cards for s_ in c["sales"] if s_["date"] >= recent and s_["pgen"] < 0.5]
 if caught:
@@ -333,7 +335,8 @@ if caught:
     stories.append(dict(kind="caught", title="Smascherata", card=cc["id"], grade=ss["grade"], price=ss["price"], pgen=ss["pgen"], why=ss["why"],
                         value=next(g["value"] for g in cc["grades"] if g["grade"] == ss["grade"]),
                         hook="Venduto a $" + f"{ss['price']:,.0f}".replace(",", ".") + ", ma per il nostro modello non è credibile"))
-lad = [(c["grades"][0]["value"] / c["grades"][1]["value"], c) for c in out_cards if c["grades"][0]["sales_all"] and c["grades"][1]["sales_all"]]
+lad = [(c["grades"][0]["value"] / c["grades"][1]["value"], c) for c in out_cards
+       if len(c["grades"]) > 1 and c["grades"][0]["grade"] == 10 and c["grades"][1]["grade"] == 9 and _story_ok(c["grades"][0]) and _story_ok(c["grades"][1])]
 if lad:
     lr, lc = max(lad, key=lambda x: x[0])
     stories.append(dict(kind="ladder", title="Il salto di voto", card=lc["id"], ratio=round(lr, 2), v10=lc["grades"][0]["value"], v9=lc["grades"][1]["value"],

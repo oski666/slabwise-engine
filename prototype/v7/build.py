@@ -22,6 +22,9 @@ if which == "real" and os.path.exists(pag):                     # D108: only the
 reqs = os.path.join(here, "..", "data", "requests_status.json")   # D97: daily check of the card requests
 if which == "real" and os.path.exists(reqs):
     data["requests_status"] = json.load(open(reqs, encoding="utf-8"))
+cur = os.path.join(here, "..", "data", "curiosita.json")          # D182: curiosities for the weekly scripts, in our own words
+if which == "real" and os.path.exists(cur):
+    data["curiosita"] = {k: v for k, v in json.load(open(cur, encoding="utf-8")).items() if not k.startswith("_")}
 tcd = os.path.join(here, "..", "..", "data", "raw", "tcgcharts")    # D115: last known sale of a grade with no sales of its own
 if which == "real" and os.path.exists(os.path.join(tcd, "sales.json")):
     import gzip
