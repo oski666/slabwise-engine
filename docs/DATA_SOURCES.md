@@ -230,6 +230,16 @@ Ricerca del 3 novembre 2026 (Oscar ha segnalato Traded).
 | Regole | raccolta giornaliera (`raccolta-pokecolor.yml`), una richiesta ogni 4 s, si ferma alla prima pagina già nota; nessun dato di compratori o venditori; dati grezzi in `data/raw/pokecolor/` nel repository privato `slabwise-data` (D163); nei prezzi solo dopo un controllo registrato prima (D180) |
 | Script | `scripts/pokecolor_sold.py data/raw/pokecolor` |
 
+## GemRate (gemrate.com): popolazioni e gradazioni nel tempo, con permesso (D189)
+
+| Cosa | Dettaglio |
+|---|---|
+| Permesso | email di Ryan (fondatore di GemRate) a Oscar: non offre una licenza API, ma possiamo raccogliere i dati dal sito e usarne le analisi, purché non peggioriamo l'esperienza degli altri utenti |
+| Cosa dà | report di popolazione unificato (PSA, Beckett, SGC, CGC), gradazioni giornaliere, settimanali e mensili, carte e set con più gradazioni nella settimana (gradate l'ultima settimana e quella prima), pagine "Population Trend" per carta e per set |
+| Accesso | il sito usa una verifica Cloudflare (Turnstile): niente raccolta da GitHub né dal nostro server; solo dal browser integrato di Oscar, dopo che lui ha fatto la verifica, una richiesta ogni 5 s o più |
+| Rischi | pagine e formati non documentati; il permesso è informale; il report conta le gradazioni, non le copie (rinvii e sbustamenti contano due volte, come già per PSA, D109) |
+| Regole | solo popolazioni e gradazioni, solo PSA per i nostri calcoli (D165); dati grezzi in `data/raw/gemrate/` nel repository privato `slabwise-data`; sul sito la fonte non si nomina |
+
 ## Dove stanno i dati grezzi (D163)
 
 Il repository `slabwise-engine` è pubblico. I dati grezzi delle fonti (tcgcharts: vendite, schede, storico, popolazioni; Alt; Pokecolor; base delle vendite; cert delle aste) non si redistribuiscono e stanno nel repository privato `slabwise-data`, con gli stessi percorsi; l'elenco è in `.github/private-paths.txt`. Le corse li scaricano e li salvano con `.github/actions/private-data`.

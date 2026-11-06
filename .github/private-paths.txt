@@ -3,5 +3,6 @@ data/raw/tcgcharts
 data/raw/alt
 data/raw/pokecolor
 data/raw/curiosita
+data/raw/gemrate
 data/raw/sales_base.csv
 prototype/data/certs.json
