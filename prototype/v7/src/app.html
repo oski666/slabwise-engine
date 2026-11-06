@@ -375,7 +375,7 @@ function collectionSection() {
     <div class="filters rv">
       ${sortChips()}
     </div>
-    <div class="cgrid" data-tour="grid">${tiles()}</div></div>`;
+    <div class="cgrid" data-tour="grid">${tiles(D.cards.filter(c => c.lang !== "ja"))}</div></div>`;
   return sectionWrap("slab", "CARDS", inner, "jp", "一覧");
 }
 const KIND = {mover: ["In movimento", "On the move"], caught: ["Vendita anomala", "Outlier sale"], ladder: ["PSA 10 o 9?", "PSA 10 or 9?"], deal: ["Occasione", "Deal"], era: ["Era", "Era"]};
@@ -390,18 +390,19 @@ function weekBand() {
     ${twinkle(80, 12, 1)}${chevron("jp")}${corner()}</section>`;
 }
 function japanSection7() {
-  const priced = D.cards.filter(c => c.lang === "ja"), waiting = D.ja_pending || [];
-  const ja = [...priced, ...waiting.slice(0, Math.max(0, 12 - priced.length))];   /* D158: the priced ones first, a few waiting ones */
-  if (!ja.length) return "";
+  const priced = D.cards.filter(c => c.lang === "ja"), waiting = D.ja_pending || [];   /* D186: its own ranked catalogue, like the English one */
+  if (!priced.length && !waiting.length) return "";
   const rf = D.rarity_fit, rnote = rf && rf.ja_vs_en && rf.n_ja >= 5 ? `<p class="note">${tx(`A parità di esemplari in PSA 10, oggi una stampa giapponese costa in media ${nf1.format(rf.ja_vs_en * 100)}% di una inglese (${rf.n_ja} giapponesi e ${rf.n - rf.n_ja} inglesi con prezzo; solo popolazioni PSA).`, `For the same number of PSA 10 copies, a Japanese printing costs on average ${nf1.format(rf.ja_vs_en * 100)}% of an English one today (${rf.n_ja} Japanese and ${rf.n - rf.n_ja} English cards with a price; PSA populations only).`)}</p>` : "";
-  const soon = tx("Prezzi in arrivo", "Prices coming soon");
-  const inner = `<div class="cs-in">${boxTitle(tx("<em>Giappone</em>", "<em>Japan</em>"), tx("Stampe giapponesi: carte diverse, con un loro prezzo. Le vendite sono ancora poche: stiamo aggiungendo mercati asiatici", "Japanese printings: different cards with their own price. Sales are still few: we are adding Asian markets"), "jp")}
-    <div class="news-row">${ja.map((j, k) => { const en = enOf(j);
+  const soon = tx("Prezzi in arrivo", "Prices coming soon"), wait = waiting.slice(0, 8);
+  const inner = `<div class="cs-in">${boxTitle(tx("<em>Giappone</em>", "<em>Japan</em>"), tx("Stampe giapponesi: carte diverse, con un loro prezzo e una loro classifica. Le vendite sono ancora poche: stiamo aggiungendo mercati asiatici", "Japanese printings: different cards with their own price and ranking. Sales are still few: we are adding Asian markets"), "jp")}
+    ${priced.length ? `<div class="filters rv">${sortChips()}</div><div class="cgrid">${tiles(priced)}</div>` : ""}${rnote}
+    ${wait.length ? `<h3 class="label" style="margin-top:28px">${tx(`In attesa di prezzo (${waiting.length})`, `Waiting for a price (${waiting.length})`)}</h3>
+    <div class="news-row">${wait.map((j, k) => { const en = enOf(j);
       return `<a class="jp8 rv" style="--i:${k}" href="#c-${j.id}">
-        <div class="news-img">${j.img ? `<img src="${j.img}" alt="${esc(j.name)}">` : `<span class="noimg">${tx("foto in arrivo", "photo coming soon")}</span>`}${j.grades ? "" : `<span class="hanko" lang="ja" aria-label="${soon}">準備中</span>`}</div>
-        <div class="news-body"><b lang="ja">${esc(j.name)}</b><span><span lang="ja">${esc(j.set)}</span> · ${esc(j.no)}/${j.tot || "?"}</span>${j.grades ? `<span class="ct-price"><b class="num">${usdV(gradeOf(j, 10))}</b>${tierBadge(gradeOf(j, 10))}</span>` : ""}${en ? `<span class="muted">${tx("Stampa inglese", "English printing")}: ${esc(en.name)}${j.grades ? " · " + usdV(gradeOf(en, 10)) : ""}</span>` : ""}</div>
-        <span class="ntag">${j.grades ? `PSA 10 · ${plural(j.n_sales, tx("vendita", "sale"), tx("vendite", "sales"))}` : soon}</span></a>`; }).join("")}</div>
-    ${rnote}${waiting.length > ja.length - priced.length ? `<p class="note">${tx(`Altre ${waiting.length - (ja.length - priced.length)} stampe giapponesi delle nostre carte sono nel catalogo in attesa di prezzo: le trovi nella scheda di ogni carta inglese.`, `${waiting.length - (ja.length - priced.length)} more Japanese printings of our cards are in the catalogue waiting for a price: each English card's page links to its own.`)}</p>` : ""}</div>`;
+        <div class="news-img">${j.img ? `<img src="${j.img}" alt="${esc(j.name)}">` : `<span class="noimg">${tx("foto in arrivo", "photo coming soon")}</span>`}<span class="hanko" lang="ja" aria-label="${soon}">準備中</span></div>
+        <div class="news-body"><b lang="ja">${esc(j.name)}</b><span><span lang="ja">${esc(j.set)}</span> · ${esc(j.no)}/${j.tot || "?"}</span>${en ? `<span class="muted">${tx("Stampa inglese", "English printing")}: ${esc(en.name)}</span>` : ""}</div>
+        <span class="ntag">${soon}</span></a>`; }).join("")}</div>
+    ${waiting.length > wait.length ? `<p class="note">${tx(`Altre ${waiting.length - wait.length} stampe giapponesi aspettano le vendite: le trovi nella scheda di ogni carta inglese.`, `${waiting.length - wait.length} more Japanese printings are waiting for sales: each English card's page links to its own.`)}</p>` : ""}` : ""}</div>`;
   return sectionWrap("jp", "JAPAN", inner, null, "日本");
 }
 function viewMarket() {
@@ -411,9 +412,14 @@ function tiles(list) {
   const key = {cap: c => capOf(c), mcap: c => capPSA(c), ch30: c => gradeOf(c, S.g).ch30 ?? -Infinity, sales: c => gradeOf(c, S.g).sales90, sure: c => -halfw(gradeOf(c, S.g))}[S.sort] || (c => capOf(c));
   return [...(list || D.cards)].sort((a, b) => noOwn(gradeOf(a, S.g)) - noOwn(gradeOf(b, S.g)) || key(b) - key(a)).map((c, i) => { const g = gradeOf(c, S.g), hid = noOwn(g); return `<a class="ct8 rv" href="#c-${c.id}" style="--cat:var(--cat-${catOf(c)});--i:${i % 4}">
     <div class="ct-art">${c.thumb || c.img ? `<img src="${c.img || c.thumb}" alt="">` : `<span class="noimg">${tx("foto in arrivo", "photo coming soon")}</span>`}${hid ? "" : `<span class="ct-rank">${i + 1}</span>`}<span class="ct-grade">PSA ${S.g}</span>${g.tier ? `<span class="ct-tier ${TIER_CLS[tierK(g)]}" title="${esc(tierName(g))}"></span>` : ""}</div>
-    <div class="ct-body"><h3>${esc(c.name)}</h3><span class="meta">${esc(c.set)} · #${esc(c.no)}</span>
+    <div class="ct-body"><h3${c.lang === "ja" ? ' lang="ja"' : ""}>${esc(c.name)}</h3><span class="meta"><span${c.lang === "ja" ? ' lang="ja"' : ""}>${esc(c.set)}</span> · #${esc(c.no)}${c.lang === "ja" && enOf(c) ? ` · ${esc(enOf(c).name)}` : ""}</span>
       ${hid ? `<div class="ct-price"><b class="num">—</b></div><span class="note">${g.last && !g.off ? tx(`Poche vendite per un prezzo. Ultima vendita: ${usd(g.last[1])}, ${monthF(g.last[0])}`, `Too few sales for a price. Last sale: ${usd(g.last[1])}, ${monthF(g.last[0])}`) : noEst(S.g, g)}</span>` : `<div class="ct-price"><b class="num">${usd(g.value)}</b><span class="${g.ch30 >= 0 ? "up" : "down"}">${pct(g.ch30)}</span></div>
-      ${fork(g, true)}<span class="note">±${nf1.format(halfw(g) * 100)}% · ${capPSA(c) > 0 ? `<span title="${tx("Capitalizzazione PSA 7–10: valore × esemplari gradati", "PSA 7–10 market cap: value × graded copies")}">${tx("Cap.", "Mkt cap")} ${usdK(capPSA(c))}</span>` : plural(g.sales90, tx("vendita", "sale"), tx("vendite", "sales")) + " " + tx("in 90 giorni", "in 90 days")}</span>`}</div></a>`; }).join("") || `<div class="tile empty">${tx("Nessuna carta.", "No cards.")}</div>`;
+      ${fork(g, true)}<span class="note">±${nf1.format(halfw(g) * 100)}% ${tx("intervallo all'80%", "80% range")}</span>`}${capRow(c)}</div></a>`; }).join("") || `<div class="tile empty">${tx("Nessuna carta.", "No cards.")}</div>`;
+}
+/* D186: the market cap on every tile, always in the same place */
+function capRow(c) {
+  const v = capPSA(c);
+  return `<div class="ct-cap" title="${tx("Capitalizzazione PSA 7–10: valore di ogni voto × esemplari gradati PSA", "PSA 7–10 market cap: each grade's value × PSA graded copies")}"><span>${tx("Market cap", "Market cap")}</span><b class="num">${v > 0 ? usdK(v) : "—"}</b>${v > 0 ? "" : `<small>${tx("popolazione PSA non disponibile", "PSA population not available")}</small>`}</div>`;
 }
 /* D181: every card sharing a set, a printed rarity or an illustrator, from the technical sheet */
 const LIST_KIND = {set: [tx("Set", "Set"), c => c.set], rarita: [tx("Rarità", "Rarity"), c => c.rarity], artista: [tx("Illustratore", "Illustrator"), c => c.illustrator]};
