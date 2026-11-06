@@ -52,7 +52,9 @@ def load_sales_csv(path: str, start: str | None = None) -> tuple[pd.DataFrame, l
     return out, cards
 
 
-PREFIX_ERA = (("ja:sv", "sv"), ("ja:m", "sv"), ("ja:s", "sm_swsh"),        # Japanese printings follow their English era
+PREFIX_ERA = (("ja:mystery-of-the-fossils", "wotc"),                       # D183: vintage Japanese set names before "ja:m"
+              ("ja:sv", "sv"), ("ja:sm", "sm_swsh"), ("ja:xy", "sm_swsh"), ("ja:bw", "sm_swsh"),
+              ("ja:m", "sv"), ("ja:s", "sm_swsh"),        # Japanese printings follow their English era
               ("base", "wotc"), ("gym", "wotc"), ("neo", "wotc"), ("swsh", "sm_swsh"), ("sm", "sm_swsh"),
               ("svp", "sv"), ("sv", "sv"), ("me", "sv"),
               # D117: older eras without their own pool join the nearest one; the R1/E2 gate of each card decides
@@ -71,4 +73,6 @@ def era_of(card: str, era_map: dict) -> str:
     for pre, e in PREFIX_ERA:
         if card.startswith(pre):
             return e
+    if card.startswith("ja:"):          # D183: other Japanese printings are older ones (Expansion Pack, Neo, e-series, PCG): like D117
+        return "wotc"
     raise KeyError(f"era sconosciuta per {card}: aggiungila a era_map.json")
