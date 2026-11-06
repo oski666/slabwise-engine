@@ -629,3 +629,5 @@ Se W1–W6 passano, la v1.18 si adotta e W7 diventa obbligatoria. Il mercato sim
 | X7 | Prova prospettica: X1, X3, X4 sulle vendite dopo il 6 novembre, appena sono almeno 2.000 | come sopra |
 
 Se X1–X6 passano, il sito usa lo storico nei prezzi e X7 diventa obbligatoria. Script `scripts/history_test.py`, workflow `prova-storico.yml`; risultati in `results/history/summary.json`.
+
+**Esito §35 (6 novembre 2026): non superata, lo storico lungo resta fuori dai prezzi.** X1 sì (R1 0 voci). **X2 no**: E2r 4 voci (soglia 3). X3 sì: con lo storico l'errore scende di 0,37 punti [−0,52; −0,24] su 57.267 vendite valutate in entrambe le corse (13,63% → 13,27%). X4 sì: copertura della forchetta all'80% dal 74,2% all'83,6%. **X5 no**: i voti senza valore scendono da 64 a 45, ma i PSA 10 "Stimato" salgono da 46 a 53. X6 sì (8 voci lontane dalla mediana recente, come senza storico). Risultati in `results/history/summary.json`.
