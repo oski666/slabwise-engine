@@ -1,0 +1,31 @@
+# Protocol §36 (D204): history in the prices, review on recent sales, with and without the own drift per card. Runs on GitHub's machines.
+name: Prova dimenticare
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - name: Private data (D163)
+        uses: ./.github/actions/private-data
+        with:
+          mode: pull
+          token: ${{ secrets.DATA_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test
+        run: |
+          pip install -q numpy pandas scipy
+          PYTHONPATH=. python scripts/forget_test.py /tmp/forget | tee /tmp/forget.txt
+      - name: Save
+        if: always()
+        run: |
+          git config user.name "slabwise-bot"
+          git config user.email "slabwise-bot@users.noreply.github.com"
+          git add results/forget || true
+          git diff --cached --quiet || { git commit -m "Prova dimenticare (§36): risultati"; git pull --rebase --autostash -q && git push; }

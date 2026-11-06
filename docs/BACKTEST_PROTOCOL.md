@@ -631,3 +631,24 @@ Se W1–W6 passano, la v1.18 si adotta e W7 diventa obbligatoria. Il mercato sim
 Se X1–X6 passano, il sito usa lo storico nei prezzi e X7 diventa obbligatoria. Script `scripts/history_test.py`, workflow `prova-storico.yml`; risultati in `results/history/summary.json`.
 
 **Esito §35 (6 novembre 2026): non superata, lo storico lungo resta fuori dai prezzi.** X1 sì (R1 0 voci). **X2 no**: E2r 4 voci (soglia 3). X3 sì: con lo storico l'errore scende di 0,37 punti [−0,52; −0,24] su 57.267 vendite valutate in entrambe le corse (13,63% → 13,27%). X4 sì: copertura della forchetta all'80% dal 74,2% all'83,6%. **X5 no**: i voti senza valore scendono da 64 a 45, ma i PSA 10 "Stimato" salgono da 46 a 53. X6 sì (8 voci lontane dalla mediana recente, come senza storico). Risultati in `results/history/summary.json`.
+
+## 36. Storico lungo nei prezzi con revisione sulle vendite recenti, con e senza deriva per carta (registrato il 6 novembre 2026, prima del codice; D204)
+
+**Problema (dopo il §35, D193).** Con lo storico lungo nei prezzi i voti "in revisione" salgono da 22 a 32 e E2r ha 4 voci. Due cause diverse: (1) carte salite di 2–4 volte in poche settimane, dove la stima segue le vendite di oggi ma la regola D98 la confronta con la mediana di 13 settimane, che resta indietro; (2) carte con poche vendite, dove il cammino casuale comune a tutte le carte (`q_L` tarato su tutte) tiene il livello vicino ai prezzi vecchi.
+
+**Modifiche.**
+- **Braccio A**: storico tcgcharts dal 1° luglio 2022 nei prezzi (come il §35) e regola di revisione D98 con il riferimento recente di E2r (§23): mediana delle vendite del voto negli ultimi 30 giorni se sono almeno 5, altrimenti delle ultime 5 vendite delle 13 settimane (tutte, se sono meno di 5). Soglia invariata: più di 2 volte. Motore v1.15.
+- **Braccio B**: A più la deriva propria per carta (`card_drift` = vero, D29: `q_c = q_L · κ_c`, κ dagli errori di previsione della carta, priore di 52 settimane, limiti 0,5–8; codice invariato).
+- **Riferimento**: il sito di oggi, senza storico, v1.15, D98 a 13 settimane.
+
+| # | Criterio (ogni braccio contro il riferimento) | Soglia |
+|---|---|---|
+| Y1 | R1 sulle vendite con lo storico | 0 voci |
+| Y2 | E2r sulle stesse | al massimo 3 voci |
+| Y3 | Fase R sulle vendite valutate in entrambe le corse (stesso id): errore medio \|log\| con lo scarto di sede, braccio meno riferimento | estremo superiore dell'intervallo al 95% (bootstrap per carta) ≤ +0,2 punti |
+| Y4 | Copertura della forchetta all'80% sulle stesse vendite | ≥ riferimento − 1 punto, e ≤ 85% |
+| Y5 | Build del sito: voti senza valore (nessuna vendita o in revisione) + PSA 10 "Stimato" | meno del riferimento |
+| Y6 | Voti con almeno 5 vendite in 90 giorni e valore a più di 0,5 in log dalla loro mediana | non più del riferimento |
+| Y7 | Prova prospettica: Y1–Y4 sulle vendite dopo il 6 novembre, appena sono almeno 2.000 | come sopra |
+
+Se passano entrambi, si adotta quello con l'errore Y3 più basso; se ne passa uno, quello; se nessuno, il sito resta com'è. Il braccio adottato rende Y7 obbligatoria (il criterio Y5 è stato pensato dopo aver visto i dati del §35). Solo riportati: voti in revisione, voti senza vendite, PSA 10 "Stimato" separatamente. Script `scripts/forget_test.py`, workflow `prova-dimenticare.yml`; risultati in `results/forget/summary.json`.

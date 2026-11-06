@@ -47,6 +47,8 @@ params, _, _ = calibrate_clean(clean, len(cards), era, len(eras), train, trend=F
 _v = os.environ.get("SLABWISE_LADDER", "")             # test switch for v1.14 (protocol §20): "steps" or "pops"
 params.step_prior = params.step_prior or _v in ("steps", "pops")
 params.pop_steps = params.pop_steps or _v == "pops"
+params.card_drift = params.card_drift or os.environ.get("SLABWISE_CARD_DRIFT") == "1"   # protocol §36 arm B (D204); off on the site
+REVIEW_RECENT = os.environ.get("SLABWISE_REVIEW_RECENT") == "1"   # protocol §36 (D204): review against the recent sales of E2r; off on the site
 lvm = LatentValueModel(len(cards), era, len(eras), params)
 lvm.set_parents([cards.index(c.split("/")[0]) if "/" in c and c.split("/")[0] in cards else -1 for c in cards])   # variants (v1.13/v1.15 switches)
 _tc_cards = os.path.join(HERE, "..", "data", "raw", "tcgcharts", "cards.json")
@@ -124,6 +126,10 @@ for c in catalog + variants:
         n13 = int(((clean["card"] == i) & (clean["grade"] == g) & (clean["week"] >= W - 13)).sum())
         rec = clean.loc[(clean["card"] == i) & (clean["grade"] == g) & (clean["week"] >= W - 13), "price"]
         med13 = float(rec.median()) if len(rec) else None
+        if REVIEW_RECENT and len(rec):                    # D204 test: 30 days if >= 5 sales, else the last 5 of the 13 weeks
+            _r = clean.loc[(clean["card"] == i) & (clean["grade"] == g) & (clean["week"] >= W - 13)].sort_values("day")
+            _d30 = _r.loc[_r["day"] >= clean["day"].max() - 30, "price"]
+            med13 = float((_d30 if len(_d30) >= 5 else _r["price"].tail(5)).median())
         # D98: an estimate more than 2x away from the median of its own sales of the last 13 weeks is not shown
         off = bool(med13 and abs(float(now) - np.log(med13)) > np.log(2))
         stale = False
