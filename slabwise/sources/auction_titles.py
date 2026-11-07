@@ -122,16 +122,46 @@ def is_japanese(title: str) -> bool:
     return bool(JP_CHARS.search(title) or re.search(r"\bjapanese\b|\bjpn\b|\bjp\b|japan", t))
 
 
+# D214 (protocol §38): the set is also recognised from the code of our id ("ja:m3-086" -> "m3", "ja:sv-p-288" -> "sv-p")
+# and from the Japanese set name of our page (prototype/data/cards_ja.json); not the codes of named (vintage) sets.
+_JA_PAGES = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "prototype", "data", "cards_ja.json")
+_JA_SETNAME = {}
+if _os.path.exists(_JA_PAGES):
+    _JA_SETNAME = {_c["id"]: (_c.get("set") or "").lower() for _c in _json.load(open(_JA_PAGES, encoding="utf-8"))}
+_SETX = {}
+
+
+def _set_extra(key):
+    if key not in _SETX:
+        code = key[3:].rsplit("-", 1)[0].lower()
+        alts = [r"(?<![a-z0-9])" + re.escape(code) + r"(?![a-z0-9])"] if re.fullmatch(r"[a-z]{1,4}\d{0,2}[a-z]?(?:-p)?", code) else []
+        name = _JA_SETNAME.get(key) or ""
+        if JP_CHARS.search(name) and len(name) >= 3:              # Japanese words have no word boundaries
+            alts.append(re.escape(name))
+        _SETX[key] = "|".join(alts) or None
+    return _SETX[key]
+
+
+def _set_ok(key, setre, t):
+    x = _set_extra(key) if NEW_JA_RULES else None
+    return bool((setre and re.search(setre, t)) or (x and re.search(x, t)))
+
+
+NEW_JA_RULES = _os.environ.get("SLABWISE_JA_RULES", "1") == "1"   # D214: "0" gives the matcher before §38 (for the test)
+
+
 def match_japanese(title: str):
     t = " ".join(title.lower().split())
+    if NEW_JA_RULES:                                      # D214: "mewtwo-gx" is "mewtwo gx"; "aqua's" is "aquas"
+        t = re.sub(r"-(gx|ex|vmax|vstar|v)\b", r" \1", t).replace("'", "").replace("’", "")
     if JA_EXCLUDE.search(t):
         return None, "esclusa (lotto, sigillato, firmata, altro grader...)"
     pairs = {(int(a), int(b)) for a, b in NUM_TOT.findall(t)}
     nums = {int(x) for x in re.findall(r"#\s*0*(\d+)", t)} | {int(x) for x in re.findall(r"\bno\.?\s*0*(\d+)\b", t)}   # D158: vintage "No. 006"
     nums |= {a for a, _ in pairs}                         # D168: "088/087" with the set named also counts as the number
     nums |= {int(x) for x in re.findall(r"(?<![\d/])\b0\d{2}\b(?!\s*/)", t)}   # D168: vintage labels "Base Set Japanese 003"
-    hits = [k for k, (name, no, tot, setre) in JA_CATALOGUE.items() if re.search(name, t)
-            and ((no, tot) in pairs or (no in nums and setre and re.search(setre, t)))]
+    hits = [k for k, (name, no, tot, setre) in JA_CATALOGUE.items() if re.search(name.replace("'", "") if NEW_JA_RULES else name, t)
+            and ((no, tot) in pairs or (no in nums and _set_ok(k, setre, t)))]
     if len(hits) != 1:
         return None, "nessuna carta giapponese del catalogo" if not hits else "ambigua"
     return hits[0], None
