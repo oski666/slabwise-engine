@@ -152,14 +152,34 @@ JA_SET_ALIAS = {"expansion pack": r"base\W*set|basic|拡張パック", "jungle":
                 "to have seen battle rainbow": r"battle\W*rainbow|sm3h", "shining legends": r"shining\W*legends|sm3\+"}
 
 
+# D231: Japanese promo series as titles write them ("XY Promo", "XY-P", "Sun & Moon Promo", "SM-P", "S-P Promo"...)
+JA_PROMO_SET = {"xy": r"xy", "sun moon": r"(?:sm|sun\W*(?:&|and)?\W*moon)", "sword shield": r"(?:s|swsh|sword\W*(?:&|and)?\W*shield)",
+                "scarlet violet": r"(?:sv|scarlet\W*(?:&|and)?\W*violet)", "mega evolution": r"(?:m|mega(?:\W*evolution)?)",
+                "black white": r"(?:bw|black\W*(?:&|and)?\W*white)", "diamond pearl": r"(?:dp|diamond\W*(?:&|and)?\W*pearl)"}
+
+
+def ja_promo_setre(set_name):
+    """D231: set regex of a Japanese promo series ("XY Promos" -> "xy promo" or "xy-p"), None for other sets."""
+    low = (set_name or "").lower().replace("black star", " ")
+    words = " ".join(w for w in re.findall(r"[a-z0-9]+", low) if w not in ("and", "japanese"))
+    m = re.fullmatch(r"(.+?) promos?", words)
+    rx = JA_PROMO_SET.get(m.group(1)) if m else None
+    return rf"\b{rx}\W*(?:black\W*star\W*)?promo|\b{rx}\W?p\b" if rx else None
+
+
 def ja_entry(en_name, ja_name, no, tot, set_en):
     """Title matcher entry for a Japanese counterpart (D134): English or Japanese name, number/total or #number + set."""
     alts = [name_re(en_name)]
+    if "-wearing" in en_name.lower():                       # D231: "Poncho-wearing Pikachu" is also "Poncho Wearing", "Poncho Pikachu"
+        alts.append(re.escape(en_name.lower()).replace(r"\-wearing", r"\W*(?:wearing\W*)?").replace(r"\ ", " ").replace("-wearing", r"\W*(?:wearing\W*)?"))
     if ja_name:                                           # "ルギアV" is written "ルギアv", "ルギア v", "ルギアV"
         m = re.match(r"(.*?)\s*(ex|gx|vmax|vstar|v)$", ja_name.lower())
         alts.append(re.escape(m.group(1)) + r"\s?" + m.group(2) if m else re.escape(ja_name.lower()))
     words = [w for w in re.findall(r"[a-z0-9]+", (set_en or "").lower()) if w not in ("the", "of", "and", "pokemon", "card", "japanese")]
     setre = r"\b" + r"\W*".join(map(re.escape, words)) + r"\b" if words else None
+    promo = ja_promo_setre(set_en)                         # D231
+    if promo:
+        return ["|".join(dict.fromkeys(alts)), int(no) if str(no).isdigit() else -1, -1, promo]
     alias = JA_SET_ALIAS.get(" ".join(words))              # D158: vintage Japanese sets go by their English names in titles
     if alias:                                             # Japanese words have no \b between them: no boundaries there
         asc = [a for a in alias.split("|") if re.match(r"^[\x00-\x7f]+$", a)]
@@ -195,8 +215,9 @@ def measure(it, key, min_sales=None):
     at.JA_CATALOGUE.pop(key, None)
     share = rec / n if n else 0.0
     out = dict(n=n, recognised=rec, share=round(share, 3), tc_id=it["id"], tc_set=it.get("set"), tc_url=it.get("url"), tc_type=it.get("cardType"))
-    if rec < min_sales or sum(v >= MIN_GRADE_SALES for v in by_grade.values()) < MIN_GRADES:
-        return dict(out, status="attesa_vendite", detail=f"{rec} vendite PSA riconosciute in 90 giorni (ne servono {min_sales}, con almeno {MIN_GRADE_SALES} in {MIN_GRADES} voti)")
+    min_grades = 1 if str(key).startswith("ja:") else MIN_GRADES   # D231: a Japanese card may trade in PSA 10 only
+    if rec < min_sales or sum(v >= MIN_GRADE_SALES for v in by_grade.values()) < min_grades:
+        return dict(out, status="attesa_vendite", detail=f"{rec} vendite PSA riconosciute in 90 giorni (ne servono {min_sales}, con almeno {MIN_GRADE_SALES} in {min_grades} vot{'o' if min_grades == 1 else 'i'})")
     if share < MIN_SHARE:
         return dict(out, status="attesa_coerenza", detail=f"{round(share * 100)}% dei titoli riconosciuti (serve il {round(MIN_SHARE * 100)}%)")
     return dict(out, status="pronta", detail=f"{rec} vendite PSA in 90 giorni")

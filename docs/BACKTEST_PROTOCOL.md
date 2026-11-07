@@ -712,3 +712,18 @@ Le carte con l'abbinamento sbagliato (D214 a) escono dalla coda in ogni caso: no
 **Adozione.** Tra i bracci che passano tutto, quello con l'errore Y3 più basso, come v1.21. Prova a valle: con la v1.21 si rifà il T3 del §39 (vendite con `SLABWISE_EN_RULES=1`): **Y8**, R1 = 0 e nessuna voce E2r in più rispetto alla v1.21 senza le regole; se passa, D216 si adotta. Se nessun braccio passa, resta la v1.20 e D216 resta spento. Il controllo a venire Y7 (§37, dal 14 novembre) vale anche per la v1.21.
 
 **Esito §40 (7 novembre 2026, D229): nessun braccio adottato, resta la v1.20 e D216 resta spento.** R: R1 0, E2r 2 voci (col1-4 PSA 10, dp3-15 PSA 7), Y5 109. **D**: Y1 sì; **Y2 no** (E2r 4 voci, in più ecard3-149 PSA 9 e ex7-105 PSA 9); Y3 sì (−0,03 punti [−0,04; −0,02]); **Y4 no** (copertura 87,7%, sopra il tetto dell'85%; R 87,6%); **Y5 no** (110 contro 109); **Y6 no** (4 voci lontani contro 2). **E**: Y1 sì; **Y2 no** (stesse 4 voci); Y3 sì (−0,02 punti [−0,04; −0,01]); **Y4 no** (87,7%); Y5 sì (108); **Y6 no** (4 contro 2). Y8 non eseguito (nessun braccio adottato). Solo riportato: la copertura all'80% della v1.20 sulle vendite di oggi è già 87,6%, sopra il tetto di Y4; la banda del motore risulta larga, da guardare con una prova registrata a parte.
+
+## 41. Titoli delle promo giapponesi e carte solo giapponesi (registrato il 7 novembre 2026, prima del codice; D231)
+
+**Domanda.** La regola nuova sui numeri delle promo giapponesi ("207/XY-P") e sui nomi dei set promo cambia il riconoscimento delle carte già nel catalogo?
+
+**Dati.** Tutti i titoli delle vendite tcgcharts che abbiamo (vendite recenti e storico lungo), con il catalogo giapponese di oggi.
+
+**Criteri** (tutti):
+- U1: nessun titolo che oggi va a una carta del catalogo cambia carta con la regola nuova.
+- U2: nessun titolo che oggi va a una carta del catalogo diventa "ambiguo" o non riconosciuto.
+- U3: i titoli in più riconosciuti per le carte del catalogo sono letti a mano su un campione di 20 (o tutti, se meno): nessuno di un'altra carta.
+
+**Adozione.** Se U1–U3 passano, la regola si accende e le carte solo giapponesi entrano in coda; ognuna passa poi i controlli di sempre (D97: vendite, titoli ≥ 60%, motore R1/E2r sul lotto, D213). Se una cade, la regola resta spenta e le carte solo giapponesi entrano in coda solo con i titoli "#numero" di oggi.
+
+**Esito §41 (7 novembre 2026): superato, la regola si accende.** 24.404 titoli giapponesi (vendite recenti e storico lungo). U1 sì: 0 titoli cambiano carta. U2 sì: 0 titoli persi o ambigui. U3 sì: 42 titoli in più riconosciuti per le carte del catalogo, tutti di Victini 288/SV-P ("288/SV-P" senza "#"); letti a mano i 20 del campione, tutti di quella carta. Risultati in `results/d231/titles.json`.

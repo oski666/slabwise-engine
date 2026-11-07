@@ -13,8 +13,9 @@ SERIES = [("basep", "Vintage"), ("base", "Vintage"), ("gym", "Vintage"), ("neo",
 # (sv2a, m2a, s6a, sm11b, xy8, bw7); the vintage sets have names in our ids (expansion-pack, jungle, mystery-of-the-fossils,
 # gold-silver-to-a-new-world, challenge-from-the-darkness...): Vintage. Until D211 every Japanese printing that was not
 # "ja:sm" was labelled "Contemporanea", vintage ones included.
-JA_SERIES = ((r"^ja:sv\d", "Contemporanea"), (r"^ja:m\d", "Contemporanea"), (r"^ja:s\d", "Contemporanea"),
-             (r"^ja:sm\d", "Moderna"), (r"^ja:xy\d", "Moderna"), (r"^ja:bw\d", "Di mezzo"))
+JA_SERIES = ((r"^ja:sv(?:\d|-p-)", "Contemporanea"), (r"^ja:m(?:\d|-p-)", "Contemporanea"), (r"^ja:s(?:\d|-p-)", "Contemporanea"),
+             (r"^ja:sm(?:\d|-p-)", "Moderna"), (r"^ja:xy(?:\d|-p-)", "Moderna"), (r"^ja:bw(?:\d|-p-)", "Di mezzo"),
+             (r"^ja:dp(?:\d|-p-)", "Di mezzo"))   # D231: the promo series (sv-p, m-p, s-p, sm-p, xy-p, bw-p, dp-p) too
 
 
 def series_of(cid):
@@ -23,4 +24,4 @@ def series_of(cid):
     return next((lab for pre, lab in SERIES if cid.startswith(pre)), "Altro")
 
 
-is_promo = lambda cid: bool(re.match(r"^[a-z]+p-", cid.split("/")[0])) or cid.startswith("svp-")  # noqa: E731  Black Star Promos
+is_promo = lambda cid: bool(re.match(r"^[a-z]+p-|^ja:[a-z]+-p-", cid.split("/")[0])) or cid.startswith("svp-")  # noqa: E731  Black Star Promos

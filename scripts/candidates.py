@@ -70,6 +70,25 @@ def tcgdex_id(card):
     return hits[0] if len(hits) == 1 else None
 
 
+RANK_JA = []                                          # D231: Japanese cards met in the ranking, in market-cap order
+JA_PROMO_CODE = {"XY": "xy-p", "Sun & Moon": "sm-p", "Sword & Shield": "s-p", "Scarlet & Violet": "sv-p", "Mega Evolution": "m-p",
+                 "Black & White": "bw-p", "Diamond & Pearl": "dp-p"}
+JA_OLD_SERIES = {"Original", "Neo", "Gym", "E-Card", "VS", "PCG", "Vending", "Other"}   # vintage: our ids from the set's name (D158)
+
+
+def ja_only_key(c):
+    """D231: our id for a Japanese card with no English twin: the promo series code ("ja:xy-p-207"), or for the older
+    series the set's tcgcharts name without "-japanese" ("ja:awakening-legends-129"), like the vintage twins (D158).
+    Modern expansions (no promo) get None: their codes are not on tcgcharts, and they mostly come as twins (D158)."""
+    st, no = c.get("set") or {}, str(c.get("cardNumber") or "").strip()
+    if not no:
+        return None
+    if (st.get("name") or "").endswith("Promos") and st.get("series") in JA_PROMO_CODE:
+        return f"ja:{JA_PROMO_CODE[st['series']]}-{no.zfill(3) if no.isdigit() else no.lower()}"
+    slug = (st.get("slug") or "").replace("-japanese", "")
+    return f"ja:{slug}-{no.lower()}" if slug and st.get("series") in JA_OLD_SERIES else None
+
+
 def ranking(top=None):
     top = top or TOP
     out, page = [], 1
@@ -77,6 +96,8 @@ def ranking(top=None):
         d = cr.get(f"{cr.TCG}/api/pokemon/cards?" + urllib.parse.urlencode(
             {"sort": "market_cap", "order": "desc", "limit": 100, "page": page, "language": "EN"}))
         out += [c for c in d["cards"] if c.get("languageCode") == "EN" and not c.get("variantType")]
+        RANK_JA.extend(c for c in d["cards"] if (c.get("languageCode") or "").upper() == "JA" and not c.get("variantType")
+                       and c["id"] not in {x["id"] for x in RANK_JA})          # D231: the Japanese cards of the same pages
         if not d["pagination"].get("hasNextPage"):
             break
         page += 1
@@ -204,6 +225,24 @@ def main():
             print(f"  {cid}: errore {str(e)[:80]}")
             continue
         print(f"  #{rank} {cid} {c['name']}: {queue[cid]['status']} {queue[cid].get('detail', '')}", flush=True)
+    # D231: Japanese cards of the ranking with no English twin enter the queue as cards of their own (D28); their
+    # sales check and the engine gate run in the Japanese prices workflow, all in one batch
+    known_tc = {str(r.get("tc_id")) for r in queue.values() if r.get("tc_id")}
+    known_tc |= {str(v.get("tc_id")) for v in cr_load(os.path.join(ROOT, "data", "raw", "tcgcharts", "cards.json"), {}).values()}
+    have_all_ja = {c["id"] for c in cr_load(os.path.join(DATA, "cards_ja.json"), [])}
+    n_ja = 0
+    for c in RANK_JA:
+        key = ja_only_key(c)
+        if not key or str(c["id"]) in known_tc or key in queue or key in have_all_ja:
+            continue
+        set_name = c["set"].get("name")
+        queue[key] = dict(id=key, lang="ja", en=None, name=f"{c['name']} (giapponese)", ja_name=None, set=set_name, no=c.get("cardNumber"),
+                          rank=c.get("marketCapRank"), pop10=c.get("psaGrade10"), pop9=c.get("psaGrade9"), tc_id=c["id"], tc_type="base",
+                          tc_url=f"/pokemon/{c['set'].get('slug')}/{c.get('slug')}", tc_set=set_name, set_en=set_name, ja_only=True,
+                          entry=cr.ja_entry(c["name"], None, c.get("cardNumber"), None, set_name),
+                          status="in_valutazione", detail="solo giapponese, dalla classifica (D231): si controllano le vendite", checked=today)
+        n_ja += 1
+    print(f"giapponesi senza gemella inglese messe in coda: {n_ja}", flush=True)
     # D139: eras whose indices have too few cards get extra checks, deeper in the ranking, before anything else waits
     from slabwise.series import series_of
     cnt = {}

@@ -149,7 +149,9 @@ def _set_ok(key, setre, t):
     return bool((setre and re.search(setre, t)) or (x and re.search(x, t)))
 
 
-NEW_JA_RULES = _os.environ.get("SLABWISE_JA_RULES", "1") == "1"   # D214: "0" gives the matcher before §38 (for the test)
+NEW_JA_RULES = _os.environ.get("SLABWISE_JA_RULES", "1") == "1"   # noqa: E501
+NEW_JA_PROMO = _os.environ.get("SLABWISE_JA_PROMO", "1") == "1"   # D231 (protocol §41 passed); "0" = the matcher before it
+_JA_PROMO_NO = re.compile(r"(?<![\d/])\b0*(\d{1,3})\s*/\s*(?:xy|sm|swsh|sv|bw|dp|s|m)\W?p\b")   # D214: "0" gives the matcher before §38 (for the test)
 
 
 def match_japanese(title: str):
@@ -162,6 +164,8 @@ def match_japanese(title: str):
     nums = {int(x) for x in re.findall(r"#\s*0*(\d+)", t)} | {int(x) for x in re.findall(r"\bno\.?\s*0*(\d+)\b", t)}   # D158: vintage "No. 006"
     nums |= {a for a, _ in pairs}                         # D168: "088/087" with the set named also counts as the number
     nums |= {int(x) for x in re.findall(r"(?<![\d/])\b0\d{2}\b(?!\s*/)", t)}   # D168: vintage labels "Base Set Japanese 003"
+    if NEW_JA_PROMO:                                      # D231: a promo number written "207/XY-P", "013/SM-P", "227/S-P"
+        nums |= {int(x) for x in _JA_PROMO_NO.findall(t)}
     hits = [k for k, (name, no, tot, setre) in JA_CATALOGUE.items() if re.search(name.replace("'", "") if NEW_JA_RULES else name, t)
             and ((no, tot) in pairs or (no in nums and _set_ok(k, setre, t)))]
     if len(hits) != 1:
