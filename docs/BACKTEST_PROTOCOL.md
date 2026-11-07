@@ -679,3 +679,14 @@ Se passano entrambi, si adotta quello con l'errore Y3 più basso; se ne passa un
 Le carte con l'abbinamento sbagliato (D214 a) escono dalla coda in ogni caso: non dipende da questa prova.
 
 **Esito (7 novembre 2026, D214).** Adottate. T1: su 14.252 titoli giapponesi distinti (vendite tcgcharts e storico, più le 10 carte della diagnosi, con 105 stampe nel riconoscitore) 0 titoli passano da una carta a un'altra, ambigui 1 → 1, nessun titolo perso; 462 titoli riconosciuti in più, uno solo su una carta diversa da quella di tcgcharts (un "SV2a Japanese #168 Charmander" che tcgcharts ha messo sulla Charmander inglese: il titolo è giapponese, il nostro riconoscimento è giusto e nel build quella vendita resta fuori). T2: letti tutti i titoli distinti in più delle 10 carte (Clefairy M3, Victini SV-P, Zekrom SV11B, Mewtwo GX Shining Legends, Kyogre EX Double Crisis): tutti della carta giusta; letto anche un campione dei titoli in più delle giapponesi già sul sito, tutti giusti. T3: vendite giapponesi del sito 43.620 → 44.765; `real_r1.py --adopted --v120` R1 0 e E2r 0 sia prima sia dopo.
+
+## 39. Titoli inglesi: trattini, tag team a tre, sottoinsiemi, promo senza prefisso (registrato il 7 novembre 2026, prima del codice; D216)
+
+**Domanda.** Le quattro regole nuove del riconoscitore inglese (D216) fanno riconoscere più vendite della carta giusta senza attribuire vendite alla carta sbagliata?
+
+**Modifica.** In `slabwise/sources/auction_titles.py` (titoli inglesi) e `scripts/card_requests.py` (nomi delle candidate): le regole (1)–(4) di D216, accese da `SLABWISE_EN_RULES` ("1", default; "0" per la prova). Nome, set e numero restano obbligatori come oggi; gli anni anche.
+
+**Criteri** (tutti, altrimenti non si adotta).
+- **T1, nessuna carta sbagliata**: su tutti i titoli inglesi delle vendite tcgcharts e dello storico, con nel riconoscitore tutte le carte del catalogo più le 14 candidate della diagnosi, 0 titoli che passano da una carta a un'altra; i titoli "ambigui" non aumentano.
+- **T2, lettura a mano**: leggo un campione di 10 titoli distinti riconosciuti in più per ognuna delle 14 candidate (tutti, se sono meno di 10) e un campione di 40 titoli riconosciuti in più sulle carte del catalogo; se anche uno solo descrive un'altra carta (altro numero, altra stampa, altra lingua, lotto), non si adotta.
+- **T3, prezzi del sito**: con le vendite riconosciute in più, `real_r1.py --adopted --v120` non dà voci R1 o E2r nuove.
