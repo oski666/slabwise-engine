@@ -68,19 +68,19 @@ jobs:
           printf '%s' "$EPN_CAMPAIGN_ID" > ~/.slabwise/epn_campaign_id
       - name: Sales (base + Alt + tcgcharts with the long history, D82, D210)
         run: SLABWISE_TC_HISTORY=1 PYTHONPATH=. python scripts/build_sales.py data/raw/sales_base.csv data/raw/alt data/raw/sales_all.csv data/raw/tcgcharts
-      - name: Indices with the long history (D149, protocol §29; same sales as the prices since D210)
-        continue-on-error: true          # if it fails, yesterday's index_full.json stays
-        timeout-minutes: 40
-        run: |
-          SLABWISE_TC_HISTORY=1 SLABWISE_OUT=/tmp/real_hist.json PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json
-          PYTHONPATH=. python scripts/index_full_extract.py /tmp/real_hist.json
       - name: The tap from the GemRate reads (D190)
         continue-on-error: true
         run: |
           if [ -f data/raw/gemrate/sets.json ]; then PYTHONPATH=. python scripts/gemrate_tap.py data/raw/gemrate/sets.json data/raw/sales_all.csv data/raw/gemrate/tap.json; fi
-      - name: Values
+      - name: Calibration cache (D228)
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/slabwise/calib
+          key: calib-${{ github.run_id }}
+          restore-keys: calib-
+      - name: Values and indices with the long history in one run (D149, D228)
         run: |
-          PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json
+          SLABWISE_TC_HISTORY=1 SLABWISE_INDEX_SELF=1 PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json
           mkdir -p /tmp/out && cp prototype/data/real.json /tmp/out/real.json   # D227: the values of this run, kept apart from git
       - name: Coherence checks (D211)
         continue-on-error: true

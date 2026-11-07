@@ -424,7 +424,15 @@ ENGINE = ("LVM v1.20" if params.grade_jump and params.step_t > 0 else "LVM v1.15
 # D149: indices computed with the long history (protocol §29), when the daily run has written them
 _if = os.path.join(HERE, "data", "index_full.json")
 index_source = None
-if os.path.exists(_if) and not os.environ.get("SLABWISE_TC_HISTORY") and os.environ.get("SLABWISE_INDEX_FULL", "1") == "1":
+if os.environ.get("SLABWISE_INDEX_SELF") == "1" and os.environ.get("SLABWISE_TC_HISTORY") == "1":
+    # D228: this run has the long history, so it trims its own indices (same rule as index_full_extract.py)
+    from slabwise.index_full import extract as _extract_full
+    _full = _extract_full(dict(indexes=indexes, index_all=index_all, index_sets=index_sets, asof=str(asof), index_base=wk(index_base_w)))
+    json.dump(_full, open(_if, "w"), separators=(",", ":"))
+    indexes, index_all, index_sets = _full["indexes"], _full["index_all"], _full["index_sets"]
+    index_base_w = None
+    index_source = dict(kind="storico", asof=_full.get("asof"), base=_full.get("index_base"))
+elif os.path.exists(_if) and not os.environ.get("SLABWISE_TC_HISTORY") and os.environ.get("SLABWISE_INDEX_FULL", "1") == "1":
     _full = json.load(open(_if))
     if set(_full["indexes"]) <= set(series_names):          # D154: a file from the old groups is not used
         indexes, index_all, index_sets = _full["indexes"], _full["index_all"], _full["index_sets"]
