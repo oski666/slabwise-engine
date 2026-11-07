@@ -65,7 +65,8 @@ EXCLUDE = re.compile(
     r"|\blot\b|collection \(|\(\d+\)|\bset of\b|complete set|sealed|unopened|booster|\bpack\b|\bbox\b"
     r"|jumbo|oversize|celebrations|classic collection|(?<!prismatic )evolutions|expedition|base set 2|base set ii\b|base ii\b|legendary collection"
     r"|signed|sketch|autograph|psa/dna|authentic|\bauto\b|topps|sticker|bandai|metal|\bgold\b(?! star)|staff|prerelease"
-    r"|stamp|\berror\b|misprint|miscut|no set symbol|no symbol|\bproof\b|test print|\bdeck\b|reverse|cosmos|trainer kit|\bbgs\b|\bcgc\b|\bsgc\b")
+    r"|stamp|\berror\b|misprint|miscut|no set symbol|no symbol|\bproof\b|test print|\bdeck\b|reverse|cosmos|trainer kit|\bbgs\b|\bcgc\b|\bsgc\b"
+    r"|\bpsa\s*(?:10|[1-9](?:\.5)?)\s*\(?\s*(?:oc|mk|st|pd|mc)\b")   # D221: qualified grades (off-centre, marks, stain...) are not the grade
 NUM = re.compile(r"#\s*0*(\d+)|\b0*(\d+)\s*/\s*\d+")
 NUM_PREFIX = re.compile(r"\b(sv|tg|gg|rc|sh|sl|h|hgss|dp|bw|xy|sm|swsh)\s*0*(\d+)\b")     # SV49/SV94, TG05/TG30, GG44/GG70; D150: H9/H32 (Skyridge, Aquapolis), SL10 (Call of Legends); D153: promo numbers HGSS03, DP38, BW54, XY121, SM60, SWSH050
 
@@ -113,7 +114,8 @@ JP_CHARS = re.compile(r"[\u3040-\u30ff\u4e00-\u9fff]")
 JA_EXCLUDE = re.compile(
     r"\blot\b|\(\d+\)|まとめ|セット売り|未開封|box|ボックス|(?<!拡張)パック|(?<!expansion )\bpack\b|sealed|signed|サイン|proxy|プロキシ|"
     r"\bbgs\b|\bcgc\b|\bsgc\b|\bars\b|korean|chinese|韓国|中国|簡体|繁体"
-    r"|no\W*rarity|マークなし")                  # D158/D166: No Rarity is a variant of its own, not the regular printing
+    r"|no\W*rarity|マークなし"                   # D158/D166: No Rarity is a variant of its own, not the regular printing
+    r"|\bpsa\s*(?:10|[1-9](?:\.5)?)\s*\(?\s*(?:oc|mk|st|pd|mc)\b")   # D221: qualified grades are not the grade
 NUM_TOT = re.compile(r"0*(\d+)\s*/\s*0*(\d+)")
 
 
