@@ -23,7 +23,7 @@ jobs:
   add:
     if: github.event_name == 'workflow_dispatch' || (contains(github.event.issue.labels.*.name, 'candidate') && github.event.sender.login == github.repository_owner)
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 180          # a big batch never stops halfway (7 Nov)
     steps:
       - uses: actions/checkout@v4
         with:
