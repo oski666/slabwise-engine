@@ -63,7 +63,8 @@ def tcgdex(lang, cid):
 
 
 def tc_find(card, lang, en_name=None, en_set=None):
-    q = f"{en_name or card['name']} {int(card['no']) if card['no'].isdigit() else card['no']}" + (" japanese" if lang == "ja" else "")
+    no = int(card['no']) if card['no'].isdigit() else re.sub(r"^([A-Za-z]+)0+(\d)", r"\1\2", card['no'])   # D219: "H09" is "H9" there
+    q = f"{en_name or card['name']} {no}" + (" japanese" if lang == "ja" else "")
     items = []
     for line in get(f"{TCG}/api/search?" + urllib.parse.urlencode({"q": q}), raw=True).splitlines():
         try:
@@ -76,17 +77,29 @@ def tc_find(card, lang, en_name=None, en_set=None):
     want = "JA" if lang == "ja" else "EN"
     cands = [it for it in items if it.get("type") == "card" and it.get("cardType") == "base" and not it.get("variantType")
              and (it.get("languageCode") or "").upper() == want and num_key(it.get("cardNumber")) == num]
-    hint = norm(en_set or card["set"])
+    hint = norm(SET_ALIAS.get(en_set or card["set"], en_set or card["set"]))
+    exact = [it for it in cands if hint and norm(it.get("set")) == hint]          # D219: "Dragon" is not "Dragon Frontiers"
+    if len(exact) == 1:
+        return exact[0]
     same_set = [it for it in cands if hint and (hint in norm(it.get("set")) or norm(it.get("set")) in hint)]
     return same_set[0] if len(same_set) == 1 else None
+
+
+SET_ALIAS = {"SVP Black Star Promos": "Scarlet & Violet Black Star Promos"}   # D219: TCGdex and tcgcharts names of the same set
 
 
 def name_re(name):
     """Title regex for a card name. Sellers mostly leave out the δ of delta species cards ("Rayquaza 16/110 Holon
     Phantoms"): the set and the number already tell them apart, so the name keeps only the Pokémon."""
     n = re.sub(r"\s*(?:[δ☆★]|\bstar\b)\s*", " ", name.lower()).strip()            # gold star: "Charizard ☆"
+    if at.NEW_EN_RULES:                                   # D216: "Charizard-GX" is "Charizard GX"
+        n = re.sub(r"-(gx|ex|vmax|vstar|v)\b", r" \1", n)
+    m3 = re.match(r"(.+?)\s*&\s*(.+?)\s*&\s*(.+?)(\s+(?:gx|ex|v|vmax|legend))?$", n) if at.NEW_EN_RULES else None
     m = re.match(r"(.+?)\s*&\s*(.+?)(\s+(?:gx|ex|v|vmax|legend))?$", n)
-    if m:                                                 # D168: tag teams are written in both orders ("Latios & Latias")
+    if m3:                                                # D216: three names, in the printed order, "&" or "and" or nothing
+        parts = [re.escape(x) for x in m3.groups()[:3]]
+        r = (r"\s*(?:&|and)?\s*".join(parts) + re.escape(m3.group(4) or "")).replace(r"\ ", " ")
+    elif m:                                                 # D168: tag teams are written in both orders ("Latios & Latias")
         a, b, suf = re.escape(m.group(1)), re.escape(m.group(2)), re.escape(m.group(3) or "")
         r = rf"(?:{a}\s*(?:&|and)\s*{b}|{b}\s*(?:&|and)\s*{a}){suf}".replace(r"\ ", " ")
     else:

@@ -4,9 +4,9 @@ general indices (is_promo)."""
 import re
 
 ERAS = ["Vintage", "Classica", "Di mezzo", "Moderna", "Contemporanea"]
-SERIES = [("basep", "Vintage"), ("base", "Vintage"), ("gym", "Vintage"), ("neo", "Vintage"), ("si", "Vintage"),
-          ("ecard", "Classica"), ("ex", "Classica"), ("pop", "Classica"),
-          ("dp", "Di mezzo"), ("pl", "Di mezzo"), ("hgss", "Di mezzo"), ("col", "Di mezzo"), ("bw", "Di mezzo"),
+SERIES = [("basep", "Vintage"), ("base", "Vintage"), ("gym", "Vintage"), ("neo", "Vintage"), ("si", "Vintage"), ("bog", "Vintage"),
+          ("ecard", "Classica"), ("ex", "Classica"), ("pop", "Classica"), ("np", "Classica"),
+          ("dp", "Di mezzo"), ("pl", "Di mezzo"), ("hgss", "Di mezzo"), ("col", "Di mezzo"), ("bw", "Di mezzo"), ("ru1", "Di mezzo"),
           ("xy", "Moderna"), ("g1", "Moderna"), ("dc", "Moderna"), ("sm", "Moderna"),
           ("swsh", "Contemporanea"), ("cel", "Contemporanea"), ("sv", "Contemporanea"), ("me", "Contemporanea")]
 # D211: Japanese printings follow the era of their English counterparts. Modern Japanese set codes are short codes

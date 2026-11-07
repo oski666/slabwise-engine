@@ -26,3 +26,9 @@ def test_d211_japanese_site_eras():
     assert series_of("ja:sv2a-201") == "Contemporanea"
     assert series_of("ja:s6a-095") == "Contemporanea"
     assert series_of("ja:sm9-103") == "Moderna"
+
+
+def test_d217_old_sets_have_an_era():
+    from slabwise.series import series_of
+    assert era_of("np-39", {}) == era_of("ru1-7", {}) == era_of("bog-8", {}) == "wotc"
+    assert (series_of("np-39"), series_of("bog-8"), series_of("ru1-7")) == ("Classica", "Vintage", "Di mezzo")

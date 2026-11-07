@@ -59,6 +59,7 @@ PREFIX_ERA = (("ja:mystery-of-the-fossils", "wotc"),                       # D18
               ("svp", "sv"), ("sv", "sv"), ("me", "sv"),
               # D117: older eras without their own pool join the nearest one; the R1/E2 gate of each card decides
               ("ecard", "wotc"), ("ex", "wotc"), ("pop", "wotc"), ("si", "wotc"),   # D150: POP Series, Southern Islands
+              ("np", "wotc"), ("ru1", "wotc"), ("bog", "wotc"),   # D217: Nintendo promos (2003-06), Pokémon Rumble (2009), Best of Game (2002)
                ("dp", "wotc"), ("pl", "wotc"), ("hgss", "wotc"), ("col", "wotc"),
               ("bw", "sm_swsh"), ("xy", "sm_swsh"), ("g1", "sm_swsh"), ("dc", "sm_swsh"), ("cel", "sm_swsh"))
 

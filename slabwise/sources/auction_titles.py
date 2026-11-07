@@ -167,6 +167,21 @@ def match_japanese(title: str):
     return hits[0], None
 
 
+NEW_EN_RULES = _os.environ.get("SLABWISE_EN_RULES", "0") == "1"   # D216 (protocol §39): failed T3, off; "1" to test again
+_SEP = r"\W*(?:(?:of|the|and)\W*)?"
+_SUBSETS = [_SEP.join(w) + r"\b" for w in (("shiny", "vault"), ("galarian", "gallery"), ("trainer", "gallery"), ("radiant", "collection"))]
+_PARENT = {}
+_PROMO_START = {"xy": 2013, "sm": 2017, "swsh": 2019, "bw": 2011, "hgss": 2010, "dp": 2007, "sv": 2023}   # D216 (5): PSA's year for a series' promos
+_HYPH = re.compile(r"\\-(?=(?:gx|ex|vmax|vstar|v)\b)")
+
+
+def _parent_set(setre):
+    """D216: "Crown Zenith Galarian Gallery" also as "Crown Zenith" (the GG/SV/TG/RC number already names the subset)."""
+    if setre not in _PARENT:
+        _PARENT[setre] = next((setre[:-len(_SEP + x)] + r"\b" for x in _SUBSETS if setre.endswith(_SEP + x)), None)
+    return _PARENT[setre]
+
+
 def match_title(title: str):
     """Return (card_key, None) or (None, reason). Japanese titles go to the Japanese catalogue."""
     if is_japanese(title):
@@ -174,18 +189,26 @@ def match_title(title: str):
     t = " ".join(title.lower().replace("’", "'").split())
     if EXCLUDE.search(t):
         return None, "esclusa (lingua, lotto, sigillato, firmata, ristampa...)"
+    if NEW_EN_RULES:                                      # D216: "charizard-gx" is "charizard gx"
+        t = re.sub(r"-(gx|ex|vmax|vstar|v)\b", r" \1", t)
     years = {int(y) for y in YEAR.findall(t)}
     nums = {int(a or b) for a, b in NUM.findall(t)} | {p + n for p, n in NUM_PREFIX.findall(t)}
     hits = []
     for cid, (name, setre, no, yrs) in CATALOGUE.items():
-        if not re.search(name, t):
+        if not re.search(_HYPH.sub(" ", name) if NEW_EN_RULES else name, t):
             continue
         if setre and not re.search(setre, t):
-            continue
-        if years and not years & set(yrs):
+            par = _parent_set(setre) if NEW_EN_RULES and isinstance(no, str) else None
+            if not (par and re.search(par, t)):
+                continue
+        if years and not years & set(yrs) and not (NEW_EN_RULES and setre == r"\bpromo" and isinstance(no, str)
+                                                   and years & {_PROMO_START.get(re.match(r"[a-z]+", no).group(0))}):
             continue
         if not nums or no not in nums:
-            continue
+            # D216: a promo number with its prefix ("swsh75") also as the bare number when the prefix is a word of the title
+            pm = re.fullmatch(r"(swsh|sm|xy|bw|dp|hgss)(\d+)", no) if NEW_EN_RULES and isinstance(no, str) and setre == r"\bpromo" else None
+            if not (pm and int(pm.group(2)) in nums and re.search(rf"\b{pm.group(1)}\b", t)):
+                continue
         hits.append(cid)
     if len(hits) != 1:
         return None, "nessuna carta del catalogo" if not hits else "ambigua"

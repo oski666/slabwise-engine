@@ -173,7 +173,7 @@ def main():
     for cid, r in sorted(queue.items(), key=lambda kv: kv[1].get("rank") or 9999):     # the waiting ones, once a week
         if checks >= CHECKS // 2:
             break
-        if r["status"] in ("attesa_vendite", "attesa_coerenza", "non_trovata") and \
+        if r["status"] in ("attesa_vendite", "attesa_coerenza", "non_trovata", "attesa_era") and \
                 (date.fromisoformat(today) - date.fromisoformat(r["checked"])).days >= RECHECK_DAYS:
             try:
                 queue[cid] = check(cid, r)
