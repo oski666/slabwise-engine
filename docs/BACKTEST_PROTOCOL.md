@@ -664,3 +664,16 @@ Se passano entrambi, si adotta quello con l'errore Y3 più basso; se ne passa un
 **Criteri.** Y1–Y6 del §36, identici, braccio C contro lo stesso riferimento (sito di oggi). Si adotta C solo se li passa tutti; poi Y7 (prospettica, dopo almeno 2.000 vendite nuove) è obbligatoria. Il braccio A si riesegue solo come confronto e non si può adottare. Script `scripts/grade_jump_test.py`, workflow `prova-salti-voto.yml`; risultati in `results/gradejump/summary.json`.
 
 **Esito (6 novembre 2026, D210).** Braccio C adottato come v1.20. C: Y1 0 voci; Y2 0 voci; Y3 −0,28 punti [−0,40; −0,18]; Y4 73,9% → 83,5%; Y5 111 → 82; Y6 33 → 0. A (solo confronto): come nel §36, Y2 4 voci. Y7 (prospettica) da eseguire appena ci sono almeno 2.000 vendite dopo il 6 novembre.
+
+## 38. Titoli giapponesi: sigla e nome giapponese del set, trattini e apostrofi (registrato il 7 novembre 2026, prima del codice; D214)
+
+**Domanda.** Le tre regole nuove del riconoscitore dei titoli giapponesi (D214) fanno riconoscere più vendite della carta giusta senza attribuire vendite alla carta sbagliata?
+
+**Modifica.** Nel riconoscitore (`slabwise/sources/auction_titles.py`, voci del catalogo giapponese): (1) il set vale anche se il titolo contiene la sigla del nostro codice (`ja:m3-086` → "m3", `ja:sv11b-169` → "sv11b", `ja:sv-p-288` → "sv-p"), come parola intera; le sigle dei set con nome (vintage) non si usano; (2) il set vale anche se il titolo contiene il nome giapponese del set della nostra scheda; (3) nel titolo un trattino prima di gx, ex, v, vmax, vstar vale uno spazio e gli apostrofi si ignorano, anche nel nome della carta. Numero e nome restano obbligatori come oggi.
+
+**Criteri** (tutti, altrimenti non si adotta).
+- **T1, nessuna carta sbagliata**: su tutti i titoli giapponesi delle vendite del sito (`sales_all` costruito come nel build) e sui titoli delle 10 carte della diagnosi, 0 titoli che passano da una carta del catalogo a un'altra; i titoli "ambigui" non aumentano.
+- **T2, lettura a mano**: leggo tutti i titoli distinti riconosciuti in più sulle 10 carte della diagnosi; se anche uno solo descrive un'altra carta (altra stampa, altro numero, altra lingua, lotto), non si adotta.
+- **T3, prezzi delle giapponesi già sul sito**: con le vendite riconosciute in più, il controllo del motore del sito (`real_r1.py --adopted --v120`, D213) non dà voci R1 o E2r nuove sulle giapponesi.
+
+Le carte con l'abbinamento sbagliato (D214 a) escono dalla coda in ogni caso: non dipende da questa prova.
