@@ -281,6 +281,20 @@ function sectionWrap(id, word, inner, next, top) {
   return `<section class="cs" id="sec-${id}" data-sec-id="${id}"><span class="wm" aria-hidden="true">${word}</span>${top ? `<span class="wm wm-top" aria-hidden="true">${top}</span>` : ""}
     ${twinkle(84, 74, 1)}${twinkle(91, 14, 2, "s")}${twinkle(6, 88, 3, "p")}${inner}${next ? chevron(next) : ""}${corner()}</section>`;
 }
+/* 7 Nov: what Slabby says in the hero, in turn: real facts of today's data, each only when the data is there */
+function slabbyFacts() {
+  const out = [], c = topCard(), g = c && gradeOf(c, 10);
+  if (g) out.push(tx(`Psst! ${c.name} in PSA 10 oggi vale ${usd(g.value)}. Toccami e ti spiego come lo calcoliamo.`, `Psst! ${c.name} in PSA 10 is worth ${usd(g.value)} today. Tap me and I'll show you how we work it out.`));
+  const mv = D.cards.map(x => [x, gradeOf(x, 10)]).filter(([x, y]) => y && !noOwn(y) && y.ch30 != null && tierK(y) === "hi").sort((a, b) => b[1].ch30 - a[1].ch30);
+  if (mv.length && mv[0][1].ch30 > 0.02) out.push(tx(`${mv[0][0].name} in PSA 10 è salita del ${pct(mv[0][1].ch30, false)} in 30 giorni: la più veloce del mese.`, `${mv[0][0].name} in PSA 10 is up ${pct(mv[0][1].ch30, false)} in 30 days: the fastest this month.`));
+  if (mv.length && mv[mv.length - 1][1].ch30 < -0.02) { const [x, y] = mv[mv.length - 1]; out.push(tx(`${x.name} in PSA 10 ha perso il ${pct(Math.abs(y.ch30), false)} in 30 giorni. Occasione o trappola?`, `${x.name} in PSA 10 lost ${pct(Math.abs(y.ch30), false)} in 30 days. Bargain or trap?`)); }
+  const gems = D.cards.filter(x => x.rarity_price && x.rarity_price.gem).length;
+  if (gems) out.push(tx(`Oggi abbiamo trovato ${gems} gemme nascoste: PSA 10 rari e meno cari della loro era. Le trovi in Gemme nascoste.`, `Today we found ${gems} hidden gems: PSA 10s that are rare and cheaper than their era. See Hidden Gems.`));
+  const n30 = D.cards.reduce((t, x) => t + x.grades.reduce((u, y) => u + (y.n30 || 0), 0), 0);
+  if (n30) out.push(tx(`Negli ultimi 30 giorni abbiamo controllato ${nf0.format(n30)} vendite PSA, una per una.`, `In the last 30 days we checked ${nf0.format(n30)} PSA sales, one by one.`));
+  out.push(tx("Lo SlabRange è dove finiscono 8 vendite su 10: se un annuncio sta sotto, guardalo bene.", "The SlabRange is where 8 sales in 10 land: if a listing sits below it, look closely."));
+  return out;
+}
 const topCard = () => { const sure = D.cards.filter(c => tierK(c.grades[0]) === "hi");   // only a well-measured value goes in Slabby's mouth
   return [...(sure.length ? sure : D.cards)].sort((a, b) => shown(b.grades[0]) - shown(a.grades[0]))[0]; };
 /* data URI -> short blob URL, so the same picture can sit many times in the page without copying its bytes */
@@ -292,6 +306,15 @@ function blobOf(u) {
   try { const [h, b] = u.split(","), bin = atob(b), arr = new Uint8Array(bin.length); for (let k = 0; k < bin.length; k++) arr[k] = bin.charCodeAt(k);
     out = URL.createObjectURL(new Blob([arr], {type: h.slice(5).split(";")[0]})); } catch (e) { out = u; }
   _blobs.set(u, out); return out;
+}
+/* 7 Nov (D223, D224): the hero introduces the SlabRange on a real card, a different one at every visit, among well-measured
+   PSA 10s with at least 5 sales in 30 days: its Slabprice, the band where 8 sales in 10 land, its real sales of the month */
+function heroRange() {
+  const pool = D.cards.filter(c => { const g = gradeOf(c, 10); return c.lang !== "ja" && g && !noOwn(g) && g.slo && g.q30 && tierK(g) === "hi"; });
+  if (!pool.length) return "";
+  const c = pool[Math.floor(Math.random() * pool.length)], g = gradeOf(c, 10), [lo, hi] = SR(g);
+  return `<a class="h-tag h-range" href="#c-${c.id}"><span class="hr-t">${tx(`<b>${esc(c.name)}</b> PSA 10: Slabprice ${usd(g.value)}`, `<b>${esc(c.name)}</b> PSA 10: Slabprice ${usd(g.value)}`)}</span>
+    ${fork(g, true)}<span class="hr-s">${tx(`SlabRange ${usd(lo)}–${usd(hi)}: qui finiscono 8 vendite su 10`, `SlabRange ${usd(lo)}–${usd(hi)}: where 8 sales in 10 land`)}</span></a>`;
 }
 function comicHero() {
   const ids = ["swsh7-215", "base1-4", "sv03.5-199", "neo1-9", "svp-085", "me02-125"].filter(id => cardById[id]);
@@ -305,8 +328,7 @@ function comicHero() {
   const panels = wallCards.length ? `<div class="wall7" id="wall7" aria-hidden="true">${Array.from({length: NC}, (_, k) => { const cs = colCards(k);
     const cell = c => `<a href="#c-${c.id}" tabindex="-1"><img src="${blobOf(c.img || c.thumb)}" alt="" loading="lazy" decoding="async" data-id="${c.id}"></a>`;
     return `<div class="col" data-k="${k}" style="--t:${150 + (k % 4) * 22}s;--dl:-${(k * 37) % 120}s">${cs.map(cell).join("")}${cs.map(cell).join("")}</div>`; }).join("")}</div><span class="wall7-tint"></span><span class="wall7-dots"></span>` : "";
-  const caps = [[2, "cap3"]].filter(([k]) => ids[k]).map(([k, cls], i) => { const c = cardById[ids[k]], g = gradeOf(c, 10);
-    return `<a class="cap ${cls}" href="#c-${c.id}" style="--i:${i}" tabindex="-1"><b>${esc(c.name)}</b><span>${usdV(g)}</span></a>`; }).join("");
+  const caps = "";                                     // 7 Nov (Oscar): no fixed sticker to one card in the hero
   const vb = (document.getElementById("slabby-smug") || {getAttribute: () => "0 0 200 200"}).getAttribute("viewBox");
   const h1 = tx("Vuoi sapere quanto<br>vale la tua carta?", "Want to know what<br>your card is worth?");
   return `<section class="cs hero7" id="sec-home" data-sec-id="home">
@@ -314,7 +336,7 @@ function comicHero() {
     <div class="burst7" aria-hidden="true"><i></i></div>
     <figure class="h-char" id="hchar"><p class="h-say" id="hsay" aria-live="off"></p><svg viewBox="${vb}" aria-hidden="true"><use href="#slabby-smug"/></svg></figure>
     <div class="h-left"><div class="h-sticker"><span class="play" aria-hidden="true"></span><h1 aria-label="${h1.replace("<br>", " ")}">${words(h1)}</h1>
-      <p class="h-tag">${tx("<b>Prezzi reali</b> + SlabRange", "<b>Real prices</b> + SlabRange")}</p></div>
+      ${heroRange()}</div>
     <div class="h-name"><b class="h-kana" lang="ja" aria-hidden="true" style="--i:0">グレーディング相場</b><span style="--i:1">${tx("Valori delle carte", "Values of graded")}</span><span style="--i:2">${tx("Pokémon gradate", "Pokémon cards")}</span></div>
     <div class="h-buttons">
       <a class="nbtn" href="#mercato" data-sec="slab" style="--i:0"><b>${t("catalog")}</b><small>${plural(D.cards.length, tx("carta seguita", "card tracked"), tx("carte seguite", "cards tracked"))}</small></a>
@@ -376,7 +398,7 @@ function starInner() {
     <div class="star-words" aria-hidden="true"><span>${esc(w[0])}</span><span class="blue">${esc(w.slice(1).join(" ") || "PSA 10")}</span></div>
     <a class="star-slab" href="#c-${c.id}" aria-label="${tx("Apri", "Open")} ${esc(c.name)}">${slab(c, 10, 300)}</a>
     <div class="star-name"><span style="--i:0">${esc(c.name)}</span><span style="--i:1">PSA 10 · ${usdV(g)}</span></div>
-    <p class="star-meta">${esc(c.set)} · SlabRange ${usd(g.lo)}–${usd(g.hi)} · ${nf0.format(c.n_sales || g.sales90)} ${tx("vendite", "sales")}</p>
+    <p class="star-meta">${esc(c.set)} · SlabRange ${usd(SR(g)[0])}–${usd(SR(g)[1])} · ${nf0.format(c.n_sales || g.sales90)} ${tx("vendite", "sales")}</p>
     <div class="star-pick" role="group" aria-label="${tx("Scegli la carta in evidenza", "Choose the featured card")}">
       <button class="arrow" data-star="-1" aria-label="${tx("Precedente", "Previous")}">‹</button>
       ${list.map(x => `<button class="thumbbtn" data-star-id="${x.id}" aria-pressed="${x.id === c.id}" aria-label="${esc(x.name)}"><img src="${x.thumb || x.img}" alt=""></button>`).join("")}
@@ -898,7 +920,7 @@ function chart(g, sales) {
   const dots = pts.map(s => { const vy = Math.min(Math.max(y(Math.min(Math.max(s.price, lo), hi)), T), H - B), ok = s.pgen >= 0.5;
     return `<circle class="s${ok ? "" : " bad"}" cx="${x(s.date)}" cy="${vy}" r="5" fill="${ok ? "var(--ink)" : "var(--coral)"}" stroke="var(--paper)" stroke-width="1.5"><title>${dateF(s.date)} · ${usd(s.price)} · ${tx("attendibile al", "genuine at")} ${Math.round(s.pgen * 100)}%${s.why ? " · " + rsn(s.why) : ""}</title></circle>`; }).join("");
   const last = h[h.length - 1];
-  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${tx("Slabprice con SlabRange e vendite", "Slabprice with SlabRange and sales")}">${grid}
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${tx("Slabprice, quanto ne siamo sicuri e vendite", "Slabprice, how sure we are, and sales")}">${grid}
     <polygon points="${band}" fill="var(--brand-soft)" stroke="var(--brand)" stroke-width="1.5" stroke-linejoin="round" opacity=".9"/>
     <polyline points="${h.map(r => `${x(r[0])},${y(r[1])}`).join(" ")}" fill="none" stroke="var(--brand)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
     ${dots}<circle cx="${x(last[0])}" cy="${y(last[1])}" r="8" fill="var(--sun)" stroke="var(--edge)" stroke-width="2.5"/></svg>`;
@@ -1024,7 +1046,8 @@ function storyText(s) {
   const c = s.card ? cardById[s.card] : null;
   const hook = storyHook(s, c);
   const Lx = {
-    mover: [tx(`Slabprice oggi ${usd(s.value)}, SlabRange ${usd(s.lo)}–${usd(s.hi)}.`, `Slabprice today ${usd(s.value)}, SlabRange ${usd(s.lo)}–${usd(s.hi)}.`), tx("La terresti o la venderesti? Scrivilo nei commenti.", "Would you keep it or sell it? Tell us in the comments.")],
+    mover: [(() => { const gg = c && gradeOf(c, s.grade || 10), [a, b] = gg ? SR(gg) : [s.lo, s.hi];
+      return tx(`Slabprice oggi ${usd(s.value)}, SlabRange ${usd(a)}–${usd(b)}.`, `Slabprice today ${usd(s.value)}, SlabRange ${usd(a)}–${usd(b)}.`); })(), tx("La terresti o la venderesti? Scrivilo nei commenti.", "Would you keep it or sell it? Tell us in the comments.")],
     deal: [tx(`In Italia ti costa ${eur(s.landed_eur)} e ne vale ${eur(s.value_eur)}${s.origin === "UE" ? ", senza dogana perché arriva dall'UE" : ""}.`, `Landed in Italy it costs ${eur(s.landed_eur)} and is worth ${eur(s.value_eur)}${s.origin === "UE" ? ", no customs since it ships from the EU" : ""}.`), tx("La compreresti? Scrivilo nei commenti.", "Would you buy it? Tell us in the comments.")],
     caught: [tx(`Il valore di questo PSA ${s.grade} è ${usd(s.value)}: quella vendita era ${s.price < s.value ? "troppo bassa" : "troppo alta"}. Motivo: ${s.why}.`, `This PSA ${s.grade} is worth ${usd(s.value)}: that sale was ${s.price < s.value ? "too low" : "too high"}. Reason: ${rsn(s.why)}.`), tx("Per questo non guardiamo mai solo l'ultima vendita.", "That is why we never look at the last sale alone.")],
     ladder: [`PSA 10 ${usd(s.v10)} ${tx("contro", "vs")} PSA 9 ${usd(s.v9)}.`, tx("La manderesti a gradare? Scrivilo nei commenti.", "Would you send it for grading? Tell us in the comments.")],
@@ -1666,12 +1689,14 @@ function bindMotion() {
   // Slabby types a real fact
   const say = $("#hsay");
   clearTimeout(typeT);
-  if (say) { const c = topCard(), g = gradeOf(c, 10);
-    const msg = tx(`Psst! ${c.name} in PSA 10 oggi vale ${usd(g.value)}. Toccami e ti spiego come lo calcoliamo.`, `Psst! ${c.name} in PSA 10 is worth ${usd(g.value)} today. Tap me and I'll show you how we work it out.`);
-    if (reduce) say.textContent = msg;
-    else { say.innerHTML = '<span></span><i class="caret"></i>'; const sp = say.firstChild; let k = 0;
-      const typeOn = () => { if (!document.body.contains(say)) return; sp.textContent = msg.slice(0, ++k); if (k < msg.length) typeT = setTimeout(typeOn, msg[k - 1] === "." ? 260 : 32); };
-      typeT = setTimeout(typeOn, firstLoad ? 2300 : 1200); }
+  if (say) { const msgs = slabbyFacts(); let m = 0;
+    const show = msg => { if (reduce) { say.textContent = msg; return; }
+      say.innerHTML = '<span></span><i class="caret"></i>'; const sp = say.firstChild; let k = 0;
+      const typeOn = () => { if (!document.body.contains(say)) return; sp.textContent = msg.slice(0, ++k);
+        if (k < msg.length) typeT = setTimeout(typeOn, msg[k - 1] === "." ? 260 : 32);
+        else if (msgs.length > 1) typeT = setTimeout(() => show(msgs[m = (m + 1) % msgs.length]), 6500); };   // the next fact after a pause
+      typeOn(); };
+    if (msgs.length) typeT = setTimeout(() => show(msgs[0]), firstLoad ? 2300 : 1200);
     const ch = $("#hchar"); if (ch) { ch.style.cursor = "pointer"; ch.addEventListener("click", () => { location.hash = "metodo"; }); }
   }
   // weekly band: dots follow the scroll, gentle autoplay
