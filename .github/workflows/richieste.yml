@@ -50,6 +50,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Calibration cache (D228)
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/slabwise/calib
+          key: calib-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: calib-
       - name: Check and add (D97, D102)
         run: |
           pip install -q numpy pandas scipy pillow
