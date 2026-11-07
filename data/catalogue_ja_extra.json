@@ -196,5 +196,47 @@
   63,
   49,
   "\\bdream\\W*league\\b"
+ ],
+ "ja:sm3p-082": [
+  "mewtwo gx|ミュウツー\\s?gx",
+  82,
+  -1,
+  "(?:\\b(?:shining\\W*legends|sm3\\+|shining\\W*legends)\\b)"
+ ],
+ "ja:m3-086": [
+  "clefairy|ピッピ",
+  86,
+  80,
+  null
+ ],
+ "ja:sv3a-069": [
+  "groudon|グラードン",
+  69,
+  62,
+  "\\braging\\W*surf\\b"
+ ],
+ "ja:sv5k-080": [
+  "gastly|ゴース",
+  80,
+  71,
+  "\\bwild\\W*force\\b"
+ ],
+ "ja:sv-p-288": [
+  "victini|ビクティニ",
+  288,
+  -1,
+  "\\bscarlet\\W*violet\\W*promos\\b"
+ ],
+ "ja:sv2a-171": [
+  "wartortle|カメール",
+  171,
+  165,
+  "\\bpok\\W*mon\\W*151\\b"
+ ],
+ "ja:sv2a-166": [
+  "bulbasaur|フシギダネ",
+  166,
+  165,
+  "\\bpok\\W*mon\\W*151\\b"
  ]
 }
