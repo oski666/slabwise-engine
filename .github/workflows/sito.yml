@@ -16,7 +16,7 @@ on:
 permissions:
   contents: write                # D105: the weekly sealed snapshot is committed
 concurrency:
-  group: deploy
+  group: deploy-${{ github.ref_name }}    # D230: a preview of a branch never waits for (or blocks) the live site
   cancel-in-progress: false
 jobs:
   gate:
@@ -95,6 +95,7 @@ jobs:
       - name: Keep the values with the deals (D227)
         run: cp prototype/data/real.json /tmp/out/real.json
       - name: Weekly sealed snapshot (D105)
+        if: github.ref_name == 'main'     # D230: a preview never commits
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
@@ -118,6 +119,7 @@ jobs:
         continue-on-error: true
         run: PYTHONPATH=. python scripts/pagella.py data/raw/sales_all.csv prototype/data/pagella.json
       - name: Keep the values for the deal refreshes
+        if: github.ref_name == 'main'     # D230: the deal refreshes only ever see the live values
         uses: actions/upload-artifact@v4
         with:
           name: site-data
@@ -148,4 +150,4 @@ jobs:
         if: env.HAS_CF == 'true'
         run: |
           npx --yes wrangler@3 pages project create slabwise --production-branch=main || true
-          npx --yes wrangler@3 pages deploy site --project-name=slabwise --branch=main --commit-dirty=true
+          npx --yes wrangler@3 pages deploy site --project-name=slabwise --branch=${{ github.ref_name }} --commit-dirty=true   # D230: main = live site, any other branch = preview at <branch>.slabwise.pages.dev

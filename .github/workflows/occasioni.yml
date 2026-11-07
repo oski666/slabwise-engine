@@ -7,7 +7,7 @@ permissions:
   contents: read
   actions: read
 concurrency:
-  group: deploy
+  group: deploy-main               # D230: same queue as the live site build
   cancel-in-progress: false
 jobs:
   deals:
