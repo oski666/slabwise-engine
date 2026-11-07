@@ -3950,34 +3950,6 @@
   "source": "coda giapponese (D134)",
   "added": "2026-11-06"
  },
- "ja:e4-033": {
-  "n": 77,
-  "recognised": 0,
-  "share": 0.0,
-  "tc_id": 122973,
-  "tc_set": "Expansion Pack 20th Anniversary",
-  "tc_url": "/pokemon/expansion-pack-20th-anniversary-japanese/pikachu-33",
-  "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in 90 giorni (ne servono 30, con almeno 5 in 2 voti)",
-  "checked": "2026-11-06",
-  "requests": 0,
-  "source": "coda giapponese (D134)"
- },
- "ja:e1-103": {
-  "n": 75,
-  "recognised": 49,
-  "share": 0.653,
-  "tc_id": 116511,
-  "tc_set": "Star Birth",
-  "tc_url": "/pokemon/star-birth-japanese/charizard-v-103",
-  "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "49 vendite PSA riconosciute in 90 giorni (ne servono 30, con almeno 5 in 2 voti)",
-  "checked": "2026-11-06",
-  "requests": 0,
-  "source": "coda giapponese (D134)"
- },
  "ja:e3-090": {
   "n": 1,
   "recognised": 1,
@@ -3988,20 +3960,6 @@
   "tc_type": "base",
   "status": "attesa_vendite",
   "detail": "1 vendite PSA riconosciute in 90 giorni (ne servono 30, con almeno 5 in 2 voti)",
-  "checked": "2026-11-06",
-  "requests": 0,
-  "source": "coda giapponese (D134)"
- },
- "ja:pcg1-048": {
-  "n": 13,
-  "recognised": 0,
-  "share": 0.0,
-  "tc_id": 123247,
-  "tc_set": "Premium Champion Pack",
-  "tc_url": "/pokemon/premium-champion-pack-japanese/gengar-ex-48",
-  "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in 90 giorni (ne servono 30, con almeno 5 in 2 voti)",
   "checked": "2026-11-06",
   "requests": 0,
   "source": "coda giapponese (D134)"

@@ -20,6 +20,7 @@ for k, v in status.items():
     if not k.startswith("en:") or v.get("status") != "attesa_motore" or k[3:] in have:
         continue
     last = v.get("checked") or v.get("added") or "2000-01-01"
-    if (today - date.fromisoformat(last[:10])).days >= DAYS:
+    # D213: a card stopped before the gate used the site engine (v1.20) is tried again at once
+    if (today - date.fromisoformat(last[:10])).days >= DAYS or last[:10] < "2026-11-07":
         due.append((last, k[3:]))
 print(" ".join(cid for _, cid in sorted(due)[:N]))

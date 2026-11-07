@@ -99,11 +99,11 @@ if GATE_ONLY:
     for cid in added:
         status.setdefault(sk(cid), {})
 if added and "--no-gate" not in sys.argv:
-    env = dict(os.environ, PYTHONPATH=ac.ROOT)
+    env = dict(os.environ, PYTHONPATH=ac.ROOT, SLABWISE_TC_HISTORY="1")   # D213: the sales of the site, with the long history
     tmp = os.path.join(ac.RAW, "sales_gate.csv")
     subprocess.run([sys.executable, os.path.join(ac.ROOT, "scripts", "build_sales.py"), os.path.join(ac.RAW, "sales_base.csv"),
                     os.path.join(ac.RAW, "alt"), tmp, os.path.join(ac.RAW, "tcgcharts")], check=True, env=env, capture_output=True)
-    out = subprocess.run([sys.executable, os.path.join(ac.ROOT, "scripts", "real_r1.py"), tmp, os.path.join(ac.RAW, "era_map.json"), "--adopted"],
+    out = subprocess.run([sys.executable, os.path.join(ac.ROOT, "scripts", "real_r1.py"), tmp, os.path.join(ac.RAW, "era_map.json")] + ac.R1_FLAGS,
                          env=env, capture_output=True, text=True).stdout
     os.remove(tmp)
     lines = [ln for ln in out.splitlines() if ln.startswith("E2r:") or "R1:" in ln]   # E2r since D125 (§23); E2 printed for comparison
@@ -113,7 +113,7 @@ if added and "--no-gate" not in sys.argv:
         if any(f"'{cid}'" in ln or f"'{cid}/" in ln for ln in lines):
             remove(cid)
             added.remove(cid)
-            status[sk(cid)].update(status="attesa_motore", detail="i controlli del motore non tornano ancora")
+            status[sk(cid)].update(status="attesa_motore", detail="i controlli del motore non tornano ancora", checked=today)   # D213: else the same 8 come back every run
             print(f"  {cid}: tolta, controlli del motore non superati")
 for cid in added:
     status[sk(cid)].update(status="aggiunta", detail="", added=today)

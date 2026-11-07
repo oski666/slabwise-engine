@@ -871,55 +871,6 @@
   ],
   "checked": "2026-11-06"
  },
- "base1-58": {
-  "status": "trovata",
-  "tcgdex": "E4-033",
-  "dist": 77,
-  "tried": [
-   [
-    "E1-016",
-    109
-   ],
-   [
-    "web1-025",
-    null
-   ],
-   [
-    "E4-033",
-    77
-   ],
-   [
-    "PMCG1-035",
-    109
-   ],
-   [
-    "neo1-036",
-    100
-   ],
-   [
-    "PCG1-037",
-    109
-   ],
-   [
-    "PCG7-041",
-    133
-   ]
-  ],
-  "ja_name": "ピカチュウ",
-  "no": "033",
-  "set": "裂けた大地",
-  "tot": 88,
-  "rarity": "Common",
-  "ill": null,
-  "img": null,
-  "tc": {
-   "id": 122973,
-   "url": "/pokemon/expansion-pack-20th-anniversary-japanese/pikachu-33",
-   "set": "Expansion Pack 20th Anniversary",
-   "type": "base"
-  },
-  "checked": "2026-11-06"
- },
  "base2-11": {
   "status": "trovata",
   "tcgdex": null,
@@ -2227,67 +2178,6 @@
     null
    ]
   ],
-  "checked": "2026-11-06"
- },
- "swsh9-154": {
-  "status": "trovata",
-  "tcgdex": "E1-103",
-  "dist": 39,
-  "tried": [
-   [
-    "SM6a-003",
-    131
-   ],
-   [
-    "neo4-025",
-    117
-   ],
-   [
-    "PCG8-032",
-    127
-   ],
-   [
-    "web1-042",
-    127
-   ],
-   [
-    "PCG9-052",
-    116
-   ],
-   [
-    "SM3H-058",
-    140
-   ],
-   [
-    "E1-071",
-    null
-   ],
-   [
-    "E5-089",
-    null
-   ],
-   [
-    "VS1-097",
-    130
-   ],
-   [
-    "E1-103",
-    39
-   ]
-  ],
-  "ja_name": "カリザード",
-  "no": "103",
-  "set": "基本拡張パック",
-  "tot": 128,
-  "rarity": "Holo Rare",
-  "ill": null,
-  "img": null,
-  "tc": {
-   "id": 116511,
-   "url": "/pokemon/star-birth-japanese/charizard-v-103",
-   "set": "Star Birth",
-   "type": "base"
-  },
   "checked": "2026-11-06"
  },
  "sv03-223": {
@@ -6513,63 +6403,6 @@
    "type": "base"
   },
   "checked": "2026-11-04"
- },
- "ex6-108": {
-  "status": "trovata",
-  "tcgdex": "PCG1-048",
-  "dist": 58,
-  "tried": [
-   [
-    "VS1-021",
-    133
-   ],
-   [
-    "PCG5-040",
-    null
-   ],
-   [
-    "E5-043",
-    null
-   ],
-   [
-    "E5-044",
-    null
-   ],
-   [
-    "web1-047",
-    118
-   ],
-   [
-    "PCG1-048",
-    58
-   ],
-   [
-    "neo4-066",
-    null
-   ],
-   [
-    "E1-085",
-    114
-   ],
-   [
-    "E1-117",
-    115
-   ]
-  ],
-  "ja_name": "Gengar Ex",
-  "no": "048",
-  "set": "伝説の飛翔",
-  "tot": 82,
-  "rarity": "Holo Rare",
-  "ill": null,
-  "img": null,
-  "tc": {
-   "id": 128622,
-   "url": "/pokemon/flight-of-legends-japanese/gengar-ex-48",
-   "set": "Flight of Legends",
-   "type": "base"
-  },
-  "checked": "2026-11-06"
  },
  "ex6-105": {
   "status": "senza_immagine",

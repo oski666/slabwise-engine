@@ -31,7 +31,7 @@ ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 DATA = os.path.join(ROOT, "prototype", "data")
 RAW = os.path.join(ROOT, "data", "raw")
 MAX_PER_DAY = 5                                       # D117: requested cards go in the same day they pass
-R1_FLAGS = ["--adopted"]                              # the engine the site uses (D110)
+R1_FLAGS = ["--adopted", "--v120"]                    # the engine the site uses (D110): v1.20 since D210, gate since D213
 
 
 def load(p, default):
@@ -176,7 +176,7 @@ def add_ja(key, row):
 
 def gate(cid):
     """R1 and E2 with the new card (protocol §15). True when the new card passes."""
-    env = dict(os.environ, PYTHONPATH=ROOT)
+    env = dict(os.environ, PYTHONPATH=ROOT, SLABWISE_TC_HISTORY="1")   # D213: the sales of the site, with the long history
     tmp = os.path.join(RAW, "sales_gate.csv")
     subprocess.run([sys.executable, os.path.join(ROOT, "scripts", "build_sales.py"), os.path.join(RAW, "sales_base.csv"),
                     os.path.join(RAW, "alt"), tmp, os.path.join(RAW, "tcgcharts")], check=True, env=env, capture_output=True)

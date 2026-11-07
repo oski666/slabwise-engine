@@ -61,6 +61,17 @@ def dex(path):
 norm_ill = lambda s: re.sub(r"[\s.\-_]", "", (s or "").lower())  # noqa: E731
 
 
+_YEARS = {}
+
+
+def set_year(d):
+    """D214: release year of the TCGdex set of a Japanese card (None if unknown)."""
+    sid = (d.get("set") or {}).get("id")
+    if sid and sid not in _YEARS:
+        _YEARS[sid] = ((dex(f"/ja/sets/{urllib.parse.quote(sid)}") or {}).get("releaseDate") or "")[:4] or None
+    return int(_YEARS[sid]) if sid and _YEARS.get(sid) else None
+
+
 def asset_url(tid):
     """TCGdex keeps images for cards whose API record has none: ja/<serie>/<set>/<number>."""
     set_id, no = tid.rsplit("-", 1)
@@ -144,6 +155,10 @@ def match(c, hires):
             if tc_items is None:
                 need_tc = True
                 continue
+            # D214: a tcgcharts picture stands for this TCGdex card only if it is of a set of the same year; otherwise another
+            # set with the same number lends its picture (e-series Charizard 103 got the art of Star Birth's Charizard V 103)
+            yr = set_year(d)
+            tc_items = [it for it in tc_items if yr and it.get("releaseYear") == yr]
             sc = [(art_distance(load_img(it["image"].replace("-small.", "-medium.")), en_im), it) for it in tc_items if it.get("image")]
             sc = sorted([x for x in sc if x[0] is not None], key=lambda x: x[0])
             if sc:                                                    # several sets share the number: keep the closest art
@@ -171,6 +186,9 @@ def match(c, hires):
     d, dist, show, tc_items = best
     if tc_items is None:
         tc_items = tc_search(en.get("name") or c["n"], d["localId"])
+        yr = set_year(d)                                             # D214: the sales page is of a set of the same year
+        if tc_items and yr:                                          # year unknown on TCGdex: as before
+            tc_items = [it for it in tc_items if it.get("releaseYear") == yr]
     tc = None
     if tc_items:
         if len(tc_items) > 1:                                        # same number in several Japanese sets: the same art
