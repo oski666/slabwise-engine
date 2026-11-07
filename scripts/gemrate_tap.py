@@ -59,6 +59,8 @@ for s in sets.values() if isinstance(sets, dict) else sets:
             rows = [r for r in s["rows"] if norm_no(r["card_number"]) == norm_no(no)
                     and (r.get("parallel") or "").strip().lower() in par_ok
                     and simple(name.split(" ")[0]) in simple(r.get("name"))]
+            if len(rows) > 1:                                  # D222: our cards are never the reverse foil (D150 excludes it)
+                rows = [r for r in rows if "reverse" not in str(r.get("name")).lower()]
             if len(rows) != 1:
                 continue
             r = rows[0]
