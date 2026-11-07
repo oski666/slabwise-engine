@@ -7727,5 +7727,431 @@
   "status": "nessuna",
   "detail": "24 carte giapponesi dello stesso Pokémon, nessuna dello stesso illustratore",
   "checked": "2026-11-06"
+ },
+ "base1-58": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "E1-016",
+    null
+   ],
+   [
+    "web1-025",
+    null
+   ],
+   [
+    "E4-033",
+    111
+   ],
+   [
+    "PMCG1-035",
+    null
+   ],
+   [
+    "neo1-036",
+    null
+   ],
+   [
+    "PCG1-037",
+    124
+   ],
+   [
+    "PCG7-041",
+    134
+   ]
+  ],
+  "checked": "2026-11-07"
+ },
+ "swsh9-154": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "SM6a-003",
+    131
+   ],
+   [
+    "neo4-025",
+    null
+   ],
+   [
+    "PCG8-032",
+    null
+   ],
+   [
+    "web1-042",
+    null
+   ],
+   [
+    "PCG9-052",
+    null
+   ],
+   [
+    "SM3H-058",
+    140
+   ],
+   [
+    "E1-071",
+    null
+   ],
+   [
+    "E5-089",
+    null
+   ],
+   [
+    "VS1-097",
+    130
+   ],
+   [
+    "E1-103",
+    null
+   ]
+  ],
+  "checked": "2026-11-07"
+ },
+ "ex6-108": {
+  "status": "trovata",
+  "tcgdex": "PCG1-048",
+  "dist": 58,
+  "tried": [
+   [
+    "VS1-021",
+    null
+   ],
+   [
+    "PCG5-040",
+    null
+   ],
+   [
+    "E5-043",
+    null
+   ],
+   [
+    "E5-044",
+    null
+   ],
+   [
+    "web1-047",
+    null
+   ],
+   [
+    "PCG1-048",
+    58
+   ],
+   [
+    "neo4-066",
+    null
+   ],
+   [
+    "E1-085",
+    114
+   ],
+   [
+    "E1-117",
+    115
+   ]
+  ],
+  "ja_name": "Gengar Ex",
+  "no": "048",
+  "set": "伝説の飛翔",
+  "tot": 82,
+  "rarity": "Holo Rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 128622,
+   "url": "/pokemon/flight-of-legends-japanese/gengar-ex-48",
+   "set": "Flight of Legends",
+   "type": "base"
+  },
+  "checked": "2026-11-07"
+ },
+ "ex11-12": {
+  "status": "trovata",
+  "tcgdex": "PCG6-019",
+  "dist": 31,
+  "tried": [
+   [
+    "PCG6-019",
+    31
+   ],
+   [
+    "PCG3-064",
+    null
+   ],
+   [
+    "neo4-068",
+    null
+   ],
+   [
+    "SM3p-080",
+    null
+   ],
+   [
+    "SM3p-082",
+    null
+   ],
+   [
+    "E1-086",
+    null
+   ],
+   [
+    "E1-118",
+    null
+   ]
+  ],
+  "ja_name": "mewtwo（デルタ種）",
+  "no": "019",
+  "set": "ホロンの研究塔",
+  "tot": 86,
+  "rarity": "Holo Rare",
+  "ill": null,
+  "img": null,
+  "tc": {
+   "id": 128148,
+   "url": "/pokemon/holon-research-tower-japanese/mewtwo-19",
+   "set": "Holon Research Tower",
+   "type": "base"
+  },
+  "checked": "2026-11-07"
+ },
+ "sv04-199": {
+  "status": "trovata",
+  "tcgdex": "SV3a-069",
+  "dist": 19,
+  "tried": [
+   [
+    "PCG6-056",
+    122
+   ],
+   [
+    "SV3a-069",
+    19
+   ]
+  ],
+  "ja_name": "グラードン",
+  "no": "069",
+  "set": "レイジングサーフ",
+  "tot": 62,
+  "rarity": null,
+  "ill": "Nurikabe",
+  "img": "https://assets.tcgdex.net/ja/SV/SV3a/069/high.webp",
+  "tc": {
+   "id": 114162,
+   "url": "/pokemon/raging-surf-japanese/groudon-69",
+   "set": "Raging Surf",
+   "type": "base"
+  },
+  "checked": "2026-11-07"
+ },
+ "sv05-177": {
+  "status": "trovata",
+  "tcgdex": "SV5K-080",
+  "dist": 35,
+  "tried": [
+   [
+    "E1-019",
+    141
+   ],
+   [
+    "PCG5-038",
+    128
+   ],
+   [
+    "E5-041",
+    123
+   ],
+   [
+    "PCG1-046",
+    132
+   ],
+   [
+    "neo4-048",
+    null
+   ],
+   [
+    "SV5K-080",
+    35
+   ]
+  ],
+  "ja_name": "ゴース",
+  "no": "080",
+  "set": "ワイルドフォース",
+  "tot": 71,
+  "rarity": "Illustration rare",
+  "ill": "Mousho",
+  "img": "https://assets.tcgdex.net/ja/SV/SV5K/080/high.webp",
+  "tc": {
+   "id": 113523,
+   "url": "/pokemon/wild-force-japanese/gastly-80",
+   "set": "Wild Force",
+   "type": "base"
+  },
+  "checked": "2026-11-07"
+ },
+ "sm115-68": {
+  "status": "senza_pokedex",
+  "detail": "carta Allenatore o Energia: per ora non cercata",
+  "checked": "2026-11-07"
+ },
+ "swsh9-174": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "SM3H-011",
+    132
+   ],
+   [
+    "S12a-014",
+    100
+   ],
+   [
+    "neo4-025",
+    null
+   ],
+   [
+    "PCG8-032",
+    null
+   ],
+   [
+    "web1-042",
+    null
+   ],
+   [
+    "SM3H-052",
+    128
+   ],
+   [
+    "PCG9-052",
+    null
+   ],
+   [
+    "SM3H-058",
+    null
+   ],
+   [
+    "E1-071",
+    null
+   ],
+   [
+    "E5-089",
+    null
+   ],
+   [
+    "VS1-097",
+    null
+   ],
+   [
+    "E1-103",
+    null
+   ],
+   [
+    "SM8b-209",
+    120
+   ]
+  ],
+  "checked": "2026-11-07"
+ },
+ "swsh8-251": {
+  "status": "trovata",
+  "tcgdex": "S8-106",
+  "dist": 25,
+  "tried": [
+   [
+    "PCG9-015",
+    null
+   ],
+   [
+    "PCG5-041",
+    null
+   ],
+   [
+    "E1-087",
+    null
+   ],
+   [
+    "S8-106",
+    25
+   ],
+   [
+    "E1-119",
+    null
+   ]
+  ],
+  "ja_name": "ミュウV",
+  "no": "106",
+  "set": "フュージョンアーツ",
+  "tot": 100,
+  "rarity": "Ultra Rare",
+  "ill": "Naoki Saito",
+  "img": "https://assets.tcgdex.net/ja/S/S8/106/high.webp",
+  "tc": {
+   "id": 116972,
+   "url": "/pokemon/fusion-arts-japanese/mew-v-106",
+   "set": "Fusion Arts",
+   "type": "base"
+  },
+  "checked": "2026-11-07"
+ },
+ "sv03-228": {
+  "status": "senza_immagine",
+  "detail": "per alcune stampe giapponesi manca l'immagine da confrontare",
+  "tried": [
+   [
+    "SM3H-011",
+    126
+   ],
+   [
+    "S12a-014",
+    136
+   ],
+   [
+    "neo4-025",
+    null
+   ],
+   [
+    "PCG8-032",
+    null
+   ],
+   [
+    "web1-042",
+    null
+   ],
+   [
+    "SM3H-052",
+    126
+   ],
+   [
+    "PCG9-052",
+    null
+   ],
+   [
+    "SM3H-058",
+    null
+   ],
+   [
+    "E1-071",
+    118
+   ],
+   [
+    "E5-089",
+    null
+   ],
+   [
+    "VS1-097",
+    null
+   ],
+   [
+    "E1-103",
+    122
+   ],
+   [
+    "SM8b-209",
+    114
+   ]
+  ],
+  "checked": "2026-11-07"
  }
 }
