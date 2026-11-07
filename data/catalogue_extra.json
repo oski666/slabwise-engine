@@ -2464,5 +2464,23 @@
    2011,
    2012
   ]
+ ],
+ "xy4-114": [
+  "gengar ex",
+  "\\bphantom\\W*(?:(?:of|the|and)\\W*)?forces\\b",
+  114,
+  [
+   2014,
+   2015
+  ]
+ ],
+ "pl3-143": [
+  "charizard g lv\\.x",
+  "\\bsupreme\\W*(?:(?:of|the|and)\\W*)?victors\\b",
+  143,
+  [
+   2009,
+   2010
+  ]
  ]
 }

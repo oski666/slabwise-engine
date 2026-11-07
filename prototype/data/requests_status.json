@@ -632,11 +632,12 @@
   "tc_set": "Supreme Victors",
   "tc_url": "/pokemon/supreme-victors/charizard-g-lv-x-143",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-07",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-07"
  },
  "en:sv03.5-200": {
   "n": 302,
@@ -2415,18 +2416,19 @@
   "added": "2026-11-04"
  },
  "en:xy4-114": {
-  "n": 125,
-  "recognised": 76,
-  "share": 0.608,
+  "n": 135,
+  "recognised": 87,
+  "share": 0.644,
   "tc_id": 11566,
   "tc_set": "Phantom Forces",
   "tc_url": "/pokemon/phantom-forces/gengar-ex-114",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-04",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-07",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-07"
  },
  "en:col1-SL10": {
   "n": 40,
