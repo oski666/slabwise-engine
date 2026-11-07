@@ -136,6 +136,12 @@ for c in catalog + variants:
             med13 = float((_d30 if len(_d30) >= 5 else _r["price"].tail(5)).median())
         # D98: an estimate more than 2x away from the median of its own sales of the last 13 weeks is not shown
         off = bool(med13 and abs(float(now) - np.log(med13)) > np.log(2))
+        # D226: eBay (>= 2 sales) and the auction houses (>= 1) of the last 13 weeks more than 5x apart: not the same card
+        # and grade for sure (another printing under the same number, or a wrong record); the grade goes under review
+        _v13 = clean.loc[(clean["card"] == i) & (clean["grade"] == g) & (clean["week"] >= W - 13), ["price", "venue"]]
+        _eb, _au = _v13.loc[_v13["venue"] == "ebay", "price"], _v13.loc[_v13["venue"] != "ebay", "price"]
+        venue_split = [round(float(_eb.median()), 2), round(float(_au.median()), 2)] if len(_eb) >= 2 and len(_au) >= 1 and abs(np.log(_au.median() / _eb.median())) > np.log(5) else None
+        off = off or bool(venue_split)
         stale = False
         # D141: no sales in 13 weeks and more than 2x away from the last credible sale: not shown either (the page shows that sale)
         if not n13:
@@ -152,7 +158,7 @@ for c in catalog + variants:
                           hi=round(float(np.exp(now + Z * s_now)), 2), ch30=ch30,
                           ch90=ch90, pop=POP.get(c["id"], {}).get(str(g)) or POP.get(c["id"], {}).get(g), sales_all=n_g,
                           sales90=n13, tier=TIERS[int(tier_of(n13, Z * s_now))],      # confidence tier (D47)
-                          med90=round(med13, 2) if med13 else None, off=off, stale=stale,
+                          med90=round(med13, 2) if med13 else None, off=off, stale=stale, venue_split=venue_split,
                           # D208: how far a sale of the last 13 weeks usually lands from the value (median |log|), on all of them
                           disp90=round(float(np.median(np.abs(np.log(rec.to_numpy()) - float(now)))), 4) if n13 >= 5 else None,
                           history=hist))
