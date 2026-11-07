@@ -13,6 +13,8 @@ grid, two passes, then the parameters are frozen for the evaluation period.
 """
 from __future__ import annotations
 
+import os
+import pickle
 from dataclasses import replace
 
 import numpy as np
@@ -139,10 +141,51 @@ def calibrate(market, passes=2, verbose=True, train_weeks=52):
     return calibrate_clean(clean, market.cfg.n_cards, market.era_obs, len(ERAS), train_weeks, passes, verbose)
 
 
+def _cache_key(clean, n_cards, era, n_eras, train_weeks, passes, trend, coverage):
+    """D228: everything the calibration depends on - the training sales (every column), the options and the
+    engine's code. The engine reads no environment variables, so equal keys give equal results."""
+    import hashlib
+    import pandas as pd
+    h = hashlib.sha256()
+    h.update(repr((list(clean.columns), [str(t) for t in clean.dtypes], len(clean))).encode())
+    h.update(pd.util.hash_pandas_object(clean, index=False).values.tobytes())
+    h.update(repr((int(n_cards), [int(e) for e in era], int(n_eras), int(train_weeks), passes, trend, coverage)).encode())
+    here = os.path.dirname(os.path.abspath(__file__))
+    for f in ("calibrate.py", "model.py", "schema.py", "identity.py"):
+        h.update(open(os.path.join(here, f), "rb").read())
+    return h.hexdigest()
+
+
 def calibrate_clean(clean, n_cards, era, n_eras, train_weeks=52, passes=2, verbose=False, trend=False, coverage=False):
     """Same procedure on any clean sales table (simulated or real). trend=False keeps the v1.2
-    era factor (tau_s = 0). The v1.3 trend (trend=True) was not adopted (D36): research only."""
+    era factor (tau_s = 0). The v1.3 trend (trend=True) was not adopted (D36): research only.
+    D228: an identical call is read back from SLABWISE_CALIB_CACHE instead of recomputed."""
     clean = clean[clean["week"] < train_weeks]
+    cdir = os.environ.get("SLABWISE_CALIB_CACHE", os.path.join(os.path.expanduser("~"), ".cache", "slabwise", "calib"))
+    if cdir == "0":
+        return _calibrate(clean, n_cards, era, n_eras, train_weeks, passes, verbose, trend, coverage)
+    path = os.path.join(cdir, _cache_key(clean, n_cards, era, n_eras, train_weeks, passes, trend, coverage) + ".pkl")
+    if os.path.exists(path):
+        try:
+            with open(path, "rb") as f:
+                res = pickle.load(f)
+            print("calibrazione riusata (D228)", flush=True)
+            return res
+        except Exception:                      # a broken file: recompute
+            pass
+    res = _calibrate(clean, n_cards, era, n_eras, train_weeks, passes, verbose, trend, coverage)
+    try:
+        os.makedirs(cdir, exist_ok=True)
+        tmp = path + f".{os.getpid()}.tmp"
+        with open(tmp, "wb") as f:
+            pickle.dump(res, f)
+        os.replace(tmp, path)
+    except OSError:
+        pass
+    return res
+
+
+def _calibrate(clean, n_cards, era, n_eras, train_weeks, passes, verbose, trend, coverage):
     warm = min(26, train_weeks // 2)
     p = LVMParams()
     best, model = predictive_score(clean, n_cards, era, p, train_weeks, warm, n_eras, return_model=True)
