@@ -684,7 +684,7 @@ Le carte con l'abbinamento sbagliato (D214 a) escono dalla coda in ogni caso: no
 
 **Domanda.** Le quattro regole nuove del riconoscitore inglese (D216) fanno riconoscere più vendite della carta giusta senza attribuire vendite alla carta sbagliata?
 
-**Modifica.** In `slabwise/sources/auction_titles.py` (titoli inglesi) e `scripts/card_requests.py` (nomi delle candidate): le regole (1)–(4) di D216, accese da `SLABWISE_EN_RULES` ("1", default; "0" per la prova). Nome, set e numero restano obbligatori come oggi; gli anni anche.
+**Modifica.** In `slabwise/sources/auction_titles.py` (titoli inglesi) e `scripts/card_requests.py` (nomi delle candidate): le regole (1)–(5) di D216 (la (5), anno d'inizio della serie per i Black Star Promo, aggiunta il 7 novembre prima di lanciare la prova), accese da `SLABWISE_EN_RULES` ("1", default; "0" per la prova). Nome, set e numero restano obbligatori come oggi; gli anni anche.
 
 **Criteri** (tutti, altrimenti non si adotta).
 - **T1, nessuna carta sbagliata**: su tutti i titoli inglesi delle vendite tcgcharts e dello storico, con nel riconoscitore tutte le carte del catalogo più le 14 candidate della diagnosi, 0 titoli che passano da una carta a un'altra; i titoli "ambigui" non aumentano.
