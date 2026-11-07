@@ -168,6 +168,7 @@ def main():
     value = {(c["id"], g["grade"]): g["value"] for c in real["cards"] for g in c["grades"]}
     tok = token()
     seen, rows, calls = set(), [], 0
+    queried = {}                                               # D225: cards searched on every market, and if a search was cut at 200
     queries = catalogue_queries(alt.QUERY)                     # D112: every catalogue card, not only the first 29
     quota_out = False
     for cid, q in queries.items():
@@ -188,6 +189,9 @@ def main():
                 print(f"  {cid} {market}: errore {e.code}", flush=True)
                 continue
             calls += 1
+            q_ = queried.setdefault(cid, {"markets": 0, "capped": False})
+            q_["markets"] += 1
+            q_["capped"] = q_["capped"] or int(res.get("total") or 0) > int(params["limit"])
             for it in res.get("itemSummaries", []):
                 if it["itemId"] in seen:
                     continue
@@ -221,7 +225,8 @@ def main():
             r["authenticity"] = bool(it.get("authenticityGuarantee"))
     os.makedirs(os.path.dirname(out) or ".", exist_ok=True)
     asof = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    json.dump({"asof": asof, "listings": rows}, open(out, "w"), ensure_ascii=False)
+    queried = {k: v for k, v in queried.items() if v["markets"] == len(MARKETS)}   # D225: counts only where every market was read
+    json.dump({"asof": asof, "listings": rows, "queried": queried}, open(out, "w"), ensure_ascii=False)
     print(f"{len(rows)} annunci, {sum(1 for r in rows if r['cert'])} con cert, {calls} chiamate -> {out}")
 
 

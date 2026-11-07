@@ -154,6 +154,8 @@ for c in catalog + variants:
         ch90 = round(float(np.exp(now - est[-14, i, gi]) - 1), 4) if (_mine <= W - 14).sum() >= 3 and np.isfinite(est[-14, i, gi]) else None
         if off or stale:                                  # D211: no change shown on an estimate the page does not show
             ch30 = ch90 = None
+        _p30 = clean.loc[(clean["card"] == i) & (clean["grade"] == g) & (clean["day"] >= clean["day"].max() - 30), "price"].to_numpy()
+        _sb = Z * float(np.sqrt(s_now ** 2 + params.sigma_e ** 2 + params.sigma_q ** 2))
         g_out.append(dict(grade=g, value=round(float(np.exp(now)), 2), lo=round(float(np.exp(now - Z * s_now)), 2),
                           hi=round(float(np.exp(now + Z * s_now)), 2), ch30=ch30,
                           ch90=ch90, pop=POP.get(c["id"], {}).get(str(g)) or POP.get(c["id"], {}).get(g), sales_all=n_g,
@@ -161,6 +163,12 @@ for c in catalog + variants:
                           med90=round(med13, 2) if med13 else None, off=off, stale=stale, venue_split=venue_split,
                           # D208: how far a sale of the last 13 weeks usually lands from the value (median |log|), on all of them
                           disp90=round(float(np.median(np.abs(np.log(rec.to_numpy()) - float(now)))), 4) if n13 >= 5 else None,
+                          # D223: share of those sales within 15% of the value (13 weeks, >= 5 sales)
+                          in15=round(float(np.mean(np.abs(np.log(rec.to_numpy()) - float(now)) <= np.log(1.15))), 3) if n13 >= 5 else None,
+                          # D223: the real sales of the last 30 days (count; 10th, 25th, 75th, 90th percentile with >= 5)
+                          n30=int(len(_p30)), q30=[round(float(x), 2) for x in np.percentile(_p30, [10, 25, 75, 90])] if len(_p30) >= 5 else None,
+                          # D224: the SlabRange = where sales land: value x exp(+-Z sqrt(s^2 + sigma_e^2 + sigma_q^2))
+                          slo=round(float(np.exp(now - _sb)), 2), shi=round(float(np.exp(now + _sb)), 2),
                           history=hist))
     ob, pg = lvm.obs[i], lvm.fit[i]["pgen"]
     sl = []

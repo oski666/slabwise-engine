@@ -55,6 +55,21 @@ for r in L["listings"]:
 for c in R["cards"]:
     c["deals"] = []
 R["offers"] = []
+# D225: copies on sale now, per card and grade, for the Slabvalve; only cards searched on every market
+_q = L.get("queried") or {}
+for c in R["cards"]:
+    base = c["id"].split("/")[0]
+    if base in _q and "/" not in c["id"]:
+        n = {}
+        for r in L["listings"]:
+            if r["card"] == c["id"]:
+                n[r["grade"]] = n.get(r["grade"], 0) + 1
+        c["on_sale"] = {str(g["grade"]): n.get(g["grade"], 0) for g in c["grades"]}
+        c["on_sale_capped"] = bool(_q[base].get("capped"))
+    else:
+        c.pop("on_sale", None)
+        c.pop("on_sale_capped", None)
+R["on_sale_asof"] = L.get("asof") if _q else None
 stats, funnel = None, {"annunci": len(L["listings"]), "scartati": skipped, "valutati": len(rows)}
 if rows:
     pg, pdl, stats = score([r["ask_usd"] for r, *_ in rows], [x[3]["landed_eur"] / EUR for x in rows],
