@@ -166,5 +166,35 @@
   71,
   63,
   "\\bhot\\W*air\\W*arena\\b"
+ ],
+ "ja:m2a-199": [
+  "psyduck|コダック",
+  199,
+  193,
+  "(?:\\b(?:mega\\W*dream|m2a|mega\\W*dream\\W*ex)\\b)"
+ ],
+ "ja:m2-013": [
+  "mega charizard x ex|メガリザードンx\\s?ex",
+  13,
+  80,
+  "\\binferno\\W*x\\b"
+ ],
+ "ja:m2-094": [
+  "mega charizard x ex|メガリザードンx\\s?ex",
+  94,
+  80,
+  "\\binferno\\W*x\\b"
+ ],
+ "ja:sm11b-020": [
+  "(?:solgaleo\\s*(?:&|and)\\s*lunala|lunala\\s*(?:&|and)\\s*solgaleo) gx|ソルガレオ\\&ルナアーラ\\s?gx",
+  20,
+  49,
+  "\\bdream\\W*league\\b"
+ ],
+ "ja:sm11b-063": [
+  "(?:solgaleo\\s*(?:&|and)\\s*lunala|lunala\\s*(?:&|and)\\s*solgaleo) gx|ソルガレオ\\&ルナアーラ\\s?gx",
+  63,
+  49,
+  "\\bdream\\W*league\\b"
  ]
 }

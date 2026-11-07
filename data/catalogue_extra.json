@@ -2275,5 +2275,149 @@
    2009,
    2010
   ]
+ ],
+ "ex11-17": [
+  "umbreon",
+  "\\bdelta\\W*(?:(?:of|the|and)\\W*)?species\\b",
+  17,
+  [
+   2005,
+   2006
+  ]
+ ],
+ "xy9-121": [
+  "ho\\-oh ex",
+  "\\bbreakpoint\\b",
+  121,
+  [
+   2016,
+   2017
+  ]
+ ],
+ "swsh10.5-072": [
+  "mewtwo v",
+  "\\bpokemon\\W*(?:(?:of|the|and)\\W*)?go\\b",
+  72,
+  [
+   2022,
+   2023
+  ]
+ ],
+ "hgss2-88": [
+  "tyranitar",
+  "\\bunleashed\\b",
+  88,
+  [
+   2010,
+   2011
+  ]
+ ],
+ "sv09-184": [
+  "lillie's clefairy ex",
+  "\\bjourney\\W*(?:(?:of|the|and)\\W*)?together\\b",
+  184,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "neo4-4": [
+  "dark espeon",
+  "\\bneo\\W*(?:(?:of|the|and)\\W*)?destiny\\b",
+  4,
+  [
+   2002,
+   2003
+  ]
+ ],
+ "swsh7-175": [
+  "glaceon v",
+  "\\bevolving\\W*(?:(?:of|the|and)\\W*)?skies\\b",
+  175,
+  [
+   2021,
+   2022
+  ]
+ ],
+ "sv10.5w-166": [
+  "reshiram ex",
+  "\\bwhite\\W*(?:(?:of|the|and)\\W*)?flare\\b",
+  166,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "hgss3-82": [
+  "houndoom",
+  "\\bundaunted\\b",
+  82,
+  [
+   2010,
+   2011
+  ]
+ ],
+ "xy11-116": [
+  "gardevoir ex",
+  "\\bsteam\\W*(?:(?:of|the|and)\\W*)?siege\\b",
+  116,
+  [
+   2016,
+   2017
+  ]
+ ],
+ "ex9-9": [
+  "rayquaza",
+  "\\bemerald\\b",
+  9,
+  [
+   2005,
+   2006
+  ]
+ ],
+ "swsh12.5-020": [
+  "radiant charizard",
+  "\\bcrown\\W*(?:(?:of|the|and)\\W*)?zenith\\b",
+  20,
+  [
+   2023,
+   2024
+  ]
+ ],
+ "sv03.5-175": [
+  "psyduck",
+  "\\b151\\b",
+  175,
+  [
+   2023,
+   2024
+  ]
+ ],
+ "swsh10-172": [
+  "machamp v",
+  "\\bastral\\W*(?:(?:of|the|and)\\W*)?radiance\\b",
+  172,
+  [
+   2022,
+   2023
+  ]
+ ],
+ "ex7-101": [
+  "rocket's scizor ex",
+  "\\bteam\\W*(?:(?:of|the|and)\\W*)?rocket\\W*(?:(?:of|the|and)\\W*)?returns\\b",
+  101,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "me04-116": [
+  "mega greninja ex",
+  "\\bchaos\\W*(?:(?:of|the|and)\\W*)?rising\\b",
+  116,
+  [
+   2026,
+   2027
+  ]
  ]
 }
