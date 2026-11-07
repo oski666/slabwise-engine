@@ -38,7 +38,7 @@ jobs:
     needs: gate
     if: needs.gate.outputs.go == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 75
+    timeout-minutes: 150            # D227: a slow day never leaves the site without values
     env:
       HAS_EBAY: ${{ secrets.EBAY_CLIENT_ID != '' }}
       HAS_CF: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
