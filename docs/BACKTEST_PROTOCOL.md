@@ -692,3 +692,21 @@ Le carte con l'abbinamento sbagliato (D214 a) escono dalla coda in ogni caso: no
 - **T3, prezzi del sito**: con le vendite riconosciute in più, `real_r1.py --adopted --v120` non dà voci R1 o E2r nuove.
 
 **Esito (7 novembre 2026, D216).** Non adottate: passano T1 e T2, non T3. T1: su 126.763 titoli inglesi distinti (vendite tcgcharts e storico, 290 carte nel riconoscitore) 0 cambi di carta, ambigui 72 → 72, nessun titolo perso, 628 riconosciuti in più, nessuno su una carta diversa da quella di tcgcharts. T2: letti 10 titoli in più per ognuna delle 14 candidate (meno dove erano meno) e 40 sulle carte del catalogo: tutti della carta giusta (nota a parte: un titolo "PSA 8 OC", voto con riserva, conta come PSA 8 anche con il riconoscitore di oggi; da trattare per conto suo). T3: vendite del sito 416.673 → 422.338; `real_r1.py --adopted --v120` passa da R1 0 / E2r 0 a **R1 1 / E2r 1, entrambi su dc1-6** (Team Aqua's Kyogre-EX, Double Crisis): le 213 vendite in più sono sue e vere (lo storico 2022-2025, quando il PSA 9 valeva circa 200 $ contro i 10.000-20.000 $ di oggi), e con loro il motore non tiene il valore del PSA 9 vicino alle vendite recenti (169 contro 66 nelle unità del controllo). Le regole restano nel codice spente (`SLABWISE_EN_RULES=0`). Il difetto è del motore davanti a un rialzo di circa 80 volte nello storico lungo: va corretto lì, con una prova sua, prima di riprovare queste regole.
+
+## 40. Salto di un voto sulle sue ultime vendite; scalini con code più larghe (registrato il 7 novembre 2026, prima del codice; D220)
+
+**Domanda.** Un motore che legge il salto di un voto sulle sue ultime vendite (D) e, in più, accetta scalini tra voti più estremi (E) dà prezzi almeno buoni quanto quelli della v1.20, e regge le vendite in più delle regole dei titoli di D216?
+
+**Riferimento.** R = il motore del sito (v1.20: storico lungo, revisione sulle vendite recenti, salto di voto su 4 settimane), sulle vendite di oggi con lo storico, regole D216 spente.
+
+**Bracci.** D = R con il salto di voto cercato sulle ultime vendite del voto (fino a 5, tra le ultime 13 settimane, almeno 3, tutte dopo l'ultimo salto di quel voto; soglie D155: |mediana| > 0,35, accordo 75%). E = D con il prior Student-t sugli scalini a 2 gradi di libertà invece di 4.
+
+**Criteri per braccio** (tutti):
+- Y1: R1 = 0.
+- Y2: E2r ≤ 3 e non più di R.
+- Y3: differenza dell'errore medio |log| sulle vendite valutate in entrambi, estremo alto dell'intervallo al 95% (bootstrap per carta) ≤ +0,2 punti.
+- Y4: copertura della banda all'80% ≥ quella di R meno 1 punto, e ≤ 85%.
+- Y5: voti nascosti sul sito (senza vendite proprie, in revisione, PSA 10 "Stimato") non più di R.
+- Y6: voti con ≥ 5 vendite in 90 giorni e |log valore − log mediana| > 0,5 non più di R.
+
+**Adozione.** Tra i bracci che passano tutto, quello con l'errore Y3 più basso, come v1.21. Prova a valle: con la v1.21 si rifà il T3 del §39 (vendite con `SLABWISE_EN_RULES=1`): **Y8**, R1 = 0 e nessuna voce E2r in più rispetto alla v1.21 senza le regole; se passa, D216 si adotta. Se nessun braccio passa, resta la v1.20 e D216 resta spento. Il controllo a venire Y7 (§37, dal 14 novembre) vale anche per la v1.21.
