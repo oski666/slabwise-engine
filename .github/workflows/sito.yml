@@ -79,7 +79,9 @@ jobs:
         run: |
           if [ -f data/raw/gemrate/sets.json ]; then PYTHONPATH=. python scripts/gemrate_tap.py data/raw/gemrate/sets.json data/raw/sales_all.csv data/raw/gemrate/tap.json; fi
       - name: Values
-        run: PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json
+        run: |
+          PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json
+          mkdir -p /tmp/out && cp prototype/data/real.json /tmp/out/real.json   # D227: the values of this run, kept apart from git
       - name: Coherence checks (D211)
         continue-on-error: true
         run: PYTHONPATH=. python scripts/coherence_check.py prototype/data/real.json results/coherence.json
@@ -90,17 +92,28 @@ jobs:
         run: |
           PYTHONPATH=. python scripts/ebay_listings.py data/raw/ebay/listings.json
           PYTHONPATH=. python scripts/deals_refresh.py prototype/data/real.json data/raw/ebay/listings.json
+      - name: Keep the values with the deals (D227)
+        run: cp prototype/data/real.json /tmp/out/real.json
       - name: Weekly sealed snapshot (D105)
         continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           pip install -q opentimestamps-client
-          python scripts/seal.py prototype/data/real.json data/seals
+          python scripts/seal.py /tmp/out/real.json data/seals
           for f in data/seals/*.json; do [ -f "$f.ots" ] || ots stamp "$f"; done
           ots upgrade data/seals/*.ots || true
+          # D227: commit in a separate clone, so a conflict can never touch the values about to be published
+          rm -rf /tmp/pub && git clone -q --depth 50 "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" /tmp/pub
+          mkdir -p /tmp/pub/data/seals /tmp/pub/results && cp -a data/seals/. /tmp/pub/data/seals/
+          cp prototype/data/pulse.json /tmp/pub/prototype/data/pulse.json 2>/dev/null || true
+          cp results/coherence.json /tmp/pub/results/coherence.json 2>/dev/null || true
+          cd /tmp/pub
           git config user.name "slabwise-bot"
           git config user.email "slabwise-bot@users.noreply.github.com"
+          git config core.hooksPath .githooks
           git add data/seals prototype/data/pulse.json results/coherence.json   # D184: the stories of the week; D211: the coherence report
-          git diff --cached --quiet || (git commit -m "Istantanea sigillata dei valori" && git pull --rebase --autostash -q && git push)
+          git diff --cached --quiet || { git commit -q -m "Istantanea sigillata dei valori" && for k in 1 2 3; do git pull -q --rebase -X theirs && git push -q && break; sleep 5; done; }
       - name: Scorecard (D105)
         continue-on-error: true
         run: PYTHONPATH=. python scripts/pagella.py data/raw/sales_all.csv prototype/data/pagella.json
@@ -114,6 +127,15 @@ jobs:
           retention-days: 3
       - name: Page
         run: |
+          cp /tmp/out/real.json prototype/data/real.json      # D227: always the values of this run
+          python - <<'PY'
+          import json, sys, datetime as dt
+          D = json.load(open("prototype/data/real.json"))
+          age = (dt.date.today() - dt.date.fromisoformat(D["asof"][:10])).days
+          if len(D["cards"]) < 100 or age > 3:                # D227: never publish old or partial values
+              sys.exit(f"Valori non pubblicabili: {len(D['cards'])} carte, dati di {age} giorni fa")
+          print("valori da pubblicare:", len(D["cards"]), "carte, del", D["asof"])
+          PY
           mkdir -p site
           python prototype/v7/build.py real --split site
           sed -i 's#<meta charset="utf-8">#<meta charset="utf-8">\n<meta name="robots" content="noindex">#' site/index.html

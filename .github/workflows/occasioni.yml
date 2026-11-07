@@ -52,6 +52,13 @@ jobs:
           PYTHONPATH=. python scripts/deals_refresh.py prototype/data/real.json data/raw/ebay/listings.json
       - name: Page
         run: |
+          python - <<'PY'
+          import json, sys, datetime as dt
+          D = json.load(open("prototype/data/real.json"))
+          age = (dt.date.today() - dt.date.fromisoformat(D["asof"][:10])).days
+          if len(D["cards"]) < 100 or age > 3:                # D227: never publish old or partial values
+              sys.exit(f"Valori non pubblicabili: {len(D['cards'])} carte, dati di {age} giorni fa")
+          PY
           mkdir -p site
           python prototype/v7/build.py real --split site
           sed -i 's#<meta charset="utf-8">#<meta charset="utf-8">\n<meta name="robots" content="noindex">#' site/index.html
