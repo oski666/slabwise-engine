@@ -551,8 +551,8 @@
   "added": "2026-11-02"
  },
  "en:ex14-99": {
-  "n": 36,
-  "recognised": 36,
+  "n": 39,
+  "recognised": 39,
   "share": 1.0,
   "tc_id": 16159,
   "tc_set": "Crystal Guardians",
@@ -560,7 +560,7 @@
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-02",
+  "checked": "2026-11-07",
   "requests": 0,
   "source": "catalogo (D111)"
  },
@@ -625,16 +625,16 @@
   "added": "2026-11-02"
  },
  "en:pl3-143": {
-  "n": 97,
-  "recognised": 85,
-  "share": 0.876,
+  "n": 103,
+  "recognised": 88,
+  "share": 0.854,
   "tc_id": 14492,
   "tc_set": "Supreme Victors",
   "tc_url": "/pokemon/supreme-victors/charizard-g-lv-x-143",
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-02",
+  "checked": "2026-11-07",
   "requests": 0,
   "source": "catalogo (D111)"
  },
@@ -684,18 +684,19 @@
   "added": "2026-11-02"
  },
  "en:ex7-99": {
-  "n": 36,
+  "n": 37,
   "recognised": 32,
-  "share": 0.889,
+  "share": 0.865,
   "tc_id": 17006,
   "tc_set": "Team Rocket Returns",
   "tc_url": "/pokemon/team-rocket-returns/rockets-mewtwo-ex-99",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-02",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-07",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-07"
  },
  "en:ex10-113": {
   "n": 86,
@@ -1223,18 +1224,19 @@
   "added": "2026-11-03"
  },
  "en:ex4-94": {
-  "n": 35,
-  "recognised": 31,
-  "share": 0.886,
+  "n": 43,
+  "recognised": 39,
+  "share": 0.907,
   "tc_id": 17355,
   "tc_set": "Team Magma vs Team Aqua",
   "tc_url": "/pokemon/team-magma-vs-team-aqua/suicune-ex-94",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-03",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-07",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-07"
  },
  "en:dc1-6": {
   "n": 65,
@@ -1252,18 +1254,19 @@
   "added": "2026-11-03"
  },
  "en:pl3-146": {
-  "n": 52,
-  "recognised": 47,
-  "share": 0.904,
+  "n": 59,
+  "recognised": 54,
+  "share": 0.915,
   "tc_id": 14495,
   "tc_set": "Supreme Victors",
   "tc_url": "/pokemon/supreme-victors/rayquaza-c-lv-x-146",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-03",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-07",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-07"
  },
  "en:bw1-115": {
   "n": 49,
@@ -1296,18 +1299,19 @@
   "added": "2026-11-03"
  },
  "en:dp4-104": {
-  "n": 41,
-  "recognised": 34,
-  "share": 0.829,
+  "n": 37,
+  "recognised": 31,
+  "share": 0.838,
   "tc_id": 15258,
   "tc_set": "Great Encounters",
   "tc_url": "/pokemon/great-encounters/darkrai-lv-x-104",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-03",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-07",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-07"
  },
  "en:xy9-114": {
   "n": 120,
@@ -1481,11 +1485,12 @@
   "tc_set": "Secret Wonders",
   "tc_url": "/pokemon/secret-wonders/mew-15",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-03",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-07",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-07"
  },
  "en:sm115-9": {
   "n": 177,
@@ -1503,16 +1508,16 @@
   "added": "2026-11-03"
  },
  "en:dp2-17": {
-  "n": 35,
-  "recognised": 31,
-  "share": 0.886,
+  "n": 33,
+  "recognised": 29,
+  "share": 0.879,
   "tc_id": 15540,
   "tc_set": "Mysterious Treasures",
   "tc_url": "/pokemon/mysterious-treasures/tyranitar-17",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-03",
+  "status": "attesa_vendite",
+  "detail": "29 vendite PSA riconosciute in 90 giorni (ne servono 30, con almeno 5 in 2 voti)",
+  "checked": "2026-11-07",
   "requests": 0,
   "source": "catalogo (D111)"
  },

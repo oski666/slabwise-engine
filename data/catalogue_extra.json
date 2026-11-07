@@ -2230,5 +2230,50 @@
    2002,
    2003
   ]
+ ],
+ "ex7-99": [
+  "rocket's mewtwo ex",
+  "\\bteam\\W*(?:(?:of|the|and)\\W*)?rocket\\W*(?:(?:of|the|and)\\W*)?returns\\b",
+  99,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "dp3-15": [
+  "mew",
+  "\\bsecret\\W*(?:(?:of|the|and)\\W*)?wonders\\b",
+  15,
+  [
+   2007,
+   2008
+  ]
+ ],
+ "dp4-104": [
+  "darkrai",
+  "\\bgreat\\W*(?:(?:of|the|and)\\W*)?encounters\\b",
+  104,
+  [
+   2008,
+   2009
+  ]
+ ],
+ "ex4-94": [
+  "suicune ex",
+  "\\bteam\\W*(?:(?:of|the|and)\\W*)?magma\\W*(?:(?:of|the|and)\\W*)?vs\\W*(?:(?:of|the|and)\\W*)?team\\W*(?:(?:of|the|and)\\W*)?aqua\\b",
+  94,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "pl3-146": [
+  "rayquaza c lv\\.x",
+  "\\bsupreme\\W*(?:(?:of|the|and)\\W*)?victors\\b",
+  146,
+  [
+   2009,
+   2010
+  ]
  ]
 }
