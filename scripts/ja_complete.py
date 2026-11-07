@@ -209,7 +209,7 @@ def main():
     done_en = {x["en"] for x in ja if x.get("en_same")}
     state = j(STATE, {})
     todo = [c for c in cards if "/" not in c["id"] and c["id"] not in done_en and not is_promo(c["id"])
-            and (state.get(c["id"], {}).get("status") not in ("trovata", "nessuna", "senza_pokedex") + (() if RETRY else ("senza_immagine",))
+            and (state.get(c["id"], {}).get("status") not in ("trovata", "nessuna", "senza_pokedex", "doppione") + (() if RETRY else ("senza_immagine",))
                  or (state[c["id"]]["status"] == "trovata" and not state[c["id"]].get("tc") and not NO_TC))][:MAX]
     print(f"{len(todo)} carte inglesi da abbinare", flush=True)
     for c in todo:
@@ -234,11 +234,23 @@ def publish(state, cards):
     have = {x["id"]: x for x in ja}
     by_id = {c["id"]: c for c in cards}
     n_new = 0
+    key_of = lambda r: "ja:" + (r["tcgdex"].lower() if r.get("tcgdex") else  # noqa: E731
+                                r["tc"]["url"].rstrip("/").split("/")[-2].replace("-japanese", "") + "-" + str(r["no"]))   # vintage: from tcgcharts
+    # D215: one Japanese printing is the twin of one English card only: the closest art keeps it, the others are set aside
+    best = {}
+    for en_id, r in state.items():
+        if r.get("status") == "trovata" and en_id in by_id:
+            k = key_of(r)
+            if k not in best or (r.get("dist") or 999) < (state[best[k]].get("dist") or 999):
+                best[k] = en_id
+    for en_id, r in state.items():
+        if r.get("status") == "trovata" and en_id in by_id and best[key_of(r)] != en_id:
+            r.update(status="doppione", detail=f"la stampa {key_of(r)} è già gemella di {best[key_of(r)]} (illustrazione più vicina)")
+            print(f"  {en_id}: doppione di {best[key_of(r)]} per {key_of(r)}")
     for en_id, r in state.items():
         if r.get("status") != "trovata" or en_id not in by_id:
             continue
-        key = "ja:" + (r["tcgdex"].lower() if r.get("tcgdex") else
-                       r["tc"]["url"].rstrip("/").split("/")[-2].replace("-japanese", "") + "-" + str(r["no"]))   # vintage: from tcgcharts
+        key = key_of(r)
         if key in have:
             have[key].update(en=en_id, en_same=True, en_check=f"illustrazione uguale (distanza {r['dist']}/256)")
         else:
@@ -253,6 +265,8 @@ def publish(state, cards):
             ja.append(e)
             have[key] = e
             n_new += 1
+        if r.get("tc") and key in queue and queue[key].get("en") != en_id and queue[key].get("status") != "aggiunta":
+            del queue[key]                                           # D215: the queue follows the twin that kept the printing
         if r.get("tc") and key not in queue:
             en = by_id[en_id]
             queue[key] = dict(id=key, lang="ja", tcgdex=r["tcgdex"], en=en_id, en_same=True, name=f"{en['n']} (giapponese)", ja_name=r["ja_name"],
@@ -260,6 +274,7 @@ def publish(state, cards):
                               tc_set=r["tc"]["set"], set_en=r["tc"]["set"],
                               entry=cr.ja_entry(en["n"], r["ja_name"], r["no"], r["tot"], r["tc"]["set"]),
                               status="in_valutazione", detail="stampa giapponese trovata (D158): si controllano le vendite", checked=today)
+    json.dump(state, open(STATE, "w"), ensure_ascii=False, indent=1)
     json.dump(ja, open(ja_p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     json.dump(queue, open(q_p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"{n_new} stampe giapponesi nuove nel catalogo (in attesa di prezzo)")

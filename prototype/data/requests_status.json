@@ -3782,34 +3782,6 @@
   "requests": 0,
   "source": "coda giapponese (D134)"
  },
- "ja:e4-039": {
-  "n": 6,
-  "recognised": 6,
-  "share": 1.0,
-  "tc_id": 128340,
-  "tc_set": "Golden Sky, Silvery Ocean",
-  "tc_url": "/pokemon/golden-sky-silvery-ocean-japanese/raikou-39",
-  "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "6 vendite PSA riconosciute in 90 giorni (ne servono 30, con almeno 5 in 2 voti)",
-  "checked": "2026-11-06",
-  "requests": 0,
-  "source": "coda giapponese (D134)"
- },
- "ja:web1-038": {
-  "n": 12,
-  "recognised": 5,
-  "share": 0.417,
-  "tc_id": 129010,
-  "tc_set": "Rulers of the Heavens",
-  "tc_url": "/pokemon/rulers-of-the-heavens-japanese/dragonite-ex-38",
-  "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "5 vendite PSA riconosciute in 90 giorni (ne servono 30, con almeno 5 in 2 voti)",
-  "checked": "2026-11-06",
-  "requests": 0,
-  "source": "coda giapponese (D134)"
- },
  "ja:darkness-and-to-light-248": {
   "n": 0,
   "recognised": 0,
@@ -3848,20 +3820,6 @@
   "tc_type": "base",
   "status": "attesa_vendite",
   "detail": "0 vendite PSA riconosciute in 90 giorni (ne servono 30, con almeno 5 in 2 voti)",
-  "checked": "2026-11-06",
-  "requests": 0,
-  "source": "coda giapponese (D134)"
- },
- "ja:e5-043": {
-  "n": 7,
-  "recognised": 5,
-  "share": 0.714,
-  "tc_id": 126575,
-  "tc_set": "Advent of Arceus",
-  "tc_url": "/pokemon/advent-of-arceus-japanese/gengar-lv-x-43",
-  "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "5 vendite PSA riconosciute in 90 giorni (ne servono 30, con almeno 5 in 2 voti)",
   "checked": "2026-11-06",
   "requests": 0,
   "source": "coda giapponese (D134)"
@@ -4109,20 +4067,6 @@
   "requests": 0,
   "source": "coda giapponese (D134)"
  },
- "ja:e2-070": {
-  "n": 8,
-  "recognised": 2,
-  "share": 0.25,
-  "tc_id": 129299,
-  "tc_set": "Mysterious Mountains",
-  "tc_url": "/pokemon/mysterious-mountains-japanese/houndoom-70",
-  "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "2 vendite PSA riconosciute in 90 giorni (ne servono 30, con almeno 5 in 2 voti)",
-  "checked": "2026-11-06",
-  "requests": 0,
-  "source": "coda giapponese (D134)"
- },
  "ja:e3-053": {
   "n": 5,
   "recognised": 1,
@@ -4264,20 +4208,6 @@
   "requests": 0,
   "source": "coda giapponese (D134)"
  },
- "ja:e5-089": {
-  "n": 0,
-  "recognised": 0,
-  "share": 0.0,
-  "tc_id": 124378,
-  "tc_set": "Wild Blaze",
-  "tc_url": "/pokemon/wild-blaze-japanese/m-charizard-ex-89",
-  "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in 90 giorni (ne servono 30, con almeno 5 in 2 voti)",
-  "checked": "2026-11-06",
-  "requests": 0,
-  "source": "coda giapponese (D134)"
- },
  "ja:e4-027": {
   "n": 4,
   "recognised": 1,
@@ -4288,34 +4218,6 @@
   "tc_type": "base",
   "status": "attesa_vendite",
   "detail": "1 vendite PSA riconosciute in 90 giorni (ne servono 30, con almeno 5 in 2 voti)",
-  "checked": "2026-11-06",
-  "requests": 0,
-  "source": "coda giapponese (D134)"
- },
- "ja:e1-119": {
-  "n": 11,
-  "recognised": 4,
-  "share": 0.364,
-  "tc_id": 116985,
-  "tc_set": "Fusion Arts",
-  "tc_url": "/pokemon/fusion-arts-japanese/mew-vmax-119",
-  "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "4 vendite PSA riconosciute in 90 giorni (ne servono 30, con almeno 5 in 2 voti)",
-  "checked": "2026-11-06",
-  "requests": 0,
-  "source": "coda giapponese (D134)"
- },
- "ja:sv-p-288": {
-  "n": 49,
-  "recognised": 0,
-  "share": 0.0,
-  "tc_id": 115331,
-  "tc_set": "Scarlet & Violet Promos",
-  "tc_url": "/pokemon/scarlet-violet-promos-japanese/victini-288",
-  "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in 90 giorni (ne servono 30, con almeno 5 in 2 voti)",
   "checked": "2026-11-06",
   "requests": 0,
   "source": "coda giapponese (D134)"

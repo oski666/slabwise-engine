@@ -10,6 +10,8 @@ jobs:
     timeout-minutes: 350
     steps:
       - uses: actions/checkout@v4
+      - name: Guard bot commits (no conflict markers, valid JSON)
+        run: git config core.hooksPath .githooks
       - name: Private data (D163)
         uses: ./.github/actions/private-data
         with:

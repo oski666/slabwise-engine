@@ -8371,58 +8371,6 @@
   "detail": "stampa giapponese trovata (D158): si controllano le vendite",
   "checked": "2026-11-04"
  },
- "ja:e4-039": {
-  "id": "ja:e4-039",
-  "lang": "ja",
-  "tcgdex": "E4-039",
-  "en": "ex10-114",
-  "en_same": true,
-  "name": "Raikou ☆ (giapponese)",
-  "ja_name": "ライコウ",
-  "set": "Golden Sky, Silvery Ocean",
-  "no": "039",
-  "rank": null,
-  "tc_id": 128340,
-  "tc_type": "base",
-  "tc_url": "/pokemon/golden-sky-silvery-ocean-japanese/raikou-39",
-  "tc_set": "Golden Sky, Silvery Ocean",
-  "set_en": "Golden Sky, Silvery Ocean",
-  "entry": [
-   "raikou|ライコウ",
-   39,
-   -1,
-   "(?:\\b(?:golden\\W*sky|golden\\W*sky\\W*silvery\\W*ocean)\\b|金の空、?銀の海)"
-  ],
-  "status": "in_valutazione",
-  "detail": "stampa giapponese trovata (D158): si controllano le vendite",
-  "checked": "2026-11-04"
- },
- "ja:web1-038": {
-  "id": "ja:web1-038",
-  "lang": "ja",
-  "tcgdex": "web1-038",
-  "en": "ex3-90",
-  "en_same": true,
-  "name": "Dragonite ex (giapponese)",
-  "ja_name": "ドラゴナイト",
-  "set": "Rulers of the Heavens",
-  "no": "038",
-  "rank": null,
-  "tc_id": 129010,
-  "tc_type": "base",
-  "tc_url": "/pokemon/rulers-of-the-heavens-japanese/dragonite-ex-38",
-  "tc_set": "Rulers of the Heavens",
-  "set_en": "Rulers of the Heavens",
-  "entry": [
-   "dragonite ex|ドラゴナイト",
-   38,
-   -1,
-   "(?:\\b(?:rulers\\W*of\\W*the\\W*heavens|rulers\\W*heavens)\\b|天空の覇者)"
-  ],
-  "status": "in_valutazione",
-  "detail": "stampa giapponese trovata (D158): si controllano le vendite",
-  "checked": "2026-11-04"
- },
  "ja:darkness-and-to-light-248": {
   "id": "ja:darkness-and-to-light-248",
   "lang": "ja",
@@ -8496,32 +8444,6 @@
    197,
    -1,
    "(?:\\b(?:neo\\W*discovery|neo\\W*2|crossing\\W*the\\W*ruins|crossing\\W*ruins)\\b|遺跡をこえて)"
-  ],
-  "status": "in_valutazione",
-  "detail": "stampa giapponese trovata (D158): si controllano le vendite",
-  "checked": "2026-11-04"
- },
- "ja:e5-043": {
-  "id": "ja:e5-043",
-  "lang": "ja",
-  "tcgdex": "E5-043",
-  "en": "pl4-97",
-  "en_same": true,
-  "name": "Gengar LV.X (giapponese)",
-  "ja_name": "ジェンガー",
-  "set": "Advent of Arceus",
-  "no": "043",
-  "rank": null,
-  "tc_id": 126575,
-  "tc_type": "base",
-  "tc_url": "/pokemon/advent-of-arceus-japanese/gengar-lv-x-43",
-  "tc_set": "Advent of Arceus",
-  "set_en": "Advent of Arceus",
-  "entry": [
-   "gengar lv\\.x|ジェンガー",
-   43,
-   -1,
-   "(?:\\b(?:advent\\W*of\\W*arceus|advent\\W*arceus)\\b|アルセウス光臨)"
   ],
   "status": "in_valutazione",
   "detail": "stampa giapponese trovata (D158): si controllano le vendite",
@@ -10035,32 +9957,6 @@
   "checked": "2026-11-06",
   "added": "2026-11-07"
  },
- "ja:e3-090": {
-  "id": "ja:e3-090",
-  "lang": "ja",
-  "tcgdex": "E3-090",
-  "en": "ecard2-149",
-  "en_same": true,
-  "name": "Lugia (giapponese)",
-  "ja_name": "ルギア",
-  "set": "Wind from the Sea",
-  "no": "090",
-  "rank": null,
-  "tc_id": 129501,
-  "tc_type": "base",
-  "tc_url": "/pokemon/wind-from-the-sea-japanese/lugia-90",
-  "tc_set": "Wind from the Sea",
-  "set_en": "Wind from the Sea",
-  "entry": [
-   "lugia|ルギア",
-   90,
-   87,
-   "(?:\\b(?:wind\\W*from\\W*the\\W*sea|wind\\W*from\\W*sea)\\b|海からの風)"
-  ],
-  "status": "in_valutazione",
-  "detail": "stampa giapponese trovata (D158): si controllano le vendite",
-  "checked": "2026-11-06"
- },
  "ja:awakening-legends-129": {
   "id": "ja:awakening-legends-129",
   "lang": "ja",
@@ -10316,32 +10212,6 @@
    32,
    75,
    "(?:\\b(?:miracle\\W*crystal|miracle\\W*crystal)\\b|きせきの結晶)"
-  ],
-  "status": "in_valutazione",
-  "detail": "stampa giapponese trovata (D158): si controllano le vendite",
-  "checked": "2026-11-06"
- },
- "ja:e2-070": {
-  "id": "ja:e2-070",
-  "lang": "ja",
-  "tcgdex": "E2-070",
-  "en": "ecard3-H11",
-  "en_same": true,
-  "name": "Houndoom (giapponese)",
-  "ja_name": "猟犬-070/092",
-  "set": "Mysterious Mountains",
-  "no": "070",
-  "rank": null,
-  "tc_id": 129299,
-  "tc_type": "base",
-  "tc_url": "/pokemon/mysterious-mountains-japanese/houndoom-70",
-  "tc_set": "Mysterious Mountains",
-  "set_en": "Mysterious Mountains",
-  "entry": [
-   "houndoom|猟犬\\-070/092",
-   70,
-   92,
-   "\\bmysterious\\W*mountains\\b"
   ],
   "status": "in_valutazione",
   "detail": "stampa giapponese trovata (D158): si controllano le vendite",
@@ -10608,32 +10478,6 @@
   "detail": "stampa giapponese trovata (D158): si controllano le vendite",
   "checked": "2026-11-06"
  },
- "ja:e5-089": {
-  "id": "ja:e5-089",
-  "lang": "ja",
-  "tcgdex": "E5-089",
-  "en": "xy2-69",
-  "en_same": true,
-  "name": "M Charizard EX (giapponese)",
-  "ja_name": "カリザード",
-  "set": "Wild Blaze",
-  "no": "089",
-  "rank": null,
-  "tc_id": 124378,
-  "tc_type": "base",
-  "tc_url": "/pokemon/wild-blaze-japanese/m-charizard-ex-89",
-  "tc_set": "Wild Blaze",
-  "set_en": "Wild Blaze",
-  "entry": [
-   "m charizard ex|カリザード",
-   89,
-   88,
-   "\\bwild\\W*blaze\\b"
-  ],
-  "status": "in_valutazione",
-  "detail": "stampa giapponese trovata (D158): si controllano le vendite",
-  "checked": "2026-11-06"
- },
  "ja:e4-027": {
   "id": "ja:e4-027",
   "lang": "ja",
@@ -10655,58 +10499,6 @@
    27,
    88,
    "\\bsplit\\W*earth\\b"
-  ],
-  "status": "in_valutazione",
-  "detail": "stampa giapponese trovata (D158): si controllano le vendite",
-  "checked": "2026-11-06"
- },
- "ja:e1-119": {
-  "id": "ja:e1-119",
-  "lang": "ja",
-  "tcgdex": "E1-119",
-  "en": "swsh8-269",
-  "en_same": true,
-  "name": "Mew VMAX (giapponese)",
-  "ja_name": "ミュー",
-  "set": "Fusion Arts",
-  "no": "119",
-  "rank": null,
-  "tc_id": 116985,
-  "tc_type": "base",
-  "tc_url": "/pokemon/fusion-arts-japanese/mew-vmax-119",
-  "tc_set": "Fusion Arts",
-  "set_en": "Fusion Arts",
-  "entry": [
-   "mew vmax|ミュー",
-   119,
-   128,
-   "\\bfusion\\W*arts\\b"
-  ],
-  "status": "in_valutazione",
-  "detail": "stampa giapponese trovata (D158): si controllano le vendite",
-  "checked": "2026-11-06"
- },
- "ja:sv-p-288": {
-  "id": "ja:sv-p-288",
-  "lang": "ja",
-  "tcgdex": "SV-P-288",
-  "en": "sv10.5b-171",
-  "en_same": true,
-  "name": "Victini (giapponese)",
-  "ja_name": "ビクティニ",
-  "set": "Scarlet & Violet Promos",
-  "no": "288",
-  "rank": null,
-  "tc_id": 115331,
-  "tc_type": "base",
-  "tc_url": "/pokemon/scarlet-violet-promos-japanese/victini-288",
-  "tc_set": "Scarlet & Violet Promos",
-  "set_en": "Scarlet & Violet Promos",
-  "entry": [
-   "victini|ビクティニ",
-   288,
-   -1,
-   "\\bscarlet\\W*violet\\W*promos\\b"
   ],
   "status": "in_valutazione",
   "detail": "stampa giapponese trovata (D158): si controllano le vendite",
@@ -10840,34 +10632,8 @@
   ],
   "status": "aggiunta",
   "detail": "stampa giapponese trovata (D158): si controllano le vendite",
-<<<<<<< Updated upstream
-  "checked": "2026-11-06"
- },
- "ja:pcg1-048": {
-  "id": "ja:pcg1-048",
-  "lang": "ja",
-  "tcgdex": "PCG1-048",
-  "en": "xy4-34",
-  "en_same": true,
-  "name": "Gengar EX (giapponese)",
-  "ja_name": "Gengar Ex",
-  "set": "Premium Champion Pack",
-  "no": "048",
-  "rank": null,
-  "tc_id": 123247,
-  "tc_type": "base",
-  "tc_url": "/pokemon/premium-champion-pack-japanese/gengar-ex-48",
-  "tc_set": "Premium Champion Pack",
-  "set_en": "Premium Champion Pack",
-  "entry": [
-   "gengar ex|gengar\\s?ex",
-   48,
-   82,
-   "\\bpremium\\W*champion\\W*pack\\b"
-  ],
-  "status": "in_valutazione",
-  "detail": "stampa giapponese trovata (D158): si controllano le vendite",
-  "checked": "2026-11-07"
+  "checked": "2026-11-06",
+  "added": "2026-11-07"
  },
  "ja:pcg6-019": {
   "id": "ja:pcg6-019",
@@ -10971,9 +10737,7 @@
   ],
   "status": "in_valutazione",
   "detail": "stampa giapponese trovata (D158): si controllano le vendite",
-=======
-  "checked": "2026-11-06",
-  "added": "2026-11-07"
+  "checked": "2026-11-07"
  },
  "ex11-17": {
   "id": "ex11-17",
@@ -11820,7 +11584,6 @@
   "share": 0.964,
   "status": "pronta",
   "detail": "53 vendite PSA in 90 giorni",
->>>>>>> Stashed changes
   "checked": "2026-11-07"
  }
 }

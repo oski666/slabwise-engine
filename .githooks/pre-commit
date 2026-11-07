@@ -1,0 +1,3 @@
+#!/bin/sh
+# Bot commits: never save conflict markers or broken JSON (scripts/no_conflict.py)
+exec python3 scripts/no_conflict.py

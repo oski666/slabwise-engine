@@ -15,6 +15,8 @@ jobs:
       jobs: ${{ steps.l.outputs.jobs }}
     steps:
       - uses: actions/checkout@v4
+      - name: Guard bot commits (no conflict markers, valid JSON)
+        run: git config core.hooksPath .githooks
       - id: l
         run: echo "jobs=$(ls results/v1.10/seed*.json | xargs -n1 basename | jq -R . | jq -cs .)" >> "$GITHUB_OUTPUT"
   sim:
@@ -27,6 +29,8 @@ jobs:
         job: ${{ fromJson(needs.list.outputs.jobs) }}
     steps:
       - uses: actions/checkout@v4
+      - name: Guard bot commits (no conflict markers, valid JSON)
+        run: git config core.hooksPath .githooks
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -42,6 +46,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Guard bot commits (no conflict markers, valid JSON)
+        run: git config core.hooksPath .githooks
       - uses: actions/download-artifact@v4
         with:
           path: /tmp/sim
