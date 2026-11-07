@@ -49,6 +49,9 @@ params.step_prior = params.step_prior or _v in ("steps", "pops")
 params.pop_steps = params.pop_steps or _v == "pops"
 params.card_drift = params.card_drift or os.environ.get("SLABWISE_CARD_DRIFT") == "1"   # protocol §36 arm B (D204); off on the site
 params.grade_jump = os.environ.get("SLABWISE_GRADE_JUMP", "1") == "1"   # v1.20 (D210): jumps of a single grade; "0" = v1.15 (tests)
+params.grade_jump_recent = os.environ.get("SLABWISE_GRADE_JUMP_RECENT", "0") == "1"   # D220 (protocol §40): arm D/E
+if os.environ.get("SLABWISE_STEP_T"):                  # D220 (protocol §40): arm E, steps with 2 degrees of freedom
+    params.step_t = float(os.environ["SLABWISE_STEP_T"])
 REVIEW_RECENT = os.environ.get("SLABWISE_REVIEW_RECENT", "1") == "1"   # v1.20 (D210): review against the recent sales of E2r; "0" = D98 on 13 weeks
 lvm = LatentValueModel(len(cards), era, len(eras), params)
 lvm.set_parents([cards.index(c.split("/")[0]) if "/" in c and c.split("/")[0] in cards else -1 for c in cards])   # variants (v1.13/v1.15 switches)

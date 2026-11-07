@@ -39,6 +39,10 @@ if "--v118" in sys.argv:                              # v1.18 test (protocol §3
     params.era_noise = True
 if "--v120" in sys.argv:                              # protocol §37 arm C (D206): jumps of a single grade
     params.grade_jump = True
+if "--v121d" in sys.argv or "--v121e" in sys.argv:    # protocol §40 (D220): the grade's jump on its latest sales
+    params.grade_jump = params.grade_jump_recent = True
+if "--v121e" in sys.argv:                             # protocol §40 arm E: grade steps with fatter tails
+    params.step_t = 2.0
 if "--v119" in sys.argv:                              # protocol §36 arm B (D204): own drift per card (D29)
     params.card_drift = True
 if "--v117" in sys.argv:                              # v1.17 test (protocol §30, D155)

@@ -79,6 +79,7 @@ class LVMParams:
     jump_min: float = 0.35       # D155: |median log residual| above this
     jump_agree: float = 0.75     # D155: share of residuals with the median's sign and at least half its size
     grade_jump: bool = False     # D206: the same jump rule (D155 thresholds) for each grade of a card on its own (protocol §37)
+    grade_jump_recent: bool = False   # D220: the grade's jump looked for on its own latest sales (up to 5 in 13 weeks), protocol §40
 
 
 class LatentValueModel:
@@ -579,7 +580,12 @@ class LatentValueModel:
             if prev is not None:
                 for gi in range(4):
                     last_j = max([tj for gj, tj, _ in self.gjumps[c] if gj == gi], default=-np.inf)
-                    rec = (t > T - p.jump_weeks) & (t > last_j) & (g == gi)
+                    if p.grade_jump_recent:              # D220: the latest (up to 5) sales of the grade in 13 weeks
+                        cand = np.where((t > T - 13.0) & (t > last_j) & (g == gi))[0]
+                        rec = np.zeros(len(t), bool)
+                        rec[cand[np.argsort(t[cand])][-5:]] = True
+                    else:
+                        rec = (t > T - p.jump_weeks) & (t > last_j) & (g == gi)
                     if rec.sum() >= p.jump_n:
                         r = (y - X @ starts[0])[rec]
                         med = float(np.median(r))
