@@ -2482,5 +2482,122 @@
    2009,
    2010
   ]
+ ],
+ "col1-SL7": [
+  "lugia",
+  "\\bcall\\W*(?:(?:of|the|and)\\W*)?legends\\b",
+  "sl7",
+  [
+   2011,
+   2012
+  ]
+ ],
+ "ex2-98": [
+  "raichu ex",
+  "\\bsandstorm\\b",
+  98,
+  [
+   2003,
+   2004
+  ]
+ ],
+ "ex15-97": [
+  "rayquaza ex",
+  "\\bdragon\\W*(?:(?:of|the|and)\\W*)?frontiers\\b",
+  97,
+  [
+   2006,
+   2007
+  ]
+ ],
+ "hgss3-85": [
+  "slowking",
+  "\\bundaunted\\b",
+  85,
+  [
+   2010,
+   2011
+  ]
+ ],
+ "dp3-14": [
+  "lugia",
+  "\\bsecret\\W*(?:(?:of|the|and)\\W*)?wonders\\b",
+  14,
+  [
+   2007,
+   2008
+  ]
+ ],
+ "si1-4": [
+  "togepi",
+  "\\bsouthern\\W*(?:(?:of|the|and)\\W*)?islands\\b",
+  4,
+  [
+   2001,
+   2002
+  ]
+ ],
+ "ex2-99": [
+  "typhlosion ex",
+  "\\bsandstorm\\b",
+  99,
+  [
+   2003,
+   2004
+  ]
+ ],
+ "xy6-104": [
+  "rayquaza ex",
+  "\\broaring\\W*(?:(?:of|the|and)\\W*)?skies\\b",
+  104,
+  [
+   2015,
+   2016
+  ]
+ ],
+ "ex13-8": [
+  "gyarados",
+  "\\bholon\\W*(?:(?:of|the|and)\\W*)?phantoms\\b",
+  8,
+  [
+   2006,
+   2007
+  ]
+ ],
+ "neo1-17": [
+  "typhlosion",
+  "\\bneo\\W*(?:(?:of|the|and)\\W*)?genesis\\b",
+  17,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "ex1-99": [
+  "lapras ex",
+  "\\bruby\\W*(?:(?:of|the|and)\\W*)?sapphire\\b",
+  99,
+  [
+   2003,
+   2004
+  ]
+ ],
+ "bw3-98": [
+  "victini",
+  "\\bnoble\\W*(?:(?:of|the|and)\\W*)?victories\\b",
+  98,
+  [
+   2011,
+   2012
+  ]
+ ],
+ "neo3-7": [
+  "ho\\-oh",
+  "\\bneo\\W*(?:(?:of|the|and)\\W*)?revelation\\b",
+  7,
+  [
+   2001,
+   2002
+  ]
  ]
 }

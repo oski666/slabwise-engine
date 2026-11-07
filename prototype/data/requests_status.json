@@ -1778,8 +1778,8 @@
   "added": "2026-11-04"
  },
  "en:ex12-5": {
-  "n": 102,
-  "recognised": 94,
+  "n": 103,
+  "recognised": 95,
   "share": 0.922,
   "tc_id": 16356,
   "tc_set": "Legend Maker",
@@ -1787,7 +1787,7 @@
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-05",
+  "checked": "2026-11-07",
   "requests": 0,
   "source": "catalogo (D111)"
  },
@@ -1837,16 +1837,16 @@
   "added": "2026-11-04"
  },
  "en:ex7-15": {
-  "n": 47,
-  "recognised": 37,
-  "share": 0.787,
+  "n": 44,
+  "recognised": 35,
+  "share": 0.795,
   "tc_id": 16914,
   "tc_set": "Team Rocket Returns",
   "tc_url": "/pokemon/team-rocket-returns/dark-dragonite-15",
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-04",
+  "checked": "2026-11-07",
   "requests": 0,
   "source": "catalogo (D111)"
  },
@@ -1896,18 +1896,19 @@
   "added": "2026-11-04"
  },
  "en:ex2-98": {
-  "n": 57,
-  "recognised": 49,
-  "share": 0.86,
+  "n": 56,
+  "recognised": 48,
+  "share": 0.857,
   "tc_id": 17597,
   "tc_set": "Sandstorm",
   "tc_url": "/pokemon/sandstorm/raichu-ex-98",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-04",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-07",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-07"
  },
  "en:sm9-113": {
   "n": 172,
@@ -2181,17 +2182,18 @@
  },
  "en:ex15-97": {
   "n": 39,
-  "recognised": 32,
-  "share": 0.821,
+  "recognised": 34,
+  "share": 0.872,
   "tc_id": 16040,
   "tc_set": "Dragon Frontiers",
   "tc_url": "/pokemon/dragon-frontiers/rayquaza-ex-97",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-04",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-07",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-07"
  },
  "en:ex15-91": {
   "n": 35,
@@ -2284,18 +2286,19 @@
   "added": "2026-11-04"
  },
  "en:hgss3-85": {
-  "n": 38,
-  "recognised": 33,
-  "share": 0.868,
+  "n": 36,
+  "recognised": 31,
+  "share": 0.861,
   "tc_id": 14063,
   "tc_set": "HS—Undaunted",
   "tc_url": "/pokemon/hs-undaunted/slowking-85",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-04",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-07",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-07"
  },
  "en:me02-098": {
   "n": 208,
@@ -2446,18 +2449,19 @@
   "added": "2026-11-07"
  },
  "en:col1-SL7": {
-  "n": 36,
-  "recognised": 35,
-  "share": 0.972,
+  "n": 40,
+  "recognised": 38,
+  "share": 0.95,
   "tc_id": 13874,
   "tc_set": "Call of Legends",
   "tc_url": "/pokemon/call-of-legends/lugia-sl7",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-04",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-07",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-07"
  },
  "en:swshp-SWSH074": {
   "n": 156,
@@ -2834,18 +2838,19 @@
   "added": "2026-11-04"
  },
  "en:dp3-14": {
-  "n": 53,
-  "recognised": 51,
-  "share": 0.962,
+  "n": 61,
+  "recognised": 59,
+  "share": 0.967,
   "tc_id": 15396,
   "tc_set": "Secret Wonders",
   "tc_url": "/pokemon/secret-wonders/lugia-14",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-04",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-07",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-07"
  },
  "en:sv03.5-173": {
   "n": 242,
@@ -2967,8 +2972,8 @@
   "source": "catalogo (D111)"
  },
  "en:dpp-DP45": {
-  "n": 83,
-  "recognised": 81,
+  "n": 82,
+  "recognised": 80,
   "share": 0.976,
   "tc_id": 15805,
   "tc_set": "DP Black Star Promos",
@@ -2976,7 +2981,7 @@
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-04",
+  "checked": "2026-11-07",
   "requests": 0,
   "source": "catalogo (D111)"
  },
@@ -3033,25 +3038,27 @@
   "tc_set": "Roaring Skies",
   "tc_url": "/pokemon/roaring-skies/rayquaza-ex-104",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-04",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-07",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-07"
  },
  "en:ex13-8": {
-  "n": 64,
-  "recognised": 62,
-  "share": 0.969,
+  "n": 66,
+  "recognised": 64,
+  "share": 0.97,
   "tc_id": 16249,
   "tc_set": "Holon Phantoms",
   "tc_url": "/pokemon/holon-phantoms/gyarados-8",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-04",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-07",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-07"
  },
  "en:swsh7-184": {
   "n": 129,
@@ -3084,16 +3091,16 @@
   "added": "2026-11-04"
  },
  "en:si1-11": {
-  "n": 76,
-  "recognised": 61,
-  "share": 0.803,
+  "n": 75,
+  "recognised": 60,
+  "share": 0.8,
   "tc_id": 18537,
   "tc_set": "Southern Islands",
   "tc_url": "/pokemon/southern-islands/marill-11",
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-04",
+  "checked": "2026-11-07",
   "requests": 0,
   "source": "catalogo (D111)"
  },
@@ -3247,16 +3254,16 @@
   "added": "2026-11-04"
  },
  "en:ex3-89": {
-  "n": 51,
-  "recognised": 40,
-  "share": 0.784,
+  "n": 53,
+  "recognised": 43,
+  "share": 0.811,
   "tc_id": 17447,
   "tc_set": "Dragon",
   "tc_url": "/pokemon/dragon/ampharos-ex-89",
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-04",
+  "checked": "2026-11-07",
   "requests": 0,
   "source": "catalogo (D111)"
  },
@@ -3366,18 +3373,19 @@
   "added": "2026-11-04"
  },
  "en:si1-4": {
-  "n": 86,
-  "recognised": 61,
-  "share": 0.709,
+  "n": 85,
+  "recognised": 60,
+  "share": 0.706,
   "tc_id": 18547,
   "tc_set": "Southern Islands",
   "tc_url": "/pokemon/southern-islands/togepi-4",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-04",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-07",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-07"
  },
  "en:bw11-RC22": {
   "n": 131,
@@ -3402,15 +3410,16 @@
   "tc_set": "Sandstorm",
   "tc_url": "/pokemon/sandstorm/typhlosion-ex-99",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-04",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-07",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-07"
  },
  "en:ex12-93": {
-  "n": 40,
-  "recognised": 40,
+  "n": 39,
+  "recognised": 39,
   "share": 1.0,
   "tc_id": 16404,
   "tc_set": "Legend Maker",
@@ -3418,7 +3427,7 @@
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-04",
+  "checked": "2026-11-07",
   "requests": 0,
   "source": "catalogo (D111)"
  },
@@ -4423,18 +4432,19 @@
   "added": "2026-11-06"
  },
  "en:neo1-17": {
-  "n": 70,
-  "recognised": 65,
-  "share": 0.929,
+  "n": 69,
+  "recognised": 64,
+  "share": 0.928,
   "tc_id": 18648,
   "tc_set": "Neo Genesis",
   "tc_url": "/pokemon/neo-genesis/typhlosion-17",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-06",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-07",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-07"
  },
  "en:sv03.5-171": {
   "n": 227,
@@ -4519,11 +4529,12 @@
   "tc_set": "Ruby & Sapphire",
   "tc_url": "/pokemon/ruby-sapphire/lapras-ex-99",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-06",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-07",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-07"
  },
  "en:neo4-112": {
   "n": 51,
@@ -4610,7 +4621,7 @@
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-06",
+  "checked": "2026-11-07",
   "requests": 0,
   "source": "catalogo (D111)"
  },
@@ -4712,11 +4723,12 @@
   "tc_set": "Noble Victories",
   "tc_url": "/pokemon/noble-victories/victini-98",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-06",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-07",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-07"
  },
  "en:sm8-227": {
   "n": 63,
@@ -4734,18 +4746,19 @@
   "added": "2026-11-06"
  },
  "en:neo3-7": {
-  "n": 51,
-  "recognised": 38,
-  "share": 0.745,
+  "n": 50,
+  "recognised": 37,
+  "share": 0.74,
   "tc_id": 18532,
   "tc_set": "Neo Revelation",
   "tc_url": "/pokemon/neo-revelation/ho-oh-7",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-06",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-07",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-07"
  },
  "en:sv08.5-146": {
   "n": 180,
@@ -4892,7 +4905,7 @@
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-06",
+  "checked": "2026-11-07",
   "requests": 0,
   "source": "catalogo (D111)"
  },
