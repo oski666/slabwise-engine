@@ -15,6 +15,7 @@ import os
 import re
 import sys
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import date, datetime, timezone
@@ -34,8 +35,15 @@ GRAIL_RANK, GRAIL_MIN_SALES = 100, 15          # D150: the most valuable cards s
 
 def get(url, raw=False):
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
-    with urllib.request.urlopen(req, timeout=40) as r:
-        body = r.read().decode("utf-8")
+    for attempt in range(5):               # 7 Nov: tcgcharts answers 503 after a long run; wait and slow down, never hammer
+        try:
+            with urllib.request.urlopen(req, timeout=40) as r:
+                body = r.read().decode("utf-8")
+            break
+        except urllib.error.HTTPError as e:
+            if e.code not in (429, 503) or attempt == 4 or not url.startswith(TCG):
+                raise
+            time.sleep(60 * (attempt + 1))
     if url.startswith(TCG):
         time.sleep(PAUSE_S)
     return body if raw else json.loads(body)
