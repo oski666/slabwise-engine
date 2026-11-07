@@ -1449,16 +1449,16 @@
   "added": "2026-11-03"
  },
  "en:pl4-95": {
-  "n": 44,
-  "recognised": 35,
-  "share": 0.795,
+  "n": 47,
+  "recognised": 38,
+  "share": 0.809,
   "tc_id": 14426,
   "tc_set": "Arceus",
   "tc_url": "/pokemon/arceus/arceus-lv-x-95",
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-03",
+  "checked": "2026-11-07",
   "requests": 0,
   "source": "catalogo (D111)"
  },
@@ -1522,18 +1522,19 @@
   "source": "catalogo (D111)"
  },
  "en:xy7-92": {
-  "n": 81,
+  "n": 79,
   "recognised": 49,
-  "share": 0.605,
+  "share": 0.62,
   "tc_id": 11231,
   "tc_set": "Ancient Origins",
   "tc_url": "/pokemon/ancient-origins/m-tyranitar-ex-92",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-03",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-07",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-07"
  },
  "ja:sm9-103": {
   "n": 35,
@@ -2428,18 +2429,19 @@
   "source": "catalogo (D111)"
  },
  "en:col1-SL10": {
-  "n": 35,
-  "recognised": 35,
+  "n": 40,
+  "recognised": 40,
   "share": 1.0,
   "tc_id": 13867,
   "tc_set": "Call of Legends",
   "tc_url": "/pokemon/call-of-legends/rayquaza-sl10",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-04",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-07",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-07"
  },
  "en:col1-SL7": {
   "n": 36,
@@ -2665,18 +2667,19 @@
   "added": "2026-11-04"
  },
  "en:col1-7": {
-  "n": 35,
-  "recognised": 35,
+  "n": 33,
+  "recognised": 33,
   "share": 1.0,
   "tc_id": 13837,
   "tc_set": "Call of Legends",
   "tc_url": "/pokemon/call-of-legends/gyarados-7",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-04",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-07",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-07"
  },
  "en:smp-SM162": {
   "n": 286,
@@ -2716,11 +2719,12 @@
   "tc_set": "Wizards Black Star Promos",
   "tc_url": "/pokemon/wizards-black-star-promos/venusaur-13",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-04",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-07",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-07"
  },
  "en:ex6-104": {
   "n": 52,
@@ -2738,18 +2742,19 @@
   "added": "2026-11-04"
  },
  "en:col1-9": {
-  "n": 37,
-  "recognised": 36,
-  "share": 0.973,
+  "n": 38,
+  "recognised": 37,
+  "share": 0.974,
   "tc_id": 13859,
   "tc_set": "Call of Legends",
   "tc_url": "/pokemon/call-of-legends/ho-oh-9",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-04",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-07",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-07"
  },
  "en:swsh6-201": {
   "n": 123,
@@ -2946,16 +2951,16 @@
   "added": "2026-11-04"
  },
  "en:col1-SL1": {
-  "n": 30,
-  "recognised": 30,
+  "n": 29,
+  "recognised": 29,
   "share": 1.0,
   "tc_id": 13866,
   "tc_set": "Call of Legends",
   "tc_url": "/pokemon/call-of-legends/deoxys-sl1",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-04",
+  "status": "attesa_vendite",
+  "detail": "29 vendite PSA riconosciute in 90 giorni (ne servono 30, con almeno 5 in 2 voti)",
+  "checked": "2026-11-07",
   "requests": 0,
   "source": "catalogo (D111)"
  },
@@ -3100,7 +3105,7 @@
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-04",
+  "checked": "2026-11-07",
   "requests": 0,
   "source": "catalogo (D111)"
  },

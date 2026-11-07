@@ -2419,5 +2419,50 @@
    2026,
    2027
   ]
+ ],
+ "xy7-92": [
+  "m tyranitar ex",
+  "\\bancient\\W*(?:(?:of|the|and)\\W*)?origins\\b",
+  92,
+  [
+   2015,
+   2016
+  ]
+ ],
+ "basep-13": [
+  "venusaur",
+  "\\bpromo",
+  13,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "col1-7": [
+  "gyarados",
+  "\\bcall\\W*(?:(?:of|the|and)\\W*)?legends\\b",
+  7,
+  [
+   2011,
+   2012
+  ]
+ ],
+ "col1-9": [
+  "ho\\-oh",
+  "\\bcall\\W*(?:(?:of|the|and)\\W*)?legends\\b",
+  9,
+  [
+   2011,
+   2012
+  ]
+ ],
+ "col1-SL10": [
+  "rayquaza",
+  "\\bcall\\W*(?:(?:of|the|and)\\W*)?legends\\b",
+  "sl10",
+  [
+   2011,
+   2012
+  ]
  ]
 }
