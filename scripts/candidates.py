@@ -239,6 +239,7 @@ def main():
         queue[key] = dict(id=key, lang="ja", en=None, name=f"{c['name']} (giapponese)", ja_name=None, set=set_name, no=c.get("cardNumber"),
                           rank=c.get("marketCapRank"), pop10=c.get("psaGrade10"), pop9=c.get("psaGrade9"), tc_id=c["id"], tc_type="base",
                           tc_url=f"/pokemon/{c['set'].get('slug')}/{c.get('slug')}", tc_set=set_name, set_en=set_name, ja_only=True,
+                          tcgdex=(key[3:7].upper() + key[7:] if key.startswith(("ja:sv-p-", "ja:m-p-")) else None),   # TCGdex has these two
                           entry=cr.ja_entry(c["name"], None, c.get("cardNumber"), None, set_name),
                           status="in_valutazione", detail="solo giapponese, dalla classifica (D231): si controllano le vendite", checked=today)
         n_ja += 1
