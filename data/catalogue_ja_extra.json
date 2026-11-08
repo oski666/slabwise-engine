@@ -556,5 +556,239 @@
   206,
   187,
   "\\bterastal\\W*festival\\W*ex\\b"
+ ],
+ "ja:darkness-and-to-light-94": [
+  "dark gengar",
+  94,
+  -1,
+  "(?:\\b(?:neo\\W*destiny|neo\\W*4|darkness\\W*to\\W*light)\\b|闇、?そして光へ)"
+ ],
+ "ja:xy-p-207": [
+  "poncho\\-wearing pikachu|poncho\\W*(?:wearing\\W*)? pikachu",
+  207,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:xy-p-230": [
+  "poncho\\-wearing pikachu|poncho\\W*(?:wearing\\W*)? pikachu",
+  230,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:xy-p-231": [
+  "poncho\\-wearing pikachu|poncho\\W*(?:wearing\\W*)? pikachu",
+  231,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:sm-p-013": [
+  "pretend team skull pikachu",
+  13,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:xy-p-208": [
+  "poncho\\-wearing pikachu|poncho\\W*(?:wearing\\W*)? pikachu",
+  208,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:xy-p-151": [
+  "pretend gyarados pikachu",
+  151,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:xy-p-150": [
+  "pretend magikarp pikachu",
+  150,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:sm-p-270": [
+  "red's pikachu",
+  270,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:s-p-208": [
+  "pikachu",
+  208,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:xy-p-203": [
+  "poncho\\-wearing pikachu|poncho\\W*(?:wearing\\W*)? pikachu",
+  203,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:sm-p-290": [
+  "rowlet",
+  290,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:sm-p-365": [
+  "armored mewtwo",
+  365,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:s-p-144": [
+  "kanazawa's pikachu",
+  144,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:s-p-002": [
+  "shibuya's pikachu",
+  2,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:s-p-189": [
+  "espeon vmax",
+  189,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:sm-p-381": [
+  "clefairy",
+  381,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:sm-p-141": [
+  "poncho\\-wearing eevee|poncho\\W*(?:wearing\\W*)? eevee",
+  141,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:sm-p-014": [
+  "pretend grunt pikachu",
+  14,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:sm-p-283": [
+  "yokohama's pikachu",
+  283,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:sm-p-055": [
+  "easter's pikachu",
+  55,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:sm-p-037": [
+  "poncho\\-wearing pikachu|poncho\\W*(?:wearing\\W*)? pikachu",
+  37,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:sm-p-088": [
+  "tohoku's pikachu",
+  88,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:xy-p-050": [
+  "team japan's pikachu",
+  50,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:sm-p-392": [
+  "playing in the sea pikachu",
+  392,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:dp-p-127": [
+  "snorlax lv\\.x",
+  127,
+  -1,
+  "\\b(?:dp|diamond\\W*(?:&|and)?\\W*pearl)\\W*(?:black\\W*star\\W*)?promo|\\b(?:dp|diamond\\W*(?:&|and)?\\W*pearl)\\W?p\\b"
+ ],
+ "ja:sm-p-143": [
+  "poncho\\-wearing eevee|poncho\\W*(?:wearing\\W*)? eevee",
+  143,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:xy-p-099": [
+  "cosplay pikachu",
+  99,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:sm-p-282": [
+  "yokohama's pikachu",
+  282,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:s-p-124": [
+  "pikachu",
+  124,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:s-p-036": [
+  "rescue team dx's pikachu",
+  36,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:s-p-214": [
+  "mischievous pichu",
+  214,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:bw-p-144": [
+  "rayquaza",
+  144,
+  -1,
+  "\\b(?:bw|black\\W*(?:&|and)?\\W*white)\\W*(?:black\\W*star\\W*)?promo|\\b(?:bw|black\\W*(?:&|and)?\\W*white)\\W?p\\b"
+ ],
+ "ja:s-p-175": [
+  "celebi v",
+  175,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:xy-p-206": [
+  "pikachu",
+  206,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:dp-p-095": [
+  "pikachu",
+  95,
+  -1,
+  "\\b(?:dp|diamond\\W*(?:&|and)?\\W*pearl)\\W*(?:black\\W*star\\W*)?promo|\\b(?:dp|diamond\\W*(?:&|and)?\\W*pearl)\\W?p\\b"
+ ],
+ "ja:bw-p-235": [
+  "eevee",
+  235,
+  -1,
+  "\\b(?:bw|black\\W*(?:&|and)?\\W*white)\\W*(?:black\\W*star\\W*)?promo|\\b(?:bw|black\\W*(?:&|and)?\\W*white)\\W?p\\b"
+ ],
+ "ja:sv8a-202": [
+  "flareon ex|ブースター\\s?ex",
+  202,
+  187,
+  "\\bterastal\\W*festival\\W*ex\\b"
+ ],
+ "ja:sv8a-205": [
+  "vaporeon ex|シャワーズ\\s?ex",
+  205,
+  187,
+  "\\bterastal\\W*festival\\W*ex\\b"
  ]
 }
