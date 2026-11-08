@@ -1,6 +1,8 @@
 """Build social/reel-studio/studio.html (Slabwise Reels) with the high-res TCGdex card images."""
+import base64
 import json
 import os
+import sys
 
 here = os.path.dirname(os.path.abspath(__file__))
 data = os.path.join(here, "..", "..", "prototype", "data")
@@ -27,6 +29,19 @@ try:
             real[c["id"]] = dict(asof=r.get("asof") or r.get("date"), grades=gs, eur=eur)
 except (OSError, KeyError, ValueError):
     pass
+# With an output folder (the site build), the images become separate files next to the page:
+# Cloudflare Pages refuses files over 25 MiB and the inlined images passed that on 8 Nov 2026.
+if len(sys.argv) > 1:
+    folder = os.path.join(sys.argv[1], "studio-img")
+    os.makedirs(folder, exist_ok=True)
+    urls = {}
+    for k, uri in img.items():
+        head, b64 = uri.split(",", 1)
+        ext = head.split("/")[1].split(";")[0]
+        name = "".join(ch if ch.isalnum() or ch in "-." else "_" for ch in k) + "." + ext
+        open(os.path.join(folder, name), "wb").write(base64.b64decode(b64))
+        urls[k] = "studio-img/" + name
+    img = urls
 out = (src.replace("__IMG__", json.dumps(img)).replace("__META__", json.dumps(meta, ensure_ascii=False))
        .replace("__REAL__", json.dumps(real, ensure_ascii=False)))
 open(os.path.join(here, "studio.html"), "w").write(out)

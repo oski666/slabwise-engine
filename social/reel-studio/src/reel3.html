@@ -557,7 +557,7 @@ $("#realbtn").onclick=()=>{const rr=realFor(D.card,D.mode==="ten"?10:(+D.grade||
  $("#realmsg").textContent=`Valori veri al ${rr.asof||""}: ${D.name} ${D.grader} ${rr.grade}.`;
  realHist(D.card,rr.grade).then(h=>{if(h&&h.length>=3){D.hist=h;save();build()}else $("#realmsg").textContent+=" Storico non disponibile qui: la curva è una retta tra i due valori."})};
 $("#lng").onclick=e=>{const v=e.target.dataset.v;if(v){D.lang=v;save();build()}};
-$("#cards").innerHTML=Object.keys(IMG).map(id=>`<button data-id="${id}" title="${META[id].n}"><img src="${IMG[id]}" alt=""></button>`).join("")+`<button data-id="up" class="up">+ foto<br>del tuo slab</button>`;
+$("#cards").innerHTML=Object.keys(IMG).map(id=>`<button data-id="${id}" title="${META[id].n}"><img src="${IMG[id]}" alt="" loading="lazy"></button>`).join("")+`<button data-id="up" class="up">+ foto<br>del tuo slab</button>`;
 $("#cards").onclick=e=>{const b=e.target.closest("button");if(!b)return;const id=b.dataset.id;
  if(id==="up"){$("#file").click();return}
  USERIMG=null;const m=META[id],rr=realFor(id,D.mode==="ten"?10:(+D.grade||10))||realFor(id,10),p=rr||PRE[id]||{};
