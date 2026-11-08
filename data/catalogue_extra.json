@@ -2599,5 +2599,212 @@
    2001,
    2002
   ]
+ ],
+ "ecard3-146": [
+  "charizard",
+  "\\bskyridge\\b",
+  146,
+  [
+   2003,
+   2004
+  ]
+ ],
+ "ecard3-145": [
+  "celebi",
+  "\\bskyridge\\b",
+  145,
+  [
+   2003,
+   2004
+  ]
+ ],
+ "ecard2-H28": [
+  "tyranitar",
+  "\\baquapolis\\b",
+  "h28",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "xy4-122": [
+  "dialga ex",
+  "\\bphantom\\W*(?:(?:of|the|and)\\W*)?forces\\b",
+  122,
+  [
+   2014,
+   2015
+  ]
+ ],
+ "ecard3-150": [
+  "kabutops",
+  "\\bskyridge\\b",
+  150,
+  [
+   2003,
+   2004
+  ]
+ ],
+ "ex12-88": [
+  "mew ex",
+  "\\blegend\\W*(?:(?:of|the|and)\\W*)?maker\\b",
+  88,
+  [
+   2006,
+   2007
+  ]
+ ],
+ "ex7-104": [
+  "rocket's snorlax ex",
+  "\\bteam\\W*(?:(?:of|the|and)\\W*)?rocket\\W*(?:(?:of|the|and)\\W*)?returns\\b",
+  104,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "ecard3-148": [
+  "golem",
+  "\\bskyridge\\b",
+  148,
+  [
+   2003,
+   2004
+  ]
+ ],
+ "ex10-112": [
+  "umbreon ex",
+  "\\bunseen\\W*(?:(?:of|the|and)\\W*)?forces\\b",
+  112,
+  [
+   2005,
+   2006
+  ]
+ ],
+ "ecard3-H28": [
+  "starmie",
+  "\\bskyridge\\b",
+  "h28",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "ex6-115": [
+  "moltres ex",
+  "(?:\\bfire\\W?red\\W*(?:(?:of|the|and)\\W*)?leaf\\W?green\\b|\\bfrlg\\b)",
+  115,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "ex8-98": [
+  "deoxys ex",
+  "\\bdeoxys\\b",
+  98,
+  [
+   2005,
+   2006
+  ]
+ ],
+ "ex5-94": [
+  "kyogre ex",
+  "\\bhidden\\W*(?:(?:of|the|and)\\W*)?legends\\b",
+  94,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "xy3-108": [
+  "dragonite ex",
+  "\\bfurious\\W*(?:(?:of|the|and)\\W*)?fists\\b",
+  108,
+  [
+   2014,
+   2015
+  ]
+ ],
+ "dp6-144": [
+  "mewtwo",
+  "\\blegends\\W*(?:(?:of|the|and)\\W*)?awakened\\b",
+  144,
+  [
+   2008,
+   2009
+  ]
+ ],
+ "xy8-159": [
+  "m mewtwo ex",
+  "\\bbreakthrough\\b",
+  159,
+  [
+   2015,
+   2016
+  ]
+ ],
+ "ex4-89": [
+  "blaziken ex",
+  "\\bteam\\W*(?:(?:of|the|and)\\W*)?magma\\W*(?:(?:of|the|and)\\W*)?vs\\W*(?:(?:of|the|and)\\W*)?team\\W*(?:(?:of|the|and)\\W*)?aqua\\b",
+  89,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "sm11-242": [
+  "(?:mewtwo\\s*(?:&|and)\\s*mew|mew\\s*(?:&|and)\\s*mewtwo) gx",
+  "\\bunified\\W*(?:(?:of|the|and)\\W*)?minds\\b",
+  242,
+  [
+   2019,
+   2020
+  ]
+ ],
+ "ex7-102": [
+  "rocket's scyther ex",
+  "\\bteam\\W*(?:(?:of|the|and)\\W*)?rocket\\W*(?:(?:of|the|and)\\W*)?returns\\b",
+  102,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "dpp-DP28": [
+  "mewtwo",
+  "\\bpromo",
+  "dp28",
+  [
+   2007,
+   2008
+  ]
+ ],
+ "pl3-148": [
+  "articuno",
+  "\\bsupreme\\W*(?:(?:of|the|and)\\W*)?victors\\b",
+  148,
+  [
+   2009,
+   2010
+  ]
+ ],
+ "dp4-105": [
+  "dialga",
+  "\\bgreat\\W*(?:(?:of|the|and)\\W*)?encounters\\b",
+  105,
+  [
+   2008,
+   2009
+  ]
+ ],
+ "basep-3": [
+  "mewtwo",
+  "\\bpromo",
+  3,
+  [
+   1999,
+   2000
+  ]
  ]
 }
