@@ -58,6 +58,9 @@ if _os.path.exists(_EXTRA):
         CATALOGUE.setdefault(_k, (_name, _setre, card_no(_no), tuple(_yrs)))
 
 EN_FIX = _os.environ.get("SLABWISE_EN_FIX", "1") == "1"   # D235 (protocol §45 passed)
+EN_BARE = _os.environ.get("SLABWISE_EN_BARE", "1") == "1"  # D236 (protocol §46 passed)
+_NOT_NUM = re.compile(r"\b(?:psa|gem\W*(?:mt|mint)|mint|nm\W*mt|grade[ds]?|pop(?:ulation)?)\W*\d+(?:\.5)?|\b(?:199\d|20[0-2]\d)\b")
+_BARE = re.compile(r"(?<![\w/#.,])0*(\d{1,3})(?![\w/%.,])")
 
 
 def en_exclude(fix):
@@ -231,6 +234,8 @@ def match_title(title: str):
         t = re.sub(r"-(gx|ex|vmax|vstar|v)\b", r" \1", t)
     years = {int(y) for y in YEAR.findall(t)}
     nums = {int(a or b) for a, b in NUM.findall(t)} | {p + n for p, n in NUM_PREFIX.findall(t)}
+    if EN_BARE and not NUM.search(t):                      # D236 (protocol §46): "Base Set 10 Mewtwo Holo PSA 7"
+        nums |= {int(x) for x in _BARE.findall(_NOT_NUM.sub(" ", t))}
     hits = []
     for cid, (name, setre, no, yrs) in CATALOGUE.items():
         if not re.search(_HYPH.sub(" ", name) if NEW_EN_RULES else name, t):

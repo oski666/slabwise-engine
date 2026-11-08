@@ -768,3 +768,13 @@ Le carte con l'abbinamento sbagliato (D214 a) escono dalla coda in ogni caso: no
 
 **Esito §45 (8 novembre 2026): superato, le correzioni si accendono.** 200.629 titoli inglesi. X1 sì (0 titoli cambiano carta), X2 sì (0 persi o ambigui), X3 sì: 1.709 titoli in più (anni delle promo 931, anno fra parentesi 370, Elite Trainer Box 240, Mega Evolutions 168); letti a mano i 20 del campione, tutti della carta giusta (Pikachu SM162 e Mimikyu SM163 "Team Up", Charizard SM226 "Collector Chest", Charizard V SWSH050 "Champion's Path Elite Trainer Box", Latias ex 239 "Surging Sparks (2024)"), nessun sigillato, metallo o ristampa Evolutions. Risultati in `results/d235/titles.json`.
 
+## 46. Numero senza # né / nei titoli inglesi (registrato l'8 novembre 2026, prima del codice; D236)
+
+**Domanda.** Se in un titolo inglese senza numeri con # o / vale anche il numero scritto da solo (esclusi voto, anni, popolazione), cambia la lettura delle carte del catalogo, e i titoli in più sono della carta giusta?
+
+**Dati e criteri.** Gli stessi del §45, con le correzioni D235 accese in tutti e due i casi. Y1: nessun titolo che oggi va a una carta del catalogo cambia carta; Y2: nessuno diventa ambiguo o non riconosciuto; Y3: dei titoli in più, campione di 40 letto a mano (il doppio del solito, perché la regola è più larga), tutti della carta giusta; se anche uno è di un'altra carta o di un'altra stampa, la regola non passa.
+
+**Adozione.** Se Y1–Y3 passano la regola si accende; altrimenti resta spenta.
+
+**Esito §46 (8 novembre 2026): superato, la regola si accende.** 200.629 titoli inglesi. Y1 sì (0 titoli cambiano carta), Y2 sì (0 persi o ambigui), Y3 sì: 12.443 titoli in più; letti a mano i 40 del campione, tutti della carta giusta (per esempio "Team Rocket 4 Dark Charizard Holo", "Evolving Skies 215 Umbreon VMAX", "Pikachu with Grey Felt Hat SVP 085", "Phantasmal Flames 125 Mega Charizard X ex", "Crown Zenith Radiant Charizard 020"). Risultati in `results/d236/titles.json`.
+

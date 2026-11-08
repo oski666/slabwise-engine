@@ -62,3 +62,9 @@ def test_d235_english_fixes():
     assert at.match_title("Pokemon 151 Mew ex Metal Promo 205/165 PSA 10")[0] is None          # the metal card stays out
     assert at.match_title("Pokemon lot (3) Charizard 4/102 PSA 10")[0] is None
 
+
+def test_d236_bare_number():
+    assert at.match_title("Pokemon 1999 Mewtwo 10 Holo Base Set PSA 10")[0] == "base1-10"
+    assert at.match_title("2021 Pokemon Evolving Skies 215 Umbreon VMAX Alternate Art Secret Rare PSA 10")[0] == "swsh7-215"
+    assert at.match_title("POKEMON BASE SET MEWTWO HOLO PSA 10 VINTAGE 1999")[0] is None      # the grade is not the number
+
