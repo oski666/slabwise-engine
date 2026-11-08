@@ -778,3 +778,13 @@ Le carte con l'abbinamento sbagliato (D214 a) escono dalla coda in ogni caso: no
 
 **Esito §46 (8 novembre 2026): superato, la regola si accende.** 200.629 titoli inglesi. Y1 sì (0 titoli cambiano carta), Y2 sì (0 persi o ambigui), Y3 sì: 12.443 titoli in più; letti a mano i 40 del campione, tutti della carta giusta (per esempio "Team Rocket 4 Dark Charizard Holo", "Evolving Skies 215 Umbreon VMAX", "Pikachu with Grey Felt Hat SVP 085", "Phantasmal Flames 125 Mega Charizard X ex", "Crown Zenith Radiant Charizard 020"). Risultati in `results/d236/titles.json`.
 
+## 47. Nomi giapponesi delle specie nei titoli (registrato l'8 novembre 2026, prima del codice; D237)
+
+**Domanda.** Se nei titoli giapponesi i nomi delle specie in katakana si leggono anche in inglese (dati PokeAPI), cambia la lettura delle carte del catalogo, e i titoli in più sono della carta giusta?
+
+**Dati e criteri.** Gli stessi del §43 (tutti i titoli giapponesi delle vendite tcgcharts e dello storico lungo, catalogo di oggi, regole D233–D234 accese in tutti e due i casi). Z1: nessun titolo che oggi va a una carta del catalogo cambia carta; Z2: nessuno diventa ambiguo o non riconosciuto; Z3: dei titoli in più, campione di 40 letto a mano, tutti della carta giusta; se anche uno è di un'altra carta o di un'altra stampa, la regola non passa.
+
+**Adozione.** Se Z1–Z3 passano la regola si accende; altrimenti resta spenta.
+
+**Esito §47 (8 novembre 2026): non superato, la regola resta spenta.** 27.290 titoli giapponesi. Z1 sì (0 titoli cambiano carta), Z2 no: 44 titoli oggi letti non si leggono più, perché lo spazio aggiunto attorno al nome spezza i nomi giapponesi scritti a mano nel catalogo ("ひかるルギア" diventa "ひかる ルギア lugia"; così anche "カツラのウインディ", "ひかるレックウザ"); Z3 non serve: solo 6 titoli in più (Umbreon 067/SV-P "ブラッキー", Jolteon Jungle "サンダース"). Risultati in `results/d237/titles.json`.
+

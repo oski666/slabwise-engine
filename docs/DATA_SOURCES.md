@@ -241,6 +241,16 @@ Ricerca del 3 novembre 2026 (Oscar ha segnalato Traded).
 | Rischi | pagine e formati non documentati; il permesso è informale; il report conta le gradazioni, non le copie (rinvii e sbustamenti contano due volte, come già per PSA, D109) |
 | Regole | solo popolazioni e gradazioni, solo PSA per i nostri calcoli (D165); dati grezzi in `data/raw/gemrate/` nel repository privato `slabwise-data`; sul sito la fonte non si nomina |
 
+## PokeAPI (github.com/PokeAPI/pokeapi): nomi delle specie in giapponese (D237) — non attiva (§47 non superato)
+
+| Cosa | Dettaglio |
+|---|---|
+| Licenza | BSD a 3 clausole ("Copyright © 2013–2023 Paul Hallett and PokéAPI contributors"); la licenza stessa ricorda che "Pokémon and Pokémon character names are trademarks of Nintendo" |
+| Cosa usiamo | solo il file `data/v2/csv/pokemon_species_names.csv`: per ogni specie il nome inglese e il nome giapponese in katakana (lingua `ja-hrkt`) e in giapponese (`ja`). Niente immagini: le sprite dello stesso progetto restano fuori (diritti di Nintendo, Game Freak, The Pokémon Company) |
+| Come | scaricato una volta (8 novembre 2026, commit `6ea97b5`) con `scripts/species_ja.py`, che scrive `data/species_ja.json` (katakana → nome inglese) con l'avviso di licenza; nessuna richiesta continua, nessuna spesa |
+| A cosa serve | leggere i titoli delle vendite giapponesi che scrivono il nome in katakana ("リザードン", "ピカチュウ"): il motore aggiunge al titolo il nome inglese prima del riconoscimento (D237, protocollo §47) |
+| Rischi | errori o nomi mancanti nel file (le specie nuove arrivano con qualche ritardo); un nome giapponese contenuto in un altro ("ミュウ" in "ミュウツー"): si sceglie sempre il nome più lungo; i nomi sono marchi di Nintendo, usati solo per riconoscere i titoli e non pubblicati come contenuto |
+
 ## Dove stanno i dati grezzi (D163)
 
 Il repository `slabwise-engine` è pubblico. I dati grezzi delle fonti (tcgcharts: vendite, schede, storico, popolazioni; Alt; Pokecolor; base delle vendite; cert delle aste) non si redistribuiscono e stanno nel repository privato `slabwise-data`, con gli stessi percorsi; l'elenco è in `.github/private-paths.txt`. Le corse li scaricano e li salvano con `.github/actions/private-data`.
