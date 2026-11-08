@@ -155,11 +155,13 @@ for c in catalog + variants:
         if off or stale:                                  # D211: no change shown on an estimate the page does not show
             ch30 = ch90 = None
         _p30 = clean.loc[(clean["card"] == i) & (clean["grade"] == g) & (clean["day"] >= clean["day"].max() - 30), "price"].to_numpy()
+        _days_g = clean.loc[(clean["card"] == i) & (clean["grade"] == g), "day"]
+        last_sale = str((t0 + pd.Timedelta(days=float(_days_g.max()))).date()) if len(_days_g) else None   # D232
         _sb = Z * float(np.sqrt(s_now ** 2 + params.sigma_e ** 2 + params.sigma_q ** 2))
         g_out.append(dict(grade=g, value=round(float(np.exp(now)), 2), lo=round(float(np.exp(now - Z * s_now)), 2),
                           hi=round(float(np.exp(now + Z * s_now)), 2), ch30=ch30,
                           ch90=ch90, pop=POP.get(c["id"], {}).get(str(g)) or POP.get(c["id"], {}).get(g), sales_all=n_g,
-                          sales90=n13, tier=TIERS[int(tier_of(n13, Z * s_now))],      # confidence tier (D47)
+                          sales90=n13, last_sale=last_sale, tier=TIERS[int(tier_of(n13, Z * s_now))],      # confidence tier (D47)
                           med90=round(med13, 2) if med13 else None, off=off, stale=stale, venue_split=venue_split,
                           # D208: how far a sale of the last 13 weeks usually lands from the value (median |log|), on all of them
                           disp90=round(float(np.median(np.abs(np.log(rec.to_numpy()) - float(now)))), 4) if n13 >= 5 else None,

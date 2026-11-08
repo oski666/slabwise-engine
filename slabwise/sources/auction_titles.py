@@ -111,11 +111,20 @@ if _os.path.exists(_JA_EXTRA):
     for _k, (_name, _no, _tot, _setre) in _json.load(open(_JA_EXTRA, encoding="utf-8")).items():
         JA_CATALOGUE.setdefault(_k, (_name, _no, _tot, _setre))
 JP_CHARS = re.compile(r"[\u3040-\u30ff\u4e00-\u9fff]")
-JA_EXCLUDE = re.compile(
-    r"\blot\b|\(\d+\)|まとめ|セット売り|未開封|box|ボックス|(?<!拡張)パック|(?<!expansion )\bpack\b|sealed|signed|サイン|proxy|プロキシ|"
-    r"\bbgs\b|\bcgc\b|\bsgc\b|\bars\b|korean|chinese|韓国|中国|簡体|繁体"
-    r"|no\W*rarity|マークなし"                   # D158/D166: No Rarity is a variant of its own, not the regular printing
-    r"|\bpsa\s*(?:10|[1-9](?:\.5)?)\s*\(?\s*(?:oc|mk|st|pd|mc)\b")   # D221: qualified grades are not the grade
+NEW_JA_BOX = _os.environ.get("SLABWISE_JA_BOX", "1") == "1"   # D232 (protocol §42 passed); "0" = before it
+# D232: "box" that is part of the card's name ("Special Box", "Stamp Box", "Gift Box"...) is not a sealed box
+_BOX_NEW = r"(?<!special\W)(?<!stamp\W)(?<!gift\W)(?<!premium\W)(?<!collection\W)(?<!golden\W)box"
+
+
+def ja_exclude(new_box):
+    return re.compile(
+        r"\blot\b|\(\d+\)|まとめ|セット売り|未開封|" + (_BOX_NEW if new_box else "box") + r"|ボックス|(?<!拡張)パック|(?<!expansion )\bpack\b|sealed|signed|サイン|proxy|プロキシ|"
+        r"\bbgs\b|\bcgc\b|\bsgc\b|\bars\b|korean|chinese|韓国|中国|簡体|繁体"
+        r"|no\W*rarity|マークなし"                   # D158/D166: No Rarity is a variant of its own, not the regular printing
+        r"|\bpsa\s*(?:10|[1-9](?:\.5)?)\s*\(?\s*(?:oc|mk|st|pd|mc)\b")   # D221: qualified grades are not the grade
+
+
+JA_EXCLUDE = ja_exclude(NEW_JA_BOX)
 NUM_TOT = re.compile(r"0*(\d+)\s*/\s*0*(\d+)")
 
 

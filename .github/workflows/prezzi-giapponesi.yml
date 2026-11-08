@@ -1,8 +1,14 @@
 # D158: the Japanese printings found by the matching get their sales checked (D97) and, when they pass, their sales
-# and the engine gate (add_batch.py), in batches of 8 with a pause (tcgcharts answers 503 to long bursts).
+# and the engine gate (add_batch.py), all in one batch with one engine gate (D231); "recheck" also checks again the
+# cards waiting for sales or coherence (D232, after a rule change).
 name: Prezzi giapponesi
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      recheck:
+        description: "Ricontrolla anche le carte in attesa (dopo un cambio di regola)"
+        type: boolean
+        default: false
   workflow_run:
     workflows: ["Giapponesi"]
     types: [completed]
@@ -40,7 +46,7 @@ jobs:
         timeout-minutes: 270
         run: |
           pip install -q numpy pandas scipy pillow
-          ids=$(python scripts/ja_due.py | tr '\n' ' ')
+          ids=$(python scripts/ja_due.py ${{ inputs.recheck && '--recheck' || '' }} | tr '\n' ' ')
           echo "carte: $(echo $ids | wc -w)"
           [ -z "$ids" ] || PYTHONPATH=. python scripts/add_batch.py $ids | tee -a /tmp/add.log || true
       - name: Save the private data (D163)

@@ -727,3 +727,13 @@ Le carte con l'abbinamento sbagliato (D214 a) escono dalla coda in ogni caso: no
 **Adozione.** Se U1–U3 passano, la regola si accende e le carte solo giapponesi entrano in coda; ognuna passa poi i controlli di sempre (D97: vendite, titoli ≥ 60%, motore R1/E2r sul lotto, D213). Se una cade, la regola resta spenta e le carte solo giapponesi entrano in coda solo con i titoli "#numero" di oggi.
 
 **Esito §41 (7 novembre 2026): superato, la regola si accende.** 24.404 titoli giapponesi (vendite recenti e storico lungo). U1 sì: 0 titoli cambiano carta. U2 sì: 0 titoli persi o ambigui. U3 sì: 42 titoli in più riconosciuti per le carte del catalogo, tutti di Victini 288/SV-P ("288/SV-P" senza "#"); letti a mano i 20 del campione, tutti di quella carta. Risultati in `results/d231/titles.json`.
+
+## 42. "Box" nei titoli giapponesi (registrato l'8 novembre 2026, prima del codice; D232)
+
+**Domanda.** Se "box" non scarta più il titolo quando è "Special/Stamp/Gift/Premium/Collection/Golden Box", cambia la lettura delle carte già nel catalogo?
+
+**Dati e criteri.** Gli stessi del §41 (tutti i titoli giapponesi delle vendite tcgcharts, catalogo di oggi). V1: nessun titolo che oggi va a una carta del catalogo cambia carta; V2: nessuno diventa ambiguo o non riconosciuto; V3: i titoli in più riconosciuti per le carte del catalogo, campione di 20 letto a mano, sono tutti della carta giusta e nessuno è un prodotto sigillato.
+
+**Adozione.** Se V1–V3 passano la regola si accende; altrimenti resta spenta.
+
+**Esito §42 (8 novembre 2026): superato, la regola si accende.** 26.604 titoli giapponesi. V1 sì (0 titoli cambiano carta), V2 sì (0 persi o ambigui), V3 sì: nessun titolo in più per le carte del catalogo (i titoli "Stamp Box", "Special Box", "Gift Box" riguardano promo non ancora nel catalogo). Prova a mano su titoli reali: "S-P PROMO POKEMON STAMP BOX #227 … PSA 10" va a Pikachu 227/S-P, "Special Box Promo Poncho Wearing Pikachu #207 PSA 10" a Poncho 207, "Stamp Box sealed" e "227/S-P Japanese box PSA 10" restano scartati. Risultati in `results/d232/titles.json`.

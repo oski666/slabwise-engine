@@ -4,13 +4,15 @@ Usage: PYTHONPATH=. python scripts/card_requests.py [prototype/data/requests_sta
 
 For each requested card (most requested first, at most MAX_CHECKS per run, cards on hold checked again after
 7 days): the card on TCGdex (name, set, number, release year), the same card on tcgcharts (same number,
-language and set, base printing), its PSA 7-10 sales of the last 90 days, and how many of their titles our own
-title matcher assigns to that card with the right grade. Admission rule of D97:
-  unique card on tcgcharts; >= 30 recognised eBay sales; >= 5 sales in at least 2 grades; >= 60% recognised.
+language and set, base printing), its PSA 7-10 sales of the last 365 days on every platform (D232), and how many of
+their titles our own title matcher assigns to that card with the right grade. Admission rule of D97 and D232:
+  unique card on tcgcharts; >= 27 recognised sales (90% of 30); >= 5 sales in at least 2 grades (1 for a Japanese
+  card, D231); >= 60% recognised.
 Writes {"<lang>:<id>": {status, detail, checked, n, recognised, share, tc_id}}. Adding an admitted card to the
 catalogue is a separate step (status "pronta" -> "aggiunta").
 """
 import json
+import math
 import os
 import re
 import sys
@@ -18,7 +20,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 
 from slabwise.sources import auction_titles as at
 
@@ -205,30 +207,43 @@ def check_ja(key, it, entry):
         at.JA_CATALOGUE.pop(key, None)
 
 
+WINDOW_DAYS, TOLERANCE, MAX_PAGES = 365, 0.9, 6   # D232: a year of sales on every platform; 90% of the threshold is enough
+
+
 def measure(it, key, min_sales=None):
+    """D97 admission rules on the sales of the last WINDOW_DAYS days, on every platform tcgcharts lists (D232)."""
     min_sales = min_sales or MIN_SALES
+    need = math.ceil(min_sales * TOLERANCE)
+    since = (date.today() - timedelta(days=WINDOW_DAYS)).isoformat()
     n, rec, by_grade = 0, 0, {}
     for g in (10, 9, 8, 7):
-        d = get(f"{TCG}/api/card-sales?" + urllib.parse.urlencode({"cardId": it["id"], "cardType": it["cardType"], "sort": "sold_date",
-                                                                   "order": "DESC", "page": 1, "limit": 100, "company": "PSA", "grade": g}))["data"]
-        for s in d["sales"]:
-            if (s.get("platform") or "").lower() != "ebay" or s.get("is_excluded"):
-                continue
-            n += 1
-            k, _ = at.match_title(s.get("title") or "")
-            if k == key and at.grade_from_title(s.get("title") or "") == g:
-                rec += 1
-                by_grade[g] = by_grade.get(g, 0) + 1
+        for page in range(1, MAX_PAGES + 1):
+            d = get(f"{TCG}/api/card-sales?" + urllib.parse.urlencode({"cardId": it["id"], "cardType": it["cardType"], "sort": "sold_date",
+                                                                       "order": "DESC", "page": page, "limit": 100, "company": "PSA", "grade": g}))["data"]
+            old = False
+            for s in d["sales"]:
+                if (s.get("sold_date") or "")[:10] < since:
+                    old = True
+                    continue
+                if s.get("is_excluded"):
+                    continue
+                n += 1
+                k, _ = at.match_title(s.get("title") or "")
+                if k == key and at.grade_from_title(s.get("title") or "") == g:
+                    rec += 1
+                    by_grade[g] = by_grade.get(g, 0) + 1
+            if old or not d["pagination"].get("has_next"):
+                break
     at.CATALOGUE.pop(key, None)
     at.JA_CATALOGUE.pop(key, None)
     share = rec / n if n else 0.0
     out = dict(n=n, recognised=rec, share=round(share, 3), tc_id=it["id"], tc_set=it.get("set"), tc_url=it.get("url"), tc_type=it.get("cardType"))
     min_grades = 1 if str(key).startswith("ja:") else MIN_GRADES   # D231: a Japanese card may trade in PSA 10 only
-    if rec < min_sales or sum(v >= MIN_GRADE_SALES for v in by_grade.values()) < min_grades:
-        return dict(out, status="attesa_vendite", detail=f"{rec} vendite PSA riconosciute in 90 giorni (ne servono {min_sales}, con almeno {MIN_GRADE_SALES} in {min_grades} vot{'o' if min_grades == 1 else 'i'})")
+    if rec < need or sum(v >= MIN_GRADE_SALES for v in by_grade.values()) < min_grades:
+        return dict(out, status="attesa_vendite", detail=f"{rec} vendite PSA riconosciute in un anno (ne servono {need}, con almeno {MIN_GRADE_SALES} in {min_grades} vot{'o' if min_grades == 1 else 'i'})")
     if share < MIN_SHARE:
         return dict(out, status="attesa_coerenza", detail=f"{round(share * 100)}% dei titoli riconosciuti (serve il {round(MIN_SHARE * 100)}%)")
-    return dict(out, status="pronta", detail=f"{rec} vendite PSA in 90 giorni")
+    return dict(out, status="pronta", detail=f"{rec} vendite PSA in un anno")
 
 
 def main():
