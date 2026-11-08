@@ -1,19 +1,19 @@
 {
  "asof": "2026-11-07",
- "cards": 437,
+ "cards": 460,
  "checks": {
   "C7": {
-   "n": 6,
+   "n": 5,
    "examples": [
     [
      "me02.5-284",
      "Mega Gengar ex",
-     "PSA 9 666 < PSA 8 678"
+     "PSA 9 665 < PSA 8 679"
     ],
     [
      "swsh3.5-79",
      "Charizard V",
-     "PSA 9 197 < PSA 8 215"
+     "PSA 9 196 < PSA 8 216"
     ],
     [
      "me02.5-290",
@@ -24,11 +24,6 @@
      "swsh5-155",
      "Tyranitar V",
      "PSA 9 225 < PSA 8 231"
-    ],
-    [
-     "ja:m-p-020",
-     "ピカチュウ",
-     "PSA 8 36 < PSA 7 36"
     ],
     [
      "ja:sv-p-001",
