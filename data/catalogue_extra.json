@@ -2806,5 +2806,113 @@
    1999,
    2000
   ]
+ ],
+ "swshp-SWSH262": [
+  "charizard vstar",
+  "\\bpromo",
+  "swsh262",
+  [
+   2019,
+   2020
+  ]
+ ],
+ "me02.5-276": [
+  "pikachu ex",
+  "\\bascended\\W*(?:(?:of|the|and)\\W*)?heroes\\b",
+  276,
+  [
+   2026,
+   2027
+  ]
+ ],
+ "xyp-XY84": [
+  "pikachu ex",
+  "\\bpromo",
+  "xy84",
+  [
+   2013,
+   2014
+  ]
+ ],
+ "bwp-BW92": [
+  "espeon",
+  "\\bpromo",
+  "bw92",
+  [
+   2011,
+   2012
+  ]
+ ],
+ "pl1-125": [
+  "palkia g lv\\.x",
+  "\\bplatinum\\b",
+  125,
+  [
+   2009,
+   2010
+  ]
+ ],
+ "pl3-142": [
+  "blaziken fb lv\\.x",
+  "\\bsupreme\\W*(?:(?:of|the|and)\\W*)?victors\\b",
+  142,
+  [
+   2009,
+   2010
+  ]
+ ],
+ "ex11-110": [
+  "vaporeon ex",
+  "\\bdelta\\W*(?:(?:of|the|and)\\W*)?species\\b",
+  110,
+  [
+   2005,
+   2006
+  ]
+ ],
+ "ecard3-H26": [
+  "raikou",
+  "\\bskyridge\\b",
+  "h26",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "swshp-SWSH291": [
+  "lucario vstar",
+  "\\bpromo",
+  "swsh291",
+  [
+   2019,
+   2020
+  ]
+ ],
+ "sm9-164": [
+  "(?:gengar\\s*(?:&|and)\\s*mimikyu|mimikyu\\s*(?:&|and)\\s*gengar) gx",
+  "\\bteam\\W*(?:(?:of|the|and)\\W*)?up\\b",
+  164,
+  [
+   2019,
+   2020
+  ]
+ ],
+ "ecard3-H12": [
+  "jolteon",
+  "\\bskyridge\\b",
+  "h12",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "basep-4": [
+  "pikachu",
+  "\\bpromo",
+  4,
+  [
+   1999,
+   2000
+  ]
  ]
 }
