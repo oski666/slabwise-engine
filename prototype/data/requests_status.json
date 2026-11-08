@@ -2539,16 +2539,16 @@
   "added": "2026-11-04"
  },
  "en:dpp-DP38": {
-  "n": 37,
-  "recognised": 33,
-  "share": 0.892,
+  "n": 36,
+  "recognised": 32,
+  "share": 0.889,
   "tc_id": 15798,
   "tc_set": "DP Black Star Promos",
   "tc_url": "/pokemon/dp-black-star-promos/giratina-lv-x-dp38",
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-04",
+  "checked": "2026-11-08",
   "requests": 0,
   "source": "catalogo (D111)"
  },
