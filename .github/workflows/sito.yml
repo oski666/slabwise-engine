@@ -141,7 +141,7 @@ jobs:
           mkdir -p site
           python prototype/v7/build.py real --split site
           sed -i 's#<meta charset="utf-8">#<meta charset="utf-8">\n<meta name="robots" content="noindex">#' site/index.html
-          python social/reel-studio/build.py site/x
+          python social/reel-studio/build.py site
           sed 's#<meta charset="utf-8">#<meta charset="utf-8">\n<meta name="robots" content="noindex">#' social/reel-studio/studio.html > site/x/studio.html
       - name: Publish on Cloudflare Pages
         env:

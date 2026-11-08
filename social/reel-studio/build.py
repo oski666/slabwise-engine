@@ -40,7 +40,7 @@ if len(sys.argv) > 1:
         ext = head.split("/")[1].split(";")[0]
         name = "".join(ch if ch.isalnum() or ch in "-." else "_" for ch in k) + "." + ext
         open(os.path.join(folder, name), "wb").write(base64.b64decode(b64))
-        urls[k] = "studio-img/" + name
+        urls[k] = "/studio-img/" + name        # the page is served at /studio, and /x/ is closed (functions/x)
     img = urls
 out = (src.replace("__IMG__", json.dumps(img)).replace("__META__", json.dumps(meta, ensure_ascii=False))
        .replace("__REAL__", json.dumps(real, ensure_ascii=False)))
