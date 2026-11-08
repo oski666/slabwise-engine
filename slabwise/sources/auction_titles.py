@@ -111,6 +111,10 @@ if _os.path.exists(_JA_EXTRA):
     for _k, (_name, _no, _tot, _setre) in _json.load(open(_JA_EXTRA, encoding="utf-8")).items():
         JA_CATALOGUE.setdefault(_k, (_name, _no, _tot, _setre))
 JP_CHARS = re.compile(r"[\u3040-\u30ff\u4e00-\u9fff]")
+JA_PROMO_NONAME = _os.environ.get("SLABWISE_JA_PROMO_NONAME", "1") == "1"   # D233 (protocol §43 passed)
+JA_PROMO_OWN = _os.environ.get("SLABWISE_JA_PROMO_OWN", "1") == "1"         # D234 (protocol §44 passed)
+_JA_PROMO_FULL = re.compile(r"(?<![\d/])\b0*(\d{1,3})\s*/\s*(xy|sm|swsh|sv|bw|dp|s|m)\W?p\b")
+_JA_PROMO_KEY = re.compile(r"^ja:([a-z]+)-p-0*(\d+)$")
 NEW_JA_BOX = _os.environ.get("SLABWISE_JA_BOX", "1") == "1"   # D232 (protocol §42 passed); "0" = before it
 # D232: "box" that is part of the card's name ("Special Box", "Stamp Box", "Gift Box"...) is not a sealed box
 _BOX_NEW = r"(?<!special\W)(?<!stamp\W)(?<!gift\W)(?<!premium\W)(?<!collection\W)(?<!golden\W)box"
@@ -177,6 +181,14 @@ def match_japanese(title: str):
         nums |= {int(x) for x in _JA_PROMO_NO.findall(t)}
     hits = [k for k, (name, no, tot, setre) in JA_CATALOGUE.items() if re.search(name.replace("'", "") if NEW_JA_RULES else name, t)
             and ((no, tot) in pairs or (no in nums and _set_ok(k, setre, t)))]
+    if JA_PROMO_NONAME and not hits:                      # D233 (protocol §43): "ポンチョを着たピカチュウ #207/XY-P" is 207/XY-P
+        promo = {(int(n), c) for n, c in _JA_PROMO_FULL.findall(t)}
+        hits = [k for k in JA_CATALOGUE if (m := _JA_PROMO_KEY.match(k)) and (int(m.group(2)), m.group(1)) in promo]
+        own = {JA_CATALOGUE[k][0] for k in hits}
+        if hits and any(nm not in own and re.search(nm.replace("'", ""), t)
+                        and not (JA_PROMO_OWN and any(re.search(nm.replace("'", ""), o.replace("\\", "")) for o in own))
+                        for nm, _, _, _ in JA_CATALOGUE.values()):
+            return None, "ambigua"                        # another card of the catalogue is named in the title
     if len(hits) != 1:
         return None, "nessuna carta giapponese del catalogo" if not hits else "ambigua"
     return hits[0], None

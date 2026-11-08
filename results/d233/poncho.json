@@ -1,0 +1,46 @@
+{
+ "ja:xy-p-207": {
+  "n": 30,
+  "recognised": 17,
+  "share": 0.567,
+  "tc_id": "124712",
+  "tc_set": "XY Promos",
+  "tc_url": "/pokemon/xy-promos-japanese/poncho-wearing-pikachu-207",
+  "tc_type": "base",
+  "status": "attesa_vendite",
+  "detail": "17 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)"
+ },
+ "ja:xy-p-208": {
+  "n": 30,
+  "recognised": 20,
+  "share": 0.667,
+  "tc_id": "124713",
+  "tc_set": "XY Promos",
+  "tc_url": "/pokemon/xy-promos-japanese/poncho-wearing-pikachu-208",
+  "tc_type": "base",
+  "status": "attesa_vendite",
+  "detail": "20 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)"
+ },
+ "ja:xy-p-230": {
+  "n": 64,
+  "recognised": 38,
+  "share": 0.594,
+  "tc_id": "124735",
+  "tc_set": "XY Promos",
+  "tc_url": "/pokemon/xy-promos-japanese/poncho-wearing-pikachu-230",
+  "tc_type": "base",
+  "status": "attesa_coerenza",
+  "detail": "59% dei titoli riconosciuti (serve il 60%)"
+ },
+ "ja:xy-p-231": {
+  "n": 73,
+  "recognised": 42,
+  "share": 0.575,
+  "tc_id": "124736",
+  "tc_set": "XY Promos",
+  "tc_url": "/pokemon/xy-promos-japanese/poncho-wearing-pikachu-231",
+  "tc_type": "base",
+  "status": "attesa_coerenza",
+  "detail": "58% dei titoli riconosciuti (serve il 60%)"
+ }
+}

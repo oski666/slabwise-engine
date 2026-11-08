@@ -737,3 +737,24 @@ Le carte con l'abbinamento sbagliato (D214 a) escono dalla coda in ogni caso: no
 **Adozione.** Se V1–V3 passano la regola si accende; altrimenti resta spenta.
 
 **Esito §42 (8 novembre 2026): superato, la regola si accende.** 26.604 titoli giapponesi. V1 sì (0 titoli cambiano carta), V2 sì (0 persi o ambigui), V3 sì: nessun titolo in più per le carte del catalogo (i titoli "Stamp Box", "Special Box", "Gift Box" riguardano promo non ancora nel catalogo). Prova a mano su titoli reali: "S-P PROMO POKEMON STAMP BOX #227 … PSA 10" va a Pikachu 227/S-P, "Special Box Promo Poncho Wearing Pikachu #207 PSA 10" a Poncho 207, "Stamp Box sealed" e "227/S-P Japanese box PSA 10" restano scartati. Risultati in `results/d232/titles.json`.
+
+## 43. Promo giapponesi dal numero di promo (registrato l'8 novembre 2026, prima del codice; D233)
+
+**Domanda.** Se un titolo giapponese con il numero di promo esatto ("207/XY-P") va alla carta anche senza il nome inglese, cambia la lettura delle carte già nel catalogo, e i titoli in più sono della carta giusta?
+
+**Dati e criteri.** Gli stessi del §41 e §42 (tutti i titoli giapponesi delle vendite tcgcharts e dello storico lungo, catalogo di oggi). W1: nessun titolo che oggi va a una carta del catalogo cambia carta; W2: nessuno diventa ambiguo o non riconosciuto; W3: i titoli in più riconosciuti per le carte del catalogo, campione di 20 letto a mano, sono tutti della carta giusta e nessuno è un prodotto sigillato o un'altra carta. In più, per le 4 Poncho rimaste fuori (207, 208, 230, 231) si rimisura l'ammissione con le regole D232 invariate.
+
+**Adozione.** Se W1–W3 passano la regola si accende; altrimenti resta spenta.
+
+**Esito §43 (8 novembre 2026): superato, la regola si accende.** 26.604 titoli giapponesi. W1 sì (0 titoli cambiano carta), W2 sì (0 persi o ambigui), W3 sì: 16 titoli in più, tutti letti a mano e tutti della carta giusta (Rayquaza 232/XY-P "レックウザ", le Eeveelution 063–070/SV-P "シャワーズ", "サンダース", "エーフィ", "リーフィア", "グレイシア", "ニンフィア"). Rimisura delle Poncho con D232 invariato: nessun cambiamento (207: 17 su 30; 208: 20 su 30; 230: 38 su 64; 231: 42 su 73), perché nei loro titoli "ピカチュウ" è il nome di un'altra carta del catalogo (Pikachu) e la regola li tratta come ambigui. Risultati in `results/d233/titles.json` e `results/d233/poncho.json`.
+
+## 44. Il nome di un'altra carta contenuto nel nome della carta (registrato l'8 novembre 2026, prima del codice; D234)
+
+**Domanda.** Nella regola §43, se il nome di un'altra carta trovato nel titolo non conta come conflitto quando è già contenuto nel nome della carta del numero di promo ("Pikachu" in "Poncho-wearing Pikachu"), cambia la lettura delle carte del catalogo, e i titoli in più sono della carta giusta?
+
+**Dati e criteri.** Gli stessi del §43 (W1–W3), confrontando la regola §44 con la §43 accesa. Si rimisurano le 4 Poncho con D232 invariato; il risultato si riporta qualunque sia.
+
+**Adozione.** Se W1–W3 passano la variante si accende; altrimenti resta la §43.
+
+**Esito §44 (8 novembre 2026): superato, la variante si accende.** 26.604 titoli giapponesi. W1 sì (0 titoli cambiano carta), W2 sì (0 persi o ambigui), W3 sì: 37 titoli in più per le carte del catalogo; letti a mano i 20 del campione, tutti della carta giusta (per esempio "ピカチュウ #272/S-P" → Pikachu 272/S-P, "リザードン #143/S-P" → Charizard 143/S-P, "桜アフロのピカチュウ #211/SM-P" → Pikachu afro 211/SM-P, "イーブイ #287/SM-P" → Eevee). Rimisura delle Poncho con D232 invariato: 207 27 su 30, 208 29 su 30, 230 59 su 64, 231 64 su 73: tutte pronte. Risultati in `results/d234/titles.json` e `results/d234/poncho.json`.
+

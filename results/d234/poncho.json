@@ -1,0 +1,46 @@
+{
+ "ja:xy-p-207": {
+  "n": 30,
+  "recognised": 27,
+  "share": 0.9,
+  "tc_id": "124712",
+  "tc_set": "XY Promos",
+  "tc_url": "/pokemon/xy-promos-japanese/poncho-wearing-pikachu-207",
+  "tc_type": "base",
+  "status": "pronta",
+  "detail": "27 vendite PSA in un anno"
+ },
+ "ja:xy-p-208": {
+  "n": 30,
+  "recognised": 29,
+  "share": 0.967,
+  "tc_id": "124713",
+  "tc_set": "XY Promos",
+  "tc_url": "/pokemon/xy-promos-japanese/poncho-wearing-pikachu-208",
+  "tc_type": "base",
+  "status": "pronta",
+  "detail": "29 vendite PSA in un anno"
+ },
+ "ja:xy-p-230": {
+  "n": 64,
+  "recognised": 59,
+  "share": 0.922,
+  "tc_id": "124735",
+  "tc_set": "XY Promos",
+  "tc_url": "/pokemon/xy-promos-japanese/poncho-wearing-pikachu-230",
+  "tc_type": "base",
+  "status": "pronta",
+  "detail": "59 vendite PSA in un anno"
+ },
+ "ja:xy-p-231": {
+  "n": 73,
+  "recognised": 64,
+  "share": 0.877,
+  "tc_id": "124736",
+  "tc_set": "XY Promos",
+  "tc_url": "/pokemon/xy-promos-japanese/poncho-wearing-pikachu-231",
+  "tc_type": "base",
+  "status": "pronta",
+  "detail": "64 vendite PSA in un anno"
+ }
+}

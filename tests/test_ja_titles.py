@@ -41,3 +41,15 @@ def test_d231_promo_numbers():
     finally:
         at.JA_CATALOGUE.pop("ja:xy-p-207", None)
         at.JA_CATALOGUE.pop("ja:xy-p-230", None)
+
+
+def test_d233_promo_number_without_name():
+    entry = ("poncho\\-wearing pikachu|poncho\\W*(?:wearing\\W*)? pikachu", 207, -1, "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b")
+    at.JA_CATALOGUE["ja:xy-p-207"] = entry
+    try:
+        assert at.match_title("2013 Pokemon ポンチョを着たピカチュウ XY Promos #207/XY-P PSA 10")[0] == "ja:xy-p-207"
+        assert at.match_title("2013 Pokemon ポンチョを着たピカチュウ XY Promos #208/XY-P PSA 10")[0] is None   # another number
+        assert at.match_title("2013 Pokemon ポンチョを着たピカチュウ XY Promos #207/SM-P PSA 10")[0] is None   # another promo series
+    finally:
+        at.JA_CATALOGUE.pop("ja:xy-p-207", None)
+
