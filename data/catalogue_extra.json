@@ -2914,5 +2914,320 @@
    1999,
    2000
   ]
+ ],
+ "bw8-137": [
+  "blastoise",
+  "\\bplasma\\W*(?:(?:of|the|and)\\W*)?storm\\b",
+  137,
+  [
+   2013,
+   2014
+  ]
+ ],
+ "bwp-BW73": [
+  "darkrai",
+  "\\bpromo",
+  "bw73",
+  [
+   2011,
+   2012
+  ]
+ ],
+ "col1-SL5": [
+  "ho\\-oh",
+  "\\bcall\\W*(?:(?:of|the|and)\\W*)?legends\\b",
+  "sl5",
+  [
+   2011,
+   2012
+  ]
+ ],
+ "dp1-121": [
+  "infernape",
+  "\\bdiamond\\W*(?:(?:of|the|and)\\W*)?pearl\\b",
+  121,
+  [
+   2007,
+   2008
+  ]
+ ],
+ "dp4-103": [
+  "cresselia",
+  "\\bgreat\\W*(?:(?:of|the|and)\\W*)?encounters\\b",
+  103,
+  [
+   2008,
+   2009
+  ]
+ ],
+ "dp7-99": [
+  "raichu",
+  "\\bstormfront\\b",
+  99,
+  [
+   2008,
+   2009
+  ]
+ ],
+ "dpp-DP47": [
+  "rayquaza c",
+  "\\bpromo",
+  "dp47",
+  [
+   2007,
+   2008
+  ]
+ ],
+ "ecard2-148": [
+  "kingdra",
+  "\\baquapolis\\b",
+  148,
+  [
+   2003,
+   2004
+  ]
+ ],
+ "ecard2-H11": [
+  "houndoom",
+  "\\baquapolis\\b",
+  "h11",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "ecard2-H25": [
+  "suicune",
+  "\\baquapolis\\b",
+  "h25",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "ecard3-H29": [
+  "steelix",
+  "\\bskyridge\\b",
+  "h29",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "ex15-98": [
+  "salamence ex",
+  "\\bdragon\\W*(?:(?:of|the|and)\\W*)?frontiers\\b",
+  98,
+  [
+   2006,
+   2007
+  ]
+ ],
+ "ex4-91": [
+  "entei ex",
+  "\\bteam\\W*(?:(?:of|the|and)\\W*)?magma\\W*(?:(?:of|the|and)\\W*)?vs\\W*(?:(?:of|the|and)\\W*)?team\\W*(?:(?:of|the|and)\\W*)?aqua\\b",
+  91,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "ex7-97": [
+  "rocket's entei ex",
+  "\\bteam\\W*(?:(?:of|the|and)\\W*)?rocket\\W*(?:(?:of|the|and)\\W*)?returns\\b",
+  97,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "hgss1-108": [
+  "feraligatr",
+  "(?:\\bheart\\W?gold\\W*(?:(?:of|the|and)\\W*)?soul\\W?silver\\b|\\bhgss\\b)",
+  108,
+  [
+   2010,
+   2011
+  ]
+ ],
+ "hgss1-123": [
+  "gyarados",
+  "(?:\\bheart\\W?gold\\W*(?:(?:of|the|and)\\W*)?soul\\W?silver\\b|\\bhgss\\b)",
+  123,
+  [
+   2010,
+   2011
+  ]
+ ],
+ "me02.5-271": [
+  "mega dragonite ex",
+  "\\bascended\\W*(?:(?:of|the|and)\\W*)?heroes\\b",
+  271,
+  [
+   2026,
+   2027
+  ]
+ ],
+ "me02.5-277": [
+  "pikachu ex",
+  "\\bascended\\W*(?:(?:of|the|and)\\W*)?heroes\\b",
+  277,
+  [
+   2026,
+   2027
+  ]
+ ],
+ "me02.5-281": [
+  "team rocket's mewtwo ex",
+  "\\bascended\\W*(?:(?:of|the|and)\\W*)?heroes\\b",
+  281,
+  [
+   2026,
+   2027
+  ]
+ ],
+ "me02.5-294": [
+  "mega charizard y ex",
+  "\\bascended\\W*(?:(?:of|the|and)\\W*)?heroes\\b",
+  294,
+  [
+   2026,
+   2027
+  ]
+ ],
+ "pl2-112": [
+  "pikachu",
+  "\\brising\\W*(?:(?:of|the|and)\\W*)?rivals\\b",
+  112,
+  [
+   2009,
+   2010
+  ]
+ ],
+ "pl3-145": [
+  "garchomp c lv\\.x",
+  "\\bsupreme\\W*(?:(?:of|the|and)\\W*)?victors\\b",
+  145,
+  [
+   2009,
+   2010
+  ]
+ ],
+ "pl3-8": [
+  "rayquaza c",
+  "\\bsupreme\\W*(?:(?:of|the|and)\\W*)?victors\\b",
+  8,
+  [
+   2009,
+   2010
+  ]
+ ],
+ "pl4-96": [
+  "arceus lv\\.x",
+  "\\barceus\\b",
+  96,
+  [
+   2009,
+   2010
+  ]
+ ],
+ "pl4-98": [
+  "salamence lv\\.x",
+  "\\barceus\\b",
+  98,
+  [
+   2009,
+   2010
+  ]
+ ],
+ "sm1-154": [
+  "umbreon gx",
+  "\\bsun\\W*(?:(?:of|the|and)\\W*)?moon\\b",
+  154,
+  [
+   2017,
+   2018
+  ]
+ ],
+ "sm12-215": [
+  "(?:blastoise\\s*(?:&|and)\\s*piplup|piplup\\s*(?:&|and)\\s*blastoise) gx",
+  "\\bcosmic\\W*(?:(?:of|the|and)\\W*)?eclipse\\b",
+  215,
+  [
+   2019,
+   2020
+  ]
+ ],
+ "smp-SM228": [
+  "armored mewtwo",
+  "\\bpromo",
+  "sm228",
+  [
+   2017,
+   2018
+  ]
+ ],
+ "swshp-SWSH177": [
+  "special delivery bidoof",
+  "\\bpromo",
+  "swsh177",
+  [
+   2019,
+   2020
+  ]
+ ],
+ "swshp-SWSH180": [
+  "flareon vmax",
+  "\\bpromo",
+  "swsh180",
+  [
+   2019,
+   2020
+  ]
+ ],
+ "swshp-SWSH181": [
+  "vaporeon v",
+  "\\bpromo",
+  "swsh181",
+  [
+   2019,
+   2020
+  ]
+ ],
+ "swshp-SWSH182": [
+  "vaporeon vmax",
+  "\\bpromo",
+  "swsh182",
+  [
+   2019,
+   2020
+  ]
+ ],
+ "swshp-SWSH184": [
+  "jolteon vmax",
+  "\\bpromo",
+  "swsh184",
+  [
+   2019,
+   2020
+  ]
+ ],
+ "swshp-SWSH260": [
+  "charizard v",
+  "\\bpromo",
+  "swsh260",
+  [
+   2019,
+   2020
+  ]
+ ],
+ "swshp-SWSH261": [
+  "charizard vmax",
+  "\\bpromo",
+  "swsh261",
+  [
+   2019,
+   2020
+  ]
  ]
 }
