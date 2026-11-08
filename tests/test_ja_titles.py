@@ -32,6 +32,9 @@ def test_d231_promo_numbers():
     sys.path.insert(0, "scripts")
     cr = importlib.import_module("card_requests")
     at.NEW_JA_PROMO = True
+    saved = dict(at.JA_CATALOGUE)                  # the Poncho entered the catalogue on 8 Nov: the test builds its own
+    for k in ("ja:xy-p-207", "ja:xy-p-208", "ja:xy-p-230", "ja:xy-p-231"):
+        at.JA_CATALOGUE.pop(k, None)
     at.JA_CATALOGUE["ja:xy-p-207"] = tuple(cr.ja_entry("Poncho-wearing Pikachu", None, "207", None, "XY Promos"))
     at.JA_CATALOGUE["ja:xy-p-230"] = tuple(cr.ja_entry("Poncho-wearing Pikachu", None, "230", None, "XY Promos"))
     try:
@@ -39,19 +42,23 @@ def test_d231_promo_numbers():
         assert at.match_title("2016 Pokemon Japanese XY Promo Full Art Rayquaza Poncho Wearing Pikachu #230 PSA 10 GEM MINT")[0] == "ja:xy-p-230"
         assert at.match_title("PSA 10 Poncho Wearing Pikachu 231/XY-P Promo Japanese Pokemon Card")[0] is None   # not in the catalogue
     finally:
-        at.JA_CATALOGUE.pop("ja:xy-p-207", None)
-        at.JA_CATALOGUE.pop("ja:xy-p-230", None)
+        at.JA_CATALOGUE.clear()
+        at.JA_CATALOGUE.update(saved)
 
 
 def test_d233_promo_number_without_name():
     entry = ("poncho\\-wearing pikachu|poncho\\W*(?:wearing\\W*)? pikachu", 207, -1, "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b")
+    saved = dict(at.JA_CATALOGUE)
+    for k in ("ja:xy-p-207", "ja:xy-p-208", "ja:xy-p-230", "ja:xy-p-231"):
+        at.JA_CATALOGUE.pop(k, None)
     at.JA_CATALOGUE["ja:xy-p-207"] = entry
     try:
         assert at.match_title("2013 Pokemon ポンチョを着たピカチュウ XY Promos #207/XY-P PSA 10")[0] == "ja:xy-p-207"
         assert at.match_title("2013 Pokemon ポンチョを着たピカチュウ XY Promos #208/XY-P PSA 10")[0] is None   # another number
         assert at.match_title("2013 Pokemon ポンチョを着たピカチュウ XY Promos #207/SM-P PSA 10")[0] is None   # another promo series
     finally:
-        at.JA_CATALOGUE.pop("ja:xy-p-207", None)
+        at.JA_CATALOGUE.clear()
+        at.JA_CATALOGUE.update(saved)
 
 
 def test_d235_english_fixes():
