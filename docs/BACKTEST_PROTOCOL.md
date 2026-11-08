@@ -788,3 +788,43 @@ Le carte con l'abbinamento sbagliato (D214 a) escono dalla coda in ogni caso: no
 
 **Esito §47 (8 novembre 2026): non superato, la regola resta spenta.** 27.290 titoli giapponesi. Z1 sì (0 titoli cambiano carta), Z2 no: 44 titoli oggi letti non si leggono più, perché lo spazio aggiunto attorno al nome spezza i nomi giapponesi scritti a mano nel catalogo ("ひかるルギア" diventa "ひかる ルギア lugia"; così anche "カツラのウインディ", "ひかるレックウザ"); Z3 non serve: solo 6 titoli in più (Umbreon 067/SV-P "ブラッキー", Jolteon Jungle "サンダース"). Risultati in `results/d237/titles.json`.
 
+## 48. Titoli giapponesi riconosciuti dalla sigla del set (registrato l'8 novembre 2026, prima del codice; D238 a)
+
+**Domanda.** Se un titolo senza "Japanese" che contiene la sigla di un set giapponese (D238 a) si legge come giapponese, cambia la lettura delle carte del catalogo, inglesi e giapponesi, e i titoli in più sono della carta giusta?
+
+**Dati e criteri.** Tutti i titoli delle vendite tcgcharts e dello storico lungo, inglesi e giapponesi, catalogo di oggi, regole accese fino alla D236. A1: nessun titolo che oggi va a una carta del catalogo cambia carta; A2: nessuno diventa ambiguo o non riconosciuto; A3: dei titoli in più, campione di 40 letto a mano, tutti della carta giusta.
+
+**Adozione.** Se A1–A3 passano la regola si accende; altrimenti resta spenta.
+
+## 49. Numero senza # né / nei titoli giapponesi (registrato l'8 novembre 2026, prima del codice; D238 b)
+
+**Domanda.** Come il §46, per i titoli giapponesi (D238 b), con la regola §48 accesa in tutti e due i casi se ha passato la sua prova.
+
+**Dati e criteri.** Tutti i titoli giapponesi (con la definizione in uso dopo il §48). B1: nessun titolo che oggi va a una carta del catalogo cambia carta; B2: nessuno diventa ambiguo o non riconosciuto; B3: dei titoli in più, campione di 40 letto a mano, tutti della carta giusta.
+
+**Adozione.** Se B1–B3 passano la regola si accende; altrimenti resta spenta.
+
+**Esito §48 (8 novembre 2026): non superato, la regola resta spenta.** 227.919 titoli. A1 no: 48 titoli di carte inglesi del 151 passano alla stampa giapponese (Bulbasaur 166/165, Charmander 168/165, Wartortle 171/165: il 151 inglese e il giapponese SV2a hanno gli stessi numeri e molti venditori di carte inglesi scrivono "SV2a"); A2 no: 18 titoli inglesi persi; 639 titoli in più. Risultati in `results/d238/setcode.json`.
+
+## 48b. Sigla del set giapponese, solo quando il titolo non è di una carta inglese (registrato l'8 novembre 2026, prima del codice; D238 a, variante)
+
+**Domanda.** Come il §48, ma la sigla rende giapponese un titolo solo se il titolo non va a nessuna carta inglese del catalogo, e la sigla SV2a non conta (stessi numeri del 151 inglese).
+
+**Dati e criteri.** Gli stessi del §48 (A1–A3, campione di 40).
+
+**Adozione.** Se A1–A3 passano la variante si accende; altrimenti la regola resta spenta.
+
+**Esito §48b (8 novembre 2026): superato, la variante si accende.** 227.919 titoli. A1 sì (0 titoli cambiano carta), A2 sì (0 persi o ambigui), A3 sì: 569 titoli in più; letti a mano i 40 del campione, tutti della carta giusta e di set solo giapponesi o con numeri diversi dall'inglese (Crimson Haze SV5a, Raging Surf SV3a, Shiny Treasure SV4a, Dream League SM11b, Triplet Beat SV1a, Wild Force SV5K, Inferno X M2, Mega Dream M2a, Nihil Zero M3). Risultati in `results/d238/setcode_b.json`. Visto durante la lettura, fuori dal campione: un titolo coreano con "Kor." o "(KR)", scartato dalla via inglese, per la sigla arriva alla via giapponese, che quelle sigle non le scarta (D239).
+
+## 50. Sigle coreane nei titoli giapponesi (registrato l'8 novembre 2026, prima del codice; D239)
+
+**Domanda.** Se la via giapponese scarta anche le sigle coreane brevi ("Kor", "Kor.", "KR", "(KR)"), quanti titoli oggi letti si perdono, e sono davvero coreani?
+
+**Dati e criteri.** Tutti i titoli letti dalla via giapponese, con le regole accese fino al §48b. K1: nessun titolo cambia carta; K2: tutti i titoli che si perdono, letti a mano (o un campione di 40 se sono di più), sono di carte coreane.
+
+**Adozione.** Se K1 e K2 passano la regola si accende; altrimenti resta spenta.
+
+**Esito §50 (8 novembre 2026): superato, la regola si accende.** 227.919 titoli. K1 sì (0 titoli cambiano carta); K2 sì: si perdono 4 titoli, letti a mano, tutti coreani ("SV5A-Crimson Haze … Greninja ex PSA 9 Kor.", "Mega Dream - M2A KR #199/193 Psyduck", "Inferno X- M2 KR Mega Charizard X ex #094/080"). Risultati in `results/d238/kor.json`.
+
+**Esito §49 (8 novembre 2026): superato, la regola si accende.** 27.290 titoli giapponesi (definizione del §48b). B1 sì (0 titoli cambiano carta), B2 sì (0 persi o ambigui), B3 sì: 1.003 titoli in più; letti a mano i 40 del campione, tutti della carta giusta (per esempio "Japanese Basic 6 Charizard-Holo", "Jungle Snorlax 143", "Gym 2 59 Blaine's Arcanine", "SV4a Charizard ex 349 SAR", "M2a-Mega Dream 199 Psyduck", "Fusion Arts 106 Mew V"; nei set vintage il numero è quello del Pokédex, come nel catalogo). Risultati in `results/d238/bare.json`.
+

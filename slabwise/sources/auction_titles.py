@@ -142,9 +142,13 @@ NEW_JA_BOX = _os.environ.get("SLABWISE_JA_BOX", "1") == "1"   # D232 (protocol �
 _BOX_NEW = r"(?<!special\W)(?<!stamp\W)(?<!gift\W)(?<!premium\W)(?<!collection\W)(?<!golden\W)box"
 
 
-def ja_exclude(new_box):
+JA_KOR = _os.environ.get("SLABWISE_JA_KOR", "1") == "1"   # D239 (protocol §50 passed)
+
+
+def ja_exclude(new_box, kor=None):
+    kor = JA_KOR if kor is None else kor
     return re.compile(
-        r"\blot\b|\(\d+\)|まとめ|セット売り|未開封|" + (_BOX_NEW if new_box else "box") + r"|ボックス|(?<!拡張)パック|(?<!expansion )\bpack\b|sealed|signed|サイン|proxy|プロキシ|"
+        (r"(?<![a-z0-9])(?:kor|kr)(?![a-z0-9])|" if kor else "") + r"\blot\b|\(\d+\)|まとめ|セット売り|未開封|" + (_BOX_NEW if new_box else "box") + r"|ボックス|(?<!拡張)パック|(?<!expansion )\bpack\b|sealed|signed|サイン|proxy|プロキシ|"
         r"\bbgs\b|\bcgc\b|\bsgc\b|\bars\b|korean|chinese|韓国|中国|簡体|繁体"
         r"|no\W*rarity|マークなし"                   # D158/D166: No Rarity is a variant of its own, not the regular printing
         r"|\bpsa\s*(?:10|[1-9](?:\.5)?)\s*\(?\s*(?:oc|mk|st|pd|mc)\b")   # D221: qualified grades are not the grade
@@ -152,6 +156,20 @@ def ja_exclude(new_box):
 
 JA_EXCLUDE = ja_exclude(NEW_JA_BOX)
 NUM_TOT = re.compile(r"0*(\d+)\s*/\s*0*(\d+)")
+
+
+JA_SETCODE = _os.environ.get("SLABWISE_JA_SETCODE", "1") == "1"   # D238 a (protocol §48b passed)
+JA_BARE = _os.environ.get("SLABWISE_JA_BARE", "1") == "1"         # D238 b (protocol §49 passed)
+_JA_CODES = None
+
+
+def _ja_codes():
+    global _JA_CODES
+    if _JA_CODES is None:
+        codes = {k[3:].rsplit("-", 1)[0] for k in JA_CATALOGUE}
+        codes = sorted(c for c in codes if re.fullmatch(r"[a-z]{1,4}\d{1,2}[a-z]|m\d", c) and c != "sv2a")   # §48b: not SV2a
+        _JA_CODES = re.compile(r"(?<![a-z0-9])(?:" + "|".join(map(re.escape, codes)) + r")(?![a-z0-9])") if codes else re.compile(r"(?!x)x")
+    return _JA_CODES
 
 
 def is_japanese(title: str) -> bool:
@@ -203,6 +221,8 @@ def match_japanese(title: str):
     nums |= {int(x) for x in re.findall(r"(?<![\d/])\b0\d{2}\b(?!\s*/)", t)}   # D168: vintage labels "Base Set Japanese 003"
     if NEW_JA_PROMO:                                      # D231: a promo number written "207/XY-P", "013/SM-P", "227/S-P"
         nums |= {int(x) for x in _JA_PROMO_NO.findall(t)}
+    if JA_BARE and not pairs and not re.search(r"#\s*\d|\bno\.?\s*\d", t) and not _JA_PROMO_NO.search(t):   # D238 b (protocol §49)
+        nums |= {int(x) for x in _BARE.findall(_NOT_NUM.sub(" ", t))}
     hits = [k for k, (name, no, tot, setre) in JA_CATALOGUE.items() if re.search(name.replace("'", "") if NEW_JA_RULES else name, t)
             and ((no, tot) in pairs or (no in nums and _set_ok(k, setre, t)))]
     if JA_PROMO_NONAME and not hits:                      # D233 (protocol §43): "ポンチョを着たピカチュウ #207/XY-P" is 207/XY-P
@@ -239,6 +259,13 @@ def match_title(title: str):
     """Return (card_key, None) or (None, reason). Japanese titles go to the Japanese catalogue."""
     if is_japanese(title):
         return match_japanese(title)
+    if JA_SETCODE and _ja_codes().search(title.lower()):   # D238 a (protocol §48b): only when no English card takes it
+        en = _match_english(title)
+        return en if en[0] else match_japanese(title)
+    return _match_english(title)
+
+
+def _match_english(title: str):
     t = " ".join(title.lower().replace("’", "'").split())
     if EN_FIX:                                            # D235 (1): "Mega Evolutions" is the set Mega Evolution
         t = re.sub(r"\bmega\W*evolutions\b", "mega evolution", t)

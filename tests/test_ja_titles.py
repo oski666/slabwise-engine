@@ -68,3 +68,10 @@ def test_d236_bare_number():
     assert at.match_title("2021 Pokemon Evolving Skies 215 Umbreon VMAX Alternate Art Secret Rare PSA 10")[0] == "swsh7-215"
     assert at.match_title("POKEMON BASE SET MEWTWO HOLO PSA 10 VINTAGE 1999")[0] is None      # the grade is not the number
 
+
+def test_d238_d239_japanese_setcode_bare_korean():
+    assert at.match_title("PSA 10 Charizard ex SAR 349/190 SV4a Shiny Treasure ex Pokemon Card")[0] == "ja:sv4a-349"
+    assert at.match_title("Bulbasaur 166/165 PSA 10 Sv2a Card 151 Pokemon Card Game")[0] != "ja:sv2a-166"   # SV2a does not count
+    assert at.match_title("1996 Pokemon Japanese Basic 6 Charizard-Holo - PSA NM 7")[0] == "ja:expansion-pack-6"
+    assert at.match_title("2025 POKEMON MEGA DREAM - M2A KR #199/193 PSYDUCK ART RARE PSA 10")[0] is None   # Korean
+
