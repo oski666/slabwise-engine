@@ -1,9 +1,9 @@
 {
  "asof": "2026-11-06",
- "cards": 384,
+ "cards": 413,
  "checks": {
   "C7": {
-   "n": 3,
+   "n": 7,
    "examples": [
     [
      "swsh3.5-79",
@@ -13,12 +13,32 @@
     [
      "me02.5-290",
      "Mega Dragonite ex",
-     "PSA 9 416 < PSA 8 418"
+     "PSA 9 425 < PSA 8 427"
     ],
     [
      "swsh5-155",
      "Tyranitar V",
-     "PSA 9 222 < PSA 8 228"
+     "PSA 9 220 < PSA 8 225"
+    ],
+    [
+     "ja:m-p-020",
+     "ピカチュウ",
+     "PSA 8 35 < PSA 7 37"
+    ],
+    [
+     "ja:sv-p-001",
+     "ピカチュウ",
+     "PSA 8 24 < PSA 7 29"
+    ],
+    [
+     "ja:s-p-143",
+     "Charizard (giapponese)",
+     "PSA 9 25 < PSA 8 25"
+    ],
+    [
+     "ja:sv-p-197",
+     "ピカチュウ",
+     "PSA 9 23 < PSA 8 24"
     ]
    ]
   }
