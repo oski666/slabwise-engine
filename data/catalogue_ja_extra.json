@@ -238,5 +238,179 @@
   166,
   165,
   "\\bpok\\W*mon\\W*151\\b"
+ ],
+ "ja:sv11b-169": [
+  "zekrom ex|ゼクロム\\s?ex",
+  169,
+  174,
+  "\\bblack\\W*bolt\\b"
+ ],
+ "ja:s8-106": [
+  "mew v|ミュウ\\s?v",
+  106,
+  100,
+  "\\bfusion\\W*arts\\b"
+ ],
+ "ja:sm-p-287": [
+  "eevee",
+  287,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:m-p-020": [
+  "pikachu",
+  20,
+  -1,
+  "\\b(?:m|mega(?:\\W*evolution)?)\\W*(?:black\\W*star\\W*)?promo|\\b(?:m|mega(?:\\W*evolution)?)\\W?p\\b"
+ ],
+ "ja:challenge-from-the-darkness-94": [
+  "sabrina's gengar",
+  94,
+  -1,
+  "(?:\\b(?:gym\\W*challenge|gym\\W*2|challenge\\W*from|challenge\\W*from\\W*darkness)\\b|闇からの挑戦)"
+ ],
+ "ja:sv-p-098": [
+  "detective pikachu",
+  98,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:sv-p-067": [
+  "umbreon",
+  67,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:sm-p-061": [
+  "pikachu",
+  61,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:sm-p-407": [
+  "pretend comedian pikachu",
+  407,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:sm-p-211": [
+  "cherry blossom afro pikachu",
+  211,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:sv-p-001": [
+  "pikachu",
+  1,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:xy-p-155": [
+  "hoopa",
+  155,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:sv-p-062": [
+  "eevee",
+  62,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:sv-p-065": [
+  "flareon",
+  65,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:sv-p-064": [
+  "jolteon",
+  64,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:xy-p-232": [
+  "rayquaza",
+  232,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:sv-p-070": [
+  "sylveon",
+  70,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:sv-p-066": [
+  "espeon",
+  66,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:sv-p-068": [
+  "leafeon",
+  68,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:sv-p-063": [
+  "vaporeon",
+  63,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:sv-p-069": [
+  "glaceon",
+  69,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:sv-p-242": [
+  "pikachu",
+  242,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:sv-p-120": [
+  "pikachu",
+  120,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:s-p-143": [
+  "charizard",
+  143,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:sv-p-197": [
+  "pikachu",
+  197,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:sv-p-218": [
+  "pikachu",
+  218,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:s-p-272": [
+  "pikachu",
+  272,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:sv4a-331": [
+  "charizard ex|リザードン\\s?ex",
+  331,
+  190,
+  "\\bshiny\\W*treasure\\W*ex\\b"
+ ],
+ "ja:sv2a-175": [
+  "psyduck|コダック",
+  175,
+  165,
+  "\\bpok\\W*mon\\W*151\\b"
  ]
 }
