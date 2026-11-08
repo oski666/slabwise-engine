@@ -1,6 +1,6 @@
 {
  "asof": "2026-11-07",
- "cards": 460,
+ "cards": 499,
  "checks": {
   "C7": {
    "n": 6,
@@ -8,32 +8,32 @@
     [
      "me02.5-284",
      "Mega Gengar ex",
-     "PSA 9 671 < PSA 8 692"
+     "PSA 9 669 < PSA 8 691"
     ],
     [
      "swsh3.5-79",
      "Charizard V",
-     "PSA 9 196 < PSA 8 216"
+     "PSA 9 197 < PSA 8 214"
     ],
     [
      "me02.5-290",
      "Mega Dragonite ex",
-     "PSA 9 423 < PSA 8 430"
+     "PSA 9 422 < PSA 8 429"
     ],
     [
      "swsh5-155",
      "Tyranitar V",
-     "PSA 9 225 < PSA 8 231"
-    ],
-    [
-     "ja:m-p-020",
-     "ピカチュウ",
-     "PSA 8 36 < PSA 7 36"
+     "PSA 9 225 < PSA 8 229"
     ],
     [
      "ja:sv-p-001",
      "ピカチュウ",
      "PSA 8 24 < PSA 7 29"
+    ],
+    [
+     "ja:xy-p-099",
+     "Cosplay Pikachu (giapponese)",
+     "PSA 9 728 < PSA 8 740"
     ]
    ]
   }
