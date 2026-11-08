@@ -53,3 +53,12 @@ def test_d233_promo_number_without_name():
     finally:
         at.JA_CATALOGUE.pop("ja:xy-p-207", None)
 
+
+def test_d235_english_fixes():
+    assert at.match_title("2019 POKEMON SM BLACK STAR PROMO #SM162 PIKACHU-HOLO PSA 10")[0] == "smp-SM162"
+    assert at.match_title("CHARIZARD EX (2023) POKEMON S&V 151 - 199/165 (SPECIAL ILLUSTRATION RARE) PSA 8")[0] == "sv03.5-199"
+    assert at.match_title("2025 Pokemon Mega Evolutions Mega Lucario EX #188/132 PSA MINT 9")[0] == "me01-188"
+    assert at.match_title("Pokemon XY Evolutions Charizard 11/108 PSA 10")[0] is None          # the XY reprint stays out
+    assert at.match_title("Pokemon 151 Mew ex Metal Promo 205/165 PSA 10")[0] is None          # the metal card stays out
+    assert at.match_title("Pokemon lot (3) Charizard 4/102 PSA 10")[0] is None
+

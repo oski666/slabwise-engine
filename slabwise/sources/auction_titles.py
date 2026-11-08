@@ -57,16 +57,23 @@ if _os.path.exists(_EXTRA):
     for _k, (_name, _setre, _no, _yrs) in _json.load(open(_EXTRA)).items():
         CATALOGUE.setdefault(_k, (_name, _setre, card_no(_no), tuple(_yrs)))
 
-EXCLUDE = re.compile(
-    r"japanese|korean|chinese|german|french|italian|spanish|portuguese|dutch|indonesian|thai"
-    r"|\b(?:ita|italiano|italiana|ger|deu|deutsch|fr|fra|francais|français|esp|español|espanol|kor|chn|ptbr)\b"   # D160: short language tags ("Holo ITA")
-    r"|\b(?:tedesc[oaie]|francese|spagnol[oaie]|portoghese|olandese|corean[oa]|cinese|polacc[oa]|deutsche[nr]?|franz[öo]sisch|spanisch|italienisch"
-    r"|koreanisch|chinesisch|allemand|anglais|italien|espagnol|alem[aá]n|franc[eé]s|coreano|chino)\b"   # D187: language words in Italian, German, French, Spanish
-    r"|\blot\b|collection \(|\(\d+\)|\bset of\b|complete set|sealed|unopened|booster|\bpack\b|\bbox\b"
-    r"|jumbo|oversize|celebrations|classic collection|(?<!prismatic )evolutions|expedition|base set 2|base set ii\b|base ii\b|legendary collection"
-    r"|signed|sketch|autograph|psa/dna|authentic|\bauto\b|topps|sticker|bandai|metal|\bgold\b(?! star)|staff|prerelease"
-    r"|stamp|\berror\b|misprint|miscut|no set symbol|no symbol|\bproof\b|test print|\bdeck\b|reverse|cosmos|trainer kit|\bbgs\b|\bcgc\b|\bsgc\b"
-    r"|\bpsa\s*(?:10|[1-9](?:\.5)?)\s*\(?\s*(?:oc|mk|st|pd|mc)\b")   # D221: qualified grades (off-centre, marks, stain...) are not the grade
+EN_FIX = _os.environ.get("SLABWISE_EN_FIX", "1") == "1"   # D235 (protocol §45 passed)
+
+
+def en_exclude(fix):
+        return re.compile(
+        r"japanese|korean|chinese|german|french|italian|spanish|portuguese|dutch|indonesian|thai"
+        r"|\b(?:ita|italiano|italiana|ger|deu|deutsch|fr|fra|francais|français|esp|español|espanol|kor|chn|ptbr)\b"   # D160: short language tags ("Holo ITA")
+        r"|\b(?:tedesc[oaie]|francese|spagnol[oaie]|portoghese|olandese|corean[oa]|cinese|polacc[oa]|deutsche[nr]?|franz[öo]sisch|spanisch|italienisch"
+        r"|koreanisch|chinesisch|allemand|anglais|italien|espagnol|alem[aá]n|franc[eé]s|coreano|chino)\b"   # D187: language words in Italian, German, French, Spanish
+        r"|\blot\b|collection \(|" + (r"\((?!(?:199\d|20[0-2]\d)\))\d+\)" if fix else r"\(\d+\)") + r"|\bset of\b|complete set|sealed|unopened|booster|\bpack\b|" + (r"(?<!elite trainer )\bbox\b" if fix else r"\bbox\b") + r""
+        r"|jumbo|oversize|celebrations|classic collection|" + (r"(?<!prismatic )(?<!mega )evolutions" if fix else r"(?<!prismatic )evolutions") + r"|expedition|base set 2|base set ii\b|base ii\b|legendary collection"
+        r"|signed|sketch|autograph|psa/dna|authentic|\bauto\b|topps|sticker|bandai|metal|\bgold\b(?! star)|staff|prerelease"
+        r"|stamp|\berror\b|misprint|miscut|no set symbol|no symbol|\bproof\b|test print|\bdeck\b|reverse|cosmos|trainer kit|\bbgs\b|\bcgc\b|\bsgc\b"
+        r"|\bpsa\s*(?:10|[1-9](?:\.5)?)\s*\(?\s*(?:oc|mk|st|pd|mc)\b")   # D221: qualified grades (off-centre, marks, stain...) are not the grade
+
+
+EXCLUDE = en_exclude(EN_FIX)
 NUM = re.compile(r"#\s*0*(\d+)|\b0*(\d+)\s*/\s*\d+")
 NUM_PREFIX = re.compile(r"\b(sv|tg|gg|rc|sh|sl|h|hgss|dp|bw|xy|sm|swsh)\s*0*(\d+)\b")     # SV49/SV94, TG05/TG30, GG44/GG70; D150: H9/H32 (Skyridge, Aquapolis), SL10 (Call of Legends); D153: promo numbers HGSS03, DP38, BW54, XY121, SM60, SWSH050
 
@@ -198,6 +205,8 @@ NEW_EN_RULES = _os.environ.get("SLABWISE_EN_RULES", "0") == "1"   # D216 (protoc
 _SEP = r"\W*(?:(?:of|the|and)\W*)?"
 _SUBSETS = [_SEP.join(w) + r"\b" for w in (("shiny", "vault"), ("galarian", "gallery"), ("trainer", "gallery"), ("radiant", "collection"))]
 _PARENT = {}
+_PROMO_SPAN = {"xy": (2013, 2016), "sm": (2017, 2020), "swsh": (2019, 2023), "bw": (2011, 2013), "hgss": (2010, 2011),
+               "dp": (2007, 2009), "sv": (2023, 2026)}   # D235 (3)
 _PROMO_START = {"xy": 2013, "sm": 2017, "swsh": 2019, "bw": 2011, "hgss": 2010, "dp": 2007, "sv": 2023}   # D216 (5): PSA's year for a series' promos
 _HYPH = re.compile(r"\\-(?=(?:gx|ex|vmax|vstar|v)\b)")
 
@@ -214,6 +223,8 @@ def match_title(title: str):
     if is_japanese(title):
         return match_japanese(title)
     t = " ".join(title.lower().replace("’", "'").split())
+    if EN_FIX:                                            # D235 (1): "Mega Evolutions" is the set Mega Evolution
+        t = re.sub(r"\bmega\W*evolutions\b", "mega evolution", t)
     if EXCLUDE.search(t):
         return None, "esclusa (lingua, lotto, sigillato, firmata, ristampa...)"
     if NEW_EN_RULES:                                      # D216: "charizard-gx" is "charizard gx"
@@ -228,6 +239,8 @@ def match_title(title: str):
             par = _parent_set(setre) if NEW_EN_RULES and isinstance(no, str) else None
             if not (par and re.search(par, t)):
                 continue
+        if EN_FIX and years and isinstance(no, str) and setre == r"\bpromo" and (sp := _PROMO_SPAN.get(re.match(r"[a-z]+", no).group(0))):
+            yrs = range(sp[0], sp[1] + 1)                 # D235 (3): a promo of a series is valid in every year of the series
         if years and not years & set(yrs) and not (NEW_EN_RULES and setre == r"\bpromo" and isinstance(no, str)
                                                    and years & {_PROMO_START.get(re.match(r"[a-z]+", no).group(0))}):
             continue

@@ -758,3 +758,13 @@ Le carte con l'abbinamento sbagliato (D214 a) escono dalla coda in ogni caso: no
 
 **Esito §44 (8 novembre 2026): superato, la variante si accende.** 26.604 titoli giapponesi. W1 sì (0 titoli cambiano carta), W2 sì (0 persi o ambigui), W3 sì: 37 titoli in più per le carte del catalogo; letti a mano i 20 del campione, tutti della carta giusta (per esempio "ピカチュウ #272/S-P" → Pikachu 272/S-P, "リザードン #143/S-P" → Charizard 143/S-P, "桜アフロのピカチュウ #211/SM-P" → Pikachu afro 211/SM-P, "イーブイ #287/SM-P" → Eevee). Rimisura delle Poncho con D232 invariato: 207 27 su 30, 208 29 su 30, 230 59 su 64, 231 64 su 73: tutte pronte. Risultati in `results/d234/titles.json` e `results/d234/poncho.json`.
 
+## 45. Quattro correzioni dei titoli inglesi (registrato l'8 novembre 2026, prima del codice; D235)
+
+**Domanda.** Con le correzioni D235 ("Mega Evolutions", promo delle Elite Trainer Box, anni delle promo per serie, anno fra parentesi), cambia la lettura delle carte del catalogo, e i titoli in più sono della carta giusta?
+
+**Dati e criteri.** Tutti i titoli inglesi delle vendite tcgcharts (vendite recenti e storico lungo), catalogo di oggi. X1: nessun titolo che oggi va a una carta del catalogo cambia carta; X2: nessuno diventa ambiguo o non riconosciuto; X3: dei titoli in più riconosciuti per le carte del catalogo, campione di 20 letto a mano, tutti della carta giusta, nessun prodotto sigillato, nessuna versione in metallo, nessuna ristampa XY Evolutions. Si riporta anche quanti titoli in più per ciascuna delle quattro correzioni.
+
+**Adozione.** Se X1–X3 passano le correzioni si accendono; altrimenti restano spente.
+
+**Esito §45 (8 novembre 2026): superato, le correzioni si accendono.** 200.629 titoli inglesi. X1 sì (0 titoli cambiano carta), X2 sì (0 persi o ambigui), X3 sì: 1.709 titoli in più (anni delle promo 931, anno fra parentesi 370, Elite Trainer Box 240, Mega Evolutions 168); letti a mano i 20 del campione, tutti della carta giusta (Pikachu SM162 e Mimikyu SM163 "Team Up", Charizard SM226 "Collector Chest", Charizard V SWSH050 "Champion's Path Elite Trainer Box", Latias ex 239 "Surging Sparks (2024)"), nessun sigillato, metallo o ristampa Evolutions. Risultati in `results/d235/titles.json`.
+
