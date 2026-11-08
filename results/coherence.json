@@ -3,12 +3,12 @@
  "cards": 437,
  "checks": {
   "C7": {
-   "n": 7,
+   "n": 6,
    "examples": [
     [
      "me02.5-284",
      "Mega Gengar ex",
-     "PSA 9 670 < PSA 8 686"
+     "PSA 9 666 < PSA 8 678"
     ],
     [
      "swsh3.5-79",
@@ -18,12 +18,12 @@
     [
      "me02.5-290",
      "Mega Dragonite ex",
-     "PSA 9 423 < PSA 8 429"
+     "PSA 9 422 < PSA 8 429"
     ],
     [
      "swsh5-155",
      "Tyranitar V",
-     "PSA 9 226 < PSA 8 231"
+     "PSA 9 225 < PSA 8 231"
     ],
     [
      "ja:m-p-020",
@@ -34,11 +34,6 @@
      "ja:sv-p-001",
      "ピカチュウ",
      "PSA 8 24 < PSA 7 29"
-    ],
-    [
-     "ja:sv-p-197",
-     "ピカチュウ",
-     "PSA 9 23 < PSA 8 23"
     ]
    ]
   }
