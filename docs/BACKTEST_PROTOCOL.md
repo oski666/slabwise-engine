@@ -860,4 +860,4 @@ Le carte con l'abbinamento sbagliato (D214 a) escono dalla coda in ogni caso: no
 - **P3 volatilità proporzionata**: volatilità del braccio (variazioni settimanali in log, ×√52) non oltre 1,5 volte quella di M nelle stesse settimane.
 - **P4 niente salti**: nessuna variazione settimanale oltre ±15%.
 
-**Adozione.** Tra i bracci che passano P1–P4, quello con P2 più basso diventa il generale del sito. Se nessuno passa, resta A.
+**Adozione.** Tra i bracci che passano P1–P4, quello con P2 più basso diventa il generale del sito. Se nessuno passa, resta A. *Aggiornamento (9 novembre 2026, D250, prima dei dati che giudica): Q è adottato subito per decisione di Oscar; il §52 diventa la sua verifica obbligatoria. Se Q passa resta; se R passa con P2 più basso, si passa a R; se nessuno passa, si corregge con una nuova prova, non si torna ad A.*

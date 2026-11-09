@@ -70,7 +70,8 @@ series_names = sorted({ix_group(c) for c in cards} - {None})
 ser_id = np.array([series_names.index(ix_group(c)) if ix_group(c) else -1 for c in cards])
 eidx = EraIndex(ser_id, len(series_names), k=int(os.environ.get("SLABWISE_IX_K", "20")))   # §31 passed (D169): 20 items per era
 # D136: the general index (whole catalogue, 30 items) and set indices (sets with at least 8 catalogue cards)
-aidx = EraIndex(np.array([-1 if c.startswith("ja:") or is_promo(c) else 0 for c in cards]), 1, k=int(os.environ.get("SLABWISE_IX_KALL", "60")))   # D169: 60 for the general index
+_qg = np.array([-1 if c.startswith("ja:") or is_promo(c) else series_names.index(ix_group(c)) for c in cards])   # D250: the era of each item
+aidx = EraIndex(np.where(_qg >= 0, 0, -1), 1, k=int(os.environ.get("SLABWISE_IX_KALL", "60")), quota=_qg)   # D169: 60 items; D250: 12 per era
 SET_MIN = 8
 _set_of = lambda c: c.split("/")[0].rsplit("-", 1)[0]
 _base_cards = [c for c in cards if "/" not in c and not c.startswith("ja:")]
@@ -82,9 +83,8 @@ sidx = EraIndex(np.array([set_names.index(_set_of(c)) if not c.startswith("ja:")
 import hashlib, pickle, glob  # noqa: E401,E402
 QTEST = os.environ.get("SLABWISE_IX_QUOTA_TEST") == "1"  # protocol §51 (D245): a general index with seats per era, alongside
 CKPT = None if QTEST else os.environ.get("SLABWISE_CKPT")   # folder of saved states (the build keeps it in the Actions cache)
-if QTEST:
-    _qg = np.array([-1 if c.startswith("ja:") or is_promo(c) else series_names.index(ix_group(c)) for c in cards])
-    qidx = EraIndex(np.where(_qg >= 0, 0, -1), 1, k=60, quota=_qg)
+if QTEST:                                               # §51/§52: A is now the general of D169 (most traded), Q the one in use (D250)
+    qidx = EraIndex(np.where(_qg >= 0, 0, -1), 1, k=60)
 _code = b"".join(open(os.path.join(HERE, "..", f), "rb").read() for f in
                  ("slabwise/model.py", "slabwise/index.py", "slabwise/stats.py", "prototype/build_real_data.py") if os.path.exists(os.path.join(HERE, "..", f)))
 _static = hashlib.sha256(repr((np.__version__, pd.__version__, sys.version, cards, eras, era.tolist(), str(t0), repr(params), series_names, set_names, ser_id.tolist(),
@@ -145,11 +145,11 @@ if QTEST:                                               # §51: the series for s
     os.makedirs(os.path.join(HERE, "..", "results", "ix_quota"), exist_ok=True)
     _eras5 = [n for n in series_names if n != "Giappone"]
     json.dump(dict(weeks=[str((t0 + pd.Timedelta(weeks=w + 1)).date()) for w in range(W)],
-                   A=[None if not np.isfinite(v) else float(v) for v in aidx.series(0, W)],
-                   Q=[None if not np.isfinite(v) else float(v) for v in qidx.series(0, W)],
+                   A=[None if not np.isfinite(v) else float(v) for v in qidx.series(0, W)],
+                   Q=[None if not np.isfinite(v) else float(v) for v in aidx.series(0, W)],
                    eras={n: [None if not np.isfinite(v) else float(v) for v in eidx.series(series_names.index(n), W)] for n in _eras5},
-                   quota_log=[[int(w_), {series_names[g]: list(v) for g, v in d_.items()}] for w_, d_ in qidx.quota_log],
-                   A_baskets=[[int(w_), [series_names[_qg[c]] if _qg[c] >= 0 else "?" for c, g in b_]] for w_, e_, b_ in aidx.history]),
+                   quota_log=[[int(w_), {series_names[g]: list(v) for g, v in d_.items()}] for w_, d_ in aidx.quota_log],
+                   A_baskets=[[int(w_), [series_names[_qg[c]] if _qg[c] >= 0 else "?" for c, g in b_]] for w_, e_, b_ in qidx.history]),
               open(os.path.join(HERE, "..", "results", "ix_quota", "series.json"), "w"))
 if CKPT:                                                # at most 6 states, the most recent ones
     _all = sorted(glob.glob(os.path.join(CKPT, "state_*.pkl")), key=lambda f: json.load(open(f[:-4] + ".json"))["w"])

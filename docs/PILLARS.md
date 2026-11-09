@@ -1,6 +1,6 @@
 # Slabwise · Pilastri
 
-**Versione 1.0 · 23 ottobre 2026 · Stato: vincolante**
+**Versione 1.1 · 9 novembre 2026 (P12, D250) · Versione 1.0 · 23 ottobre 2026 · Stato: vincolante**
 
 Questo documento è la costituzione del progetto. Ogni decisione su metodo, dati e perimetro deve essere coerente con questi pilastri.
 
@@ -36,7 +36,7 @@ Questo documento è la costituzione del progetto. Ogni decisione su metodo, dati
 
 ## C. Come decidiamo
 
-**P12 · Prove prima delle opinioni.** Un cambiamento al metodo entra solo se migliora il backtest secondo le metriche di `docs/BACKTEST_PROTOCOL.md` e non peggiora nessuna fascia di liquidità. Le soglie di successo si fissano prima di vedere i risultati.
+**P12 · Prove prima delle opinioni.** Un cambiamento al metodo entra solo se migliora il backtest secondo le metriche di `docs/BACKTEST_PROTOCOL.md` e non peggiora nessuna fascia di liquidità. Le soglie di successo si fissano prima di vedere i risultati. *Eccezione (9 novembre 2026, D250):* il proprietario può adottare una variante che manca un criterio registrato solo con una voce motivata nel registro che lo dice apertamente, quando gli altri criteri passano, e con una verifica prospettica obbligatoria già registrata sui dati che arrivano dopo; se la verifica non passa, si corregge con una nuova prova.
 
 **P13 · Confronto con i concorrenti.** Ogni versione del metodo viene messa in gara con le ricostruzioni dei metodi pubblici dei concorrenti (ultima vendita, mediana a fasce di tcgcharts, media pesata per età di PriceCharting, ultima vendita spostata dall'indice di Card Ladder, pila di regole tipo TCGBerg) e con il nostro prototipo precedente. Se non vinciamo, non lo diciamo.
 
