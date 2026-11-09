@@ -401,6 +401,8 @@ Solo riportato: le carte EX e Gold Star fermate il 2 novembre (ex13-16, ex13-103
 
 **Esito (2 novembre 2026): S1–S5 superati, la v1.15 si adotta; manca S6.** S1 R1 0 voci senza vendite d'asta e 0 con (v1.14: 0 e 1, neo1-9/1st PSA 10); S2 E2 1 voce in entrambi (base2-11/1st PSA 9, come la v1.14); S3 fase R su `sales_tc` (15.471 vendite), v1.15 meno v1.14 +0,03 punti [−0,08; +0,07] (soglia +0,2); S4 copertura R4 82,8%; S5 sui 23 lavori simulati: N1 EV 0,0558 contro 0,0557, ES 0,0830 contro 0,0831, RC 0,0639 contro 0,0643; N2 fasce entro +0,2%; N3 CA 79,4%; N4 deal 86,1%; N5 scenario sfavorevole 0,0666 contro 0,0664; N6 come la v1.14 (S3 non superato da entrambe). Solo riportato: le cinque carte EX fermate il 2 novembre restano fuori anche con la v1.15. Diagnosi: non è la scala dei voti. Le loro vendite sono raddoppiate nelle ultime 4–6 settimane (es. Alakazam ☆ PSA 7 da 3.200–4.000 $ a 6.500–9.000 $), il motore segue i prezzi recenti e E2 confronta con la mediana di 90 giorni, che il rialzo rende vecchia. Proposta a Oscar, non applicata (D125).
 
+**S6 annullata (9 novembre 2026, D240):** la v1.15 è stata sostituita dalla v1.20 (D210) prima che le vendite dopo il 2 novembre bastassero; vale la verifica prospettica Y7 del §37.
+
 ## 23. Controllo d'ingresso E2 sulle vendite recenti (registrato il 2 novembre 2026, prima del codice; D125, ok di Oscar)
 
 **Problema (D125).** E2 (§15) confronta la stima di oggi con la mediana delle vendite degli ultimi 90 giorni. Quando il prezzo di una carta cambia molto nel periodo (Gold Star EX, raddoppiate in ottobre) la mediana è vecchia e il controllo ferma una stima che segue i prezzi recenti.
