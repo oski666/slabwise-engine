@@ -790,5 +790,17 @@
   205,
   187,
   "\\bterastal\\W*festival\\W*ex\\b"
+ ],
+ "ja:jungle-134": [
+  "vaporeon",
+  134,
+  -1,
+  "(?:\\b(?:jungle|jungle)\\b|ジャングル)"
+ ],
+ "ja:sv-p-232": [
+  "iono's wattrel",
+  232,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
  ]
 }
