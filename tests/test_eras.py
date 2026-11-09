@@ -22,9 +22,11 @@ def test_d211_japanese_site_eras():
     from slabwise.series import series_of
     assert series_of("ja:expansion-pack-6") == "Vintage"
     assert series_of("ja:mystery-of-the-fossils-146") == "Vintage"
-    assert series_of("ja:m2-110") == "Contemporanea"
-    assert series_of("ja:sv2a-201") == "Contemporanea"
-    assert series_of("ja:s6a-095") == "Contemporanea"
+    assert series_of("ja:m2-110") == "Scarlatto e Violetto"    # D255
+    assert series_of("ja:sv2a-201") == "Scarlatto e Violetto"
+    assert series_of("ja:s6a-095") == "Spada e Scudo"
+    assert series_of("swsh7-215") == "Spada e Scudo" and series_of("cel25-4") == "Spada e Scudo"
+    assert series_of("sv03.5-199") == "Scarlatto e Violetto" and series_of("me02-130") == "Scarlatto e Violetto"
     assert series_of("ja:sm9-103") == "Moderna"
 
 

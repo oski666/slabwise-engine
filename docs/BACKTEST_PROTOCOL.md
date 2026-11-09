@@ -893,3 +893,13 @@ Le carte con l'abbinamento sbagliato (D214 a) escono dalla coda in ogni caso: no
 **Adozione.** Se E1–E4 passano: sei ere sul sito (Vintage, Classica, Di mezzo, Moderna, Spada e Scudo, Scarlatto e Violetto), con indici, riquadri e schede; lo SlabDex con 10 voci per era (stessa regola di D250). Le stampe giapponesi seguono la stessa divisione (s* → Spada e Scudo, sv*/m* → Scarlatto e Violetto). Altrimenti la Contemporanea resta una e il risultato si riporta.
 
 **Esito §54 (9 novembre 2026): non superato, la Contemporanea resta una.** 150 settimane (run 42645338705, `results/era_split/summary.json`). E1 sì: correlazione tra Spada e Scudo e Scarlatto e Violetto 0,68. E2 sì: 91 e 221 voci idonee. **E3 no**: volatilità di Scarlatto e Violetto 15,2% contro la soglia di 14,3% (1,5 × 9,55% della Contemporanea); Spada e Scudo 7,8%. E4 sì (settimana peggiore 10,2%). Solo riportato: ultime 13 settimane Contemporanea −28,3%, Spada e Scudo −14,2%, Scarlatto e Violetto −40,0%.
+
+## 55. Verifica prospettica delle sei ere (registrata il 9 novembre 2026, prima dei dati che giudica; D255)
+
+Le due ere nuove sono in uso da subito (D255, eccezione di P12). Si giudicano solo le settimane dal 13 novembre 2026 al 29 gennaio 2027, il 1° febbraio 2027.
+- **V1 mercati diversi**: correlazione tra le variazioni settimanali (in log) di Spada e Scudo e di Scarlatto e Violetto sotto 0,8.
+- **V2 abbastanza voci**: a ogni ribilanciamento ciascuna delle due ha almeno 20 voci idonee.
+- **V3 niente salti**: nessuna variazione settimanale di una delle due oltre ±15%.
+- **V4 volatilità**: la volatilità di Spada e Scudo non oltre 1,5 volte quella della media delle sei ere; per Scarlatto e Violetto, ancora in stampa, solo riportata.
+
+Se V1–V3 passano, restano sei ere. Se non passano, si corregge con una nuova prova (per esempio confini diversi), senza tornare automaticamente a cinque.
