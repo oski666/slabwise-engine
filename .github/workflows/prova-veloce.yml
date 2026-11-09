@@ -1,0 +1,56 @@
+name: Prova ricostruzione veloce
+# D244: the same engine run twice on the same sales, the second one restarting from the states the first one saved.
+# The two real.json must be identical, byte for byte. A second pair checks a sale changed four weeks back.
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: read
+jobs:
+  prova:
+    runs-on: ubuntu-latest
+    timeout-minutes: 200
+    steps:
+      - uses: actions/checkout@v4
+      - name: Private data (D163)
+        uses: ./.github/actions/private-data
+        with:
+          mode: pull
+          token: ${{ secrets.DATA_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: pip install numpy scipy pandas pillow
+      - name: Sales
+        run: SLABWISE_TC_HISTORY=1 PYTHONPATH=. python scripts/build_sales.py data/raw/sales_base.csv data/raw/alt data/raw/sales_all.csv data/raw/tcgcharts
+      - name: Calibration cache (D228)
+        uses: actions/cache/restore@v4
+        with:
+          path: ~/.cache/slabwise/calib
+          key: calib-none
+          restore-keys: calib-
+      - name: Full run, saving the states
+        run: |
+          export SLABWISE_TC_HISTORY=1 SLABWISE_INDEX_SELF=1 PYTHONPATH=.
+          s=$(date +%s); SLABWISE_CKPT=/tmp/st python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json | grep -E "D244|^cards"; echo "secondi: $(( $(date +%s) - s ))"
+          cp prototype/data/real.json /tmp/a.json
+      - name: Second run from the saved states
+        run: |
+          export SLABWISE_TC_HISTORY=1 SLABWISE_INDEX_SELF=1 PYTHONPATH=.
+          s=$(date +%s); SLABWISE_CKPT=/tmp/st python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json | grep -E "D244|^cards"; echo "secondi: $(( $(date +%s) - s ))"
+          cp prototype/data/real.json /tmp/b.json
+          cmp /tmp/a.json /tmp/b.json && echo "IDENTICI (stessi dati)"
+      - name: A sale changed four weeks ago, restart against a full run
+        run: |
+          export SLABWISE_TC_HISTORY=1 SLABWISE_INDEX_SELF=1 PYTHONPATH=.
+          python - <<'PY'
+          import pandas as pd
+          d = pd.read_csv("data/raw/sales_all.csv"); t = pd.to_datetime(d["date"], utc=True, format="mixed")
+          i = d.index[(t > t.max() - pd.Timedelta(days=31)) & (t < t.max() - pd.Timedelta(days=27))][0]
+          d.loc[i, "price_usd"] = d.loc[i, "price_usd"] * 1.3
+          d.to_csv("/tmp/changed.csv", index=False); print("cambiata:", d.loc[i, ["date", "card", "grade"]].tolist())
+          PY
+          s=$(date +%s); SLABWISE_CKPT=/tmp/st python prototype/build_real_data.py /tmp/changed.csv data/raw/era_map.json | grep -E "D244|^cards"; echo "secondi: $(( $(date +%s) - s ))"
+          cp prototype/data/real.json /tmp/c.json
+          python prototype/build_real_data.py /tmp/changed.csv data/raw/era_map.json | grep -E "D244|^cards"
+          cmp /tmp/c.json prototype/data/real.json && echo "IDENTICI (vendita cambiata)"
