@@ -72,17 +72,16 @@ const num = s => { // "$3.639" "−10,1%" "1.420" "$5,2 mln" -> number
       // P8
       const bad = text.match(/\bNaN\b|\bundefined\b|\bnull\b|Infinity|\+-|−-/);
       if (bad) add("P8", [...key, bad[0]]);
-      // P1
+      // P1: the label must be one of those allowed for the two numbers (D242, words of 9 Nov 2026)
       for (const l of lines) {
-        const m = l.match(/^(.*?):\s*([+−-]?[\d.,]+%) in 3 mesi(?:, la sua era| contro) ([+−-]?[\d.,]+%)/);
+        const m = l.match(/^(.*?):\s*([+−-]?[\d.,]+%) in 3 mesi, la sua era ([+−-]?[\d.,]+%)/);
         if (!m) continue;
-        const a = num(m[2]) / 100, e = num(m[3]) / 100, w = m[1].toLowerCase(), d = a - e;
-        const wrong = /corre/.test(w) ||                                             // the old wording (9 Nov 2026)
-          (w.startsWith("sale") && a < 0.01) || (w.startsWith("scende") && a > -0.01) || (w.startsWith("ferma") && Math.abs(a) >= 0.01) ||
-          (w.startsWith("si muove") && Math.abs(d) > 0.031) ||
-          (/^sale più|^scende meno/.test(w) && d <= 0) || (/^sale meno|^scende più/.test(w) && d >= 0) ||
-          (/era sale/.test(w) && e <= 0) || (/era scende/.test(w) && e >= 0) || (/è ferma/.test(w) && Math.abs(e) >= 0.01);
-        if (wrong) add("P1", [...key, l]);
+        const a = num(m[2]) / 100, e = num(m[3]) / 100, d = a - e, w = m[1].trim();
+        const ok = Math.abs(d) <= 0.031 ? ["Entro le aspettative"]
+          : Math.abs(a) < 0.0105 ? ["In Frenata"]
+          : d > 0 ? (a >= 0 ? (e < -0.0095 ? ["Deal o Bolla? Controtendenza rispetto alla sua era"] : ["Occhio! Rendimento maggiore rispetto alla sua era"]) : ["In Frenata"])
+          : a < 0 ? (e < 0 ? ["In Picchiata"] : e > 0.0095 ? ["Deal o Bolla? Controtendenza rispetto alla sua era"] : ["In Frenata"]) : ["Che fatica!"];
+        if (!ok.includes(w)) add("P1", [...key, l]);
       }
       // P2
       const i90 = lines.indexOf("90 GIORNI");
