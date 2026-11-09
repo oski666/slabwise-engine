@@ -15,6 +15,7 @@ on:
     paths: ["prototype/character/**", "prototype/v7/**", "prototype/build_real_data.py", "slabwise/**", "functions/**", "social/reel-studio/**", "prototype/data/curiosita.json"]
 permissions:
   contents: write                # D105: the weekly sealed snapshot is committed
+  issues: write                  # D242: the "Controlli di coerenza" issue
 concurrency:
   group: deploy-${{ github.ref_name }}    # D230: a preview of a branch never waits for (or blocks) the live site
   cancel-in-progress: false
@@ -151,3 +152,15 @@ jobs:
         run: |
           npx --yes wrangler@3 pages project create slabwise --production-branch=main || true
           npx --yes wrangler@3 pages deploy site --project-name=slabwise --branch=${{ github.ref_name }} --commit-dirty=true   # D230: main = live site, any other branch = preview at <branch>.slabwise.pages.dev
+      - name: Page audit, after publishing so it never delays the site (D242)
+        continue-on-error: true
+        run: |
+          npm install --no-save --silent playwright@1.49.1
+          npx playwright install --with-deps chromium > /dev/null
+          node scripts/page_audit.js site results/page_audit.json
+      - name: Coherence report (D211, D242)
+        if: github.ref_name == 'main'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/coherence_report.py results/coherence.json results/page_audit.json > /dev/null
