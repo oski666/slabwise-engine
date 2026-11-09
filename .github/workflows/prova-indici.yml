@@ -1,4 +1,4 @@
-# Protocol §53 (D251): Japanese index with seats per era. (Before: §51, D245, general index; §31, D167, basket sizes.)
+# Protocol §54 (D253): Contemporanea in two eras. (Before: §53, D251, Japanese index with seats per era.) (Before: §51, D245, general index; §31, D167, basket sizes.)
 # (Earlier: protocol §31, D167, basket sizes; results in results/index_k/.)
 name: Prova indici
 on:
@@ -33,11 +33,11 @@ jobs:
           restore-keys: calib-
       - name: Test
         run: |
-          SLABWISE_IX_JA_TEST=1 SLABWISE_TC_HISTORY=1 SLABWISE_INDEX_SELF=1 PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json | grep -E "^cards"
-          SEATS=5 Q3VS=M python scripts/ix_quota_test.py results/ix_ja/series.json
+          SLABWISE_ERA_SPLIT_TEST=1 SLABWISE_TC_HISTORY=1 SLABWISE_INDEX_SELF=1 PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json | grep -E "^cards"
+          python scripts/era_split_test.py results/era_split/series.json
       - name: Save
         run: |
           git config user.name "slabwise-bot"
           git config user.email "slabwise-bot@users.noreply.github.com"
-          git add results/ix_ja/summary.json results/ix_ja/series.json
-          git diff --cached --quiet || { git commit -m "Prova §53: indice Giappone a quote per era"; git pull --rebase --autostash -q && git push; }
+          git add results/era_split/summary.json results/era_split/series.json
+          git diff --cached --quiet || { git commit -m "Prova §54: la Contemporanea in due ere"; git pull --rebase --autostash -q && git push; }

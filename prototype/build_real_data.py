@@ -86,6 +86,12 @@ sidx = EraIndex(np.array([set_names.index(_set_of(c)) if not c.startswith("ja:")
 import hashlib, pickle, glob  # noqa: E401,E402
 QTEST = os.environ.get("SLABWISE_IX_QUOTA_TEST") == "1"  # protocol §51 (D245): a general index with seats per era, alongside
 CKPT = None if QTEST else os.environ.get("SLABWISE_CKPT")   # folder of saved states (the build keeps it in the Actions cache)
+STEST = os.environ.get("SLABWISE_ERA_SPLIT_TEST") == "1"   # protocol §54 (D253): Contemporanea in two eras
+if STEST:
+    CKPT = None
+    _sp = np.array([-1 if c.startswith("ja:") or is_promo(c) or series_of(c.split("/")[0]) != "Contemporanea"
+                    else (0 if c.startswith(("swsh", "cel")) else 1) for c in cards])
+    spidx = EraIndex(_sp, 2, k=20, quota=_sp)
 JTEST = os.environ.get("SLABWISE_IX_JA_TEST") == "1"   # protocol §53 (D251): the Japanese index with seats per era
 if JTEST:
     CKPT = None
@@ -135,6 +141,8 @@ for w in range(w0, W):
     sidx.update(w, lvm, est[w])
     if QTEST:
         qidx.update(w, lvm, est[w])
+    if STEST:
+        spidx.update(w, lvm, est[w])
     if JTEST:
         jqidx.update(w, lvm, est[w])
         jmidx.update(w, lvm, est[w])
@@ -164,6 +172,13 @@ if QTEST:                                               # §51: the series for s
                    quota_log=[[int(w_), {series_names[g]: list(v) for g, v in d_.items()}] for w_, d_ in aidx.quota_log],
                    A_baskets=[[int(w_), [series_names[_qg[c]] if _qg[c] >= 0 else "?" for c, g in b_]] for w_, e_, b_ in qidx.history]),
               open(os.path.join(HERE, "..", "results", "ix_quota", "series.json"), "w"))
+if STEST:                                               # §54: the series for scripts/era_split_test.py
+    os.makedirs(os.path.join(HERE, "..", "results", "era_split"), exist_ok=True)
+    _f = lambda xs: [None if not np.isfinite(v) else float(v) for v in xs]   # noqa: E731
+    json.dump(dict(weeks=[str((t0 + pd.Timedelta(weeks=w + 1)).date()) for w in range(W)],
+                   C=_f(eidx.series(series_names.index("Contemporanea"), W)), SS=_f(spidx.series(0, W)), SV=_f(spidx.series(1, W)),
+                   seats=[[int(w_), {("SS", "SV")[g]: list(v) for g, v in d_.items()}] for w_, d_ in spidx.quota_log]),
+              open(os.path.join(HERE, "..", "results", "era_split", "series.json"), "w"))
 if JTEST:                                               # §53: the series for scripts/ix_quota_test.py (A, Q, eras, seats)
     os.makedirs(os.path.join(HERE, "..", "results", "ix_ja"), exist_ok=True)
     _gj = series_names.index("Giappone")

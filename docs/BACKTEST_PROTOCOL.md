@@ -877,3 +877,17 @@ Le carte con l'abbinamento sbagliato (D214 a) escono dalla coda in ogni caso: no
 **Adozione.** Se J1–J4 passano, l'indice Giappone del sito diventa Q. Altrimenti resta A e il risultato si riporta.
 
 **Esito §53 (9 novembre 2026): superato, l'indice Giappone diventa a quote per era.** 150 settimane (run 42626137100, `results/ix_ja/summary.json`). J1 sì (all'ultimo ribilanciamento 5 voci per Contemporanea, Moderna, Vintage e Di mezzo, idonee 141, 112, 57 e 13). J2 sì: scarto mediano dal mercato delle ere giapponesi 2,3% per Q contro 9,3% per A. J3 sì: volatilità 13,4% contro 12,7% della media delle ere (soglia 19,1%; A 17,1%). J4 sì (settimana peggiore 10,1%). Solo riportato: ultime 13 settimane A −24,7%, Q −21,8%, media delle ere −13,2%; il paniere di A era tutto Contemporanea.
+
+## 54. La Contemporanea in due ere (registrato il 9 novembre 2026, prima del codice; D253)
+
+**Domanda.** Spada e Scudo (set swsh, cel) e Scarlatto e Violetto con Mega Evoluzione (set sv, me) si muovono come un mercato solo o come due? Se sono due, conviene dividerli, purché ciascuno abbia abbastanza voci e non diventi rumore.
+
+**Dati.** Lo stesso passaggio del sito (motore v1.20, storico lungo). Si calcolano l'indice Contemporanea di oggi (C) e due indici con le stesse regole (20 voci, D169): SS (swsh, cel) e SV (sv, me); promo fuori come oggi. Settimane dalla base comune degli indici (D121).
+
+**Criteri.**
+- **E1 mercati diversi**: la correlazione tra le variazioni settimanali (in log) di SS e SV è sotto 0,8.
+- **E2 abbastanza voci**: all'ultimo ribilanciamento SS e SV hanno ciascuno almeno 20 voci idonee.
+- **E3 niente rumore in più**: la volatilità di SS e quella di SV (ultime 26 settimane, ×√52) non superano 1,5 volte quella di C.
+- **E4 niente salti**: nessuna variazione settimanale di SS o SV oltre ±15%.
+
+**Adozione.** Se E1–E4 passano: sei ere sul sito (Vintage, Classica, Di mezzo, Moderna, Spada e Scudo, Scarlatto e Violetto), con indici, riquadri e schede; lo SlabDex con 10 voci per era (stessa regola di D250). Le stampe giapponesi seguono la stessa divisione (s* → Spada e Scudo, sv*/m* → Scarlatto e Violetto). Altrimenti la Contemporanea resta una e il risultato si riporta.
