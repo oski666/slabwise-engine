@@ -830,3 +830,16 @@ Le carte con l'abbinamento sbagliato (D214 a) escono dalla coda in ogni caso: no
 
 **Esito §49 (8 novembre 2026): superato, la regola si accende.** 27.290 titoli giapponesi (definizione del §48b). B1 sì (0 titoli cambiano carta), B2 sì (0 persi o ambigui), B3 sì: 1.003 titoli in più; letti a mano i 40 del campione, tutti della carta giusta (per esempio "Japanese Basic 6 Charizard-Holo", "Jungle Snorlax 143", "Gym 2 59 Blaine's Arcanine", "SV4a Charizard ex 349 SAR", "M2a-Mega Dream 199 Psyduck", "Fusion Arts 106 Mew V"; nei set vintage il numero è quello del Pokédex, come nel catalogo). Risultati in `results/d238/bare.json`.
 
+## 51. Indice generale a quote per era (registrato il 9 novembre 2026, prima del codice; D245)
+
+**Domanda.** Un generale con 12 voci per era (cinque ere inglesi, 60 voci) rappresenta il mercato inglese meglio del generale di oggi (le 60 voci più vendute), senza diventare instabile?
+
+**Dati.** Lo stesso passaggio del sito (vendite con lo storico lungo, motore v1.20, `SLABWISE_INDEX_SELF=1`), sulle settimane dalla base comune degli indici (D121) a oggi. Si calcolano: il generale attuale (A), il generale a quote (Q) e la media semplice dei cinque indici d'era pubblicati (M, ogni era pesa uguale). Q usa le stesse regole di idoneità del paniere (D136, D169: almeno 6 vendite genuine nelle 13 settimane, ribilanciamento ogni 13 settimane, una voce per combinazione carta-voto); se un'era ha meno di 12 voci idonee, i posti liberi vanno alle altre ere in proporzione alle loro voci idonee.
+
+**Criteri.**
+- **Q1 rappresentanza**: a ogni ribilanciamento ogni era con almeno 12 voci idonee ha 12 voci in Q.
+- **Q2 vicinanza al mercato delle ere**: la mediana, su tutte le settimane, di |rendimento a 13 settimane di Q − quello di M| è minore della stessa misura per A.
+- **Q3 stabilità**: la volatilità di Q (variazioni settimanali in log, ultime 26 settimane, ×√52) non supera 1,5 volte quella di A.
+- **Q4 niente salti**: nessuna variazione settimanale di Q oltre ±15%.
+
+**Adozione.** Se Q1–Q4 passano, il generale del sito diventa Q (stesso nome, stessa base comune; la pagina dell'indice spiega le quote). Altrimenti resta A e il risultato si riporta.
