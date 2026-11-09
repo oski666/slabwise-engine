@@ -3229,5 +3229,50 @@
    2019,
    2020
   ]
+ ],
+ "ex11-108": [
+  "flareon ex",
+  "\\bdelta\\W*(?:(?:of|the|and)\\W*)?species\\b",
+  108,
+  [
+   2005,
+   2006
+  ]
+ ],
+ "dp6-2": [
+  "dragonite",
+  "\\blegends\\W*(?:(?:of|the|and)\\W*)?awakened\\b",
+  2,
+  [
+   2008,
+   2009
+  ]
+ ],
+ "swsh10.5-011": [
+  "radiant charizard",
+  "\\bpokemon\\W*(?:(?:of|the|and)\\W*)?go\\b",
+  11,
+  [
+   2022,
+   2023
+  ]
+ ],
+ "sv08-203": [
+  "latios",
+  "\\bsurging\\W*(?:(?:of|the|and)\\W*)?sparks\\b",
+  203,
+  [
+   2024,
+   2025
+  ]
+ ],
+ "base1-11": [
+  "nidoking",
+  "\\bbase\\W*(?:(?:of|the|and)\\W*)?set\\b",
+  11,
+  [
+   1999,
+   2000
+  ]
  ]
 }
