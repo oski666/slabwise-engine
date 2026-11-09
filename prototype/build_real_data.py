@@ -76,12 +76,70 @@ _set_of = lambda c: c.split("/")[0].rsplit("-", 1)[0]
 _base_cards = [c for c in cards if "/" not in c and not c.startswith("ja:")]
 set_names = sorted({_set_of(c) for c in _base_cards if sum(_set_of(x) == _set_of(c) for x in _base_cards) >= SET_MIN})
 sidx = EraIndex(np.array([set_names.index(_set_of(c)) if not c.startswith("ja:") and _set_of(c) in set_names else -1 for c in cards]), len(set_names))
+# D244: replay from a saved state. The weekly loop only depends on the sales of the weeks it has seen, the catalogue,
+# the parameters and the code; a state saved after week w is reused when all of those are unchanged up to w, and the
+# run continues from w + 1. Same arithmetic in the same order, so the result is the full run's, bit for bit.
+import hashlib, pickle, glob  # noqa: E401,E402
+CKPT = os.environ.get("SLABWISE_CKPT")                  # folder of saved states (the build keeps it in the Actions cache)
+_code = b"".join(open(os.path.join(HERE, "..", f), "rb").read() for f in
+                 ("slabwise/model.py", "slabwise/index.py", "slabwise/stats.py", "prototype/build_real_data.py") if os.path.exists(os.path.join(HERE, "..", f)))
+_static = hashlib.sha256(repr((np.__version__, pd.__version__, sys.version, cards, eras, era.tolist(), str(t0), repr(params), series_names, set_names, ser_id.tolist(),
+                               os.environ.get("SLABWISE_IX_K", "20"), os.environ.get("SLABWISE_IX_KALL", "60"))).encode() + _code).hexdigest()
+_chain, _h = [], hashlib.sha256(_static.encode())
 for w in range(W):
+    g_ = groups.get(w)
+    _h.update(b"|" + (pd.util.hash_pandas_object(g_, index=False).values.tobytes() + str(list(g_.columns)).encode() if g_ is not None else b"-"))
+    _chain.append(_h.hexdigest())
+w0 = 0
+if CKPT:
+    os.makedirs(CKPT, exist_ok=True)
+    best = None
+    for f in glob.glob(os.path.join(CKPT, "state_*.pkl")):
+        try:
+            head = json.load(open(f[:-4] + ".json"))
+            if head["w"] < W and head["chain"] == _chain[head["w"]] and (best is None or head["w"] > best[0]):
+                best = (head["w"], f)
+        except Exception:
+            pass
+    if best:
+        try:
+            with open(best[1], "rb") as fh:
+                lvm_, eidx_, aidx_, sidx_, e_, s_ = pickle.load(fh)
+            lvm, eidx, aidx, sidx = lvm_, eidx_, aidx_, sidx_
+            est[:best[0] + 1], sd[:best[0] + 1] = e_, s_
+            w0 = best[0] + 1
+        except Exception as ex:                         # an unreadable state never stops the build: full run
+            print("D244: stato illeggibile, calcolo completo:", ex, flush=True)
+    print(f"D244: {'ripartenza dalla settimana ' + str(w0) + ' di ' + str(W) if w0 else 'calcolo completo'} ", flush=True)
+_save_at = {W - k for k in (2, 5, 9, 14, 27) if W - k >= 0}
+_saved = []
+for w in range(w0, W):
     lvm.ingest(w, groups.get(w, clean.iloc[:0]))
     est[w], sd[w] = lvm.estimates_with_sd(w)
     eidx.update(w, lvm, est[w])
     aidx.update(w, lvm, est[w])
     sidx.update(w, lvm, est[w])
+    if CKPT and w in _save_at:
+        f = os.path.join(CKPT, f"state_new_{w}.pkl")
+        with open(f, "wb") as fh:
+            pickle.dump((lvm, eidx, aidx, sidx, est[:w + 1], sd[:w + 1]), fh, protocol=5)
+        json.dump({"w": w, "chain": _chain[w]}, open(f[:-4] + ".json", "w"))
+        _saved.append(f)
+if CKPT and _saved:                                     # states before the restart point are still valid (the chain is cumulative)
+    for f in glob.glob(os.path.join(CKPT, "state_*.pkl")):
+        if f not in _saved and json.load(open(f[:-4] + ".json"))["w"] >= w0:
+            for x in (f, f[:-4] + ".json"):
+                if os.path.exists(x):
+                    os.remove(x)
+    for f in _saved:
+        w_ = f.rsplit("_", 1)[1][:-4]
+        for ext in (".pkl", ".json"):
+            os.replace(f[:-4] + ext, os.path.join(CKPT, f"state_{w_}{ext}"))
+if CKPT:                                                # at most 6 states, the most recent ones
+    _all = sorted(glob.glob(os.path.join(CKPT, "state_*.pkl")), key=lambda f: json.load(open(f[:-4] + ".json"))["w"])
+    for f in _all[:-6]:
+        for x in (f, f[:-4] + ".json"):
+            os.remove(x)
 
 try:                                                  # ECB reference rate, USD per EUR
     u = "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?lastNObservations=1&format=jsondata"

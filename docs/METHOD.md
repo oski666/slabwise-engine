@@ -114,6 +114,8 @@ Codice: `slabwise/index.py`. Separato dal fattore `F_e` usato per le stime, che 
 
 Calibrazione riusata (D228, solo ingegneria): il risultato della calibrazione si salva con una chiave che riassume le vendite della finestra di addestramento, le opzioni e il codice del motore; a chiave uguale si rilegge, identico, invece di rifare i giri.
 
+Ripartenza da uno stato salvato (D244, solo ingegneria): il ciclo settimanale salva lo stato del motore e degli indici dopo le settimane W−2, W−5, W−9, W−14 e W−27 (al massimo 6 stati). Una ricostruzione riparte dallo stato più recente le cui settimane hanno esattamente le stesse vendite (impronta cumulativa delle vendite pulite settimana per settimana, più catalogo, parametri, versioni e codice del motore) e rifà solo le settimane dopo; con un'impronta diversa, o uno stato illeggibile, rifà tutto. Stesse operazioni nello stesso ordine: il risultato coincide con il calcolo completo.
+
 ## 6. Uscite
 
 - **Fair value** di ogni atomo: `exp(L_c + d_cg + β_c·(F_e(oggi) − F_e(ultimo fit)))`, cioè una copia tipica venduta su eBay, in USD. Lo spostamento con l'era dall'ultima stima con vendite, `β_c·(F_e(oggi) − F_e(ultimo fit))`, è limitato a ±log 3 (al massimo ×3 o ÷3; `roll_bound`, D47–D49); l'intervallo non cambia. Nel mercato simulato il limite non scatta mai: protegge i dati reali da un fattore d'era stimato su poche vendite.

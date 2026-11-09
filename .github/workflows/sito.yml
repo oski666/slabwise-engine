@@ -78,9 +78,17 @@ jobs:
           path: ~/.cache/slabwise/calib
           key: calib-${{ github.run_id }}
           restore-keys: calib-
-      - name: Values and indices with the long history in one run (D149, D228)
+      - name: Saved engine states (D244)
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/slabwise/state
+          key: state-${{ github.ref_name }}-${{ github.run_id }}
+          restore-keys: |
+            state-${{ github.ref_name }}-
+            state-main-
+      - name: Values and indices with the long history in one run (D149, D228, D244)
         run: |
-          SLABWISE_TC_HISTORY=1 SLABWISE_INDEX_SELF=1 PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json
+          SLABWISE_CKPT=$HOME/.cache/slabwise/state SLABWISE_TC_HISTORY=1 SLABWISE_INDEX_SELF=1 PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json
           mkdir -p /tmp/out && cp prototype/data/real.json /tmp/out/real.json   # D227: the values of this run, kept apart from git
       - name: Coherence checks (D211)
         continue-on-error: true
