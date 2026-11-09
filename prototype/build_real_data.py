@@ -68,7 +68,10 @@ sd = np.full((W, len(cards), 4), np.nan)
 ix_group = lambda c: "Giappone" if c.startswith("ja:") else (None if is_promo(c) else series_of(c.split("/")[0]))  # noqa: E731
 series_names = sorted({ix_group(c) for c in cards} - {None})
 ser_id = np.array([series_names.index(ix_group(c)) if ix_group(c) else -1 for c in cards])
-eidx = EraIndex(ser_id, len(series_names), k=int(os.environ.get("SLABWISE_IX_K", "20")))   # §31 passed (D169): 20 items per era
+_jera = sorted({series_of(c) for c in cards if c.startswith("ja:")})
+_eq = np.array([_jera.index(series_of(c)) if c.startswith("ja:") else 100 + int(ser_id[i]) for i, c in enumerate(cards)])   # D252: Japanese eras
+eidx = EraIndex(ser_id, len(series_names), k=int(os.environ.get("SLABWISE_IX_K", "20")), quota=_eq)   # §31 (D169): 20 items per era; §53 (D252):
+# inside "Giappone" equal seats per Japanese era; an English era is a single sub-group, so its basket is the same as without quota
 # D136: the general index (whole catalogue, 30 items) and set indices (sets with at least 8 catalogue cards)
 _qg = np.array([-1 if c.startswith("ja:") or is_promo(c) else series_names.index(ix_group(c)) for c in cards])   # D250: the era of each item
 aidx = EraIndex(np.where(_qg >= 0, 0, -1), 1, k=int(os.environ.get("SLABWISE_IX_KALL", "60")), quota=_qg)   # D169: 60 items; D250: 12 per era

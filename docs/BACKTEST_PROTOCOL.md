@@ -875,3 +875,5 @@ Le carte con l'abbinamento sbagliato (D214 a) escono dalla coda in ogni caso: no
 - **J4 niente salti**: nessuna variazione settimanale di Q oltre ±15%.
 
 **Adozione.** Se J1–J4 passano, l'indice Giappone del sito diventa Q. Altrimenti resta A e il risultato si riporta.
+
+**Esito §53 (9 novembre 2026): superato, l'indice Giappone diventa a quote per era.** 150 settimane (run 42626137100, `results/ix_ja/summary.json`). J1 sì (all'ultimo ribilanciamento 5 voci per Contemporanea, Moderna, Vintage e Di mezzo, idonee 141, 112, 57 e 13). J2 sì: scarto mediano dal mercato delle ere giapponesi 2,3% per Q contro 9,3% per A. J3 sì: volatilità 13,4% contro 12,7% della media delle ere (soglia 19,1%; A 17,1%). J4 sì (settimana peggiore 10,1%). Solo riportato: ultime 13 settimane A −24,7%, Q −21,8%, media delle ere −13,2%; il paniere di A era tutto Contemporanea.
