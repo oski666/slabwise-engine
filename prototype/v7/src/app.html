@@ -89,7 +89,7 @@ setLocale();
 const usd = v => "$" + nf0.format(v);
 const usdK = v => v >= 1e9 ? "$" + nf1.format(v / 1e9) + tx(" mld", "B") : v >= 1e6 ? "$" + nf1.format(v / 1e6) + tx(" mln", "M") : usd(v);
 const eur = v => tx(nf0.format(v) + " €", "€" + nf0.format(v));
-const pct = (v, s = true) => v == null || !isFinite(v) ? "—" : (s && v > 0 ? "+" : v < 0 ? "−" : "") + nf1.format(Math.abs(v * 100)) + "%";   // "—": a card too new for that span
+const pct = (v, s = true) => v == null || !isFinite(v) ? "—" : Math.abs(v) < 0.0005 ? nf1.format(0) + "%" : (s && v > 0 ? "+" : v < 0 ? "−" : "") + nf1.format(Math.abs(v * 100)) + "%";   // never "−0,0%"   // "—": a card too new for that span
 const dateF = s => new Date(s + "T12:00:00").toLocaleDateString(LOC, {day: "numeric", month: "short", year: "2-digit"});
 const plural = (n, one, many) => n + " " + (n === 1 ? one : many);
 /* data strings are written by the engine in Italian: shown as they are in Italian, translated here in English */
@@ -845,6 +845,8 @@ function cardMore(c, g) {
 function vsEra(a, e) {
   const d = a - e, A = pct(a), E = pct(e), tail = tx(` in 3 mesi, la sua era ${E}.`, ` in 3 months, its era ${E}.`);
   if (Math.abs(d) <= 0.03) return ["flat", tx(`<b>Si muove con la sua era</b>: ${A}`, `<b>Moving with its era</b>: ${A}`) + tail];
+  if (Math.abs(a) < 0.01) return ["flat", d > 0 ? tx(`<b>Ferma mentre la sua era scende</b>: ${A}`, `<b>Holding while its era falls</b>: ${A}`) + tail
+    : tx(`<b>Ferma mentre la sua era sale</b>: ${A}`, `<b>Standing still while its era rises</b>: ${A}`) + tail];
   if (d > 0) {
     if (a >= 0 && e >= 0) return ["up", tx(`<b>Sale più della sua era</b>: ${A}`, `<b>Rising faster than its era</b>: ${A}`) + tail];
     if (a >= 0) return ["up", Math.abs(e) < 0.01 ? tx(`<b>Sale mentre la sua era è ferma</b>: ${A}`, `<b>Rising while its era stands still</b>: ${A}`) + tail

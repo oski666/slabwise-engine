@@ -78,7 +78,7 @@ const num = s => { // "$3.639" "−10,1%" "1.420" "$5,2 mln" -> number
         if (!m) continue;
         const a = num(m[2]) / 100, e = num(m[3]) / 100, w = m[1].toLowerCase(), d = a - e;
         const wrong = /corre/.test(w) ||                                             // the old wording (9 Nov 2026)
-          (w.startsWith("sale") && a < 0) || (w.startsWith("scende") && a >= 0) ||
+          (w.startsWith("sale") && a < 0.01) || (w.startsWith("scende") && a > -0.01) || (w.startsWith("ferma") && Math.abs(a) >= 0.01) ||
           (w.startsWith("si muove") && Math.abs(d) > 0.031) ||
           (/^sale più|^scende meno/.test(w) && d <= 0) || (/^sale meno|^scende più/.test(w) && d >= 0) ||
           (/era sale/.test(w) && e <= 0) || (/era scende/.test(w) && e >= 0) || (/è ferma/.test(w) && Math.abs(e) >= 0.01);
@@ -120,7 +120,7 @@ const num = s => { // "$3.639" "−10,1%" "1.420" "$5,2 mln" -> number
       const ip = lines.indexOf("POP PSA"), im = lines.findIndex(l => /^MARKET CAP( PSA \d+)?$/.test(l));
       if (ip >= 0 && im >= 0 && val) {
         const pop = num(lines[ip + 1]), cap = num(lines[im + 1]);
-        const tol = /mln/.test(lines[im + 1]) ? 0.05e6 : /mila/.test(lines[im + 1]) ? 50 : 0;   // the tile rounds to one decimal
+        const tol = (/mln/.test(lines[im + 1]) ? 0.05e6 : /mila/.test(lines[im + 1]) ? 50 : 0) + 0.5 * pop;   // the tile and the price are rounded
         if (pop && cap && Math.abs(cap - val * pop) > tol + 0.03 * val * pop) add("P7", [...key, `cap ${lines[im + 1]} vs ${val} × ${pop}`]);
       }
     }
