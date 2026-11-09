@@ -845,3 +845,19 @@ Le carte con l'abbinamento sbagliato (D214 a) escono dalla coda in ogni caso: no
 **Adozione.** Se Q1–Q4 passano, il generale del sito diventa Q (stesso nome, stessa base comune; la pagina dell'indice spiega le quote). Altrimenti resta A e il risultato si riporta.
 
 **Esito §51 (9 novembre 2026): non superato, il generale resta com'è.** 150 settimane confrontate (run 42603210249, `results/ix_quota/summary.json`). Q1 sì (all'ultimo ribilanciamento 12 voci per ognuna delle cinque ere, idonee da 149 a 312). Q2 sì: scarto mediano dal mercato delle ere 1,0% per Q contro 11,8% per A. **Q3 no**: volatilità di Q 22,4% contro 8,6% di A (soglia 1,5×, cioè 12,9%). Q4 sì (variazione settimanale massima 8,7%). Solo riportato: nelle ultime 13 settimane A −17,8%, Q +19,0%, media delle ere +19,4%; oggi il paniere di A ha 53 voci Contemporanee e 7 Moderne.
+
+## 52. Generale a quote per era, prova prospettica con la volatilità misurata contro le ere (registrato il 9 novembre 2026, prima dei dati che giudica; D249)
+
+**Perché.** Il §51 non è passato per la volatilità (Q3): il confronto era con il generale di oggi, che è quasi tutto Contemporanea e quindi poco volatile per costruzione. Oscar: "parliamo di carte, è normale avere volatilità alta… proporzionerei l'indice rispetto a questa cosa". Una soglia nuova scelta dopo aver visto il §51 non può decidere sui dati già visti: questa prova giudica solo le settimane che arrivano **dopo il 9 novembre 2026**.
+
+**Bracci.** A: generale di oggi (D169). **Q**: 12 voci per era, pesi uguali (il §51). **R**: 12 voci per era, ma ogni era pesa in proporzione inversa alla volatilità del suo indice nelle 52 settimane prima del ribilanciamento (pesi delle ere che sommano a 1, dentro l'era pesi uguali); con meno di 26 settimane d'indice l'era pesa come in Q. M: la media semplice dei cinque indici d'era, come nel §51.
+
+**Dati.** Lo stesso passaggio del sito; si guardano solo le settimane dal 13 novembre 2026 al 29 gennaio 2027 (12 settimane). Si giudica il 1° febbraio 2027.
+
+**Criteri** (per Q e per R):
+- **P1 rappresentanza**: a ogni ribilanciamento ogni era con almeno 12 voci idonee ha almeno 12 voci.
+- **P2 vicinanza al mercato delle ere**: mediana di |rendimento a 4 settimane del braccio − quello di M| minore della stessa misura per A.
+- **P3 volatilità proporzionata**: volatilità del braccio (variazioni settimanali in log, ×√52) non oltre 1,5 volte quella di M nelle stesse settimane.
+- **P4 niente salti**: nessuna variazione settimanale oltre ±15%.
+
+**Adozione.** Tra i bracci che passano P1–P4, quello con P2 più basso diventa il generale del sito. Se nessuno passa, resta A.
