@@ -1,0 +1,30 @@
+{
+ "weeks": 150,
+ "E1": {
+  "passed": true,
+  "corr": 0.68
+ },
+ "E2": {
+  "passed": true,
+  "eligible_last": {
+   "SS": 91,
+   "SV": 221
+  }
+ },
+ "E3": {
+  "passed": false,
+  "vol_C": 0.0955,
+  "vol_SS": 0.0784,
+  "vol_SV": 0.1517
+ },
+ "E4": {
+  "passed": true,
+  "max_weekly_change": 0.1017
+ },
+ "returns_13w_last": {
+  "C": -0.2834,
+  "SS": -0.1424,
+  "SV": -0.4
+ },
+ "adopt": false
+}
