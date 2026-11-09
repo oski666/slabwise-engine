@@ -665,7 +665,7 @@ Se passano entrambi, si adotta quello con l'errore Y3 più basso; se ne passa un
 
 **Criteri.** Y1–Y6 del §36, identici, braccio C contro lo stesso riferimento (sito di oggi). Si adotta C solo se li passa tutti; poi Y7 (prospettica, dopo almeno 2.000 vendite nuove) è obbligatoria. Il braccio A si riesegue solo come confronto e non si può adottare. Script `scripts/grade_jump_test.py`, workflow `prova-salti-voto.yml`; risultati in `results/gradejump/summary.json`.
 
-**Esito (6 novembre 2026, D210).** Braccio C adottato come v1.20. C: Y1 0 voci; Y2 0 voci; Y3 −0,28 punti [−0,40; −0,18]; Y4 73,9% → 83,5%; Y5 111 → 82; Y6 33 → 0. A (solo confronto): come nel §36, Y2 4 voci. Y7 (prospettica) da eseguire appena ci sono almeno 2.000 vendite dopo il 6 novembre.
+**Esito (6 novembre 2026, D210).** Braccio C adottato come v1.20. C: Y1 0 voci; Y2 0 voci; Y3 −0,28 punti [−0,40; −0,18]; Y4 73,9% → 83,5%; Y5 111 → 82; Y6 33 → 0. A (solo confronto): come nel §36, Y2 4 voci. Y7 (prospettica) da eseguire appena ci sono almeno 2.000 vendite dopo il 6 novembre. Da D241 (9 novembre 2026, prima di Y7): se Y7 non passa la v1.20 resta e si corregge con una nuova prova registrata, senza ritorno alla v1.15.
 
 ## 38. Titoli giapponesi: sigla e nome giapponese del set, trattini e apostrofi (registrato il 7 novembre 2026, prima del codice; D214)
 
