@@ -843,3 +843,5 @@ Le carte con l'abbinamento sbagliato (D214 a) escono dalla coda in ogni caso: no
 - **Q4 niente salti**: nessuna variazione settimanale di Q oltre ±15%.
 
 **Adozione.** Se Q1–Q4 passano, il generale del sito diventa Q (stesso nome, stessa base comune; la pagina dell'indice spiega le quote). Altrimenti resta A e il risultato si riporta.
+
+**Esito §51 (9 novembre 2026): non superato, il generale resta com'è.** 150 settimane confrontate (run 42603210249, `results/ix_quota/summary.json`). Q1 sì (all'ultimo ribilanciamento 12 voci per ognuna delle cinque ere, idonee da 149 a 312). Q2 sì: scarto mediano dal mercato delle ere 1,0% per Q contro 11,8% per A. **Q3 no**: volatilità di Q 22,4% contro 8,6% di A (soglia 1,5×, cioè 12,9%). Q4 sì (variazione settimanale massima 8,7%). Solo riportato: nelle ultime 13 settimane A −17,8%, Q +19,0%, media delle ere +19,4%; oggi il paniere di A ha 53 voci Contemporanee e 7 Moderne.
