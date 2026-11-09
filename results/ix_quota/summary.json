@@ -1,0 +1,56 @@
+{
+ "weeks_compared": 150,
+ "Q1": {
+  "passed": true,
+  "cases": [],
+  "last_seats": [
+   221,
+   {
+    "Classica": [
+     231,
+     12
+    ],
+    "Contemporanea": [
+     312,
+     12
+    ],
+    "Di mezzo": [
+     149,
+     12
+    ],
+    "Moderna": [
+     182,
+     12
+    ],
+    "Vintage": [
+     169,
+     12
+    ]
+   }
+  ]
+ },
+ "Q2": {
+  "passed": true,
+  "median_gap_Q": 0.0101,
+  "median_gap_A": 0.1184
+ },
+ "Q3": {
+  "passed": false,
+  "vol_Q": 0.2239,
+  "vol_A": 0.0858
+ },
+ "Q4": {
+  "passed": true,
+  "max_weekly_change": 0.0874
+ },
+ "A_last_basket": {
+  "Contemporanea": 53,
+  "Moderna": 7
+ },
+ "returns_13w_last": {
+  "A": -0.1781,
+  "Q": 0.1902,
+  "M": 0.1937
+ },
+ "adopt": false
+}
