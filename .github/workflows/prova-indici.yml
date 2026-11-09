@@ -1,4 +1,5 @@
-# Protocol §31 (D167): basket size of the indices, 10/15/20 per era and 30/60 for the general index.
+# Protocol §51 (D245): general index with 12 seats per era (Q) against today's general index (A).
+# (Earlier: protocol §31, D167, basket sizes; results in results/index_k/.)
 name: Prova indici
 on:
   workflow_dispatch: {}
@@ -7,7 +8,7 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 350
+    timeout-minutes: 200
     steps:
       - uses: actions/checkout@v4
       - name: Guard bot commits (no conflict markers, valid JSON)
@@ -20,13 +21,23 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Test
+      - name: Sales
         run: |
           pip install -q numpy pandas scipy pillow
-          PYTHONPATH=. python scripts/index_k_test.py /tmp/ik 2>&1 | grep -v Warning
+          SLABWISE_TC_HISTORY=1 PYTHONPATH=. python scripts/build_sales.py data/raw/sales_base.csv data/raw/alt data/raw/sales_all.csv data/raw/tcgcharts
+      - name: Calibration cache (D228)
+        uses: actions/cache/restore@v4
+        with:
+          path: ~/.cache/slabwise/calib
+          key: calib-none
+          restore-keys: calib-
+      - name: Test
+        run: |
+          SLABWISE_IX_QUOTA_TEST=1 SLABWISE_TC_HISTORY=1 SLABWISE_INDEX_SELF=1 PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json | grep -E "^cards"
+          python scripts/ix_quota_test.py results/ix_quota/series.json
       - name: Save
         run: |
           git config user.name "slabwise-bot"
           git config user.email "slabwise-bot@users.noreply.github.com"
-          git add results/index_k/summary.json
-          git diff --cached --quiet || { git commit -m "Prova §31: numero di voci del paniere"; git pull --rebase --autostash -q && git push; }
+          git add results/ix_quota/summary.json results/ix_quota/series.json
+          git diff --cached --quiet || { git commit -m "Prova §51: indice generale a quote per era"; git pull --rebase --autostash -q && git push; }

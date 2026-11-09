@@ -837,7 +837,7 @@ Le carte con l'abbinamento sbagliato (D214 a) escono dalla coda in ogni caso: no
 **Dati.** Lo stesso passaggio del sito (vendite con lo storico lungo, motore v1.20, `SLABWISE_INDEX_SELF=1`), sulle settimane dalla base comune degli indici (D121) a oggi. Si calcolano: il generale attuale (A), il generale a quote (Q) e la media semplice dei cinque indici d'era pubblicati (M, ogni era pesa uguale). Q usa le stesse regole di idoneità del paniere (D136, D169: almeno 6 vendite genuine nelle 13 settimane, ribilanciamento ogni 13 settimane, una voce per combinazione carta-voto); se un'era ha meno di 12 voci idonee, i posti liberi vanno alle altre ere in proporzione alle loro voci idonee.
 
 **Criteri.**
-- **Q1 rappresentanza**: a ogni ribilanciamento ogni era con almeno 12 voci idonee ha 12 voci in Q.
+- **Q1 rappresentanza**: a ogni ribilanciamento ogni era con almeno 12 voci idonee ha **almeno** 12 voci in Q. *(Correzione del 9 novembre 2026, prima della prova sui dati veri: la prima scrittura diceva "12 voci", in contraddizione con la regola dei posti liberi registrata nello stesso paragrafo, che ne dà di più alle ere grandi quando un'era piccola non arriva a 12; trovata provando il codice su un campione di 120 carte, non sui dati della prova.)*
 - **Q2 vicinanza al mercato delle ere**: la mediana, su tutte le settimane, di |rendimento a 13 settimane di Q − quello di M| è minore della stessa misura per A.
 - **Q3 stabilità**: la volatilità di Q (variazioni settimanali in log, ultime 26 settimane, ×√52) non supera 1,5 volte quella di A.
 - **Q4 niente salti**: nessuna variazione settimanale di Q oltre ±15%.

@@ -18,12 +18,14 @@ STRATA_MIN = 4                                   # D143: sales needed for a rese
 
 
 class EraIndex:
-    def __init__(self, era, n_eras, start_week=26, rebalance=REBALANCE, min_sales=MIN_SALES, k=K, one_per_card=False, strata=0):
+    def __init__(self, era, n_eras, start_week=26, rebalance=REBALANCE, min_sales=MIN_SALES, k=K, one_per_card=False, strata=0, quota=None):
         self.era = np.asarray(era)
         self.E = n_eras
         self.start, self.reb, self.min_sales, self.k = start_week, rebalance, min_sales, k
         self.one_per_card = one_per_card                 # D130: each card enters once, with its most traded grade
         self.strata = strata                             # D143 (protocol §28): seats reserved for each grade
+        self.quota = None if quota is None else np.asarray(quota)   # D245 (protocol §51): equal seats for each sub-group (era)
+        self.quota_log = []                              # (week, {sub-group: (eligible, seats)}) at each rebalance
         self.basket = {e: [] for e in range(n_eras)}
         self.level = {e: [] for e in range(n_eras)}     # (week, log level); starts at 0 when an era gets a basket
         self.history = []                                # (week, era, basket) at each rebalance
@@ -47,6 +49,28 @@ class EraIndex:
                         seen.add(a[0])
                         uniq.append((n, a))
                 atoms = uniq
+            if self.quota is not None:                   # D245: k / G seats per sub-group, free seats shared by eligible counts
+                groups = sorted({int(self.quota[a[0]]) for _, a in atoms if self.quota[a[0]] >= 0})
+                by = {g: [a for _, a in atoms if self.quota[a[0]] == g] for g in groups}
+                base = self.k // max(1, len(groups))
+                seats = {g: min(base, len(by[g])) for g in groups}
+                free = self.k - sum(seats.values())
+                while free > 0:
+                    room = {g: len(by[g]) - seats[g] for g in groups if len(by[g]) > seats[g]}
+                    if not room:
+                        break
+                    tot = sum(room.values())
+                    give = {g: min(r, max(1 if free else 0, int(free * r / tot))) for g, r in room.items()}
+                    for g in sorted(give, key=lambda g: -room[g]):
+                        take = min(give[g], free)
+                        seats[g] += take
+                        free -= take
+                        if not free:
+                            break
+                self.basket[e] = [a for g in groups for a in by[g][:seats[g]]]
+                self.quota_log.append((w, {g: (len(by[g]), seats[g]) for g in groups}))
+                self.history.append((w, e, list(self.basket[e])))
+                continue
             if self.strata:
                 low = [(n, a) for a, n in counts.items() if self.era[a[0]] == e and n >= STRATA_MIN]
                 low.sort(key=lambda x: (-x[0], x[1]))

@@ -80,7 +80,11 @@ sidx = EraIndex(np.array([set_names.index(_set_of(c)) if not c.startswith("ja:")
 # the parameters and the code; a state saved after week w is reused when all of those are unchanged up to w, and the
 # run continues from w + 1. Same arithmetic in the same order, so the result is the full run's, bit for bit.
 import hashlib, pickle, glob  # noqa: E401,E402
-CKPT = os.environ.get("SLABWISE_CKPT")                  # folder of saved states (the build keeps it in the Actions cache)
+QTEST = os.environ.get("SLABWISE_IX_QUOTA_TEST") == "1"  # protocol §51 (D245): a general index with seats per era, alongside
+CKPT = None if QTEST else os.environ.get("SLABWISE_CKPT")   # folder of saved states (the build keeps it in the Actions cache)
+if QTEST:
+    _qg = np.array([-1 if c.startswith("ja:") or is_promo(c) else series_names.index(ix_group(c)) for c in cards])
+    qidx = EraIndex(np.where(_qg >= 0, 0, -1), 1, k=60, quota=_qg)
 _code = b"".join(open(os.path.join(HERE, "..", f), "rb").read() for f in
                  ("slabwise/model.py", "slabwise/index.py", "slabwise/stats.py", "prototype/build_real_data.py") if os.path.exists(os.path.join(HERE, "..", f)))
 _static = hashlib.sha256(repr((np.__version__, pd.__version__, sys.version, cards, eras, era.tolist(), str(t0), repr(params), series_names, set_names, ser_id.tolist(),
@@ -119,6 +123,8 @@ for w in range(w0, W):
     eidx.update(w, lvm, est[w])
     aidx.update(w, lvm, est[w])
     sidx.update(w, lvm, est[w])
+    if QTEST:
+        qidx.update(w, lvm, est[w])
     if CKPT and w in _save_at:
         f = os.path.join(CKPT, f"state_new_{w}.pkl")
         with open(f, "wb") as fh:
@@ -135,6 +141,16 @@ if CKPT and _saved:                                     # states before the rest
         w_ = f.rsplit("_", 1)[1][:-4]
         for ext in (".pkl", ".json"):
             os.replace(f[:-4] + ext, os.path.join(CKPT, f"state_{w_}{ext}"))
+if QTEST:                                               # §51: the series for scripts/ix_quota_test.py
+    os.makedirs(os.path.join(HERE, "..", "results", "ix_quota"), exist_ok=True)
+    _eras5 = [n for n in series_names if n != "Giappone"]
+    json.dump(dict(weeks=[str((t0 + pd.Timedelta(weeks=w + 1)).date()) for w in range(W)],
+                   A=[None if not np.isfinite(v) else float(v) for v in aidx.series(0, W)],
+                   Q=[None if not np.isfinite(v) else float(v) for v in qidx.series(0, W)],
+                   eras={n: [None if not np.isfinite(v) else float(v) for v in eidx.series(series_names.index(n), W)] for n in _eras5},
+                   quota_log=[[int(w_), {series_names[g]: list(v) for g, v in d_.items()}] for w_, d_ in qidx.quota_log],
+                   A_baskets=[[int(w_), [series_names[_qg[c]] if _qg[c] >= 0 else "?" for c, g in b_]] for w_, e_, b_ in aidx.history]),
+              open(os.path.join(HERE, "..", "results", "ix_quota", "series.json"), "w"))
 if CKPT:                                                # at most 6 states, the most recent ones
     _all = sorted(glob.glob(os.path.join(CKPT, "state_*.pkl")), key=lambda f: json.load(open(f[:-4] + ".json"))["w"])
     for f in _all[:-6]:
