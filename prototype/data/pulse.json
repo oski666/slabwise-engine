@@ -1,23 +1,23 @@
 {
- "monday": "2026-11-02",
- "week": "2026-10-29/2026-11-04",
+ "monday": "2026-11-09",
+ "week": "2026-11-01/2026-11-07",
  "stories": [
   {
    "kind": "mover",
    "title": "Lo slab del mese",
-   "card": "sm9-113",
+   "card": "bwp-BW73",
    "grade": 10,
-   "value": 2868.11,
-   "lo": 2679.92,
-   "hi": 3069.51,
-   "change7": 1.9751,
-   "hook": "Latias & Latios GX PSA 10: +198% in 30 giorni",
+   "value": 77188.02,
+   "lo": 65649.3,
+   "hi": 90754.83,
+   "change7": 10.3623,
+   "hook": "Darkrai PSA 10: +1036% in 30 giorni",
    "reel": {
     "mode": "trend",
-    "card": "sm9-113",
+    "card": "bwp-BW73",
     "grade": 10,
-    "prev": 859,
-    "now": 2555,
+    "prev": 6085,
+    "now": 69137,
     "days": 30
    }
   },
@@ -25,18 +25,18 @@
    "kind": "mover",
    "title": "In discesa",
    "card": "pl4-97",
-   "grade": 8,
-   "value": 2663.72,
-   "lo": 2473.73,
-   "hi": 2868.3,
-   "change7": -0.5264,
-   "hook": "Gengar LV.X PSA 8: −53% in 30 giorni",
+   "grade": 10,
+   "value": 72695.29,
+   "lo": 59572.73,
+   "hi": 88708.46,
+   "change7": -0.673,
+   "hook": "Gengar LV.X PSA 10: −67% in 30 giorni",
    "reel": {
     "mode": "trend",
     "card": "pl4-97",
-    "grade": 8,
-    "prev": 5011,
-    "now": 2373,
+    "grade": 10,
+    "prev": 199123,
+    "now": 65113,
     "days": 30
    }
   },
@@ -48,25 +48,25 @@
    "price": 3090.0,
    "pgen": 0.0,
    "why": "molto sopra il valore: possibile lotto, asta gonfiata o Best Offer",
-   "value": 1264.28,
+   "value": 1227.51,
    "hook": "Venduto a $3.090, ma per il nostro modello non è credibile"
   },
   {
    "kind": "ladder",
    "title": "Il salto di voto",
-   "card": "neo3-14",
-   "ratio": 29.79,
-   "v10": 38434.51,
-   "v9": 1290.18,
-   "hook": "Suicune (Unlimited): un PSA 10 vale 29,8 volte un PSA 9"
+   "card": "hgssp-HGSS03",
+   "ratio": 31.95,
+   "v10": 37684.88,
+   "v9": 1179.35,
+   "hook": "Pikachu: un PSA 10 vale 32,0 volte un PSA 9"
   },
   {
    "kind": "era",
    "title": "L'era della settimana",
-   "series": "Di mezzo",
-   "change": 0.2465,
-   "cap": 169735990,
-   "hook": "Indice Di mezzo: +24,6% in 4 settimane"
+   "series": "Classica",
+   "change": -0.2093,
+   "cap": 1013109319,
+   "hook": "Indice Classica: −20,9% in 4 settimane"
   }
  ]
 }

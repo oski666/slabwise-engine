@@ -3,42 +3,47 @@
  "cards": 546,
  "checks": {
   "C7": {
-   "n": 7,
+   "n": 8,
    "examples": [
+    [
+     "sv03.5-205",
+     "Mew ex",
+     "PSA 8 27 < PSA 7 27"
+    ],
     [
      "me02.5-284",
      "Mega Gengar ex",
-     "PSA 9 667 < PSA 8 689"
+     "PSA 9 663 < PSA 8 674"
     ],
     [
      "swsh3.5-79",
      "Charizard V",
-     "PSA 9 195 < PSA 8 212"
+     "PSA 9 194 < PSA 8 211"
     ],
     [
      "me02.5-290",
      "Mega Dragonite ex",
-     "PSA 9 421 < PSA 8 428"
+     "PSA 9 419 < PSA 8 424"
     ],
     [
      "swsh5-155",
      "Tyranitar V",
-     "PSA 9 222 < PSA 8 226"
+     "PSA 9 221 < PSA 8 225"
     ],
     [
      "me02.5-276",
      "Pikachu ex",
-     "PSA 9 640 < PSA 8 663"
+     "PSA 9 637 < PSA 8 657"
+    ],
+    [
+     "me02.5-294",
+     "Mega Charizard Y ex",
+     "PSA 8 219 < PSA 7 223"
     ],
     [
      "ja:sv-p-001",
      "ピカチュウ",
-     "PSA 8 24 < PSA 7 29"
-    ],
-    [
-     "ja:xy-p-099",
-     "Cosplay Pikachu (giapponese)",
-     "PSA 9 716 < PSA 8 730"
+     "PSA 8 24 < PSA 7 28"
     ]
    ]
   }
