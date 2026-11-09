@@ -861,3 +861,17 @@ Le carte con l'abbinamento sbagliato (D214 a) escono dalla coda in ogni caso: no
 - **P4 niente salti**: nessuna variazione settimanale oltre ±15%.
 
 **Adozione.** Tra i bracci che passano P1–P4, quello con P2 più basso diventa il generale del sito. Se nessuno passa, resta A. *Aggiornamento (9 novembre 2026, D250, prima dei dati che giudica): Q è adottato subito per decisione di Oscar; il §52 diventa la sua verifica obbligatoria. Se Q passa resta; se R passa con P2 più basso, si passa a R; se nessuno passa, si corregge con una nuova prova, non si torna ad A.*
+
+## 53. Indice Giappone a quote per era (registrato il 9 novembre 2026, prima del codice; D251)
+
+**Domanda.** Un indice Giappone con posti uguali per era (20 voci divise tra le ere giapponesi presenti nel paniere idoneo) racconta il mercato giapponese meglio dell'indice di oggi (le 20 voci giapponesi più vendute), senza essere più agitato del mercato delle ere giapponesi?
+
+**Dati.** Lo stesso passaggio del sito (vendite con lo storico lungo, motore v1.20). Si calcolano: l'indice Giappone di oggi (A), quello a quote (Q, `EraIndex(quota=…)` con le ere di `series_of` per le carte giapponesi, promo comprese come oggi) e M, la media semplice degli indici delle ere giapponesi (stesse regole, 20 voci per era). Settimane dalla base comune degli indici (D121).
+
+**Criteri.**
+- **J1 rappresentanza**: a ogni ribilanciamento ogni era giapponese con almeno 5 voci idonee ne ha almeno 5 in Q.
+- **J2 vicinanza al mercato delle ere**: mediana di |rendimento a 13 settimane di Q − quello di M| minore della stessa misura per A.
+- **J3 volatilità proporzionata**: volatilità di Q (variazioni settimanali in log, ultime 26 settimane, ×√52) non oltre 1,5 volte quella di M nelle stesse settimane.
+- **J4 niente salti**: nessuna variazione settimanale di Q oltre ±15%.
+
+**Adozione.** Se J1–J4 passano, l'indice Giappone del sito diventa Q. Altrimenti resta A e il risultato si riporta.

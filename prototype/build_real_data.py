@@ -83,6 +83,13 @@ sidx = EraIndex(np.array([set_names.index(_set_of(c)) if not c.startswith("ja:")
 import hashlib, pickle, glob  # noqa: E401,E402
 QTEST = os.environ.get("SLABWISE_IX_QUOTA_TEST") == "1"  # protocol §51 (D245): a general index with seats per era, alongside
 CKPT = None if QTEST else os.environ.get("SLABWISE_CKPT")   # folder of saved states (the build keeps it in the Actions cache)
+JTEST = os.environ.get("SLABWISE_IX_JA_TEST") == "1"   # protocol §53 (D251): the Japanese index with seats per era
+if JTEST:
+    CKPT = None
+    _jnames = sorted({series_of(c) for c in cards if c.startswith("ja:")})
+    _jq = np.array([_jnames.index(series_of(c)) if c.startswith("ja:") else -1 for c in cards])
+    jqidx = EraIndex(np.where(_jq >= 0, 0, -1), 1, k=20, quota=_jq)
+    jmidx = EraIndex(_jq, len(_jnames), k=20)
 if QTEST:                                               # §51/§52: A is now the general of D169 (most traded), Q the one in use (D250)
     qidx = EraIndex(np.where(_qg >= 0, 0, -1), 1, k=60)
 _code = b"".join(open(os.path.join(HERE, "..", f), "rb").read() for f in
@@ -125,6 +132,9 @@ for w in range(w0, W):
     sidx.update(w, lvm, est[w])
     if QTEST:
         qidx.update(w, lvm, est[w])
+    if JTEST:
+        jqidx.update(w, lvm, est[w])
+        jmidx.update(w, lvm, est[w])
     if CKPT and w in _save_at:
         f = os.path.join(CKPT, f"state_new_{w}.pkl")
         with open(f, "wb") as fh:
@@ -151,6 +161,16 @@ if QTEST:                                               # §51: the series for s
                    quota_log=[[int(w_), {series_names[g]: list(v) for g, v in d_.items()}] for w_, d_ in aidx.quota_log],
                    A_baskets=[[int(w_), [series_names[_qg[c]] if _qg[c] >= 0 else "?" for c, g in b_]] for w_, e_, b_ in qidx.history]),
               open(os.path.join(HERE, "..", "results", "ix_quota", "series.json"), "w"))
+if JTEST:                                               # §53: the series for scripts/ix_quota_test.py (A, Q, eras, seats)
+    os.makedirs(os.path.join(HERE, "..", "results", "ix_ja"), exist_ok=True)
+    _gj = series_names.index("Giappone")
+    _f = lambda xs: [None if not np.isfinite(v) else float(v) for v in xs]   # noqa: E731
+    json.dump(dict(weeks=[str((t0 + pd.Timedelta(weeks=w + 1)).date()) for w in range(W)],
+                   A=_f(eidx.series(_gj, W)), Q=_f(jqidx.series(0, W)),
+                   eras={n: _f(jmidx.series(i, W)) for i, n in enumerate(_jnames)},
+                   quota_log=[[int(w_), {_jnames[g]: list(v) for g, v in d_.items()}] for w_, d_ in jqidx.quota_log],
+                   A_baskets=[[int(w_), [series_of(cards[c]) for c, g in b_]] for w_, e_, b_ in eidx.history if e_ == _gj]),
+              open(os.path.join(HERE, "..", "results", "ix_ja", "series.json"), "w"))
 if CKPT:                                                # at most 6 states, the most recent ones
     _all = sorted(glob.glob(os.path.join(CKPT, "state_*.pkl")), key=lambda f: json.load(open(f[:-4] + ".json"))["w"])
     for f in _all[:-6]:
