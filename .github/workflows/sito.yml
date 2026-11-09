@@ -152,6 +152,7 @@ jobs:
           sed -i 's#<meta charset="utf-8">#<meta charset="utf-8">\n<meta name="robots" content="noindex">#' site/index.html
           python social/reel-studio/build.py site
           sed 's#<meta charset="utf-8">#<meta charset="utf-8">\n<meta name="robots" content="noindex">#' social/reel-studio/studio.html > site/x/studio.html
+          cp social/reel-studio/src/carta.html site/x/carta.html   # D256: the pack of one card for the creators
       - name: Publish on Cloudflare Pages
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

@@ -455,3 +455,24 @@ mark.hl{color:inherit;background:linear-gradient(100deg,transparent 0 1%,var(--m
 .ixlegend .me-k{color:var(--ink);font-weight:700}
 .ixlegend .me-k i{background:var(--brand);opacity:1;height:4px}
 .edbox{display:grid;gap:6px;justify-items:center;text-align:center;max-width:320px}
+/* D256: the creator badge under the slab (only with the invite cookie); image and words are placeholders */
+.pick{display:flex;flex-direction:column;align-items:center;gap:6px;margin:6px auto 2px;background:none;border:0;cursor:pointer;font:800 13px var(--ui);color:var(--ink);position:relative}
+.pick .ball{width:64px;height:64px;position:relative;display:block}
+.pick .ball img{width:100%;height:100%;object-fit:contain;display:block}
+.pick .ball .top,.pick .ball .bot{position:absolute;left:0;width:64px;height:32px;border:3px solid var(--edge);box-sizing:border-box}
+.pick .ball .top{top:0;border-radius:32px 32px 0 0;background:var(--coral);border-bottom-width:2px;transform-origin:8% 100%}
+.pick .ball .bot{bottom:0;border-radius:0 0 32px 32px;background:var(--paper,#fff);border-top-width:2px}
+.pick .ball .dot{position:absolute;left:24px;top:24px;width:16px;height:16px;border-radius:50%;background:var(--paper,#fff);border:3px solid var(--edge);box-sizing:border-box;z-index:2}
+.pick .say{position:absolute;bottom:100%;left:50%;transform:translate(-50%,6px) scale(.6);opacity:0;white-space:nowrap;background:var(--sun);border:3px solid var(--edge);border-radius:14px;padding:6px 12px;font:900 18px var(--display);pointer-events:none}
+.pick.go .say{opacity:1;transform:translate(-50%,-6px) scale(1);transition:all .25s var(--ease)}
+@media (prefers-reduced-motion:no-preference){
+  .pick:hover .ball{animation:pkWobble .6s ease-in-out}
+  .pick.go .ball{animation:pkShake .45s ease-in-out}
+  .pick.go .ball .top{animation:pkOpen .35s .45s ease-out forwards}
+  .pick.go .ball img{animation:pkPop .5s .3s ease-out forwards}
+}
+@keyframes pkWobble{0%,100%{transform:rotate(0)}25%{transform:rotate(-12deg)}75%{transform:rotate(12deg)}}
+@keyframes pkShake{0%,100%{transform:translateX(0) rotate(0)}20%{transform:translateX(-5px) rotate(-14deg)}40%{transform:translateX(5px) rotate(14deg)}60%{transform:translateX(-4px) rotate(-10deg)}80%{transform:translateX(3px) rotate(8deg)}}
+@keyframes pkOpen{to{transform:rotate(-55deg) translateY(-6px)}}
+@keyframes pkPop{50%{transform:scale(1.25)}to{transform:scale(1.1)}}
+.pick .ball.hasimg .top,.pick .ball.hasimg .bot,.pick .ball.hasimg .dot{display:none}

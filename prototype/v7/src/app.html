@@ -698,6 +698,27 @@ function resold(c) {
     <div class="chips" style="flex-wrap:wrap">${l.slice(0, 12).map(([n, s]) => { const o = counted(s);
       return `<a class="chip" href="#cert-${n}" style="text-decoration:none">PSA ${s[s.length - 1][2]} · ${n} · ${o.length}× · <span class="${o[o.length - 1][3] >= o[0][3] ? "up" : "down"}">${pct(o[o.length - 1][3] / o[0][3] - 1)}</span></a>`; }).join("")}</div>`;
 }
+/* D256: creators with an invite code (cookie sw_creator_ui, set by /studio?invito=) see a badge under the slab that
+   opens and takes them to the studio with this card and grade. PICK_IMG and PICK_SAY are placeholders for Oscar. */
+const PICK_IMG = "img/creator-badge.png";
+const PICK_SAY = () => tx("Scelgo te!", "I choose you!");
+const isCreator = () => /(^|; )(sw_creator_ui|sw_staff)=1/.test(document.cookie);
+function pickBadge(c, g) {
+  if (!isCreator() || !g || !g.value) return "";
+  return `<button class="pick" type="button" data-pick="${esc(c.id)}" data-pickg="${g.grade}" aria-label="${tx("Crea contenuti su questa carta nello studio", "Make content on this card in the studio")}">
+    <span class="say" aria-hidden="true">${PICK_SAY()}</span>
+    <span class="ball" aria-hidden="true"><img src="${PICK_IMG}" alt="" onload="this.parentNode.classList.add('hasimg')" onerror="this.remove()"><span class="top"></span><span class="bot"></span><span class="dot"></span></span>
+    <span>${tx("Crea contenuti", "Make content")}</span></button>`;
+}
+function goPick(el) {
+  const c = cardById[el.dataset.pick], gr = +el.dataset.pickg; if (!c) return;
+  const pick = {id: c.id, name: c.name, set: c.set, no: c.no, tot: c.tot, lang: c.lang, series: c.series, img: c.img, rarity: c.rarity,
+                psa_total: c.psa_total, grade: gr, lang_ui: LANG,
+                grades: c.grades.map(x => ({grade: x.grade, value: x.value, slo: x.slo, shi: x.shi, ch30: x.ch30, ch90: x.ch90, pop: x.pop, sales90: x.sales90, last_sale: x.last_sale, off: x.off, stale: x.stale}))};
+  try { localStorage.setItem("sw-pick", JSON.stringify(pick)); } catch (e) { /* the studio reads the card from the address too */ }
+  el.classList.add("go");
+  setTimeout(() => { location.href = `/studio/carta#${encodeURIComponent(c.id)}/${gr}`; }, matchMedia("(prefers-reduced-motion: reduce)").matches ? 150 : 1100);
+}
 function viewCard(id) {
   if (id.startsWith("ja:") && !cardById[id]) return viewJa(id);
   const c = cardById[id]; if (!c) return viewMarket();
@@ -711,6 +732,7 @@ function viewCard(id) {
   <div class="cardpage">
     <div class="leftcol">
       ${slab(c, g.grade, 320, "bob")}
+      ${pickBadge(c, g)}
       <div class="chips" role="group" aria-label="${tx("Voto", "Grade")}">${c.grades.map(x => `<button class="chip" data-cg="${x.grade}" aria-pressed="${x.grade === g.grade}">PSA ${x.grade}</button>`).join("")}</div>
       <p class="note" style="text-align:center">${esc(c.rarity || "")}${byIll(c)}</p>
       ${c.variant || c.variants ? `<div class="edbox"><span class="label">${tx("Stampa", "Printing")}</span><div class="chips">${[c.variant ? cardById[c.base] : c, ...((c.variant ? cardById[c.base] : c).variants || []).map(id => cardById[id])].filter(Boolean).map(x => `<a class="chip" href="#c-${x.id}" aria-pressed="${x === c}" style="text-decoration:none">${edLabel(x)}</a>`).join("")}</div><p class="note">${tx("Sono carte diverse, con prezzi diversi. L'immagine è la stessa per tutte e può mostrare il timbro di un'altra stampa.", "They are different cards with different prices. The picture is shared and may show another printing's stamp.")}</p></div>` : ""}
@@ -1243,6 +1265,7 @@ const LEGAL = {
     parts: [
       [["Chi gestisce Slabwise", "Who runs Slabwise"], ["Slabwise è un progetto personale di Oscar, in Italia, che decide come vengono trattati i pochi dati descritti qui (titolare del trattamento). Per qualsiasi domanda o richiesta usa la pagina Contatti.", "Slabwise is a personal project of Oscar, in Italy, who decides how the few data described here are handled (data controller). For any question or request use the Contact page."]],
       [["Cosa non raccogliamo", "What we do not collect"], ["Non ci sono account, pubblicità o cookie di profilazione. Non vendiamo e non cediamo dati a nessuno.", "There are no accounts, no advertising and no profiling cookies. We do not sell or hand over data to anyone."]],
+      [["Codici invito per i creator", "Invite codes for creators"], ["Ai creator che provano lo studio diamo un codice invito personale. Aprendo il link, il sito salva su quel dispositivo due cookie tecnici che ricordano il codice, finché non li cancelli. Non chiediamo nome, email o altri dati: conserviamo solo un'impronta del codice, non il codice in chiaro.", "Creators who try the studio get a personal invite code. Opening the link, the site stores two technical cookies on that device that remember the code, until you delete them. We do not ask for a name, an email or any other data: we keep only a fingerprint of the code, not the code itself."]],
       [["Statistiche anonime", "Anonymous statistics"], ["Contiamo in forma anonima le visite al sito (con Cloudflare Web Analytics, che non usa cookie e non segue le persone tra siti diversi), quante volte si apre la scheda di ogni carta e quante persone seguono o possiedono ogni carta in ogni voto. Ci arrivano solo numeri: nessun identificativo, nessun prezzo pagato, nessun numero di cert. Servono a capire quali carte interessano. Puoi spegnere il conteggio delle tue carte e delle schede che apri dalla pagina Le mie carte.", "We count anonymously the visits to the site (with Cloudflare Web Analytics, which uses no cookies and does not follow people across sites), how often each card page is opened and how many people follow or own each card in each grade. We receive only numbers: no identifier, no price paid, no cert number. They tell us which cards matter. You can turn off the counting of your cards and of the pages you open on the My cards page."]],
       [["Richieste di carte", "Card requests"], ["Quando chiedi di aggiungere una carta salviamo la carta richiesta e, per limitare gli abusi (al massimo 10 richieste al giorno per connessione), un'impronta cifrata del tuo indirizzo di rete insieme alla data. L'impronta non permette di risalire all'indirizzo e si cancella da sola dopo 24 ore.", "When you ask us to add a card we store the card and, to limit abuse (at most 10 requests a day per connection), an encrypted fingerprint of your network address with the date. The fingerprint cannot be turned back into the address and deletes itself after 24 hours."]],
       [["Messaggi dal modulo Contatti", "Messages from the Contact form"], ["Salviamo il testo del messaggio e, solo se la scrivi, l'email a cui risponderti. Li usiamo solo per risponderti e li cancelliamo entro 12 mesi, o prima se ce lo chiedi. Anche qui un'impronta dell'indirizzo di rete limita gli invii a 5 al giorno e si cancella dopo 24 ore.", "We store the text of the message and, only if you write it, the email to answer you at. We use them only to answer and delete them within 12 months, or earlier if you ask. Here too a fingerprint of the network address limits sending to 5 a day and deletes itself after 24 hours."]],
@@ -1611,6 +1634,8 @@ document.addEventListener("click", e => {
   if (u) { if (u.id === "mineExport") { mineExport(); return; } const o = collGet(); const [x] = o.splice(+u.dataset.uncoll, 1); collSet(o); if (x) countSend([{k: "c", id: x.id, g: x.g, d: -1}]); const y = scrollY; route(); scrollTo({top: y}); toast(tx("Tolta dalla collezione", "Removed from the collection")); return; }
   const w = e.target.closest("[data-watch],[data-unwatch]");
   if (w) { watchToggle(w.dataset.watch || w.dataset.unwatch); const y = scrollY; route(); scrollTo({top: y}); return; }
+  const pk = e.target.closest("[data-pick]");
+  if (pk) { goPick(pk); return; }
   const ir = e.target.closest("[data-ixr]");
   if (ir) { S.ixr = ir.dataset.ixr; const y = scrollY; route(); scrollTo({top: y}); return; }
   const el = e.target.closest("[data-g],[data-sort],[data-cg],[data-min],[data-or],[data-copy],[data-copytext],#copyAll");
