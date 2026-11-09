@@ -891,3 +891,5 @@ Le carte con l'abbinamento sbagliato (D214 a) escono dalla coda in ogni caso: no
 - **E4 niente salti**: nessuna variazione settimanale di SS o SV oltre ±15%.
 
 **Adozione.** Se E1–E4 passano: sei ere sul sito (Vintage, Classica, Di mezzo, Moderna, Spada e Scudo, Scarlatto e Violetto), con indici, riquadri e schede; lo SlabDex con 10 voci per era (stessa regola di D250). Le stampe giapponesi seguono la stessa divisione (s* → Spada e Scudo, sv*/m* → Scarlatto e Violetto). Altrimenti la Contemporanea resta una e il risultato si riporta.
+
+**Esito §54 (9 novembre 2026): non superato, la Contemporanea resta una.** 150 settimane (run 42645338705, `results/era_split/summary.json`). E1 sì: correlazione tra Spada e Scudo e Scarlatto e Violetto 0,68. E2 sì: 91 e 221 voci idonee. **E3 no**: volatilità di Scarlatto e Violetto 15,2% contro la soglia di 14,3% (1,5 × 9,55% della Contemporanea); Spada e Scudo 7,8%. E4 sì (settimana peggiore 10,2%). Solo riportato: ultime 13 settimane Contemporanea −28,3%, Spada e Scudo −14,2%, Scarlatto e Violetto −40,0%.
