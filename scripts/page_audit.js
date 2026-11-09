@@ -76,11 +76,13 @@ const num = s => { // "$3.639" "−10,1%" "1.420" "$5,2 mln" -> number
       for (const l of lines) {
         const m = l.match(/^(.*?):\s*([+−-]?[\d.,]+%) in 3 mesi, la sua era ([+−-]?[\d.,]+%)/);
         if (!m) continue;
-        const a = num(m[2]) / 100, e = num(m[3]) / 100, d = a - e, w = m[1].trim();
-        const ok = Math.abs(d) <= 0.031 ? ["Entro le aspettative"]
-          : Math.abs(a) < 0.0105 ? ["In Frenata"]
-          : d > 0 ? (a >= 0 ? (e < -0.0095 ? ["Deal o Bolla? Controtendenza rispetto alla sua era"] : ["Occhio! Rendimento maggiore rispetto alla sua era"]) : ["In Frenata"])
-          : a < 0 ? (e < 0 ? ["In Picchiata"] : e > 0.0095 ? ["Deal o Bolla? Controtendenza rispetto alla sua era"] : ["In Frenata"]) : ["Che fatica!"];
+        const a0 = num(m[2]) / 100, e0 = num(m[3]) / 100, w = m[1].trim();
+        const allowed = (a, e) => { const d = a - e;
+          return Math.abs(d) <= 0.03 ? "Entro le aspettative" : Math.abs(a) < 0.01 ? "In Frenata"
+            : d > 0 ? (a >= 0 ? (e < -0.01 ? "Deal o Bolla? Controtendenza rispetto alla sua era" : "Occhio! Rendimento maggiore rispetto alla sua era") : "In Frenata")
+            : a < 0 ? (e < 0 ? "In Picchiata" : e > 0.01 ? "Deal o Bolla? Controtendenza rispetto alla sua era" : "In Frenata") : "Che fatica!"; };
+        const ok = [];                                   // the page shows numbers rounded to 0.1 point: any value they could stand for
+        for (const da of [-0.0005, 0, 0.0005]) for (const de of [-0.0005, 0, 0.0005]) ok.push(allowed(a0 + da, e0 + de));
         if (!ok.includes(w)) add("P1", [...key, l]);
       }
       // P2
