@@ -1,9 +1,9 @@
 {
  "asof": "2026-11-10",
- "cards": 650,
+ "cards": 758,
  "checks": {
   "C7": {
-   "n": 11,
+   "n": 18,
    "examples": [
     [
      "sv03.5-205",
@@ -13,52 +13,65 @@
     [
      "swsh3.5-79",
      "Charizard V",
-     "PSA 9 201 < PSA 8 218"
+     "PSA 9 193 < PSA 8 208"
     ],
     [
      "swsh7-212",
      "Sylveon VMAX",
-     "PSA 9 301 < PSA 8 311"
+     "PSA 9 292 < PSA 8 301"
     ],
     [
      "swsh5-155",
      "Tyranitar V",
-     "PSA 9 222 < PSA 8 226"
+     "PSA 9 213 < PSA 8 216"
     ],
     [
      "swshp-SWSH074",
      "Special Delivery Pikachu",
-     "PSA 8 330 < PSA 7 343"
+     "PSA 8 316 < PSA 7 329"
+    ],
+    [
+     "me02.5-276",
+     "Pikachu ex",
+     "PSA 9 627 < PSA 8 628"
     ],
     [
      "me02.5-277",
      "Pikachu ex",
-     "PSA 8 225 < PSA 7 229"
+     "PSA 8 228 < PSA 7 233"
     ],
     [
      "me02.5-294",
      "Mega Charizard Y ex",
-     "PSA 8 211 < PSA 7 212"
+     "PSA 8 211 < PSA 7 213"
     ],
     [
-     "ja:sv-p-001",
-     "ピカチュウ",
-     "PSA 8 24 < PSA 7 30"
+     "me02-130",
+     "Mega Charizard X ex",
+     "PSA 8 188 < PSA 7 189"
     ],
     [
-     "ja:sv8a-202",
-     "ブースターex",
-     "PSA 9 45 < PSA 8 53"
+     "smp-SM210",
+     "Moltres & Zapdos & Articuno GX",
+     "PSA 8 112 < PSA 7 116"
     ],
     [
-     "ja:sv-p-260",
-     "トウホクのピカチュウ",
-     "PSA 8 69 < PSA 7 70"
+     "sv10-229",
+     "Team Rocket's Moltres ex",
+     "PSA 8 57 < PSA 7 74"
     ],
     [
-     "ja:sv-p-289",
-     "フクオカのピカチュウ",
-     "PSA 9 58 < PSA 8 61"
+     "swsh12.5gg-GG44",
+     "Mewtwo VSTAR",
+     "PSA 9 211 < PSA 8 212"
+    ]
+   ]
+  },
+  "C9": {
+   "n": 1,
+   "examples": [
+    [
+     "swshp-SWSH145"
     ]
    ]
   }
