@@ -82,3 +82,9 @@ def test_d238_d239_japanese_setcode_bare_korean():
     assert at.match_title("1996 Pokemon Japanese Basic 6 Charizard-Holo - PSA NM 7")[0] == "ja:expansion-pack-6"
     assert at.match_title("2025 POKEMON MEGA DREAM - M2A KR #199/193 PSYDUCK ART RARE PSA 10")[0] is None   # Korean
 
+
+def test_d258_accept_assigned():
+    assert at.accept_assigned("2021 POKEMON SWORD & SHIELD EVOLVING SKIES SECRET FULL ART/UMBREON VMAX PSA 10", "swsh7-215")[0]
+    assert not at.accept_assigned("1999 Pokemon Jungle JOLTEON Non Holo PSA 10 #20/64 POP 135", "ja:jungle-135")[0]
+    assert not at.accept_assigned("2022 POKEMON GO JPN #011 RADIANT CHARIZARD PSA 10", "swsh10.5-011")[0]
+    assert not at.accept_assigned("1999 POKEMON BASE SET 1ST EDITION #8 MACHAMP-HOLO PSA 7", "base1-8")[0]

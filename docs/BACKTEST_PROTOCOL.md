@@ -903,3 +903,18 @@ Le due ere nuove sono in uso da subito (D255, eccezione di P12). Si giudicano so
 - **V4 volatilità**: la volatilità di Spada e Scudo non oltre 1,5 volte quella della media delle sei ere; per Scarlatto e Violetto, ancora in stampa, solo riportata.
 
 Se V1–V3 passano, restano sei ere. Se non passano, si corregge con una nuova prova (per esempio confini diversi), senza tornare automaticamente a cinque.
+
+## 56. Assegnazione delle fonti salvo contraddizioni (registrato il 10 novembre 2026, prima del codice; D258)
+
+**Domanda.** Se teniamo la carta che i fornitori di tcgcharts assegnano a una vendita, scartandola solo quando il titolo la contraddice, recuperiamo le vendite giuste senza far entrare vendite sbagliate?
+
+**Dati.** Le vendite PSA dell'ultimo anno nello storico privato (`history.json.gz`, non escluse da tcgcharts). Regola di oggi (O): la vendita entra se `match_title` dà la carta assegnata. Regola nuova (N): `accept_assigned(titolo, carta)`.
+
+**Criteri.**
+- **A1 errori**: su 100 titoli scelti a caso tra quelli che N tiene e O no, letti a mano, al massimo 5 sono un'altra carta, un'altra stampa (1st Edition, Shadowless, altra lingua) o un lotto.
+- **A2 niente perso**: nessuna vendita tenuta da O viene scartata da N.
+- **A3 copertura**: N tiene almeno il 95% delle vendite PSA dell'ultimo anno.
+
+**Adozione.** Se A1–A3 passano, N vale per il motore (`tcgcharts_rows`) e per la misura d'ingresso (D232), e la quota di titoli coerenti della misura d'ingresso si calcola con N.
+
+**Esito §56 (10 novembre 2026): superato, si adotta.** 434.399 vendite PSA dell'ultimo anno (`results/d258/`). A3 sì: la regola nuova tiene il 96,9% (oggi 86,5%); 45.540 vendite in più. *Correzione dello stesso giorno, prima dell'adozione: un segno di giapponese ("JPN") su una carta inglese ora scarta la vendita (trovato dal test automatico: "Pokémon GO JPN Radiant Charizard" assegnata alla carta inglese); regola più severa, 90 vendite in meno, A2 e A3 ricalcolati e ancora superati; la lettura A1 resta quella del primo campione, da cui questa correzione può solo togliere.* A2 sì: nessuna vendita tenuta oggi viene scartata. A1 sì: dei 100 titoli letti a mano tra quelli in più, 4 sono sbagliati (n. 1 un set di due carte giapponesi; n. 47 la promo SWSH050 assegnata a Champion's Path 74; n. 76 tre carte Pokémon GO insieme assegnate a Southern Islands 4; n. 88 "Secret Charizard V" assegnata alla Charizard VMAX 74), limite 5. Scartate dalla regola nuova: 5.572 escluse, 2.972 giapponesi senza segno di giapponese, 2.927 con un numero diverso, 1.285 di un'altra carta, 251 ambigue, 210 di un'altra stampa.

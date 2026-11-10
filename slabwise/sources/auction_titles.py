@@ -395,3 +395,58 @@ def ebay_rows(records, site="ebay.com"):
                      "best_offer_hidden": bool(r.get("isBestOfferAccepted")), "title": title})
         why["tenuta"] += 1
     return rows, why
+
+
+# D258 (protocol §56): a sale that tcgcharts' providers already assigned to a card is kept unless the title contradicts it.
+_SETWORDS = ((r"celebrations|classic collection", ("cel",)), (r"(?<!prismatic )(?<!mega )evolutions", ("xy12",)),
+             (r"expedition", ("ecard1",)), (r"base set 2|base set ii\b|base ii\b", ("base4",)), (r"legendary collection", ("base6",)))
+_JA_SIGN = re.compile(r"\b(?:japanese|japan|jpn|jp|jap|jpn\.)\b")
+_VARIANT_WORD = re.compile(r"\b(?:1st\s*ed(?:ition|\.)?|first\s*edition|shadowless)\b")
+
+
+def _card_number(card):
+    if card.startswith("ja:"):
+        m = re.search(r"(\d+)$", card)
+        return {int(m.group(1))} if m else set()
+    no = CATALOGUE.get(card.split("/")[0], (None, None, None, None))[2]
+    if isinstance(no, int):
+        return {no}
+    if isinstance(no, str):
+        m = re.fullmatch(r"([a-z]+)(\d+)", no)
+        return {no, int(m.group(2))} if m else {no}
+    return set()
+
+
+def accept_assigned(title: str, card: str):
+    """(keep, reason) for a sale assigned to `card` by tcgcharts' providers (D258)."""
+    k, why = match_title(title)
+    if k == card:
+        return True, "riconosciuta"
+    if k:
+        return False, "altra carta"
+    if why == "ambigua":
+        return False, "ambigua"
+    t = " ".join((title or "").lower().replace("’", "'").split())
+    base = card.split("/")[0]
+    if card.startswith("ja:"):
+        if not (is_japanese(title) or _JA_SIGN.search(t)):
+            return False, "nessun segno di giapponese"
+        if JA_EXCLUDE.search(t):
+            return False, "esclusa"
+    else:
+        t2 = t
+        for word, prefixes in _SETWORDS:                     # a set word excludes only the cards of other sets
+            if base.startswith(prefixes):
+                t2 = re.sub(word, " ", t2)
+        if EXCLUDE.search(t2):
+            return False, "esclusa"
+        if is_japanese(title) or _JA_SIGN.search(t):          # amendment of 10 Nov 2026 (§56): a Japanese sign on an English card
+            return False, "segno di giapponese"
+    nums = {int(a or b) for a, b in NUM.findall(t)} | {p + n for p, n in NUM_PREFIX.findall(t)}
+    if nums and not (nums & _card_number(card)):
+        return False, "numero diverso"
+    if "/" not in card and _VARIANT_WORD.search(t):
+        return False, "stampa diversa"
+    if "/" in card and not _VARIANT_WORD.search(t):
+        return False, "stampa non detta"
+    return True, "assegnata dalla fonte"

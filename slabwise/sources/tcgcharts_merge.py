@@ -6,7 +6,11 @@ import json
 import os
 from collections import Counter
 
-from .auction_titles import grade_from_title, match_title
+import os
+
+from .auction_titles import accept_assigned, grade_from_title, match_title
+
+ASSIGN = os.environ.get("SLABWISE_ASSIGN", "1") == "1"   # D258 (protocol §56 passed): keep the providers' card unless the title contradicts it
 
 
 # D121/D124: on with the v1.15 engine (R1 0 with and without them); SLABWISE_TC_AUCTIONS=0 turns them off
@@ -45,7 +49,11 @@ def tcgcharts_rows(tc_dir, have_ebay, have_auction=()):
         if s.get("is_excluded") or s.get("payment_pending") or s.get("payment_held"):
             why["tcgcharts: esclusa o in attesa"] += 1
             continue
-        card, reason = match_title(s.get("title") or "")
+        if ASSIGN:
+            keep, reason = accept_assigned(s.get("title") or "", s["card"])
+            card = s["card"] if keep else None
+        else:
+            card, reason = match_title(s.get("title") or "")
         if card != s["card"]:
             why["tcgcharts: titolo di un'altra stampa o non riconosciuto"] += 1
             continue

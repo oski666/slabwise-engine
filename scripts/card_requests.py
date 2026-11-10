@@ -23,6 +23,7 @@ import urllib.request
 from datetime import date, datetime, timedelta, timezone
 
 from slabwise.sources import auction_titles as at
+ASSIGN = os.environ.get("SLABWISE_ASSIGN", "1") == "1"   # D258 (protocol §56): the providers' card unless the title contradicts it
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = "https://slabwise.pages.dev/api/richieste"
@@ -228,8 +229,8 @@ def measure(it, key, min_sales=None):
                 if s.get("is_excluded"):
                     continue
                 n += 1
-                k, _ = at.match_title(s.get("title") or "")
-                if k == key and at.grade_from_title(s.get("title") or "") == g:
+                ok = at.accept_assigned(s.get("title") or "", key)[0] if ASSIGN else at.match_title(s.get("title") or "")[0] == key   # D258
+                if ok and at.grade_from_title(s.get("title") or "") == g:
                     rec += 1
                     by_grade[g] = by_grade.get(g, 0) + 1
             if old or not d["pagination"].get("has_next"):

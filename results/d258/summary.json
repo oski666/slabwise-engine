@@ -1,0 +1,19 @@
+{
+ "sales": 434399,
+ "old_share": 0.8645,
+ "new_share": 0.9694,
+ "A2_lost": 0,
+ "A3": true,
+ "only_new": 45540,
+ "reasons": {
+  "riconosciuta": 375552,
+  "assegnata dalla fonte": 45540,
+  "esclusa": 5572,
+  "nessun segno di giapponese": 2972,
+  "numero diverso": 2915,
+  "altra carta": 1285,
+  "ambigua": 251,
+  "stampa diversa": 209,
+  "segno di giapponese": 103
+ }
+}
