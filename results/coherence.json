@@ -1,49 +1,54 @@
 {
  "asof": "2026-11-08",
- "cards": 553,
+ "cards": 594,
  "checks": {
   "C7": {
-   "n": 8,
+   "n": 9,
    "examples": [
-    [
-     "sv03.5-205",
-     "Mew ex",
-     "PSA 8 27 < PSA 7 27"
-    ],
-    [
-     "me02.5-284",
-     "Mega Gengar ex",
-     "PSA 9 662 < PSA 8 676"
-    ],
     [
      "swsh3.5-79",
      "Charizard V",
-     "PSA 9 194 < PSA 8 211"
+     "PSA 9 200 < PSA 8 217"
     ],
     [
-     "me02.5-290",
-     "Mega Dragonite ex",
-     "PSA 9 417 < PSA 8 423"
+     "swsh7-212",
+     "Sylveon VMAX",
+     "PSA 9 301 < PSA 8 312"
     ],
     [
      "swsh5-155",
      "Tyranitar V",
-     "PSA 9 221 < PSA 8 225"
+     "PSA 9 222 < PSA 8 227"
+    ],
+    [
+     "swshp-SWSH074",
+     "Special Delivery Pikachu",
+     "PSA 8 331 < PSA 7 343"
     ],
     [
      "me02.5-276",
      "Pikachu ex",
-     "PSA 9 635 < PSA 8 655"
+     "PSA 9 634 < PSA 8 636"
+    ],
+    [
+     "me02.5-277",
+     "Pikachu ex",
+     "PSA 8 230 < PSA 7 235"
     ],
     [
      "me02.5-294",
      "Mega Charizard Y ex",
-     "PSA 8 218 < PSA 7 219"
+     "PSA 8 215 < PSA 7 215"
     ],
     [
      "ja:sv-p-001",
      "ピカチュウ",
-     "PSA 8 24 < PSA 7 28"
+     "PSA 8 24 < PSA 7 30"
+    ],
+    [
+     "ja:sv8a-202",
+     "ブースターex",
+     "PSA 9 45 < PSA 8 54"
     ]
    ]
   }
