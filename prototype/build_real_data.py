@@ -205,6 +205,22 @@ def why(pg, r):
 # PSA populations per grade from tcgcharts (D77): display and capitalisation only, never in the value
 tc_cards = os.path.join(HERE, "..", "data", "raw", "tcgcharts", "cards.json")
 POP = {cid_: m.get("pop") or {} for cid_, m in json.load(open(tc_cards)).items()} if os.path.exists(tc_cards) else {}
+# D257: 1st Edition and Shadowless printings have no tcgcharts population; the GemRate edition rows (D141) have one.
+# Display and capitalisation only, like the rest of POP; ambiguous rows (two with the same number and printing) are skipped.
+GR_TOTAL = {}
+_gr = os.path.join(HERE, "..", "data", "raw", "gemrate", "sets.json")
+if os.path.exists(_gr):
+    _seen = {}
+    for _st, _e in json.load(open(_gr)).items():
+        for _r in _e.get("rows", []):
+            _v = {"1st Edition": "1st", "Shadowless": "shadowless"}.get(_r.get("parallel"))
+            if _v:
+                _k = f"{_e.get('set') or _st}-{_r.get('card_number')}/{_v}"
+                _seen[_k] = None if _k in _seen else _r
+    for _k, _r in _seen.items():
+        if _r and not POP.get(_k):
+            POP[_k] = {str(g): _r.get(f"g{g}") for g in (10, 9, 8, 7) if _r.get(f"g{g}")}
+            GR_TOTAL[_k] = _r.get("card_total_grades")
 out_cards = []
 # D141: 1st Edition and Shadowless printings estimated by the engine get a page of their own; their base becomes "Unlimited"
 _by_id = {c["id"]: c for c in catalog}
@@ -405,7 +421,7 @@ for e, name in enumerate(series_names):
 # D137: PSA graded total per card (all grades), for the share of 10s on the card page
 _TCP = json.load(open(tc_cards)) if os.path.exists(tc_cards) else {}
 for c in out_cards:
-    c["psa_total"] = (_TCP.get(c["id"]) or {}).get("psa_population")
+    c["psa_total"] = (_TCP.get(c["id"]) or {}).get("psa_population") or GR_TOTAL.get(c["id"])   # D257
 # D165, D209: price for rarity (PSA only). log PSA 10 value on log PSA 10 population, one slope for all and a level for each
 # era and language (groups of at least 8 cards); x = value / value expected for its population, in its group.
 # Hidden gem (D209): x < 0.5 and a PSA 10 population at or below the median of its group. Only PSA 10 grades with at least
