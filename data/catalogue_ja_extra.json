@@ -802,5 +802,353 @@
   232,
   -1,
   "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:m2a-240": [
+  "mega gengar ex|メガゲンガー\\s?ex",
+  240,
+  -1,
+  "(?:\\b(?:mega\\W*dream|m2a|mega\\W*dream\\W*ex)\\b)"
+ ],
+ "ja:m2a-250": [
+  "mega dragonite ex|メガカイリュー\\s?ex",
+  250,
+  193,
+  "\\bmega\\W*dream\\W*ex\\b"
+ ],
+ "ja:cp1-006": [
+  "team aqua's kyogre ex|アクア団のカイオーガ\\s?ex",
+  6,
+  34,
+  "\\bmagma\\W*gang\\W*vs\\W*aqua\\W*gang\\W*double\\W*crisis\\b"
+ ],
+ "ja:m2-116": [
+  "mega charizard x ex|メガリザードンx\\s?ex",
+  116,
+  80,
+  "\\binferno\\W*x\\b"
+ ],
+ "ja:m2a-230": [
+  "mega gengar ex|メガゲンガー\\s?ex",
+  230,
+  193,
+  "(?:\\b(?:mega\\W*dream|m2a|mega\\W*dream\\W*ex)\\b)"
+ ],
+ "ja:vending-machine-series-3-green-25": [
+  "ooyama's pikachu",
+  25,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*3\\W*green\\b"
+ ],
+ "ja:mew-lucario-gift-box-pokemon-1": [
+  "pikachu",
+  1,
+  -1,
+  "\\bmew\\W*lucario\\W*gift\\W*box\\W*pok\\W*mon\\b"
+ ],
+ "ja:mew-lucario-gift-box-pokemon-2": [
+  "mewtwo",
+  2,
+  -1,
+  "\\bmew\\W*lucario\\W*gift\\W*box\\W*pok\\W*mon\\b"
+ ],
+ "ja:rocket-gang-6": [
+  "dark charizard",
+  6,
+  -1,
+  "(?:\\b(?:rocket|rocket\\W*gang)\\b|ロケット団)"
+ ],
+ "ja:sm-p-325": [
+  "pretend tea ceremony pikachu",
+  325,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:neo-premium-file-2-6": [
+  "charizard",
+  6,
+  -1,
+  "\\bneo\\W*premium\\W*file\\W*2\\b"
+ ],
+ "ja:mystery-of-the-fossils-94": [
+  "gengar",
+  94,
+  -1,
+  "(?:\\b(?:fossil|mystery\\W*fossils)\\b|化石の秘密)"
+ ],
+ "ja:challenge-from-the-darkness-6": [
+  "blaine's charizard",
+  6,
+  -1,
+  "(?:\\b(?:gym\\W*challenge|gym\\W*2|challenge\\W*from|challenge\\W*from\\W*darkness)\\b|闇からの挑戦)"
+ ],
+ "ja:sv-p-261": [
+  "hiroshima's pikachu",
+  261,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:sv-p-260": [
+  "tohoku's pikachu",
+  260,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:sv-p-289": [
+  "fukuoka's pikachu",
+  289,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:mystery-of-the-fossils-151": [
+  "mew",
+  151,
+  -1,
+  "(?:\\b(?:fossil|mystery\\W*fossils)\\b|化石の秘密)"
+ ],
+ "ja:expansion-pack-150": [
+  "mewtwo",
+  150,
+  -1,
+  "(?:\\b(?:base\\W*set|basic|expansion\\W*pack)\\b|拡張パック)"
+ ],
+ "ja:expansion-pack-9": [
+  "blastoise",
+  9,
+  -1,
+  "(?:\\b(?:base\\W*set|basic|expansion\\W*pack)\\b|拡張パック)"
+ ],
+ "ja:vending-machine-series-1-blue-143": [
+  "snorlax",
+  143,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*1\\W*blue\\b"
+ ],
+ "ja:mystery-of-the-fossils-149": [
+  "dragonite",
+  149,
+  -1,
+  "(?:\\b(?:fossil|mystery\\W*fossils)\\b|化石の秘密)"
+ ],
+ "ja:rocket-gang-149": [
+  "dark dragonite",
+  149,
+  -1,
+  "(?:\\b(?:rocket|rocket\\W*gang)\\b|ロケット団)"
+ ],
+ "ja:neo-premium-file-1-157": [
+  "typhlosion",
+  157,
+  -1,
+  "\\bneo\\W*premium\\W*file\\W*1\\b"
+ ],
+ "ja:xy-p-221": [
+  "okuge\\-sama and maiko\\-han pikachu",
+  221,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:rocket-gang-9": [
+  "dark blastoise",
+  9,
+  -1,
+  "(?:\\b(?:rocket|rocket\\W*gang)\\b|ロケット団)"
+ ],
+ "ja:play-promos-21": [
+  "_____'s rayquaza",
+  21,
+  -1,
+  "\\bplay\\W*promos\\b"
+ ],
+ "ja:challenge-from-the-darkness-150": [
+  "rocket's mewtwo",
+  150,
+  -1,
+  "(?:\\b(?:gym\\W*challenge|gym\\W*2|challenge\\W*from|challenge\\W*from\\W*darkness)\\b|闇からの挑戦)"
+ ],
+ "ja:sm-p-140": [
+  "poncho\\-wearing eevee|poncho\\W*(?:wearing\\W*)? eevee",
+  140,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:darkness-and-to-light-196": [
+  "dark espeon",
+  196,
+  -1,
+  "(?:\\b(?:neo\\W*destiny|neo\\W*4|darkness\\W*to\\W*light)\\b|闇、?そして光へ)"
+ ],
+ "ja:vending-machine-series-3-green-150": [
+  "mewtwo",
+  150,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*3\\W*green\\b"
+ ],
+ "ja:gold-silver-to-a-new-world-172": [
+  "pichu",
+  172,
+  -1,
+  "(?:\\b(?:neo\\W*genesis|neo\\W*1|gold\\W*silver|gold\\W*silver\\W*to\\W*a\\W*new\\W*world)\\b|金、?・?銀、?・?新世界へ)"
+ ],
+ "ja:sm-p-297": [
+  "(?:eevee\\s*(?:&|and)\\s*snorlax\\-gx|snorlax\\-gx\\s*(?:&|and)\\s*eevee)",
+  297,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:xy-p-079": [
+  "m gengar\\-ex",
+  79,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:vending-machine-series-1-blue-150": [
+  "mewtwo",
+  150,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*1\\W*blue\\b"
+ ],
+ "ja:awakening-legends-229": [
+  "houndoom",
+  229,
+  -1,
+  "(?:\\b(?:neo\\W*revelation|neo\\W*3|awakening\\W*legends)\\b|めざめる伝説)"
+ ],
+ "ja:darkness-and-to-light-149": [
+  "light dragonite",
+  149,
+  -1,
+  "(?:\\b(?:neo\\W*destiny|neo\\W*4|darkness\\W*to\\W*light)\\b|闇、?そして光へ)"
+ ],
+ "ja:neo-premium-file-2-197": [
+  "umbreon",
+  197,
+  -1,
+  "\\bneo\\W*premium\\W*file\\W*2\\b"
+ ],
+ "ja:darkness-and-to-light-59": [
+  "light arcanine",
+  59,
+  -1,
+  "(?:\\b(?:neo\\W*destiny|neo\\W*4|darkness\\W*to\\W*light)\\b|闇、?そして光へ)"
+ ],
+ "ja:neo-premium-file-2-172": [
+  "pichu",
+  172,
+  -1,
+  "\\bneo\\W*premium\\W*file\\W*2\\b"
+ ],
+ "ja:challenge-from-the-darkness-3": [
+  "erika's venusaur",
+  3,
+  -1,
+  "(?:\\b(?:gym\\W*challenge|gym\\W*2|challenge\\W*from|challenge\\W*from\\W*darkness)\\b|闇からの挑戦)"
+ ],
+ "ja:vending-machine-series-1-blue-25": [
+  "pikachu",
+  25,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*1\\W*blue\\b"
+ ],
+ "ja:crossing-the-ruins-248": [
+  "tyranitar",
+  248,
+  -1,
+  "(?:\\b(?:neo\\W*discovery|neo\\W*2|crossing\\W*the\\W*ruins|crossing\\W*ruins)\\b|遺跡をこえて)"
+ ],
+ "ja:rocket-gang-130": [
+  "dark gyarados",
+  130,
+  -1,
+  "(?:\\b(?:rocket|rocket\\W*gang)\\b|ロケット団)"
+ ],
+ "ja:challenge-from-the-darkness-130": [
+  "giovanni's gyarados",
+  130,
+  -1,
+  "(?:\\b(?:gym\\W*challenge|gym\\W*2|challenge\\W*from|challenge\\W*from\\W*darkness)\\b|闇からの挑戦)"
+ ],
+ "ja:xy-p-122": [
+  "rayquaza\\-ex",
+  122,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:rocket-gang-88": [
+  "grimer",
+  88,
+  -1,
+  "(?:\\b(?:rocket|rocket\\W*gang)\\b|ロケット団)"
+ ],
+ "ja:challenge-from-the-darkness-146": [
+  "blaine's moltres",
+  146,
+  -1,
+  "(?:\\b(?:gym\\W*challenge|gym\\W*2|challenge\\W*from|challenge\\W*from\\W*darkness)\\b|闇からの挑戦)"
+ ],
+ "ja:challenge-from-the-darkness-65": [
+  "sabrina's alakazam",
+  65,
+  -1,
+  "(?:\\b(?:gym\\W*challenge|gym\\W*2|challenge\\W*from|challenge\\W*from\\W*darkness)\\b|闇からの挑戦)"
+ ],
+ "ja:jungle-25": [
+  "pikachu",
+  25,
+  -1,
+  "(?:\\b(?:jungle|jungle)\\b|ジャングル)"
+ ],
+ "ja:neo-premium-file-3-251": [
+  "celebi",
+  251,
+  -1,
+  "\\bneo\\W*premium\\W*file\\W*3\\b"
+ ],
+ "ja:gold-silver-to-a-new-world-199": [
+  "slowking",
+  199,
+  -1,
+  "(?:\\b(?:neo\\W*genesis|neo\\W*1|gold\\W*silver|gold\\W*silver\\W*to\\W*a\\W*new\\W*world)\\b|金、?・?銀、?・?新世界へ)"
+ ],
+ "ja:neo-premium-file-1-160": [
+  "feraligatr",
+  160,
+  -1,
+  "\\bneo\\W*premium\\W*file\\W*1\\b"
+ ],
+ "ja:mystery-of-the-fossils-144": [
+  "articuno",
+  144,
+  -1,
+  "(?:\\b(?:fossil|mystery\\W*fossils)\\b|化石の秘密)"
+ ],
+ "ja:expansion-pack-145": [
+  "zapdos",
+  145,
+  -1,
+  "(?:\\b(?:base\\W*set|basic|expansion\\W*pack)\\b|拡張パック)"
+ ],
+ "ja:neo-premium-file-2-244": [
+  "entei",
+  244,
+  -1,
+  "\\bneo\\W*premium\\W*file\\W*2\\b"
+ ],
+ "ja:m4-114": [
+  "mega greninja ex|メガゲッコウガ\\s?ex",
+  114,
+  83,
+  "\\bninja\\W*spinner\\b"
+ ],
+ "ja:expansion-pack-68": [
+  "machamp",
+  68,
+  -1,
+  "(?:\\b(?:base\\W*set|basic|expansion\\W*pack)\\b|拡張パック)"
+ ],
+ "ja:gold-silver-to-a-new-world-208": [
+  "steelix",
+  208,
+  -1,
+  "(?:\\b(?:neo\\W*genesis|neo\\W*1|gold\\W*silver|gold\\W*silver\\W*to\\W*a\\W*new\\W*world)\\b|金、?・?銀、?・?新世界へ)"
  ]
 }
