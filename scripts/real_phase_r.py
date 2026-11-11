@@ -24,7 +24,7 @@ from slabwise.sources.csv_sales import era_of, load_sales_csv
 path, era_path, out = sys.argv[1], sys.argv[2], sys.argv[3]
 sales, cards = load_sales_csv(path)
 era_map = json.load(open(era_path))
-eras = sorted(set(era_map.values()))
+eras = sorted({era_of(c, era_map) for c in cards}) if os.environ.get("SLABWISE_MODEL_ERAS") else sorted(set(era_map.values()))   # §57
 era = np.array([eras.index(era_of(c, era_map)) for c in cards])
 clean, removed = identity_layer(sales, None, verify_certs=False)
 C, E = len(cards), len(eras)

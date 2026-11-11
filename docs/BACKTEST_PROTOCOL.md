@@ -918,3 +918,17 @@ Se V1–V3 passano, restano sei ere. Se non passano, si corregge con una nuova p
 **Adozione.** Se A1–A3 passano, N vale per il motore (`tcgcharts_rows`) e per la misura d'ingresso (D232), e la quota di titoli coerenti della misura d'ingresso si calcola con N.
 
 **Esito §56 (10 novembre 2026): superato, si adotta.** 434.399 vendite PSA dell'ultimo anno (`results/d258/`). A3 sì: la regola nuova tiene il 96,9% (oggi 86,5%); 45.540 vendite in più. *Correzione dello stesso giorno, prima dell'adozione: un segno di giapponese ("JPN") su una carta inglese ora scarta la vendita (trovato dal test automatico: "Pokémon GO JPN Radiant Charizard" assegnata alla carta inglese); regola più severa, 90 vendite in meno, A2 e A3 ricalcolati e ancora superati; la lettura A1 resta quella del primo campione, da cui questa correzione può solo togliere.* A2 sì: nessuna vendita tenuta oggi viene scartata. A1 sì: dei 100 titoli letti a mano tra quelli in più, 4 sono sbagliati (n. 1 un set di due carte giapponesi; n. 47 la promo SWSH050 assegnata a Champion's Path 74; n. 76 tre carte Pokémon GO insieme assegnate a Southern Islands 4; n. 88 "Secret Charizard V" assegnata alla Charizard VMAX 74), limite 5. Scartate dalla regola nuova: 5.572 escluse, 2.972 giapponesi senza segno di giapponese, 2.927 con un numero diverso, 1.285 di un'altra carta, 251 ambigue, 210 di un'altra stampa.
+
+## 57. Il motore con le ere del sito (registrato l'11 novembre 2026, prima del codice; D260)
+
+**Domanda.** Se il fattore comune di mercato lavora sulle sei ere del sito invece che su tre gruppi, il valore segue più da vicino le ere che si muovono in fretta, senza peggiorare il resto?
+
+**Bracci.** R: motore del sito (v1.20, tre gruppi). **F**: gruppi = Vintage, Classica, Di mezzo, Moderna, Spada e Scudo, Scarlatto e Violetto (`series_of`; le giapponesi con la loro era, come oggi con i tre gruppi). **G**: come F, ma le giapponesi in due gruppi propri (moderne: sv*, m*, s*, sm*, xy*, bw*; vecchie: le altre). Tutto il resto identico; i parametri si ricalibrano con le stesse regole.
+
+**Dati.** Le vendite con lo storico lungo (come §37, §40); fase R come sempre.
+
+**Criteri** (per F e per G, contro R):
+- **Y1** R1 = 0. **Y2** E2r al massimo 3 voci e non più di R. **Y3** errore di fase R: limite superiore dell'intervallo al 95% della differenza ≤ +0,2 punti. **Y4** copertura non sotto quella di R meno 1 punto e non sopra il maggiore tra 85% e la copertura di R. **Y5**, **Y6** come nel §40 (voci nascoste; voci lontane dalla mediana a 90 giorni).
+- **Y7 ritardo** (nuovo): sulle vendite di fase R comuni ai due bracci, nelle ultime 26 settimane, per ogni casella (era del sito, settimana) con almeno 30 vendite si prende la mediana di (prezzo − previsione) in log; L = media dei valori assoluti di queste mediane. Si chiede L del braccio ≤ 0,8 × L di R, e che nelle due ere dove R ha L più alto la L dell'era scenda.
+
+**Adozione.** Tra i bracci che passano Y1–Y7, quello con L più basso diventa il motore del sito (v1.22). Se nessuno passa, resta la v1.20 e si riporta tutto.

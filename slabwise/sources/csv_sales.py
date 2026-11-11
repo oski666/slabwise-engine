@@ -8,6 +8,8 @@ Fanatics lot, D46; the identity layer applies it and keeps the reason).
 """
 from __future__ import annotations
 
+import os
+import re
 import numpy as np
 import pandas as pd
 
@@ -66,6 +68,12 @@ PREFIX_ERA = (("ja:mystery-of-the-fossils", "wotc"),                       # D18
 
 def era_of(card: str, era_map: dict) -> str:
     """Era of a catalogue card: the map, else its base printing (edition suffix removed), else the id prefix."""
+    mode = os.environ.get("SLABWISE_MODEL_ERAS", "")       # protocol §57 (D260): the site's eras as the model's groups
+    if mode in ("site", "site_ja"):
+        from ..series import series_of
+        if mode == "site_ja" and card.startswith("ja:"):
+            return "ja_moderne" if re.match(r"ja:(?:sv|m\d|m-p|s\d|s-p|sm|xy|bw)", card) else "ja_vecchie"
+        return series_of(card.split("/")[0])
     if card in era_map:
         return era_map[card]
     base = card.split("/")[0]

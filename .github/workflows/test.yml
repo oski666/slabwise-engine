@@ -1,19 +1,19 @@
-# The tests at every change (11 Nov 2026): until now they ran only when someone launched them by hand.
 name: Test
+# The tests at every change (CLAUDE.md rule 5 was by hand until 11 Nov 2026). A failure opens a red mark on the commit
+# and GitHub notifies the owner.
 on:
   push:
     branches: [main]
-    paths: ["slabwise/**", "scripts/**", "tests/**", "prototype/*.py", "prototype/v7/build.py", "data/*.json", ".github/workflows/test.yml"]
+    paths: ["slabwise/**", "scripts/**", "prototype/**", "tests/**", "functions/**", ".github/workflows/test.yml"]
   pull_request: {}
   workflow_dispatch: {}
 permissions:
   contents: read
-  issues: write
 concurrency:
   group: test-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  test:
+  pytest:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -23,9 +23,3 @@ jobs:
           python-version: "3.12"
       - run: pip install -q numpy scipy pandas pillow pytest
       - run: python -m pytest -q tests
-      - name: Tell the owner when the tests fail on main
-        if: failure() && github.ref_name == 'main'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh api repos/${{ github.repository }}/issues -f title="Test falliti su main ($(date -u +%F))" -f body="I test automatici non passano dopo il commit ${{ github.sha }}. [Corsa](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})" > /dev/null

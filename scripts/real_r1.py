@@ -3,6 +3,7 @@
 Usage: PYTHONPATH=. python scripts/real_r1.py <sales.csv> data/raw/era_map.json [--gap_start]
 Same steps as prototype/build_real_data.py (identity layer, calibration of v1.2 parameters, weekly run).
 """
+import os
 import json
 import sys
 from collections import defaultdict
@@ -18,7 +19,7 @@ from slabwise.sources.csv_sales import era_of, load_sales_csv
 path, era_path = sys.argv[1], sys.argv[2]
 sales, cards = load_sales_csv(path)
 era_map = json.load(open(era_path))
-eras = sorted(set(era_map.values()) | {era_of(c, era_map) for c in cards})   # eras known only by prefix too (D117)
+eras = sorted((set() if os.environ.get("SLABWISE_MODEL_ERAS") else set(era_map.values())) | {era_of(c, era_map) for c in cards})   # eras known only by prefix too (D117)
 era = np.array([eras.index(era_of(c, era_map)) for c in cards])
 clean, _ = identity_layer(sales, None, verify_certs=False)
 W = int(clean["week"].max()) + 1
