@@ -5,8 +5,7 @@ const REPO = "oski666/slabwise-engine";
 const JOBS = {
   "11 4 * * *": "raccolta-tcgcharts.yml",       // 05:11 in Italy (winter)
   "23 11,17,23 * * *": "occasioni.yml",
-  "41 * * * *": ["misura-occasioni.yml",         // the measurement stops by itself after 9 November
-                 "richieste.yml"],              // D117; since 4 Nov only every 3 hours (EVERY_3H below)
+  "41 * * * *": ["richieste.yml"],             // D117; since 4 Nov only every 3 hours (EVERY_3H below); the D114 measurement ended on 9 Nov
 };
 
 export default {

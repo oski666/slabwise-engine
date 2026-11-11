@@ -1,54 +1,14 @@
-# One-week measurement of deals among NEW eBay listings (D114), 2 to 9 November 2026: every hour.
-# Keeps only item ids and derived numbers, as workflow artifacts (never in the repository).
+# One-week measurement of deals among NEW eBay listings (D114), 2 to 9 November 2026: finished (results in D247).
+# The Cloudflare clock may still start this workflow until the worker is redeployed from orologio/worker.js:
+# it now does nothing and ends green, so it never shows as a failure.
 name: Misura occasioni
-on:                               # D116: started by the Cloudflare clock (orologio/worker.js)
+on:
   workflow_dispatch: {}
 permissions:
   contents: read
-  actions: read
-concurrency:
-  group: misura-occasioni
-  cancel-in-progress: false
 jobs:
-  watch:
+  ended:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 2
     steps:
-      - name: Only during the measurement week
-        id: week
-        run: echo "on=$([ "$(date -u +%Y%m%d)" -le 20261109 ] && echo yes || echo no)" >> "$GITHUB_OUTPUT"
-      - uses: actions/checkout@v4
-        if: steps.week.outputs.on == 'yes'
-      - name: Private data (D163)
-        uses: ./.github/actions/private-data
-        with:
-          mode: pull
-          token: ${{ secrets.DATA_TOKEN }}
-      - uses: actions/setup-python@v5
-        if: steps.week.outputs.on == 'yes'
-        with:
-          python-version: "3.12"
-      - name: Run
-        if: steps.week.outputs.on == 'yes'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
-          EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
-          EPN_CAMPAIGN_ID: ${{ secrets.EPN_CAMPAIGN_ID }}
-        run: |
-          pip install -q numpy scipy pandas
-          mkdir -p ~/.slabwise /tmp/sd /tmp/watch
-          printf '%s' "$EBAY_CLIENT_ID" > ~/.slabwise/ebay_client_id
-          printf '%s' "$EBAY_CLIENT_SECRET" > ~/.slabwise/ebay_client_secret
-          printf '%s' "$EPN_CAMPAIGN_ID" > ~/.slabwise/epn_campaign_id
-          id=$(gh run list -R "$GITHUB_REPOSITORY" -w Sito -s success -L 1 --json databaseId -q '.[0].databaseId')
-          gh run download "$id" -R "$GITHUB_REPOSITORY" -n site-data -D /tmp/sd
-          prev=$(gh run list -R "$GITHUB_REPOSITORY" -w "Misura occasioni" -s success -L 1 --json databaseId -q '.[0].databaseId')
-          [ -n "$prev" ] && gh run download "$prev" -R "$GITHUB_REPOSITORY" -n watch-state -D /tmp/watch || true
-          PYTHONPATH=. python scripts/deal_watch.py /tmp/sd/real.json /tmp/watch
-      - uses: actions/upload-artifact@v4
-        if: steps.week.outputs.on == 'yes'
-        with:
-          name: watch-state
-          path: /tmp/watch
-          retention-days: 14
+      - run: echo "Misura conclusa il 9 novembre 2026 (D114, D247): niente da fare."
