@@ -2,7 +2,7 @@
 
 Usage: python scripts/gemrate_merge.py <export.json> <sets.json> <catalogue.json ...>
 The export has one entry per page read: {"set", "year", "set_name", "n_rows", "rows"}; a set read from several pages
-(promos by year) gets the rows of all of them. Sets already in sets.json are replaced by the new read. The "cards"
+(promos by year) gets the rows of all of them. For a set already in sets.json the new rows replace the old ones with the same GemRate id; the others are kept. The "cards"
 of each set (id, name, number) come from the catalogue files (prototype/data/cards.json and cards_ja.json).
 """
 import json
@@ -41,12 +41,14 @@ for e in new:
 for st, pages in by.items():
     pages.sort(key=lambda e: -len(e["rows"]))
     rows, seen = [], set()
+    old = (sets.get(st) or {}).get("rows", [])                 # a second read of a set adds rows, it never drops older ones
+    pages = pages + [dict(rows=[r for r in old], year=None, set_name=None, n_rows=0)] if old else pages
     for e in pages:
         for r in e["rows"]:
             if r.get("gemrate_id") not in seen:
                 seen.add(r.get("gemrate_id"))
                 rows.append(r)
     sets[st] = dict(set=st, year=pages[0]["year"], set_name=pages[0]["set_name"], n_rows=sum(e["n_rows"] for e in pages),
-                    pages=[[e["year"], e["set_name"]] for e in pages], cards=cards.get(st, []), rows=rows)
+                    pages=sorted({(e["year"], e["set_name"]) for e in pages if e["year"]} | {tuple(x) for x in (sets.get(st) or {}).get("pages", [])}), cards=cards.get(st, []), rows=rows)
 json.dump(sets, open(dst, "w"), ensure_ascii=False)
 print(len(by), "set uniti;", len(sets), "in tutto ->", dst)
