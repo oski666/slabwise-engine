@@ -18,8 +18,25 @@ JA_SERIES = ((r"^ja:sv(?:\d|-p-)", "Scarlatto e Violetto"), (r"^ja:m(?:\d|-p-)",
              (r"^ja:dp(?:\d|-p-)", "Di mezzo"))   # D231: the promo series (sv-p, m-p, s-p, sm-p, xy-p, bw-p, dp-p) too
 
 
+# D269: Japanese cards of modern expansions with no English twin have the set's tcgcharts name in their id
+# ("ja:expansion-pack-20th-anniversary-11"); their era comes from the set's tcgcharts series, written by
+# scripts/candidates.py in ja_set_eras.json next to this file.
+import json as _json
+import os as _os
+try:
+    JA_SET_ERAS = _json.load(open(_os.path.join(_os.path.dirname(__file__), "ja_set_eras.json")))
+except (OSError, ValueError):
+    JA_SET_ERAS = {}
+TC_SERIES_ERA = {"Scarlet & Violet": "Scarlatto e Violetto", "Mega Evolution": "Scarlatto e Violetto", "Sword & Shield": "Spada e Scudo",
+                 "Sun & Moon": "Moderna", "XY": "Moderna", "Black & White": "Di mezzo", "HeartGold & SoulSilver": "Di mezzo",
+                 "Platinum": "Di mezzo", "Diamond & Pearl": "Di mezzo"}
+
+
 def series_of(cid):
     if cid.startswith("ja:"):
+        slug = cid.split("/")[0].rsplit("-", 1)[0][3:]
+        if slug in JA_SET_ERAS:
+            return JA_SET_ERAS[slug]
         return next((lab for pat, lab in JA_SERIES if re.match(pat, cid)), "Vintage")
     return next((lab for pre, lab in SERIES if cid.startswith(pre)), "Altro")
 

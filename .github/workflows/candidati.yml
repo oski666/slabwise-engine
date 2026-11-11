@@ -79,7 +79,7 @@ jobs:
         run: |
           git config user.name "slabwise-bot"
           git config user.email "slabwise-bot@users.noreply.github.com"
-          git add prototype/data/candidates_queue.json prototype/data/ja_scan.json
+          git add prototype/data/candidates_queue.json prototype/data/ja_scan.json slabwise/ja_set_eras.json
           git diff --cached --quiet || { git commit -m "Coda delle carte del $(date -u +%F)"; git pull --rebase --autostash -q && git push; }
           gh label create candidate --color 1f6feb --description "Carte proposte per il catalogo (D118)" --force -R "$GITHUB_REPOSITORY"
           n=$(gh issue list -R "$GITHUB_REPOSITORY" --label candidate --state open --search "Coda delle carte in:title" --json number -q '.[0].number')

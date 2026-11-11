@@ -79,14 +79,27 @@ JA_OLD_SERIES = {"Original", "Neo", "Gym", "E-Card", "VS", "PCG", "Vending", "Ot
 def ja_only_key(c):
     """D231: our id for a Japanese card with no English twin: the promo series code ("ja:xy-p-207"), or for the older
     series the set's tcgcharts name without "-japanese" ("ja:awakening-legends-129"), like the vintage twins (D158).
-    Modern expansions (no promo) get None: their codes are not on tcgcharts, and they mostly come as twins (D158)."""
+    D269: modern expansions with no English twin (Expansion Pack 20th Anniversary, the CP sets...) get the set's tcgcharts
+    name too ("ja:expansion-pack-20th-anniversary-11"); before they got no id and never entered the queue."""
     st, no = c.get("set") or {}, str(c.get("cardNumber") or "").strip()
     if not no:
         return None
     if (st.get("name") or "").endswith("Promos") and st.get("series") in JA_PROMO_CODE:
         return f"ja:{JA_PROMO_CODE[st['series']]}-{no.zfill(3) if no.isdigit() else no.lower()}"
     slug = (st.get("slug") or "").replace("-japanese", "")
-    return f"ja:{slug}-{no.lower()}" if slug and st.get("series") in JA_OLD_SERIES else None
+    if not slug:
+        return None
+    if st.get("series") not in JA_OLD_SERIES:                # D269: a modern expansion; its era from the tcgcharts series
+        from slabwise.series import TC_SERIES_ERA
+        era = TC_SERIES_ERA.get(st.get("series"))
+        if not era:
+            return None
+        path = os.path.join(ROOT, "slabwise", "ja_set_eras.json")
+        eras = cr_load(path, {})
+        if eras.get(slug) != era:
+            eras[slug] = era
+            json.dump(eras, open(path, "w"), indent=1, ensure_ascii=False, sort_keys=True)
+    return f"ja:{slug}-{no.lower()}"
 
 
 def ranking(top=None):
