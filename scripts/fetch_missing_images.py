@@ -10,6 +10,7 @@ import base64
 import io
 import json
 import os
+import re
 import urllib.request
 
 from PIL import Image
@@ -36,7 +37,9 @@ def uri(im, w, q=82):
 def en_url(cid):
     """Pokémon TCG API image of a TCGdex card id: same set id without the dot ("sm3.5" -> "sm35"), same number."""
     sid, no = cid.rsplit("-", 1)
-    return f"https://images.pokemontcg.io/{sid.replace('.', '')}/{no.lstrip('0') if no.isdigit() else no}_hires.png"
+    sid = sid.replace(".5", "pt5").replace(".", "")                    # "swsh12.5gg" -> "swsh12pt5gg", "sm3.5" -> "sm35"
+    no = no.lstrip("0") if no.isdigit() else re.sub(r"^([A-Z]+)0+(?=\d)", r"\1", no)   # "H09" -> "H9"
+    return f"https://images.pokemontcg.io/{sid}/{no}_hires.png"
 
 
 JA_SERIES = (("sv", "SV"), ("sm", "SM"), ("s", "S"))
@@ -55,7 +58,7 @@ def main():
     hires = json.load(open(os.path.join(HERE, "hires.json")))
     cards = json.load(open(os.path.join(HERE, "cards.json")))
     todo = dict(EN)
-    todo.update({c["id"]: en_url(c["id"]) for c in cards if c["id"] not in thumbs and c["id"] not in hires and c["id"] not in todo})
+    todo.update({c["id"]: en_url(c["id"]) for c in cards if not thumbs.get(c["id"]) and not hires.get(c["id"]) and c["id"] not in todo})   # a None entry is retried
     for cid, url in todo.items():
         try:
             im = get(url)
