@@ -963,3 +963,20 @@ Si adotta la K più grande che passa Q1–Q4 (prima 40, poi 30). Se nessuna pass
 **Nessuna soglia, nessuna adozione:** è una misura per decidere se registrare una prova vera (per esempio indici per voto pubblicati, o un indice d'era a quote per voto, già provato nel §28 con un catalogo più piccolo). Script `scripts/ix_grade_test.py`, workflow `prova-indici-voto.yml`, risultati in `results/ix_grade/`.
 
 **Esito (11 novembre 2026, D269), solo misura.** I voti si muovono insieme (correlazione delle variazioni a 4 settimane tra PSA 9 e PSA 10 da 0,85 Vintage a 0,97 Spada e Scudo) ma non della stessa misura: differenza mediana dei rendimenti a 13 settimane tra indice PSA 9 e PSA 10 da 4,4 punti (Classica) a 9,8 (Di mezzo) e 9,0 (Scarlatto e Violetto). A 52 settimane: Scarlatto e Violetto PSA 10 −31,7%, PSA 9 +14,7%, PSA 8 +12,4%; Vintage PSA 10 +172%, PSA 9 +104%, PSA 8 +88%; Spada e Scudo PSA 10 +1,3%, PSA 9 +14,4%, PSA 8 +28,0%; Classica PSA 10 +454%, PSA 9 +370%. Posti PSA 10 pieni ovunque tranne Di mezzo (9 su 40) e Vintage (25 su 40): lì il PSA 10 si scambia poco.
+
+## 60. Aggiunta di carte senza ricostruire (registrato l'11 novembre 2026, prima del codice; D270)
+
+**Domanda (Oscar).** "Dobbiamo arrivare al punto in cui la ricostruzione non serve praticamente più perché aggiungiamo solo carte nuove."
+
+**Variante I (incrementale).** Quando entrano carte nuove, il motore riparte dall'ultimo stato salvato (D244) con i fattori d'era e i parametri condivisi fermi, e calcola solo le carte nuove (le loro vendite, il loro storico, i loro voti); le carte già nel catalogo non si ricalcolano. La ricostruzione completa resta una volta al mese e quando il catalogo cresce di un quarto (D265), ed è lei il campione.
+
+**Prova.** Su tre gruppi di carte entrate davvero (quelle del 10 e dell'11 novembre e le prossime 20), si confronta I con la ricostruzione completa sugli stessi dati.
+
+| # | Criterio | Soglia |
+|---|---|---|
+| I1 | carte già nel catalogo | valori identici a prima dell'aggiunta (per costruzione; si controlla) |
+| I2 | carte nuove, errore rispetto alla ricostruzione completa | mediana dello scarto assoluto del valore ≤ 2%, 95° percentile ≤ 10% |
+| I3 | carte nuove, SlabRange | copertura delle vendite delle ultime 13 settimane non più bassa di quella della ricostruzione completa meno 2 punti |
+| I4 | tempo | sotto i 10 minuti per 20 carte |
+
+Si adotta se I1–I4 passano su tutti e tre i gruppi. Fino ad allora ogni ingresso ricostruisce tutto, con il riavvio dagli stati salvati (D246).
