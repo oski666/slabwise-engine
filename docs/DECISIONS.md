@@ -92,12 +92,12 @@ Dettaglio, permessi e rischi in `docs/DATA_SOURCES.md`. Dati grezzi solo nel rep
 | Regola in vigore | Da |
 |---|---|
 | Indici come quelli veri: generale (SlabDex), sei ere, Giappone (SlabJap) e set con almeno 8 carte; pesi uguali, concatenati, panieri rivisti ogni 13 settimane con le voci più scambiate (almeno 6 vendite credibili in 13 settimane), regolamento e componenti sulla pagina. Dettaglio in METHOD §4b. | D38, D136, D142, D203 |
-| Paniere: 20 voci per era e Giappone, 60 per lo SlabDex (10 per era); Giappone con posti uguali per le sue ere; le promo restano fuori dagli indici. | D169, D250, D252 |
+| Paniere: **40 voci** per era e Giappone, 60 per lo SlabDex (10 per era); Giappone con posti uguali per le sue ere; le promo restano fuori dagli indici. | D169, D250, D252, D268 |
 | Calcolati con lo storico lungo, base comune 100. | D121, D149 |
 | **Ricostruito e dal vivo**: fino alla data di partenza decisa da Oscar (`prototype/data/index_live.json`, oggi nessuna) la linea è ricostruita con il catalogo di oggi, a puntini. Dalla partenza le variazioni settimanali si sigillano e non si riscrivono. La partenza è prevista quando le carte principali per capitalizzazione sono nel catalogo. | D262, D265 |
 | Ingressi e uscite sul modello degli indici veri: chi entra sposta l'indice solo in avanti; una carta vecchia aggiunta ora entra al ribilanciamento senza attesa; una carta appena uscita dopo l'attesa delle vendite minime; chi perde scambi esce. "Entrata rapida" da provare. | D265 |
 | Margine a 1 mese (±N punti) su ogni indice. | D262 |
-| In prova: panieri da 30 o 40 voci (§58); indici fatti con un voto solo, PSA 10, 9 o 8 (§59, solo misura); SlabDex a quote, verifica prospettica il 1° febbraio 2027 (§52). | D249, D263, D266 |
+| In prova: indici fatti con un voto solo, PSA 10, 9 o 8 (§59, solo misura); SlabDex a quote, verifica prospettica il 1° febbraio 2027 (§52). | D249, D263, D266 |
 
 ## 9. La pagina della carta e le misure
 
@@ -145,3 +145,4 @@ Dettaglio, permessi e rischi in `docs/DATA_SOURCES.md`. Dati grezzi solo nel rep
 | # | Data | Decisione | Perché |
 |---|---|---|---|
 | D267 | 2026-11-11 | **Registro consolidato.** Oscar autorizza a togliere da questo file tutto ciò che riguarda versioni vecchie del sito e a ricostruirlo coerente con lo stato attuale ("ti autorizzo ad eliminare tutte le informazioni relative a quanto faceva riferimento a vecchie versioni del sito e a ricostruire un file coerente"). Il registro completo D1–D266 si sposta, invariato, in `docs/archive/DECISIONS_STORICO.md`; qui restano lo stato per argomento e le voci nuove. Le regole non cambiano con questa voce | Leggibilità: 266 voci in ordine di data, metà superate, non dicevano più cosa vale oggi |
+| D268 | 2026-11-11 | **Esito §58: panieri da 40 voci per era e Giappone.** K30 e K40 passano Q1–Q4 contro K20; per regola registrata si adotta la più grande. Riduzione dell'errore sulle rivendite dello stesso cert da 0,312 a 0,373, rumore invariato, margine massimo a 1 mese da 7,6 a 4,4 punti; Classica e Di mezzo passano da 13 a 29 e 22 carte diverse. SlabDex invariato (60 voci, 10 per era) | §58, D263 |

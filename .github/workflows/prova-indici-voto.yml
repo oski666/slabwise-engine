@@ -33,7 +33,7 @@ jobs:
       - name: Test
         run: |
           mkdir -p /tmp/ixg
-          SLABWISE_TC_HISTORY=1 SLABWISE_INDEX_FULL=0 SLABWISE_IX_GRADE_TEST=1 SLABWISE_OUT=/tmp/ixg PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json
+          SLABWISE_TC_HISTORY=1 SLABWISE_INDEX_FULL=0 SLABWISE_IX_GRADE_TEST=1 SLABWISE_OUT=/tmp/ixg/real.json PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json
           python scripts/ix_grade_test.py results/ix_grade/series.json
       - name: Save
         run: |

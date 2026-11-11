@@ -70,7 +70,7 @@ series_names = sorted({ix_group(c) for c in cards} - {None})
 ser_id = np.array([series_names.index(ix_group(c)) if ix_group(c) else -1 for c in cards])
 _jera = sorted({series_of(c) for c in cards if c.startswith("ja:")})
 _eq = np.array([_jera.index(series_of(c)) if c.startswith("ja:") else 100 + int(ser_id[i]) for i, c in enumerate(cards)])   # D252: Japanese eras
-eidx = EraIndex(ser_id, len(series_names), k=int(os.environ.get("SLABWISE_IX_K", "20")), quota=_eq)   # §31 (D169): 20 items per era; §53 (D252):
+eidx = EraIndex(ser_id, len(series_names), k=int(os.environ.get("SLABWISE_IX_K", "40")), quota=_eq)   # §58 (D268): 40 items per era (§31, D169: 20); §53 (D252):
 # inside "Giappone" equal seats per Japanese era; an English era is a single sub-group, so its basket is the same as without quota
 # D136: the general index (whole catalogue, 30 items) and set indices (sets with at least 8 catalogue cards)
 _qg = np.array([-1 if c.startswith("ja:") or is_promo(c) else series_names.index(ix_group(c)) for c in cards])   # D250: the era of each item
@@ -96,13 +96,13 @@ if JTEST:
 GTEST = os.environ.get("SLABWISE_IX_GRADE_TEST") == "1"   # §59 (D266): the era indices built with one grade only (report)
 if GTEST:
     CKPT = None
-    gidx = {g: EraIndex(ser_id, len(series_names), k=20, quota=_eq, grades=[gi]) for gi, g in enumerate((10, 9, 8))}
+    gidx = {g: EraIndex(ser_id, len(series_names), k=40, quota=_eq, grades=[gi]) for gi, g in enumerate((10, 9, 8))}
 if QTEST:                                               # §51/§52: A is now the general of D169 (most traded), Q the one in use (D250)
     qidx = EraIndex(np.where(_qg >= 0, 0, -1), 1, k=60)
 _code = b"".join(open(os.path.join(HERE, "..", f), "rb").read() for f in
                  ("slabwise/model.py", "slabwise/index.py", "slabwise/stats.py", "prototype/build_real_data.py") if os.path.exists(os.path.join(HERE, "..", f)))
 _static = hashlib.sha256(repr((np.__version__, pd.__version__, sys.version, cards, eras, era.tolist(), str(t0), repr(params), series_names, set_names, ser_id.tolist(),
-                               os.environ.get("SLABWISE_IX_K", "20"), os.environ.get("SLABWISE_IX_KALL", "60"))).encode() + _code).hexdigest()
+                               os.environ.get("SLABWISE_IX_K", "40"), os.environ.get("SLABWISE_IX_KALL", "60"))).encode() + _code).hexdigest()
 _chain, _h = [], hashlib.sha256(_static.encode())
 for w in range(W):
     g_ = groups.get(w)
