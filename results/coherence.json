@@ -3,7 +3,7 @@
  "cards": 758,
  "checks": {
   "C7": {
-   "n": 18,
+   "n": 17,
    "examples": [
     [
      "sv03.5-205",
@@ -13,7 +13,7 @@
     [
      "swsh3.5-79",
      "Charizard V",
-     "PSA 9 193 < PSA 8 208"
+     "PSA 9 193 < PSA 8 209"
     ],
     [
      "swsh7-212",
@@ -31,14 +31,9 @@
      "PSA 8 316 < PSA 7 329"
     ],
     [
-     "me02.5-276",
-     "Pikachu ex",
-     "PSA 9 627 < PSA 8 628"
-    ],
-    [
      "me02.5-277",
      "Pikachu ex",
-     "PSA 8 228 < PSA 7 233"
+     "PSA 8 227 < PSA 7 233"
     ],
     [
      "me02.5-294",
@@ -48,7 +43,7 @@
     [
      "me02-130",
      "Mega Charizard X ex",
-     "PSA 8 188 < PSA 7 189"
+     "PSA 8 189 < PSA 7 189"
     ],
     [
      "smp-SM210",
@@ -64,14 +59,11 @@
      "swsh12.5gg-GG44",
      "Mewtwo VSTAR",
      "PSA 9 211 < PSA 8 212"
-    ]
-   ]
-  },
-  "C9": {
-   "n": 1,
-   "examples": [
+    ],
     [
-     "swshp-SWSH145"
+     "swshp-SWSH145",
+     "Pikachu V",
+     "PSA 8 74 < PSA 7 76"
     ]
    ]
   }
