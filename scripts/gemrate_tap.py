@@ -51,7 +51,8 @@ BASE_PAR = {"", "base", "holo", "none", "unlimited"}
 # D207: for modern cards GemRate writes the rarity in "parallel" (there is no other printing of the card): these labels are
 # the base printing too. Any other label (1st Edition, Shadowless, Trainer Deck, Cracked Ice, Russian...) stays a variant.
 RARITY_PAR = {"special illustration rare", "illustration rare", "secret", "hyper rare", "mega hyper rare", "ultra rare",
-              "black white rare", "gold star", "pokemon x van gogh"}
+              "black white rare", "gold star", "pokemon x van gogh",
+              "special art rare", "art rare", "bw rare", "mega attack rare", "mega ultra rare"}   # D261: Japanese rarity names
 res = {}
 for s in sets.values() if isinstance(sets, dict) else sets:
     for cid, name, no in s["cards"]:
