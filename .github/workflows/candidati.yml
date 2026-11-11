@@ -44,7 +44,7 @@ jobs:
       - name: Update the queue
         run: |
           pip install -q numpy pandas scipy pillow
-          PYTHONPATH=. python scripts/candidates.py /tmp/cand --top 1000 --checks ${{ github.event.inputs.checks || '40' }} --fill 0
+          PYTHONPATH=. python scripts/candidates.py /tmp/cand --top 3000 --checks ${{ github.event.inputs.checks || '40' }} --fill 0
       - name: Cards stopped by the engine, tried again each week (D157)
         env:
           GH_TOKEN: ${{ github.token }}
