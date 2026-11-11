@@ -583,8 +583,10 @@ elif os.path.exists(_if) and not os.environ.get("SLABWISE_TC_HISTORY") and os.en
 # weekly changes as they were published and sealed that week; before it the line stays rebuilt with today's catalogue.
 _seal_dir = os.path.join(HERE, "..", "data", "seals")
 _seals = []
-for _f in sorted(os.listdir(_seal_dir)) if os.path.isdir(_seal_dir) else []:
-    if _f.endswith(".json"):
+_live_from = (json.load(open(os.path.join(HERE, "data", "index_live.json"))).get("from")
+              if os.path.exists(os.path.join(HERE, "data", "index_live.json")) else None)   # D265: null = not live yet
+for _f in sorted(os.listdir(_seal_dir)) if os.path.isdir(_seal_dir) and _live_from else []:
+    if _f.endswith(".json") and _f[:10] >= _live_from:
         try:
             _sj = json.load(open(os.path.join(_seal_dir, _f)))
         except ValueError:
