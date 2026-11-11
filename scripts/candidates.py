@@ -117,7 +117,7 @@ def ranking(top=None):
     return out[:top]
 
 
-JA_SCANS = 20                                         # D134: catalogue cards searched for Japanese counterparts per run
+JA_SCANS = 80                                         # D134, D272: catalogue cards searched for Japanese counterparts per run
 
 
 def strip_no(name):
