@@ -395,7 +395,9 @@ def index_stats(ser, basket):
         comps.append(dict(id=cards[c], grade=GRADES[g], weight=round(1 / n, 4), value=round(float(np.exp(now))) if np.isfinite(now) else None,
                           ch4=round(float(np.exp(ch) - 1), 4) if ch is not None else None, contrib=round(ch / n, 4) if ch is not None else None))
     comps.sort(key=lambda x: -abs(x["contrib"] or 0))
-    return dict(returns=ret, vol=vol, mdd=mdd, components=comps)
+    _ch = [np.log1p(x["ch4"]) for x in comps if x["ch4"] is not None]
+    margin4 = round(float(1.96 * np.std(_ch, ddof=1) / np.sqrt(len(_ch))), 4) if len(_ch) >= 5 else None   # D262: 95% margin of the 4-week move
+    return dict(returns=ret, vol=vol, mdd=mdd, components=comps, margin4=margin4)
 
 
 def publish(idx, e, kind, label):
@@ -412,6 +414,13 @@ def publish(idx, e, kind, label):
 
 
 _ser = {e: eidx.series(e, W) for e in range(len(series_names))}
+# §58 (D263) Q4: at each rebalance of the last 52 weeks, the 95% margin of the 4-week change of the basket's items
+index_margin = {}
+for _w, _e, _bk in eidx.history:
+    if _w >= max(4, W - 52) and _bk:
+        _ch = [est[_w, c, g] - est[_w - 4, c, g] for c, g in _bk if np.isfinite(est[_w, c, g]) and np.isfinite(est[_w - 4, c, g])]
+        if len(_ch) >= 5:
+            index_margin.setdefault(series_names[_e], []).append([wk(_w), round(float(1.96 * np.std(_ch, ddof=1) / np.sqrt(len(_ch))), 4)])
 INDEX_MIN_WEEKS = 26                                       # D121: a series index is shown once it has half a year
 _first = [int(np.argmax(np.isfinite(v))) for v in _ser.values() if np.isfinite(v).sum() >= INDEX_MIN_WEEKS]
 index_base_w = max(_first) if _first else 0                # D121: one common base, 100 on the same week for every series
@@ -570,6 +579,50 @@ elif os.path.exists(_if) and not os.environ.get("SLABWISE_TC_HISTORY") and os.en
         index_source = dict(kind="storico", asof=_full.get("asof"), base=_full.get("index_base"))
     else:
         print("index_full.json ha gruppi diversi da quelli di oggi: indici senza storico")
+# D262: "dal vivo". From the first sealed snapshot holding index levels (D105), the published index is the chain of the
+# weekly changes as they were published and sealed that week; before it the line stays rebuilt with today's catalogue.
+_seal_dir = os.path.join(HERE, "..", "data", "seals")
+_seals = []
+for _f in sorted(os.listdir(_seal_dir)) if os.path.isdir(_seal_dir) else []:
+    if _f.endswith(".json"):
+        try:
+            _sj = json.load(open(os.path.join(_seal_dir, _f)))
+        except ValueError:
+            continue
+        if _sj.get("indexes"):
+            _seals.append(_sj["indexes"])
+
+
+def live_chain(key, ix):
+    """Replace the points from the first sealed week on with the chain of sealed weekly changes (D262); returns ix.
+    Only the weekly changes are frozen: the level at the first sealed week is today's rebuilt one, so the line never jumps.
+    Each seal holds the last weeks of every index as published that week; a week's change is taken from the first source
+    (seals in date order, then this build) that has both that week and the week before it."""
+    if not ix or not _seals or key not in _seals[0]:
+        return ix
+    pts = [list(p) for p in ix["points"]]
+    first = dict(_seals[0][key])
+    w0 = max(first)
+    chain, prev = {w0: dict(pts).get(w0, first[w0])}, w0          # the rebuilt line and the live one meet at w0
+    for sd in [dict(s_.get(key, [])) for s_ in _seals[1:]] + [dict(pts)]:
+        ws = sorted(sd)
+        for a_, b_ in zip(ws, ws[1:]):
+            if a_ == prev and sd[a_]:
+                chain[b_] = round(chain[a_] * sd[b_] / sd[a_], 2)
+                prev = b_
+    out = [p for p in pts if p[0] < w0] + [[w, chain[w]] for w in sorted(chain)]
+    lv = [p[1] for p in out]
+    ret = {f"w{k}": round(lv[-1] / lv[-1 - k] - 1, 4) for k in (1, 4, 13, 26, 52) if len(lv) > k}
+    _y = [i for i, p in enumerate(out) if p[0] >= out[-1][0][:4] + "-01-01"]
+    if _y and _y[0] > 0:
+        ret["ytd"] = round(lv[-1] / lv[_y[0] - 1] - 1, 4)
+    return dict(ix, points=out, live=w0, returns=dict(ix.get("returns") or {}, **ret),
+                ch30=round(lv[-1] / lv[max(0, len(lv) - 5)] - 1, 4))
+
+
+if not os.environ.get("SLABWISE_OUT"):                     # test runs (§27, §58) compare rebuilt series only
+    indexes = {k: live_chain(k, v) for k, v in indexes.items()}
+    index_all = live_chain("tutto", index_all)
 _ih = os.path.join(HERE, "data", "index_history.json")       # D138: rebuilt index history, only once §27 passed
 index_history = json.load(open(_ih)) if os.path.exists(_ih) else None
 # D194: the Slab-Meter, the market's temperature, from four facts of this build (no new data, no effect on prices)
@@ -619,7 +672,7 @@ for c in out_cards:
         _a, _b = _g10["pop"] / c["psa_total"], _t["psa10"] / _t["total"]
         if abs(_a - _b) > 0.05:
             c["gem_conflict"] = [round(_a, 4), round(_b, 4)]
-res = dict(real=True, rarity_fit=rarity_fit, engine=ENGINE, deals_asof=deals_asof, deal_stats=deal_stats, ja_pending=ja_pending, indexes=indexes, index_history=index_history, index_all=index_all, index_sets=index_sets, index_base=(index_source["base"] if index_source else wk(index_base_w)), index_source=index_source, asof=str(asof), eur_rate=EUR, eur_rate_date=rate_date, cards=out_cards, rollups=rollups, pulse=pulse, slabmeter=slabmeter, tap=tap,
+res = dict(real=True, index_margin=index_margin, rarity_fit=rarity_fit, engine=ENGINE, deals_asof=deals_asof, deal_stats=deal_stats, ja_pending=ja_pending, indexes=indexes, index_history=index_history, index_all=index_all, index_sets=index_sets, index_base=(index_source["base"] if index_source else wk(index_base_w)), index_source=index_source, asof=str(asof), eur_rate=EUR, eur_rate_date=rate_date, cards=out_cards, rollups=rollups, pulse=pulse, slabmeter=slabmeter, tap=tap,
            params={k: v for k, v in params.__dict__.items()}, n_sales=int(len(clean)), n_removed=int(len(removed)), venues=venues,
            venue_gaps={v: round(float(lvm.offs[k]), 4) for k, v in enumerate(("ebay", "auction", "fixed"))},
            note="Dati veri: vendite concluse eBay (anche tramite Alt e tcgcharts), Goldin e Fanatics Collect (dal 2023). "

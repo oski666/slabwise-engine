@@ -22,6 +22,10 @@ work = sys.argv[1]
 os.makedirs(work, exist_ok=True)
 MIN_BASKET = {"era": 5, "generale": 15}
 VARIANTS = [("K10", 10, 30), ("K15", 15, 30), ("K20", 20, 30), ("G60", 10, 60)]
+# §58 (D263): VARIANTS=K20:20:60,K30:30:60,K40:40:60 (first one is the reference), results in results/index_k58/
+if os.environ.get("VARIANTS"):
+    VARIANTS = [(t, int(k), int(g)) for t, k, g in (v.split(":") for v in os.environ["VARIANTS"].split(","))]
+OUTDIR = os.environ.get("OUTDIR", "index_k")
 
 sales = os.path.join(work, "sales_hist.csv")
 env0 = dict(os.environ, PYTHONPATH=ROOT, SLABWISE_TC_HISTORY="1", SLABWISE_INDEX_FULL="0")
@@ -113,11 +117,10 @@ def measure(run, general):
     return res
 
 
-summary = dict(asof=str(date.today()), era={}, generale={})
-for tag in ("K10", "K15", "K20"):
-    summary["era"][tag] = measure(runs[tag], False)
-for tag in ("K10", "G60"):
-    summary["generale"][tag] = measure(runs[tag], True)
+def margin(run):
+    """§58 Q4: per era, the median over the last 52 weeks of the 95% margin of the basket's 4-week change; the max over eras."""
+    m = {k: float(np.median([x[1] for x in v])) for k, v in (run.get("index_margin") or {}).items() if v}
+    return dict(per_era={k: round(v, 4) for k, v in m.items()}, max=round(max(m.values()), 4) if m else None)
 
 
 def passes(v, ref):
@@ -126,10 +129,26 @@ def passes(v, ref):
                 and v["Q3"] is not None and ref["Q3"] is not None and v["Q3"] <= ref["Q3"] * 1.10)
 
 
-E, G = summary["era"], summary["generale"]
-summary["passed"] = dict(K15=passes(E["K15"], E["K10"]), K20=passes(E["K20"], E["K10"]), G60=passes(G["G60"], G["K10"]))
-summary["adopt"] = dict(era=20 if summary["passed"]["K20"] else 15 if summary["passed"]["K15"] else 10,
-                        generale=60 if summary["passed"]["G60"] else 30)
-os.makedirs(os.path.join(ROOT, "results", "index_k"), exist_ok=True)
-json.dump(summary, open(os.path.join(ROOT, "results", "index_k", "summary.json"), "w"), indent=1)
+summary = dict(asof=str(date.today()), era={}, generale={})
+if os.environ.get("VARIANTS"):                     # §58
+    ref = VARIANTS[0][0]
+    for tag, _, _ in VARIANTS:
+        summary["era"][tag] = dict(measure(runs[tag], False), Q4=margin(runs[tag]),
+                                   distinct_cards={k: len({b.split(" PSA ")[0] for b in v.get("basket", [])}) for k, v in (runs[tag].get("indexes") or {}).items()})
+    R = summary["era"][ref]
+    summary["passed"] = {t: passes(summary["era"][t], R) and summary["era"][t]["Q4"]["max"] is not None
+                         and R["Q4"]["max"] is not None and summary["era"][t]["Q4"]["max"] < R["Q4"]["max"] for t, _, _ in VARIANTS[1:]}
+    ok = [k for t, k, _ in VARIANTS[1:] if summary["passed"][t]]
+    summary["adopt"] = dict(era=max(ok) if ok else VARIANTS[0][1])
+else:
+    for tag in ("K10", "K15", "K20"):
+        summary["era"][tag] = measure(runs[tag], False)
+    for tag in ("K10", "G60"):
+        summary["generale"][tag] = measure(runs[tag], True)
+    E, G = summary["era"], summary["generale"]
+    summary["passed"] = dict(K15=passes(E["K15"], E["K10"]), K20=passes(E["K20"], E["K10"]), G60=passes(G["G60"], G["K10"]))
+    summary["adopt"] = dict(era=20 if summary["passed"]["K20"] else 15 if summary["passed"]["K15"] else 10,
+                            generale=60 if summary["passed"]["G60"] else 30)
+os.makedirs(os.path.join(ROOT, "results", OUTDIR), exist_ok=True)
+json.dump(summary, open(os.path.join(ROOT, "results", OUTDIR, "summary.json"), "w"), indent=1)
 print(json.dumps(summary, indent=1))

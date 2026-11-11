@@ -932,3 +932,20 @@ Se V1–V3 passano, restano sei ere. Se non passano, si corregge con una nuova p
 - **Y7 ritardo** (nuovo): sulle vendite di fase R comuni ai due bracci, nelle ultime 26 settimane, per ogni casella (era del sito, settimana) con almeno 30 vendite si prende la mediana di (prezzo − previsione) in log; L = media dei valori assoluti di queste mediane. Si chiede L del braccio ≤ 0,8 × L di R, e che nelle due ere dove R ha L più alto la L dell'era scenda.
 
 **Adozione.** Tra i bracci che passano Y1–Y7, quello con L più basso diventa il motore del sito (v1.22). Se nessuno passa, resta la v1.20 e si riporta tutto.
+
+## 58. Panieri più grandi: 30 o 40 voci per era (registrato l'11 novembre 2026, prima del codice; D263)
+
+**Domanda (Oscar).** "Dovremmo capire come omogeneizzare questi dati per tutte le ere, la disparità di mole di vendita per i vari indici mi spaventa." L'11 novembre il margine al 95% del rendimento a 4 settimane (1,96 × dev. standard delle variazioni delle voci ÷ √20) va da ±3,1 punti (Spada e Scudo) a ±14,1 (Di mezzo); voci idonee per era tra 166 (Spada e Scudo) e 516 (Giappone).
+
+**Varianti.** Stesso algoritmo e stesse misure del §31 (peso uguale, concatenato, ribilanciamento ogni 13 settimane, almeno 6 vendite credibili, tutto lo storico, motore del sito dopo l'esito del §57); per gli indici d'era e Giappone K = 20 (oggi), 30, 40; generale invariato (60, a quote).
+
+**Misure.** Q1, Q2, Q3 come nel §31 (coppie di rivendite dello stesso cert). In più **Q4 margine**: per ogni era e ogni ribilanciamento delle ultime 52 settimane, 1,96 × dev. standard delle variazioni in log a 4 settimane delle voci del paniere ÷ √voci; si prende il massimo sulle ere della mediana nel tempo.
+
+| # | Criterio, per una variante contro K = 20 | Soglia |
+|---|---|---|
+| Q1 | riduzione dell'errore | non più bassa di quella di K = 20 meno 0,01 |
+| Q2 | pendenza | tra 0,70 e 1,30, estremo inferiore dell'intervallo oltre 0,30 |
+| Q3 | rumore | non oltre quello di K = 20 più 10% |
+| Q4 | margine massimo sulle ere | più basso di quello di K = 20 |
+
+Si adotta la K più grande che passa Q1–Q4 (prima 40, poi 30). Se nessuna passa, resta 20. Solo riportato: carte diverse per paniere e vendite a 90 giorni dietro ogni paniere, per era. Script `scripts/index_k_test.py` con `VARIANTS=K20:20:60,K30:30:60,K40:40:60`, workflow `prova-indici.yml`; risultati in `results/index_k58/summary.json`.

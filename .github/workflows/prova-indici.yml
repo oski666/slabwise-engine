@@ -1,4 +1,4 @@
-# Protocol §54 (D253): Contemporanea in two eras. (Before: §53, D251, Japanese index with seats per era.) (Before: §51, D245, general index; §31, D167, basket sizes.)
+# Protocol §58 (D263): 20, 30 or 40 items per era index. (Before: §54, D253, Contemporanea in two eras; §53, D251, Japanese index with seats per era.) (Before: §51, D245, general index; §31, D167, basket sizes.)
 # (Earlier: protocol §31, D167, basket sizes; results in results/index_k/.)
 name: Prova indici
 on:
@@ -8,7 +8,7 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 200
+    timeout-minutes: 340
     steps:
       - uses: actions/checkout@v4
       - name: Guard bot commits (no conflict markers, valid JSON)
@@ -33,11 +33,11 @@ jobs:
           restore-keys: calib-
       - name: Test
         run: |
-          SLABWISE_ERA_SPLIT_TEST=1 SLABWISE_TC_HISTORY=1 SLABWISE_INDEX_SELF=1 PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json | grep -E "^cards"
-          python scripts/era_split_test.py results/era_split/series.json
+          mkdir -p /tmp/ixk && cp data/raw/sales_all.csv /tmp/ixk/sales_hist.csv
+          VARIANTS=K20:20:60,K30:30:60,K40:40:60 OUTDIR=index_k58 PYTHONPATH=. python scripts/index_k_test.py /tmp/ixk
       - name: Save
         run: |
           git config user.name "slabwise-bot"
           git config user.email "slabwise-bot@users.noreply.github.com"
-          git add results/era_split/summary.json results/era_split/series.json
-          git diff --cached --quiet || { git commit -m "Prova §54: la Contemporanea in due ere"; git pull --rebase --autostash -q && git push; }
+          git add results/index_k58/summary.json
+          git diff --cached --quiet || { git commit -m "Prova §58: panieri da 20, 30 o 40 voci"; git pull --rebase --autostash -q && git push; }

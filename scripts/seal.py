@@ -38,6 +38,11 @@ for c in sorted(r["cards"], key=lambda c: c["id"]):
         if g.get("forecast"):
             row["forecast"] = g["forecast"]
         snap["rows"].append(row)
+# D262: the last 6 weeks of every index as published, so the live index can chain the changes as they were sealed
+_ix = dict(r.get("indexes") or {})
+if r.get("index_all"):
+    _ix["tutto"] = r["index_all"]
+snap["indexes"] = {k: [list(p) for p in (v.get("points") or [])[-6:]] for k, v in _ix.items() if v}
 body = json.dumps(snap, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
 path = os.path.join(out_dir, f"{asof[:10]}.json")
 open(path, "w").write(body)
