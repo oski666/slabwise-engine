@@ -1,0 +1,43 @@
+# Protocol §59 (D266), report only: era indices built from PSA 10, PSA 9 or PSA 8 alone, against the index in use.
+name: Prova indici per voto
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - name: Guard bot commits (no conflict markers, valid JSON)
+        run: git config core.hooksPath .githooks
+      - name: Private data (D163)
+        uses: ./.github/actions/private-data
+        with:
+          mode: pull
+          token: ${{ secrets.DATA_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Sales
+        run: |
+          pip install -q numpy pandas scipy pillow
+          SLABWISE_TC_HISTORY=1 PYTHONPATH=. python scripts/build_sales.py data/raw/sales_base.csv data/raw/alt data/raw/sales_all.csv data/raw/tcgcharts
+      - name: Calibration cache (D228)
+        uses: actions/cache/restore@v4
+        with:
+          path: ~/.cache/slabwise/calib
+          key: calib-none
+          restore-keys: calib-
+      - name: Test
+        run: |
+          mkdir -p /tmp/ixg
+          SLABWISE_TC_HISTORY=1 SLABWISE_INDEX_FULL=0 SLABWISE_IX_GRADE_TEST=1 SLABWISE_OUT=/tmp/ixg PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json
+          python scripts/ix_grade_test.py results/ix_grade/series.json
+      - name: Save
+        run: |
+          git config user.name "slabwise-bot"
+          git config user.email "slabwise-bot@users.noreply.github.com"
+          git add results/ix_grade/summary.json results/ix_grade/series.json
+          git diff --cached --quiet || { git commit -m "Prova §59: indici per voto"; git pull --rebase --autostash -q && git push; }

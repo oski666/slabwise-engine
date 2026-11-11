@@ -951,3 +951,11 @@ Se V1–V3 passano, restano sei ere. Se non passano, si corregge con una nuova p
 | Q4 | margine massimo sulle ere | più basso di quello di K = 20 |
 
 Si adotta la K più grande che passa Q1–Q4 (prima 40, poi 30). Se nessuna passa, resta 20. Solo riportato: carte diverse per paniere e vendite a 90 giorni dietro ogni paniere, per era. Script `scripts/index_k_test.py` con `VARIANTS=K20:20:60,K30:30:60,K40:40:60`, workflow `prova-indici.yml`; risultati in `results/index_k58/summary.json`.
+
+## 59. Indici fatti con un voto solo: PSA 10, PSA 9, PSA 8 (registrato l'11 novembre 2026, prima del codice; D266; solo riportato)
+
+**Domanda (Oscar).** "Se invece del PSA 10 basassimo… la gran parte del mercato scambia i PSA 9… vorrei capire se con indici con carte PSA 9 ci fossero degli scostamenti significativi tra gli indici, e me lo aspetto."
+
+**Cosa si calcola.** Per ogni era e per il Giappone, oltre all'indice in uso (voci di ogni voto, D169, D252), tre indici con le stesse regole (20 voci, almeno 6 vendite credibili in 13 settimane, ribilanciamento ogni 13 settimane, pesi uguali, quote giapponesi del D252) ma con le sole voci PSA 10, PSA 9 o PSA 8. Motore del sito, storico lungo. Si riportano: rendimento a 13, 26 e 52 settimane di ogni indice; mediana, sulle settimane dal 5 gennaio 2024, della differenza assoluta tra il rendimento a 13 settimane dell'indice PSA 9 e del PSA 10 (e PSA 8 contro PSA 9); correlazione delle variazioni a 4 settimane; posti occupati all'ultimo ribilanciamento.
+
+**Nessuna soglia, nessuna adozione:** è una misura per decidere se registrare una prova vera (per esempio indici per voto pubblicati, o un indice d'era a quote per voto, già provato nel §28 con un catalogo più piccolo). Script `scripts/ix_grade_test.py`, workflow `prova-indici-voto.yml`, risultati in `results/ix_grade/`.

@@ -93,6 +93,10 @@ if JTEST:
     _jq = np.array([_jnames.index(series_of(c)) if c.startswith("ja:") else -1 for c in cards])
     jqidx = EraIndex(np.where(_jq >= 0, 0, -1), 1, k=20, quota=_jq)
     jmidx = EraIndex(_jq, len(_jnames), k=20)
+GTEST = os.environ.get("SLABWISE_IX_GRADE_TEST") == "1"   # §59 (D266): the era indices built with one grade only (report)
+if GTEST:
+    CKPT = None
+    gidx = {g: EraIndex(ser_id, len(series_names), k=20, quota=_eq, grades=[gi]) for gi, g in enumerate((10, 9, 8))}
 if QTEST:                                               # §51/§52: A is now the general of D169 (most traded), Q the one in use (D250)
     qidx = EraIndex(np.where(_qg >= 0, 0, -1), 1, k=60)
 _code = b"".join(open(os.path.join(HERE, "..", f), "rb").read() for f in
@@ -135,6 +139,9 @@ for w in range(w0, W):
     sidx.update(w, lvm, est[w])
     if QTEST:
         qidx.update(w, lvm, est[w])
+    if GTEST:
+        for _gx in gidx.values():
+            _gx.update(w, lvm, est[w])
     if JTEST:
         jqidx.update(w, lvm, est[w])
         jmidx.update(w, lvm, est[w])
@@ -174,6 +181,14 @@ if JTEST:                                               # §53: the series for s
                    quota_log=[[int(w_), {_jnames[g]: list(v) for g, v in d_.items()}] for w_, d_ in jqidx.quota_log],
                    A_baskets=[[int(w_), [series_of(cards[c]) for c, g in b_]] for w_, e_, b_ in eidx.history if e_ == _gj]),
               open(os.path.join(HERE, "..", "results", "ix_ja", "series.json"), "w"))
+if GTEST:                                               # §59: the series for scripts/ix_grade_test.py
+    os.makedirs(os.path.join(HERE, "..", "results", "ix_grade"), exist_ok=True)
+    _f = lambda xs: [None if not np.isfinite(v) else float(v) for v in xs]   # noqa: E731
+    json.dump(dict(weeks=[str((t0 + pd.Timedelta(weeks=w + 1)).date()) for w in range(W)],
+                   eras={n: dict(all=_f(eidx.series(i, W)), **{f"psa{g}": _f(gx.series(i, W)) for g, gx in gidx.items()},
+                                 seats={f"psa{g}": len(gx.basket[i]) for g, gx in gidx.items()})
+                         for i, n in enumerate(series_names)}),
+              open(os.path.join(HERE, "..", "results", "ix_grade", "series.json"), "w"))
 if CKPT:                                                # at most 6 states, the most recent ones
     _all = sorted(glob.glob(os.path.join(CKPT, "state_*.pkl")), key=lambda f: json.load(open(f[:-4] + ".json"))["w"])
     for f in _all[:-6]:

@@ -18,13 +18,14 @@ STRATA_MIN = 4                                   # D143: sales needed for a rese
 
 
 class EraIndex:
-    def __init__(self, era, n_eras, start_week=26, rebalance=REBALANCE, min_sales=MIN_SALES, k=K, one_per_card=False, strata=0, quota=None):
+    def __init__(self, era, n_eras, start_week=26, rebalance=REBALANCE, min_sales=MIN_SALES, k=K, one_per_card=False, strata=0, quota=None, grades=None):
         self.era = np.asarray(era)
         self.E = n_eras
         self.start, self.reb, self.min_sales, self.k = start_week, rebalance, min_sales, k
         self.one_per_card = one_per_card                 # D130: each card enters once, with its most traded grade
         self.strata = strata                             # D143 (protocol §28): seats reserved for each grade
         self.quota = None if quota is None else np.asarray(quota)   # D245 (protocol §51): equal seats for each sub-group (era)
+        self.grades = None if grades is None else set(grades)   # §59 (D266): only these grade indices (0 = PSA 10, 1 = PSA 9...)
         self.quota_log = []                              # (week, {sub-group: (eligible, seats)}) at each rebalance
         self.basket = {e: [] for e in range(n_eras)}
         self.level = {e: [] for e in range(n_eras)}     # (week, log level); starts at 0 when an era gets a basket
@@ -40,7 +41,8 @@ class EraIndex:
                 if w - self.reb < o["t"] <= w + 1 and pg > 0.5:
                     counts[(c, o["g"])] = counts.get((c, o["g"]), 0) + 1
         for e in range(self.E):
-            atoms = [(n, a) for a, n in counts.items() if self.era[a[0]] == e and n >= self.min_sales]
+            atoms = [(n, a) for a, n in counts.items() if self.era[a[0]] == e and n >= self.min_sales
+                     and (self.grades is None or a[1] in self.grades)]
             atoms.sort(key=lambda x: (-x[0], x[1]))
             if self.one_per_card:
                 seen, uniq = set(), []

@@ -32,8 +32,8 @@ TCG = "https://tcgcharts.com"
 UA = "Mozilla/5.0 (Slabwise research; permission from tcgcharts, 27 Oct 2026)"
 PAUSE_S = 3.0
 MAX_CHECKS = 15
-MIN_SALES, MIN_GRADE_SALES, MIN_GRADES, MIN_SHARE = 30, 5, 2, 0.60
-GRAIL_RANK, GRAIL_MIN_SALES = 100, 15          # D150: the most valuable cards sell less often
+MIN_SALES, MIN_GRADE_SALES, MIN_GRADES, MIN_SHARE = 10, 5, 1, 0.60   # D266: 10 sales in a year, 5 of them in one grade
+GRAIL_RANK, GRAIL_MIN_SALES = 100, 10          # D150, D266: same threshold for every card now
 
 
 def get(url, raw=False):
@@ -208,7 +208,7 @@ def check_ja(key, it, entry):
         at.JA_CATALOGUE.pop(key, None)
 
 
-WINDOW_DAYS, TOLERANCE, MAX_PAGES = 365, 0.9, 6   # D232: a year of sales on every platform; 90% of the threshold is enough
+WINDOW_DAYS, TOLERANCE, MAX_PAGES = 365, 1.0, 6   # D232: a year of sales on every platform; D266: no tolerance below 10
 
 
 def measure(it, key, min_sales=None):
