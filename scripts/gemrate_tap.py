@@ -80,7 +80,7 @@ for s in sets.values() if isinstance(sets, dict) else sets:
             state = None if ratio10 is None else "aperto" if ratio10 > 1.5 else "chiuso" if ratio10 < 0.67 else "equilibrio"
             res[key] = dict(new10_30=new10_30, sold10_30=round(sold10_30, 1), tap10=ratio10, tap_state=state,
                             new_all_30=r.get("ct_diff_p1"), gemrate=r["gemrate_id"], set_name=s["set_name"], year=s["year"], parallel=r.get("parallel"),
-                            total=int(r["card_total_grades"]), psa10=int(r["g10"] or 0), psa9=int(r["g9"] or 0),
+                            total=int(r["card_total_grades"]), psa10=int(r["g10"] or 0), psa9=int(r["g9"] or 0), psa8=int(r.get("g8") or 0), psa7=int(r.get("g7") or 0),
                             gem_rate=r.get("card_gem_rate"), new_week_13=round(float(last13), 1),
                             new_week_before=round(float(before), 1) if before == before else None,
                             new_psa10_p1=r.get("c10_diff_p1"), new_psa10_p2=r.get("c10_diff_p2"),

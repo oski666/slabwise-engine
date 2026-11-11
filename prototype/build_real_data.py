@@ -221,6 +221,13 @@ if os.path.exists(_gr):
         if _r and not POP.get(_k):
             POP[_k] = {str(g): _r.get(f"g{g}") for g in (10, 9, 8, 7) if _r.get(f"g{g}")}
             GR_TOTAL[_k] = _r.get("card_total_grades")
+# D261: any other card without a tcgcharts population takes it from the GemRate row the tap matched (one row only)
+_tp0 = os.path.join(HERE, "..", "data", "raw", "gemrate", "tap.json")
+if os.path.exists(_tp0):
+    for _k, _v in json.load(open(_tp0)).items():
+        if not POP.get(_k) and _v.get("total"):
+            POP[_k] = {str(g): _v[f"psa{g}"] for g in (10, 9, 8, 7) if _v.get(f"psa{g}")}
+            GR_TOTAL.setdefault(_k, _v["total"])
 out_cards = []
 # D141: 1st Edition and Shadowless printings estimated by the engine get a page of their own; their base becomes "Unlimited"
 _by_id = {c["id"]: c for c in catalog}

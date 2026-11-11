@@ -140,7 +140,7 @@ Il costo finale in Italia (IVA, dogana, spedizione, cambio BCE) si applica al pr
 
 ## 8. Rollup per set ed era (da implementare dopo la fonte della popolazione)
 
-- **Market cap di collezione** di un gruppo = Σ fair value × popolazione, su tutti gli atomi seguiti. Popolazioni PSA dai dati delle carte di tcgcharts (stampe base, D77); per le stampe 1st Edition e Shadowless, che lì mancano, dalle righe di edizione di GemRate quando sono univoche (D257). Solo voti 7–10.
+- **Market cap di collezione** di un gruppo = Σ fair value × popolazione, su tutti gli atomi seguiti. Popolazioni PSA dai dati delle carte di tcgcharts (stampe base, D77); per le stampe 1st Edition e Shadowless, che lì mancano, dalle righe di edizione di GemRate quando sono univoche (D257). Solo voti 7–10. Le altre carte senza popolazione da tcgcharts la prendono dalla riga GemRate abbinata dal Rubinetto (numero, nome e stampa base, una sola riga; D261).
 - **Scomposizione della variazione** tra due date: effetto prezzo = Σ pop₀·(V₁ − V₀); effetto nuovi slab = Σ (pop₁ − pop₀)·V₁.
 - **Concentrazione**: quota delle prime 3 carte. **Copertura**: carte seguite ÷ carte del set.
 - **Indice d'era** (da costruire, v1.2): regressione robusta a vendite ripetute / effetti temporali sulle vendite pulite, pesate per probabilità genuina; non una somma di market cap, quindi non lo muovono né i nuovi slab né il cambio di composizione.
