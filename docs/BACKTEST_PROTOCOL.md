@@ -933,6 +933,8 @@ Se V1–V3 passano, restano sei ere. Se non passano, si corregge con una nuova p
 
 **Adozione.** Tra i bracci che passano Y1–Y7, quello con L più basso diventa il motore del sito (v1.22). Se nessuno passa, resta la v1.20 e si riporta tutto.
 
+**Esito (11 novembre 2026, D264): non adottato.** F e G passano Y3, Y5, Y6; non passano Y1 (1 contro 0 richiesto; R ne ha 2), Y2 (E2r 30 e 18; R 30), Y4 (copertura 85,76% e 85,74%, tetto 85,73%) e Y7 (L 0,0328 e 0,0327 contro 0,8 × 0,0367 = 0,0294; nelle due ere peggiori L scende). Resta la v1.20.
+
 ## 58. Panieri più grandi: 30 o 40 voci per era (registrato l'11 novembre 2026, prima del codice; D263)
 
 **Domanda (Oscar).** "Dovremmo capire come omogeneizzare questi dati per tutte le ere, la disparità di mole di vendita per i vari indici mi spaventa." L'11 novembre il margine al 95% del rendimento a 4 settimane (1,96 × dev. standard delle variazioni delle voci ÷ √20) va da ±3,1 punti (Spada e Scudo) a ±14,1 (Di mezzo); voci idonee per era tra 166 (Spada e Scudo) e 516 (Giappone).
