@@ -1,0 +1,139 @@
+{
+ "asof": "2026-11-11",
+ "era": {
+  "K20": {
+   "pairs": 717,
+   "Q1": 0.3122550389087513,
+   "Q2": {
+    "slope": 1.0238644140221178,
+    "ci95": [
+     0.8696317481512748,
+     1.1820445204258752
+    ]
+   },
+   "Q3": 0.01764009052162693,
+   "sizes": {
+    "Classica": 20,
+    "Di mezzo": 20,
+    "Giappone": 20,
+    "Moderna": 20,
+    "Scarlatto e Violetto": 20,
+    "Spada e Scudo": 20,
+    "Vintage": 20
+   },
+   "Q4": {
+    "per_era": {
+     "Classica": 0.0428,
+     "Di mezzo": 0.0542,
+     "Giappone": 0.0723,
+     "Moderna": 0.042,
+     "Scarlatto e Violetto": 0.0756,
+     "Spada e Scudo": 0.0253,
+     "Vintage": 0.0328
+    },
+    "max": 0.0756
+   },
+   "distinct_cards": {
+    "Classica": 13,
+    "Di mezzo": 13,
+    "Giappone": 18,
+    "Moderna": 20,
+    "Scarlatto e Violetto": 20,
+    "Spada e Scudo": 20,
+    "Vintage": 20
+   }
+  },
+  "K30": {
+   "pairs": 717,
+   "Q1": 0.34179806330970974,
+   "Q2": {
+    "slope": 1.0767753851719024,
+    "ci95": [
+     0.9092689232259896,
+     1.2482158775753904
+    ]
+   },
+   "Q3": 0.017346697698521676,
+   "sizes": {
+    "Classica": 30,
+    "Di mezzo": 30,
+    "Giappone": 30,
+    "Moderna": 30,
+    "Scarlatto e Violetto": 30,
+    "Spada e Scudo": 30,
+    "Vintage": 30
+   },
+   "Q4": {
+    "per_era": {
+     "Classica": 0.0355,
+     "Di mezzo": 0.0406,
+     "Giappone": 0.0529,
+     "Moderna": 0.0377,
+     "Scarlatto e Violetto": 0.0555,
+     "Spada e Scudo": 0.0197,
+     "Vintage": 0.0243
+    },
+    "max": 0.0555
+   },
+   "distinct_cards": {
+    "Classica": 20,
+    "Di mezzo": 18,
+    "Giappone": 28,
+    "Moderna": 30,
+    "Scarlatto e Violetto": 30,
+    "Spada e Scudo": 30,
+    "Vintage": 29
+   }
+  },
+  "K40": {
+   "pairs": 717,
+   "Q1": 0.37263481136895493,
+   "Q2": {
+    "slope": 1.1455935449373345,
+    "ci95": [
+     0.9501497742676279,
+     1.3321003937195504
+    ]
+   },
+   "Q3": 0.017437776699125922,
+   "sizes": {
+    "Classica": 40,
+    "Di mezzo": 40,
+    "Giappone": 40,
+    "Moderna": 40,
+    "Scarlatto e Violetto": 40,
+    "Spada e Scudo": 40,
+    "Vintage": 40
+   },
+   "Q4": {
+    "per_era": {
+     "Classica": 0.0325,
+     "Di mezzo": 0.035,
+     "Giappone": 0.0438,
+     "Moderna": 0.0303,
+     "Scarlatto e Violetto": 0.0441,
+     "Spada e Scudo": 0.0164,
+     "Vintage": 0.0219
+    },
+    "max": 0.0441
+   },
+   "distinct_cards": {
+    "Classica": 29,
+    "Di mezzo": 22,
+    "Giappone": 36,
+    "Moderna": 39,
+    "Scarlatto e Violetto": 40,
+    "Spada e Scudo": 40,
+    "Vintage": 34
+   }
+  }
+ },
+ "generale": {},
+ "passed": {
+  "K30": true,
+  "K40": true
+ },
+ "adopt": {
+  "era": 40
+ }
+}
