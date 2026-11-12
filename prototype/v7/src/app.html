@@ -1207,7 +1207,7 @@ function viewMethod() {
       <div class="tile" style="padding:22px;display:grid;gap:10px;align-content:start"><span class="label">${tx("SlabRange e affidabilità", "SlabRange and confidence")}</span>
         <p class="muted">${tx("Lo SlabRange è l'intervallo in cui ci aspettiamo 8 vendite su 10. È stretto quando le vendite sono tante e d'accordo, largo quando sono poche o litigano. L'affidabilità è <b>alta</b> con almeno 3 vendite del voto negli ultimi 3 mesi e uno SlabRange stretto, <b>media</b> con almeno una vendita recente o uno SlabRange non troppo largo, <b>bassa</b> altrimenti.", "The SlabRange is the interval where we expect 8 sales in 10 to land. It is narrow when sales are many and agree, wide when they are few or disagree. Confidence is <b>high</b> with at least 3 sales of the grade in the last 3 months and a narrow SlabRange, <b>medium</b> with at least one recent sale or a SlabRange that is not too wide, <b>low</b> otherwise.")}</p></div>
       <div class="tile" style="padding:22px;display:grid;gap:10px;align-content:start"><span class="label">${tx("Quali carte entrano", "Which cards get in")}</span>
-        <p class="muted">${tx("Una carta entra nel catalogo solo se nell'ultimo anno ha almeno 27 vendite gradate che sappiamo riconoscere, distribuite su più voti (per le stampe giapponesi basta un voto), e se la maggior parte dei suoi titoli è leggibile. Le carte che vendono poco restano, ma le segnaliamo come <b>poco scambiate</b>: lì il prezzo si muove di più.", "A card enters the catalogue only if in the last year it has at least 27 graded sales we can recognise, spread across several grades (one grade is enough for Japanese prints), and most of its titles are readable. Cards that sell rarely stay, but we flag them as <b>thinly traded</b>: their price moves more.")}</p></div>
+        <p class="muted">${tx("Una carta entra nel catalogo se nell'ultimo anno ha almeno 10 vendite gradate PSA che sappiamo riconoscere, almeno 5 nello stesso voto, se la maggior parte dei suoi titoli è leggibile e se il motore riesce a stimarla senza contraddizioni. Le carte che vendono poco restano, ma le segnaliamo come <b>poco scambiate</b>: lì il prezzo si muove di più.", "A card enters the catalogue if in the last year it has at least 10 PSA graded sales we can recognise, at least 5 in the same grade, if most of its titles are readable and if the engine can value it without contradictions. Cards that sell rarely stay, but we flag them as <b>thinly traded</b>: their price moves more.")}</p></div>
       <div class="tile" style="padding:22px;display:grid;gap:10px;align-content:start"><span class="label">${tx("Cosa non facciamo", "What we don't do")}</span>
         <p class="muted">${tx("Non scegliamo i parametri a mano e non li cambiamo dopo aver visto i risultati: ogni modifica al metodo passa da una prova registrata prima. Non diciamo se comprare o vendere. Le occasioni le misuriamo sul tuo costo finale, con spedizione, IVA e dogana.", "We don't hand-pick parameters or change them after seeing the results: every change to the method goes through a test registered in advance. We don't tell you whether to buy or sell. Deals are measured on your final cost, with shipping, VAT and customs.")}</p></div>
     </div>
@@ -1489,11 +1489,11 @@ const REQ_STATUS = {
   aggiunta: ["Aggiunta al sito", "Added to the site"], pronta: ["Dati sufficienti: in arrivo", "Enough data: coming soon"],
   attesa_vendite: ["In attesa: poche vendite gradate", "On hold: few graded sales"], attesa_coerenza: ["In attesa: dati non ancora coerenti", "On hold: data not consistent yet"],
   scartata: ["Scartata: non è la stampa giapponese di quella carta", "Dropped: not the Japanese printing of that card"],
-  non_trovata: ["In attesa: carta non trovata nelle fonti", "On hold: card not found in our sources"], in_valutazione: ["In valutazione: risposta entro un'ora", "Being checked: answer within the hour"],
+  non_trovata: ["In attesa: carta non trovata nelle fonti", "On hold: card not found in our sources"], in_valutazione: ["In valutazione: risposta entro tre ore", "Being checked: answer within three hours"],
   attesa_era: ["In attesa: epoca non ancora coperta dal motore", "On hold: era not covered by the engine yet"], attesa_motore: ["In attesa: i controlli del motore non tornano ancora", "On hold: engine checks not passed yet"],
 };
 function reqStatus(r) {
-  const st = (D.requests_status || {})[`${r.lang}:${r.id}`];
+  const st = (D.requests_status || {})[reqKey(r.id, r.lang)];
   const k = st ? st.status : "in_valutazione";
   return {k, label: tx(...REQ_STATUS[k] || REQ_STATUS.in_valutazione), why: st && st.detail ? st.detail : ""};
 }
@@ -1521,19 +1521,22 @@ window.SWReq = {
     catch (e) { return {ok: false, error: "network"}; }
   },
 };
+/* 12 Nov: the status of a Japanese card is kept under its catalogue id ("ja:sv2a-201"), lower case; an English one under "en:<id>" */
+const reqKey = (id, lang) => lang === "ja" ? "ja:" + id.toLowerCase() : `${lang}:${id}`;
 function reqSoon(id, lang = REQ.lang) {
-  const st = (D.requests_status || {})[`${lang}:${id}`];
+  const st = (D.requests_status || {})[reqKey(id, lang)];
   return !!(st && (st.status === "pronta" || st.status === "aggiunta"));
 }
 function reqHits() {
-  if (!REQ.hits.length) return REQ.msg ? `<p class="note">${esc(REQ.msg)}</p>` : "";
-  return `<div class="reqhits">${REQ.hits.map(h => `<div class="tile reqhit">${h.image ? `<img src="${esc(h.image)}/low.webp" alt="" loading="lazy" width="80">` : ""}<div><b>${esc(h.name)}</b><div class="muted">${esc(h.id)}</div></div>${reqHave(h.id) ? `<a class="chip" href="#c-${esc(reqHave(h.id))}">${tx("Già sul sito", "Already here")}</a>` : reqSoon(h.id) ? `<span class="chip" aria-disabled="true">${tx("In arrivo", "Coming soon")}</span>` : `<button class="chip" data-req="${esc(h.id)}" data-reqname="${esc(h.name)}">${tx("Richiedi", "Request")}</button>`}</div>`).join("")}</div>${REQ.msg ? `<p class="note">${esc(REQ.msg)}</p>` : ""}`;
+  const loc = (REQ.local || []).length ? `<h3 style="margin-top:8px">${tx("Già sul sito", "Already on the site")}</h3><div class="reqhits">${REQ.local.map(c => `<a class="tile reqhit" href="#c-${esc(c.id)}">${c.thumb || c.img ? `<img src="${esc(c.thumb || c.img)}" alt="" loading="lazy" width="80">` : ""}<div><b>${esc(c.name)}</b><div class="muted">${esc(c.set || "")} · #${esc(c.no || "")}</div></div><span class="chip">${tx("Apri", "Open")}</span></a>`).join("")}</div><h3 style="margin-top:12px">${tx("Da richiedere", "To request")}</h3>` : "";
+  if (!REQ.hits.length) return loc + (REQ.msg ? `<p class="note">${esc(REQ.msg)}</p>` : "");
+  return loc + `<div class="reqhits">${REQ.hits.map(h => `<div class="tile reqhit">${h.image ? `<img src="${esc(h.image)}/low.webp" alt="" loading="lazy" width="80">` : ""}<div><b>${esc(h.name)}</b><div class="muted">${esc(h.id)}</div></div>${reqHave(h.id) ? `<a class="chip" href="#c-${esc(reqHave(h.id))}">${tx("Già sul sito", "Already here")}</a>` : reqSoon(h.id) ? `<span class="chip" aria-disabled="true">${tx("In arrivo", "Coming soon")}</span>` : `<button class="chip" data-req="${esc(h.id)}" data-reqname="${esc(h.name)}">${tx("Richiedi", "Request")}</button>`}</div>`).join("")}</div>${REQ.msg ? `<p class="note">${esc(REQ.msg)}</p>` : ""}`;
 }
 function viewRequests() {
   setTimeout(reqLoad, 0);
   return `<div class="wrap"><section class="sec" style="padding-top:36px">
     <div><span class="label">${t("requests")}</span><h2 style="font-size:clamp(28px,3.4vw,40px)">${tx("Richiedi una carta", "Request a card")}</h2>
-      <p class="muted" style="max-width:64ch;margin-top:8px">${tx("Sei tu a decidere quali carte aggiungiamo. Cerca la carta, scegli la stampa esatta e richiedila. Ogni giorno controlliamo se ci sono abbastanza vendite gradate PSA, coerenti tra loro, per stimarla bene: se sì la aggiungiamo, altrimenti resta in attesa e la ricontrolliamo ogni settimana.", "You decide which cards we add. Search the card, pick the exact printing and request it. Every day we check whether there are enough consistent PSA graded sales to value it well: if so we add it, otherwise it stays on hold and we check again every week.")}</p></div>
+      <p class="muted" style="max-width:64ch;margin-top:8px">${tx("Sei tu a decidere quali carte aggiungiamo. Cerca la carta, scegli la stampa esatta e richiedila. Entro tre ore controlliamo se ci sono abbastanza vendite gradate PSA, coerenti tra loro, per stimarla bene (almeno 10 nell'ultimo anno): se sì la aggiungiamo, altrimenti resta in attesa e la ricontrolliamo ogni settimana. Se la carta che cerchi è già sul sito o in coda, te lo diciamo subito.", "You decide which cards we add. Search the card, pick the exact printing and request it. Within three hours we check whether there are enough consistent PSA graded sales to value it well (at least 10 in the last year): if so we add it, otherwise it stays on hold and we check again every week. If the card is already on the site or queued, we tell you right away.")}</p></div>
     <div class="reqsearch" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
       <input id="reqq" type="search" placeholder="${tx("Nome della carta, es. Umbreon VMAX", "Card name, e.g. Umbreon VMAX")}" aria-label="${tx("Nome della carta", "Card name")}" style="flex:1;min-width:220px">
       <div class="chips" role="group" aria-label="${tx("Lingua della carta", "Card language")}">${[["en", tx("Inglese", "English")], ["ja", tx("Giapponese", "Japanese")]].map(([v, l]) => `<button class="chip" data-reqlang="${v}" aria-pressed="${REQ.lang === v}">${l}</button>`).join("")}</div>
@@ -1554,6 +1557,8 @@ async function reqSearch() {
   if (q.trim().length < 2) return;
   REQ.msg = tx("Cerco…", "Searching…"); REQ.hits = []; document.getElementById("reqhits").innerHTML = reqHits();
   try {
+    const qn = q.trim().toLowerCase();
+    REQ.local = D.cards.filter(c => (REQ.lang === "ja") === (c.lang === "ja") && (c.name || "").toLowerCase().includes(qn)).slice(0, 12);   /* 12 Nov: our own cards first (Japanese promos, 1st Edition... are not on TCGdex) */
     REQ.hits = await SWReq.search(q, REQ.lang);
     REQ.msg = REQ.hits.length ? "" : tx("Nessuna carta trovata con questo nome.", "No card found with this name.");
   } catch (e) { REQ.hits = []; REQ.msg = tx("Ricerca non riuscita, riprova.", "Search failed, try again."); }
