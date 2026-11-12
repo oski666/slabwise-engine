@@ -7,6 +7,10 @@
 __CHAR_FONT__
 <style>
 __STYLE__
+.fork .band{transition:left .45s cubic-bezier(.3,1.4,.5,1),width .45s cubic-bezier(.3,1.4,.5,1)}
+.h-range.tick .hr-t{animation:hrIn .35s ease-out}
+@keyframes hrIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.fork .band{transition:none}.h-range.tick .hr-t{animation:none}}
 </style>
 
 __SLABBY_SVG__
@@ -172,7 +176,7 @@ function slab(c, g, w = 300, cls = "") {
    uses; lo/hi (how sure we are of the value) stay in the chart. Older data without slo/shi falls back to lo/hi. */
 const SR = g => [g.slo ?? g.lo, g.shi ?? g.hi];
 /* the value range bar: the signature of Slabwise (P10) */
-function fork(g, mini = false, span = 0.4) {
+function fork(g, mini = false, span = 0.7) {   /* 12 Nov (Oscar): a wider scale, so the band is narrower or wider with the card's ± instead of always filling the bar */
   const [lo, hi] = SR(g);
   const pos = v => 50 + 50 * Math.log(v / g.value) / Math.log(1 + span);
   const a = Math.max(0, pos(lo)), b = Math.min(100, pos(hi));
@@ -312,11 +316,36 @@ function blobOf(u) {
 /* 7 Nov (D223, D224): the hero introduces the SlabRange on a real card, a different one at every visit, among well-measured
    PSA 10s with at least 5 sales in 30 days: its Slabprice, the band where 8 sales in 10 land, its real sales of the month */
 function heroRange() {
-  const pool = D.cards.filter(c => { const g = gradeOf(c, 10); return c.lang !== "ja" && g && !noOwn(g) && g.slo && g.q30 && tierK(g) === "hi"; });
+  /* 12 Nov (Oscar): the hero cycles through real cards, fast, and the SlabRange narrows and widens with each card's ± */
+  const pool = D.cards.filter(c => { const g = gradeOf(c, 10); return c.lang !== "ja" && g && !noOwn(g) && g.slo && g.q30; });
   if (!pool.length) return "";
-  const c = pool[Math.floor(Math.random() * pool.length)], g = gradeOf(c, 10), [lo, hi] = SR(g);
-  return `<a class="h-tag h-range" href="#c-${c.id}"><span class="hr-t">${tx(`<b>${esc(c.name)}</b> PSA 10: Slabprice ${usd(g.value)}`, `<b>${esc(c.name)}</b> PSA 10: Slabprice ${usd(g.value)}`)}</span>
+  const w = c => { const g = gradeOf(c, 10), [lo, hi] = SR(g); return Math.log(hi / lo); };
+  const srt = [...pool].sort((a, b) => w(a) - w(b));
+  const n = Math.min(14, srt.length), pick = Array.from({length: n}, (_, k) => srt[Math.round(k * (srt.length - 1) / Math.max(1, n - 1))]);
+  for (let i = pick.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pick[i], pick[j]] = [pick[j], pick[i]]; }
+  HERO_RANGE = pick.map(c => c.id);
+  const c = pick[0], g = gradeOf(c, 10), [lo, hi] = SR(g);
+  if (!HERO_T) HERO_T = setTimeout(heroRangeTick, 1600);
+  return `<a class="h-tag h-range" id="hrange" href="#c-${c.id}"><span class="hr-t">${heroRangeText(c)}</span>
     ${fork(g, true)}<span class="hr-s">${tx(`SlabRange ${usd(lo)}–${usd(hi)}: qui finiscono 8 vendite su 10`, `SlabRange ${usd(lo)}–${usd(hi)}: where 8 sales in 10 land`)}</span></a>`;
+}
+let HERO_RANGE = [], HERO_I = 0, HERO_T = null;
+const heroRangeText = c => `<b>${esc(c.name)}</b> PSA 10: Slabprice ${usd(gradeOf(c, 10).value)}`;
+function heroRangeTick() {
+  const el = document.getElementById("hrange");
+  if (!el || !HERO_RANGE.length) { HERO_T = null; return; }
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches && !document.hidden) {
+    HERO_I = (HERO_I + 1) % HERO_RANGE.length;
+    const c = cardById[HERO_RANGE[HERO_I]], g = gradeOf(c, 10), [lo, hi] = SR(g);
+    const pos = v => 50 + 50 * Math.log(v / g.value) / Math.log(1.7);
+    const a = Math.max(0, pos(lo)), b = Math.min(100, pos(hi));
+    el.href = "#c-" + c.id;
+    el.querySelector(".hr-t").innerHTML = heroRangeText(c);
+    el.querySelector(".hr-s").textContent = tx(`SlabRange ${usd(lo)}–${usd(hi)}: qui finiscono 8 vendite su 10`, `SlabRange ${usd(lo)}–${usd(hi)}: where 8 sales in 10 land`);
+    const band = el.querySelector(".band"); band.style.left = a + "%"; band.style.width = (b - a) + "%";
+    el.classList.remove("tick"); void el.offsetWidth; el.classList.add("tick");
+  }
+  HERO_T = setTimeout(heroRangeTick, 1600);
 }
 function comicHero() {
   const ids = ["swsh7-215", "base1-4", "sv03.5-199", "neo1-9", "svp-085", "me02-125"].filter(id => cardById[id]);
