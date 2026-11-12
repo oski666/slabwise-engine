@@ -33,17 +33,23 @@ def main():
     rows = list(csv.DictReader(open(sys.argv[2], newline="")))
     if mode == "flag":
         reg = json.load(open(sys.argv[3])) if os.path.exists(sys.argv[3]) else {}
-        site = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "prototype", "data", "real.json")
-        if os.path.exists(site):                        # only the cards of the last published build
-            ids = {c["id"] for c in json.load(open(site)).get("cards", [])}
-            rows = [r for r in rows if r["card"] in ids]
+        here = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "prototype", "data")
+        ids = set()                                     # only catalogue cards (the site shows a subset of them)
+        for fn in ("cards.json", "cards_ja.json"):
+            if os.path.exists(os.path.join(here, fn)):
+                ids |= {c["id"] for c in json.load(open(os.path.join(here, fn)))}
+        if ids:
+            rows = [r for r in rows if r["card"].split("/")[0] in ids or r["card"] in ids]
         f = {k: v for k, v in flag(rows).items() if k not in reg}
+        total = len(f)
         import math
         f = dict(sorted(f.items(), key=lambda kv: -abs(math.log(kv[1]["ratio"])))[:MAX_MEASURED])
+        f["__total__"] = total
         json.dump(f, open(sys.argv[4], "w"))
         print(f"D275: {len(f)} vendite sospette da decidere")
         return
     ids = json.load(open(sys.argv[3]))
+    total = ids.pop("__total__", len(ids))
     imp = json.load(open(sys.argv[4])) if os.path.exists(sys.argv[4]) else {}
     real = json.load(open(sys.argv[5]))
     names = {c["id"]: c.get("name") or c["id"] for c in real.get("cards", [])}
@@ -64,7 +70,7 @@ def main():
                           ratio=f["ratio"], in_use=bool(m.get("in_use")), pgen=m.get("pgen"), value=m.get("value"),
                           pull=pull.get(g), pull_all=pull))
     items.sort(key=lambda x: -abs(x["pull"] or 0))
-    json.dump(dict(date=str(today), total=len(items), items=items[:MAX_ITEMS]), open(sys.argv[6], "w"),
+    json.dump(dict(date=str(today), total=total, measured=len(items), items=items[:MAX_ITEMS]), open(sys.argv[6], "w"),
               ensure_ascii=False, indent=1)
     print(f"D275: {len(items)} vendite sospette sulle carte del sito, {min(len(items), MAX_ITEMS)} nella revisione")
 

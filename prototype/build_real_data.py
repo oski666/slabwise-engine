@@ -209,7 +209,7 @@ if _susp and os.path.exists(_susp) and not QTEST:
     try:
         import copy as _copy
         from slabwise.model import GRADE_INDEX as _GI
-        _flagged = json.load(open(_susp))
+        _flagged = {k: v for k, v in json.load(open(_susp)).items() if not k.startswith("__")}
         _keep = ("F", "V", "obs", "fit", "era", "p")
         _rows = clean[clean["item_id"].isin(set(_flagged))]
         _imp = {}
