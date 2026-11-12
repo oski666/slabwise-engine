@@ -87,10 +87,13 @@ jobs:
           restore-keys: |
             state-${{ github.ref_name }}-
             state-main-
-      - name: Suspect sales to review, on Mondays (D275)
+      - name: Suspect sales to review, once a week (D275)
         continue-on-error: true
         run: |
-          if [ "$(date -u +%u)" = 1 ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          P=data/raw/eccezioni/proposte.json
+          OLD=1
+          if [ -f $P ]; then OLD=$(python3 -c "import json,datetime;print(int((datetime.date.today()-datetime.date.fromisoformat(json.load(open('$P'))['date'])).days>=6))"); fi
+          if [ "$OLD" = 1 ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             PYTHONPATH=. python scripts/suspects.py flag data/raw/sales_all.csv data/raw/eccezioni/registro.json /tmp/susp_ids.json
           fi
       - name: Values and indices with the long history in one run (D149, D228, D244)
