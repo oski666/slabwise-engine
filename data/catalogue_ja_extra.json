@@ -2656,5 +2656,17 @@
   96,
   71,
   "\\bclay\\W*burst\\b"
+ ],
+ "ja:sm11-096": [
+  "(?:slowpoke\\s*(?:&|and)\\s*psyduck|psyduck\\s*(?:&|and)\\s*slowpoke) gx|ヤドン\\&コダック\\s?gx",
+  96,
+  94,
+  "\\bmiracle\\W*twin\\b"
+ ],
+ "ja:sm10b-062": [
+  "(?:jessie\\s*(?:&|and)\\s*james|james\\s*(?:&|and)\\s*jessie)|ムサシとコジロウ",
+  62,
+  56,
+  "\\bsky\\W*legend\\b"
  ]
 }
