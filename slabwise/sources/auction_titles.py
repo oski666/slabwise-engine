@@ -12,6 +12,20 @@ from __future__ import annotations
 
 import re
 
+
+from functools import lru_cache as _lru_cache
+
+
+@_lru_cache(maxsize=None)
+def _rx(pattern):
+    """Compiled pattern, kept for the whole run: the catalogue loops search thousands of patterns per title, and
+    re's own cache (512 patterns) was recompiling them every time (D276: 15-20 minutes per build)."""
+    return re.compile(pattern)
+
+
+def _rx_search(pattern, text):
+    return _rx(pattern).search(text)
+
 # catalogue id -> (name regex, set regex or None, card number, allowed years)
 CATALOGUE = {
     "base1-4": (r"(?<!dark )(?<!mega )charizard(?! ex| v| gx| vmax)", r"base|game|holo", 4, (1999, 2000)),
@@ -199,7 +213,7 @@ def _set_extra(key):
 
 def _set_ok(key, setre, t):
     x = _set_extra(key) if NEW_JA_RULES else None
-    return bool((setre and re.search(setre, t)) or (x and re.search(x, t)))
+    return bool((setre and _rx_search(setre, t)) or (x and _rx_search(x, t)))
 
 
 NEW_JA_RULES = _os.environ.get("SLABWISE_JA_RULES", "1") == "1"   # noqa: E501
@@ -223,14 +237,14 @@ def match_japanese(title: str):
         nums |= {int(x) for x in _JA_PROMO_NO.findall(t)}
     if JA_BARE and not pairs and not re.search(r"#\s*\d|\bno\.?\s*\d", t) and not _JA_PROMO_NO.search(t):   # D238 b (protocol §49)
         nums |= {int(x) for x in _BARE.findall(_NOT_NUM.sub(" ", t))}
-    hits = [k for k, (name, no, tot, setre) in JA_CATALOGUE.items() if re.search(name.replace("'", "") if NEW_JA_RULES else name, t)
+    hits = [k for k, (name, no, tot, setre) in JA_CATALOGUE.items() if _rx_search(name.replace("'", "") if NEW_JA_RULES else name, t)
             and ((no, tot) in pairs or (no in nums and _set_ok(k, setre, t)))]
     if JA_PROMO_NONAME and not hits:                      # D233 (protocol §43): "ポンチョを着たピカチュウ #207/XY-P" is 207/XY-P
         promo = {(int(n), c) for n, c in _JA_PROMO_FULL.findall(t)}
         hits = [k for k in JA_CATALOGUE if (m := _JA_PROMO_KEY.match(k)) and (int(m.group(2)), m.group(1)) in promo]
         own = {JA_CATALOGUE[k][0] for k in hits}
-        if hits and any(nm not in own and re.search(nm.replace("'", ""), t)
-                        and not (JA_PROMO_OWN and any(re.search(nm.replace("'", ""), o.replace("\\", "")) for o in own))
+        if hits and any(nm not in own and _rx_search(nm.replace("'", ""), t)
+                        and not (JA_PROMO_OWN and any(_rx_search(nm.replace("'", ""), o.replace("\\", "")) for o in own))
                         for nm, _, _, _ in JA_CATALOGUE.values()):
             return None, "ambigua"                        # another card of the catalogue is named in the title
     if len(hits) != 1:
@@ -279,11 +293,11 @@ def _match_english(title: str):
         nums |= {int(x) for x in _BARE.findall(_NOT_NUM.sub(" ", t))}
     hits = []
     for cid, (name, setre, no, yrs) in CATALOGUE.items():
-        if not re.search(_HYPH.sub(" ", name) if NEW_EN_RULES else name, t):
+        if not _rx_search(_HYPH.sub(" ", name) if NEW_EN_RULES else name, t):
             continue
-        if setre and not re.search(setre, t):
+        if setre and not _rx_search(setre, t):
             par = _parent_set(setre) if NEW_EN_RULES and isinstance(no, str) else None
-            if not (par and re.search(par, t)):
+            if not (par and _rx_search(par, t)):
                 continue
         if EN_FIX and years and isinstance(no, str) and setre == r"\bpromo" and (sp := _PROMO_SPAN.get(re.match(r"[a-z]+", no).group(0))):
             yrs = range(sp[0], sp[1] + 1)                 # D235 (3): a promo of a series is valid in every year of the series
@@ -293,7 +307,7 @@ def _match_english(title: str):
         if not nums or no not in nums:
             # D216: a promo number with its prefix ("swsh75") also as the bare number when the prefix is a word of the title
             pm = re.fullmatch(r"(swsh|sm|xy|bw|dp|hgss)(\d+)", no) if NEW_EN_RULES and isinstance(no, str) and setre == r"\bpromo" else None
-            if not (pm and int(pm.group(2)) in nums and re.search(rf"\b{pm.group(1)}\b", t)):
+            if not (pm and int(pm.group(2)) in nums and _rx_search(rf"\b{pm.group(1)}\b", t)):
                 continue
         hits.append(cid)
     if len(hits) != 1:
