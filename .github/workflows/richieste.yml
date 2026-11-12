@@ -7,9 +7,8 @@ on:
 permissions:
   contents: write
   actions: write
-concurrency:
-  group: raccolta-tcgcharts      # never at the same time as the collection: both write the tcgcharts files
-  cancel-in-progress: false
+# 12 Nov: the queue lock is on the real job only. At workflow level every idle hourly run entered the queue and, since
+# GitHub keeps one pending run per group, cancelled the pending collection (Raccolta of 12 Nov) and Approva runs.
 jobs:
   gate:                          # 4 Nov: a tiny job without checkout decides; the real job is skipped (no minutes) when idle
     runs-on: ubuntu-latest
@@ -34,6 +33,9 @@ jobs:
   requests:
     needs: gate
     if: needs.gate.outputs.go == 'true'
+    concurrency:
+      group: raccolta-tcgcharts  # never at the same time as the collection: both write the tcgcharts files
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
