@@ -204,6 +204,47 @@ try:                                                  # ECB reference rate, USD 
 except Exception:
     usd_per_eur, rate_date = None, None
 EUR = round(1 / usd_per_eur, 4) if usd_per_eur else 0.9
+_susp = os.environ.get("SLABWISE_SUSPECTS")            # D275: weight and pull of each suspect sale on today's value
+if _susp and os.path.exists(_susp) and not QTEST:
+    try:
+        import copy as _copy
+        from slabwise.model import GRADE_INDEX as _GI
+        _flagged = json.load(open(_susp))
+        _keep = ("F", "V", "obs", "fit", "era", "p")
+        _rows = clean[clean["item_id"].isin(set(_flagged))]
+        _imp = {}
+        _base_est = est[W - 1]
+        for _iid, _r in zip(_rows["item_id"], _rows.itertuples()):
+            _c, _gi = int(_r.card), _GI[int(_r.grade)]
+            _ob = lvm.obs[_c]
+            _hit = [k for k, o in enumerate(_ob) if o["g"] == _gi and abs(o["t"] - _r.day / 7.0) < 1e-6
+                    and abs(o["y"] - np.log(_r.price)) < 1e-9]
+            _pg = lvm.fit[_c]["pgen"] if lvm.fit[_c] is not None else None
+            if not _hit:                                    # outside the card's window: it no longer counts
+                _imp[_iid] = dict(in_use=False, pgen=None, pull=0.0)
+                continue
+            _k = _hit[0]
+            _pgk = float(_pg[_k]) if _pg is not None and _k < len(_pg) else None
+            _snap = {a: _copy.deepcopy(v) for a, v in lvm.__dict__.items() if a not in _keep}
+            _so, _sf = list(_ob), lvm.fit[_c]
+            lvm.obs[_c] = [o for k, o in enumerate(_ob) if k != _k]
+            try:
+                lvm._refit(_c, W - 1)
+                _new = lvm.estimates_with_sd(W - 1)[0]
+                _pull = {str(GRADES[g]): round(float(np.exp(_base_est[_c, g] - _new[_c, g]) - 1), 4)
+                         for g in range(4) if np.isfinite(_base_est[_c, g]) and np.isfinite(_new[_c, g])}
+            except Exception as ex:                         # a failed refit never stops the build
+                _pull = {"errore": str(ex)}
+            lvm.obs[_c], lvm.fit[_c] = _so, _sf
+            lvm.__dict__.update(_snap)
+            _imp[_iid] = dict(in_use=True, pgen=None if _pgk is None else round(_pgk, 3), pull=_pull,
+                              value=round(float(np.exp(_base_est[_c, _gi])), 2) if np.isfinite(_base_est[_c, _gi]) else None)
+        os.makedirs("results", exist_ok=True)
+        json.dump(_imp, open(os.path.join("results", "suspects_impact.json"), "w"))
+        print(f"D275: {len(_imp)} vendite sospette misurate", flush=True)
+    except Exception as ex:                               # the review list never stops the build
+        print('D275: misura delle vendite sospette non riuscita:', ex, flush=True)
+
 asof = min((t0 + pd.Timedelta(weeks=W)).date(), (t0 + pd.Timedelta(days=float(clean["day"].max()))).date())   # never after the last sale
 day = lambda d: str((t0 + pd.Timedelta(days=float(d))).date())            # noqa: E731
 wk = lambda w: str((t0 + pd.Timedelta(weeks=int(w) + 1)).date())          # noqa: E731

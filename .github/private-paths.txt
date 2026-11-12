@@ -6,3 +6,4 @@ data/raw/curiosita
 data/raw/gemrate
 data/raw/sales_base.csv
 prototype/data/certs.json
+data/raw/eccezioni

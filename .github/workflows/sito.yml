@@ -87,10 +87,34 @@ jobs:
           restore-keys: |
             state-${{ github.ref_name }}-
             state-main-
+      - name: Suspect sales to review, on Mondays (D275)
+        continue-on-error: true
+        run: |
+          if [ "$(date -u +%u)" = 1 ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            PYTHONPATH=. python scripts/suspects.py flag data/raw/sales_all.csv data/raw/eccezioni/registro.json /tmp/susp_ids.json
+          fi
       - name: Values and indices with the long history in one run (D149, D228, D244)
         run: |
+          [ -f /tmp/susp_ids.json ] && export SLABWISE_SUSPECTS=/tmp/susp_ids.json
           SLABWISE_CKPT=$HOME/.cache/slabwise/state SLABWISE_TC_HISTORY=1 SLABWISE_INDEX_SELF=1 PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json
           mkdir -p /tmp/out && cp prototype/data/real.json /tmp/out/real.json   # D227: the values of this run, kept apart from git
+      - name: Review list of the suspect sales (D275)
+        id: susp
+        continue-on-error: true
+        run: |
+          if [ -f /tmp/susp_ids.json ]; then
+            mkdir -p data/raw/eccezioni
+            PYTHONPATH=. python scripts/suspects.py report data/raw/sales_all.csv /tmp/susp_ids.json results/suspects_impact.json prototype/data/real.json data/raw/eccezioni/proposte.json
+            echo "ok=1" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Save the review list in the private data (D163, D275)
+        if: steps.susp.outputs.ok == '1'
+        continue-on-error: true
+        uses: ./.github/actions/private-data
+        with:
+          mode: push
+          token: ${{ secrets.DATA_TOKEN }}
+          message: "Vendite sospette da rivedere"
       - name: Coherence checks (D211)
         continue-on-error: true
         run: PYTHONPATH=. python scripts/coherence_check.py prototype/data/real.json results/coherence.json

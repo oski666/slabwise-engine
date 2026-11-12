@@ -27,6 +27,17 @@ for r in rows + got:                                  # D81: printings PSA keeps
         else:
             r["card"] = cid
 why["variante ambigua"] += n_amb
+import json
+import os
+_reg = os.path.join(os.path.dirname(os.path.abspath(base)), "eccezioni", "registro.json")   # D275: Oscar's decisions
+if os.path.exists(_reg):
+    reg = json.load(open(_reg))
+    n_exc = 0
+    for r in rows + got:
+        d = reg.get(str(r["item_id"]))
+        if d and d.get("stato") == "esclusa" and not r.get("excluded"):
+            r["excluded"], n_exc = "esclusa da Oscar: " + (d.get("motivo") or "prezzo di un'altra stampa"), n_exc + 1
+    why["eccezione confermata da Oscar"] += n_exc
 fields = ["item_id", "date", "card", "grade", "price_usd", "venue", "cert", "best_offer_hidden", "title", "excluded"]
 with open(out, "w", newline="") as fh:
     wr = csv.DictWriter(fh, fieldnames=fields)

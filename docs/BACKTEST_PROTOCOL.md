@@ -986,7 +986,7 @@ Si adotta se I1–I4 passano su tutti e tre i gruppi. Fino ad allora ogni ingres
 
 **Domanda (Oscar).** "Non possiamo (solo dove serve) normalizzare tutto per avere delle comparazioni reali?" Diagnosi nel D274.
 
-**Eccezioni dei dati (si applicano a tutte le varianti, campione compreso, e si riporta il campione con e senza).** Per ogni carta × voto con almeno 6 vendite, le vendite si dividono in due gruppi al salto di prezzo più grande in scala logaritmica; se le mediane dei due gruppi distano più di 5 volte e il gruppo minore ha al massimo il 40% delle vendite, la voce va "in revisione" e le vendite del gruppo minore entrano nel registro delle eccezioni con il motivo "prezzo di un'altra stampa?" e peso zero. Diventano definitive solo quando Oscar le conferma; finché no, il registro le marca come proposte. Si riporta quante voci e quante vendite sono toccate per era.
+**Eccezioni dei dati (si applicano a tutte le varianti, campione compreso, e si riporta il campione con e senza).** Una vendita è sospetta quando il suo prezzo dista più di 5 volte (sopra o sotto) dalla mediana delle altre vendite della stessa carta × voto nelle 26 settimane prima e dopo, con almeno 3 altre vendite. *Corretto il 12 novembre, prima del codice e prima di vedere i risultati (D275):* la prima stesura divideva tutto lo storico in due gruppi di prezzo, e così avrebbe segnalato le carte salite davvero negli anni. Le vendite sospette entrano nel registro delle eccezioni come proposte; pesano zero solo quando Oscar le conferma (D275). Nella prova si usano le eccezioni confermate al momento della prova, e si riporta quante voci e quante vendite sono segnalate e confermate per era.
 
 **Varianti.**
 
