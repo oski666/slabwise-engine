@@ -7,3 +7,5 @@ data/raw/gemrate
 data/raw/sales_base.csv
 prototype/data/certs.json
 data/raw/eccezioni
+data/raw/snkrdunk
+data/raw/cardova

@@ -256,3 +256,13 @@ Ricerca del 3 novembre 2026 (Oscar ha segnalato Traded).
 ## Dove stanno i dati grezzi (D163)
 
 Il repository `slabwise-engine` è pubblico. I dati grezzi delle fonti (tcgcharts: vendite, schede, storico, popolazioni; Alt; Pokecolor; base delle vendite; cert delle aste) non si redistribuiscono e stanno nel repository privato `slabwise-data`, con gli stessi percorsi; l'elenco è in `.github/private-paths.txt`. Le corse li scaricano e li salvano con `.github/actions/private-data`.
+
+## Cambio yen–dollaro (BCE, via frankfurter.app) — D280
+
+| | |
+|---|---|
+| Cosa dà | il cambio di riferimento BCE yen per dollaro di ogni giorno lavorativo dal luglio 2022 |
+| Come | API pubblica gratuita senza chiave, letta dalla corsa del ramo `giappone` (`scripts/fx_jpy.py`) |
+| Uso | solo per convertire in dollari i prezzi in yen di SNKRDUNK e Cardova nell'anteprima giapponese |
+| Rischi | dati pubblici di una banca centrale; il servizio intermedio può sparire: la BCE pubblica gli stessi valori |
+

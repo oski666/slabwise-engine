@@ -38,6 +38,11 @@ if os.path.exists(_reg):
         if d and d.get("stato") == "esclusa" and not r.get("excluded"):
             r["excluded"], n_exc = "esclusa da Oscar: " + (d.get("motivo") or "prezzo di un'altra stampa"), n_exc + 1
     why["eccezione confermata da Oscar"] += n_exc
+if os.environ.get("SLABWISE_JA_MARKETS") == "1":     # D280: SNKRDUNK and Cardova, preview branch only
+    from slabwise.sources.ja_markets import ja_market_rows
+    _jr, _jw = ja_market_rows(os.path.dirname(os.path.abspath(base)), os.path.join("data", "fx_jpy.json"))
+    got += _jr
+    why += _jw
 fields = ["item_id", "date", "card", "grade", "price_usd", "venue", "cert", "best_offer_hidden", "title", "excluded"]
 with open(out, "w", newline="") as fh:
     wr = csv.DictWriter(fh, fieldnames=fields)

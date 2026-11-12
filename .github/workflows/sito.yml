@@ -67,7 +67,12 @@ jobs:
           printf '%s' "$EBAY_CLIENT_ID" > ~/.slabwise/ebay_client_id
           printf '%s' "$EBAY_CLIENT_SECRET" > ~/.slabwise/ebay_client_secret
           printf '%s' "$EPN_CAMPAIGN_ID" > ~/.slabwise/epn_campaign_id
+      - name: Yen rate for the Japanese marketplaces (D280, preview branch only)
+        if: github.ref_name == 'giappone'
+        run: python scripts/fx_jpy.py data/fx_jpy.json
       - name: Sales (base + Alt + tcgcharts with the long history, D82, D210)
+        env:
+          SLABWISE_JA_MARKETS: ${{ github.ref_name == 'giappone' && '1' || '0' }}   # D280: SNKRDUNK and Cardova only in the preview
         run: SLABWISE_TC_HISTORY=1 PYTHONPATH=. python scripts/build_sales.py data/raw/sales_base.csv data/raw/alt data/raw/sales_all.csv data/raw/tcgcharts
       - name: The tap from the GemRate reads (D190)
         continue-on-error: true
@@ -88,6 +93,7 @@ jobs:
             state-${{ github.ref_name }}-
             state-main-
       - name: Suspect sales to review, once a week (D275)
+        if: github.ref_name == 'main'
         continue-on-error: true
         run: |
           P=data/raw/eccezioni/proposte.json
