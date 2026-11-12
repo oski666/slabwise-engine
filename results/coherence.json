@@ -3,17 +3,12 @@
  "cards": 1077,
  "checks": {
   "C7": {
-   "n": 23,
+   "n": 19,
    "examples": [
-    [
-     "ex16-102",
-     "Vaporeon ☆",
-     "PSA 8 6808 < PSA 7 6819"
-    ],
     [
      "swsh3.5-79",
      "Charizard V",
-     "PSA 9 193 < PSA 8 209"
+     "PSA 9 193 < PSA 8 211"
     ],
     [
      "swsh7-212",
@@ -28,12 +23,12 @@
     [
      "swshp-SWSH074",
      "Special Delivery Pikachu",
-     "PSA 8 317 < PSA 7 327"
+     "PSA 8 317 < PSA 7 328"
     ],
     [
      "me02.5-276",
      "Pikachu ex",
-     "PSA 9 620 < PSA 8 621"
+     "PSA 9 619 < PSA 8 621"
     ],
     [
      "me02.5-277",
@@ -51,19 +46,24 @@
      "PSA 8 112 < PSA 7 114"
     ],
     [
-     "sv03.5-167",
-     "Ivysaur",
-     "PSA 8 33 < PSA 7 33"
-    ],
-    [
      "sv10-229",
      "Team Rocket's Moltres ex",
      "PSA 8 58 < PSA 7 67"
     ],
     [
-     "swsh12.5gg-GG44",
-     "Mewtwo VSTAR",
-     "PSA 9 211 < PSA 8 212"
+     "xy12-101",
+     "M Charizard EX",
+     "PSA 8 109 < PSA 7 113"
+    ],
+    [
+     "ja:sv-p-001",
+     "ピカチュウ",
+     "PSA 8 24 < PSA 7 30"
+    ],
+    [
+     "ja:sv8a-202",
+     "ブースターex",
+     "PSA 9 45 < PSA 8 53"
     ]
    ]
   }
