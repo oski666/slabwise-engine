@@ -980,3 +980,34 @@ Si adotta la K più grande che passa Q1–Q4 (prima 40, poi 30). Se nessuna pass
 | I4 | tempo | sotto i 10 minuti per 20 carte |
 
 Si adotta se I1–I4 passano su tutti e tre i gruppi. Fino ad allora ogni ingresso ricostruisce tutto, con il riavvio dagli stati salvati (D246).
+
+
+## 61. SlabRange per carta, rumore per carta, fattore per voto, eccezioni dei dati (registrato il 12 novembre 2026, prima del codice; D274)
+
+**Domanda (Oscar).** "Non possiamo (solo dove serve) normalizzare tutto per avere delle comparazioni reali?" Diagnosi nel D274.
+
+**Eccezioni dei dati (si applicano a tutte le varianti, campione compreso, e si riporta il campione con e senza).** Per ogni carta × voto con almeno 6 vendite, le vendite si dividono in due gruppi al salto di prezzo più grande in scala logaritmica; se le mediane dei due gruppi distano più di 5 volte e il gruppo minore ha al massimo il 40% delle vendite, la voce va "in revisione" e le vendite del gruppo minore entrano nel registro delle eccezioni con il motivo "prezzo di un'altra stampa?" e peso zero. Diventano definitive solo quando Oscar le conferma; finché no, il registro le marca come proposte. Si riporta quante voci e quante vendite sono toccate per era.
+
+**Varianti.**
+
+| | Cosa cambia |
+|---|---|
+| A | campione: il motore in uso (v1.20) |
+| B | SlabRange per carta × voto: deviazione degli scarti tra vendita e valore della settimana prima sulle vendite delle 52 settimane precedenti, ristretta verso quella della sua era × fascia di voto con peso n/(n+10); il valore non cambia |
+| C | B, e il rumore delle vendite nel modello per carta × voto con la stessa stima ristretta, al posto del solo rumore d'era |
+| D | C, e il fattore d'era diviso per fascia di voto: PSA 10, PSA 9, PSA 8 e sotto, ciascuno legato a quello dell'era con la stessa forza del legame tra ere |
+
+Tutte le stime usano solo dati fino al giorno del valore (P11). Il 10 di n/(n+10) è fissato qui e non si tocca dopo i risultati.
+
+**Prova.** Motore del sito, storico lungo, vendite reali con la metrica della vendita successiva; valutazione sulle vendite dal 1º novembre 2025 con probabilità di essere genuine ≥ 0,5. Fasce di volatilità: terzili della deviazione stimata al momento della vendita.
+
+| # | Criterio | Soglia |
+|---|---|---|
+| S1 | copertura dello SlabRange, in totale | tra 78% e 82% |
+| S2 | copertura per terzile di volatilità | ogni terzile tra 75% e 85% |
+| S3 | la forchetta segue la carta | correlazione di rango tra larghezza della forchetta e scarto assoluto della vendita ≥ campione + 0,10 |
+| S4 | errore sulla vendita successiva | mediana dell'errore assoluto non più alta del campione di oltre l'1% relativo, in totale e in ogni fascia di liquidità (P12) |
+| S5 | distorsione per era × voto | media sulle celle era × fascia di voto (con almeno 200 vendite) del valore assoluto dello scarto mediano ≤ 75% di quella del campione (solo C e D) |
+| S6 | ritardo | ritardo misurato come nel §57 non peggiore del campione |
+
+B entra se passa S1–S4 e S6; C e D se passano anche S5. Tra le varianti che passano si adotta la più semplice che passa tutto; D solo se batte C su S5 di almeno 10 punti relativi. Per il D265 l'adozione vuole due giri di fila; il primo giro è questo, il secondo il giro mensile successivo con il catalogo cresciuto. Se nessuna passa, la frase del Metodo che dice che la forchetta si stringe con molte vendite concordi va corretta.
