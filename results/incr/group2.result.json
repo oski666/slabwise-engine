@@ -1,0 +1,40 @@
+{
+ "group": "results/incr/group2.json",
+ "cards_new": 32,
+ "atoms_new": 128,
+ "atoms_old": 4152,
+ "I1": {
+  "different": 656,
+  "examples": [
+   "me01-133 PSA 7",
+   "me02.5-295 PSA 10",
+   "me02-098 PSA 10",
+   "me02-098 PSA 9",
+   "basep-9 PSA 10",
+   "basep-9 PSA 9",
+   "basep-9 PSA 8",
+   "sv10-232 PSA 10",
+   "sv07-143 PSA 10",
+   "sv07-143 PSA 7"
+  ],
+  "passed": false
+ },
+ "I2": {
+  "n": 128,
+  "median": 0.003320948319468087,
+  "p95": 0.03018900334647711,
+  "passed": true
+ },
+ "I3": {
+  "coverage_B": 0.7644001732351667,
+  "coverage_C": 0.761925411968777,
+  "sales": 2309,
+  "passed": true
+ },
+ "I4": {
+  "seconds_B": 2853.0,
+  "seconds_C": 2441.0,
+  "passed": false
+ },
+ "passed": false
+}
