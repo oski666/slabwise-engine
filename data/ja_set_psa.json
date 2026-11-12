@@ -1,0 +1,10 @@
+{
+  "_doc": "D278 (protocol §62): set names as PSA writes them on Japanese labels, per set of the catalogue (id up to the last '-')",
+  "ja:terastal-festival-ex": "\\bterastal\\W*fest\\W*ex\\b",
+  "ja:sv8a": "\\bterastal\\W*fest\\W*ex\\b",
+  "ja:pokemon-card-151": "\\bpok\\W*mon\\W*card\\W*151\\b",
+  "ja:sv2a": "\\bpok\\W*mon\\W*card\\W*151\\b",
+  "ja:tag-team-gx-tag-all-stars": "\\btag\\W*team\\W*gx\\W*all\\W*stars\\b",
+  "ja:m3": "\\bnihil\\W*zero\\b",
+  "ja:mega-gengar-ex-starter-set-mega": "\\bmega\\W*starter\\W*set\\W*mega\\W*gengar\\W*ex\\b"
+}

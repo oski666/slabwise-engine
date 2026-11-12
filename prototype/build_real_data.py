@@ -43,7 +43,31 @@ era = np.array([eras.index(era_of(c, era_map)) for c in cards])
 clean, removed = identity_layer(sales, None, verify_certs=False)
 W = int(clean["week"].max()) + 1
 train = max(26, W // 3)
-params, _, _ = calibrate_clean(clean, len(cards), era, len(eras), train, trend=False)   # adopted method: v1.2 until D33 is decided
+_incr_pre = None                                       # §60 (D270, D277): the state the new cards are added to, read first
+if (os.environ.get("SLABWISE_INCREMENTAL") == "1" and os.environ.get("SLABWISE_CKPT")
+        and not any(os.environ.get(v) == "1" for v in ("SLABWISE_IX_QUOTA_TEST", "SLABWISE_IX_JA_TEST", "SLABWISE_IX_GRADE_TEST"))):
+    import glob as _glob, pickle as _pickle  # noqa: E401
+    _cand = []
+    for _f in _glob.glob(os.path.join(os.environ["SLABWISE_CKPT"], "state_*.json")):
+        try:
+            _head = json.load(open(_f))
+            _m = _head.get("meta")
+            if _m and _m["eras"] == list(eras) and set(_m["cards"]) <= set(cards) and _head["w"] < W:
+                _cand.append((_head["w"], _f[:-5] + ".pkl", _m))
+        except Exception:
+            pass
+    if _cand:
+        _ws, _pf, _meta = max(_cand, key=lambda x: x[0])
+        try:
+            with open(_pf, "rb") as _fh:
+                _incr_pre = (_ws, _meta, _pickle.load(_fh)[:6])
+        except Exception as _ex:
+            print("§60: stato illeggibile, calcolo completo:", _ex, flush=True)
+if _incr_pre:                                           # the shared parameters stay those of the full rebuild: no calibration
+    params = _incr_pre[2][0].p
+    print(f"§60: parametri dello stato della settimana {_incr_pre[0]}, calibrazione saltata", flush=True)
+else:
+    params, _, _ = calibrate_clean(clean, len(cards), era, len(eras), train, trend=False)   # adopted method: v1.2 until D33 is decided
 _v = os.environ.get("SLABWISE_LADDER", "")             # test switch for v1.14 (protocol §20): "steps" or "pops"
 params.step_prior = params.step_prior or _v in ("steps", "pops")
 params.pop_steps = params.pop_steps or _v == "pops"
@@ -130,24 +154,13 @@ if CKPT:
             w0 = best[0] + 1
         except Exception as ex:                         # an unreadable state never stops the build: full run
             print("D244: stato illeggibile, calcolo completo:", ex, flush=True)
-    if not best and INCR:                               # §60 (D270): new cards on top of the last full rebuild
-        _cand = []
-        for f in glob.glob(os.path.join(CKPT, "state_*.json")):
-            try:
-                head = json.load(open(f))
-                m_ = head.get("meta")
-                if m_ and m_["eras"] == list(eras) and set(m_["cards"]) <= set(cards) and head["w"] < W:
-                    _cand.append((head["w"], f[:-5] + ".pkl", m_))
-            except Exception:
-                pass
-        if _cand:
-            _ws, _pf, _meta = max(_cand, key=lambda x: x[0])
+    if not best and INCR and _incr_pre:                 # §60 (D270): new cards on top of the last full rebuild
+        if True:
+            _ws, _meta = _incr_pre[0], _incr_pre[1]
             try:
                 from slabwise.incremental import transplant_index, transplant_model, transplant_series
-                with open(_pf, "rb") as fh:
-                    lvm_, eidx_, aidx_, sidx_, e_, s_ = pickle.load(fh)[:6]
+                lvm_, eidx_, aidx_, sidx_, e_, s_ = _incr_pre[2]
                 lvm, _sat, _o2n = transplant_model(lvm_, lvm, _meta["cards"], cards)
-                params = lvm.p                          # the shared parameters stay those of the full rebuild
                 eidx = transplant_index(eidx_, eidx, _o2n, _meta["series_names"], series_names)
                 aidx = transplant_index(aidx_, aidx, _o2n)
                 sidx = transplant_index(sidx_, sidx, _o2n, _meta["set_names"], set_names)

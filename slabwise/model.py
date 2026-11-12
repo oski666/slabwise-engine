@@ -234,7 +234,7 @@ class LatentValueModel:
         for i in range(len(y)):
             self.obs[cards[i]].append(self._obs(t[i], y[i], gis[i], vix[i], lang[i], cert[i], cert_ok[i]))
             touched.add(cards[i])
-        for c in touched:
+        for c in sorted(touched):                         # D279: fixed order (the refits update shared parameters)
             self._refit(c, w)
 
     @staticmethod

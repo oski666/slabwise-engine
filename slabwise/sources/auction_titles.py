@@ -211,9 +211,24 @@ def _set_extra(key):
     return _SETX[key]
 
 
+JA_PSA = _os.environ.get("SLABWISE_JA_PSA", "0") == "1"   # D278 (protocol §62): PSA label set names; off until it passes
+_PSA_FILE = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "data", "ja_set_psa.json")
+_JA_PSA = {k: v for k, v in _json.load(open(_PSA_FILE, encoding="utf-8")).items() if not k.startswith("_")} \
+    if _os.path.exists(_PSA_FILE) else {}
+_POKEMON = re.compile(r"pok[eé]mon")
+
+
 def _set_ok(key, setre, t):
     x = _set_extra(key) if NEW_JA_RULES else None
-    return bool((setre and _rx_search(setre, t)) or (x and _rx_search(x, t)))
+    if (setre and _rx_search(setre, t)) or (x and _rx_search(x, t)):
+        return True
+    if not JA_PSA:
+        return False
+    t2 = _POKEMON.sub("pok mon", t)                      # D278: a set name registered with "Pokémon" reads pok\W*mon
+    if (setre and _rx_search(setre, t2)) or (x and _rx_search(x, t2)):
+        return True
+    a = _JA_PSA.get(key.rsplit("-", 1)[0])
+    return bool(a and _rx_search(a, t2))
 
 
 NEW_JA_RULES = _os.environ.get("SLABWISE_JA_RULES", "1") == "1"   # noqa: E501
