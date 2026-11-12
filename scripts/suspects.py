@@ -43,7 +43,7 @@ def main():
         f = {k: v for k, v in flag(rows).items() if k not in reg}
         total = len(f)
         import math
-        f = dict(sorted(f.items(), key=lambda kv: -abs(math.log(kv[1]["ratio"])))[:MAX_MEASURED])
+        f = dict(sorted(f.items(), key=lambda kv: -abs(math.log(max(kv[1]["ratio"], 1e-12))))[:MAX_MEASURED])
         f["__total__"] = total
         json.dump(f, open(sys.argv[4], "w"))
         print(f"D275: {len(f)} vendite sospette da decidere")

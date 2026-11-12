@@ -54,5 +54,5 @@ def flag(rows):
             ref = float(others[m // 2]) if m % 2 else math.sqrt(others[m // 2 - 1] * others[m // 2])
             ratio = sales[k][1] / ref
             if ratio > RATIO or ratio < 1 / RATIO:
-                out[sales[k][2]] = dict(ref=round(ref, 2), n=int(m), ratio=round(ratio, 3))
+                out[sales[k][2]] = dict(ref=round(ref, 2), n=int(m), ratio=float(f"{ratio:.4g}"))
     return out
