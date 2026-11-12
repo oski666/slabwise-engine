@@ -3724,11 +3724,12 @@
   "tc_set": "Awakening Legends",
   "tc_url": "/pokemon/awakening-legends-japanese/shining-gyarados-130",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "19 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:sm3p-082": {
   "n": 41,
@@ -3954,9 +3955,9 @@
   "tc_set": "Awakening Legends",
   "tc_url": "/pokemon/awakening-legends-japanese/shining-magikarp-129",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "17 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
-  "checked": "2026-11-10",
+  "status": "attesa_motore",
+  "detail": "i controlli del motore non tornano ancora",
+  "checked": "2026-11-12",
   "requests": 0,
   "source": "coda giapponese (D134)"
  },
@@ -3983,11 +3984,12 @@
   "tc_set": "Offense and Defense of the Furthest Ends",
   "tc_url": "/pokemon/offense-and-defense-of-the-furthest-ends-japanese/charizard-52",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "13 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:pcg3-033": {
   "n": 3,
@@ -4011,11 +4013,12 @@
   "tc_set": "Holon Phantom",
   "tc_url": "/pokemon/holon-phantom-japanese/gyarados-8",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "14 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:pcg3-011": {
   "n": 3,
@@ -4081,11 +4084,12 @@
   "tc_set": "Miracle Crystal",
   "tc_url": "/pokemon/miracle-crystal-japanese/charizard-32",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "17 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:e3-053": {
   "n": 6,
@@ -4223,11 +4227,12 @@
   "tc_set": "Flight of Legends",
   "tc_url": "/pokemon/flight-of-legends-japanese/gyarados-ex-35",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "12 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:e4-027": {
   "n": 5,
@@ -5341,11 +5346,12 @@
   "tc_set": "Flight of Legends",
   "tc_url": "/pokemon/flight-of-legends-japanese/gengar-ex-48",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "16 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:pcg4-039": {
   "n": 6,
@@ -5369,11 +5375,12 @@
   "tc_set": "Golden Sky, Silvery Ocean",
   "tc_url": "/pokemon/golden-sky-silvery-ocean-japanese/lugia-ex-90",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "18 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:e2-070": {
   "n": 8,
@@ -5397,11 +5404,12 @@
   "tc_set": "Fusion Arts",
   "tc_url": "/pokemon/fusion-arts-japanese/mew-vmax-119",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "12 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:sv-p-288": {
   "n": 49,
@@ -5530,11 +5538,12 @@
   "tc_set": "Unnumbered Promos",
   "tc_url": "/pokemon/unnumbered-promos-japanese/gengar-94",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "16 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:xy-p-207": {
   "n": 30,
@@ -5634,11 +5643,12 @@
   "tc_set": "XY Promos",
   "tc_url": "/pokemon/xy-promos-japanese/pikachu-279",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "13 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:sm-p-286": {
   "n": 126,
@@ -5663,11 +5673,12 @@
   "tc_set": "Sun & Moon Promos",
   "tc_url": "/pokemon/sun-moon-promos-japanese/mimikyu-289",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "22 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:clash-of-the-blue-sky-67": {
   "n": 6,
@@ -5927,11 +5938,12 @@
   "tc_set": "Black & White Promos",
   "tc_url": "/pokemon/black-white-promos-japanese/pikachu-229",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "22 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:mew-lucario-gift-box-pokemon-2": {
   "n": 29,
@@ -6015,11 +6027,12 @@
   "tc_set": "Sun & Moon Promos",
   "tc_url": "/pokemon/sun-moon-promos-japanese/pikachu-400",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "24 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:s-p-226": {
   "n": 264,
@@ -6105,7 +6118,7 @@
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-10",
+  "checked": "2026-11-12",
   "requests": 0,
   "source": "coda giapponese (D134)"
  },
@@ -6628,11 +6641,12 @@
   "tc_set": "PLAY Promos",
   "tc_url": "/pokemon/play-promos-japanese/celebi-ex-6",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "19 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:xy-p-278": {
   "n": 0,
@@ -6686,11 +6700,12 @@
   "tc_set": "XY Promos",
   "tc_url": "/pokemon/xy-promos-japanese/mega-tokyos-pikachu-204",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "11 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:pokemon-vs-97": {
   "n": 62,
@@ -6863,11 +6878,12 @@
   "tc_set": "Sun & Moon Promos",
   "tc_url": "/pokemon/sun-moon-promos-japanese/poncho-wearing-pikachu-38",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "20 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:s-p-186": {
   "n": 3,
@@ -6935,11 +6951,12 @@
   "tc_set": "Sun & Moon Promos",
   "tc_url": "/pokemon/sun-moon-promos-japanese/poncho-wearing-eevee-144",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "24 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:darkness-and-to-light-150": {
   "n": 6,
@@ -7113,11 +7130,12 @@
   "tc_set": "Golden Sky, Silvery Ocean",
   "tc_url": "/pokemon/golden-sky-silvery-ocean-japanese/umbreon-ex-91",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "24 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:play-promos-31": {
   "n": 19,
@@ -7127,11 +7145,12 @@
   "tc_set": "PLAY Promos",
   "tc_url": "/pokemon/play-promos-japanese/lugia-ex-31",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "19 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:sv-p-068": {
   "n": 123,
@@ -7200,11 +7219,12 @@
   "tc_set": "Sun & Moon Promos",
   "tc_url": "/pokemon/sun-moon-promos-japanese/pretend-boss-pikachu-team-rocket-191",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "16 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:sm-p-143": {
   "n": 32,
@@ -7303,11 +7323,12 @@
   "tc_set": "Sun & Moon Promos",
   "tc_url": "/pokemon/sun-moon-promos-japanese/firefighter-pikachu-209",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "13 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:gift-box-mew-lucario-mew-quarter-deck-3": {
   "n": 17,
@@ -7331,11 +7352,12 @@
   "tc_set": "Sun & Moon Promos",
   "tc_url": "/pokemon/sun-moon-promos-japanese/poncho-wearing-eevee-137",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "13 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:mcdonalds-pokemon-e-minimum-pack-14": {
   "n": 64,
@@ -7432,11 +7454,12 @@
   "tc_set": "Sun & Moon Promos",
   "tc_url": "/pokemon/sun-moon-promos-japanese/yokohamas-pikachu-280",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "12 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:clash-of-the-blue-sky-65": {
   "n": 4,
@@ -7460,11 +7483,12 @@
   "tc_set": "P Promos",
   "tc_url": "/pokemon/p-promos-japanese/umbreon-25",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "19 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:sm-p-142": {
   "n": 15,
@@ -7474,11 +7498,12 @@
   "tc_set": "Sun & Moon Promos",
   "tc_url": "/pokemon/sun-moon-promos-japanese/poncho-wearing-eevee-142",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "14 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:sm-p-210": {
   "n": 16,
@@ -7488,11 +7513,12 @@
   "tc_set": "Sun & Moon Promos",
   "tc_url": "/pokemon/sun-moon-promos-japanese/gentlemanly-pikachu-210",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "15 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:sv-p-120": {
   "n": 200,
@@ -7547,11 +7573,12 @@
   "tc_set": "Sun & Moon Promos",
   "tc_url": "/pokemon/sun-moon-promos-japanese/pikachu-199",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "14 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:sm-p-297": {
   "n": 50,
@@ -7576,11 +7603,12 @@
   "tc_set": "PokePark Forest",
   "tc_url": "/pokemon/pokepark-forest-japanese/pokeparks-pikachu-4",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "14 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:split-earth-72": {
   "n": 18,
@@ -7590,11 +7618,12 @@
   "tc_set": "Split Earth",
   "tc_url": "/pokemon/split-earth-japanese/umbreon-72",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "16 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:play-promos-29": {
   "n": 10,
@@ -7633,11 +7662,12 @@
   "tc_set": "Sun & Moon Promos",
   "tc_url": "/pokemon/sun-moon-promos-japanese/poncho-wearing-eevee-139",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "18 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:crossing-the-ruins-196": {
   "n": 5,
@@ -7661,11 +7691,12 @@
   "tc_set": "Sun & Moon Promos",
   "tc_url": "/pokemon/sun-moon-promos-japanese/poncho-wearing-eevee-138",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "17 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:xy-p-235": {
   "n": 12,
@@ -7704,11 +7735,12 @@
   "tc_set": "Pokémon VS",
   "tc_url": "/pokemon/pokemon-vs-japanese/bugsys-scizor-13",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "23 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:s-p-124": {
   "n": 171,
@@ -7762,11 +7794,12 @@
   "tc_set": "Sun & Moon Promos",
   "tc_url": "/pokemon/sun-moon-promos-japanese/pretend-boss-pikachu-team-skull-197",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "15 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:xy-p-079": {
   "n": 56,
@@ -7791,11 +7824,12 @@
   "tc_set": "Sun & Moon Promos",
   "tc_url": "/pokemon/sun-moon-promos-japanese/pretend-boss-pikachu-team-flare-196",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "16 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:sm-p-195": {
   "n": 14,
@@ -7805,11 +7839,12 @@
   "tc_set": "Sun & Moon Promos",
   "tc_url": "/pokemon/sun-moon-promos-japanese/pretend-boss-pikachu-team-plasma-195",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "14 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:golden-sky-silvery-ocean-41": {
   "n": 12,
@@ -7819,11 +7854,12 @@
   "tc_set": "Golden Sky, Silvery Ocean",
   "tc_url": "/pokemon/golden-sky-silvery-ocean-japanese/espeon-ex-41",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "12 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:sm-p-208": {
   "n": 20,
@@ -7833,11 +7869,12 @@
   "tc_set": "Sun & Moon Promos",
   "tc_url": "/pokemon/sun-moon-promos-japanese/hakama-pikachu-208",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "19 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:darkness-and-to-light-164": {
   "n": 7,
@@ -7904,11 +7941,12 @@
   "tc_set": "Sun & Moon Promos",
   "tc_url": "/pokemon/sun-moon-promos-japanese/pretend-boss-pikachu-team-magma-193",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "11 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:awakening-legends-229": {
   "n": 94,
@@ -7947,11 +7985,12 @@
   "tc_set": "Sun & Moon Promos",
   "tc_url": "/pokemon/sun-moon-promos-japanese/pretend-boss-pikachu-team-galactic-194",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "11 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:sm-p-281": {
   "n": 22,
@@ -7961,11 +8000,12 @@
   "tc_set": "Sun & Moon Promos",
   "tc_url": "/pokemon/sun-moon-promos-japanese/yokohamas-pikachu-281",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "21 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:darkness-and-to-light-149": {
   "n": 97,
@@ -8078,11 +8118,12 @@
   "tc_set": "XY Promos",
   "tc_url": "/pokemon/xy-promos-japanese/charizard-280",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "22 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:t-promos-18": {
   "n": 16,
@@ -8092,11 +8133,12 @@
   "tc_set": "T Promos",
   "tc_url": "/pokemon/t-promos-japanese/dragonite-18",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "12 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:s-p-265": {
   "n": 219,
@@ -8267,11 +8309,12 @@
   "tc_set": "Sun & Moon Promos",
   "tc_url": "/pokemon/sun-moon-promos-japanese/pretend-boss-pikachu-team-aqua-192",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "10 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:s-p-123": {
   "n": 25,
@@ -8281,11 +8324,12 @@
   "tc_set": "Sword & Shield Promos",
   "tc_url": "/pokemon/sword-shield-promos-japanese/pikachu-vmax-123",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "25 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:neo-premium-file-2-172": {
   "n": 68,
@@ -8339,11 +8383,12 @@
   "tc_set": "T Promos",
   "tc_url": "/pokemon/t-promos-japanese/jolteon-3",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "12 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:sm-p-080": {
   "n": 11,
@@ -8381,11 +8426,12 @@
   "tc_set": "Diamond & Pearl Promos",
   "tc_url": "/pokemon/diamond-pearl-promos-japanese/pikachu-113",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "16 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:pcg-promos-91": {
   "n": 5,
@@ -8512,11 +8558,12 @@
   "tc_set": "PCG Promos",
   "tc_url": "/pokemon/pcg-promos-japanese/pokeparks-pikachu-43",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "16 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:xy-p-122": {
   "n": 114,
@@ -8541,11 +8588,12 @@
   "tc_set": "P Promos",
   "tc_url": "/pokemon/p-promos-japanese/mew-33",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "15 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:pcg-promos-148": {
   "n": 5,
@@ -8697,11 +8745,12 @@
   "tc_set": "Vending Machine Series 2 (Red)",
   "tc_url": "/pokemon/vending-machine-series-2-red-japanese/articuno-144",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "13 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:s-p-305": {
   "n": 1,
@@ -8725,11 +8774,12 @@
   "tc_set": "Black & White Promos",
   "tc_url": "/pokemon/black-white-promos-japanese/pokemon-center-190",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "18 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:s-p-175": {
   "n": 49,
@@ -8854,11 +8904,12 @@
   "tc_set": "PLAY Promos",
   "tc_url": "/pokemon/play-promos-japanese/ho-oh-ex-30",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "12 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:vending-machine-series-2-red-145": {
   "n": 19,
@@ -8868,11 +8919,12 @@
   "tc_set": "Vending Machine Series 2 (Red)",
   "tc_url": "/pokemon/vending-machine-series-2-red-japanese/zapdos-145",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "19 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:neo-premium-file-3-251": {
   "n": 36,
@@ -8939,11 +8991,12 @@
   "tc_set": "Crossing the Ruins...",
   "tc_url": "/pokemon/crossing-the-ruins-japanese/dark-raichu-26",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "25 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:xy-p-206": {
   "n": 37,
@@ -9025,11 +9078,12 @@
   "tc_set": "Black & White Promos",
   "tc_url": "/pokemon/black-white-promos-japanese/eevee-189",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "13 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:neo-premium-file-1-160": {
   "n": 76,
@@ -9155,11 +9209,12 @@
   "tc_set": "Sun & Moon Promos",
   "tc_url": "/pokemon/sun-moon-promos-japanese/mimikyu-198",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "13 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:xy-p-030": {
   "n": 35,
@@ -9198,11 +9253,12 @@
   "tc_set": "P Promos",
   "tc_url": "/pokemon/p-promos-japanese/pikachu-38",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "10 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:bw-p-235": {
   "n": 61,
@@ -13182,11 +13238,12 @@
   "tc_set": "P Promos",
   "tc_url": "/pokemon/p-promos-japanese/pikachu-44",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "11 vendite PSA riconosciute in un anno (ne servono 27, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-10",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-12"
  },
  "ja:bw-p-159": {
   "n": 17,
@@ -15259,5 +15316,950 @@
   "checked": "2026-11-12",
   "requests": 0,
   "source": "catalogo (D111)"
+ },
+ "ja:11th-movie-commemoration-set-3": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:25th-anniversary-collection-1": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:alter-genesis-100": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:alter-genesis-104": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:amazing-volt-tackle-104": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:amazing-volt-tackle-114": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:battle-partners-102": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:battle-partners-109": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:battle-partners-126": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:battle-region-83": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:black-bolt-109": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:black-bolt-174": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:blue-sky-stream-74": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:blue-sky-stream-76": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:blue-sky-stream-83": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:clay-burst-91": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:cry-from-the-mysterious-442": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:dark-phantasma-73": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:dark-phantasma-74": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:dialga-ex-aegislash-ex-hyper-metal-chain-deck-19": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:double-blaze-76": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:double-blaze-97": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:dream-league-52": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:dream-league-58": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:dream-league-67": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:dream-league-68": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:eevee-heroes-71": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:eevee-heroes-73": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:eevee-heroes-75": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:eevee-heroes-77": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:eevee-heroes-79": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:eevee-heroes-81": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:eevee-heroes-83": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:eevee-heroes-85": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:eevee-heroes-89": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:eevee-heroes-91": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:eevee-heroes-93": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:gengar-vmax-high-class-deck-2": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:gengar-vmax-high-class-deck-20": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:gg-end-57": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:glory-of-team-rocket-125": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:gx-ultra-shiny-153": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:gx-ultra-shiny-229": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:heat-wave-arena-86": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:heat-wave-arena-87": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:incandescent-arcana-81": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:inferno-x-111": {
+  "status": "attesa_motore",
+  "detail": "i controlli del motore non tornano ancora",
+  "checked": "2026-11-12"
+ },
+ "ja:intense-fight-in-the-destroyed-sky-92": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:legendary-shine-collection-18": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:legendary-shine-collection-19": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:lost-abyss-106": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:lost-abyss-111": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:magma-gang-vs-aqua-gang-double-crisis-15": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:mega-brave-86": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:mega-brave-87": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:mega-brave-88": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:mega-brave-91": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:mega-brave-92": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:mega-dream-ex-205": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:mega-dream-ex-210": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:mega-dream-ex-223": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:mega-dream-ex-228": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:mega-dream-ex-234": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:mega-dream-ex-237": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:mega-dream-ex-242": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:mega-gengar-ex-starter-set-mega-22": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:mega-gengar-ex-starter-set-mega-3": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:mega-symphonia-88": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:mega-symphonia-92": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:miracle-twin-104": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:miracle-twin-98": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:mythical-legendary-dream-shine-collection-16": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:mythical-legendary-dream-shine-collection-17": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:mythical-legendary-dream-shine-collection-2": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:night-unison-59": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:night-unison-61": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:nihil-zero-114": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:nihil-zero-115": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:ninja-spinner-120": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:paradigm-trigger-110": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:paradise-dragona-70": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:paradise-dragona-87": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:paradise-dragona-91": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:peerless-fighters-78": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:plasma-gale-74": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:platinum-promos-43": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:pokekyun-collection-19": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:pokemon-card-151-167": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:pokemon-card-151-169": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:pokemon-card-151-170": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:pokemon-card-151-173": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:pokemon-card-151-181": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:pokemon-card-151-183": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:pokemon-card-151-185": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:pokemon-card-151-202": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:pokemon-card-151-204": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:pokemon-card-151-205": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:pokemon-card-151-206": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:pokemon-go-11": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:pokemon-go-74": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:remix-bout-68": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:remix-bout-70": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:ruler-of-the-black-flame-134": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:ruler-of-the-black-flame-139": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:scarlet-ex-101": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:shining-legends-41": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:shiny-collection-22": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:shiny-collection-7": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:shiny-star-v-198": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:shiny-star-v-307": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:shiny-star-v-308": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:shiny-treasure-ex-236": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:shiny-treasure-ex-327": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:shiny-treasure-ex-350": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:single-strike-master-77": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:sky-legend-60": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:star-birth-103": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:storm-emeralda-110": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:super-electric-breaker-112": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:super-electric-breaker-122": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:super-electric-breaker-132": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:super-electric-breaker-136": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:tag-bolt-101": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:tag-bolt-102": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:tag-bolt-107": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:tag-bolt-38": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:tag-bolt-99": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:tag-team-gx-tag-all-stars-16": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:tag-team-gx-tag-all-stars-175": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:tag-team-gx-tag-all-stars-177": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:tag-team-gx-tag-all-stars-182": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:tag-team-gx-tag-all-stars-186": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:tag-team-gx-tag-all-stars-188": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:tag-team-gx-tag-all-stars-190": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:tag-team-gx-tag-all-stars-191": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:tag-team-gx-tag-all-stars-192": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:tag-team-gx-tag-all-stars-193": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:tag-team-gx-tag-all-stars-196": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:tag-team-gx-tag-all-stars-201": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:tag-team-gx-tag-all-stars-222": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:tag-team-gx-tag-all-stars-41": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:tag-team-gx-tag-all-stars-52": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:team-plasma-battle-gift-set-2": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:team-plasma-battle-gift-set-5": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:terastal-festival-ex-200": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:terastal-festival-ex-207": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:terastal-festival-ex-209": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:terastal-festival-ex-211": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:terastal-festival-ex-212": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:terastal-festival-ex-217": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:terastal-festival-ex-218": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:terastal-festival-ex-223": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:terastal-festival-ex-224": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:terastal-festival-ex-236": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:the-best-of-xy-188": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:transformation-mask-130": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vending-machine-series-2-red-146": {
+  "status": "attesa_motore",
+  "detail": "i controlli del motore non tornano ancora",
+  "checked": "2026-11-12"
+ },
+ "ja:venusaur-charizard-blastoise-special-deck-set-50": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:venusaur-charizard-blastoise-special-deck-set-52": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:violet-ex-105": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vmax-climax-187": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vmax-climax-222": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vmax-climax-223": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vmax-climax-233": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vmax-climax-234": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vmax-climax-244": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vmax-climax-245": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vmax-climax-252": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vmax-climax-279": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vstar-universe-15": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vstar-universe-183": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vstar-universe-205": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vstar-universe-210": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vstar-universe-211": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vstar-universe-212": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vstar-universe-214": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vstar-universe-215": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vstar-universe-217": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vstar-universe-221": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vstar-universe-228": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vstar-universe-246": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vstar-universe-259": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vstar-universe-260": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vstar-universe-261": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:vstar-universe-262": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:white-flare-168": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:white-flare-174": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:wild-force-88": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
+ },
+ "ja:world-championships-2023-yokohama-deck-pikachu-1": {
+  "status": "aggiunta",
+  "detail": "",
+  "added": "2026-11-12"
  }
 }

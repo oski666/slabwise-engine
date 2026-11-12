@@ -1157,12 +1157,6 @@
   -1,
   "(?:\\b(?:neo\\W*revelation|neo\\W*3|awakening\\W*legends)\\b|めざめる伝説)"
  ],
- "ja:awakening-legends-129": [
-  "shining magikarp",
-  129,
-  -1,
-  "(?:\\b(?:neo\\W*revelation|neo\\W*3|awakening\\W*legends)\\b|めざめる伝説)"
- ],
  "ja:pcg9-052": [
   "charizard|カリザードスター（デルタ種）",
   52,
@@ -1234,12 +1228,6 @@
   400,
   -1,
   "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
- ],
- "ja:expansion-pack-25": [
-  "pikachu",
-  25,
-  -1,
-  "(?:\\b(?:base\\W*set|basic|expansion\\W*pack)\\b|拡張パック)"
  ],
  "ja:play-promos-6": [
   "celebi ex",
@@ -1504,12 +1492,6 @@
   44,
   -1,
   "\\bp\\W*promos\\b"
- ],
- "ja:vending-machine-series-2-red-146": [
-  "moltres",
-  146,
-  -1,
-  "\\bvending\\W*machine\\W*series\\W*2\\W*red\\b"
  ],
  "ja:terastal-festival-ex-217": [
   "umbreon ex",
@@ -2206,12 +2188,6 @@
   104,
   -1,
   "\\bmiracle\\W*twin\\b"
- ],
- "ja:inferno-x-111": [
-  "oricorio ex",
-  111,
-  -1,
-  "\\binferno\\W*x\\b"
  ],
  "ja:eevee-heroes-71": [
   "leafeon v",

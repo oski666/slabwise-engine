@@ -4138,22 +4138,6 @@
   "added": "D158"
  },
  {
-  "id": "ja:awakening-legends-129",
-  "en": "neo3-66",
-  "en_same": true,
-  "en_check": "illustrazione uguale (distanza 69/256)",
-  "lang": "ja",
-  "n": "Shining Magikarp (giapponese)",
-  "no": "129",
-  "set": "Awakening Legends",
-  "tot": null,
-  "r": null,
-  "ill": "Ken Sugimori",
-  "set_en": "Awakening Legends",
-  "source": "TCGdex ja",
-  "added": "D158"
- },
- {
   "id": "ja:pcg9-052",
   "en": "ex15-100",
   "en_same": true,
@@ -4342,22 +4326,6 @@
   "r": null,
   "ill": null,
   "set_en": "Sun & Moon Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
- },
- {
-  "id": "ja:expansion-pack-25",
-  "en": null,
-  "en_same": null,
-  "en_check": null,
-  "lang": "ja",
-  "n": "Pikachu (giapponese)",
-  "no": "25",
-  "set": "Expansion Pack",
-  "tot": null,
-  "r": null,
-  "ill": null,
-  "set_en": "Expansion Pack",
   "source": "TCGdex ja",
   "added": "D134"
  },
@@ -5062,22 +5030,6 @@
   "r": null,
   "ill": null,
   "set_en": "P Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
- },
- {
-  "id": "ja:vending-machine-series-2-red-146",
-  "en": null,
-  "en_same": null,
-  "en_check": null,
-  "lang": "ja",
-  "n": "Moltres (giapponese)",
-  "no": "146",
-  "set": "Vending Machine Series 2 (Red)",
-  "tot": null,
-  "r": null,
-  "ill": null,
-  "set_en": "Vending Machine Series 2 (Red)",
   "source": "TCGdex ja",
   "added": "D134"
  },
@@ -6938,22 +6890,6 @@
   "added": "D134"
  },
  {
-  "id": "ja:inferno-x-111",
-  "en": null,
-  "en_same": null,
-  "en_check": null,
-  "lang": "ja",
-  "n": "Oricorio ex (giapponese)",
-  "no": "111",
-  "set": "Inferno X",
-  "tot": null,
-  "r": null,
-  "ill": null,
-  "set_en": "Inferno X",
-  "source": "TCGdex ja",
-  "added": "D134"
- },
- {
   "id": "ja:eevee-heroes-71",
   "en": null,
   "en_same": null,
@@ -8088,5 +8024,22 @@
   "set_en": "MEGA Dream ex",
   "source": "TCGdex ja",
   "added": "D134"
+ },
+ {
+  "id": "ja:awakening-legends-129",
+  "en": "neo3-66",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 69/256)",
+  "lang": "ja",
+  "n": "Shining Magikarp (giapponese)",
+  "no": "129",
+  "set": "Awakening Legends",
+  "tot": null,
+  "r": null,
+  "ill": "Ken Sugimori",
+  "set_en": "Awakening Legends",
+  "source": "TCGdex ja",
+  "added": "D158",
+  "pending": true
  }
 ]
