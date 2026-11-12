@@ -2614,5 +2614,47 @@
   228,
   -1,
   "(?:\\b(?:mega\\W*dream|m2a|mega\\W*dream\\W*ex)\\b)"
+ ],
+ "ja:expansion-pack-20th-anniversary-32": [
+  "gyarados",
+  32,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:expansion-pack-20th-anniversary-15": [
+  "ninetales",
+  15,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:expansion-pack-20th-anniversary-43": [
+  "nidoking",
+  43,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:expansion-pack-20th-anniversary-25": [
+  "poliwrath",
+  25,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:expansion-pack-20th-anniversary-102": [
+  "imakuni\\?'s doduo",
+  102,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:expansion-pack-20th-anniversary-60": [
+  "hitmonchan",
+  60,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:sv2d-096": [
+  "iono|ナンジャモ",
+  96,
+  71,
+  "\\bclay\\W*burst\\b"
  ]
 }
