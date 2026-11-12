@@ -1,19 +1,19 @@
 {
  "asof": "2026-11-11",
- "cards": 1073,
+ "cards": 1070,
  "checks": {
   "C7": {
-   "n": 23,
+   "n": 24,
    "examples": [
     [
      "ex16-102",
      "Vaporeon ☆",
-     "PSA 8 6827 < PSA 7 6842"
+     "PSA 8 6811 < PSA 7 6820"
     ],
     [
      "swsh3.5-79",
      "Charizard V",
-     "PSA 9 193 < PSA 8 211"
+     "PSA 9 193 < PSA 8 210"
     ],
     [
      "swsh7-212",
@@ -23,7 +23,7 @@
     [
      "me02.5-290",
      "Mega Dragonite ex",
-     "PSA 9 392 < PSA 8 394"
+     "PSA 9 389 < PSA 8 397"
     ],
     [
      "swsh5-155",
@@ -33,17 +33,17 @@
     [
      "swshp-SWSH074",
      "Special Delivery Pikachu",
-     "PSA 8 317 < PSA 7 328"
+     "PSA 8 317 < PSA 7 327"
     ],
     [
      "me02.5-276",
      "Pikachu ex",
-     "PSA 9 620 < PSA 8 620"
+     "PSA 9 620 < PSA 8 621"
     ],
     [
      "me02.5-277",
      "Pikachu ex",
-     "PSA 8 225 < PSA 7 229"
+     "PSA 8 224 < PSA 7 226"
     ],
     [
      "me02.5-294",
@@ -63,7 +63,7 @@
     [
      "sv10-229",
      "Team Rocket's Moltres ex",
-     "PSA 8 58 < PSA 7 68"
+     "PSA 8 58 < PSA 7 67"
     ]
    ]
   }
