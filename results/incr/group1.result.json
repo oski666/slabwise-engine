@@ -4,37 +4,26 @@
  "atoms_new": 656,
  "atoms_old": 3624,
  "I1": {
-  "different": 462,
-  "examples": [
-   "me01-133 PSA 7",
-   "me02.5-295 PSA 10",
-   "me02-098 PSA 10",
-   "basep-9 PSA 10",
-   "basep-9 PSA 9",
-   "basep-9 PSA 8",
-   "sv10-232 PSA 10",
-   "sv10-232 PSA 9",
-   "sv10-232 PSA 8",
-   "sv07-143 PSA 9"
-  ],
-  "passed": false
+  "different": 0,
+  "examples": [],
+  "passed": true
  },
  "I2": {
   "n": 656,
-  "median": 0.01515932963366343,
-  "p95": 0.05576293272464292,
+  "median": 0.01658761084145782,
+  "p95": 0.055785025456116646,
   "passed": true
  },
  "I3": {
-  "coverage_B": 0.7921794536091472,
-  "coverage_C": 0.7901116149284967,
-  "sales": 11457,
+  "coverage_B": 0.7921284579806266,
+  "coverage_C": 0.7907442914415199,
+  "sales": 11459,
   "passed": true
  },
  "I4": {
-  "seconds_B": 2950.0,
-  "seconds_C": 2441.0,
-  "passed": false
+  "seconds_B": 207.0,
+  "seconds_C": 5133.0,
+  "passed": true
  },
- "passed": false
+ "passed": true
 }
