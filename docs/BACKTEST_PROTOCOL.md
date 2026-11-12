@@ -1011,3 +1011,11 @@ Tutte le stime usano solo dati fino al giorno del valore (P11). Il 10 di n/(n+10
 | S6 | ritardo | ritardo misurato come nel §57 non peggiore del campione |
 
 B entra se passa S1–S4 e S6; C e D se passano anche S5. Tra le varianti che passano si adotta la più semplice che passa tutto; D solo se batte C su S5 di almeno 10 punti relativi. Per il D265 l'adozione vuole due giri di fila; il primo giro è questo, il secondo il giro mensile successivo con il catalogo cresciuto. Se nessuna passa, la frase del Metodo che dice che la forchetta si stringe con molte vendite concordi va corretta.
+
+## 62. Nomi dei set giapponesi come sull'etichetta PSA (registrato il 12 novembre 2026, prima del codice; D278)
+
+**Regola.** Per le carte giapponesi, il controllo del set (oltre a quello di oggi) accetta: (1) il titolo con "pokemon" o "pokémon" scritto come lo legge il nome del set registrato (rimedio al `pok\W*mon` del D153); (2) una tabella di nomi PSA per set del catalogo, `data/ja_set_psa.json`: Terastal Fest ex → terastal-festival-ex e sv8a; Pokemon Card 151 → pokemon-card-151 e sv2a; TAG TEAM GX All Stars → tag-team-gx-tag-all-stars; Nihil Zero → m3; MEGA Starter Set MEGA Gengar ex → mega-gengar-ex-starter-set-mega. Nome della carta e numero restano obbligatori come oggi. Interruttore `SLABWISE_JA_PSA`, spento fino all'esito.
+
+**Dati e criteri.** Tutti i titoli delle vendite tcgcharts e dello storico lungo, e i titoli costruiti dalle aste Cardova (anno, set, numero, nome, attributo, voto), catalogo di oggi, regole in uso. P1: nessun titolo che oggi va a una carta del catalogo cambia carta; P2: nessuno diventa ambiguo o non riconosciuto; P3: dei titoli in più, campione di 40 letto a mano, tutti della carta giusta.
+
+**Adozione.** Se P1–P3 passano la regola si accende; altrimenti resta spenta. Script `scripts/ja_psa_test.py`, risultati in `results/ja_psa/`.
