@@ -1,29 +1,24 @@
 {
  "asof": "2026-11-11",
- "cards": 1070,
+ "cards": 1077,
  "checks": {
   "C7": {
-   "n": 24,
+   "n": 23,
    "examples": [
     [
      "ex16-102",
      "Vaporeon ☆",
-     "PSA 8 6811 < PSA 7 6820"
+     "PSA 8 6808 < PSA 7 6819"
     ],
     [
      "swsh3.5-79",
      "Charizard V",
-     "PSA 9 193 < PSA 8 210"
+     "PSA 9 193 < PSA 8 209"
     ],
     [
      "swsh7-212",
      "Sylveon VMAX",
-     "PSA 9 291 < PSA 8 303"
-    ],
-    [
-     "me02.5-290",
-     "Mega Dragonite ex",
-     "PSA 9 389 < PSA 8 397"
+     "PSA 9 291 < PSA 8 302"
     ],
     [
      "swsh5-155",
@@ -43,7 +38,7 @@
     [
      "me02.5-277",
      "Pikachu ex",
-     "PSA 8 224 < PSA 7 226"
+     "PSA 8 223 < PSA 7 228"
     ],
     [
      "me02.5-294",
@@ -64,6 +59,11 @@
      "sv10-229",
      "Team Rocket's Moltres ex",
      "PSA 8 58 < PSA 7 67"
+    ],
+    [
+     "swsh12.5gg-GG44",
+     "Mewtwo VSTAR",
+     "PSA 9 211 < PSA 8 212"
     ]
    ]
   }
