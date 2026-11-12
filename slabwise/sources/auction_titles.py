@@ -211,7 +211,7 @@ def _set_extra(key):
     return _SETX[key]
 
 
-JA_PSA = _os.environ.get("SLABWISE_JA_PSA", "0") == "1"   # D278 (protocol §62): PSA label set names; off until it passes
+JA_PSA = _os.environ.get("SLABWISE_JA_PSA", "1") == "1"   # D278, D281 (protocol §62): PSA label set names, on by Oscar's exception
 _PSA_FILE = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "data", "ja_set_psa.json")
 _JA_PSA = {k: v for k, v in _json.load(open(_PSA_FILE, encoding="utf-8")).items() if not k.startswith("_")} \
     if _os.path.exists(_PSA_FILE) else {}

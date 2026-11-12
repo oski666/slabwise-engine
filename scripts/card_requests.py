@@ -32,7 +32,7 @@ TCG = "https://tcgcharts.com"
 UA = "Mozilla/5.0 (Slabwise research; permission from tcgcharts, 27 Oct 2026)"
 PAUSE_S = 3.0
 MAX_CHECKS = 15
-MIN_SALES, MIN_GRADE_SALES, MIN_GRADES, MIN_SHARE = 10, 5, 1, 0.60   # D266: 10 sales in a year, 5 of them in one grade
+MIN_SALES, MIN_GRADE_SALES, MIN_GRADES, MAX_CONTRA = 10, 5, 1, 0.40   # D266: 10 sales in a year, 5 in one grade; D281: at most 40% contradicting titles
 GRAIL_RANK, GRAIL_MIN_SALES = 100, 10          # D150, D266: same threshold for every card now
 
 
@@ -216,7 +216,7 @@ def measure(it, key, min_sales=None):
     min_sales = min_sales or MIN_SALES
     need = math.ceil(min_sales * TOLERANCE)
     since = (date.today() - timedelta(days=WINDOW_DAYS)).isoformat()
-    n, rec, by_grade = 0, 0, {}
+    n, rec, contra, by_grade = 0, 0, 0, {}
     for g in (10, 9, 8, 7):
         for page in range(1, MAX_PAGES + 1):
             d = get(f"{TCG}/api/card-sales?" + urllib.parse.urlencode({"cardId": it["id"], "cardType": it["cardType"], "sort": "sold_date",
@@ -229,7 +229,11 @@ def measure(it, key, min_sales=None):
                 if s.get("is_excluded"):
                     continue
                 n += 1
-                ok = at.accept_assigned(s.get("title") or "", key)[0] if ASSIGN else at.match_title(s.get("title") or "")[0] == key   # D258
+                ok, why = at.accept_assigned(s.get("title") or "", key)   # D258: the providers' card unless the title contradicts it
+                if not ASSIGN:
+                    ok = at.match_title(s.get("title") or "")[0] == key
+                if not ok and why != "stampa non detta":  # D281: a title that only leaves the printing unsaid does not count against
+                    contra += 1
                 if ok and at.grade_from_title(s.get("title") or "") == g:
                     rec += 1
                     by_grade[g] = by_grade.get(g, 0) + 1
@@ -238,12 +242,12 @@ def measure(it, key, min_sales=None):
     at.CATALOGUE.pop(key, None)
     at.JA_CATALOGUE.pop(key, None)
     share = rec / n if n else 0.0
-    out = dict(n=n, recognised=rec, share=round(share, 3), tc_id=it["id"], tc_set=it.get("set"), tc_url=it.get("url"), tc_type=it.get("cardType"))
+    out = dict(n=n, recognised=rec, share=round(share, 3), contradicting=round(contra / n, 3) if n else 0.0, tc_id=it["id"], tc_set=it.get("set"), tc_url=it.get("url"), tc_type=it.get("cardType"))
     min_grades = 1 if str(key).startswith("ja:") else MIN_GRADES   # D231: a Japanese card may trade in PSA 10 only
     if rec < need or sum(v >= MIN_GRADE_SALES for v in by_grade.values()) < min_grades:
         return dict(out, status="attesa_vendite", detail=f"{rec} vendite PSA riconosciute in un anno (ne servono {need}, con almeno {MIN_GRADE_SALES} in {min_grades} vot{'o' if min_grades == 1 else 'i'})")
-    if share < MIN_SHARE:
-        return dict(out, status="attesa_coerenza", detail=f"{round(share * 100)}% dei titoli riconosciuti (serve il {round(MIN_SHARE * 100)}%)")
+    if n and contra / n > MAX_CONTRA:                  # D281: replaces "at least 60% recognised"
+        return dict(out, status="attesa_coerenza", detail=f"{round(contra / n * 100)}% dei titoli contraddice la carta (al massimo il {round(MAX_CONTRA * 100)}%)")
     return dict(out, status="pronta", detail=f"{rec} vendite PSA in un anno")
 
 

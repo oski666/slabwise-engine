@@ -1021,3 +1021,22 @@ B entra se passa S1–S4 e S6; C e D se passano anche S5. Tra le varianti che pa
 **Adozione.** Se P1–P3 passano la regola si accende; altrimenti resta spenta. Script `scripts/ja_psa_test.py`, risultati in `results/ja_psa/`.
 
 **Esito §62 (12 novembre 2026): P2 non superato, la regola resta spenta in attesa di Oscar.** 424.639 titoli distinti (tcgcharts e Cardova). P1 sì: nessun titolo cambia carta. P2 no: 10 titoli diventano ambigui; sono tutti lotti di 2–3 carte del 151 ("Charmander 168/165 Squirtle 170/165 … Set"), che oggi vanno per sbaglio a una carta sola (sv2a-168 o sv2a-171). P3 sì: i 40 titoli in più letti a mano sono tutti della carta giusta. 1.123 titoli in più, soprattutto Terastal Fest ex, Pokemon Card 151, Pokemon GO e TAG TEAM GX All Stars. Risultati in `results/ja_psa/result.json`.
+
+**§62, decisione di Oscar (12 novembre 2026, D281):** regola accesa con l'eccezione del D250. Verifica prospettica il 26 novembre 2026: 40 titoli riconosciuti grazie alla regola nelle due settimane, letti a mano; almeno 38 della carta giusta, altrimenti si spegne.
+
+## 63. Nome del Pokémon nelle vendite assegnate dalle fonti (registrato il 12 novembre 2026, prima del codice; D281)
+
+**Domanda.** Le vendite che i fornitori di tcgcharts legano a una carta e che il titolo non contraddice (D258) entrano oggi anche quando il titolo è di un'altra carta che non è nel catalogo: Phione e Castform sul Togepi di Southern Islands, il mazzo dei Mondiali 2006 sul Lugia ex, la promo Mewtwo del 151 sul Mewtwo LV.X DP28, la promo dei Mondiali 2008 sul Mew Gold Star. Se chiediamo che il titolo contenga il nome del Pokémon della carta e non parli di prodotti diversi, togliamo queste vendite senza perdere quelle giuste?
+
+**Regola.** Una vendita assegnata dalla fonte (non riconosciuta dal lettore) entra solo se (a) il titolo contiene il nome della carta come lo legge il catalogo (per le giapponesi: il nome inglese o giapponese della carta) e (b) non contiene "world championship(s)", "worlds" seguito da un anno, "svp", "ultra premium", "upc". Interruttore `SLABWISE_ASSIGN_NAME`, spento fino all'esito.
+
+**Dati.** Storico lungo e vendite tcgcharts di oggi, catalogo di oggi.
+
+| # | Criterio | Soglia |
+|---|---|---|
+| N1 | vendite tolte, campione di 40 letto a mano | almeno 36 di un'altra carta o di un altro prodotto |
+| N2 | vendite assegnate che restano | almeno l'85% di quelle di oggi |
+| N3 | carte che scendono sotto la soglia d'ingresso (10 vendite in un anno) | al massimo il 2% delle carte del catalogo |
+| N4 | motore del sito sulla vendita successiva, metrica §61 | errore mediano non più alto di oggi di oltre l'1% relativo; copertura dello SlabRange non più lontana dall'80% di oggi |
+
+**Adozione.** Se N1–N4 passano la regola si accende. Script `scripts/assign_name_test.py`, risultati in `results/assign_name/`.
