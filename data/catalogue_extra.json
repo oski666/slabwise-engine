@@ -4534,5 +4534,401 @@
    1999,
    2000
   ]
+ ],
+ "xyp-XY110": [
+  "mew",
+  "\\bpromo",
+  "xy110",
+  [
+   2013,
+   2014
+  ]
+ ],
+ "sm11-226": [
+  "(?:mega sableye\\s*(?:&|and)\\s*tyranitar|tyranitar\\s*(?:&|and)\\s*mega sableye) gx",
+  "\\bunified\\W*(?:(?:of|the|and)\\W*)?minds\\b",
+  226,
+  [
+   2019,
+   2020
+  ]
+ ],
+ "cel25-25": [
+  "mew",
+  "\\bcelebrations\\b",
+  25,
+  [
+   2021,
+   2022
+  ]
+ ],
+ "bw6-120": [
+  "mew\\-ex",
+  "\\bdragons\\W*(?:(?:of|the|and)\\W*)?exalted\\b",
+  120,
+  [
+   2012,
+   2013
+  ]
+ ],
+ "basep-41": [
+  "lucky stadium",
+  "\\bpromo",
+  41,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "xyp-XY150a": [
+  "yveltal\\-ex",
+  "\\bpromo",
+  -1,
+  [
+   2013,
+   2014
+  ]
+ ],
+ "swshp-SWSH179": [
+  "flareon v",
+  "\\bpromo",
+  "swsh179",
+  [
+   2019,
+   2020
+  ]
+ ],
+ "bw1-113": [
+  "reshiram",
+  "\\bblack\\W*(?:(?:of|the|and)\\W*)?white\\b",
+  113,
+  [
+   2011,
+   2012
+  ]
+ ],
+ "sv01-210": [
+  "drowzee",
+  "\\bscarlet\\W*(?:(?:of|the|and)\\W*)?violet\\b",
+  210,
+  [
+   2023,
+   2024
+  ]
+ ],
+ "ex16-96": [
+  "salamence ex",
+  "\\bpower\\W*(?:(?:of|the|and)\\W*)?keepers\\b",
+  96,
+  [
+   2007,
+   2008
+  ]
+ ],
+ "xy8-157": [
+  "mewtwo ex",
+  "\\bbreakthrough\\b",
+  157,
+  [
+   2015,
+   2016
+  ]
+ ],
+ "pl3-149": [
+  "moltres",
+  "\\bsupreme\\W*(?:(?:of|the|and)\\W*)?victors\\b",
+  149,
+  [
+   2009,
+   2010
+  ]
+ ],
+ "dpp-DP17": [
+  "dialga",
+  "\\bpromo",
+  "dp17",
+  [
+   2007,
+   2008
+  ]
+ ],
+ "bw5-105": [
+  "raikou\\-ex",
+  "\\bdark\\W*(?:(?:of|the|and)\\W*)?explorers\\b",
+  105,
+  [
+   2012,
+   2013
+  ]
+ ],
+ "ecard2-H24": [
+  "sudowoodo",
+  "\\baquapolis\\b",
+  "h24",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "base1-9": [
+  "magneton",
+  "\\bbase\\W*(?:(?:of|the|and)\\W*)?set\\b",
+  9,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "sv03.5-176": [
+  "poliwhirl",
+  "\\b151\\b",
+  176,
+  [
+   2023,
+   2024
+  ]
+ ],
+ "ecard3-H21": [
+  "nidoqueen",
+  "\\bskyridge\\b",
+  "h21",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "swsh9tg-TG15": [
+  "sylveon vmax",
+  "\\bbrilliant\\W*(?:(?:of|the|and)\\W*)?stars\\W*(?:(?:of|the|and)\\W*)?trainer\\W*(?:(?:of|the|and)\\W*)?gallery\\b",
+  "tg15",
+  [
+   2022,
+   2023
+  ]
+ ],
+ "xy4-35": [
+  "m gengar ex",
+  "\\bphantom\\W*(?:(?:of|the|and)\\W*)?forces\\b",
+  35,
+  [
+   2014,
+   2015
+  ]
+ ],
+ "ex16-92": [
+  "absol ex",
+  "\\bpower\\W*(?:(?:of|the|and)\\W*)?keepers\\b",
+  92,
+  [
+   2007,
+   2008
+  ]
+ ],
+ "hgss1-114": [
+  "lugia legend",
+  "(?:\\bheart\\W?gold\\W*(?:(?:of|the|and)\\W*)?soul\\W?silver\\b|\\bhgss\\b)",
+  114,
+  [
+   2010,
+   2011
+  ]
+ ],
+ "ex7-98": [
+  "rocket's hitmonchan ex",
+  "\\bteam\\W*(?:(?:of|the|and)\\W*)?rocket\\W*(?:(?:of|the|and)\\W*)?returns\\b",
+  98,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "dp7-102": [
+  "charmeleon",
+  "\\bstormfront\\b",
+  102,
+  [
+   2008,
+   2009
+  ]
+ ],
+ "ecard3-10": [
+  "gengar",
+  "\\bskyridge\\b",
+  10,
+  [
+   2003,
+   2004
+  ]
+ ],
+ "xyp-XY67a": [
+  "jirachi",
+  "\\bpromo",
+  -1,
+  [
+   2013,
+   2014
+  ]
+ ],
+ "xyp-XY96": [
+  "umbreon",
+  "\\bpromo",
+  "xy96",
+  [
+   2013,
+   2014
+  ]
+ ],
+ "gym2-15": [
+  "rocket's zapdos",
+  "\\bgym\\W*(?:(?:of|the|and)\\W*)?challenge\\b",
+  15,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "swsh9-166": [
+  "arceus v",
+  "\\bbrilliant\\W*(?:(?:of|the|and)\\W*)?stars\\b",
+  166,
+  [
+   2022,
+   2023
+  ]
+ ],
+ "sm12-22": [
+  "(?:charizard\\s*(?:&|and)\\s*braixen|braixen\\s*(?:&|and)\\s*charizard) gx",
+  "\\bcosmic\\W*(?:(?:of|the|and)\\W*)?eclipse\\b",
+  22,
+  [
+   2019,
+   2020
+  ]
+ ],
+ "ecard2-H12": [
+  "hypno",
+  "\\baquapolis\\b",
+  "h12",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "xyp-XY114": [
+  "darkrai",
+  "\\bpromo",
+  "xy114",
+  [
+   2013,
+   2014
+  ]
+ ],
+ "sma-SV56": [
+  "greninja\\-gx",
+  "\\bhidden\\W*(?:(?:of|the|and)\\W*)?fates\\W*(?:(?:of|the|and)\\W*)?shiny\\W*(?:(?:of|the|and)\\W*)?vault\\b",
+  "sv56",
+  [
+   2019,
+   2020
+  ]
+ ],
+ "base1-19": [
+  "dugtrio",
+  "\\bbase\\W*(?:(?:of|the|and)\\W*)?set\\b",
+  19,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "svp-056": [
+  "charizard ex",
+  "\\bpromo",
+  56,
+  [
+   2023,
+   2024
+  ]
+ ],
+ "sm11-222": [
+  "(?:mewtwo\\s*(?:&|and)\\s*mew|mew\\s*(?:&|and)\\s*mewtwo) gx",
+  "\\bunified\\W*(?:(?:of|the|and)\\W*)?minds\\b",
+  222,
+  [
+   2019,
+   2020
+  ]
+ ],
+ "xy12-110": [
+  "flying pikachu",
+  "\\bevolutions\\b",
+  110,
+  [
+   2016,
+   2017
+  ]
+ ],
+ "xyp-XY133": [
+  "ash greninja ex",
+  "\\bpromo",
+  "xy133",
+  [
+   2013,
+   2014
+  ]
+ ],
+ "xy10-118": [
+  "m alakazam ex",
+  "\\bfates\\W*(?:(?:of|the|and)\\W*)?collide\\b",
+  118,
+  [
+   2016,
+   2017
+  ]
+ ],
+ "ecard2-H14": [
+  "kingdra",
+  "\\baquapolis\\b",
+  "h14",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "ex4-93": [
+  "sceptile ex",
+  "\\bteam\\W*(?:(?:of|the|and)\\W*)?magma\\W*(?:(?:of|the|and)\\W*)?vs\\W*(?:(?:of|the|and)\\W*)?team\\W*(?:(?:of|the|and)\\W*)?aqua\\b",
+  93,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "ex9-93": [
+  "deoxys ex",
+  "\\bemerald\\b",
+  93,
+  [
+   2005,
+   2006
+  ]
+ ],
+ "sv03-215": [
+  "charizard ex",
+  "\\bobsidian\\W*(?:(?:of|the|and)\\W*)?flames\\b",
+  215,
+  [
+   2023,
+   2024
+  ]
+ ],
+ "gym2-16": [
+  "sabrina's alakazam",
+  "\\bgym\\W*(?:(?:of|the|and)\\W*)?challenge\\b",
+  16,
+  [
+   2000,
+   2001
+  ]
  ]
 }
