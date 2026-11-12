@@ -1,0 +1,150 @@
+# Protocol §60 (D270): new cards added to the last saved state (I) against the full rebuild, on real groups of cards.
+# A = full rebuild without the group (saves the states), B = incremental from A's states with the group, C = full
+# rebuild with every card. I1: old cards B == A; I2-I3: new cards B vs C; I4: time of B.
+name: Prova aggiunta incrementale
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  sales:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Private data (D163)
+        uses: ./.github/actions/private-data
+        with:
+          mode: pull
+          token: ${{ secrets.DATA_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Sales
+        run: |
+          pip install -q numpy pandas scipy pillow
+          SLABWISE_TC_HISTORY=1 PYTHONPATH=. python scripts/build_sales.py data/raw/sales_base.csv data/raw/alt data/raw/sales_all.csv data/raw/tcgcharts
+          gzip -c data/raw/sales_all.csv > /tmp/sales_all.csv.gz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sales
+          path: /tmp/sales_all.csv.gz
+          retention-days: 3
+  build:
+    needs: sales
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      matrix:
+        arm: [C, A-group1, A-group2]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Private data (D163)
+        uses: ./.github/actions/private-data
+        with:
+          mode: pull
+          token: ${{ secrets.DATA_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          name: sales
+          path: /tmp
+      - name: Calibration cache (D228)
+        uses: actions/cache/restore@v4
+        with:
+          path: ~/.cache/slabwise/calib
+          key: calib-none
+          restore-keys: calib-
+      - name: Full rebuild
+        run: |
+          pip install -q numpy pandas scipy pillow
+          gunzip -c /tmp/sales_all.csv.gz > data/raw/sales_all.csv
+          ARM=${{ matrix.arm }}
+          mkdir -p /tmp/arm /tmp/ck
+          if [ "$ARM" != C ]; then
+            G=${ARM#A-}
+            python scripts/incremental_test.py drop results/incr/$G.json data/raw/sales_all.csv /tmp/arm/sales.csv
+          else
+            cp data/raw/sales_all.csv /tmp/arm/sales.csv
+          fi
+          start=$(date +%s)
+          SLABWISE_CKPT=/tmp/ck SLABWISE_TC_HISTORY=1 SLABWISE_INDEX_FULL=0 SLABWISE_OUT=/tmp/arm/out.json PYTHONPATH=. python prototype/build_real_data.py /tmp/arm/sales.csv data/raw/era_map.json
+          echo $(( $(date +%s) - start )) > /tmp/arm/seconds.txt
+          tar -C /tmp -czf /tmp/arm/ck.tgz ck
+      - uses: actions/upload-artifact@v4
+        with:
+          name: arm-${{ matrix.arm }}
+          path: /tmp/arm/
+          retention-days: 3
+  incremental:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        group: [group1, group2]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Private data (D163)
+        uses: ./.github/actions/private-data
+        with:
+          mode: pull
+          token: ${{ secrets.DATA_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          name: sales
+          path: /tmp
+      - uses: actions/download-artifact@v4
+        with:
+          name: arm-A-${{ matrix.group }}
+          path: /tmp/a
+      - name: Calibration cache (D228)
+        uses: actions/cache/restore@v4
+        with:
+          path: ~/.cache/slabwise/calib
+          key: calib-none
+          restore-keys: calib-
+      - name: Incremental
+        run: |
+          pip install -q numpy pandas scipy pillow
+          gunzip -c /tmp/sales_all.csv.gz > data/raw/sales_all.csv
+          tar -C /tmp -xzf /tmp/a/ck.tgz
+          mkdir -p /tmp/b
+          start=$(date +%s)
+          SLABWISE_INCREMENTAL=1 SLABWISE_CKPT=/tmp/ck SLABWISE_TC_HISTORY=1 SLABWISE_INDEX_FULL=0 SLABWISE_OUT=/tmp/b/out.json PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json | tee /tmp/b/log.txt
+          echo $(( $(date +%s) - start )) > /tmp/b/seconds.txt
+          grep -q "§60:.*carte nuove aggiunte" /tmp/b/log.txt
+          rm -f /tmp/a/ck.tgz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: arm-B-${{ matrix.group }}
+          path: /tmp/b/
+          retention-days: 3
+  compare:
+    needs: incremental
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          path: /tmp/arms
+          pattern: arm-*
+      - name: Compare and save
+        run: |
+          for G in group1 group2; do
+            python scripts/incremental_test.py compare results/incr/$G.json /tmp/arms/arm-A-$G/out.json /tmp/arms/arm-B-$G/out.json /tmp/arms/arm-C/out.json /tmp/arms/arm-B-$G/seconds.txt /tmp/arms/arm-C/seconds.txt results/incr/$G.result.json
+          done
+          git config user.name "slabwise-bot"
+          git config user.email "slabwise-bot@users.noreply.github.com"
+          git add results/incr/*.result.json
+          git diff --cached --quiet || { git commit -m "Prova §60: aggiunta incrementale"; git pull --rebase --autostash -q && git push; }

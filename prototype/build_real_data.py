@@ -86,6 +86,8 @@ sidx = EraIndex(np.array([set_names.index(_set_of(c)) if not c.startswith("ja:")
 import hashlib, pickle, glob  # noqa: E401,E402
 QTEST = os.environ.get("SLABWISE_IX_QUOTA_TEST") == "1"  # protocol §51 (D245): a general index with seats per era, alongside
 CKPT = None if QTEST else os.environ.get("SLABWISE_CKPT")   # folder of saved states (the build keeps it in the Actions cache)
+INCR = os.environ.get("SLABWISE_INCREMENTAL") == "1"   # §60 (D270): add new cards to the last saved state (only once §60 passes)
+_save_off = False
 JTEST = os.environ.get("SLABWISE_IX_JA_TEST") == "1"   # protocol §53 (D251): the Japanese index with seats per era
 if JTEST:
     CKPT = None
@@ -122,14 +124,54 @@ if CKPT:
     if best:
         try:
             with open(best[1], "rb") as fh:
-                lvm_, eidx_, aidx_, sidx_, e_, s_ = pickle.load(fh)
+                lvm_, eidx_, aidx_, sidx_, e_, s_ = pickle.load(fh)[:6]
             lvm, eidx, aidx, sidx = lvm_, eidx_, aidx_, sidx_
             est[:best[0] + 1], sd[:best[0] + 1] = e_, s_
             w0 = best[0] + 1
         except Exception as ex:                         # an unreadable state never stops the build: full run
             print("D244: stato illeggibile, calcolo completo:", ex, flush=True)
+    if not best and INCR:                               # §60 (D270): new cards on top of the last full rebuild
+        _cand = []
+        for f in glob.glob(os.path.join(CKPT, "state_*.json")):
+            try:
+                head = json.load(open(f))
+                m_ = head.get("meta")
+                if m_ and m_["eras"] == list(eras) and set(m_["cards"]) <= set(cards) and head["w"] < W:
+                    _cand.append((head["w"], f[:-5] + ".pkl", m_))
+            except Exception:
+                pass
+        if _cand:
+            _ws, _pf, _meta = max(_cand, key=lambda x: x[0])
+            try:
+                from slabwise.incremental import transplant_index, transplant_model, transplant_series
+                with open(_pf, "rb") as fh:
+                    lvm_, eidx_, aidx_, sidx_, e_, s_ = pickle.load(fh)[:6]
+                lvm, _sat, _o2n = transplant_model(lvm_, lvm, _meta["cards"], cards)
+                params = lvm.p                          # the shared parameters stay those of the full rebuild
+                eidx = transplant_index(eidx_, eidx, _o2n, _meta["series_names"], series_names)
+                aidx = transplant_index(aidx_, aidx, _o2n)
+                sidx = transplant_index(sidx_, sidx, _o2n, _meta["set_names"], set_names)
+                est = transplant_series(e_, _o2n, len(cards), W)
+                sd = transplant_series(s_, _o2n, len(cards), W)
+                _new = np.flatnonzero(_sat)
+                _past = clean[clean["card"].isin(set(_new.tolist())) & (clean["week"] <= _ws)]
+                for _c, _gc in _past.groupby("card"):
+                    _byw = {w_: g_ for w_, g_ in _gc.groupby("week")}
+                    for w_ in range(int(min(_byw)), _ws + 1):
+                        if w_ in _byw:
+                            lvm.add_satellite_week(int(_c), w_, _byw[w_])
+                        if lvm.fit[int(_c)] is not None:
+                            est[w_, int(_c)], sd[w_, int(_c)] = lvm.estimate_card(int(_c), w_)
+                w0 = _ws + 1
+                _save_off = True
+                print(f"§60: {len(_new)} carte nuove aggiunte allo stato della settimana {_ws} di {W}, "
+                      f"senza ricostruire le altre {len(_o2n)}", flush=True)
+            except Exception as ex:                     # anything wrong: the full rebuild, as before
+                print("§60: aggiunta incrementale non riuscita, calcolo completo:", ex, flush=True)
+                os.environ["SLABWISE_INCREMENTAL"] = "0"
+                os.execv(sys.executable, [sys.executable] + sys.argv)
     print(f"D244: {'ripartenza dalla settimana ' + str(w0) + ' di ' + str(W) if w0 else 'calcolo completo'} ", flush=True)
-_save_at = {W - k for k in (2, 5, 9, 14, 27) if W - k >= 0}
+_save_at = set() if _save_off else {W - k for k in (2, 5, 9, 14, 27) if W - k >= 0}   # §60: an incremental run saves nothing
 _saved = []
 for w in range(w0, W):
     lvm.ingest(w, groups.get(w, clean.iloc[:0]))
@@ -149,7 +191,8 @@ for w in range(w0, W):
         f = os.path.join(CKPT, f"state_new_{w}.pkl")
         with open(f, "wb") as fh:
             pickle.dump((lvm, eidx, aidx, sidx, est[:w + 1], sd[:w + 1]), fh, protocol=5)
-        json.dump({"w": w, "chain": _chain[w]}, open(f[:-4] + ".json", "w"))
+        json.dump({"w": w, "chain": _chain[w], "meta": {"cards": list(cards), "eras": list(eras),   # §60: what the state covers
+                   "series_names": list(series_names), "set_names": list(set_names)}}, open(f[:-4] + ".json", "w"))
         _saved.append(f)
 if CKPT and _saved:                                     # states before the restart point are still valid (the chain is cumulative)
     for f in glob.glob(os.path.join(CKPT, "state_*.pkl")):

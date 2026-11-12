@@ -123,6 +123,8 @@ class LatentValueModel:
         self.n_bounded = 0                                # estimates where the roll-forward bound bit (D47)
         self.jumps = [[] for _ in range(n_cards)]         # v1.17 (D155): per card, (week time, variance) of each jump
         self.gjumps = [[] for _ in range(n_cards)]        # D206: per card, (grade index, week time, variance) of each grade jump
+        self.satellite = None                             # §60 (D270): cards added without a rebuild: they follow the era factors
+                                                          # and the shared parameters, and never move them
 
     ERA_TIE = 2.0                                         # cards' worth of weight tying an era to the shared prior (v1.7b, D56)
 
@@ -221,16 +223,39 @@ class LatentValueModel:
         lang = (sales["lang"].fillna(0).to_numpy().astype(int) if "lang" in sales
                 else np.zeros(len(y), int))
 
-        self._factor_step(w, cards, gis, y, auction, cert_ok, lang)
+        sat = getattr(self, "satellite", None)
+        if sat is not None and len(y) and sat[cards].any():   # §60: satellite cards never move the era factors
+            m = ~sat[cards]
+            self._factor_step(w, cards[m], gis[m], y[m], auction[m], cert_ok[m], lang[m])
+        else:
+            self._factor_step(w, cards, gis, y, auction, cert_ok, lang)
 
         touched = set()
         for i in range(len(y)):
-            self.obs[cards[i]].append(dict(t=t[i], y=y[i], g=gis[i], a=bool(vix[i] == 1), v=int(vix[i]), l=int(lang[i]),
-                                           k=cert[i] if isinstance(cert[i], str) else None,
-                                           ok=bool(cert_ok[i]), new=True))
+            self.obs[cards[i]].append(self._obs(t[i], y[i], gis[i], vix[i], lang[i], cert[i], cert_ok[i]))
             touched.add(cards[i])
         for c in touched:
             self._refit(c, w)
+
+    @staticmethod
+    def _obs(t, y, g, vix, lang, cert, cert_ok):
+        return dict(t=t, y=y, g=g, a=bool(vix == 1), v=int(vix), l=int(lang),
+                    k=cert if isinstance(cert, str) else None, ok=bool(cert_ok), new=True)
+
+    def add_satellite_week(self, c, w, sales):
+        """§60: the sales of satellite card c in past week w (already covered by the saved state): the card is fitted
+        against the era factors as they were estimated, which it does not move."""
+        gis = np.array([GRADE_INDEX[int(g)] for g in sales["grade"]])
+        y = np.log(sales["price"].to_numpy())
+        t = sales["day"].to_numpy() / 7.0
+        vn = sales["venue"].to_numpy()
+        vix = np.where(vn == "auction", 1, np.where(vn == "fixed", 2, 0))
+        cert = sales["cert"].to_numpy()
+        cert_ok = sales["cert_ok"].to_numpy().astype(bool)
+        lang = (sales["lang"].fillna(0).to_numpy().astype(int) if "lang" in sales else np.zeros(len(y), int))
+        for i in range(len(y)):
+            self.obs[c].append(self._obs(t[i], y[i], gis[i], vix[i], lang[i], cert[i], cert_ok[i]))
+        self._refit(c, w)
 
     def qc(self, c):
         """Weekly drift variance of card c: q_L * kappa_c, kappa_c shrunk towards 1."""
@@ -250,27 +275,38 @@ class LatentValueModel:
         for c, f in enumerate(self.fit):
             if f is None:
                 continue
-            e = self.era[c]
-            dF = self.F[e][w + 1] - f["Fe"]
-            dt = (w + 1) - f["T"]
-            th, cov = f["theta"], f["cov"]
-            for gi in range(4):
-                h = np.zeros(len(th))
-                h[0] = 1
-                if gi:
-                    h[gi] = 1
-                h[4] = dF
-                roll = th[4] * dF
-                if self.p.roll_bound:                          # D47: a card without sales moves at most x/÷ roll_bound
-                    lim = np.log(self.p.roll_bound)
-                    if abs(roll) > lim:
-                        roll = float(np.clip(roll, -lim, lim))
-                        self.n_bounded += 1
-                mean[c, gi] = th[0] + (th[gi] if gi else 0) + roll
-                dV = self.V[e][w + 1] - f["V"]                 # factor estimation error since the fit
-                sd[c, gi] = np.sqrt(h[:5] @ cov[:5, :5] @ h[:5] + (self.qc(c) + (self.p.q_d if gi else 0)) * dt
-                                    + th[4] ** 2 * dV)
+            self._estimate_one(c, f, w, mean, sd)
         return mean, sd
+
+    def estimate_card(self, c, w):
+        """Mean and sd of the four grades of card c at week w (one row of estimates_with_sd)."""
+        mean = np.full((self.C, 4), np.nan)
+        sd = np.full((self.C, 4), np.nan)
+        if self.fit[c] is not None:
+            self._estimate_one(c, self.fit[c], w, mean, sd)
+        return mean[c], sd[c]
+
+    def _estimate_one(self, c, f, w, mean, sd):
+        e = self.era[c]
+        dF = self.F[e][w + 1] - f["Fe"]
+        dt = (w + 1) - f["T"]
+        th, cov = f["theta"], f["cov"]
+        for gi in range(4):
+            h = np.zeros(len(th))
+            h[0] = 1
+            if gi:
+                h[gi] = 1
+            h[4] = dF
+            roll = th[4] * dF
+            if self.p.roll_bound:                          # D47: a card without sales moves at most x/÷ roll_bound
+                lim = np.log(self.p.roll_bound)
+                if abs(roll) > lim:
+                    roll = float(np.clip(roll, -lim, lim))
+                    self.n_bounded += 1
+            mean[c, gi] = th[0] + (th[gi] if gi else 0) + roll
+            dV = self.V[e][w + 1] - f["V"]                 # factor estimation error since the fit
+            sd[c, gi] = np.sqrt(h[:5] @ cov[:5, :5] @ h[:5] + (self.qc(c) + (self.p.q_d if gi else 0)) * dt
+                                + th[4] ** 2 * dV)
 
     def forecast_var_week(self):
         """v1.15 (D106): extra variance per week ahead of each card and grade, shape (cards, 4): its own drift (q_c, plus
@@ -606,7 +642,9 @@ class LatentValueModel:
         K = 5 + NLc + NVc
         self.fit[c] = dict(theta=theta[:K].copy(), cov=cov[:K, :K].copy(), T=T, Fe=Fe_now, V=Ve_now,
                            pgen=post[0], cert=ok.copy(), langs=langs, venues=venues)
-        self._learn_globals(c, ob, post, theta, cov, X, y, a, lidx, vidx)
+        sat = getattr(self, "satellite", None)
+        if sat is None or not sat[c]:                     # §60: satellite cards never move the shared parameters
+            self._learn_globals(c, ob, post, theta, cov, X, y, a, lidx, vidx)
 
     def _irls(self, X, y, var, base, shared, ok, th, m0, prec0, iters, tprior=None):
         """Robust generalised least squares: the exact posterior of a local-level
