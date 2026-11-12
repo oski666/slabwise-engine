@@ -9,6 +9,10 @@ on:
         description: "Ricontrolla anche le carte in attesa (dopo un cambio di regola)"
         type: boolean
         default: false
+      first:
+        description: "Carte da provare per prime (id separati da spazio)"
+        type: string
+        default: ""
   workflow_run:
     workflows: ["Giapponesi"]
     types: [completed]
@@ -46,7 +50,7 @@ jobs:
         timeout-minutes: 270
         run: |
           pip install -q numpy pandas scipy pillow
-          ids=$(python scripts/ja_due.py ${{ inputs.recheck && '--recheck' || '' }} | head -n 60 | tr '\n' ' ')   # 12 Nov 2026: about 300 cards in one batch overran 270 minutes before the engine gate
+          ids=$( (echo "${{ inputs.first }}"; python scripts/ja_due.py ${{ inputs.recheck && '--recheck' || '' }}) | tr ' ' '\n' | sed '/^$/d' | awk '!s[$0]++' | head -n 60 | tr '\n' ' ')   # 12 Nov 2026: about 300 cards in one batch overran 270 minutes before the engine gate
           echo "carte: $(echo $ids | wc -w)"
           [ -z "$ids" ] || PYTHONPATH=. python scripts/add_batch.py $ids | tee -a /tmp/add.log || true
       - name: Save the private data (D163)
