@@ -1,44 +1,49 @@
 {
- "asof": "2026-11-11",
+ "asof": "2026-11-12",
  "cards": 1077,
  "checks": {
   "C7": {
-   "n": 19,
+   "n": 25,
    "examples": [
     [
      "swsh3.5-79",
      "Charizard V",
-     "PSA 9 193 < PSA 8 211"
+     "PSA 9 193 < PSA 8 209"
     ],
     [
      "swsh7-212",
      "Sylveon VMAX",
-     "PSA 9 291 < PSA 8 302"
+     "PSA 9 291 < PSA 8 301"
     ],
     [
      "swsh5-155",
      "Tyranitar V",
-     "PSA 9 212 < PSA 8 217"
+     "PSA 9 213 < PSA 8 216"
     ],
     [
      "swshp-SWSH074",
      "Special Delivery Pikachu",
-     "PSA 8 317 < PSA 7 328"
+     "PSA 8 316 < PSA 7 328"
     ],
     [
-     "me02.5-276",
-     "Pikachu ex",
-     "PSA 9 619 < PSA 8 621"
+     "col1-SL10",
+     "Rayquaza",
+     "PSA 8 7713 < PSA 7 7819"
     ],
     [
      "me02.5-277",
      "Pikachu ex",
-     "PSA 8 223 < PSA 7 228"
+     "PSA 8 224 < PSA 7 228"
     ],
     [
      "me02.5-294",
      "Mega Charizard Y ex",
-     "PSA 8 207 < PSA 7 209"
+     "PSA 8 208 < PSA 7 210"
+    ],
+    [
+     "me02-130",
+     "Mega Charizard X ex",
+     "PSA 8 187 < PSA 7 188"
     ],
     [
      "smp-SM210",
@@ -46,24 +51,19 @@
      "PSA 8 112 < PSA 7 114"
     ],
     [
+     "sv03.5-167",
+     "Ivysaur",
+     "PSA 8 33 < PSA 7 33"
+    ],
+    [
      "sv10-229",
      "Team Rocket's Moltres ex",
      "PSA 8 58 < PSA 7 67"
     ],
     [
-     "xy12-101",
-     "M Charizard EX",
-     "PSA 8 109 < PSA 7 113"
-    ],
-    [
-     "ja:sv-p-001",
-     "ピカチュウ",
-     "PSA 8 24 < PSA 7 30"
-    ],
-    [
-     "ja:sv8a-202",
-     "ブースターex",
-     "PSA 9 45 < PSA 8 53"
+     "swshp-SWSH145",
+     "Pikachu V",
+     "PSA 8 74 < PSA 7 74"
     ]
    ]
   }
