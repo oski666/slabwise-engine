@@ -1,0 +1,259 @@
+{
+ "assigned_before": 1699839,
+ "kept": 1692543,
+ "removed": 7296,
+ "why": {
+  "nome assente": 6880,
+  "altro prodotto": 416
+ },
+ "N2_kept_share": 0.9957,
+ "N2_passed": true,
+ "N3_cards_below": 1,
+ "N3_share": 0.0009,
+ "N3_passed": true,
+ "N3_examples": [
+  "ja:play-promos-30"
+ ],
+ "N1_sample": [
+  [
+   "ja:shiny-star-v-198",
+   "2025-02-19",
+   21000,
+   "2020 Pokemon マリィ シャイニースターV #198/190 PSA 10"
+  ],
+  [
+   "ja:shiny-star-v-198",
+   "2025-07-07",
+   18500,
+   "2020 Pokemon マリィ シャイニースターV #198/190 PSA 10"
+  ],
+  [
+   "ja:dream-league-68",
+   "2024-04-11",
+   40500,
+   "2019 Pokemon リーリエの全力 ドリームリーグ #068/049 PSA 10"
+  ],
+  [
+   "sv10-229",
+   "2026-05-03",
+   9000,
+   "2025 POKEMON DESTINED RIVALS ULTRA-PREMIUM COLL TEAM ROCKET'S MOLTRES EX PSA 9"
+  ],
+  [
+   "ja:tag-bolt-107",
+   "2026-09-18",
+   8700,
+   "2018 Pokemon エリカのおもてなし タッグボルト #107/095 PSA 9"
+  ],
+  [
+   "ja:terastal-festival-ex-218",
+   "2025-06-30",
+   4300,
+   "2024 Pokemon トドロクツキex テラスタルフェスex #218/187 PSA 10"
+  ],
+  [
+   "smp-SM70",
+   "2023-07-14",
+   4069,
+   "Pokemon TCG Shining Ho-oh Shining Legends SM70 Psa 9 Mint"
+  ],
+  [
+   "ja:miracle-twin-104",
+   "2023-09-25",
+   16711,
+   "2019 Pokemon カスミのおねがい ミラクルツイン #104/094 PSA 9"
+  ],
+  [
+   "ja:terastal-festival-ex-218",
+   "2025-04-06",
+   6300,
+   "2024 Pokemon トドロクツキex テラスタルフェスex #218/187 PSA 10"
+  ],
+  [
+   "smp-SM70",
+   "2026-01-11",
+   1750,
+   "2016-19 Pokemon SM Black Star Promos Shining Ho-Oh #SM70 PSA 8"
+  ],
+  [
+   "smp-SM70",
+   "2021-01-28",
+   29500,
+   "2017 Pokemon S&M Black Star Promo Shining Legends Shining Holo Ho-Oh PSA 10 GEM"
+  ],
+  [
+   "ja:terastal-festival-ex-218",
+   "2025-06-30",
+   4300,
+   "2024 Pokemon トドロクツキex テラスタルフェスex #218/187 PSA 10"
+  ],
+  [
+   "me01-181",
+   "2026-06-16",
+   28500,
+   "2025 Pokemon Mega Evolution 181 Mega Latios ex SIR PSA 10 Gem Mint"
+  ],
+  [
+   "ja:dream-league-68",
+   "2025-09-16",
+   53000,
+   "2019 Pokemon リーリエの全力 ドリームリーグ #068/049 PSA 10"
+  ],
+  [
+   "smp-SM70",
+   "2022-01-19",
+   14999,
+   "PSA 10 Shining Ho-oh Pokemon Shining Legends Elite Trainer Box 2017 #SM70"
+  ],
+  [
+   "ja:terastal-festival-ex-218",
+   "2025-05-16",
+   2250,
+   "2024 Pokemon トドロクツキex テラスタルフェスex #218/187 PSA 9"
+  ],
+  [
+   "ja:terastal-festival-ex-218",
+   "2025-08-26",
+   5499,
+   "2024 Pokemon トドロクツキex テラスタルフェスex #218/187 PSA 10"
+  ],
+  [
+   "ja:dream-league-68",
+   "2020-10-17",
+   6500,
+   "2019 Pokemon リーリエの全力 ドリームリーグ #068/049 PSA 10"
+  ],
+  [
+   "ja:transformation-mask-130",
+   "2025-01-29",
+   22000,
+   "2024 Pokemon ゼイユ 変幻の仮面 #130/101 PSA 10"
+  ],
+  [
+   "ja:terastal-festival-ex-218",
+   "2025-04-11",
+   7000,
+   "2024 Pokemon トドロクツキex テラスタルフェスex #218/187 PSA 10"
+  ],
+  [
+   "ja:terastal-festival-ex-218",
+   "2026-03-24",
+   6610,
+   "2024 Pokemon トドロクツキex テラスタルフェスex #218/187 PSA 10"
+  ],
+  [
+   "sm10-20",
+   "2026-03-27",
+   7649,
+   "Pokémon tcg 2019 Sun & Moon Unbroken Bonds Reshrm. & Charzrd.Gx #20 PSA 9"
+  ],
+  [
+   "smp-SM210",
+   "2020-12-06",
+   17550,
+   "Pokemon Hidden Fates SM210 Promo PSA 10 GM"
+  ],
+  [
+   "ja:terastal-festival-ex-218",
+   "2025-06-28",
+   4700,
+   "2024 Pokemon トドロクツキex テラスタルフェスex #218/187 PSA 10"
+  ],
+  [
+   "ja:transformation-mask-130",
+   "2026-09-10",
+   5100,
+   "2024 Pokemon ゼイユ 変幻の仮面 #130/101 PSA 9"
+  ],
+  [
+   "ja:vstar-universe-246",
+   "2024-01-01",
+   7477,
+   "2022 Pokemon カミツレのきらめき VSTARユニバース #246/172 PSA 10"
+  ],
+  [
+   "xy9-121",
+   "2018-04-01",
+   4100,
+   "2016 Pokemon Ho-Oh-EX BREAKpoint #121/122 PSA 10"
+  ],
+  [
+   "ja:heat-wave-arena-86",
+   "2026-04-23",
+   24000,
+   "Pokemon Ethans Ho-Oh Card PSA 10 086/063 SAR SV9a Heat Wave Arena Japanese"
+  ],
+  [
+   "sv10-229",
+   "2026-11-04",
+   22819,
+   "2025 POKEMON DESTINED RIVALS ULTRA-PREMIUM TEAM ROCKET'S MOLTRES EX PSA 10"
+  ],
+  [
+   "ja:alter-genesis-104",
+   "2024-07-07",
+   7500,
+   "2019 Pokemon Japanese Sun & Moon Fa/M.Lpny & Jglypf Gx #104 Alter Genesis PSA 10"
+  ],
+  [
+   "ja:terastal-festival-ex-218",
+   "2026-08-22",
+   7609,
+   "2024 Pokemon トドロクツキex テラスタルフェスex #218/187 PSA 10"
+  ],
+  [
+   "ja:terastal-festival-ex-218",
+   "2025-06-16",
+   3900,
+   "2024 Pokemon トドロクツキex テラスタルフェスex #218/187 PSA 10"
+  ],
+  [
+   "swsh8-270",
+   "2023-03-11",
+   18999,
+   "2021 Pokemon Mew VMAX 270/264 Alternative Secret Rare PSA 9 MINT"
+  ],
+  [
+   "ja:sv1a-080",
+   "2023-05-31",
+   8100,
+   "2023 POKEMON JAPANESE SV1a-TRIPLET BEAT 080/73 PSA 10 GEM MINT"
+  ],
+  [
+   "ja:vstar-universe-246",
+   "2023-04-02",
+   22050,
+   "2022 Pokemon カミツレのきらめき VSTARユニバース #246/172 PSA 10"
+  ],
+  [
+   "ja:terastal-festival-ex-218",
+   "2026-09-25",
+   7500,
+   "2024 Pokemon トドロクツキex テラスタルフェスex #218/187 PSA 10"
+  ],
+  [
+   "ja:terastal-festival-ex-218",
+   "2025-05-10",
+   5500,
+   "2024 Pokemon トドロクツキex テラスタルフェスex #218/187 PSA 10"
+  ],
+  [
+   "ja:sv2a-171",
+   "2024-06-26",
+   850,
+   "2023 Pokemon SV2a Japanese Art Rare #171 Wartotlte PSA 9 MINT"
+  ],
+  [
+   "smp-SM210",
+   "2024-05-12",
+   3498,
+   "2019 POKEMON SM BSP SM210 MLTRS/ZPDS/ARTCN.GX HIF ELITE TRAINER BOX-F.A. PSA 9"
+  ],
+  [
+   "ja:terastal-festival-ex-218",
+   "2025-03-22",
+   7700,
+   "2024 Pokemon トドロクツキex テラスタルフェスex #218/187 PSA 10"
+  ]
+ ]
+}
