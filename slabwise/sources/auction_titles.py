@@ -216,6 +216,10 @@ _PSA_FILE = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", ".
 _JA_PSA = {k: v for k, v in _json.load(open(_PSA_FILE, encoding="utf-8")).items() if not k.startswith("_")} \
     if _os.path.exists(_PSA_FILE) else {}
 _POKEMON = re.compile(r"pok[eé]mon")
+JA_1ST = _os.environ.get("SLABWISE_JA_1ST", "0") == "1"   # D282 (protocol §64): sets printed only as 1st Edition; off until it passes
+_1ST_FILE = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "data", "ja_first_edition_only.json")
+_JA_1ST_SETS = set(_json.load(open(_1ST_FILE, encoding="utf-8"))["sets"]) if _os.path.exists(_1ST_FILE) else set()
+_JA_1ST_NAMES = {"ja:expansion-pack-20th-anniversary": r"\b(?:cp6|20th\W*anni?v\w*)\b"}
 
 
 def _set_ok(key, setre, t):
@@ -228,7 +232,10 @@ def _set_ok(key, setre, t):
     if (setre and _rx_search(setre, t2)) or (x and _rx_search(x, t2)):
         return True
     a = _JA_PSA.get(key.rsplit("-", 1)[0])
-    return bool(a and _rx_search(a, t2))
+    if a and _rx_search(a, t2):
+        return True
+    b = _JA_1ST_NAMES.get(key.rsplit("-", 1)[0]) if JA_1ST else None   # D282: CP6, 20th Anniversary
+    return bool(b and _rx_search(b, t2))
 
 
 NEW_JA_RULES = _os.environ.get("SLABWISE_JA_RULES", "1") == "1"   # noqa: E501
@@ -474,7 +481,7 @@ def accept_assigned(title: str, card: str):
     nums = {int(a or b) for a, b in NUM.findall(t)} | {p + n for p, n in NUM_PREFIX.findall(t)}
     if nums and not (nums & _card_number(card)):
         return False, "numero diverso"
-    if "/" not in card and _VARIANT_WORD.search(t):
+    if "/" not in card and _VARIANT_WORD.search(t) and not (JA_1ST and card.rsplit("-", 1)[0] in _JA_1ST_SETS):
         return False, "stampa diversa"
     if "/" in card and not _VARIANT_WORD.search(t):
         return False, "stampa non detta"

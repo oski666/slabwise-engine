@@ -1040,3 +1040,11 @@ B entra se passa S1–S4 e S6; C e D se passano anche S5. Tra le varianti che pa
 | N4 | motore del sito sulla vendita successiva, metrica §61 | errore mediano non più alto di oggi di oltre l'1% relativo; copertura dello SlabRange non più lontana dall'80% di oggi |
 
 **Adozione.** Se N1–N4 passano la regola si accende. Script `scripts/assign_name_test.py`, risultati in `results/assign_name/`.
+
+## 64. Set giapponesi stampati solo in prima edizione (registrato il 13 novembre 2026, prima del codice; D282)
+
+**Domanda.** La Charizard dell'Expansion Pack 20th Anniversary (CP6) non entra: il 42% dei suoi titoli "contraddice" la carta. Letti a mano, sono tutti suoi: il set esiste solo in prima edizione, quindi i titoli dicono "1st Edition", e la regola del D258 lo legge come una stampa diversa; e quasi nessuno scrive "Expansion Pack", ma "20th Anniversary" o "CP6".
+
+**Regola.** (1) Per i set giapponesi stampati solo in prima edizione (`data/ja_first_edition_only.json`; oggi: expansion-pack-20th-anniversary) "1st Edition" non è una stampa diversa. (2) Nomi del set: "CP6" e "20th Anniversary" (o "20th Anniv", "20th Anv") valgono come Expansion Pack 20th Anniversary nella tabella del §62. Interruttore `SLABWISE_JA_1ST`, spento fino all'esito.
+
+**Dati e criteri.** Come il §62 (stessi titoli, stesso script con la regola spenta e accesa): P1 nessun titolo cambia carta; P2 nessuno diventa ambiguo o non riconosciuto; P3 dei titoli in più, 40 letti a mano, tutti della carta giusta. In più P4: la quota di titoli che contraddicono la Charizard #11 scende sotto il 40%.
