@@ -173,6 +173,7 @@ def ja_counterparts(c, tc_map):
     return out, no_tcgdex
 
 
+WAIT_SHOWN = 150          # cards waiting listed in the issue (the queue file has them all)
 RECHECK_DAYS = 7                                      # D122: a card waiting for sales is checked again after a week
 
 
@@ -345,9 +346,14 @@ def main():
     md += ["", f"<details><summary>In attesa ({len(wait)})</summary>", ""]
     md += [f"- `{r['id']}` {r['name']} · {r['set']}: {r.get('detail') or r['status']}"
            + (f" · prossimo controllo {(date.fromisoformat(r['checked']) + timedelta(days=RECHECK_DAYS)).isoformat()}"
-              if r["status"] in ("attesa_vendite", "attesa_coerenza", "non_trovata") else "") for r in wait]
+              if r["status"] in ("attesa_vendite", "attesa_coerenza", "non_trovata") else "") for r in wait[:WAIT_SHOWN]]
+    if len(wait) > WAIT_SHOWN:                                     # 13 Nov: GitHub refuses an issue body over 65,536 characters
+        md.append(f"- … e altre {len(wait) - WAIT_SHOWN} (l'elenco completo è in `prototype/data/candidates_queue.json`)")
     md += ["", "</details>", "", f"Classifica letta: prime {TOP} carte; {unmapped} non collegate a TCGdex. Controlli in questo giro: {checks}."]
-    open(os.path.join(out_dir, "issue.md"), "w").write("\n".join(md) + "\n")
+    body = "\n".join(md) + "\n"
+    if len(body) > 60000:                                          # never over GitHub's limit, whatever the queue holds
+        body = body[:60000].rsplit("\n", 1)[0] + "\n\n_Elenco tagliato: troppo lungo per una issue._\n"
+    open(os.path.join(out_dir, "issue.md"), "w").write(body)
     open(os.path.join(out_dir, "new_ready.txt"), "w").write(str(sum(1 for r in ready + ready_ja if r.get("checked") == today)))
     print(f"{len(ready)} pronte, {len(wait)} in attesa, {len(added)} aggiunte")
 
