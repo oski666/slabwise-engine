@@ -551,7 +551,7 @@ function japanSection7() {
     <div class="news-row">${wait.map((j, k) => { const en = enOf(j);
       return `<a class="jp8 rv" style="--i:${k}" href="#c-${j.id}">
         <div class="news-img">${j.img ? `<img src="${j.img}" alt="${esc(j.name)}">` : `<span class="noimg">${tx("foto in arrivo", "photo coming soon")}</span>`}<span class="hanko" lang="ja" aria-label="${soon}">準備中</span></div>
-        <div class="news-body"><b lang="ja">${esc(j.name)}</b><span><span lang="ja">${esc(j.set)}</span> · ${esc(j.no)}/${j.tot || "?"}</span>${en ? `<span class="muted">${tx("Stampa inglese", "English printing")}: ${esc(en.name)}</span>` : ""}</div>
+        <div class="news-body"><b>${esc(j.name)}</b>${jaCap(j)}<span><span>${esc(j.set)}</span> · ${esc(j.no)}/${j.tot || "?"}</span>${en ? `<span class="muted">${tx("Stampa inglese", "English printing")}: ${esc(en.name)}</span>` : ""}</div>
         <span class="ntag">${soon}</span></a>`; }).join("")}</div>
     ${waiting.length > wait.length ? `<p class="note">${tx(`Altre ${waiting.length - wait.length} stampe giapponesi aspettano le vendite: le trovi nella scheda di ogni carta inglese.`, `${waiting.length - wait.length} more Japanese printings are waiting for sales: each English card's page links to its own.`)}</p>` : ""}` : ""}</div>`;
   return sectionWrap("jp", "JAPAN", inner, null, "日本");
@@ -563,7 +563,7 @@ function tiles(list) {
   const key = {cap: c => capOf(c), mcap: c => capPSA(c), ch30: c => gradeOf(c, S.g).ch30 ?? -Infinity, sales: c => gradeOf(c, S.g).sales90, sure: c => -halfw(gradeOf(c, S.g))}[S.sort] || (c => capOf(c));
   return [...(list || D.cards)].sort((a, b) => noOwn(gradeOf(a, S.g)) - noOwn(gradeOf(b, S.g)) || key(b) - key(a)).map((c, i) => { const g = gradeOf(c, S.g), hid = noOwn(g); return `<a class="ct8 rv" href="#c-${c.id}" style="--cat:var(--cat-${catOf(c)});--i:${i % 4}">
     <div class="ct-art">${c.thumb || c.img ? `<img src="${c.img || c.thumb}" alt="">` : `<span class="noimg">${tx("foto in arrivo", "photo coming soon")}</span>`}${hid ? "" : `<span class="ct-rank">${i + 1}</span>`}<span class="ct-grade">PSA ${S.g}</span>${g.tier ? `<span class="ct-tier ${TIER_CLS[tierK(g)]}" title="${esc(tierName(g))}"></span>` : ""}</div>
-    <div class="ct-body"><h3${c.lang === "ja" ? ' lang="ja"' : ""}>${esc(c.name)}</h3><span class="meta"><span${c.lang === "ja" ? ' lang="ja"' : ""}>${esc(c.set)}</span> · #${esc(c.no)}${c.lang === "ja" && enOf(c) ? ` · ${esc(enOf(c).name)}` : ""}</span>
+    <div class="ct-body"><h3>${esc(c.name)}</h3>${jaCap(c)}<span class="meta"><span>${esc(c.set)}</span> · #${esc(c.no)}</span>
       ${hid ? `<div class="ct-price"><b class="num">—</b></div><span class="note">${g.last && !g.off ? tx(`Poche vendite per un prezzo. Ultima vendita: ${usd(g.last[1])}, ${monthF(g.last[0])}`, `Too few sales for a price. Last sale: ${usd(g.last[1])}, ${monthF(g.last[0])}`) : noEst(S.g, g)}</span>` : `<div class="ct-price"><b class="num">${usd(g.value)}</b><span class="${g.ch30 >= 0 ? "up" : "down"}">${pct(g.ch30)}</span></div>
       ${fork(g, true)}<span class="note">±${nf1.format(halfw(g) * 100)}% SlabRange</span>`}${capRow(c)}</div></a>`; }).join("") || `<div class="tile empty">${tx("Nessuna carta.", "No cards.")}</div>`;
 }
@@ -585,7 +585,7 @@ function viewList(spec) {
   const list = D.cards.filter(c => kind[1](c) === v), cap = list.reduce((t, c) => t + capPSA(c), 0);
   const sk = k === "set" && list[0] && setOf(list[0]), six = sk && (D.index_sets || {})[sk];
   return `<div class="wrap"><section class="sec" style="padding-top:36px">
-    <div><span class="label">${kind[0]}</span><h2 style="font-size:clamp(26px,3.4vw,40px)"${list.some(c => c.lang === "ja") ? ' lang="ja"' : ""}>${esc(v)}</h2>
+    <div><span class="label">${kind[0]}</span><h2 style="font-size:clamp(26px,3.4vw,40px)">${esc(v)}</h2>
       <p class="muted" style="max-width:62ch;margin-top:8px">${plural(list.length, tx("carta nel catalogo", "card in the catalogue"), tx("carte nel catalogo", "cards in the catalogue"))}${cap > 0 ? " · " + tx("capitalizzazione PSA 7–10", "PSA 7–10 market cap") + " " + usdK(cap) : ""}${six ? ` · <a href="#indice-${encodeURIComponent("set:" + sk)}">${tx("indice del set", "set index")}</a>` : ""}</p></div>
     <div class="filters" style="margin-top:18px">${sortChips()}</div>
     <div class="cgrid" style="margin-top:18px">${tiles(list)}</div></section></div>`;
@@ -609,6 +609,8 @@ function viewGems() {
 }
 /* D152: the English card is shown as "the same card" only when the illustration and the Pokémon match (en_same) */
 const enOf = j => j && j.en_same ? cardById[j.en] : null;
+/* D291: a Japanese printing is shown in English; a small caption says it is Japanese and keeps the original name */
+const jaCap = c => c && String(c.id).startsWith("ja:") ? `<span class="jcap">${c.ja_only ? tx("Solo in Giappone", "Japan only") : tx("Stampa giapponese", "Japanese print")}${c.name_ja ? ` · <span lang="ja">${esc(c.name_ja)}</span>` : ""}</span>` : "";
 const jaOf = c => D.cards.find(x => x.lang === "ja" && x.en === c.id && x.en_same) || (D.ja_pending || []).find(x => x.en === c.id && x.en_same);
 const jaById = Object.fromEntries((D.ja_pending || []).map(j => [j.id, j]));
 const engBox = en => `<a class="tile jabox" href="#c-${en.id}" style="text-decoration:none;color:inherit"><span class="label">${tx("Stampa inglese", "English printing")}</span>
@@ -621,7 +623,7 @@ function viewJa(id) {
   const en = enOf(j);
   const n = j.sales || 0;
   return `<div class="wrap">
-  <div class="crumbs"><a href="#mercato">${t("market")}</a> › ${t("japan")} › <span lang="ja">${esc(j.set)}</span> › <span lang="ja">${esc(j.name)}</span></div>
+  <div class="crumbs"><a href="#mercato">${t("market")}</a> › ${t("japan")} › <span>${esc(j.set)}</span> › <span>${esc(j.name)}</span></div>
   <div class="cardpage">
     <div class="leftcol">
       ${slab(j, "JP", 320, "bob")}
@@ -629,7 +631,7 @@ function viewJa(id) {
       ${en ? engBox(en) : ""}
     </div>
     <div>
-      <div style="padding-bottom:20px;display:flex;flex-direction:column;align-items:flex-start;gap:8px"><span class="label">${tx("Stampa giapponese", "Japanese printing")} · <span lang="ja">${esc(j.set)}</span> · #${esc(j.no)}${j.tot ? "/" + j.tot : ""}</span><h1 lang="ja" style="font-size:clamp(34px,4.6vw,52px);margin-top:4px">${esc(j.name)}</h1></div>
+      <div style="padding-bottom:20px;display:flex;flex-direction:column;align-items:flex-start;gap:8px"><span class="label">${tx("Stampa giapponese", "Japanese printing")} · <span>${esc(j.set)}</span> · #${esc(j.no)}${j.tot ? "/" + j.tot : ""}</span><h1 style="font-size:clamp(34px,4.6vw,52px);margin-top:4px">${esc(j.name)}</h1>${jaCap(j)}</div>
       <div class="tile q"><div class="qhead"><span class="qn">1</span><h2>${tx("Quanto vale?", "What is it worth?")}</h2></div>
         <div class="valuerow"><span class="big">${tx("Prezzo in arrivo", "Price coming soon")}</span><span class="sticker sky">${plural(n, tx("vendita raccolta", "sale collected"), tx("vendite raccolte", "sales collected"))}</span></div>
         <p class="muted">${tx("Mostriamo un valore quando abbiamo almeno 5 vendite vere di questa stampa. Le raccoglieremo da Mercari Giappone ed eBay.", "We show a value once we have at least 5 real sales of this printing. We will collect them from Mercari Japan and eBay.")}</p>
@@ -736,7 +738,7 @@ function viewCard(id) {
   const crumbSeries = c.lang === "ja" ? t("japan") : esc(ser(c.series));
   const parts = cardMore(c, g);                                  // D195: the page in three levels
   return `<div class="wrap">
-  <div class="crumbs"><a href="#mercato">${t("market")}</a> › ${crumbSeries} › <span${c.lang === "ja" ? ' lang="ja"' : ""}>${esc(c.set)}</span> › <span${c.lang === "ja" ? ' lang="ja"' : ""}>${esc(c.name)}</span></div>
+  <div class="crumbs"><a href="#mercato">${t("market")}</a> › ${crumbSeries} › <span>${esc(c.set)}</span> › <span>${esc(c.name)}</span></div>
   <div class="cardpage">
     <div class="leftcol">
       ${slab(c, g.grade, 320, "bob")}
@@ -746,10 +748,10 @@ function viewCard(id) {
       ${c.lang === "ja" && enOf(c) ? engBox(enOf(c)) : ""}
       ${(() => { const j = jaOf(c); return j ? `<a class="tile jabox" href="#c-${j.id}" style="text-decoration:none;color:inherit"><span class="label">${tx("Versione giapponese", "Japanese version")}</span>
         <div style="display:flex;gap:12px;align-items:center">${j.img ? `<img src="${j.img}" alt="" style="width:64px;border-radius:4px">` : ""}
-        <div><b lang="ja">${esc(j.name)}</b><br><span class="note"><span lang="ja">${esc(j.set)}</span> · ${esc(j.no)}/${j.tot || "?"}</span><br><span class="note">${j.grades ? tx(`PSA 10 oggi ${usdV(gradeOf(j, 10))}: è una stampa diversa, con un suo valore. Apri la scheda`, `PSA 10 today ${usdV(gradeOf(j, 10))}: a different printing with its own value. Open its page`) : tx("Prezzo in arrivo: è una stampa diversa, con un suo valore. Apri la scheda", "Price coming soon: a different printing with its own value. Open its page")}</span></div></div></a>` : ""; })()}
+        <div><b>${esc(j.name)}</b><br><span class="note"><span>${esc(j.set)}</span> · ${esc(j.no)}/${j.tot || "?"}</span><br><span class="note">${j.grades ? tx(`PSA 10 oggi ${usdV(gradeOf(j, 10))}: è una stampa diversa, con un suo valore. Apri la scheda`, `PSA 10 today ${usdV(gradeOf(j, 10))}: a different printing with its own value. Open its page`) : tx("Prezzo in arrivo: è una stampa diversa, con un suo valore. Apri la scheda", "Price coming soon: a different printing with its own value. Open its page")}</span></div></div></a>` : ""; })()}
     </div>
     <div>
-      <div style="padding-bottom:20px;display:flex;flex-direction:column;align-items:flex-start;gap:8px"><span class="label">${crumbSeries} · <span${c.lang === "ja" ? ' lang="ja"' : ""}>${esc(c.set)}</span> · #${esc(c.no)}${c.tot ? "/" + c.tot : ""}</span><h1${c.lang === "ja" ? ' lang="ja"' : ""} style="font-size:clamp(34px,4.6vw,52px);margin-top:4px">${esc(c.name)}</h1>${watchBtn(c, g)}</div>
+      <div style="padding-bottom:20px;display:flex;flex-direction:column;align-items:flex-start;gap:8px"><span class="label">${crumbSeries} · <span>${esc(c.set)}</span> · #${esc(c.no)}${c.tot ? "/" + c.tot : ""}</span><h1 style="font-size:clamp(34px,4.6vw,52px);margin-top:4px">${esc(c.name)}</h1>${jaCap(c)}${watchBtn(c, g)}</div>
 
       <div class="lvl"><span class="lvl-n">1</span><h2>${tx("Il verdetto", "The verdict")}</h2></div>
       <div class="tile q"><div class="qhead"><span class="qn">€</span><h2>${tx("Quanto vale?", "What is it worth?")}</h2></div>
@@ -859,7 +861,7 @@ function cardMore(c, g) {
   const ja = c.lang === "ja" ? null : jaOf(c), en = c.lang === "ja" ? enOf(c) : null;
   const fact = (l, v) => v ? `<div class="fact"><span>${l}</span><b>${v}</b></div>` : "";
   const sheet = `<div class="tile" style="padding:18px 20px"><span class="label">${tx("Scheda tecnica", "Technical sheet")}</span>
-    <div class="facts" style="margin-top:8px">${fact(tx("Set", "Set"), `<a href="${listHref("set", c.set)}"${c.lang === "ja" ? ' lang="ja"' : ""}>${esc(c.set)}</a>`)}${fact(tx("Numero", "Number"), esc(c.no) + (c.tot ? "/" + c.tot : ""))}${fact(tx("Rarità", "Rarity"), c.rarity ? `<a href="${listHref("rarita", c.rarity)}">${esc(c.rarity)}</a>` : "")}${fact(tx("Illustratore", "Illustrator"), c.illustrator ? `<a href="${listHref("artista", c.illustrator)}">${esc(c.illustrator)}</a>` : "")}${fact(tx("Lingua", "Language"), c.lang === "ja" ? tx("Giapponese", "Japanese") : tx("Inglese", "English"))}${fact(tx("Era", "Era"), `<a href="#indice-${encodeURIComponent(c.series)}">${esc(ser(c.series))}</a>`)}</div>
+    <div class="facts" style="margin-top:8px">${fact(tx("Set", "Set"), `<a href="${listHref("set", c.set)}">${esc(c.set)}</a>`)}${fact(tx("Numero", "Number"), esc(c.no) + (c.tot ? "/" + c.tot : ""))}${fact(tx("Rarità", "Rarity"), c.rarity ? `<a href="${listHref("rarita", c.rarity)}">${esc(c.rarity)}</a>` : "")}${fact(tx("Illustratore", "Illustrator"), c.illustrator ? `<a href="${listHref("artista", c.illustrator)}">${esc(c.illustrator)}</a>` : "")}${fact(tx("Lingua", "Language"), c.lang === "ja" ? tx("Giapponese", "Japanese") : tx("Inglese", "English"))}${fact(tx("Era", "Era"), `<a href="#indice-${encodeURIComponent(c.series)}">${esc(ser(c.series))}</a>`)}</div>
     ${c.rarity_price ? `<p class="muted" style="margin-top:10px">${(() => { const r = c.rarity_price, x = r.x, f = nf1.format(x >= 1 ? x : 1 / x), G = `<a href="#gemme"><b>${tx("Gemma nascosta", "Hidden Gem")}</b></a>`;
       const cmp = x >= 1 ? tx(`costa ${f} volte quanto costano`, `costs ${f} times what`) : tx(`costa ${f} volte meno di quanto costano`, `costs ${f} times less than what`);
       return r.gem ? tx(`${G}: ${nf(r.pop10)} copie in PSA 10 (nella sua era di solito ${nf(r.pop10_med)}), e ${cmp} le carte della sua era con altrettante copie.`, `${G}: ${nf(r.pop10)} PSA 10 copies (usually ${nf(r.pop10_med)} in its era), and it ${cmp} cards of its era with as many copies cost.`)
@@ -1445,7 +1447,7 @@ function viewMine() {
   const since = r => !noOwn(r.g) && r.w.v ? r.g.value / r.w.v - 1 : null;
   const list = rows.map(r => { const s = since(r); return `<div class="tile mine-row">
       <a href="#c-${r.c.id}" class="mine-img" tabindex="-1">${r.c.img ? `<img src="${r.c.img}" alt="" loading="lazy">` : ""}</a>
-      <div class="mine-main"><a href="#c-${r.c.id}" style="color:inherit"><b${r.c.lang === "ja" ? ' lang="ja"' : ""}>${esc(r.c.name)}</b></a><span class="note"><span${r.c.lang === "ja" ? ' lang="ja"' : ""}>${esc(r.c.set)}</span> · #${esc(r.c.no)} · PSA ${r.g.grade}</span>
+      <div class="mine-main"><a href="#c-${r.c.id}" style="color:inherit"><b>${esc(r.c.name)}</b></a><span class="note"><span>${esc(r.c.set)}</span> · #${esc(r.c.no)} · PSA ${r.g.grade}</span>
         <span class="note">${tx("Seguita dal", "Following since")} ${esc(r.w.d || "?")}${r.w.v ? ` · ${tx("allora", "then")} ${usd(r.w.v)}` : ""}</span></div>
       <div class="mine-num"><b class="num">${usdV(r.g)}</b>
         <span class="note">${tx("da quando la segui", "since you follow it")} <b class="${s == null ? "" : s >= 0 ? "up" : "down"}">${pct(s)}</b></span>
@@ -1558,7 +1560,7 @@ async function reqSearch() {
   REQ.msg = tx("Cerco…", "Searching…"); REQ.hits = []; document.getElementById("reqhits").innerHTML = reqHits();
   try {
     const qn = q.trim().toLowerCase();
-    REQ.local = D.cards.filter(c => (REQ.lang === "ja") === (c.lang === "ja") && (c.name || "").toLowerCase().includes(qn)).slice(0, 12);   /* 12 Nov: our own cards first (Japanese promos, 1st Edition... are not on TCGdex) */
+    REQ.local = D.cards.filter(c => (REQ.lang === "ja") === (c.lang === "ja") && ((c.name || "") + " " + (c.name_ja || "")).toLowerCase().includes(qn)).slice(0, 12);   /* 12 Nov: our own cards first (Japanese promos, 1st Edition... are not on TCGdex) */
     REQ.hits = await SWReq.search(q, REQ.lang);
     REQ.msg = REQ.hits.length ? "" : tx("Nessuna carta trovata con questo nome.", "No card found with this name.");
   } catch (e) { REQ.hits = []; REQ.msg = tx("Ricerca non riuscita, riprova.", "Search failed, try again."); }

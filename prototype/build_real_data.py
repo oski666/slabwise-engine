@@ -30,6 +30,16 @@ path, era_path = sys.argv[1], sys.argv[2]
 catalog = json.load(open(os.path.join(HERE, "data", "cards.json")))
 catalog_ja = json.load(open(os.path.join(HERE, "data", "cards_ja.json")))      # Japanese printings (D28)
 catalog += catalog_ja
+from slabwise.ja_names import english as _ja_english   # noqa: E402  D291: Japanese printings shown in English
+_EN_NAMES = {c["id"]: c["n"] for c in catalog if c.get("lang", "en") != "ja" and not c["id"].startswith("ja:")}
+
+
+def _shown(c):
+    """D291: name, set and the Japanese caption fields of a card as the site shows it."""
+    if not c["id"].startswith("ja:"):
+        return dict(name=c["n"], set=c["set"])
+    n, st, n_ja, st_ja, only = _ja_english(c, _EN_NAMES)
+    return dict(name=n, set=st, name_ja=n_ja, set_ja=st_ja, ja_only=only)
 thumbs = json.load(open(os.path.join(HERE, "data", "images.json")))
 hires = json.load(open(os.path.join(HERE, "data", "hires.json")))
 from slabwise.series import ERAS, SERIES, JA_SERIES, series_of, is_promo  # noqa: E402,F401  (D121, D154)
@@ -415,7 +425,7 @@ for c in catalog + variants:
     rem = removed[removed["card"] == i]
     excluded = [dict(date=day(d_), grade=int(g), price=round(float(p), 2), why=r)
                 for d_, g, p, r in zip(rem["day"], rem["grade"], rem["price"], rem["reason"])]
-    out_cards.append(dict(lang=c.get("lang", "en"), en=c.get("en"), en_same=c.get("en_same"), id=c["id"], name=c["n"], variant=c.get("variant"), base=c["id"].split("/")[0] if "/" in c["id"] else None, set=c["set"], no=c["no"], tot=c.get("tot"), series=series_of(c["id"]),
+    out_cards.append(dict(lang=c.get("lang", "en"), en=c.get("en"), en_same=c.get("en_same"), id=c["id"], **_shown(c), variant=c.get("variant"), base=c["id"].split("/")[0] if "/" in c["id"] else None, no=c["no"], tot=c.get("tot"), series=series_of(c["id"]),
                           rarity=c.get("r"), illustrator=c.get("ill"), img=hires.get(c["id"].split("/")[0]) or thumbs.get(c["id"].split("/")[0]) or c.get("img"),
                           thumb=thumbs.get(c["id"].split("/")[0]), grades=g_out, sales=sl, excluded=excluded, deals=[],
                           beta=round(float(lvm.fit[i]["theta"][4]), 3), n_sales=int((clean["card"] == i).sum())))
@@ -667,7 +677,7 @@ else:
     json.dump(dict(monday=str(_monday), **pulse), open(_pp, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 venues = clean["venue"].value_counts().to_dict()
 sold = {c["id"] for c in out_cards}
-ja_pending = [dict(id=c["id"], name=c["n"], set=c["set"], no=c["no"], tot=c.get("tot"), rarity=c.get("r"), illustrator=c.get("ill"),
+ja_pending = [dict(id=c["id"], **_shown(c), no=c["no"], tot=c.get("tot"), rarity=c.get("r"), illustrator=c.get("ill"),
                    img=c.get("img"), en=c.get("en"), en_same=c.get("en_same"), series=series_of(c["id"]), source=c.get("source"),
                    sales=int((clean["card"] == cid[c["id"]]).sum()) if c["id"] in cid else 0)
               for c in catalog_ja if c["id"] not in sold]
