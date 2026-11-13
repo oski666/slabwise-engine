@@ -19,6 +19,9 @@ HERE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "prototype
 EN = {"svp-085": "https://images.pokemontcg.io/svp/85_hires.png"}
 JA = {"ja:m2-110": "https://www.pokemon-card.com/assets/images/card_images/large/M2/048516_P_MRIZADONXEX.jpg",  # card 48516, 110/080
       "ja:m2a-232": "https://www.pokemon-card.com/assets/images/card_images/large/M2a/049992_P_MKAIRIXYUEX.jpg"}  # card 49992, 232/193
+_OFF = os.path.join(HERE, "..", "..", "data", "ja_official_images.json")   # 13 Nov: found in the official database by name, set and number
+if os.path.exists(_OFF):
+    JA.update({k: v["url"] for k, v in json.load(open(_OFF, encoding="utf-8")).items() if v and not k.startswith("_")})
 
 
 def get(url):
