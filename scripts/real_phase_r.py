@@ -43,6 +43,8 @@ if "--v121d" in sys.argv or "--v121e" in sys.argv:    # protocol §40 (D220): th
     params.grade_jump = params.grade_jump_recent = True
 if "--v121e" in sys.argv:                             # protocol §40 arm E: grade steps with fatter tails
     params.step_t = 2.0
+if "--card_noise" in sys.argv:                        # protocol §61 arm C (D293): sale noise per card x grade
+    params.card_noise = True
 if "--v119" in sys.argv:                              # protocol §36 arm B (D204): own drift per card (D29)
     params.card_drift = True
 if "--v117" in sys.argv:                              # v1.17 test (protocol §30, D155)
@@ -65,6 +67,11 @@ for a_ in sys.argv[4:]:                               # diagnostics only: force 
             setattr(params, k, float(v))
 print("params", {k: (round(v, 5) if isinstance(v, float) else v) for k, v in params.__dict__.items()}, "W", W, "train", train, flush=True)
 lvm = LatentValueModel(C, era, E, params)
+if params.card_noise:                                 # §61: shrunk towards the card's site era x grade band
+    from slabwise.series import series_of as _ser
+    _sg = ["Giappone" if c.startswith("ja:") else _ser(c.split("/")[0]) for c in cards]
+    _su = sorted(set(_sg))
+    lvm.noise_group = np.array([_su.index(x) for x in _sg])
 lvm.set_parents([cards.index(c.split("/")[0]) if "/" in c and c.split("/")[0] in cards else -1 for c in cards])
 if params.pop_steps:                                       # v1.14: PSA populations from tcgcharts (D76), base printings only
     _tc = json.load(open("data/raw/tcgcharts/cards.json"))

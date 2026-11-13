@@ -80,6 +80,9 @@ class LVMParams:
     jump_agree: float = 0.75     # D155: share of residuals with the median's sign and at least half its size
     grade_jump: bool = False     # D206: the same jump rule (D155 thresholds) for each grade of a card on its own (protocol §37)
     grade_jump_recent: bool = False   # D220: the grade's jump looked for on its own latest sales (up to 5 in 13 weeks), protocol §40
+    card_noise: bool = False     # §61 arm C (D293): sale noise per card x grade from its own recent errors, shrunk to its group
+    card_noise_tie: float = 10.0 # §61: weight of the group in sales (n / (n + 10)), fixed before the results
+    card_noise_weeks: int = 52   # §61: errors of the 52 weeks before
 
 
 class LatentValueModel:
@@ -123,6 +126,8 @@ class LatentValueModel:
         self.n_bounded = 0                                # estimates where the roll-forward bound bit (D47)
         self.jumps = [[] for _ in range(n_cards)]         # v1.17 (D155): per card, (week time, variance) of each jump
         self.gjumps = [[] for _ in range(n_cards)]        # D206: per card, (grade index, week time, variance) of each grade jump
+        self.noise_group = None                           # §61 arm C: group of each card for the shrinkage (site era); None = era
+        self._res_cg, self._res_gb = {}, {}               # §61 arm C: {key: {week: [sum of squared errors, count]}}
         self.satellite = None                             # §60 (D270): cards added without a rebuild: they follow the era factors
                                                           # and the shared parameters, and never move them
 
@@ -223,6 +228,8 @@ class LatentValueModel:
         lang = (sales["lang"].fillna(0).to_numpy().astype(int) if "lang" in sales
                 else np.zeros(len(y), int))
 
+        if self.p.card_noise and w > 0:                   # §61 arm C: errors against the value of the week before
+            self._log_errors(w, cards, gis, y, vix)
         sat = getattr(self, "satellite", None)
         if sat is not None and len(y) and sat[cards].any():   # §60: satellite cards never move the era factors
             m = ~sat[cards]
@@ -464,6 +471,48 @@ class LatentValueModel:
             self.kappa = float(np.clip(self.kappa * max(ratio, 1e-3) ** lam, 0.25, 2.25))
             self.kappa_path.append((w, self.kappa))
 
+    def _group(self, c):
+        return int(self.noise_group[c]) if self.noise_group is not None else int(self.era[c])
+
+    def _log_errors(self, w, cards, gis, y, vix):
+        nb = self.n_bounded
+        est = {}
+        for i in range(len(y)):
+            c = int(cards[i])
+            if self.fit[c] is None:
+                continue
+            if c not in est:
+                est[c] = self.estimate_card(c, w - 1)[0]
+            e2 = float((y[i] - (est[c][gis[i]] + self.offs[int(vix[i])])) ** 2)
+            for d_, k in ((self._res_cg, (c, int(gis[i]))), (self._res_gb, (self._group(c), min(int(gis[i]), 2)))):
+                cell = d_.setdefault(k, {}).setdefault(w, [0.0, 0])
+                cell[0] += e2
+                cell[1] += 1
+        self.n_bounded = nb
+
+    def _window(self, d_, k, w):
+        ss = n = 0
+        h = d_.get(k)
+        if h:
+            for wk in range(max(0, w - self.p.card_noise_weeks), w):
+                cell = h.get(wk)
+                if cell:
+                    ss += cell[0]
+                    n += cell[1]
+        return ss, n
+
+    def card_noise_var(self, c, w):
+        """§61 arm C: noise variance of a sale of card c in each grade at week w, nan where the group has no errors yet:
+        (n s_cg^2 + 10 s_gb^2) / (n + 10) over the errors of the 52 weeks before week w."""
+        out = np.full(4, np.nan)
+        for gi in range(4):
+            gs, gn = self._window(self._res_gb, (self._group(c), min(gi, 2)), w)
+            if not gn:
+                continue
+            cs, cn = self._window(self._res_cg, (c, gi), w)
+            out[gi] = (cs + self.p.card_noise_tie * gs / gn) / (cn + self.p.card_noise_tie)
+        return out
+
     def k_eff(self, c):
         """Noise factor of card c: the market factor (v1.12) times its era's factor (v1.18)."""
         return self.kappa * (float(self.kappa_e[self.era[c]]) if self.p.era_noise else 1.0)
@@ -528,6 +577,9 @@ class LatentValueModel:
         one_off = np.array([(k is None) or (k not in kidx) for k in ks])
         age = T - t
         base = (np.where(a, p.sigma_a ** 2, p.sigma_e ** 2) + np.where(one_off, p.sigma_q ** 2, 0)) * self.k_eff(c)
+        if p.card_noise:                                  # §61 arm C: the card x grade's own noise in place of the era's
+            cn = self.card_noise_var(c, w)[g]
+            base = np.where(np.isfinite(cn), cn, base)
         var = base + qc * age                       # marginal variance of each sale today
         shared = qc * np.minimum.outer(age, age)     # sales share the same random-walk path
         same_gap = (g[:, None] == g[None, :]) & (g[:, None] > 0)
