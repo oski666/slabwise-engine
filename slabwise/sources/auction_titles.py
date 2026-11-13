@@ -486,8 +486,8 @@ def accept_assigned(title: str, card: str):
     if "/" in card and not _VARIANT_WORD.search(t):
         return False, "stampa non detta"
     if ASSIGN_NAME:                                      # D281 (protocol §63): the card's Pokémon named, no other product
-        if not _name_in_title(card, t):
-            return False, "nome assente"
+        if not _name_in_title(card, t) and _other_species(card, t):   # §63b: another Pokémon named, not this card
+            return False, "altro pokémon"
         for rx_, ok_ in _OTHER_PRODUCT:
             if rx_.search(t) and not base.startswith(ok_):
                 return False, "altro prodotto"
@@ -514,21 +514,39 @@ def _ja_names():
     return _JA_OF
 
 
+_SPECIES_RX = None
+
+
+def _other_species(card, t):
+    """§63b: does the title name a Pokémon species (English or Japanese, whole word)?"""
+    global _SPECIES_RX
+    if _SPECIES_RX is None:
+        en = {e for e in _ja_names()}
+        ja = {j for s in _ja_names().values() for j in s}
+        en_rx = "|".join(sorted((re.escape(w) for w in en if len(w) >= 3), key=len, reverse=True))
+        ja_rx = "|".join(sorted((re.escape(w) for w in ja if len(w) >= 2), key=len, reverse=True))
+        _SPECIES_RX = re.compile(rf"(?<![a-z])(?:{en_rx})(?![a-z])|(?:{ja_rx})")
+    return bool(_SPECIES_RX.search(t.replace("’", "'")))
+
+
 def _name_in_title(card, t):
     """D281: does the title name the card's Pokémon (or trainer)? Words of the catalogue name, with the Japanese
     species name for the Japanese cards."""
     e = JA_CATALOGUE.get(card) if card.startswith("ja:") else CATALOGUE.get(card.split("/")[0])
     if not e:
         return True                                      # unknown card: the rule cannot judge it
-    rx = re.sub(r"\(\?<?[!=][^)]*\)", " ", e[0])
+    rx = re.sub(r"\(\?<?[!=][^)]*\)", " ", e[0]).replace("\\", "")
     alts = [a.strip() for a in rx.split("|")]
     words = set()
     for a in alts:
         if re.search(r"[\u3040-\u30ff\u4e00-\u9fff]", a):
             words.add(re.sub(r"\s*ex$|\s*gx$|\s*v$", "", a.strip()))
             continue
-        for w in re.findall(r"[a-z][a-z'.]+", a):
-            if w not in _STOP and len(w) >= 3:
+        toks = [w for w in re.findall(r"[a-z][a-z'.\-]*", a) if w not in _STOP]
+        if toks:
+            words.add(" ".join(toks))                  # the whole name: "roaring moon" finds トドロクツキ
+        for w in toks:
+            if len(w) >= 3:
                 words.add(w)
     for w in list(words):
         words |= _ja_names().get(w, set())
