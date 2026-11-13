@@ -75,7 +75,7 @@ def main():
     ja = json.load(open(os.path.join(HERE, "cards_ja.json"), encoding="utf-8"))
     for c in ja:
         url = JA.get(c["id"]) or (None if c.get("img") else ja_url(c["id"]))
-        if not url or (c.get("img") and c["id"] not in JA):
+        if not url or (c.get("img") and (c["id"] not in JA or c.get("img_url") == url)):
             continue
         try:
             im = get(url)

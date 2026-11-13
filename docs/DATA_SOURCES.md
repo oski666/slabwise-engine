@@ -96,7 +96,7 @@ Dati sensibili: i nomi dei venditori non servono al motore e non si salvano. Ecc
 |---|---|---|---|
 | **TCGdex** (assets.tcgdex.net, api.tcgdex.net) | immagini e dati del catalogo, inglese e giapponese | progetto aperto; immagini di proprietà di The Pokémon Company | alcune carte mancano (es. promo SVP 085, varie stampe giapponesi); copyright delle immagini da chiarire prima del lancio |
 | **Pokémon TCG API, CDN immagini** (images.pokemontcg.io) | immagini delle carte inglesi che TCGdex non ha (oggi: Pikachu with Grey Felt Hat, SVP 085) | servizio gratuito della comunità | stesso copyright; nessuna garanzia di disponibilità |
-| **Database ufficiale giapponese** (www.pokemon-card.com, ricerca e scheda carta) | immagini delle stampe giapponesi che TCGdex non ha (oggi: メガリザードンXex M2 110/080, scheda 48516) | sito ufficiale di The Pokémon Company | il database elenca una scheda per testo di carta: alcune illustrazioni alternative non ci sono (ブラッキーVMAX S6a 095/069: immagine da tcgcharts, con il permesso D76, dal 1° novembre); uso delle immagini da chiarire prima del lancio |
+| **Database ufficiale giapponese** (www.pokemon-card.com, ricerca e scheda carta) | immagini delle stampe giapponesi che TCGdex non ha (151 carte del catalogo al 13 novembre, `data/ja_official_images.json`, D288) | sito ufficiale di The Pokémon Company | il database elenca una scheda per testo di carta: alcune illustrazioni alternative non ci sono (ブラッキーVMAX S6a 095/069: immagine da tcgcharts, con il permesso D76, dal 1° novembre); uso delle immagini da chiarire prima del lancio |
 
 Le immagini si scaricano una volta (`scripts/fetch_missing_images.py`) e finiscono nella pagina come dati incorporati; nessuna spesa.
 

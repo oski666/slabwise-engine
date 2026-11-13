@@ -1,0 +1,607 @@
+{
+ "_doc": "D288: immagini delle carte giapponesi dal database ufficiale pokemon-card.com (cardThumbFile large), una per carta del catalogo; usate da scripts/fetch_missing_images.py. Raccolte il 2026-11-13 dal browser di Oscar. Mancano: ja:amazing-volt-tackle-114, ja:blue-sky-stream-83, ja:bw-p-144, ja:bw-p-189, ja:bw-p-229, ja:bw-p-235, ja:eevee-heroes-89, ja:eevee-heroes-91, ja:eevee-heroes-93, ja:sm-p-005, ja:sm-p-013, ja:sm-p-014, ja:sm-p-037, ja:sm-p-038, ja:sm-p-055, ja:sm-p-061, ja:sm-p-088, ja:sm-p-137, ja:sm-p-138, ja:sm-p-139, ja:sm-p-140, ja:sm-p-141, ja:sm-p-142, ja:sm-p-143, ja:sm-p-144, ja:sm-p-191, ja:sm-p-192, ja:sm-p-193, ja:sm-p-194, ja:sm-p-195, ja:sm-p-196, ja:sm-p-197, ja:sm-p-198, ja:sm-p-199, ja:sm-p-208, ja:sm-p-209, ja:sm-p-210, ja:sm-p-211, ja:sm-p-224, ja:sm-p-270, ja:sm-p-280, ja:sm-p-281, ja:sm-p-282, ja:sm-p-283, ja:sm-p-286, ja:sm-p-287, ja:sm-p-288, ja:sm-p-289, ja:sm-p-290, ja:sm-p-325, ja:sm-p-365, ja:sm-p-381, ja:sm-p-392, ja:sm-p-400, ja:sm-p-407, ja:sm3h-058, ja:sm3p-058, ja:sm3p-082, ja:vmax-climax-279, ja:xy-p-050, ja:xy-p-090, ja:xy-p-098, ja:xy-p-099, ja:xy-p-150, ja:xy-p-151, ja:xy-p-155, ja:xy-p-175, ja:xy-p-203, ja:xy-p-204, ja:xy-p-206, ja:xy-p-207, ja:xy-p-208, ja:xy-p-221, ja:xy-p-230, ja:xy-p-231, ja:xy-p-232, ja:xy-p-279, ja:xy-p-280, ja:xy-p-293, ja:xy-p-294, ja:xy-p-295, ja:xy-p-296",
+ "ja:amazing-volt-tackle-104": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S4/038915_P_PIKACHUUV.jpg",
+  "official_id": "38915"
+ },
+ "ja:battle-partners-102": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV9/047222_P_FURIZA.jpg",
+  "official_id": "47222"
+ },
+ "ja:battle-partners-109": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV9/047229_P_NNORESHIRAMU.jpg",
+  "official_id": "47229"
+ },
+ "ja:battle-partners-126": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV9/047246_P_RIRIENOPIPPIEX.jpg",
+  "official_id": "47246"
+ },
+ "ja:black-bolt-109": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV11B/047933_P_GAMAGEROGE.jpg",
+  "official_id": "47933"
+ },
+ "ja:black-bolt-174": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV11B/047998_P_ZEKUROMUEX.jpg",
+  "official_id": "47998"
+ },
+ "ja:blue-sky-stream-74": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S7R/039943_P_KAIRYUV.jpg",
+  "official_id": "39943"
+ },
+ "ja:blue-sky-stream-76": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S7R/039945_P_REKKUUZAV.jpg",
+  "official_id": "39945"
+ },
+ "ja:dark-phantasma-73": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S10a/041766_P_PIKACHIXYUU.jpg",
+  "official_id": "41766"
+ },
+ "ja:dark-phantasma-74": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S10a/041767_P_GENGA.jpg",
+  "official_id": "41767"
+ },
+ "ja:double-blaze-76": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SM10/036395_P_KABIGON.jpg",
+  "official_id": "36395"
+ },
+ "ja:dream-league-52": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SM11b/037162_P_POCCHAMA.jpg",
+  "official_id": "37162"
+ },
+ "ja:dream-league-58": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SM11b/037168_P_MIMIKKYU.jpg",
+  "official_id": "37168"
+ },
+ "ja:eevee-heroes-71": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S6a/039883_P_RIFIAV.jpg",
+  "official_id": "39883"
+ },
+ "ja:eevee-heroes-73": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S6a/039885_P_BUSUTAV.jpg",
+  "official_id": "39885"
+ },
+ "ja:eevee-heroes-75": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S6a/039887_P_SHAWAZUV.jpg",
+  "official_id": "39887"
+ },
+ "ja:eevee-heroes-77": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S6a/039889_P_GUREISHIAV.jpg",
+  "official_id": "39889"
+ },
+ "ja:eevee-heroes-79": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S6a/039891_P_SANDASUV.jpg",
+  "official_id": "39891"
+ },
+ "ja:eevee-heroes-81": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S6a/039893_P_EFIV.jpg",
+  "official_id": "39893"
+ },
+ "ja:eevee-heroes-83": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S6a/039895_P_NINFIAV.jpg",
+  "official_id": "39895"
+ },
+ "ja:eevee-heroes-85": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S6a/039897_P_BURAKKIV.jpg",
+  "official_id": "39897"
+ },
+ "ja:expansion-pack-20th-anniversary-102": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/CP6/032295_P_IMAKUNINODODO.jpg",
+  "official_id": "32295"
+ },
+ "ja:expansion-pack-20th-anniversary-11": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/CP6/032217_P_RIZADON.jpg",
+  "official_id": "32217"
+ },
+ "ja:expansion-pack-20th-anniversary-15": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/CP6/032221_P_KYUUKON.jpg",
+  "official_id": "32221"
+ },
+ "ja:expansion-pack-20th-anniversary-25": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/CP6/032231_P_NYOROBON.jpg",
+  "official_id": "32231"
+ },
+ "ja:expansion-pack-20th-anniversary-32": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/CP6/032238_P_GYARADOSU.jpg",
+  "official_id": "32238"
+ },
+ "ja:expansion-pack-20th-anniversary-43": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/CP6/032249_P_NIDOKINGU.jpg",
+  "official_id": "32249"
+ },
+ "ja:expansion-pack-20th-anniversary-60": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/CP6/032266_P_EBIWARA.jpg",
+  "official_id": "32266"
+ },
+ "ja:heat-wave-arena-86": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV9a/047387_P_HIBIKINOHOUOUEX.jpg",
+  "official_id": "47387"
+ },
+ "ja:heat-wave-arena-87": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV9a/047388_P_SHIRONANOGABURIASUEX.jpg",
+  "official_id": "47388"
+ },
+ "ja:legendary-shine-collection-18": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/CP2/031110_P_RATEIASU.jpg",
+  "official_id": "31110"
+ },
+ "ja:legendary-shine-collection-19": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/CP2/031111_P_RATEIOSU.jpg",
+  "official_id": "31111"
+ },
+ "ja:lost-abyss-106": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S11/042081_P_PUTERAV.jpg",
+  "official_id": "42081"
+ },
+ "ja:lost-abyss-111": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S11/042086_P_GIRATEINAV.jpg",
+  "official_id": "42086"
+ },
+ "ja:m1s-087": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/M1S/048473_P_MSANAITOEX.jpg",
+  "official_id": "48473"
+ },
+ "ja:m2-013": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/M2/048353_P_MRIZADONXEX.jpg",
+  "official_id": "48353"
+ },
+ "ja:m2-085": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/M2/048491_P_POTCHIXYAMA.jpg",
+  "official_id": "48491"
+ },
+ "ja:m2-094": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/M2/048500_P_MRIZADONXEX.jpg",
+  "official_id": "48500"
+ },
+ "ja:m2-116": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/M2/048522_P_MRIZADONXEX.jpg",
+  "official_id": "48522"
+ },
+ "ja:m2a-199": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/M2a/049959_P_KODAKKU.jpg",
+  "official_id": "49959"
+ },
+ "ja:m2a-230": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/M2a/049990_P_MGENGAEX.jpg",
+  "official_id": "49990"
+ },
+ "ja:m2a-250": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/M2a/050010_P_MKAIRIXYUEX.jpg",
+  "official_id": "50010"
+ },
+ "ja:mega-brave-87": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/M1L/048444_P_MFUSHIGIBANAEX.jpg",
+  "official_id": "48444"
+ },
+ "ja:mega-brave-88": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/M1L/048445_P_MRUKARIOEX.jpg",
+  "official_id": "48445"
+ },
+ "ja:mega-brave-92": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/M1L/048449_P_MRUKARIOEX.jpg",
+  "official_id": "48449"
+ },
+ "ja:mega-dream-ex-205": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/M2a/049965_P_ROKETTODANNOMIMIKKIXYU.jpg",
+  "official_id": "49965"
+ },
+ "ja:mega-dream-ex-210": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/M2a/049970_P_NNOZEKUROMU.jpg",
+  "official_id": "49970"
+ },
+ "ja:mega-dream-ex-223": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/M2a/049983_P_MRIZADONXEX.jpg",
+  "official_id": "49983"
+ },
+ "ja:mega-dream-ex-228": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/M2a/049988_P_MRUKARIOEX.jpg",
+  "official_id": "49988"
+ },
+ "ja:mega-dream-ex-234": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/M2a/049994_P_PIKACHIXYUUEX.jpg",
+  "official_id": "49994"
+ },
+ "ja:mega-dream-ex-237": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/M2a/049997_P_ROKETTODANNOMIXYUUTSUEX.jpg",
+  "official_id": "49997"
+ },
+ "ja:mega-dream-ex-242": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/M2a/050002_P_NNOZOROAKUEX.jpg",
+  "official_id": "50002"
+ },
+ "ja:mega-symphonia-88": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/M1S/048474_P_MRATEIASUEX.jpg",
+  "official_id": "48474"
+ },
+ "ja:mega-symphonia-92": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/M1S/048478_P_MSANAITOEX.jpg",
+  "official_id": "48478"
+ },
+ "ja:nihil-zero-114": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/M3/050081_P_NIXYASUEX.jpg",
+  "official_id": "50081"
+ },
+ "ja:paradise-dragona-70": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV7a/046316_P_RATEIOSU.jpg",
+  "official_id": "46316"
+ },
+ "ja:paradise-dragona-87": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV7a/046333_P_RATEIASUEX.jpg",
+  "official_id": "46333"
+ },
+ "ja:pokemon-card-151-167": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV2a/043952_P_FUSHIGISOU.jpg",
+  "official_id": "43952"
+ },
+ "ja:pokemon-card-151-169": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV2a/043954_P_RIZADO.jpg",
+  "official_id": "43954"
+ },
+ "ja:pokemon-card-151-170": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV2a/043955_P_ZENIGAME.jpg",
+  "official_id": "43955"
+ },
+ "ja:pokemon-card-151-173": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV2a/043958_P_PIKACHIXYUU.jpg",
+  "official_id": "43958"
+ },
+ "ja:pokemon-card-151-181": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV2a/043966_P_KABIGON.jpg",
+  "official_id": "43966"
+ },
+ "ja:pokemon-card-151-183": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV2a/043968_P_MIXYUUTSU.jpg",
+  "official_id": "43968"
+ },
+ "ja:pokemon-card-151-185": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV2a/043970_P_RIZADONEX.jpg",
+  "official_id": "43970"
+ },
+ "ja:pokemon-card-151-202": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV2a/043987_P_KAMEKKUSUEX.jpg",
+  "official_id": "43987"
+ },
+ "ja:pokemon-card-151-204": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV2a/043989_P_SANDAEX.jpg",
+  "official_id": "43989"
+ },
+ "ja:pokemon-card-151-205": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV2a/043990_P_MIXYUUEX.jpg",
+  "official_id": "43990"
+ },
+ "ja:pokemon-go-11": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S10b/041692_P_KAGAYAKURIZADON.jpg",
+  "official_id": "41692"
+ },
+ "ja:pokemon-go-74": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S10b/041795_P_MIXYUUTSUV.jpg",
+  "official_id": "41795"
+ },
+ "ja:ruler-of-the-black-flame-134": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV3/044160_P_RIZADONEX.jpg",
+  "official_id": "44160"
+ },
+ "ja:ruler-of-the-black-flame-139": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV3/044963_P_RIZADONEX.jpg",
+  "official_id": "44963"
+ },
+ "ja:s-p-002": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S-P/037602_P_SHIBUYANOPIKACHUU.jpg",
+  "official_id": "37602"
+ },
+ "ja:s-p-036": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S-P/037989_P_KYUUJOTAIDXNOPIKACHUU.jpg",
+  "official_id": "37989"
+ },
+ "ja:s-p-105": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S-P/039059_P_MARUNOMISARETAPIKACHUU.jpg",
+  "official_id": "39059"
+ },
+ "ja:s-p-123": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S-P/038620_P_PIKACHUUVMAX.jpg",
+  "official_id": "38620"
+ },
+ "ja:s-p-124": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S-P/038621_P_PIKACHUU.jpg",
+  "official_id": "38621"
+ },
+ "ja:s-p-143": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S-P/038840_P_RIZADON.jpg",
+  "official_id": "38840"
+ },
+ "ja:s-p-144": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S-P/038841_P_KANAZAWANOPIKACHUU.jpg",
+  "official_id": "38841"
+ },
+ "ja:s-p-147": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S-P/038844_P_KANAZAWANOPIKACHUU.jpg",
+  "official_id": "38844"
+ },
+ "ja:s-p-175": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S-P/039510_P_SEREBIIV.jpg",
+  "official_id": "39510"
+ },
+ "ja:s-p-189": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S-P/039913_P_EFIVMAX.jpg",
+  "official_id": "39913"
+ },
+ "ja:s-p-208": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S-P/039914_P_PIKACHUU.jpg",
+  "official_id": "39914"
+ },
+ "ja:s-p-214": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S-P/041792_P_ITAZURASUKINOPICHIXYU.jpg",
+  "official_id": "41792"
+ },
+ "ja:s-p-226": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S-P/039953_P_UTSUU.jpg",
+  "official_id": "39953"
+ },
+ "ja:s-p-227": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S-P/039954_P_PIKACHUU.jpg",
+  "official_id": "39954"
+ },
+ "ja:s-p-265": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S-P/041152_P_PIKACHIXYUUVMAX.jpg",
+  "official_id": "41152"
+ },
+ "ja:s-p-272": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S-P/041783_P_PIKACHIXYUU.jpg",
+  "official_id": "41783"
+ },
+ "ja:shiny-star-v-307": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S4a/039039_P_RIZADONV.jpg",
+  "official_id": "39039"
+ },
+ "ja:shiny-star-v-308": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S4a/039040_P_RIZADONVMAX.jpg",
+  "official_id": "39040"
+ },
+ "ja:shiny-treasure-ex-236": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV4a/045022_P_PIKACHIXYUU.jpg",
+  "official_id": "45022"
+ },
+ "ja:shiny-treasure-ex-327": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV4a/045113_P_MIXYUUEX.jpg",
+  "official_id": "45113"
+ },
+ "ja:super-electric-breaker-112": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV8/046635_P_REAKOIRU.jpg",
+  "official_id": "46635"
+ },
+ "ja:super-electric-breaker-122": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV8/046645_P_PIKACHIXYUUEX.jpg",
+  "official_id": "46645"
+ },
+ "ja:super-electric-breaker-132": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV8/046655_P_PIKACHIXYUUEX.jpg",
+  "official_id": "46655"
+ },
+ "ja:super-electric-breaker-136": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV8/046659_P_PIKACHIXYUUEX.jpg",
+  "official_id": "46659"
+ },
+ "ja:sv-p-001": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV-P/042261_P_PIKACHIXYUU.jpg",
+  "official_id": "42261"
+ },
+ "ja:sv-p-062": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV-P/043691_P_IBUI.jpg",
+  "official_id": "43691"
+ },
+ "ja:sv-p-063": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV-P/043692_P_SHIXYAWAZU.jpg",
+  "official_id": "43692"
+ },
+ "ja:sv-p-064": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV-P/043693_P_SANDASU.jpg",
+  "official_id": "43693"
+ },
+ "ja:sv-p-065": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV-P/043694_P_BUSUTA.jpg",
+  "official_id": "43694"
+ },
+ "ja:sv-p-066": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV-P/043695_P_EFUI.jpg",
+  "official_id": "43695"
+ },
+ "ja:sv-p-067": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV-P/043696_P_BURAKKI.jpg",
+  "official_id": "43696"
+ },
+ "ja:sv-p-068": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV-P/043697_P_RIFUIA.jpg",
+  "official_id": "43697"
+ },
+ "ja:sv-p-069": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV-P/043698_P_GUREISHIA.jpg",
+  "official_id": "43698"
+ },
+ "ja:sv-p-070": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV-P/043699_P_NINFUIA.jpg",
+  "official_id": "43699"
+ },
+ "ja:sv-p-098": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV-P/044245_P_MEITANTEIPIKACHIXYUU.jpg",
+  "official_id": "44245"
+ },
+ "ja:sv-p-120": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV-P/044225_P_PIKACHIXYUU.jpg",
+  "official_id": "44225"
+ },
+ "ja:sv-p-192": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV-P/047160_P_NIXYASU.jpg",
+  "official_id": "47160"
+ },
+ "ja:sv-p-197": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV-P/046294_P_PIKACHIXYUU.jpg",
+  "official_id": "46294"
+ },
+ "ja:sv-p-218": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV-P/046150_P_PIKACHIXYUU.jpg",
+  "official_id": "46150"
+ },
+ "ja:sv-p-232": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV-P/047167_P_NANJIXYAMONOKAIDEN.jpg",
+  "official_id": "47167"
+ },
+ "ja:sv-p-242": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV-P/047363_P_PIKACHIXYUU.jpg",
+  "official_id": "47363"
+ },
+ "ja:sv-p-260": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV-P/049617_P_TOUHOKUNOPIKACHIXYUU.jpg",
+  "official_id": "49617"
+ },
+ "ja:sv-p-261": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV-P/049618_P_HIROSHIMANOPIKACHIXYUU.jpg",
+  "official_id": "49618"
+ },
+ "ja:sv-p-288": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV-P/047725_P_BIKUTEINI.jpg",
+  "official_id": "47725"
+ },
+ "ja:sv-p-289": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV-P/049620_P_FUKUOKANOPIKACHIXYUU.jpg",
+  "official_id": "49620"
+ },
+ "ja:terastal-festival-ex-200": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV8a/047121_P_RIFUIAEX.jpg",
+  "official_id": "47121"
+ },
+ "ja:terastal-festival-ex-207": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV8a/047128_P_IRUKAMANEX.jpg",
+  "official_id": "47128"
+ },
+ "ja:terastal-festival-ex-209": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV8a/047130_P_SANDASUEX.jpg",
+  "official_id": "47130"
+ },
+ "ja:terastal-festival-ex-211": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV8a/047132_P_EFUIEX.jpg",
+  "official_id": "47132"
+ },
+ "ja:terastal-festival-ex-212": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV8a/047133_P_NINFUIAEX.jpg",
+  "official_id": "47133"
+ },
+ "ja:terastal-festival-ex-217": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV8a/047138_P_BURAKKIEX.jpg",
+  "official_id": "47138"
+ },
+ "ja:terastal-festival-ex-218": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV8a/047139_P_TODOROKUTSUKIEX.jpg",
+  "official_id": "47139"
+ },
+ "ja:terastal-festival-ex-223": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV8a/047144_P_IBUIEX.jpg",
+  "official_id": "47144"
+ },
+ "ja:terastal-festival-ex-224": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV8a/047145_P_IBUIEX.jpg",
+  "official_id": "47145"
+ },
+ "ja:terastal-festival-ex-236": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV8a/047157_P_PIKACHIXYUUEX.jpg",
+  "official_id": "47157"
+ },
+ "ja:vmax-climax-187": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S8b/041018_P_RIZADON.jpg",
+  "official_id": "41018"
+ },
+ "ja:vmax-climax-222": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S8b/041053_P_PIKACHIXYUUV.jpg",
+  "official_id": "41053"
+ },
+ "ja:vmax-climax-223": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S8b/041054_P_PIKACHIXYUUVMAX.jpg",
+  "official_id": "41054"
+ },
+ "ja:vmax-climax-233": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S8b/041061_P_MIMIKKIXYUV.jpg",
+  "official_id": "41061"
+ },
+ "ja:vmax-climax-234": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S8b/041062_P_MIMIKKIXYUVMAX.jpg",
+  "official_id": "41062"
+ },
+ "ja:vmax-climax-244": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S8b/041072_P_BURAKKIV.jpg",
+  "official_id": "41072"
+ },
+ "ja:vmax-climax-245": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S8b/041073_P_BURAKKIVMAX.jpg",
+  "official_id": "41073"
+ },
+ "ja:vmax-climax-252": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S8b/041080_P_REKKUUZAVMAX.jpg",
+  "official_id": "41080"
+ },
+ "ja:vstar-universe-15": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S12a/042276_P_KAGAYAKURIZADON.jpg",
+  "official_id": "42276"
+ },
+ "ja:vstar-universe-183": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S12a/042833_P_MIXYUU.jpg",
+  "official_id": "42833"
+ },
+ "ja:vstar-universe-205": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S12a/042855_P_PIKACHIXYUU.jpg",
+  "official_id": "42855"
+ },
+ "ja:vstar-universe-210": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S12a/042860_P_RIFUIAVSTAR.jpg",
+  "official_id": "42860"
+ },
+ "ja:vstar-universe-211": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S12a/042861_P_RIZADONV.jpg",
+  "official_id": "42861"
+ },
+ "ja:vstar-universe-212": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S12a/042862_P_RIZADONVSTAR.jpg",
+  "official_id": "42862"
+ },
+ "ja:vstar-universe-214": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S12a/042864_P_BAOKKIVSTAR.jpg",
+  "official_id": "42864"
+ },
+ "ja:vstar-universe-215": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S12a/042865_P_SUIKUNV.jpg",
+  "official_id": "42865"
+ },
+ "ja:vstar-universe-217": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S12a/042867_P_GUREISHIAVSTAR.jpg",
+  "official_id": "42867"
+ },
+ "ja:vstar-universe-221": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S12a/042871_P_MIXYUUTSUVSTAR.jpg",
+  "official_id": "42871"
+ },
+ "ja:vstar-universe-228": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S12a/042878_P_DAKURAIVSTAR.jpg",
+  "official_id": "42878"
+ },
+ "ja:vstar-universe-259": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S12a/044941_P_ORIJINPARUKIAVSTAR.jpg",
+  "official_id": "44941"
+ },
+ "ja:vstar-universe-260": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S12a/044942_P_ORIJINDEIARUGAVSTAR.jpg",
+  "official_id": "44942"
+ },
+ "ja:vstar-universe-261": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S12a/044943_P_GIRATEINAVSTAR.jpg",
+  "official_id": "44943"
+ },
+ "ja:vstar-universe-262": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/S12a/044944_P_ARUSEUSUVSTAR.jpg",
+  "official_id": "44944"
+ },
+ "ja:white-flare-168": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV11W/048080_P_RESHIRAMUEX.jpg",
+  "official_id": "48080"
+ },
+ "ja:white-flare-174": {
+  "url": "https://www.pokemon-card.com/assets/images/card_images/large/SV11W/048086_P_RESHIRAMUEX.jpg",
+  "official_id": "48086"
+ }
+}
