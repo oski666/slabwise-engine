@@ -59,27 +59,29 @@ def body(d):
 def main():
     mode = sys.argv[1]
     if mode == "open":
-        if json.loads(gh("issue", "list", "-R", REPO, "--label", LABEL, "--state", "open", "--json", "number")):
+        if json.loads(gh("api", f"repos/{REPO}/issues?labels={LABEL}&state=open")):     # REST only (GraphQL is closed here)
             print("una revisione è già aperta")
             return
         d = json.load(open(sys.argv[2]))
         if not d["items"]:
             print("niente da rivedere")
             return
-        gh("label", "create", LABEL, "-R", REPO, "--color", "B60205", "--description", "Vendite da validare (D275)",
-           "--force")
-        print(gh("issue", "create", "-R", REPO, "--label", LABEL, "--title",
-                 f"Vendite sospette da validare · {d['date']} · {len(d['items'])}", "--body-file", "-", inp=body(d)))
+        try:
+            gh("api", f"repos/{REPO}/labels", "-f", f"name={LABEL}", "-f", "color=B60205",
+               "-f", "description=Vendite da validare (D275)")
+        except subprocess.CalledProcessError:
+            pass                                          # the label exists already
+        req = dict(title=f"Vendite sospette da validare · {d['date']} · {len(d['items'])}", body=body(d), labels=[LABEL])
+        print(json.loads(gh("api", f"repos/{REPO}/issues", "--input", "-", inp=json.dumps(req)))["html_url"])
         return
     p = sys.argv[2]
     reg = json.load(open(p)) if os.path.exists(p) else {}
     nums = [sys.argv[3]] if len(sys.argv) > 3 else [
-        str(i["number"]) for i in json.loads(gh("issue", "list", "-R", REPO, "--label", LABEL, "--state", "closed",
-                                                 "--json", "number"))]
+        str(i["number"]) for i in json.loads(gh("api", f"repos/{REPO}/issues?labels={LABEL}&state=closed&per_page=100"))]
     today = str(datetime.date.today())
     n = {"esclusa": 0, "valida": 0}
     for num in nums:
-        txt = json.loads(gh("issue", "view", num, "-R", REPO, "--json", "body"))["body"]
+        txt = json.loads(gh("api", f"repos/{REPO}/issues/{num}"))["body"] or ""
         for box, iid in BOX.findall(txt):
             if iid in reg and reg[iid].get("issue") == int(num):
                 continue

@@ -80,11 +80,14 @@ row_keys = []
 rows = []                     # (bucket, price log, {name: estimate}, lvm sd, venue)
 prev, prev_off, prev_kappa = {}, np.zeros(len(VENUES)), 1.0
 prev_ke = np.ones(E)                                  # v1.18: the per-era noise factors known at that time
+pgen_at = []                  # §61: the genuine probability of each scored sale right after its week was fitted
 for w in range(W):
     g = groups.get(w, empty)
+    _pos, _wk_rows = {}, []                           # §61: position of each sale among its card's sales of the week
     if w > train and len(g) and prev:
         for _, s in g.iterrows():
             c, gi = int(s["card"]), GRADE_INDEX[int(s["grade"])]
+            _pos[c] = _pos.get(c, -1) + 1
             ests = {n: prev[n][0][c, gi] for n in names}
             if all(np.isfinite(v) for v in ests.values()):
                 n52 = weekly_card[max(0, w - 52):w, c].sum()
@@ -93,8 +96,15 @@ for w in range(W):
                 rows.append((bucket, float(np.log(s["price"])), ests, float(prev[lvm.name][1][c, gi]), s["venue"],
                              float(prev_off[VENUES.index(s["venue"])] if s["venue"] in VENUES else 0.0),
                              prev_kappa * (float(prev_ke[era[c]]) if params.era_noise else 1.0), w))
+                _wk_rows.append((c, _pos[c]))
     for m in models:
         m.ingest(w, g)
+    if _wk_rows:
+        _n = g.groupby("card").size()
+        for c, j in _wk_rows:
+            pg = lvm.fit[c]["pgen"] if lvm.fit[c] is not None else None
+            k = len(pg) - int(_n[c]) + j if pg is not None else -1
+            pgen_at.append(float(pg[k]) if pg is not None and 0 <= k < len(pg) else float("nan"))
     prev = {}
     for m in models:
         if m is lvm:
@@ -152,10 +162,10 @@ if os.environ.get("PHASE_R_ROWS"):                     # diagnostics only: one l
     import csv as _csv
     with open(os.environ["PHASE_R_ROWS"], "w", newline="") as fh:
         wr = _csv.writer(fh)
-        wr.writerow(["bucket", "card", "grade", "item_id", "week", "venue", "y", "lvm", "lvm_adj", "sd", "s_pred"] + comp)
-        for r, (cc, gg, ii), b_ in zip(rows, row_keys, band):     # s_pred: the R4 band / 1.2816 (protocol §32)
+        wr.writerow(["bucket", "card", "grade", "item_id", "week", "venue", "y", "lvm", "lvm_adj", "sd", "s_pred"] + comp + ["pgen"])
+        for r, (cc, gg, ii), b_, pg_ in zip(rows, row_keys, band, pgen_at):     # s_pred: the R4 band / 1.2816 (protocol §32)
             wr.writerow([r[0], cc, gg, ii, r[7], r[4], round(r[1], 4), round(r[2][L], 4), round(r[2][L] + r[5], 4), round(r[3], 4),
-                         round(float(b_) / 1.2816, 5)] + [round(r[2][n], 4) for n in comp])
+                         round(float(b_) / 1.2816, 5)] + [round(r[2][n], 4) for n in comp] + [round(pg_, 4)])
 os.makedirs(os.path.dirname(out), exist_ok=True)
 json.dump(res, open(out, "w"), indent=1, ensure_ascii=False)
 print(json.dumps({k: res[k] for k in ("n_sales", "ES", "R2", "R3", "R3_passed", "R4_coverage", "R4_after") if k in res}, indent=1, ensure_ascii=False))
