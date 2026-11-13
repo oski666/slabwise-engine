@@ -1,0 +1,257 @@
+{
+ "assigned_before": 1699839,
+ "kept": 1699101,
+ "removed": 738,
+ "why": {
+  "altro pokémon": 322,
+  "altro prodotto": 416
+ },
+ "N2_kept_share": 0.9996,
+ "N2_passed": true,
+ "N3_cards_below": 0,
+ "N3_share": 0.0,
+ "N3_passed": true,
+ "N3_examples": [],
+ "N1_sample": [
+  [
+   "sv10-229",
+   "2026-11-07",
+   5600,
+   "2025 Pokemon DRI Team Rocket's Moltres ex Ultra Premium #229/182 PSA 8"
+  ],
+  [
+   "sv10-229",
+   "2026-04-09",
+   5400,
+   "Pokemon 2025 Team Rocket's Moltres ex 229/182 SIR Ultra-Premium Collection PSA 7"
+  ],
+  [
+   "ex11-3",
+   "2026-11-05",
+   7376,
+   "Pokemon 2024 Gengar Ex Ultra rare PSA 9"
+  ],
+  [
+   "ex12-88",
+   "2026-03-12",
+   10999,
+   "2006 POKEMON WORLD CHAMPIONSHIPS PROMO MEWTRICK #88 MEW EX PSA 9"
+  ],
+  [
+   "sv10-229",
+   "2026-05-28",
+   8400,
+   "Pokemon Rocket's Moltres Ex Destined Rivals Ultra Premium Collection #229 PSA 9"
+  ],
+  [
+   "ja:tag-team-gx-tag-all-stars-196",
+   "2026-09-08",
+   42920,
+   "2019 Pokemon ブルーの探索 TAG TEAM GX タッグオールスターズ #196/173 PSA 9"
+  ],
+  [
+   "ex16-101",
+   "2026-06-11",
+   238500,
+   "2007 Pokemon World Championship Promo Jolteon Gold Star #101/108 PSA 10 GEM MINT"
+  ],
+  [
+   "sv10-229",
+   "2026-07-25",
+   38000,
+   "Team Rocket's Moltres EX 229/182 - Ultra premium Collection Pokemon - PSA 10"
+  ],
+  [
+   "ex10-105",
+   "2026-07-30",
+   20250,
+   "PSA 8 2006 Nintendo Pokemon Promo Lugia ex World Championship  105/115"
+  ],
+  [
+   "ex10-105",
+   "2026-04-06",
+   296969,
+   "2006 POKEMON WORLD CHAMPIONSHIPS PROMO B-L-S #105 LUGIA EX PSA 10"
+  ],
+  [
+   "basep-3",
+   "2025-03-11",
+   23000,
+   "2023 POKEMON SVP SV BLACK STAR PROMO 151 ULTRA-PREMIUM COLLECTION MEWTWO PSA 10"
+  ],
+  [
+   "sv08-203",
+   "2026-03-24",
+   4000,
+   "Latias 203/191 PSA 9 | Secret Rare  - Pokémon Sv08: Surging Sparks Mint Slab"
+  ],
+  [
+   "ex10-105",
+   "2026-08-22",
+   500000,
+   "2006 POKEMON WORLD CHAMPIONSHIPS PROMO B-L-S #105 LUGIA EX PSA 10"
+  ],
+  [
+   "ja:tag-team-gx-tag-all-stars-196",
+   "2023-08-23",
+   73000,
+   "2019 Pokemon ブルーの探索 TAG TEAM GX タッグオールスターズ #196/173 PSA 10"
+  ],
+  [
+   "ex8-105",
+   "2026-02-12",
+   329700,
+   "2006 POKEMON WORLD CHAMPIONSHIPS PROMO B-L-S #105 LATIAS-GOLD STAR PSA 10"
+  ],
+  [
+   "ja:tag-team-gx-tag-all-stars-196",
+   "2025-07-17",
+   145000,
+   "2019 Pokemon ブルーの探索 TAG TEAM GX タッグオールスターズ #196/173 PSA 10"
+  ],
+  [
+   "me02.5-284",
+   "2026-10-27",
+   10999,
+   "2026 Pokemon ASC EN MEGA EMBOAR ex SIR PSA 10"
+  ],
+  [
+   "basep-3",
+   "2025-04-04",
+   1650,
+   "2023 POKEMON EN-SV BLACK STAR PROMO 151 ULTRA-PREMIUM COLLECTION MEWTWO PSA 9"
+  ],
+  [
+   "ja:tag-team-gx-tag-all-stars-196",
+   "2026-08-13",
+   48500,
+   "2019 Pokemon ブルーの探索 TAG TEAM GX タッグオールスターズ #196/173 PSA 9"
+  ],
+  [
+   "g1-RC32",
+   "2024-02-11",
+   26500,
+   "PSA 10 GEM MINT Gardevoir EX RC30/RC32 FULL ART HOLO RARE Pokemon Card CS8-276"
+  ],
+  [
+   "me01-181",
+   "2026-06-16",
+   28500,
+   "2025 Pokemon Mega Evolution 181 Mega Latios ex SIR PSA 10 Gem Mint"
+  ],
+  [
+   "dpp-DP28",
+   "2025-12-17",
+   5000,
+   "2023 POKEMON SVP EN-SV BLACK STAR PROMO 151 ULTRA-PREM COLLECTION MEWTWO PSA 9"
+  ],
+  [
+   "ja:xy-p-232",
+   "2023-02-04",
+   3700,
+   "PSA 10 Gem Mint Zamazenta V 232/172 Vstar Universe SAR Alt Art S12a Japanese"
+  ],
+  [
+   "ja:tag-team-gx-tag-all-stars-196",
+   "2026-01-04",
+   84999,
+   "2019 Pokemon ブルーの探索 TAG TEAM GX タッグオールスターズ #196/173 PSA 10"
+  ],
+  [
+   "ja:tag-team-gx-tag-all-stars-196",
+   "2026-02-05",
+   41700,
+   "2019 Pokemon ブルーの探索 TAG TEAM GX タッグオールスターズ #196/173 PSA 9"
+  ],
+  [
+   "base1-6",
+   "2026-09-17",
+   14999,
+   "2011 Pokemon Black & White Base Set Serperior Holo Foil #6 PSA 9 Mint"
+  ],
+  [
+   "ex15-101",
+   "2026-08-26",
+   1110000,
+   "2008 POKEMON MEW GOLD STAR WORLD CHAMPIONSHIPS PROMO #101 PSA 10"
+  ],
+  [
+   "ja:tag-team-gx-tag-all-stars-196",
+   "2026-01-31",
+   92500,
+   "2019 Pokemon ブルーの探索 TAG TEAM GX タッグオールスターズ #196/173 PSA 10"
+  ],
+  [
+   "sm11-226",
+   "2024-02-18",
+   5800,
+   "Cosmic Eclipse 226/236 Full Art Mega Lopunny & Jigglypuff GX PSA 9 Pokemon"
+  ],
+  [
+   "xy8-164",
+   "2025-01-08",
+   42062,
+   "2015 PSA 10 XY Mew Two EX Breakthrough Secret FA TCG #164/162 Mint"
+  ],
+  [
+   "basep-3",
+   "2025-01-15",
+   1500,
+   "2023 POKEMON SVP SV BLACK STAR PROMO 151 ULTRA-PREMIUM COLLECTION MEWTWO PSA 9"
+  ],
+  [
+   "ja:tag-team-gx-tag-all-stars-196",
+   "2025-06-11",
+   69337,
+   "2019 Pokemon ブルーの探索 TAG TEAM GX タッグオールスターズ #196/173 PSA 10"
+  ],
+  [
+   "ja:mega-brave-86",
+   "2026-01-05",
+   12250,
+   "2025 Pokemon SV (JP) sv9a Ethan's Ho-Oh ex Special Art Rare #086/063 PSA 10"
+  ],
+  [
+   "sv10-229",
+   "2026-04-28",
+   46000,
+   "2025 POKEMON DESTINED RIVALS ULTRA-PREMIUM COLL TEAM ROCKET'S MOLTRES EX PSA 10"
+  ],
+  [
+   "sv10-229",
+   "2026-04-17",
+   51126,
+   "2025 POKEMON DRI ULTRA-PREMIUM COLLECTION #229 TEAM ROCKET'S MOLTRES EX PSA 10"
+  ],
+  [
+   "ja:tag-team-gx-tag-all-stars-196",
+   "2022-09-06",
+   34756,
+   "2019 Pokemon ブルーの探索 TAG TEAM GX タッグオールスターズ #196/173 PSA 10"
+  ],
+  [
+   "sv10-229",
+   "2026-10-12",
+   20999,
+   "2025 POKEMON DRI ULTRA-PREMIUM COLLECTION #229 TEAM ROCKET'S MOLTRES EX PSA 10"
+  ],
+  [
+   "sv10-229",
+   "2026-05-20",
+   10250,
+   "2025 POKEMON DRI ULTRA-PREMIUM COLLECTION #229 TEAM ROCKET'S MOLTRES EX PSA 9"
+  ],
+  [
+   "ja:vstar-universe-262",
+   "2023-09-15",
+   12299,
+   "Giratina VSTAR PSA 10 2022 Pokemon Japanese 262/172 Ultra Rare Full Art Gold"
+  ],
+  [
+   "basep-3",
+   "2024-12-05",
+   7100,
+   "2023 POKEMON SVP EN-SV BLACK STAR PROMO 151 ULTRA-PREMIUM MEWTWO PSA 10"
+  ]
+ ]
+}
