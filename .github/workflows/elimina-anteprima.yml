@@ -1,4 +1,4 @@
-# D290: removes the published deployments of a preview branch from Cloudflare Pages (one-off, by hand).
+# D290: removes a preview branch and its published deployments on Cloudflare Pages (one-off, by hand).
 name: Elimina anteprima
 on:
   workflow_dispatch:
@@ -6,6 +6,8 @@ on:
       branch:
         description: "Ramo dell'anteprima da togliere"
         default: "giappone"
+permissions:
+  contents: write
 jobs:
   delete:
     runs-on: ubuntu-latest
@@ -27,3 +29,7 @@ jobs:
             done
           done
           echo "eliminati: $n"
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          BR: ${{ github.event.inputs.branch }}
+        run: gh api -X DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/$BR" && echo "ramo $BR eliminato" || echo "ramo $BR già assente"
