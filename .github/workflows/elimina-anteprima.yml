@@ -1,0 +1,29 @@
+# D290: removes the published deployments of a preview branch from Cloudflare Pages (one-off, by hand).
+name: Elimina anteprima
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: "Ramo dell'anteprima da togliere"
+        default: "giappone"
+jobs:
+  delete:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          CF: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          ACC: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          BR: ${{ github.event.inputs.branch }}
+        run: |
+          [ "$BR" = "main" ] && { echo "il sito pubblico non si tocca"; exit 1; }
+          api=https://api.cloudflare.com/client/v4/accounts/$ACC/pages/projects/slabwise/deployments
+          n=0
+          for page in 1 2 3 4 5 6 7 8 9 10; do
+            ids=$(curl -sS -H "Authorization: Bearer $CF" "$api?env=preview&page=$page&per_page=25" \
+                  | jq -r --arg b "$BR" '.result[] | select(.deployment_trigger.metadata.branch == $b) | .id')
+            for id in $ids; do
+              curl -sS -X DELETE -H "Authorization: Bearer $CF" "$api/$id?force=true" | jq -c '.success'
+              n=$((n+1))
+            done
+          done
+          echo "eliminati: $n"

@@ -263,6 +263,6 @@ Il repository `slabwise-engine` è pubblico. I dati grezzi delle fonti (tcgchart
 |---|---|
 | Cosa dà | il cambio di riferimento BCE yen per dollaro di ogni giorno lavorativo dal luglio 2022 |
 | Come | API pubblica gratuita senza chiave, letta dalla corsa del ramo `giappone` (`scripts/fx_jpy.py`) |
-| Uso | solo per convertire in dollari i prezzi in yen di SNKRDUNK e Cardova nell'anteprima giapponese |
+| Uso | solo per convertire in dollari i prezzi in yen di SNKRDUNK e Cardova quando i mercati giapponesi entrano nel calcolo (oggi spenti: anteprima eliminata, D290) |
 | Rischi | dati pubblici di una banca centrale; il servizio intermedio può sparire: la BCE pubblica gli stessi valori |
 
