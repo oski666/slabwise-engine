@@ -9,7 +9,11 @@ on:
     types: [completed]
   schedule:
     - cron: "17 9 * * *"           # fallback: if the collection never ran, build anyway (skipped when today's build exists)
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      full:
+        description: "Ricostruzione completa (D292: vendite nuove di carte già presenti)"
+        default: "false"
   push:                          # D199, D202: a change to the site, the engine or a character image rebuilds the site by itself
     branches: [main]
     paths: ["prototype/character/**", "prototype/v7/**", "prototype/build_real_data.py", "slabwise/**", "functions/**", "social/reel-studio/**", "prototype/data/curiosita.json"]
@@ -68,7 +72,7 @@ jobs:
           printf '%s' "$EBAY_CLIENT_SECRET" > ~/.slabwise/ebay_client_secret
           printf '%s' "$EPN_CAMPAIGN_ID" > ~/.slabwise/epn_campaign_id
       - name: Yen rate for the Japanese marketplaces (D280, D292)
-        run: python scripts/fx_jpy.py data/fx_jpy.json || echo "cambio yen: uso l'ultimo salvato"
+        run: python scripts/fx_jpy.py data/fx_jpy.json || echo "cambio yen non aggiornato, resta l'ultimo salvato"
       - name: Sales (base + Alt + tcgcharts with the long history, D82, D210; SNKRDUNK and Cardova, D292)
         env:
           SLABWISE_JA_MARKETS: "1"
@@ -105,7 +109,7 @@ jobs:
         run: |
           [ -f /tmp/susp_ids.json ] && export SLABWISE_SUSPECTS=/tmp/susp_ids.json
           # D286 (§60 passed): new cards are added to the last saved state; a full rebuild on the 1st of the month
-          if [ "$(date -u +%d)" != "01" ]; then export SLABWISE_INCREMENTAL=1; fi
+          if [ "$(date -u +%d)" != "01" ] && [ "${{ github.event.inputs.full }}" != "true" ]; then export SLABWISE_INCREMENTAL=1; fi
           SLABWISE_CKPT=$HOME/.cache/slabwise/state SLABWISE_TC_HISTORY=1 SLABWISE_INDEX_SELF=1 PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json
           mkdir -p /tmp/out && cp prototype/data/real.json /tmp/out/real.json   # D227: the values of this run, kept apart from git
       - name: Review list of the suspect sales (D275)
