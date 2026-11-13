@@ -1,0 +1,75 @@
+{
+ "n_eval": 648125,
+ "from_": "2025-11-01",
+ "weeks_from": 174,
+ "A": {
+  "cov": 0.8659,
+  "cov_tercile": {
+   "bassa": 0.8848,
+   "media": 0.8973,
+   "alta": 0.8157
+  },
+  "rho": 0.1577,
+  "cov_era": {
+   "Classica": 0.7558,
+   "Di mezzo": 0.7026,
+   "Giappone": 0.8265,
+   "Moderna": 0.8656,
+   "Scarlatto e Violetto": 0.9165,
+   "Spada e Scudo": 0.9022,
+   "Vintage": 0.8297
+  },
+  "cov_bucket": {
+   "alta (≥26)": 0.867,
+   "bassa (≤5)": 0.5175,
+   "media (6-25)": 0.6933
+  }
+ },
+ "B": {
+  "cov": 0.8994,
+  "cov_tercile": {
+   "bassa": 0.8915,
+   "media": 0.8997,
+   "alta": 0.907
+  },
+  "rho": 0.2473,
+  "cov_era": {
+   "Classica": 0.8632,
+   "Di mezzo": 0.8445,
+   "Giappone": 0.8887,
+   "Moderna": 0.8883,
+   "Scarlatto e Violetto": 0.9112,
+   "Spada e Scudo": 0.9185,
+   "Vintage": 0.8998
+  },
+  "cov_bucket": {
+   "alta (≥26)": 0.9001,
+   "bassa (≤5)": 0.5136,
+   "media (6-25)": 0.8175
+  }
+ },
+ "passed_B": {
+  "S1": false,
+  "S2": false,
+  "S3": false,
+  "S4": true,
+  "S6": true
+ },
+ "B_adopted_round1": false,
+ "exceptions": {
+  "flagged": {
+   "Scarlatto e Violetto": 502,
+   "Spada e Scudo": 334,
+   "Vintage": 298,
+   "Giappone": 921,
+   "Moderna": 351,
+   "Di mezzo": 183,
+   "Classica": 296
+  },
+  "confirmed": {},
+  "flagged_total": 2885,
+  "confirmed_total": 0,
+  "note": "con e senza eccezioni il campione è lo stesso finché le confermate sono zero"
+ },
+ "n_cg_median": 574.0
+}
