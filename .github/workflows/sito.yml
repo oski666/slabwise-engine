@@ -105,6 +105,8 @@ jobs:
       - name: Values and indices with the long history in one run (D149, D228, D244)
         run: |
           [ -f /tmp/susp_ids.json ] && export SLABWISE_SUSPECTS=/tmp/susp_ids.json
+          # D286 (§60 passed): new cards are added to the last saved state; a full rebuild on the 1st of the month
+          if [ "$(date -u +%d)" != "01" ]; then export SLABWISE_INCREMENTAL=1; fi
           SLABWISE_CKPT=$HOME/.cache/slabwise/state SLABWISE_TC_HISTORY=1 SLABWISE_INDEX_SELF=1 PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json
           mkdir -p /tmp/out && cp prototype/data/real.json /tmp/out/real.json   # D227: the values of this run, kept apart from git
       - name: Review list of the suspect sales (D275)
