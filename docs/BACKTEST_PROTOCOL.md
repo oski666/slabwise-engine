@@ -1016,6 +1016,18 @@ B entra se passa S1–S4 e S6; C e D se passano anche S5. Tra le varianti che pa
 
 *Esito della variante B, primo giro (13 novembre 2026, `results/slabrange/summary.json`).* 648.125 vendite giudicate (dal 1º novembre 2025, genuine ≥ 0,5). B **non passa**: S1 copertura 89,9% (campione 86,6%; serve 78–82%); S2 terzili 89,2%, 90,0%, 90,7% (servono 75–85%; il campione 88,5%, 89,7%, 81,6%); S3 correlazione 0,247 contro 0,158 del campione, serve almeno 0,258; S4 e S6 per costruzione. B rende la copertura molto più uniforme tra terzili e tra ere (Classica dal 75,6% all'86,3%, Di mezzo dal 70,3% all'84,5%) e la forchetta segue di più la carta, ma è troppo larga: gli scarti hanno code grosse e la deviazione attorno allo zero, moltiplicata per 1,2816, copre più dell'80%. Le soglie non cambiano. Segnalate dalla regola delle eccezioni 2.885 vendite (Giappone 921, Scarlatto e Violetto 502, Moderna 351, Spada e Scudo 334, Vintage 298, Classica 296, Di mezzo 183), confermate da Oscar 0: il campione con e senza eccezioni è lo stesso. Come previsto, si passa a C e D.
 
+## 61b. SlabRange come le 8 vendite su 10 contate davvero (registrato il 13 novembre 2026, prima dei risultati sullo storico; D294)
+
+**Perché.** La variante B del §61 segue la carta ma è troppo larga (copertura 89,9%): la deviazione degli scarti moltiplicata per 1,2816 suppone vendite distribuite come una normale, mentre le carte hanno code grosse. Oscar sceglie di misurare direttamente la distanza entro cui cadono 8 vendite su 10 (in termini da trading: un VaR storico per carta), al posto di C e D.
+
+| | Forchetta |
+|---|---|
+| A | campione: il motore del sito (v1.20) con la sua forchetta |
+| Q | valore ± h, con h = 80° percentile degli scarti assoluti della stessa carta × voto nelle 52 settimane prima della settimana della vendita, mescolato con lo stesso dell'era del sito × fascia di voto: (n q_carta + 10 q_gruppo) / (n + 10) |
+| Q2 | valore + l fino a valore + u, con l e u = 10° e 90° percentile degli scarti con il segno, mescolati allo stesso modo, separatamente (la forchetta può essere storta) |
+
+Scarto, era, fascia di voto, finestra, vendite giudicate e probabilità di essere genuina come nel §61 e nelle sue precisazioni. I valori non cambiano: S4 e S6 valgono per costruzione. Criteri del §61, invariati: S1 copertura tra 78% e 82%; S2 ogni terzile della larghezza tra 75% e 85%; S3 correlazione di rango tra larghezza e scarto assoluto ≥ campione + 0,10. Si adotta la più semplice che passa tutto (Q prima di Q2). Il 10 della mescolanza è quello del §61 e non si tocca. Per il D265 l'adozione vuole due giri; il secondo è il giro mensile. Prima della prova il codice è stato provato su 40 carte per controllarne il funzionamento (non conta come risultato). Codice: `scripts/slabrange_q_test.py`, workflow "Prova SlabRange".
+
 ## 62. Nomi dei set giapponesi come sull'etichetta PSA (registrato il 12 novembre 2026, prima del codice; D278)
 
 **Regola.** Per le carte giapponesi, il controllo del set (oltre a quello di oggi) accetta: (1) il titolo con "pokemon" o "pokémon" scritto come lo legge il nome del set registrato (rimedio al `pok\W*mon` del D153); (2) una tabella di nomi PSA per set del catalogo, `data/ja_set_psa.json`: Terastal Fest ex → terastal-festival-ex e sv8a; Pokemon Card 151 → pokemon-card-151 e sv2a; TAG TEAM GX All Stars → tag-team-gx-tag-all-stars; Nihil Zero → m3; MEGA Starter Set MEGA Gengar ex → mega-gengar-ex-starter-set-mega. Nome della carta e numero restano obbligatori come oggi. Interruttore `SLABWISE_JA_PSA`, spento fino all'esito.

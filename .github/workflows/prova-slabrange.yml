@@ -1,4 +1,4 @@
-# Protocol §61 (D274): the SlabRange of each card x grade (arm B) against the site's band (A). Runs on GitHub's machines.
+# Protocol §61b (D294): the SlabRange as the real 8-in-10 of each card x grade (Q, Q2) against the site's band (A). Runs on GitHub's machines.
 name: Prova SlabRange
 on:
   workflow_dispatch: {}
@@ -29,7 +29,14 @@ jobs:
       - name: Test
         run: |
           pip install -q numpy pandas scipy
-          PYTHONPATH=. python scripts/slabrange_test.py /tmp/sr | tee /tmp/sr.txt
+          PYTHONPATH=. python scripts/slabrange_q_test.py /tmp/sr | tee /tmp/sr.txt
+      - name: Keep the scored sales of the sample (reused by the next SlabRange tests)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: slabrange-rows-A
+          path: /tmp/sr/rows_A.csv
+          retention-days: 30
       - name: Save
         if: always()
         run: |
