@@ -1,0 +1,92 @@
+{
+ "n_eval": 648129,
+ "from_": "2025-11-01",
+ "A": {
+  "cov": 0.866,
+  "cov_tercile": {
+   "bassa": 0.8849,
+   "media": 0.8973,
+   "alta": 0.8158
+  },
+  "rho": 0.1576,
+  "cov_era": {
+   "Classica": 0.7558,
+   "Di mezzo": 0.7026,
+   "Giappone": 0.8265,
+   "Moderna": 0.8657,
+   "Scarlatto e Violetto": 0.9166,
+   "Spada e Scudo": 0.9026,
+   "Vintage": 0.8296
+  },
+  "cov_bucket": {
+   "alta (≥26)": 0.867,
+   "bassa (≤5)": 0.5175,
+   "media (6-25)": 0.6936
+  },
+  "width_median": 0.4644
+ },
+ "Q": {
+  "cov": 0.8247,
+  "cov_tercile": {
+   "bassa": 0.8137,
+   "media": 0.8246,
+   "alta": 0.8357
+  },
+  "rho": 0.3097,
+  "cov_era": {
+   "Classica": 0.7623,
+   "Di mezzo": 0.7776,
+   "Giappone": 0.8219,
+   "Moderna": 0.8121,
+   "Scarlatto e Violetto": 0.8341,
+   "Spada e Scudo": 0.8352,
+   "Vintage": 0.8257
+  },
+  "cov_bucket": {
+   "alta (≥26)": 0.8255,
+   "bassa (≤5)": 0.4261,
+   "media (6-25)": 0.7081
+  },
+  "width_median": 0.3768
+ },
+ "Q2": {
+  "cov": 0.81,
+  "cov_tercile": {
+   "bassa": 0.8027,
+   "media": 0.809,
+   "alta": 0.8182
+  },
+  "rho": 0.3067,
+  "cov_era": {
+   "Classica": 0.7397,
+   "Di mezzo": 0.7582,
+   "Giappone": 0.8025,
+   "Moderna": 0.803,
+   "Scarlatto e Violetto": 0.8187,
+   "Spada e Scudo": 0.8271,
+   "Vintage": 0.8174
+  },
+  "cov_bucket": {
+   "alta (≥26)": 0.811,
+   "bassa (≤5)": 0.3755,
+   "media (6-25)": 0.6481
+  },
+  "width_median": 0.3683
+ },
+ "passed_Q": {
+  "S1": false,
+  "S2": true,
+  "S3": true,
+  "S4": true,
+  "S6": true
+ },
+ "passed_Q2": {
+  "S1": true,
+  "S2": true,
+  "S3": true,
+  "S4": true,
+  "S6": true
+ },
+ "adopt": "Q2",
+ "n_cg_median": 574.0
+}
