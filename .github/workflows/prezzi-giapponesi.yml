@@ -73,3 +73,11 @@ jobs:
             git pull --rebase --autostash -q && git push
             gh workflow run sito.yml -R "$GITHUB_REPOSITORY"
           fi
+      - name: Next batch right away while cards are waiting (D284)
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          left=$(python scripts/ja_due.py | wc -w)
+          echo "giapponesi ancora da controllare: $left"
+          if [ "$left" -gt 0 ]; then gh workflow run prezzi-giapponesi.yml -R "$GITHUB_REPOSITORY"; fi
