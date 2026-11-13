@@ -8,9 +8,9 @@ __CHAR_FONT__
 <style>
 __STYLE__
 .fork .band{transition:left .45s cubic-bezier(.3,1.4,.5,1),width .45s cubic-bezier(.3,1.4,.5,1)}
-.h-range.tick .hr-t{animation:hrIn .35s ease-out}
+.h-range.hr-tick .hr-t{animation:hrIn .35s ease-out}
 @keyframes hrIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.fork .band{transition:none}.h-range.tick .hr-t{animation:none}}
+@media (prefers-reduced-motion:reduce){.fork .band{transition:none}.h-range.hr-tick .hr-t{animation:none}}
 </style>
 
 __SLABBY_SVG__
@@ -343,7 +343,7 @@ function heroRangeTick() {
     el.querySelector(".hr-t").innerHTML = heroRangeText(c);
     el.querySelector(".hr-s").textContent = tx(`SlabRange ${usd(lo)}–${usd(hi)}: qui finiscono 8 vendite su 10`, `SlabRange ${usd(lo)}–${usd(hi)}: where 8 sales in 10 land`);
     const band = el.querySelector(".band"); band.style.left = a + "%"; band.style.width = (b - a) + "%";
-    el.classList.remove("tick"); void el.offsetWidth; el.classList.add("tick");
+    el.classList.remove("hr-tick"); void el.offsetWidth; el.classList.add("hr-tick");   // 13 Nov: not "tick", a chart class with position:absolute
   }
   HERO_T = setTimeout(heroRangeTick, 1600);
 }
@@ -366,8 +366,8 @@ function comicHero() {
     <div class="panels" id="panels">${panels}</div>${caps}
     <div class="burst7" aria-hidden="true"><i></i></div>
     <figure class="h-char" id="hchar"><p class="h-say" id="hsay" aria-live="off"></p><svg viewBox="${vb}" aria-hidden="true"><use href="#slabby-smug"/></svg></figure>
-    <div class="h-left"><div class="h-sticker"><span class="play" aria-hidden="true"></span><h1 aria-label="${h1.replace("<br>", " ")}">${words(h1)}</h1>
-      ${heroRange()}</div>
+    <div class="h-left"><div class="h-sticker"><span class="play" aria-hidden="true"></span><h1 aria-label="${h1.replace("<br>", " ")}">${words(h1)}</h1></div>
+    ${heroRange()}
     <div class="h-name"><b class="h-kana" lang="ja" aria-hidden="true" style="--i:0">グレーディング相場</b><span style="--i:1">${tx("Valori delle carte", "Values of graded")}</span><span style="--i:2">${tx("Pokémon gradate", "Pokémon cards")}</span></div>
     <div class="h-buttons">
       <a class="nbtn" href="#mercato" data-sec="slab" style="--i:0"><b>${t("catalog")}</b><small>${plural(D.cards.length, tx("carta seguita", "card tracked"), tx("carte seguite", "cards tracked"))}</small></a>

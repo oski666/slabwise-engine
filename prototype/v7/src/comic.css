@@ -738,7 +738,7 @@ footer .wrap{color:var(--c-on-dark-dim)}
 @keyframes smoke{0%{opacity:0;transform:translate(0,0) scale(.4)}20%{opacity:.85}100%{opacity:0;transform:translate(var(--x),var(--t)) scale(1.8)}}
 @keyframes water{0%{opacity:0;transform:translate(0,0)}10%{opacity:1}45%{transform:translate(calc(var(--x) * .55),calc(var(--y) * 3))}100%{opacity:0;transform:translate(var(--x),calc(var(--y) + var(--f)))}}
 /* 7 Nov: the hero introduces the SlabRange on a real card (heroRange) */
-.h-range{display:grid;gap:4px;text-decoration:none;color:var(--c-blue);font:400 clamp(15px,1.5vw,20px) var(--f-comic);min-width:min(420px,80vw)}
+.h-range{display:grid;gap:4px;text-decoration:none;color:var(--c-blue);font:400 clamp(15px,1.5vw,20px) var(--f-comic);min-width:min(420px,80vw);margin:0 0 0 clamp(8px,2vw,30px);transform:rotate(-3deg)}  /* 13 Nov (Oscar): under the headline, not on it */
 .h-range .hr-t b{color:var(--c-pink)}
 .h-range .hr-s{font-size:.82em;color:var(--c-blue)}
 .h-range .fork.mini{margin:2px 0}
