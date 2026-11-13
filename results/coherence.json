@@ -3,12 +3,12 @@
  "cards": 1078,
  "checks": {
   "C7": {
-   "n": 25,
+   "n": 24,
    "examples": [
     [
      "swsh3.5-79",
      "Charizard V",
-     "PSA 9 194 < PSA 8 210"
+     "PSA 9 193 < PSA 8 208"
     ],
     [
      "swsh7-212",
@@ -16,24 +16,24 @@
      "PSA 9 291 < PSA 8 301"
     ],
     [
-     "me02.5-290",
-     "Mega Dragonite ex",
-     "PSA 9 389 < PSA 8 398"
-    ],
-    [
      "swsh5-155",
      "Tyranitar V",
-     "PSA 9 212 < PSA 8 216"
+     "PSA 9 213 < PSA 8 216"
     ],
     [
      "swshp-SWSH074",
      "Special Delivery Pikachu",
-     "PSA 8 317 < PSA 7 328"
+     "PSA 8 316 < PSA 7 328"
+    ],
+    [
+     "col1-SL10",
+     "Rayquaza",
+     "PSA 8 7727 < PSA 7 7827"
     ],
     [
      "me02.5-277",
      "Pikachu ex",
-     "PSA 8 224 < PSA 7 230"
+     "PSA 8 223 < PSA 7 228"
     ],
     [
      "me02.5-294",
@@ -43,7 +43,7 @@
     [
      "me02-130",
      "Mega Charizard X ex",
-     "PSA 8 187 < PSA 7 188"
+     "PSA 8 187 < PSA 7 187"
     ],
     [
      "smp-SM210",
@@ -58,20 +58,12 @@
     [
      "sv10-229",
      "Team Rocket's Moltres ex",
-     "PSA 8 59 < PSA 7 69"
+     "PSA 8 58 < PSA 7 66"
     ],
     [
-     "swsh12.5gg-GG44",
-     "Mewtwo VSTAR",
-     "PSA 9 211 < PSA 8 212"
-    ]
-   ]
-  },
-  "C9": {
-   "n": 1,
-   "examples": [
-    [
-     "ja:sm11-096"
+     "swshp-SWSH145",
+     "Pikachu V",
+     "PSA 8 74 < PSA 7 74"
     ]
    ]
   }
