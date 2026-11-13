@@ -13,12 +13,12 @@
     [
      "ex16-102",
      "Vaporeon ☆",
-     "PSA 8 6830 < PSA 7 6832"
+     "PSA 8 6830 < PSA 7 6835"
     ],
     [
      "swsh3.5-79",
      "Charizard V",
-     "PSA 9 193 < PSA 8 208"
+     "PSA 9 194 < PSA 8 210"
     ],
     [
      "swsh7-212",
@@ -33,17 +33,17 @@
     [
      "swshp-SWSH074",
      "Special Delivery Pikachu",
-     "PSA 8 316 < PSA 7 329"
+     "PSA 8 316 < PSA 7 328"
     ],
     [
      "col1-SL10",
      "Rayquaza",
-     "PSA 8 7690 < PSA 7 7805"
+     "PSA 8 7670 < PSA 7 7792"
     ],
     [
      "me02.5-277",
      "Pikachu ex",
-     "PSA 8 223 < PSA 7 229"
+     "PSA 8 222 < PSA 7 228"
     ],
     [
      "me02.5-294",
@@ -53,7 +53,7 @@
     [
      "me02-130",
      "Mega Charizard X ex",
-     "PSA 8 187 < PSA 7 188"
+     "PSA 8 187 < PSA 7 187"
     ],
     [
      "smp-SM210",
@@ -64,6 +64,14 @@
      "sv03.5-167",
      "Ivysaur",
      "PSA 8 33 < PSA 7 33"
+    ]
+   ]
+  },
+  "C9": {
+   "n": 1,
+   "examples": [
+    [
+     "ja:gx-ultra-shiny-229"
     ]
    ]
   }
