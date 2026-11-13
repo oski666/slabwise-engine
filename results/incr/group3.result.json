@@ -1,0 +1,29 @@
+{
+ "group": "results/incr/group3.json",
+ "cards_new": 20,
+ "atoms_new": 80,
+ "atoms_old": 4236,
+ "I1": {
+  "different": 0,
+  "examples": [],
+  "passed": true
+ },
+ "I2": {
+  "n": 80,
+  "median": 0.0018542121810103218,
+  "p95": 0.022824968846926346,
+  "passed": true
+ },
+ "I3": {
+  "coverage_B": 0.7959743824336688,
+  "coverage_C": 0.7981651376146789,
+  "sales": 1093,
+  "passed": true
+ },
+ "I4": {
+  "seconds_B": 136.0,
+  "seconds_C": 810.0,
+  "passed": true
+ },
+ "passed": true
+}
