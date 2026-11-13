@@ -1,14 +1,24 @@
 {
  "asof": "2026-11-12",
- "cards": 1078,
+ "cards": 1079,
  "checks": {
   "C7": {
-   "n": 24,
+   "n": 27,
    "examples": [
+    [
+     "sv03.5-205",
+     "Mew ex",
+     "PSA 8 26 < PSA 7 26"
+    ],
+    [
+     "ex16-102",
+     "Vaporeon ☆",
+     "PSA 8 6830 < PSA 7 6835"
+    ],
     [
      "swsh3.5-79",
      "Charizard V",
-     "PSA 9 193 < PSA 8 210"
+     "PSA 9 194 < PSA 8 210"
     ],
     [
      "swsh7-212",
@@ -28,12 +38,12 @@
     [
      "col1-SL10",
      "Rayquaza",
-     "PSA 8 7685 < PSA 7 7792"
+     "PSA 8 7670 < PSA 7 7792"
     ],
     [
      "me02.5-277",
      "Pikachu ex",
-     "PSA 8 225 < PSA 7 229"
+     "PSA 8 222 < PSA 7 228"
     ],
     [
      "me02.5-294",
@@ -53,17 +63,15 @@
     [
      "sv03.5-167",
      "Ivysaur",
-     "PSA 8 33 < PSA 7 34"
-    ],
+     "PSA 8 33 < PSA 7 33"
+    ]
+   ]
+  },
+  "C9": {
+   "n": 1,
+   "examples": [
     [
-     "sv10-229",
-     "Team Rocket's Moltres ex",
-     "PSA 8 58 < PSA 7 67"
-    ],
-    [
-     "swshp-SWSH145",
-     "Pikachu V",
-     "PSA 8 74 < PSA 7 74"
+     "ja:gx-ultra-shiny-229"
     ]
    ]
   }
