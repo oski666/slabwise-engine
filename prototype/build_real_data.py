@@ -357,6 +357,39 @@ VARIANT_NAME = {"1st": "1st Edition", "shadowless": "Shadowless", "1st-shadowles
                 "1st-yellow": "1st Edition, Yellow Cheeks", "shadowless-red": "Shadowless, Red Cheeks", "shadowless-yellow": "Shadowless, Yellow Cheeks"}
 variants = [dict(_by_id[v.split("/")[0]], id=v, n=f'{_by_id[v.split("/")[0]]["n"]} ({VARIANT_NAME.get(v.split("/")[1], v.split("/")[1])})', variant=v.split("/")[1])
             for v in cards if "/" in v and v.split("/")[0] in _by_id]
+# D295 (§61b, variant Q2): the SlabRange = where 8 sales in 10 of the card x grade landed, against the value of the week
+# before (venue gap included): 10th and 90th percentile of those errors over the last 52 weeks, mixed with the same of its
+# site era x grade band as (n q_card + 10 q_group) / (n + 10). Old fallback (D224) when the group has no errors.
+SR_TIE = 10.0
+_SR = {}
+try:
+    _cl = clean.loc[(clean["week"] >= max(W - 52, 1)) & (clean["week"] < W), ["card", "grade", "week", "price", "venue"]]
+    _gi = np.array([GRADES.index(int(g)) for g in _cl["grade"]])
+    _vx = np.where(_cl["venue"].to_numpy() == "auction", 1, np.where(_cl["venue"].to_numpy() == "fixed", 2, 0))
+    _cc, _ww = _cl["card"].to_numpy().astype(int), _cl["week"].to_numpy().astype(int)
+    _err = np.log(_cl["price"].to_numpy()) - (est[_ww - 1, _cc, _gi] + np.asarray(lvm.offs)[_vx])
+    _ok = np.isfinite(_err)
+    _grp = np.array(["Giappone" if cards[k].startswith("ja:") else series_of(cards[k].split("/")[0]) for k in _cc], dtype=object)
+    _band = np.minimum(_gi, 2)
+    _ef = pd.DataFrame(dict(c=_cc[_ok], gi=_gi[_ok], grp=_grp[_ok], band=_band[_ok], e=_err[_ok]))
+    _qg = {k: np.quantile(v.to_numpy(), [0.1, 0.9]) for k, v in _ef.groupby(["grp", "band"])["e"]}
+    for (c_, gi_), v in _ef.groupby(["c", "gi"])["e"]:
+        _SR[(int(c_), int(gi_))] = (len(v), np.quantile(v.to_numpy(), [0.1, 0.9]))
+    print(f"D295: SlabRange da {len(_ef)} scarti, {len(_qg)} gruppi era x fascia", flush=True)
+except Exception as ex:                                   # never stops the build: the D224 range stays
+    print("D295: SlabRange per carta non calcolato:", ex, flush=True)
+    _qg = {}
+
+
+def _slabrange(i, gi, now, fallback):
+    k = (("Giappone" if cards[i].startswith("ja:") else series_of(cards[i].split("/")[0])), min(gi, 2))
+    if k not in _qg:
+        return fallback
+    n, q = _SR.get((i, gi), (0, np.zeros(2)))
+    lo, hi = (n * q + SR_TIE * _qg[k]) / (n + SR_TIE)
+    return round(float(np.exp(now + lo)), 2), round(float(np.exp(now + hi)), 2)
+
+
 for c in catalog + variants:
     i = cid.get(c["id"])
     if i is None or (clean["card"] == i).sum() < MIN_SALES or lvm.fit[i] is None:
@@ -411,8 +444,9 @@ for c in catalog + variants:
                           in15=round(float(np.mean(np.abs(np.log(rec.to_numpy()) - float(now)) <= np.log(1.15))), 3) if n13 >= 5 else None,
                           # D223: the real sales of the last 30 days (count; 10th, 25th, 75th, 90th percentile with >= 5)
                           n30=int(len(_p30)), q30=[round(float(x), 2) for x in np.percentile(_p30, [10, 25, 75, 90])] if len(_p30) >= 5 else None,
-                          # D224: the SlabRange = where sales land: value x exp(+-Z sqrt(s^2 + sigma_e^2 + sigma_q^2))
-                          slo=round(float(np.exp(now - _sb)), 2), shi=round(float(np.exp(now + _sb)), 2),
+                          # D224, D295: the SlabRange = where 8 sales in 10 land (see _slabrange); the D224 formula is the fallback
+                          **dict(zip(("slo", "shi"), _slabrange(i, gi, float(now), (round(float(np.exp(now - _sb)), 2),
+                                                                                     round(float(np.exp(now + _sb)), 2))))),
                           history=hist))
     ob, pg = lvm.obs[i], lvm.fit[i]["pgen"]
     sl = []
