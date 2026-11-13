@@ -96,6 +96,8 @@ Anche l'incertezza dell'incremento, `1/(Σ wᵢ·β_c² + 1/τ_f²)`, si accumul
 - **Scarlatto e Violetto** (D262) si presenta come indice delle nuove uscite: stesso calcolo, avviso sulla pagina.
 - **Base comune** (D121): un indice si pubblica quando ha almeno 26 settimane; tutti valgono 100 nella stessa settimana, la prima in cui l'ultimo indice pubblicato ha cominciato. Così due ere si confrontano a colpo d'occhio.
 
+- **Indici per voto** (D296, §59): per ogni era, anche tre indici fatti con un voto solo (PSA 10, PSA 9, PSA 8): stesse regole dell'indice d'era (40 voci, almeno 6 vendite credibili in 13 settimane, ribilanciamento ogni 13 settimane, pesi uguali, quote giapponesi del D252), ma con le sole voci di quel voto. Stessa base comune degli indici d'era quando l'indice ha dati quella settimana, altrimenti dalla sua prima settimana. Pagina "Indici per voto" e riquadro "Per voto" nella pagina di ogni era. Sulla pagina della carta, ogni voto da 10 a 8 si confronta con l'indice della sua era nello stesso voto: variazione della carta e dell'indice a 1 mese, 3 mesi e 1 anno, e differenza in punti ((1 + carta) / (1 + indice) − 1); il giudizio "rispetto alla sua era" usa l'indice dello stesso voto quando c'è. La variazione a 1 anno della carta segue la regola del D161 (almeno 3 vendite del voto prima dell'inizio del periodo).
+
 Codice: `slabwise/index.py`. Separato dal fattore `F_e` usato per le stime, che non cambia.
 
 - **Paniere**: ogni 13 settimane (dalla 26ª), per ogni era, le combinazioni carta-voto con almeno 6 vendite con probabilità genuina > 0,5 nelle 13 settimane precedenti; al massimo 10, le più vendute. Si usa solo il passato.

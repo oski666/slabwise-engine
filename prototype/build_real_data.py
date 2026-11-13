@@ -70,7 +70,11 @@ if (os.environ.get("SLABWISE_INCREMENTAL") == "1" and os.environ.get("SLABWISE_C
         _ws, _pf, _meta = max(_cand, key=lambda x: x[0])
         try:
             with open(_pf, "rb") as _fh:
-                _incr_pre = (_ws, _meta, _pickle.load(_fh)[:6])
+                _st = _pickle.load(_fh)
+            if len(_st) >= 7:                           # D296: a state without the grade indices is not used: full run
+                _incr_pre = (_ws, _meta, _st[:7])
+            else:
+                print("§60: stato senza indici per voto (D296), calcolo completo", flush=True)
         except Exception as _ex:
             print("§60: stato illeggibile, calcolo completo:", _ex, flush=True)
 if _incr_pre:                                           # the shared parameters stay those of the full rebuild: no calibration
@@ -130,9 +134,10 @@ if JTEST:
     jqidx = EraIndex(np.where(_jq >= 0, 0, -1), 1, k=20, quota=_jq)
     jmidx = EraIndex(_jq, len(_jnames), k=20)
 GTEST = os.environ.get("SLABWISE_IX_GRADE_TEST") == "1"   # §59 (D266): the era indices built with one grade only (report)
+# D296: the era indices built with one grade only (PSA 10, 9, 8; §59) are published, so they run on every build
+gidx = {g: EraIndex(ser_id, len(series_names), k=40, quota=_eq, grades=[gi]) for gi, g in enumerate((10, 9, 8))}
 if GTEST:
     CKPT = None
-    gidx = {g: EraIndex(ser_id, len(series_names), k=40, quota=_eq, grades=[gi]) for gi, g in enumerate((10, 9, 8))}
 if QTEST:                                               # §51/§52: A is now the general of D169 (most traded), Q the one in use (D250)
     qidx = EraIndex(np.where(_qg >= 0, 0, -1), 1, k=60)
 _code = b"".join(open(os.path.join(HERE, "..", f), "rb").read() for f in
@@ -158,8 +163,11 @@ if CKPT:
     if best:
         try:
             with open(best[1], "rb") as fh:
-                lvm_, eidx_, aidx_, sidx_, e_, s_ = pickle.load(fh)[:6]
-            lvm, eidx, aidx, sidx = lvm_, eidx_, aidx_, sidx_
+                _st = pickle.load(fh)
+            if len(_st) < 7:                            # D296: a state without the grade indices: full run
+                raise ValueError("stato senza indici per voto (D296)")
+            lvm_, eidx_, aidx_, sidx_, e_, s_, gidx_ = _st[:7]
+            lvm, eidx, aidx, sidx, gidx = lvm_, eidx_, aidx_, sidx_, gidx_
             est[:best[0] + 1], sd[:best[0] + 1] = e_, s_
             w0 = best[0] + 1
         except Exception as ex:                         # an unreadable state never stops the build: full run
@@ -169,11 +177,12 @@ if CKPT:
             _ws, _meta = _incr_pre[0], _incr_pre[1]
             try:
                 from slabwise.incremental import transplant_index, transplant_model, transplant_series
-                lvm_, eidx_, aidx_, sidx_, e_, s_ = _incr_pre[2]
+                lvm_, eidx_, aidx_, sidx_, e_, s_, gidx_ = _incr_pre[2]
                 lvm, _sat, _o2n = transplant_model(lvm_, lvm, _meta["cards"], cards)
                 eidx = transplant_index(eidx_, eidx, _o2n, _meta["series_names"], series_names)
                 aidx = transplant_index(aidx_, aidx, _o2n)
                 sidx = transplant_index(sidx_, sidx, _o2n, _meta["set_names"], set_names)
+                gidx = {g_: transplant_index(gidx_[g_], gidx[g_], _o2n, _meta["series_names"], series_names) for g_ in gidx}
                 est = transplant_series(e_, _o2n, len(cards), W)
                 sd = transplant_series(s_, _o2n, len(cards), W)
                 _new = np.flatnonzero(_sat)
@@ -204,16 +213,15 @@ for w in range(w0, W):
     sidx.update(w, lvm, est[w])
     if QTEST:
         qidx.update(w, lvm, est[w])
-    if GTEST:
-        for _gx in gidx.values():
-            _gx.update(w, lvm, est[w])
+    for _gx in gidx.values():                            # D296
+        _gx.update(w, lvm, est[w])
     if JTEST:
         jqidx.update(w, lvm, est[w])
         jmidx.update(w, lvm, est[w])
     if CKPT and w in _save_at:
         f = os.path.join(CKPT, f"state_new_{w}.pkl")
         with open(f, "wb") as fh:
-            pickle.dump((lvm, eidx, aidx, sidx, est[:w + 1], sd[:w + 1]), fh, protocol=5)
+            pickle.dump((lvm, eidx, aidx, sidx, est[:w + 1], sd[:w + 1], gidx), fh, protocol=5)   # D296: + grade indices
         json.dump({"w": w, "chain": _chain[w], "meta": {"cards": list(cards), "eras": list(eras),   # §60: what the state covers
                    "series_names": list(series_names), "set_names": list(set_names)}}, open(f[:-4] + ".json", "w"))
         _saved.append(f)
@@ -590,6 +598,45 @@ for e, name in enumerate(series_names):
     indexes[name] = dict(points=pts, ch30=round(pts[-1][1] / pts[max(0, len(pts) - 5)][1] - 1, 4),
                          basket=[f"{cards[c]} PSA {GRADES[g]}" for c, g in last_basket], **index_stats(ser, last_basket),
                          sizes=[[wk(w_), len(bk)] for w_, e_, bk in eidx.history if e_ == e])
+# D296: the grade indices of each era (PSA 10, PSA 9, PSA 8 voices only, §59), on the same base as the era indices
+indexes_grade = {}
+for e, name in enumerate(series_names):
+    row = {}
+    for g_, gx in gidx.items():
+        ser = gx.series(e, W)
+        if np.isfinite(ser).sum() < INDEX_MIN_WEEKS:
+            continue
+        b_ = index_base_w if np.isfinite(ser[index_base_w]) else int(np.argmax(np.isfinite(ser)))
+        ser = ser - ser[b_]
+        pts = [[wk(w), round(float(100 * np.exp(v)), 2)] for w, v in enumerate(ser) if np.isfinite(v) and w >= b_]
+        if len(pts) < 2:
+            continue
+        st = index_stats(ser[b_:], next((b for w_, e_, b in reversed(gx.history) if e_ == e), []))
+        row[str(g_)] = dict(points=pts, base=pts[0][0], returns=st["returns"], vol=st["vol"], mdd=st["mdd"],
+                            seats=len(gx.basket[e]), components=st["components"][:12])
+    if row:
+        indexes_grade[name] = row
+
+
+def grade_ix_change(name, g, k):
+    """D296: change of the PSA g index of an era over the last k weeks (None when it has no index or no data)."""
+    if name is None or g not in gidx:
+        return None
+    ser = gidx[g].series(series_names.index(name), W)
+    return round(float(np.exp(ser[-1] - ser[-1 - k]) - 1), 4) if len(ser) > k and np.isfinite(ser[-1]) and np.isfinite(ser[-1 - k]) else None
+
+
+for c in out_cards:                                     # D296: each grade against the index of its era in the same grade
+    _n = ix_group(c["id"]) if c["id"] in cid else None
+    for g in c["grades"]:
+        if _n is None or g["grade"] not in gidx or g.get("off"):
+            continue
+        i_, gi_ = cid[c["id"]], GRADES.index(g["grade"])
+        _old = int(((clean["card"] == i_) & (clean["grade"] == g["grade"]) & (clean["week"] <= W - 53)).sum())
+        g["ch1y"] = (round(float(np.exp(est[-1, i_, gi_] - est[-53, i_, gi_]) - 1), 4)          # same rule as ch30 (D161)
+                     if W > 53 and _old >= 3 and np.isfinite(est[-53, i_, gi_]) and np.isfinite(est[-1, i_, gi_]) else None)
+        g["vs_ix"] = dict(era=_n, ch30=grade_ix_change(_n, g["grade"], 4), ch90=grade_ix_change(_n, g["grade"], 13),
+                          ch1y=grade_ix_change(_n, g["grade"], 52))
 # D137: PSA graded total per card (all grades), for the share of 10s on the card page
 _TCP = json.load(open(tc_cards)) if os.path.exists(tc_cards) else {}
 for c in out_cards:
@@ -830,7 +877,7 @@ for c in out_cards:
         _a, _b = _g10["pop"] / c["psa_total"], _t["psa10"] / _t["total"]
         if abs(_a - _b) > 0.05:
             c["gem_conflict"] = [round(_a, 4), round(_b, 4)]
-res = dict(real=True, index_margin=index_margin, rarity_fit=rarity_fit, engine=ENGINE, deals_asof=deals_asof, deal_stats=deal_stats, ja_pending=ja_pending, indexes=indexes, index_history=index_history, index_all=index_all, index_sets=index_sets, index_base=(index_source["base"] if index_source else wk(index_base_w)), index_source=index_source, asof=str(asof), eur_rate=EUR, eur_rate_date=rate_date, cards=out_cards, rollups=rollups, pulse=pulse, slabmeter=slabmeter, tap=tap,
+res = dict(real=True, indexes_grade=indexes_grade, index_margin=index_margin, rarity_fit=rarity_fit, engine=ENGINE, deals_asof=deals_asof, deal_stats=deal_stats, ja_pending=ja_pending, indexes=indexes, index_history=index_history, index_all=index_all, index_sets=index_sets, index_base=(index_source["base"] if index_source else wk(index_base_w)), index_source=index_source, asof=str(asof), eur_rate=EUR, eur_rate_date=rate_date, cards=out_cards, rollups=rollups, pulse=pulse, slabmeter=slabmeter, tap=tap,
            params={k: v for k, v in params.__dict__.items()}, n_sales=int(len(clean)), n_removed=int(len(removed)), venues=venues,
            venue_gaps={v: round(float(lvm.offs[k]), 4) for k, v in enumerate(("ebay", "auction", "fixed"))},
            note="Dati veri: vendite concluse eBay (anche tramite Alt e tcgcharts), Goldin e Fanatics Collect (dal 2023). "
