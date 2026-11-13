@@ -8170,5 +8170,21 @@
   "set_en": "Sky Legend",
   "source": "TCGdex ja",
   "added": "D134"
+ },
+ {
+  "id": "ja:expansion-pack-20th-anniversary-11",
+  "en": null,
+  "en_same": null,
+  "en_check": null,
+  "lang": "ja",
+  "n": "Charizard (giapponese)",
+  "no": "11",
+  "set": "Expansion Pack 20th Anniversary",
+  "tot": null,
+  "r": null,
+  "ill": null,
+  "set_en": "Expansion Pack 20th Anniversary",
+  "source": "TCGdex ja",
+  "added": "D134"
  }
 ]

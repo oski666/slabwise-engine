@@ -2668,5 +2668,11 @@
   62,
   56,
   "\\bsky\\W*legend\\b"
+ ],
+ "ja:expansion-pack-20th-anniversary-11": [
+  "charizard",
+  11,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
  ]
 }
