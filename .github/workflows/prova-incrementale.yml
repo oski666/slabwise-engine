@@ -37,7 +37,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        arm: [C, A-group1, A-group2]
+        arm: [C, A-group3]
     steps:
       - uses: actions/checkout@v4
       - name: Private data (D163)
@@ -86,7 +86,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        group: [group1, group2]
+        group: [group3]
     steps:
       - uses: actions/checkout@v4
       - name: Private data (D163)
@@ -141,7 +141,7 @@ jobs:
           pattern: arm-*
       - name: Compare and save
         run: |
-          for G in group1 group2; do
+          for G in group3; do
             python scripts/incremental_test.py compare results/incr/$G.json /tmp/arms/arm-A-$G/out.json /tmp/arms/arm-B-$G/out.json /tmp/arms/arm-C/out.json /tmp/arms/arm-B-$G/seconds.txt /tmp/arms/arm-C/seconds.txt results/incr/$G.result.json
           done
           git config user.name "slabwise-bot"

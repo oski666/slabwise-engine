@@ -485,4 +485,52 @@ def accept_assigned(title: str, card: str):
         return False, "stampa diversa"
     if "/" in card and not _VARIANT_WORD.search(t):
         return False, "stampa non detta"
+    if ASSIGN_NAME:                                      # D281 (protocol §63): the card's Pokémon named, no other product
+        if not _name_in_title(card, t):
+            return False, "nome assente"
+        for rx_, ok_ in _OTHER_PRODUCT:
+            if rx_.search(t) and not base.startswith(ok_):
+                return False, "altro prodotto"
     return True, "assegnata dalla fonte"
+
+
+ASSIGN_NAME = _os.environ.get("SLABWISE_ASSIGN_NAME", "0") == "1"   # D281 (protocol §63); off until it passes
+_OTHER_PRODUCT = [                                    # D281: words of other products, allowed only for the cards they make
+    (re.compile(r"\bworld\W*championships?\b|\bworlds\W*(?:19|20)\d\d\b"), ("ja:world-championships",)),
+    (re.compile(r"\bsvp\b"), ("svp",)),
+    (re.compile(r"\bultra\W*premium\b|\bupc\b"), ("svp", "swshp", "smp")),
+]
+_STOP = {"ex", "gx", "v", "vmax", "vstar", "holo", "dark", "mega", "lv", "x", "the", "of", "and", "prime", "legend", "star",
+         "break", "tag", "team", "radiant", "shining", "light", "card", "full", "art"}
+_JA_OF = {}
+
+
+def _ja_names():
+    if not _JA_OF:
+        f = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "data", "species_ja.json")
+        if _os.path.exists(f):
+            for ja, en in _json.load(open(f, encoding="utf-8"))["names"].items():
+                _JA_OF.setdefault(en, set()).add(ja)
+    return _JA_OF
+
+
+def _name_in_title(card, t):
+    """D281: does the title name the card's Pokémon (or trainer)? Words of the catalogue name, with the Japanese
+    species name for the Japanese cards."""
+    e = JA_CATALOGUE.get(card) if card.startswith("ja:") else CATALOGUE.get(card.split("/")[0])
+    if not e:
+        return True                                      # unknown card: the rule cannot judge it
+    rx = re.sub(r"\(\?<?[!=][^)]*\)", " ", e[0])
+    alts = [a.strip() for a in rx.split("|")]
+    words = set()
+    for a in alts:
+        if re.search(r"[\u3040-\u30ff\u4e00-\u9fff]", a):
+            words.add(re.sub(r"\s*ex$|\s*gx$|\s*v$", "", a.strip()))
+            continue
+        for w in re.findall(r"[a-z][a-z'.]+", a):
+            if w not in _STOP and len(w) >= 3:
+                words.add(w)
+    for w in list(words):
+        words |= _ja_names().get(w, set())
+    tt = t.replace("’", "'")
+    return any(w and w in tt for w in words)
