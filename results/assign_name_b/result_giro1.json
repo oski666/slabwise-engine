@@ -1,0 +1,265 @@
+{
+ "assigned_before": 1699839,
+ "kept": 1689083,
+ "removed": 10756,
+ "why": {
+  "altro pokémon": 10340,
+  "altro prodotto": 416
+ },
+ "N2_kept_share": 0.9937,
+ "N2_passed": true,
+ "N3_cards_below": 7,
+ "N3_share": 0.0065,
+ "N3_passed": true,
+ "N3_examples": [
+  "ja:tag-team-gx-tag-all-stars-175",
+  "xyp-XY150a",
+  "ja:plasma-gale-74",
+  "ja:the-best-of-xy-188",
+  "ja:tag-team-gx-tag-all-stars-188",
+  "ja:pokekyun-collection-19",
+  "ja:gx-ultra-shiny-229"
+ ],
+ "N1_sample": [
+  [
+   "ja:gx-ultra-shiny-229",
+   "2024-07-26",
+   13250,
+   "PSA 9 Shiny Umbreon GX 229/150: Ultra Shiny GX 2018 Pokemon Japanese Sun & Moon"
+  ],
+  [
+   "ja:gx-ultra-shiny-229",
+   "2022-12-19",
+   8000,
+   "2018 Pokemon ブラッキーGX GXウルトラシャイニー #229/150 PSA 8"
+  ],
+  [
+   "sma-SV60",
+   "2026-10-21",
+   33000,
+   "2019 POKEMON SUN & MOON HIDDEN FATES #SV60 FULL ART/ESPEON GX PSA 10"
+  ],
+  [
+   "sma-SV49",
+   "2025-12-04",
+   45500,
+   "2019 POKEMON SUN & MOON HIDDEN FATES #SV49 FULL ART/CHARIZARD GX PSA 9"
+  ],
+  [
+   "ja:tag-team-gx-tag-all-stars-175",
+   "2024-09-11",
+   2859,
+   "PSA 10 - Dedenne GX 175/173 Tag Team GX All Stars FA Japanese Pokemon"
+  ],
+  [
+   "ex8-105",
+   "2026-08-14",
+   46000,
+   "LATIAS-GOLD STAR 105 B-L-S WORLD CHAMPIONSHIPS PROMO POKEMON PSA 7"
+  ],
+  [
+   "sma-SV60",
+   "2024-08-23",
+   4600,
+   "2019 POKEMON SUN & MOON HIDDEN FATES #SV60 FULL ART/ESPEON GX PSA 9"
+  ],
+  [
+   "bw9-112",
+   "2025-09-04",
+   159999,
+   "Pokemon Plasma Freeze: Latias ex 112 + Latios ex 113 (Full Art) PAIR PSA 9 MINT"
+  ],
+  [
+   "bw9-112",
+   "2026-06-10",
+   46000,
+   "PSA 8 Latias EX - 112/116 - Plasma Freeze - Pokemon"
+  ],
+  [
+   "sma-SV49",
+   "2023-11-14",
+   57500,
+   "2019 Pokemon CHARIZARD GX Ultra Rare Hidden Fates #SV49/SV94 PSA 10 GEM MINT"
+  ],
+  [
+   "sma-SV49",
+   "2022-09-20",
+   35000,
+   "Pokemon PSA 9 Hidden Fates FULL ART Charizard GX SV49/SV94 - PSA Graded MINT 9"
+  ],
+  [
+   "bw9-112",
+   "2026-03-20",
+   27000,
+   "Pokemon Latias EX Plasma Freeze Full Art #112 PSA 7"
+  ],
+  [
+   "sma-SV56",
+   "2024-08-05",
+   6583,
+   "[PSA 9] Pokemon Greninja GX #SV56/SV94 Shiny Full Art - Hidden Fates ✨"
+  ],
+  [
+   "sma-SV60",
+   "2026-03-29",
+   19800,
+   "2019 Pokemon Sun & Moon Hidden Fates Shiny Espeon GX #SV60 PSA 10 GEM MINT"
+  ],
+  [
+   "sma-SV56",
+   "2026-04-12",
+   6800,
+   "2019 Pokemon Sun & Moon Hidden Fates Greninja GX PSA 9 #SV56/SV94"
+  ],
+  [
+   "bw8-134",
+   "2026-10-07",
+   1260000,
+   "Lugia EX (Team Plasma) 134/135 (2013) Plasma Storm Full Art Holo PSA 8"
+  ],
+  [
+   "sma-SV49",
+   "2023-01-08",
+   80900,
+   "PSA 10 Shiny Vault Charizard GX SV49/SV94 | 2019 Pokemon Hidden Fates"
+  ],
+  [
+   "sma-SV49",
+   "2026-05-10",
+   162500,
+   "2019 Pokemon SM Hidden Fates Charizard GX #SV49/SV94 PSA 10 GEM MINT"
+  ],
+  [
+   "sma-SV60",
+   "2025-03-14",
+   19487,
+   "Espeon GX SV60/SV94 Full Art 2019 Hidden Fates PSA 10 GEM MINT"
+  ],
+  [
+   "sma-SV49",
+   "2026-04-14",
+   46900,
+   "2019 POKEMON SUN & MOON HIDDEN FATES #SV49 FULL ART/CHARIZARD GX PSA 8"
+  ],
+  [
+   "sma-SV49",
+   "2024-09-24",
+   35000,
+   "Charizard GX Hidden fates SV49/SV94 PSA 9"
+  ],
+  [
+   "sma-SV56",
+   "2022-10-23",
+   6000,
+   "PSA 10 GEM MINT Greninja GX Hidden Fates SV56/SV94 SHINY HOLO RARE Pokemon Card"
+  ],
+  [
+   "bw11-RC24",
+   "2025-11-21",
+   19300,
+   "2013 Pokemon Black and White Legendary Treasures Radiant Collection Mew Ex #RC24 PSA 7"
+  ],
+  [
+   "bw11-RC24",
+   "2026-09-18",
+   37000,
+   "Pokemon PSA 8 Mew RC24/RC25 Legendary Treasures Radiant Collection Mint"
+  ],
+  [
+   "sma-SV56",
+   "2022-11-24",
+   7000,
+   "2019 Pokemon SM Hidden Fates SV56 Full Art/Greninja GX PSA 10"
+  ],
+  [
+   "sma-SV49",
+   "2025-05-19",
+   94000,
+   "2019 Pokemon Sun & Moon Hidden Fates Shiny Charizard GX #SV49 PSA 10 GEM MINT"
+  ],
+  [
+   "sma-SV49",
+   "2022-11-08",
+   67500,
+   "PSA 10 Pokémon TCG Charizard GX Hidden Fates SV49/SV94 Holo Full Art"
+  ],
+  [
+   "sma-SV56",
+   "2026-03-03",
+   5500,
+   "Pokémon Card Greninja GX SV56/SV94 Hidden Fates Shiny Full Art PSA 9"
+  ],
+  [
+   "sma-SV56",
+   "2025-08-20",
+   22350,
+   "2019 POKEMON SUN & MOON HIDDEN FATES #SV56 FULL ART/GRENINJA GX PSA 10"
+  ],
+  [
+   "bw6-120",
+   "2025-09-24",
+   120000,
+   "PSA 9- 2012 Mew EX #120 B&W Dragons Exalted Full Art Low Pop"
+  ],
+  [
+   "ex16-92",
+   "2026-07-16",
+   4000,
+   "2007 Pokemon World Championships Promo Legend Ascent Absol Ex #92 PSA 9 MINT"
+  ],
+  [
+   "sma-SV56",
+   "2023-03-06",
+   4100,
+   "2019 Pokemon Hidden Fates Greninja GX Full Art Shiny Vault Holo Rare #SV56 PSA 9"
+  ],
+  [
+   "sma-SV60",
+   "2022-11-23",
+   8999,
+   "Espeon GX 2019 Hidden Fates Full Art Shiny Vault PSA 10 GEM MT #SV60/SV94"
+  ],
+  [
+   "ja:tag-team-gx-tag-all-stars-175",
+   "2023-12-24",
+   5900,
+   "PSA 10 POKEMON JAPANESE TAG TEAM GX ALL STARS 175 DEDENNE GX SR"
+  ],
+  [
+   "sma-SV49",
+   "2023-08-24",
+   74000,
+   "PSA 10 2019 Pokemon S&M Hidden Fates Charizard GX Full ART #SV49 - 48670496"
+  ],
+  [
+   "ja:xy-p-122",
+   "2026-05-15",
+   150150,
+   "PSA 10 Rayquaza EX 122 Pokemon XY Promo Japanese 2015"
+  ],
+  [
+   "bw11-RC24",
+   "2024-07-22",
+   1639,
+   "2013 Pokemon B&W #24 FA Mew Radiant Collections Holo PSA 7"
+  ],
+  [
+   "bw11-RC24",
+   "2026-05-15",
+   35000,
+   "Pokémon Mew EX Full Art RC24/RC25 Legendary Treasures Radiant Collection PSA 8"
+  ],
+  [
+   "sma-SV60",
+   "2024-03-17",
+   9100,
+   "Pokemon Espeon GX Hidden Fates Full Art #SV60 PSA 10 Gem Mint"
+  ],
+  [
+   "sma-SV56",
+   "2025-03-05",
+   5000,
+   "2019 Pokemon Sun & Moon Hidden Fates FA Greninja GX SV56 PSA 9 MINT"
+  ]
+ ]
+}

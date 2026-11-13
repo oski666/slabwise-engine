@@ -546,8 +546,9 @@ def _name_in_title(card, t):
         if toks:
             words.add(" ".join(toks))                  # the whole name: "roaring moon" finds トドロクツキ
         for w in toks:
-            if len(w) >= 3:
-                words.add(w)
+            for part in [w, w.replace("-", " ")] + w.split("-"):   # "charizard-gx" -> "charizard"; "ho-oh" stays whole
+                if len(part) >= 3 and part not in _STOP:
+                    words.add(part)
     for w in list(words):
         words |= _ja_names().get(w, set())
     tt = t.replace("’", "'")
