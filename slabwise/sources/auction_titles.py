@@ -216,7 +216,7 @@ _PSA_FILE = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", ".
 _JA_PSA = {k: v for k, v in _json.load(open(_PSA_FILE, encoding="utf-8")).items() if not k.startswith("_")} \
     if _os.path.exists(_PSA_FILE) else {}
 _POKEMON = re.compile(r"pok[eé]mon")
-JA_1ST = _os.environ.get("SLABWISE_JA_1ST", "0") == "1"   # D282 (protocol §64): sets printed only as 1st Edition; off until it passes
+JA_1ST = _os.environ.get("SLABWISE_JA_1ST", "1") == "1"   # D282 (protocol §64, passed 13 Nov 2026): sets printed only as 1st Edition
 _1ST_FILE = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "data", "ja_first_edition_only.json")
 _JA_1ST_SETS = set(_json.load(open(_1ST_FILE, encoding="utf-8"))["sets"]) if _os.path.exists(_1ST_FILE) else set()
 _JA_1ST_NAMES = {"ja:expansion-pack-20th-anniversary": r"\b(?:cp6|20th\W*anni?v\w*)\b"}
