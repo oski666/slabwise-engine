@@ -44,7 +44,11 @@ def get(url, raw=False):
                 body = r.read().decode("utf-8")
             break
         except urllib.error.HTTPError as e:
-            if e.code not in (429, 503) or attempt == 4 or not url.startswith(TCG):
+            if e.code not in (429, 500, 502, 503) or attempt == 4 or not url.startswith(TCG):
+                raise
+            time.sleep(60 * (attempt + 1))
+        except (TimeoutError, urllib.error.URLError, ConnectionError):   # 14 Nov: slow answers and 500s from tcgcharts
+            if attempt == 4 or not url.startswith(TCG):
                 raise
             time.sleep(60 * (attempt + 1))
     if url.startswith(TCG):
