@@ -179,6 +179,9 @@ def ja_counterparts(c, tc_map, fallback=False):
             same, why = same_print({}, en_card, cd.get("imageUrlHires") or cd.get("imageLarge"), en_img)
             import time as _t
             _t.sleep(cr.PAUSE_S)                                  # the image came from tcgcharts too: same pace
+            if same is not True:                                  # 14 Nov: without TCGdex only the same illustration counts
+                no_tcgdex += 1                                    # (the same artist drew the same Pokémon many times)
+                continue
             set_en = re.sub(r"\s*japanese\s*$", "", cd.get("setName") or "", flags=re.I)
             out.append(dict(id=f"ja:{slug}-{no_.lower()}", lang="ja", tcgdex=None, en=c["id"], en_same=same, en_check=why,
                             name=f"{c['n']} (giapponese)", ja_name=cd.get("nativeName"), set=set_en, no=no_, rank=None,
