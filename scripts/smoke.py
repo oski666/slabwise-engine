@@ -47,12 +47,18 @@ with sync_playwright() as pw:
         p.on("response", lambda r: bad.append(f"{r.status} {r.url[:90]}") if r.status >= 400 and "favicon" not in r.url else None)
         p.goto(BASE + "#mercato")
         p.wait_for_timeout(3000)
-        ids = p.evaluate("D.cards.map(c=>c.id)")
+        # 14 Nov: with 1,000+ cards every page no longer fits in 30 minutes: the 15 most valuable, the 15 most traded,
+        # 10 Japanese and 10 more spread over the catalogue, different every day
+        ids = p.evaluate("""() => { const c = D.cards, v = x => Math.max(0, ...x.grades.map(g => g.value || 0)), n = x => x.n_sales || 0;
+          const pick = new Set([...c].sort((a, b) => v(b) - v(a)).slice(0, 15).concat([...c].sort((a, b) => n(b) - n(a)).slice(0, 15),
+            c.filter(x => x.lang === 'ja').slice(0, 10)).map(x => x.id));
+          const day = Math.floor(Date.now() / 864e5); for (let k = 0; k < 10; k++) pick.add(c[(day * 37 + k * Math.floor(c.length / 10)) % c.length].id);
+          return [...pick]; }""")
         idx = p.evaluate("(D.rollups||[]).map(r=>'#indice-'+encodeURIComponent(r.series)).concat(D.index_all?['#indice-tutto']:[], Object.keys(D.index_sets||{}).map(k=>'#indice-'+encodeURIComponent('set:'+k)))")
         # "Le mie carte" (D131) checked full: three followed cards, one long Japanese name, one card no longer listed
         p.evaluate("""() => { const c=D.cards, w={}; [c[0], c[c.length-1], c.find(x=>x.lang==='ja')||c[1]].forEach(x=>{ const g=x.grades[x.grades.length-1]; w[x.id+'|'+g.grade]={v:g.value||null,d:'2026-10-01'}; });
           w['xx-gone|10']={v:5,d:'2026-10-01'}; localStorage.setItem('sw-watch', JSON.stringify(w)); }""")
-        for r in ["#mercato", "#deal", "#metodo", "#richieste", "#privacy", "#termini", "#contatti", "#mie"] + idx + ["#c-" + i for i in ids]:
+        for r in ["#mercato", "#deal", "#metodo", "#richieste", "#privacy", "#termini", "#contatti", "#mie"] + idx + ["#indici-voto"] + ["#c-" + i for i in ids]:
             errs.clear()
             p.goto(BASE + r)
             p.wait_for_timeout(1800)
