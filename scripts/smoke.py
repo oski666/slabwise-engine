@@ -64,7 +64,7 @@ with sync_playwright() as pw:
             p.wait_for_timeout(1800)
             i = p.evaluate(CHECK)
             for sel in TAPS:
-                for k in range(p.locator(sel).count()):
+                for k in range(min(4, p.locator(sel).count())):   # 14 Nov: the first 4 of each kind (the market page has hundreds)
                     try:
                         p.locator(sel).nth(k).click(timeout=1500)
                     except Exception:
