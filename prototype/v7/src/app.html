@@ -417,7 +417,7 @@ function erasSection() {
 }
 /* D126: featured = the 6 cards that moved most in 30 days among those with a well-measured PSA 10 price */
 function starPick() {
-  const sure = D.cards.filter(c => !noOwn(gradeOf(c, 10)) && tierK(gradeOf(c, 10)) === "hi" && Number.isFinite(gradeOf(c, 10).ch30));
+  const sure = D.cards.filter(c => (c.img || c.thumb) && !noOwn(gradeOf(c, 10)) && tierK(gradeOf(c, 10)) === "hi" && Number.isFinite(gradeOf(c, 10).ch30));   // 14 Nov: only cards with an image
   const pool = sure.length >= 6 ? sure : D.cards.filter(c => !noOwn(gradeOf(c, 10)));
   return [...pool].sort((a, b) => Math.abs(gradeOf(b, 10).ch30) - Math.abs(gradeOf(a, 10).ch30)).slice(0, 6);
 }

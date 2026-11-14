@@ -462,7 +462,8 @@ mark.hl{color:inherit;background:linear-gradient(100deg,transparent 0 1%,var(--m
 .ixchart .gl8,.gk8 i{stroke:var(--mint);background:var(--mint)}
 .gk{display:inline-flex;align-items:center;gap:6px;margin-right:14px;font:600 13px var(--body)}
 .gk i{display:inline-block;width:14px;height:4px;border-radius:2px}
-.gixt{width:100%;border-collapse:collapse;margin-top:10px;font:500 14px var(--body)}
+.gixt{width:100%;max-width:100%;display:block;overflow-x:auto;border-collapse:collapse;margin-top:10px;font:500 14px var(--body)}
+@media (max-width:520px){.gixt{font-size:12.5px}.gixt th,.gixt td{padding:6px 5px}}
 .gixt th,.gixt td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:right}
 .gixt th:first-child,.gixt thead th:first-child{text-align:left}
 .gixt thead th{font-weight:600;color:var(--muted);font-size:12px}
