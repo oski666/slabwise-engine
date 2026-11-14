@@ -4930,5 +4930,32 @@
    2000,
    2001
   ]
+ ],
+ "bwp-BW74": [
+  "giratina",
+  "\\bpromo",
+  "bw74",
+  [
+   2011,
+   2012
+  ]
+ ],
+ "ecard2-H21": [
+  "scizor",
+  "\\baquapolis\\b",
+  "h21",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "ex14-99": [
+  "alakazam",
+  "\\bcrystal\\W*(?:(?:of|the|and)\\W*)?guardians\\b",
+  99,
+  [
+   2006,
+   2007
+  ]
  ]
 }
