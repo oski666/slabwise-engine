@@ -2,7 +2,7 @@
 
 Usage: PYTHONPATH=. python scripts/tcgcharts.py [data/raw/tcgcharts] [--recent]
 
---recent (D89, daily): only the newest page (100 sales) of each card and grade, with the card mapping already in
+--recent (D89, D297, daily): the newest page (100 sales) of the cards and grades that are due, with the card mapping already in
 data/raw/tcgcharts/cards.json; no search, no card page, no populations. About 120 requests.
 
 For each catalogue card: the site's search finds the card (number, language, set, no variant), the card page
@@ -66,23 +66,56 @@ def find(card):
     return cands[0] if cands else None
 
 
+BUDGET_MIN = float(os.environ.get("TC_BUDGET_MIN", "75"))   # D297: the daily run stops in time to save what it got
+
+
 def recent(out):
-    mapping = json.load(open(os.path.join(HERE, "..", "data", "raw", "tcgcharts", "cards.json")))
-    sales = []
-    for cid, m in mapping.items():
-        for g in (10, 9, 8, 7):
-            q = urllib.parse.urlencode({"cardId": m["tc_id"], "cardType": m["card_type"], "sort": "sold_date", "order": "DESC",
-                                        "page": 1, "limit": 100, "company": "PSA", "grade": g})
-            try:
-                d = get("/api/card-sales?" + q)["data"]
-            except urllib.error.HTTPError as e:
-                print(f"  {cid} PSA {g}: errore {e.code}", flush=True)
-                continue
-            for s in d["sales"]:
-                sales.append(dict(card=cid, tc_grade=g, **{k: s.get(k) for k in ("platform", "sale_id", "title", "grading_service", "grade",
-                                  "price_cents", "sold_date", "source", "is_excluded", "exclusion_reason", "payment_pending", "payment_held")}))
+    """D89, D297: the newest page (100 sales) of each card and grade, as many as fit in BUDGET_MIN minutes at one
+    request every 3 seconds (the permission). With 1,000+ cards they no longer fit in a day, so each card x grade is
+    due again after a pause that follows how fast it sells: half the days the last page of 100 sales covered (at least
+    1 day, at most 7), 14 days when it had no sales. The most overdue go first; data/raw/tcgcharts/recent_state.json
+    keeps when each was last read."""
+    raw = os.path.join(HERE, "..", "data", "raw", "tcgcharts")
+    mapping = json.load(open(os.path.join(raw, "cards.json")))
+    st_p = os.path.join(raw, "recent_state.json")
+    state = json.load(open(st_p)) if os.path.exists(st_p) else {}
+    now = time.time()
+
+    def due(k):
+        s_ = state.get(k)
+        if not s_:
+            return 1e9                                    # never read: first
+        span = s_.get("span_days")
+        pause = 14.0 if not s_.get("n") else min(7.0, max(1.0, 0.5 * (span or 2.0)))
+        return (now - s_["at"]) / 86400 / pause          # > 1 means overdue
+    todo = sorted(((cid, g) for cid in mapping for g in (10, 9, 8, 7)), key=lambda x: -due(f"{x[0]}|{x[1]}"))
+    todo = [x for x in todo if due(f"{x[0]}|{x[1]}") >= 1]
+    sales, done = [], 0
+    t0 = time.time()
+    for cid, g in todo:
+        if time.time() - t0 > BUDGET_MIN * 60:
+            break
+        m = mapping[cid]
+        q = urllib.parse.urlencode({"cardId": m["tc_id"], "cardType": m["card_type"], "sort": "sold_date", "order": "DESC",
+                                    "page": 1, "limit": 100, "company": "PSA", "grade": g})
+        try:
+            d = get("/api/card-sales?" + q)["data"]
+        except urllib.error.HTTPError as e:
+            print(f"  {cid} PSA {g}: errore {e.code}", flush=True)
+            continue
+        days = sorted(str(s.get("sold_date") or "")[:10] for s in d["sales"] if s.get("sold_date"))
+        span = None
+        if len(days) >= 2:
+            import datetime as _dt
+            span = (_dt.date.fromisoformat(days[-1]) - _dt.date.fromisoformat(days[0])).days
+        state[f"{cid}|{g}"] = dict(at=time.time(), n=len(d["sales"]), span_days=span)
+        done += 1
+        for s in d["sales"]:
+            sales.append(dict(card=cid, tc_grade=g, **{k: s.get(k) for k in ("platform", "sale_id", "title", "grading_service", "grade",
+                              "price_cents", "sold_date", "source", "is_excluded", "exclusion_reason", "payment_pending", "payment_held")}))
     json.dump(sales, open(os.path.join(out, "sales.json"), "w"), ensure_ascii=False)
-    print(f"{len(mapping)} carte, {len(sales)} vendite recenti -> {out}")
+    json.dump(state, open(st_p, "w"))
+    print(f"{len(mapping)} carte; lette {done} di {len(todo)} combinazioni carta x voto in scadenza; {len(sales)} vendite -> {out}")
 
 
 def main():
@@ -102,8 +135,29 @@ def main():
         for pre, s in SET_EN.items():
             if c["id"].startswith(pre + "-"):
                 c["set_en"] = s
-    mapping, sales = {}, []
+    # D297: within BUDGET_MIN minutes, starting from the mapping already there: the cards not mapped yet first (with all
+    # their sales), then the populations of the others, oldest refresh first. The newest sales come from --recent.
+    old_p = os.path.join(HERE, "..", "data", "raw", "tcgcharts", "cards.json")
+    mapping = json.load(open(old_p)) if os.path.exists(old_p) else {}
+    sales = []
+    t0 = time.time()
+    cards.sort(key=lambda c: (c["id"] in mapping, (mapping.get(c["id"]) or {}).get("pop_at", 0)))
     for c in cards:
+        if time.time() - t0 > BUDGET_MIN * 60:
+            print(f"  tempo finito (D297): {len(mapping)} carte nella mappa", flush=True)
+            break
+        known = mapping.get(c["id"])
+        if known:                                     # only the population and the hidden count again
+            try:
+                det = get(known["url"].replace("/pokemon/", "/api/pokemon/card-detail/", 1))
+            except urllib.error.HTTPError as e:
+                print(f"  {c['id']}: scheda, errore {e.code}", flush=True)
+                continue
+            cd = det.get("card", {})
+            known.update(psa_population=cd.get("psaPopulation"), pop={g: cd.get(f"psa{g}Count") for g in (10, 9, 8, 7)},
+                         graded_supply=cd.get("gradedSupply"), pop_at=time.time())
+            json.dump(mapping, open(os.path.join(out, "cards.json"), "w"), ensure_ascii=False, indent=1)
+            continue
         try:
             it = find(c)
         except urllib.error.HTTPError as e:
@@ -117,7 +171,7 @@ def main():
         cd = det.get("card", {})
         pop = {g: cd.get(f"psa{g}Count") for g in (10, 9, 8, 7)}
         mapping[c["id"]] = dict(tc_id=it["id"], card_type=it["cardType"], url=it["url"], set=it.get("set"), name=it.get("name"),
-                                psa_population=cd.get("psaPopulation"), pop=pop, graded_supply=cd.get("gradedSupply"))
+                                psa_population=cd.get("psaPopulation"), pop=pop, graded_supply=cd.get("gradedSupply"), pop_at=time.time())
         n_card, hidden = 0, None
         for g in (10, 9, 8, 7):
             page = 1
@@ -137,6 +191,8 @@ def main():
         print(f"  {c['id']} -> {it['set']} · {it['name']}: pop PSA10 {pop[10]}, {n_card} vendite visibili, {hidden} nascoste", flush=True)
         json.dump(mapping, open(os.path.join(out, "cards.json"), "w"), ensure_ascii=False, indent=1)
         json.dump(sales, open(os.path.join(out, "sales.json"), "w"), ensure_ascii=False)
+    json.dump(mapping, open(os.path.join(out, "cards.json"), "w"), ensure_ascii=False, indent=1)
+    json.dump(sales, open(os.path.join(out, "sales.json"), "w"), ensure_ascii=False)
     print(f"{len(mapping)} carte, {len(sales)} vendite -> {out}")
 
 

@@ -1,6 +1,6 @@
 # Collection from tcgcharts (D76, D77, D89), on GitHub's own machines: it does not use Claude.
-# Every day the newest page of sales of each card and grade (about 120 requests, one every 3 seconds);
-# on Mondays the full run with the card pages and the PSA populations.
+# Every day the newest page of sales of the cards and grades that are due (one request every 3 seconds, D297);
+# on Mondays first the new cards and the PSA populations. Each part stops in time to save what it got.
 name: Raccolta tcgcharts
 on:                               # D116: started by the Cloudflare clock (orologio/worker.js)
   workflow_dispatch: {}
@@ -12,7 +12,7 @@ concurrency:
 jobs:
   tcgcharts:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 110
     steps:
       - uses: actions/checkout@v4
         with:
@@ -37,13 +37,18 @@ jobs:
         run: |
           mkdir -p /tmp/tc
           cp data/raw/tcgcharts/sales.json /tmp/tc/old_sales.json 2>/dev/null || true
+          # D297: both parts stop in time (the job has 90 minutes): on Mondays 25 minutes of map and populations, then
+          # the newest sales of the cards and grades that are due for the rest of the time
+          BUDGET=70
           if [ "$(date -u +%u)" = "1" ]; then
-            PYTHONPATH=. python scripts/tcgcharts.py /tmp/tc
-            cp /tmp/tc/cards.json data/raw/tcgcharts/cards.json
+            mkdir -p /tmp/tcw
+            TC_BUDGET_MIN=25 PYTHONPATH=. python scripts/tcgcharts.py /tmp/tcw
+            cp /tmp/tcw/cards.json data/raw/tcgcharts/cards.json
             python scripts/pop_history.py data/raw/tcgcharts/cards.json data/raw/tcgcharts/pop_history.json
-          else
-            PYTHONPATH=. python scripts/tcgcharts.py /tmp/tc --recent
+            python scripts/tcgcharts_accumulate.py /tmp/tc/old_sales.json /tmp/tcw/sales.json /tmp/tc/old_sales.json
+            BUDGET=45
           fi
+          TC_BUDGET_MIN=$BUDGET PYTHONPATH=. python scripts/tcgcharts.py /tmp/tc --recent
           python scripts/tcgcharts_accumulate.py /tmp/tc/old_sales.json /tmp/tc/sales.json data/raw/tcgcharts/sales.json
       - name: Card requests (D97)
         continue-on-error: true
