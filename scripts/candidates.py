@@ -30,12 +30,11 @@ from slabwise.print_match import same_print  # noqa: E402
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 DATA = os.path.join(ROOT, "prototype", "data")
 HIRES = json.load(open(os.path.join(DATA, "hires.json"))) if os.path.exists(os.path.join(DATA, "hires.json")) else {}
-out_dir = sys.argv[1]
+out_dir = sys.argv[1] if len(sys.argv) > 1 and not sys.argv[1].startswith("-") else os.path.join(ROOT, "candidates_out")  # D299: also imported
 TOP = int(sys.argv[sys.argv.index("--top") + 1]) if "--top" in sys.argv else 400
 CHECKS = int(sys.argv[sys.argv.index("--checks") + 1]) if "--checks" in sys.argv else 40
 FILL = int(sys.argv[sys.argv.index("--fill") + 1]) if "--fill" in sys.argv else 0      # D139, off since D154: no filling of eras
 FILL_TOP, FILL_TARGET = 3000, 12                 # D139: ranking read for the thin eras; cards wanted per era
-os.makedirs(out_dir, exist_ok=True)
 today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
 
@@ -124,7 +123,7 @@ def strip_no(name):
     return re.sub(r"\s*#\S+$", "", name or "").strip()
 
 
-def ja_counterparts(c, tc_map):
+def ja_counterparts(c, tc_map, fallback=False):
     """Japanese printings of catalogue card c (D134). Candidates: the cards tcgcharts relates to it and its search
     "<name> japanese"; kept when the name and the illustrator are the same and TCGdex (ja) has exactly one card with
     that number and illustrator (its id, image and set). Returns queue rows, not yet checked; and how many were found
@@ -153,15 +152,43 @@ def ja_counterparts(c, tc_map):
         no = cr.num_key(cd.get("cardNumber")) or "0"
         hits = cr.get(f"{cr.TCGDEX}/ja/cards?" + urllib.parse.urlencode({"localId": no, "illustrator": c["ill"]}))
         hits = [h for h in hits if cr.num_key(h.get("localId")) == no] if isinstance(hits, list) else []
-        if len(hits) != 1:                                        # not on TCGdex, or ambiguous: no id and no image
-            no_tcgdex += 1
+        if en_card is None:                                       # D152: same Pokémon and same illustration
+            try:
+                en_card = cr.get(f"{cr.TCGDEX}/en/cards/{urllib.parse.quote(c['id'])}")
+            except Exception:
+                en_card = {}
+        en_img = HIRES.get(c["id"]) or (en_card.get("image") and en_card["image"] + "/high.webp")
+        if len(hits) != 1:                                        # not on TCGdex, or ambiguous: no TCGdex id
+            if not fallback:
+                no_tcgdex += 1
+                continue
+            # D299: the twin from tcgcharts alone: our id from its set ("ja:<set>-<number>", as D158/D231), its era
+            # the English card's when the set has none yet, the illustration compared on the tcgcharts image (D298)
+            slug = (cd.get("setSlug") or "").replace("-japanese", "")
+            no_ = str(cd.get("cardNumber") or "").strip()
+            if not slug or not no_:
+                no_tcgdex += 1
+                continue
+            from slabwise.series import JA_SET_ERAS, series_of
+            if slug not in JA_SET_ERAS:
+                path = os.path.join(ROOT, "slabwise", "ja_set_eras.json")
+                eras = cr_load(path, {})
+                eras[slug] = series_of(c["id"])
+                JA_SET_ERAS[slug] = eras[slug]
+                json.dump(eras, open(path, "w"), indent=1, ensure_ascii=False, sort_keys=True)
+            same, why = same_print({}, en_card, cd.get("imageUrlHires") or cd.get("imageLarge"), en_img)
+            import time as _t
+            _t.sleep(cr.PAUSE_S)                                  # the image came from tcgcharts too: same pace
+            set_en = re.sub(r"\s*japanese\s*$", "", cd.get("setName") or "", flags=re.I)
+            out.append(dict(id=f"ja:{slug}-{no_.lower()}", lang="ja", tcgdex=None, en=c["id"], en_same=same, en_check=why,
+                            name=f"{c['n']} (giapponese)", ja_name=cd.get("nativeName"), set=set_en, no=no_, rank=None,
+                            pop10=cd.get("psa10Count"), pop9=cd.get("psa9Count"), tc_id=cd["id"], tc_type="base", tc_url=url,
+                            tc_set=cd.get("setName"), set_en=set_en, img_url=cd.get("imageUrlHires") or cd.get("imageLarge"),
+                            entry=cr.ja_entry(c["n"], cd.get("nativeName"), no_, cd.get("totalCards"), set_en)))
             continue
         tid = hits[0]["id"]
         jc = cr.get(f"{cr.TCGDEX}/ja/cards/{urllib.parse.quote(tid)}")
-        if en_card is None:                                       # D152: same Pokémon and same illustration
-            en_card = cr.get(f"{cr.TCGDEX}/en/cards/{urllib.parse.quote(c['id'])}")
-        same, why = same_print(jc, en_card, jc.get("image") and jc["image"] + "/high.webp",
-                               HIRES.get(c["id"]) or (en_card.get("image") and en_card["image"] + "/high.webp"))
+        same, why = same_print(jc, en_card, jc.get("image") and jc["image"] + "/high.webp", en_img)
         if same is False and why in ("Pokémon diverso", "tipo di carta diverso"):
             continue                                              # TCGdex gave another card for that number
         tot = ((jc.get("set") or {}).get("cardCount") or {}).get("official")
@@ -178,6 +205,7 @@ RECHECK_DAYS = 7                                      # D122: a card waiting for
 
 
 def main():
+    os.makedirs(out_dir, exist_ok=True)
     have = {c["id"] for c in json.load(open(os.path.join(DATA, "cards.json")))}
     n_cat = len(have) + len(cr_load(os.path.join(DATA, "cards_ja.json"), []))
     status = cr_load(os.path.join(DATA, "requests_status.json"), {})

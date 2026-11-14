@@ -1,0 +1,45 @@
+# D299: the Japanese twins of the English cards, searched again with the wider rule (tcgcharts without TCGdex).
+# Same queue as the tcgcharts collection: one request every 3 seconds, never two runs at once.
+name: Gemelle giapponesi
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: raccolta-tcgcharts
+  cancel-in-progress: false
+jobs:
+  twins:
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Guard bot commits (no conflict markers, valid JSON)
+        run: git config core.hooksPath .githooks
+      - name: Private data (D163)
+        uses: ./.github/actions/private-data
+        with:
+          mode: pull
+          token: ${{ secrets.DATA_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Search
+        run: |
+          pip install -q numpy pandas scipy pillow
+          TC_BUDGET_MIN=80 PYTHONPATH=. python scripts/ja_twins.py
+      - name: Save and rebuild the site
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "slabwise-bot"
+          git config user.email "slabwise-bot@users.noreply.github.com"
+          git add prototype/data/ja_scan2.json prototype/data/candidates_queue.json prototype/data/cards_ja.json slabwise/ja_set_eras.json
+          git diff --cached --quiet && exit 0
+          linked=$(git diff --cached --quiet -- prototype/data/cards_ja.json; echo $?)
+          git commit -m "Gemelle giapponesi (D299)"
+          git pull --rebase -q && git push
+          [ "$linked" = "1" ] && gh workflow run sito.yml --ref main || true
