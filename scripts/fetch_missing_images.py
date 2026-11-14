@@ -1,16 +1,19 @@
 """Fill in card images that TCGdex does not have (D45), from sources registered in docs/DATA_SOURCES.md:
 - English cards: Pokémon TCG API image CDN (images.pokemontcg.io)
 - Japanese printings: the official Japanese card database (www.pokemon-card.com)
+- with --tcgcharts, last: the cards still without an image, from tcgcharts (Marek's permission, D298), one request every
+  3 seconds, only for cards in the tcgcharts map (data/raw/tcgcharts/cards.json, private data)
 Images are stored like the others: webp data URIs in prototype/data/images.json (160 px), hires.json (440 px)
 and, for Japanese printings, in cards_ja.json (360 px, with img_url and source).
 
-Usage: python scripts/fetch_missing_images.py   (then rebuild prototype/data/real.json as usual)
+Usage: python scripts/fetch_missing_images.py [--tcgcharts]   (then rebuild prototype/data/real.json as usual)
 """
 import base64
 import io
 import json
 import os
 import re
+import sys
 import urllib.request
 
 from PIL import Image
@@ -86,6 +89,49 @@ def main():
         c["source"] = "TCGdex ja (dati); immagine " + ("dal database ufficiale pokemon-card.com" if "pokemon-card.com" in url else "TCGdex ja")
         print("ja", c["id"], im.size)
     json.dump(ja, open(os.path.join(HERE, "cards_ja.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    if "--tcgcharts" in sys.argv:
+        from_tcgcharts(thumbs, hires, cards, ja)
+
+
+def from_tcgcharts(thumbs, hires, cards, ja):
+    """D298: the cards still without an image, from tcgcharts (permission from Marek, 14 Nov 2026)."""
+    import time
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import tcgcharts as tc
+    mp = os.path.join(HERE, "..", "..", "data", "raw", "tcgcharts", "cards.json")
+    if not os.path.exists(mp):
+        print("tcgcharts: mappa assente (dati privati)")
+        return
+    mapping = json.load(open(mp))
+    t0, budget = time.time(), float(os.environ.get("TC_BUDGET_MIN", "80")) * 60
+    want = [c["id"] for c in cards if not thumbs.get(c["id"]) and not hires.get(c["id"])] + [c["id"] for c in ja if not c.get("img")]
+    got = 0
+    for cid in want:
+        m = mapping.get(cid)
+        if not m or time.time() - t0 > budget:
+            continue
+        try:
+            cd = tc.get(m["url"].replace("/pokemon/", "/api/pokemon/card-detail/", 1)).get("card", {})
+            url = cd.get("imageUrlHires") or cd.get("imageLarge") or cd.get("imageUrl")
+            if not url:
+                print("tcgcharts", cid, "senza immagine")
+                continue
+            im = get(url)
+            time.sleep(tc.PAUSE_S)                       # the image is a request too: same pace
+        except Exception as e:
+            print("tcgcharts", cid, "manca ancora:", str(e)[:60])
+            continue
+        if cid.startswith("ja:"):
+            c = next(x for x in ja if x["id"] == cid)
+            c["img"], c["img_url"], c["source"] = uri(im, 360), url, "immagine da tcgcharts (permesso, D298)"
+        else:
+            thumbs[cid], hires[cid] = uri(im, 160), uri(im, 440)
+        got += 1
+        print("tcgcharts", cid, im.size, flush=True)
+    json.dump(thumbs, open(os.path.join(HERE, "images.json"), "w"))
+    json.dump(hires, open(os.path.join(HERE, "hires.json"), "w"))
+    json.dump(ja, open(os.path.join(HERE, "cards_ja.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    print(f"tcgcharts: {got} immagini su {len(want)} carte senza immagine ({sum(1 for c in want if c in mapping)} nella mappa)")
 
 
 if __name__ == "__main__":
