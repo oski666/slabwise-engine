@@ -2674,5 +2674,257 @@
   11,
   -1,
   "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:sm8b-209": [
+  "charizard gx|リザードン\\s?gx",
+  209,
+  150,
+  "\\bgx\\W*ultra\\W*shiny\\b"
+ ],
+ "ja:m3-114": [
+  "meowth ex|ニャース\\s?ex",
+  114,
+  80,
+  "\\bnihil\\W*zero\\b"
+ ],
+ "ja:sm8b-229": [
+  "umbreon gx|ブラッキー\\s?gx",
+  229,
+  150,
+  "\\bgx\\W*ultra\\W*shiny\\b"
+ ],
+ "ja:sm10-101": [
+  "(?:marshadow\\s*(?:&|and)\\s*machamp|machamp\\s*(?:&|and)\\s*marshadow) gx|マーシャドー\\&カイリキー\\s?gx",
+  101,
+  95,
+  "\\bdouble\\W*blaze\\b"
+ ],
+ "ja:sm9a-061": [
+  "(?:gardevoir\\s*(?:&|and)\\s*sylveon|sylveon\\s*(?:&|and)\\s*gardevoir) gx|サーナイト\\&ニンフィア\\s?gx",
+  61,
+  55,
+  "\\bnight\\W*unison\\b"
+ ],
+ "ja:sm11-102": [
+  "(?:mega sableye\\s*(?:&|and)\\s*tyranitar|tyranitar\\s*(?:&|and)\\s*mega sableye) gx|メガヤミラミ\\&バンギラス\\s?gx",
+  102,
+  94,
+  "\\bmiracle\\W*twin\\b"
+ ],
+ "ja:sm11-104": [
+  "misty’s favor|カスミのおねがい",
+  104,
+  94,
+  "\\bmiracle\\W*twin\\b"
+ ],
+ "ja:sm12-100": [
+  "(?:arceus\\s*(?:&|and)\\s*dialga \\& palkia|dialga \\& palkia\\s*(?:&|and)\\s*arceus) gx|アルセウス\\&ディアルガ\\&パルキア\\s?gx",
+  100,
+  95,
+  "\\balter\\W*genesis\\b"
+ ],
+ "ja:sm9-099": [
+  "(?:magikarp\\s*(?:&|and)\\s*wailord|wailord\\s*(?:&|and)\\s*magikarp) gx|コイキング\\&ホエルオー\\s?gx",
+  99,
+  95,
+  "(?:\\b(?:tag\\W*bolt|sm9\\b|tag\\W*bolt)\\b)"
+ ],
+ "ja:sm8b-220": [
+  "espeon\\-gx|エーフィ\\s?gx",
+  220,
+  150,
+  "\\bgx\\W*ultra\\W*shiny\\b"
+ ],
+ "ja:sm9-101": [
+  "(?:pikachu\\s*(?:&|and)\\s*zekrom|zekrom\\s*(?:&|and)\\s*pikachu) gx|ピカチュウ\\&ゼクロム\\s?gx",
+  101,
+  95,
+  "(?:\\b(?:tag\\W*bolt|sm9\\b|tag\\W*bolt)\\b)"
+ ],
+ "ja:sm10b-060": [
+  "(?:moltres\\s*(?:&|and)\\s*zapdos \\& articuno|zapdos \\& articuno\\s*(?:&|and)\\s*moltres) gx|ファイヤー\\&サンダー\\&フリーザー\\s?gx",
+  60,
+  54,
+  "\\bsky\\W*legend\\b"
+ ],
+ "ja:sm11a-066": [
+  "(?:venusaur\\s*(?:&|and)\\s*snivy|snivy\\s*(?:&|and)\\s*venusaur) gx|フシギバナ\\&ツタージャ\\s?gx",
+  66,
+  64,
+  "\\bremix\\W*bout\\b"
+ ],
+ "ja:sm11a-068": [
+  "(?:charizard\\s*(?:&|and)\\s*braixen|braixen\\s*(?:&|and)\\s*charizard) gx|リザードン\\&テールナー\\s?gx",
+  68,
+  64,
+  "\\bremix\\W*bout\\b"
+ ],
+ "ja:sm12a-188": [
+  "eevee gx|イーブイ\\s?gx",
+  188,
+  173,
+  "\\btag\\W*team\\W*gx\\W*tag\\W*all\\W*stars\\b"
+ ],
+ "ja:sm12a-182": [
+  "(?:umbreon\\s*(?:&|and)\\s*darkrai|darkrai\\s*(?:&|and)\\s*umbreon) gx|ブラッキー\\&ダークライ\\s?gx",
+  182,
+  173,
+  "\\btag\\W*team\\W*gx\\W*tag\\W*all\\W*stars\\b"
+ ],
+ "ja:sv1v-086": [
+  "drowzee|スリープ",
+  86,
+  78,
+  "\\bviolet\\W*ex\\b"
+ ],
+ "ja:sv2d-079": [
+  "tyranitar|バンギラス",
+  79,
+  71,
+  "\\bclay\\W*burst\\b"
+ ],
+ "ja:sv3-110": [
+  "ninetales|キュウコン",
+  110,
+  108,
+  "\\bruler\\W*black\\W*flame\\b"
+ ],
+ "ja:sv2a-167": [
+  "ivysaur|フシギソウ",
+  167,
+  165,
+  "\\bpok\\W*mon\\W*151\\b"
+ ],
+ "ja:sv2a-176": [
+  "poliwhirl|ニョロゾ",
+  176,
+  165,
+  "\\bpok\\W*mon\\W*151\\b"
+ ],
+ "ja:sv8-131": [
+  "milotic ex|ミロカロス\\s?ex",
+  131,
+  106,
+  "\\bsuper\\W*electric\\W*breaker\\b"
+ ],
+ "ja:sv8a-209": [
+  "jolteon ex|サンダース\\s?ex",
+  209,
+  187,
+  "\\bterastal\\W*festival\\W*ex\\b"
+ ],
+ "ja:sv8a-212": [
+  "sylveon ex|ニンフィア\\s?ex",
+  212,
+  187,
+  "\\bterastal\\W*festival\\W*ex\\b"
+ ],
+ "ja:sv8a-217": [
+  "umbreon ex|ブラッキー\\s?ex",
+  217,
+  187,
+  "\\bterastal\\W*festival\\W*ex\\b"
+ ],
+ "ja:sv8a-223": [
+  "eevee ex|イーブイ\\s?ex",
+  223,
+  187,
+  "\\bterastal\\W*festival\\W*ex\\b"
+ ],
+ "ja:sv10-124": [
+  "team rocket's moltres ex|ロケット団のファイヤー\\s?ex",
+  124,
+  98,
+  "\\bglory\\W*team\\W*rocket\\b"
+ ],
+ "ja:sv10-126": [
+  "team rocket's nidoking ex|ロケット団のニドキング\\s?ex",
+  126,
+  98,
+  "\\bglory\\W*team\\W*rocket\\b"
+ ],
+ "ja:sv4a-341": [
+  "mimikyu|ミミッキュ",
+  341,
+  190,
+  "\\bshiny\\W*treasure\\W*ex\\b"
+ ],
+ "ja:s8b-284": [
+  "rayquaza vmax|レックウザ\\s?vmax",
+  284,
+  184,
+  "\\bvmax\\W*climax\\b"
+ ],
+ "ja:s8b-279": [
+  "pikachu vmax|ピカチュウ\\s?vmax",
+  279,
+  184,
+  "\\bvmax\\W*climax\\b"
+ ],
+ "ja:sm8b-216": [
+  "greninja\\-gx|ゲッコウガ\\s?gx",
+  216,
+  150,
+  "\\bgx\\W*ultra\\W*shiny\\b"
+ ],
+ "ja:s8b-232": [
+  "sylveon vmax|ニンフィア\\s?vmax",
+  232,
+  184,
+  "\\bvmax\\W*climax\\b"
+ ],
+ "ja:sun-moon-promos-297": [
+  "(?:eevee\\s*(?:&|and)\\s*snorlax|snorlax\\s*(?:&|and)\\s*eevee) gx",
+  297,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:pokemon-web-44": [
+  "dark blastoise",
+  44,
+  -1,
+  "\\bpok\\W*mon\\W*web\\b"
+ ],
+ "ja:sun-moon-promos-83": [
+  "shining ho\\-oh",
+  83,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:xy-promos-292": [
+  "flying pikachu",
+  292,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:xy-promos-264": [
+  "surfing pikachu",
+  264,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:pokemon-web-25": [
+  "surfing pikachu",
+  25,
+  -1,
+  "\\bpok\\W*mon\\W*web\\b"
+ ],
+ "ja:xy-promos-79": [
+  "m gengar ex",
+  79,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:xy-promos-218": [
+  "ash greninja ex",
+  218,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:xy-promos-290": [
+  "ash greninja ex",
+  290,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
  ]
 }
