@@ -31,6 +31,9 @@ MARKETS = {"EBAY_US": "183454", "EBAY_IT": None, "EBAY_DE": None,     # category
            "EBAY_ES": None}   # D113: Spain added; France, Netherlands and Austria tried: 24 listings in all, not worth the calls
 PAUSE_S = 0.3
 DETAIL_MAX = 100                                   # item pages read per run (5,000 eBay calls a day in all)
+SEARCH_MAX = 1000                                  # D300: searches per run (4 runs a day within the 5,000)
+TOP_EVERY = 120                                    # D300: the most valuable cards, searched on every run
+BUDGET_S = 13 * 60                                 # D300: the job has 20 minutes
 
 
 def key(name):
@@ -170,9 +173,22 @@ def main():
     seen, rows, calls = set(), [], 0
     queried = {}                                               # D225: cards searched on every market, and if a search was cut at 200
     queries = catalogue_queries(alt.QUERY)                     # D112: every catalogue card, not only the first 29
+    # D300: with 1,000+ cards, 4 markets each, a run no longer fits in the eBay quota (5,000 calls a day, 4 runs) nor
+    # in 20 minutes. Each run searches the TOP_EVERY most valuable cards plus a slice of the others that turns every
+    # run (6 hours), within SEARCH_MAX searches and BUDGET_S seconds; every card comes back within a day or two.
+    top = [k for k, _ in sorted(((cid, max([v for (c_, g_), v in value.items() if c_ == cid and v] or [0])) for cid in queries),
+                                key=lambda x: -x[1])]
+    head, rest = top[:TOP_EVERY], top[TOP_EVERY:]
+    n_rest = max(0, SEARCH_MAX // len(MARKETS) - len(head))
+    turn = int(time.time() // (6 * 3600))
+    start = (turn * n_rest) % max(1, len(rest))
+    pick = head + (rest[start:] + rest[:start])[:n_rest]
+    queries = {k: queries[k] for k in pick}
+    print(f"D300: {len(queries)} carte in questo giro ({len(head)} più care, {min(n_rest, len(rest))} a rotazione)", flush=True)
+    t_start = time.time()
     quota_out = False
     for cid, q in queries.items():
-        if quota_out:
+        if quota_out or time.time() - t_start > BUDGET_S:
             break
         for market, cat in MARKETS.items():
             params = {"q": q.replace("#", "") + " PSA", "limit": "200",
