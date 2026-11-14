@@ -38,6 +38,11 @@ def get(path, raw=False):
                 time.sleep(20 * (attempt + 1))
                 continue
             raise
+        except (TimeoutError, urllib.error.URLError, ConnectionError) as e:   # 14 Nov: a slow answer stopped the whole run
+            if attempt < 2:
+                time.sleep(20 * (attempt + 1))
+                continue
+            raise urllib.error.HTTPError(BASE + path, 599, f"rete: {e}", None, None)
 
 
 def norm(s):
@@ -110,6 +115,9 @@ def recent(out):
             span = (_dt.date.fromisoformat(days[-1]) - _dt.date.fromisoformat(days[0])).days
         state[f"{cid}|{g}"] = dict(at=time.time(), n=len(d["sales"]), span_days=span)
         done += 1
+        if done % 100 == 0:                               # saved as it goes: a stopped run keeps what it read
+            json.dump(sales, open(os.path.join(out, "sales.json"), "w"), ensure_ascii=False)
+            json.dump(state, open(st_p, "w"))
         for s in d["sales"]:
             sales.append(dict(card=cid, tc_grade=g, **{k: s.get(k) for k in ("platform", "sale_id", "title", "grading_service", "grade",
                               "price_cents", "sold_date", "source", "is_excluded", "exclusion_reason", "payment_pending", "payment_held")}))
@@ -166,7 +174,11 @@ def main():
         if not it:
             print(f"  {c['id']}: non trovata", flush=True)
             continue
-        det = get(it["url"].replace("/pokemon/", "/api/pokemon/card-detail/", 1))
+        try:
+            det = get(it["url"].replace("/pokemon/", "/api/pokemon/card-detail/", 1))
+        except urllib.error.HTTPError as e:
+            print(f"  {c['id']}: scheda, errore {e.code}", flush=True)
+            continue
         json.dump(det, open(os.path.join(out, f"detail_{c['id'].replace(':', '_')}.json"), "w"), ensure_ascii=False)
         cd = det.get("card", {})
         pop = {g: cd.get(f"psa{g}Count") for g in (10, 9, 8, 7)}
@@ -178,7 +190,11 @@ def main():
             while True:
                 q = urllib.parse.urlencode({"cardId": it["id"], "cardType": it["cardType"], "sort": "sold_date", "order": "DESC",
                                             "page": page, "limit": 100, "company": "PSA", "grade": g})
-                d = get("/api/card-sales?" + q)["data"]
+                try:
+                    d = get("/api/card-sales?" + q)["data"]
+                except urllib.error.HTTPError as e:
+                    print(f"  {c['id']} PSA {g}: errore {e.code}", flush=True)
+                    break
                 for s in d["sales"]:
                     sales.append(dict(card=c["id"], tc_grade=g, **{k: s.get(k) for k in ("platform", "sale_id", "title", "grading_service", "grade",
                                       "price_cents", "sold_date", "source", "is_excluded", "exclusion_reason", "payment_pending", "payment_held")}))
