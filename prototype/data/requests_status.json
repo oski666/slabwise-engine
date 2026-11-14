@@ -404,15 +404,16 @@
  },
  "en:ecard2-10": {
   "n": 11,
-  "recognised": 9,
-  "share": 0.818,
+  "recognised": 11,
+  "share": 1.0,
+  "contradicting": 0.0,
   "tc_id": 17891,
   "tc_set": "Aquapolis",
   "tc_url": "/pokemon/aquapolis/entei-10",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "9 vendite PSA riconosciute in 90 giorni",
-  "checked": "2026-11-02",
+  "status": "pronta",
+  "detail": "11 vendite PSA in un anno",
+  "checked": "2026-11-14",
   "requests": 1
  },
  "en:ex13-16": {
