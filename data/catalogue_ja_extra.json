@@ -2926,5 +2926,83 @@
   290,
   -1,
   "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:sv8-109": [
+  "ceruledge|ソウブレイズ",
+  109,
+  106,
+  "\\bsuper\\W*electric\\W*breaker\\b"
+ ],
+ "ja:sv10-130": [
+  "team rocket's mewtwo ex|ロケット団のミュウツー\\s?ex",
+  130,
+  98,
+  "\\bglory\\W*team\\W*rocket\\b"
+ ],
+ "ja:sv2a-182": [
+  "dragonair|ハクリュー",
+  182,
+  165,
+  "\\bpok\\W*mon\\W*151\\b"
+ ],
+ "ja:sv6a-075": [
+  "persian|ペルシアン",
+  75,
+  64,
+  "\\bnight\\W*wanderer\\b"
+ ],
+ "ja:s10a-077": [
+  "snorlax|カビゴン",
+  77,
+  71,
+  "\\bdark\\W*phantasma\\b"
+ ],
+ "ja:sun-moon-promos-72": [
+  "ash's pikachu",
+  72,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:sm10-097": [
+  "(?:reshiram\\s*(?:&|and)\\s*charizard|charizard\\s*(?:&|and)\\s*reshiram) gx|レシラム\\&リザードン\\s?gx",
+  97,
+  95,
+  "\\bdouble\\W*blaze\\b"
+ ],
+ "ja:sm12-104": [
+  "(?:mega lopunny\\s*(?:&|and)\\s*jigglypuff|jigglypuff\\s*(?:&|and)\\s*mega lopunny) gx|メガミミロップ\\&プリン\\s?gx",
+  104,
+  95,
+  "\\balter\\W*genesis\\b"
+ ],
+ "ja:xy-promos-123": [
+  "rayquaza ex",
+  123,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:m5-114": [
+  "mega darkrai ex|メガダークライ\\s?ex",
+  114,
+  81,
+  "\\babyss\\W*eye\\b"
+ ],
+ "ja:adv-expansion-pack-30": [
+  "hitmonchan ex",
+  30,
+  -1,
+  "\\badv\\W*expansion\\W*pack\\b"
+ ],
+ "ja:lost-link-27": [
+  "absol",
+  27,
+  -1,
+  "\\blost\\W*link\\b"
+ ],
+ "ja:sm8b-240": [
+  "rayquaza gx|レックウザ\\s?gx",
+  240,
+  150,
+  "\\bgx\\W*ultra\\W*shiny\\b"
  ]
 }

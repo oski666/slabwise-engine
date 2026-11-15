@@ -6505,5 +6505,239 @@
    2008,
    2009
   ]
+ ],
+ "svp-131": [
+  "kingdra ex",
+  "\\bpromo",
+  131,
+  [
+   2023,
+   2024
+  ]
+ ],
+ "base4-2": [
+  "blastoise",
+  "\\bbase\\W*(?:(?:of|the|and)\\W*)?set\\W*(?:(?:of|the|and)\\W*)?2\\b",
+  2,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "ecard3-H03": [
+  "articuno",
+  "\\bskyridge\\b",
+  "h3",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "ecard3-H02": [
+  "arcanine",
+  "\\bskyridge\\b",
+  "h2",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "np-32": [
+  "articuno ex",
+  "\\bpromo",
+  32,
+  [
+   2003,
+   2004
+  ]
+ ],
+ "ecard2-H01": [
+  "ampharos",
+  "\\baquapolis\\b",
+  "h1",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "np-37": [
+  "kyogre ex",
+  "\\bpromo",
+  37,
+  [
+   2003,
+   2004
+  ]
+ ],
+ "ecard1-1": [
+  "alakazam",
+  "\\bexpedition\\W*(?:(?:of|the|and)\\W*)?base\\W*(?:(?:of|the|and)\\W*)?set\\b",
+  1,
+  [
+   2002,
+   2003
+  ]
+ ],
+ "ecard2-H08": [
+  "entei",
+  "\\baquapolis\\b",
+  "h8",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "sv08-247": [
+  "pikachu ex",
+  "\\bsurging\\W*(?:(?:of|the|and)\\W*)?sparks\\b",
+  247,
+  [
+   2024,
+   2025
+  ]
+ ],
+ "ecard2-H10": [
+  "exeggutor",
+  "\\baquapolis\\b",
+  "h10",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "swsh7-217": [
+  "rayquaza vmax",
+  "\\bevolving\\W*(?:(?:of|the|and)\\W*)?skies\\b",
+  217,
+  [
+   2021,
+   2022
+  ]
+ ],
+ "sv10-190": [
+  "ethan's typhlosion",
+  "\\bdestined\\W*(?:(?:of|the|and)\\W*)?rivals\\b",
+  190,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "base1-44": [
+  "bulbasaur",
+  "\\bbase\\W*(?:(?:of|the|and)\\W*)?set\\b",
+  44,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "swsh10-177": [
+  "origin forme dialga v",
+  "\\bastral\\W*(?:(?:of|the|and)\\W*)?radiance\\b",
+  177,
+  [
+   2022,
+   2023
+  ]
+ ],
+ "base2-4": [
+  "jolteon",
+  "\\bjungle\\b",
+  4,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "xy6-75": [
+  "rayquaza ex",
+  "\\broaring\\W*(?:(?:of|the|and)\\W*)?skies\\b",
+  75,
+  [
+   2015,
+   2016
+  ]
+ ],
+ "xy6-61": [
+  "m rayquaza ex",
+  "\\broaring\\W*(?:(?:of|the|and)\\W*)?skies\\b",
+  61,
+  [
+   2015,
+   2016
+  ]
+ ],
+ "gym2-5": [
+  "giovanni's gyarados",
+  "\\bgym\\W*(?:(?:of|the|and)\\W*)?challenge\\b",
+  5,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "ex11-4": [
+  "espeon",
+  "\\bdelta\\W*(?:(?:of|the|and)\\W*)?species\\b",
+  4,
+  [
+   2005,
+   2006
+  ]
+ ],
+ "smp-SM79": [
+  "shining celebi",
+  "\\bpromo",
+  "sm79",
+  [
+   2017,
+   2018
+  ]
+ ],
+ "swshp-SWSH129": [
+  "umbreon",
+  "\\bpromo",
+  "swsh129",
+  [
+   2019,
+   2020
+  ]
+ ],
+ "hgss4-100": [
+  "(?:darkrai\\s*(?:&|and)\\s*cresselia|cresselia\\s*(?:&|and)\\s*darkrai) legend",
+  "\\btriumphant\\b",
+  100,
+  [
+   2010,
+   2011
+  ]
+ ],
+ "basep-14": [
+  "mewtwo",
+  "\\bpromo",
+  14,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "hgss4-99": [
+  "(?:darkrai\\s*(?:&|and)\\s*cresselia|cresselia\\s*(?:&|and)\\s*darkrai) legend",
+  "\\btriumphant\\b",
+  99,
+  [
+   2010,
+   2011
+  ]
+ ],
+ "neo1-14": [
+  "slowking",
+  "\\bneo\\W*(?:(?:of|the|and)\\W*)?genesis\\b",
+  14,
+  [
+   2000,
+   2001
+  ]
  ]
 }
