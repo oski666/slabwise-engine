@@ -411,10 +411,11 @@
   "tc_set": "Aquapolis",
   "tc_url": "/pokemon/aquapolis/entei-10",
   "tc_type": "base",
-  "status": "pronta",
-  "detail": "11 vendite PSA in un anno",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-14",
-  "requests": 1
+  "requests": 1,
+  "added": "2026-11-15"
  },
  "en:ex13-16": {
   "n": 61,
@@ -17912,7 +17913,7 @@
   "tc_url": "/pokemon/terastal-festival-ex-japanese/espeon-ex-211",
   "tc_type": "base",
   "status": "pronta",
-  "detail": "235 vendite PSA in un anno",
+  "detail": "aggiunta delle carte giapponesi ancora manuale",
   "checked": "2026-11-14",
   "requests": 0,
   "source": "coda giapponese (D134)"
