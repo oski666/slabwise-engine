@@ -20,7 +20,7 @@ concurrency:
 jobs:
   propose:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 200       # 15 Nov: queue (~50 min) and the engine gate of the retries (~2 hours)
     steps:
       - uses: actions/checkout@v4
         with:
@@ -45,7 +45,26 @@ jobs:
         run: |
           pip install -q numpy pandas scipy pillow
           PYTHONPATH=. python scripts/candidates.py /tmp/cand --top 3000 --checks ${{ github.event.inputs.checks || '40' }} --fill 0
+      - name: One issue for the owner
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "slabwise-bot"
+          git config user.email "slabwise-bot@users.noreply.github.com"
+          git add prototype/data/candidates_queue.json prototype/data/ja_scan.json slabwise/ja_set_eras.json
+          git diff --cached --quiet || { git commit -m "Coda delle carte del $(date -u +%F)"; git pull --rebase --autostash -q && git push; }
+          gh label create candidate --color 1f6feb --description "Carte proposte per il catalogo (D118)" --force -R "$GITHUB_REPOSITORY"
+          n=$(gh issue list -R "$GITHUB_REPOSITORY" --label candidate --state open --search "Coda delle carte in:title" --json number -q '.[0].number')
+          if [ -z "$n" ]; then
+            gh issue create -R "$GITHUB_REPOSITORY" --label candidate --title "Coda delle carte" --body-file /tmp/cand/issue.md
+          else
+            gh issue edit "$n" -R "$GITHUB_REPOSITORY" --body-file /tmp/cand/issue.md
+            new=$(cat /tmp/cand/new_ready.txt)
+            [ "$new" -gt 0 ] && gh issue comment "$n" -R "$GITHUB_REPOSITORY" --body "Nuove carte pronte: $new. Spuntale nella lista qui sopra."
+          fi
       - name: Cards stopped by the engine, tried again each week (D157)
+        continue-on-error: true      # 15 Nov: the engine gate takes ~2 hours; if cut, the queue is already saved above
+        timeout-minutes: 140
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -73,20 +92,3 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: '[ -f /tmp/rebuild ] && gh workflow run sito.yml -R "$GITHUB_REPOSITORY" || true'
-      - name: One issue for the owner
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          git config user.name "slabwise-bot"
-          git config user.email "slabwise-bot@users.noreply.github.com"
-          git add prototype/data/candidates_queue.json prototype/data/ja_scan.json slabwise/ja_set_eras.json
-          git diff --cached --quiet || { git commit -m "Coda delle carte del $(date -u +%F)"; git pull --rebase --autostash -q && git push; }
-          gh label create candidate --color 1f6feb --description "Carte proposte per il catalogo (D118)" --force -R "$GITHUB_REPOSITORY"
-          n=$(gh issue list -R "$GITHUB_REPOSITORY" --label candidate --state open --search "Coda delle carte in:title" --json number -q '.[0].number')
-          if [ -z "$n" ]; then
-            gh issue create -R "$GITHUB_REPOSITORY" --label candidate --title "Coda delle carte" --body-file /tmp/cand/issue.md
-          else
-            gh issue edit "$n" -R "$GITHUB_REPOSITORY" --body-file /tmp/cand/issue.md
-            new=$(cat /tmp/cand/new_ready.txt)
-            [ "$new" -gt 0 ] && gh issue comment "$n" -R "$GITHUB_REPOSITORY" --body "Nuove carte pronte: $new. Spuntale nella lista qui sopra."
-          fi
