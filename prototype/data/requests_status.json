@@ -1454,18 +1454,20 @@
   "added": "2026-11-03"
  },
  "en:pl4-95": {
-  "n": 47,
-  "recognised": 38,
-  "share": 0.809,
+  "n": 53,
+  "recognised": 52,
+  "share": 0.981,
+  "contradicting": 0.0,
   "tc_id": 14426,
   "tc_set": "Arceus",
   "tc_url": "/pokemon/arceus/arceus-lv-x-95",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-07",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-15",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-15"
  },
  "en:g1-RC5": {
   "n": 115,
@@ -1842,16 +1844,17 @@
   "added": "2026-11-04"
  },
  "en:ex7-15": {
-  "n": 44,
-  "recognised": 35,
-  "share": 0.795,
+  "n": 49,
+  "recognised": 42,
+  "share": 0.857,
+  "contradicting": 0.102,
   "tc_id": 16914,
   "tc_set": "Team Rocket Returns",
   "tc_url": "/pokemon/team-rocket-returns/dark-dragonite-15",
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-07",
+  "checked": "2026-11-15",
   "requests": 0,
   "source": "catalogo (D111)"
  },
@@ -3099,18 +3102,20 @@
   "added": "2026-11-04"
  },
  "en:si1-11": {
-  "n": 75,
-  "recognised": 60,
-  "share": 0.8,
+  "n": 111,
+  "recognised": 89,
+  "share": 0.802,
+  "contradicting": 0.198,
   "tc_id": 18537,
   "tc_set": "Southern Islands",
   "tc_url": "/pokemon/southern-islands/marill-11",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-07",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-15",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-15"
  },
  "en:bwp-BW74": {
   "n": 75,
@@ -3264,18 +3269,20 @@
   "added": "2026-11-04"
  },
  "en:ex3-89": {
-  "n": 53,
-  "recognised": 43,
-  "share": 0.811,
+  "n": 68,
+  "recognised": 67,
+  "share": 0.985,
+  "contradicting": 0.0,
   "tc_id": 17447,
   "tc_set": "Dragon",
   "tc_url": "/pokemon/dragon/ampharos-ex-89",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-07",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-15",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-15"
  },
  "en:xy2-108": {
   "n": 50,
@@ -11755,18 +11762,20 @@
   "source": "catalogo (D111)"
  },
  "en:basep-17": {
-  "n": 31,
-  "recognised": 28,
-  "share": 0.903,
+  "n": 36,
+  "recognised": 33,
+  "share": 0.917,
+  "contradicting": 0.056,
   "tc_id": 19286,
   "tc_set": "Wizards Black Star Promos",
   "tc_url": "/pokemon/wizards-black-star-promos/dark-persian-17",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-08",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-15",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-15"
  },
  "en:basep-34": {
   "n": 118,
@@ -12028,18 +12037,20 @@
   "added": "2026-11-12"
  },
  "en:col1-SL2": {
-  "n": 33,
-  "recognised": 33,
+  "n": 38,
+  "recognised": 38,
   "share": 1.0,
+  "contradicting": 0.0,
   "tc_id": 13869,
   "tc_set": "Call of Legends",
   "tc_url": "/pokemon/call-of-legends/dialga-sl2",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-08",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-15",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-15"
  },
  "en:col1-SL4": {
   "n": 26,
@@ -12104,18 +12115,20 @@
   "added": "2026-11-08"
  },
  "en:dp2-122": {
-  "n": 29,
-  "recognised": 27,
-  "share": 0.931,
+  "n": 34,
+  "recognised": 34,
+  "share": 1.0,
+  "contradicting": 0.0,
   "tc_id": 15533,
   "tc_set": "Mysterious Treasures",
   "tc_url": "/pokemon/mysterious-treasures/lucario-lv-x-122",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-08",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-15",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-15"
  },
  "en:dp2-7": {
   "n": 23,
@@ -12163,18 +12176,20 @@
   "added": "2026-11-14"
  },
  "en:dp5-99": {
-  "n": 32,
-  "recognised": 31,
-  "share": 0.969,
+  "n": 39,
+  "recognised": 39,
+  "share": 1.0,
+  "contradicting": 0.0,
   "tc_id": 15234,
   "tc_set": "Majestic Dawn",
   "tc_url": "/pokemon/majestic-dawn/leafeon-lv-x-99",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-08",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-15",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-15"
  },
  "en:dp7-99": {
   "n": 38,

@@ -6442,5 +6442,68 @@
    2003,
    2004
   ]
+ ],
+ "ex3-89": [
+  "ampharos ex",
+  "\\bdragon\\b",
+  89,
+  [
+   2003,
+   2004
+  ]
+ ],
+ "pl4-95": [
+  "arceus lv\\.x",
+  "\\barceus\\b",
+  95,
+  [
+   2009,
+   2010
+  ]
+ ],
+ "si1-11": [
+  "marill",
+  "\\bsouthern\\W*(?:(?:of|the|and)\\W*)?islands\\b",
+  11,
+  [
+   2001,
+   2002
+  ]
+ ],
+ "basep-17": [
+  "dark persian",
+  "\\bpromo",
+  17,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "col1-SL2": [
+  "dialga",
+  "\\bcall\\W*(?:(?:of|the|and)\\W*)?legends\\b",
+  "sl2",
+  [
+   2011,
+   2012
+  ]
+ ],
+ "dp2-122": [
+  "lucario",
+  "\\bmysterious\\W*(?:(?:of|the|and)\\W*)?treasures\\b",
+  122,
+  [
+   2007,
+   2008
+  ]
+ ],
+ "dp5-99": [
+  "leafeon",
+  "\\bmajestic\\W*(?:(?:of|the|and)\\W*)?dawn\\b",
+  99,
+  [
+   2008,
+   2009
+  ]
  ]
 }
