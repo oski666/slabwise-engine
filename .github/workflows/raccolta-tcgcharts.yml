@@ -52,15 +52,14 @@ jobs:
           python scripts/tcgcharts_accumulate.py /tmp/tc/old_sales.json /tmp/tc/sales.json data/raw/tcgcharts/sales.json
       - name: Card requests (D97)
         continue-on-error: true
-        run: |
+        timeout-minutes: 10
+        run: |                   # 15 Nov: only the check; adding cards (engine gate, ~2 hours now) is left to Richieste
           PYTHONPATH=. python scripts/card_requests.py prototype/data/requests_status.json
-          pip install -q numpy pandas scipy pillow
-          PYTHONPATH=. python scripts/add_cards.py
       - name: Save
         run: |
           git config user.name "slabwise-bot"
           git config user.email "slabwise-bot@users.noreply.github.com"
-          git add prototype/data/requests_status.json prototype/data/cards.json prototype/data/images.json prototype/data/hires.json data/catalogue_extra.json 2>/dev/null || true
+          git add prototype/data/requests_status.json 2>/dev/null || true
           git diff --cached --quiet || git commit -m "tcgcharts: raccolta del $(date -u +%F)"
           git pull --rebase -q && git push
       - name: Save the private data (D163)

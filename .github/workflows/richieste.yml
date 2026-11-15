@@ -37,7 +37,7 @@ jobs:
       group: raccolta-tcgcharts  # never at the same time as the collection: both write the tcgcharts files
       cancel-in-progress: false
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 180       # 15 Nov: the engine gate of add_cards takes ~2 hours with 1,400 cards; at 60 every run was cut
     steps:
       - uses: actions/checkout@v4
         with:
