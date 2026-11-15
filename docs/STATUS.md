@@ -1,6 +1,6 @@
 # Slabwise · Stato del progetto
 
-**Aggiornato il 14 novembre 2026, primo pomeriggio.** Fotografia per chi riprende il lavoro (una chat nuova, o Oscar). Non sostituisce le regole: prima di toccare qualcosa leggi `CLAUDE.md` e `docs/PILLARS.md`; le scelte stanno in `docs/DECISIONS.md` (ultima voce D300), il metodo in `docs/METHOD.md`, le prove in `docs/BACKTEST_PROTOCOL.md`, le fonti in `docs/DATA_SOURCES.md`.
+**Aggiornato il 15 novembre 2026, mattina.** Fotografia per chi riprende il lavoro (una chat nuova, o Oscar). Non sostituisce le regole: prima di toccare qualcosa leggi `CLAUDE.md` e `docs/PILLARS.md`; le scelte stanno in `docs/DECISIONS.md` (ultima voce D301), il metodo in `docs/METHOD.md`, le prove in `docs/BACKTEST_PROTOCOL.md`, le fonti in `docs/DATA_SOURCES.md`.
 
 ## In breve
 
@@ -23,7 +23,8 @@
 | SlabRange | Adottato il §61b Q2: la forchetta è dove sono cadute 8 vendite su 10 della carta (percentili 10 e 90 degli scarti, mescolati con l'era × fascia di voto). Copertura 81%. Secondo giro al giro mensile; Classica e Di mezzo (74%, 76%) da guardare | D293–D295 |
 | Indici per voto | PSA 10, 9, 8 per era sul sito: pagina `#indici-voto`, riquadro nelle pagine d'era, confronto voto per voto sulla pagina della carta | D296 |
 | Raccolta tcgcharts | Era ferma dal 5 al 14 novembre (il giro non stava più nei 90 minuti). Ora legge per scadenza e si ferma in tempo | D297 |
-| Gemelle giapponesi | Ricerca rifatta senza bisogno di TCGdex (workflow "Gemelle giapponesi"), le più popolate prima; 386 carte inglesi da ricercare | D299 |
+| Gemelle giapponesi | Ricerca rifatta senza bisogno di TCGdex (workflow "Gemelle giapponesi"), le più popolate prima; senza TCGdex una gemella vale solo con illustrazione uguale (D301; 15 collegamenti sbagliati del primo giro tolti il 14 novembre) | D299, D301 |
+| Ingresso carte | 14 novembre: 206 delle 297 pronte entrate, 12 respinte dai controlli del motore, le altre ferme per errori 503 di tcgcharts e ancora in coda | — |
 | Annunci eBay | A rotazione: 120 carte più care ogni giro più una fetta delle altre (il giro superava tempo e limite di eBay) | D300 |
 
 ## Workflow (GitHub Actions)
@@ -44,7 +45,7 @@
 
 ## Problemi aperti
 
-1. **tcgcharts è lento e dà errori 500** (14 novembre: circa 40 secondi a richiesta invece di 3). Marek ha detto a Oscar che è un problema loro. Si continua normalmente; la raccolta recupera i giorni persi man mano. Quando torna normale, controllare che il giro giornaliero legga di nuovo migliaia di combinazioni.
+1. **tcgcharts**: il 14 novembre era lento (circa 40 secondi a richiesta, errori 500). Dal 15 novembre circa 4 secondi: la raccolta del 15 ha letto 1.107 combinazioni su 4.864 in scadenza. Le stesse quattro fonti di prima, nessun campo nuovo. A ottobre, sulle stesse carte, le vendite ALT sono passate da 217 a 753: forse è il nuovo fornitore di cui ha parlato Marek. Il 15 novembre la raccolta delle 04:11 è andata persa perché nello stesso giro c'era anche l'ingresso delle carte richieste, il cui controllo del motore ora dura circa 2 ore. Corretto: la raccolta legge e salva soltanto, l'ingresso delle carte resta al giro Richieste (limite portato a 3 ore).
 2. **Schede incomplete** (report del 14 novembre, artifact "Slabwise: stato al 14 novembre"): 163 schede complete su 1.096. Le mancanze principali: gemella giapponese non trovata (447 inglesi, in lavoro con D299), immagine (circa 250 giapponesi), SNKRDUNK ambigua (141) o non trovata (47), nessuna asta Cardova riconosciuta (131), rarità e illustratore mancanti (circa 380 giapponesi).
 3. **Misura delle occasioni** (`misura-occasioni`) fallisce dall'11 novembre: da rivedere o togliere.
 4. **Pulizia**: 12 workflow di prova o usati una volta (vedi elenco), 6 rami vecchi (`coerenza`, `creator`, `d228-veloce`, `metodo-v120`, `pagina-carta`, `veloce`). Non toccati: chiedere a Oscar.
@@ -53,7 +54,6 @@
 
 ## In attesa di Oscar
 
-- 253 carte pronte nella coda delle candidate (issue n. 2): spuntarle o dire di farle entrare tutte.
 - Revisione delle vendite sospette (issue n. 1 del repository privato).
 - Messaggio a Cardova (grazie e ritmo) e citazione di Cardova prima del lancio pubblico.
 - Ticket eBay.
