@@ -395,6 +395,8 @@ def _slabrange(i, gi, now, fallback):
         return fallback
     n, q = _SR.get((i, gi), (0, np.zeros(2)))
     lo, hi = (n * q + SR_TIE * _qg[k]) / (n + SR_TIE)
+    if lo > 0 or hi < 0:                                  # D304: a SlabRange that leaves out the Slabprice is never shown
+        return fallback
     return round(float(np.exp(now + lo)), 2), round(float(np.exp(now + hi)), 2)
 
 

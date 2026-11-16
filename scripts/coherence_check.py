@@ -14,6 +14,8 @@ Checks:
   C8 changes: no 30/90-day change shown on a grade in review, stale or without own sales
   C9 hidden gem: only on a PSA 10 with >= 3 sales in 13 weeks, not in review, x < 0.5
   C10 stories: the change written in a story equals the change on the card's page
+  C11 SlabRange: slo <= value <= shi for every grade with a value (D304; the build falls back to the D224 range, so
+      any case here is a bug)
 """
 import json
 import os
@@ -47,6 +49,8 @@ for c in C:
     for g in c["grades"]:
         if g.get("value") and g.get("lo") and g.get("hi") and not (g["lo"] <= g["value"] <= g["hi"]):
             add("C1", (c["id"], g["grade"], g["lo"], g["value"], g["hi"]))
+        if g.get("value") and g.get("slo") and g.get("shi") and not (g["slo"] <= g["value"] <= g["shi"]):
+            add("C11", (c["id"], g["grade"], g["slo"], g["value"], g["shi"]))
         if (g.get("sales90") or 0) > (g.get("sales_all") or 0):
             add("C2", (c["id"], g["grade"], g["sales90"], g["sales_all"]))
         if not own(g) and (g.get("ch30") is not None or g.get("ch90") is not None) and (g.get("off") or g.get("stale") or not g.get("sales_all")):
@@ -90,6 +94,6 @@ for s in ((D.get("pulse") or {}).get("stories") or []):
 summary = {k: dict(n=len(v), examples=v[:12]) for k, v in sorted(rep.items())}
 os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
 json.dump(dict(asof=D.get("asof"), cards=len(C), checks=summary), open(out, "w"), indent=1, ensure_ascii=False)
-for k in [f"C{i}" for i in range(1, 11)]:
+for k in [f"C{i}" for i in range(1, 12)]:
     v = rep.get(k, [])
     print(f"{k}: {len(v)}" + (f"  es. {v[:4]}" if v else ""))

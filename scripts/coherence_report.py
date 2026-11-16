@@ -10,9 +10,9 @@ import subprocess
 import sys
 
 NAMES = {
-    "C1": "Slabprice fuori dallo SlabRange (dati)", "C2": "vendite 90 giorni > vendite totali", "C3": "popolazioni impossibili",
+    "C1": "Slabprice fuori dall'intervallo del motore (dati)", "C2": "vendite 90 giorni > vendite totali", "C3": "popolazioni impossibili",
     "C4": "Gem Rate in disaccordo non dichiarato", "C5": "Rubinetto incoerente", "C6": "era sbagliata", "C7": "voto più alto che vale meno (si mostra con la spiegazione)",
-    "C8": "variazione su un voto senza vendite proprie", "C9": "Gemma nascosta non giustificata", "C10": "storia con un numero diverso dalla scheda",
+    "C8": "variazione su un voto senza vendite proprie", "C9": "Gemma nascosta non giustificata", "C10": "storia con un numero diverso dalla scheda", "C11": "Slabprice fuori dal suo SlabRange",
     "P0": "scheda che non si apre", "P1": "frase sull'era che contraddice i numeri", "P2": "due numeri diversi per lo stesso periodo",
     "P3": "SlabRange scritto diverso da quello disegnato", "P4": "\"ogni N giorni\" diverso dalle vendite", "P5": "affidabilità alta con poche vendite",
     "P6": "Gem Rate diverso nella stessa pagina", "P7": "Market Cap diverso da prezzo × popolazione", "P8": "testo rotto (NaN, undefined…)",

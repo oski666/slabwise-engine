@@ -1,7 +1,13 @@
-# Protocol §61b (D294): the SlabRange as the real 8-in-10 of each card x grade (Q, Q2) against the site's band (A). Runs on GitHub's machines.
+# Protocol §61b (D294): the SlabRange as the real 8-in-10 of each card x grade (Q, Q2) against the site's band (A).
+# Protocol §65 (D304): Q2 without the sales the engine believes are not genuine (P) and with 26 weeks (P26).
+# Runs on GitHub's machines.
 name: Prova SlabRange
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      prova:
+        description: "q = §61b (giro mensile), p = §65"
+        default: "p"
 permissions:
   contents: write
 jobs:
@@ -29,7 +35,8 @@ jobs:
       - name: Test
         run: |
           pip install -q numpy pandas scipy
-          PYTHONPATH=. python scripts/slabrange_q_test.py /tmp/sr | tee /tmp/sr.txt
+          if [ "${{ inputs.prova }}" = "q" ]; then t=slabrange_q_test.py; else t=slabrange_p_test.py; fi
+          PYTHONPATH=. python scripts/$t /tmp/sr | tee /tmp/sr.txt
       - name: Keep the scored sales of the sample (reused by the next SlabRange tests)
         if: always()
         uses: actions/upload-artifact@v4
@@ -43,4 +50,4 @@ jobs:
           git config user.name "slabwise-bot"
           git config user.email "slabwise-bot@users.noreply.github.com"
           git add results/slabrange || true
-          git diff --cached --quiet || { git commit -m "Prova SlabRange (§61): risultati"; git pull --rebase --autostash -q && git push; }
+          git diff --cached --quiet || { git commit -m "Prova SlabRange: risultati"; git pull --rebase --autostash -q && git push; }

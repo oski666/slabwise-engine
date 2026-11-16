@@ -1082,3 +1082,17 @@ Scarto, era, fascia di voto, finestra, vendite giudicate e probabilità di esser
 **§63b, secondo giro (13 novembre 2026): N1 non superato, la regola resta spenta.** N2 99,96% (tolte 738: 322 altro Pokémon, 416 altro prodotto), N3 nessuna carta sotto soglia. N1: delle 40 tolte lette a mano 18 sono sicuramente di un'altra carta o prodotto (promo dei Mondiali, Mewtwo del 151 UPC, Gardevoir RC30 su RC32, Serperior su base1-6, Arceus/Giratina), 4 incerte, 18 giuste: "ブルーの探索" (Blue's Search) letta come la specie ブルー (Snubbull) per 9 vendite, "Mew Two EX", e il Moltres ex 229 di Destined Rivals che esce davvero nella Ultra Premium Collection (8 vendite). Non si fa un terzo giro sullo stesso campione: le correzioni si adatterebbero alle vendite già lette. Le vendite di altre carte restano al registro delle vendite sospette (D275), che le prende per prezzo, e alla revisione di Oscar.
 
 **Esito §60 (13 novembre 2026): adottata.** Gruppo 3 (20 carte a caso fra quelle del 12 novembre): I1 nessuna voce vecchia diversa; I2 scarto mediano 0,19%, 95° percentile 2,3%; I3 copertura 79,6% contro 79,8%; I4 2 minuti e 16 secondi contro 13 minuti e mezzo della ricostruzione completa. Con il secondo giro sui gruppi 1 e 2 (D279), I1–I4 passano su tutti e tre i gruppi. Risultati in `results/incr/`.
+
+## 65. SlabRange senza le vendite non credibili e con memoria più corta (registrato il 16 novembre 2026, prima del codice e dei risultati; D304)
+
+**Perché.** Al 15 novembre 29 voti avevano lo Slabprice fuori dal proprio SlabRange e 15 voti di carte stabili (vendite a meno del 20% dal valore) una forchetta più larga di 3 volte: Charizard Base Unlimited PSA 10 da 9.033 a 60.837 dollari con valore 38.083, Lugia ex Unseen Forces PSA 10 da 17.161 a 301.349 con valore 102.740. Due cause viste sulle schede: (a) i percentili del §61b si calcolano su tutte le vendite, anche su quelle che il motore stesso giudica non genuine (Charizard PSA 10: 3 vendite su 15 a 32, 100 e 156 dollari, probabilità sotto 0,5); (b) nelle corse forti (Classica e Di mezzo, settembre–ottobre 2026) le vendite stanno per settimane sopra il valore della settimana prima, e 52 settimane ricordano a lungo quegli scarti.
+
+| | Forchetta |
+|---|---|
+| Q2 | campione: §61b adottato (D295) |
+| P | Q2 con i percentili (della carta × voto e dell'era × fascia) calcolati solo sulle vendite con probabilità di essere genuina ≥ 0,5, le stesse che si giudicano |
+| P26 | P con le 26 settimane prima della vendita invece di 52 |
+
+**Criteri.** S1, S2, S3 del §61b invariati (copertura 78–82%; ogni terzile della larghezza 75–85%; correlazione di rango tra larghezza e scarto ≥ quella di A + 0,10), più un criterio nuovo, scritto ora: **S7** lo Slabprice sta dentro la forchetta (limite basso ≤ 0 ≤ limite alto, in log) in almeno il 99% delle vendite giudicate. Si adotta la più semplice che passa tutto (P prima di P26); se nessuna passa resta Q2. Stesso campione A, stesse vendite giudicate (dal 1° novembre 2025, probabilità ≥ 0,5), stessa mescolanza con 10. Per il D265 l'adozione vuole due giri; il secondo è il giro mensile di dicembre insieme al §61b. Codice: `scripts/slabrange_p_test.py`, workflow "Prova SlabRange" con `prova = p`.
+
+**Regola di presentazione, fuori dalla prova (D304).** Da subito, se una forchetta del §61b lascia fuori lo Slabprice, la scheda mostra la forchetta precedente (D224), che contiene sempre il valore; il controllo di coerenza C11 la verifica a ogni costruzione.
