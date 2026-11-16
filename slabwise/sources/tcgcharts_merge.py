@@ -25,8 +25,16 @@ def _same_sale(index, card, grade, day, price):
                for r_day, r_price in index.get((card, grade), ()))
 
 
-def tcgcharts_rows(tc_dir, have_ebay, have_auction=()):
-    """have_auction: (card, grade, date, price) of the auction sales we already have (Fanatics, Goldin, Alt), D121."""
+def _snk_title_ok(title, card):
+    """D302: the SNKRDUNK title carries '[<set> <number>/...' and must name the card assigned (ja:<set>-<number>)."""
+    import re
+    m = re.search(r"\[([A-Za-z0-9-]+)\s+(\d+)/", title or "")
+    return bool(m) and card == f"ja:{m.group(1).lower()}-{m.group(2).zfill(3)}"
+
+
+def tcgcharts_rows(tc_dir, have_ebay, have_auction=(), ja=False):
+    """have_auction: (card, grade, date, price) of the auction sales we already have (Fanatics, Goldin, Alt), D121.
+    ja: also the SNKRDUNK sales tcgcharts carries (D302), as fixed-price SNKRDUNK sales."""
     why = Counter()
     rows, have = [], set(have_ebay)
     auc = {}
@@ -38,6 +46,29 @@ def tcgcharts_rows(tc_dir, have_ebay, have_auction=()):
         sales += [s for s in json.load(gzip.open(hist, "rt")) if (s.get("sold_date") or "") >= "2022-07-01"]   # D85
     for s in sales:
         plat = (s.get("platform") or "").lower()
+        if plat == "snkrdunk":                                   # D302
+            if not ja:
+                why["tcgcharts: piattaforma non seguita"] += 1
+                continue
+            if s.get("is_excluded") or s.get("payment_pending") or s.get("payment_held"):
+                why["tcgcharts: esclusa o in attesa"] += 1
+                continue
+            g = int(s.get("tc_grade") or 0)
+            if (s.get("grading_service") or "").upper() != "PSA" or str(s.get("grade")) != str(g) or not 7 <= g <= 10:
+                why["tcgcharts SNKRDUNK: voto non PSA 7-10"] += 1
+                continue
+            if not _snk_title_ok(s.get("title"), s["card"]):
+                why["tcgcharts SNKRDUNK: set o numero del titolo diversi"] += 1
+                continue
+            key = f"tc-snkrdunk:{s['sale_id']}"
+            if key in have:
+                continue
+            rows.append({"item_id": key, "date": s["sold_date"] + "T12:00:00Z", "card": s["card"], "grade": g,
+                         "price_usd": round(s["price_cents"] / 100, 2), "venue": "snkrdunk_fixed", "cert": None,
+                         "best_offer_hidden": False, "title": s.get("title"), "excluded": ""})
+            have.add(key)
+            why["tcgcharts SNKRDUNK: aggiunte"] += 1
+            continue
         venue = "ebay" if plat == "ebay" else AUCTION.get(plat) if os.environ.get("SLABWISE_TC_AUCTIONS", "1") == "1" else None
         if not venue:
             why["tcgcharts: piattaforma non seguita"] += 1

@@ -4,6 +4,7 @@ from the raw archives with scripts/apify_to_csv.py) plus the Alt sales collected
 Usage: PYTHONPATH=. python scripts/build_sales.py data/raw/sales_base.csv data/raw/alt data/raw/sales_all.csv [data/raw/tcgcharts]
 """
 import csv
+import os
 import sys
 
 from slabwise.sources.alt_merge import alt_rows
@@ -14,7 +15,8 @@ rows = list(csv.DictReader(open(base, newline="")))
 got, why, _ = alt_rows(alt_dir, {r["item_id"] for r in rows if r["venue"] == "ebay"})
 if len(sys.argv) > 4:                                 # D77: eBay sales read from tcgcharts
     tc, w2 = tcgcharts_rows(sys.argv[4], {r["item_id"] for r in rows + got if str(r["item_id"]).startswith("ebay:")},
-                            [(r["card"], r["grade"], r["date"], r["price_usd"]) for r in rows + got if r["venue"] != "ebay"])
+                            [(r["card"], r["grade"], r["date"], r["price_usd"]) for r in rows + got if r["venue"] != "ebay"],
+                            ja=os.environ.get("SLABWISE_JA_MARKETS") == "1")
     got += tc
     why += w2
 from slabwise.sources.auction_titles import refine_variant
@@ -41,6 +43,21 @@ if os.path.exists(_reg):
 if os.environ.get("SLABWISE_JA_MARKETS") == "1":     # D280: SNKRDUNK and Cardova, preview branch only
     from slabwise.sources.ja_markets import ja_market_rows
     _jr, _jw = ja_market_rows(os.path.dirname(os.path.abspath(base)), os.path.join("data", "fx_jpy.json"))
+    import datetime as _dt                            # D302: SNKRDUNK from tcgcharts and ours, no double counting:
+    _wk = lambda r: (r["card"], int(r["grade"]), _dt.date.fromisoformat(r["date"][:10]).isocalendar()[:2])
+    _n_tc, _n_own = {}, {}                            # per card x grade x week the source with more trades is kept
+    for r in got:
+        if str(r["item_id"]).startswith("tc-snkrdunk:"):
+            _n_tc[_wk(r)] = _n_tc.get(_wk(r), 0) + 1
+    for r in _jr:
+        if r["venue"] == "snkrdunk_fixed":
+            _n_own[_wk(r)] = _n_own.get(_wk(r), 0) + 1
+    _drop_own = {k for k, n in _n_own.items() if _n_tc.get(k, 0) >= n}
+    _drop_tc = {k for k, n in _n_tc.items() if _n_own.get(k, 0) > n}
+    _jw["SNKRDUNK: nostri scambi lasciati a tcgcharts"] += sum(n for k, n in _n_own.items() if k in _drop_own)
+    _jw["SNKRDUNK: scambi di tcgcharts lasciati ai nostri"] += sum(n for k, n in _n_tc.items() if k in _drop_tc)
+    got = [r for r in got if not (str(r["item_id"]).startswith("tc-snkrdunk:") and _wk(r) in _drop_tc)]
+    _jr = [r for r in _jr if not (r["venue"] == "snkrdunk_fixed" and _wk(r) in _drop_own)]
     got += _jr
     why += _jw
 fields = ["item_id", "date", "card", "grade", "price_usd", "venue", "cert", "best_offer_hidden", "title", "excluded"]
