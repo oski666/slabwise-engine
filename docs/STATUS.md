@@ -1,6 +1,6 @@
 # Slabwise · Stato del progetto
 
-**Aggiornato il 16 novembre 2026, pomeriggio** (chiusura della chat lunga; la prossima riparte da qui). Fotografia per chi riprende il lavoro (una chat nuova, o Oscar). Non sostituisce le regole: prima di toccare qualcosa leggi `CLAUDE.md` e `docs/PILLARS.md`; le scelte stanno in `docs/DECISIONS.md` (ultima voce D302), il metodo in `docs/METHOD.md`, le prove in `docs/BACKTEST_PROTOCOL.md`, le fonti in `docs/DATA_SOURCES.md`.
+**Aggiornato il 16 novembre 2026, sera** (punti 1–4 della revisione del 16 novembre: D303–D306). Fotografia per chi riprende il lavoro (una chat nuova, o Oscar). Non sostituisce le regole: prima di toccare qualcosa leggi `CLAUDE.md` e `docs/PILLARS.md`; le scelte stanno in `docs/DECISIONS.md` (ultima voce D306), il metodo in `docs/METHOD.md`, le prove in `docs/BACKTEST_PROTOCOL.md`, le fonti in `docs/DATA_SOURCES.md`.
 
 ## In breve
 
@@ -26,6 +26,10 @@
 | Gemelle giapponesi | Ricerca rifatta senza bisogno di TCGdex (workflow "Gemelle giapponesi"), le più popolate prima; senza TCGdex una gemella vale solo con illustrazione uguale (D301; 15 collegamenti sbagliati del primo giro tolti il 14 novembre). Al 16 novembre 214 inglesi su 820 con la gemella collegata, 190 ancora da cercare (4-5 giri da mezz'ora, uno alla volta nella coda tcgcharts) | D299, D301 |
 | Ingresso carte | 14 novembre 206 entrate, 15 novembre 39, 16 novembre 100 (tutte). Coda al 16 novembre: 51 pronte non ancora entrate, 104 in attesa di vendite, 47 del motore, 44 di coerenza, 10 d'era, 1.848 giapponesi da valutare. La coda ora segue l'esito del controllo all'approvazione e riconosce le giapponesi entrate | — |
 | Annunci eBay | A rotazione: 120 carte più care ogni giro più una fetta delle altre (il giro superava tempo e limite di eBay) | D300 |
+| Slabvalve | Era sparita dal sito: nel Sito la ricerca eBay (13 minuti) veniva fermata dal passo da 10 prima di scrivere il file, e ogni ricostruzione cancellava anche le occasioni. Ora la ricerca si ferma a 5 minuti e mezzo, i conteggi (solo numeri) restano 48 ore in un artifact condiviso con Occasioni, i mesi di scorta usano le vendite eBay (`n30e`). Prima costruzione dopo la correzione: Slabvalve su 78 carte, occasioni su 4; cresce con i giri di Occasioni | D303 |
+| SlabRange | Mai più uno Slabprice fuori dalla sua forchetta (29 voti al 15 novembre): in quei casi si mostra la forchetta D224; controllo C11. Prova §65 (forchetta senza le vendite non credibili, P, e con 26 settimane, P26) lanciata il 16 novembre, primo giro; il secondo è il giro mensile di dicembre | D304 |
+| Indici | Sul tratto ricostruito la pagina non mostra più in cifre livello, 6 mesi, da inizio anno, 1 anno e calo massimo (Classica risultava +1.056% da gennaio 2024 con le carte di oggi). Restano 1 settimana, 1 mese, 3 mesi, margine, volatilità | D305 |
+| Altri enti nei titoli | §66 adottato: fuori i titoli con un altro ente e un voto ("TAG 10 = PSA 10"), circa 150 vendite su 1,6 milioni. Ricostruzione completa lanciata il 16 novembre | D306 |
 
 ## Workflow (GitHub Actions)
 
@@ -53,6 +57,9 @@
 6. **Ritardo nelle ere veloci** (Scarlatto e Violetto): il valore insegue il mercato con qualche settimana di ritardo; nessuna idea nuova da provare per ora.
 7. **Valori giapponesi da tenere d'occhio dopo il D302** (16 novembre): su 12 stampe il valore PSA 10 sta in mediana sul prezzo SNKRDUNK delle ultime due settimane (rapporto 1,00), ma alcune sono sotto (sv8-132 0,71; sv11b-174 0,76; sv11w-174 0,83) e m2a-199 sopra (1,62). Se non si allineano, proporre una prova.
 8. **Coda**: 50 carte risultano ancora "pronta" nella issue n. 2 anche se sono già nel catalogo; si sistemano al prossimo giro delle candidate (17 novembre).
+
+9. **Corsa di Classica e Di mezzo** (settembre–ottobre 2026): le vendite eBay delle voci dei panieri sono salite di circa l'80% in due mesi (Lugia ex Unseen Forces PSA 10 da 2–5 mila a 90–156 mila dollari, titoli e sedi coerenti); l'indice segue con ritardo (+52% contro +79% delle vendite). È mercato, non un errore dei dati; il ritardo resta il problema 6, ora anche per le ere vecchie.
+10. **Esito della prova §65** (workflow "Prova SlabRange", 16 novembre): da scrivere nel protocollo quando arriva (`results/slabrange/summary_P.json`).
 
 ## In attesa di Oscar
 
