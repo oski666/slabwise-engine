@@ -70,6 +70,14 @@ def main():
                 continue
             if rid in queue:
                 continue
+            tc_owner = next((k for k, v in list(queue.items()) + [(x["id"], x) for x in ja]
+                             if str(v.get("tc_id") or "") == str(row.get("tc_id") or "-")), None)
+            if tc_owner:                                       # D307: the same tcgcharts card under another id: link that one
+                o = ja_by.get(tc_owner) or queue.get(tc_owner)
+                if o is not None and not o.get("en"):
+                    o.update(en=c["id"], en_same=row["en_same"], en_check=row["en_check"])
+                    n_link += 1
+                continue
             try:
                 cd.era_of(rid, era_map)
                 st = cr.check_ja(rid, {"id": row["tc_id"], "cardType": row["tc_type"], "set": row.get("tc_set"), "url": row["tc_url"]},

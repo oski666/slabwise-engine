@@ -1,6 +1,6 @@
 # Slabwise · Stato del progetto
 
-**Aggiornato il 16 novembre 2026, sera** (punti 1–4 della revisione del 16 novembre: D303–D306). Fotografia per chi riprende il lavoro (una chat nuova, o Oscar). Non sostituisce le regole: prima di toccare qualcosa leggi `CLAUDE.md` e `docs/PILLARS.md`; le scelte stanno in `docs/DECISIONS.md` (ultima voce D306), il metodo in `docs/METHOD.md`, le prove in `docs/BACKTEST_PROTOCOL.md`, le fonti in `docs/DATA_SOURCES.md`.
+**Aggiornato il 16 novembre 2026, sera** (punti 1–4 della revisione del 16 novembre: D303–D306). Fotografia per chi riprende il lavoro (una chat nuova, o Oscar). Non sostituisce le regole: prima di toccare qualcosa leggi `CLAUDE.md` e `docs/PILLARS.md`; le scelte stanno in `docs/DECISIONS.md` (ultima voce D307), il metodo in `docs/METHOD.md`, le prove in `docs/BACKTEST_PROTOCOL.md`, le fonti in `docs/DATA_SOURCES.md`.
 
 ## In breve
 
@@ -29,6 +29,8 @@
 | Slabvalve | Era sparita dal sito: nel Sito la ricerca eBay (13 minuti) veniva fermata dal passo da 10 prima di scrivere il file, e ogni ricostruzione cancellava anche le occasioni. Ora la ricerca si ferma a 5 minuti e mezzo, i conteggi (solo numeri) restano 48 ore in un artifact condiviso con Occasioni, i mesi di scorta usano le vendite eBay (`n30e`). Prima costruzione dopo la correzione: Slabvalve su 78 carte, occasioni su 4; cresce con i giri di Occasioni | D303 |
 | SlabRange | Mai più uno Slabprice fuori dalla sua forchetta (29 voti al 15 novembre): in quei casi si mostra la forchetta D224; controllo C11. Prova §65 (forchetta senza le vendite non credibili, P, e con 26 settimane, P26) lanciata il 16 novembre, primo giro; il secondo è il giro mensile di dicembre | D304 |
 | Indici | Sul tratto ricostruito la pagina non mostra più in cifre livello, 6 mesi, da inizio anno, 1 anno e calo massimo (Classica risultava +1.056% da gennaio 2024 con le carte di oggi). Restano 1 settimana, 1 mese, 3 mesi, margine, volatilità | D305 |
+| Gemelle giapponesi | §67/§67b: stesso nome normalizzato, stessa era, stessa illustrazione; adottato per decisione di Oscar (G2 mancato per i doppioni). 268 gemelle nuove: carte inglesi con la gemella 262 nel catalogo, 586 con quelle in coda. Tolti 120 id giapponesi doppi (34 erano sul sito due volte). Verifica a dicembre | D307 |
+| Storici lunghi | In corso dal 16 novembre sera nel browser del PC di Oscar (database `swhist_1116`): 326 carte senza storico e 19 giapponesi con SNKRDUNK; poi esportazione e `scripts/tc_history_merge.py` | — |
 | Altri enti nei titoli | §66 adottato: fuori i titoli con un altro ente e un voto ("TAG 10 = PSA 10"), circa 150 vendite su 1,6 milioni. Ricostruzione completa lanciata il 16 novembre | D306 |
 
 ## Workflow (GitHub Actions)

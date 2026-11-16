@@ -342,8 +342,9 @@ def main():
             print(f"  {c['id']} giapponese: errore {str(e)[:80]}")
             continue
         scanned[c["id"]] = today
+        known_ja_tc = {str(v.get("tc_id")) for v in queue.values() if v.get("tc_id")}
         for row in rows:
-            if row["id"] in queue or row["id"] in have_ja:
+            if row["id"] in queue or row["id"] in have_ja or str(row.get("tc_id")) in known_ja_tc:   # D307: one tcgcharts card, one id
                 continue
             try:
                 queue[row["id"]] = check(row["id"], row)
