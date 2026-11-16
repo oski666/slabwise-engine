@@ -9233,7 +9233,10 @@
   "ill": null,
   "set_en": "XY Promos",
   "source": "TCGdex ja",
-  "added": "D134"
+  "added": "D134",
+  "en": "xyp-XY166",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 26/256)"
  },
  {
   "id": "ja:xy-promos-218",
