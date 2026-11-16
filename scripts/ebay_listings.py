@@ -33,7 +33,7 @@ PAUSE_S = 0.3
 DETAIL_MAX = 100                                   # item pages read per run (5,000 eBay calls a day in all)
 SEARCH_MAX = 1000                                  # D300: searches per run (4 runs a day within the 5,000)
 TOP_EVERY = 120                                    # D300: the most valuable cards, searched on every run
-BUDGET_S = 13 * 60                                 # D300: the job has 20 minutes
+BUDGET_S = int(os.environ.get("SLABWISE_EBAY_BUDGET_S", 13 * 60))   # D300: the job has 20 minutes; D303: the Sito step has 10
 
 
 def key(name):

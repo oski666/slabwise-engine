@@ -1,6 +1,11 @@
 """Deals from fresh eBay listings against the values already published (D112), without running the engine again.
 
 Usage: PYTHONPATH=. python scripts/deals_refresh.py [prototype/data/real.json] [data/raw/ebay/listings.json]
+       [data/raw/ebay/counts.json]
+
+D303: the listings file may be missing (the eBay step failed or ran out of time): then no deal is shown (the page says
+the listings are not collected yet) but the Slabvalve still uses the counts of the last 48 hours (counts.json, numbers
+only, slabwise/slabvalve.py), which this script updates and writes back.
 
 Same rules as the deals block of prototype/build_real_data.py (D72, D73, D98): identity by cert, landed cost in
 Italy, the listing mixture and the winner's curse in slabwise.deals.score, only p_deal >= 0.5 shown, never against
@@ -15,18 +20,28 @@ import sys
 
 import numpy as np
 
+from slabwise import slabvalve
 from slabwise.deals import landed_eur, max_landed, price_for_landed, score
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 data_p = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, "..", "prototype", "data", "real.json")
 lst_p = sys.argv[2] if len(sys.argv) > 2 else os.path.join(HERE, "..", "data", "raw", "ebay", "listings.json")
+cnt_p = sys.argv[3] if len(sys.argv) > 3 else os.path.join(os.path.dirname(lst_p), "counts.json")
 DEALS_MIN = 0.5
 OFFER_MIN = 0.70        # D113: offers below 70% of the asking price are not shown
 OFFERS_SHOWN = 60
 Z = 1.2816
 
 R = json.load(open(data_p))
-L = json.load(open(lst_p))
+try:
+    L = json.load(open(lst_p))
+except (OSError, ValueError):
+    print(f"Annunci di questo giro assenti ({lst_p}): niente occasioni, Slabvalve dai conteggi delle ultime 48 ore")
+    L = {"asof": None, "listings": [], "queried": {}}
+try:
+    old_counts = json.load(open(cnt_p))
+except (OSError, ValueError):
+    old_counts = {}
 EUR = R["eur_rate"]
 sigma_q = (R.get("params") or {}).get("sigma_q", 0.07)
 certs_p = os.path.join(HERE, "..", "prototype", "data", "certs.json")
@@ -55,21 +70,12 @@ for r in L["listings"]:
 for c in R["cards"]:
     c["deals"] = []
 R["offers"] = []
-# D225: copies on sale now, per card and grade, for the Slabvalve; only cards searched on every market
-_q = L.get("queried") or {}
-for c in R["cards"]:
-    base = c["id"].split("/")[0]
-    if base in _q and "/" not in c["id"]:
-        n = {}
-        for r in L["listings"]:
-            if r["card"] == c["id"]:
-                n[r["grade"]] = n.get(r["grade"], 0) + 1
-        c["on_sale"] = {str(g["grade"]): n.get(g["grade"], 0) for g in c["grades"]}
-        c["on_sale_capped"] = bool(_q[base].get("capped"))
-    else:
-        c.pop("on_sale", None)
-        c.pop("on_sale_capped", None)
-R["on_sale_asof"] = L.get("asof") if _q else None
+# D225, D303: copies on sale now, per card and grade, for the Slabvalve: this run's counts merged with those of the
+# last 48 hours (each card keeps the date it was counted)
+counts = slabvalve.merge(slabvalve.counts_from_listings(L) if L["asof"] else {}, old_counts)
+os.makedirs(os.path.dirname(cnt_p) or ".", exist_ok=True)
+json.dump(counts, open(cnt_p, "w"), separators=(",", ":"))
+print(f"Slabvalve: {slabvalve.apply(R, counts)} carte con il conteggio degli annunci")
 stats, funnel = None, {"annunci": len(L["listings"]), "scartati": skipped, "valutati": len(rows)}
 if rows:
     pg, pdl, stats = score([r["ask_usd"] for r, *_ in rows], [x[3]["landed_eur"] / EUR for x in rows],

@@ -147,10 +147,10 @@ Le immagini si scaricano una volta (`scripts/fetch_missing_images.py`) e finisco
 | Cosa | Dettaglio |
 |---|---|
 | Accesso | account eBay Developers di Oscar, keyset di produzione, token "application" (client credentials, scope `https://api.ebay.com/oauth/api_scope`); chiavi in `~/.slabwise/ebay_client_id` e `~/.slabwise/ebay_client_secret`, mai nel repository |
-| Cosa usiamo | `GET /buy/browse/v1/item_summary/search` su EBAY_US, EBAY_IT, EBAY_DE, categoria carte singole, con `X-EBAY-C-ENDUSERCTX: affiliateCampaignId=5339232565,contextualLocation=country%3DIT` (spedizione verso l'Italia e link affiliati); `GET /item/{id}` solo per gli annunci candidati, per leggere il cert |
+| Cosa usiamo | `GET /buy/browse/v1/item_summary/search` su EBAY_US, EBAY_IT, EBAY_DE, EBAY_ES (D113), categoria carte singole sul mercato USA, con `X-EBAY-C-ENDUSERCTX: affiliateCampaignId=5339232565,contextualLocation=country%3DIT` (spedizione verso l'Italia e link affiliati); `GET /item/{id}` solo per gli annunci candidati, per leggere il cert |
 | Limiti | 5.000 chiamate al giorno (limite base); al massimo 10.000 risultati per ricerca |
 | Licenza | §9.5 (niente prezzi modellati senza permesso scritto): rischio accettato con D72; §8.1 annunci mostrati non più vecchi di 6 ore e cancellati quando chiudono |
-| Conteggio per la Slabvalve (D225) | quante copie di ogni carta e voto sono in vendita nel giorno, dagli stessi risultati di ricerca; si salva solo il numero nella pagina, nessun annuncio oltre le 6 ore (§8.1); con più di 200 risultati il numero è un minimo |
+| Conteggio per la Slabvalve (D225) | quante copie di ogni carta e voto sono in vendita nel giorno, dagli stessi risultati di ricerca; si salva solo il numero nella pagina, nessun annuncio oltre le 6 ore (§8.1); con più di 200 risultati il numero è un minimo. Dal D303 i numeri (carta, voto, conteggio, data) restano 48 ore in un artifact di GitHub (`slabvalve-counts`, 3 giorni di conservazione), mai gli annunci |
 | Script | `scripts/ebay_listings.py` (raccolta) e calcolo in `slabwise/deals.py` |
 
 ## tcgcharts (tcgcharts.com): vendite singole e popolazioni, con permesso (D76)

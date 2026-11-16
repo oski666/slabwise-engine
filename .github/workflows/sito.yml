@@ -19,6 +19,7 @@ on:
     paths: ["prototype/character/**", "prototype/v7/**", "prototype/build_real_data.py", "slabwise/**", "functions/**", "social/reel-studio/**", "prototype/data/curiosita.json"]
 permissions:
   contents: write                # D105: the weekly sealed snapshot is committed
+  actions: read                  # D303: the Slabvalve counts of the last runs (artifact)
   issues: write                  # D242: the "Controlli di coerenza" issue
 concurrency:
   group: deploy-${{ github.ref_name }}    # D230: a preview of a branch never waits for (or blocks) the live site
@@ -132,13 +133,42 @@ jobs:
       - name: Coherence checks (D211)
         continue-on-error: true
         run: PYTHONPATH=. python scripts/coherence_check.py prototype/data/real.json results/coherence.json
-      - name: eBay listings and deals (D112)
+      - name: Slabvalve counts of the last 48 hours (D303, numbers only)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p data/raw/ebay
+          url=$(gh api "repos/$GITHUB_REPOSITORY/actions/artifacts?name=slabvalve-counts&per_page=1" -q '.artifacts[0].archive_download_url // empty')
+          [ -n "$url" ] && gh api "$url" > /tmp/counts.zip && unzip -o -q /tmp/counts.zip -d data/raw/ebay && echo "conteggi precedenti presi" || echo "nessun conteggio precedente"
+      - name: eBay listings (D112)
         if: env.HAS_EBAY == 'true'
         continue-on-error: true
         timeout-minutes: 10              # a slow eBay never blocks the publication of the values
+        env:
+          SLABWISE_EBAY_BUDGET_S: "330"  # D303: the search stops in time and the file is always written (before: 13 min > 10)
+        run: PYTHONPATH=. python scripts/ebay_listings.py data/raw/ebay/listings.json
+      - name: Deals and Slabvalve (D112, D225, D303)
+        continue-on-error: true
         run: |
-          PYTHONPATH=. python scripts/ebay_listings.py data/raw/ebay/listings.json
-          PYTHONPATH=. python scripts/deals_refresh.py prototype/data/real.json data/raw/ebay/listings.json
+          PYTHONPATH=. python scripts/deals_refresh.py prototype/data/real.json data/raw/ebay/listings.json data/raw/ebay/counts.json
+          python - <<'PY'
+          import json
+          D = json.load(open("prototype/data/real.json"))
+          n = sum(1 for c in D["cards"] if c.get("on_sale"))
+          print(f"::notice::Slabvalve su {n} carte, occasioni su {sum(1 for c in D['cards'] if c.get('deals'))}")
+          if not n:
+              print("::warning::Slabvalve vuota: né annunci di questo giro né conteggi delle ultime 48 ore")
+          PY
+      - name: Keep the Slabvalve counts (D303, numbers only)
+        if: github.ref_name == 'main'
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: slabvalve-counts
+          path: data/raw/ebay/counts.json
+          retention-days: 3
+          if-no-files-found: ignore
       - name: Keep the values with the deals (D227)
         run: cp prototype/data/real.json /tmp/out/real.json
       - name: Weekly sealed snapshot (D105)

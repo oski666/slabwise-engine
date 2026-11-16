@@ -437,7 +437,9 @@ for c in catalog + variants:
         ch90 = round(float(np.exp(now - est[-14, i, gi]) - 1), 4) if (_mine <= W - 14).sum() >= 3 and np.isfinite(est[-14, i, gi]) else None
         if off or stale:                                  # D211: no change shown on an estimate the page does not show
             ch30 = ch90 = None
-        _p30 = clean.loc[(clean["card"] == i) & (clean["grade"] == g) & (clean["day"] >= clean["day"].max() - 30), "price"].to_numpy()
+        _m30 = (clean["card"] == i) & (clean["grade"] == g) & (clean["day"] >= clean["day"].max() - 30)
+        _p30 = clean.loc[_m30, "price"].to_numpy()
+        _e30 = int((_m30 & (clean["venue"] == "ebay")).sum())    # D303: eBay sales only, the same market as the Slabvalve listings
         _days_g = clean.loc[(clean["card"] == i) & (clean["grade"] == g), "day"]
         last_sale = str((t0 + pd.Timedelta(days=float(_days_g.max()))).date()) if len(_days_g) else None   # D232
         _sb = Z * float(np.sqrt(s_now ** 2 + params.sigma_e ** 2 + params.sigma_q ** 2))
@@ -451,7 +453,7 @@ for c in catalog + variants:
                           # D223: share of those sales within 15% of the value (13 weeks, >= 5 sales)
                           in15=round(float(np.mean(np.abs(np.log(rec.to_numpy()) - float(now)) <= np.log(1.15))), 3) if n13 >= 5 else None,
                           # D223: the real sales of the last 30 days (count; 10th, 25th, 75th, 90th percentile with >= 5)
-                          n30=int(len(_p30)), q30=[round(float(x), 2) for x in np.percentile(_p30, [10, 25, 75, 90])] if len(_p30) >= 5 else None,
+                          n30=int(len(_p30)), n30e=_e30, q30=[round(float(x), 2) for x in np.percentile(_p30, [10, 25, 75, 90])] if len(_p30) >= 5 else None,
                           # D224, D295: the SlabRange = where 8 sales in 10 land (see _slabrange); the D224 formula is the fallback
                           **dict(zip(("slo", "shi"), _slabrange(i, gi, float(now), (round(float(np.exp(now - _sb)), 2),
                                                                                      round(float(np.exp(now + _sb)), 2))))),

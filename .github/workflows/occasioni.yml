@@ -45,11 +45,27 @@ jobs:
           printf '%s' "$EBAY_CLIENT_ID" > ~/.slabwise/ebay_client_id
           printf '%s' "$EBAY_CLIENT_SECRET" > ~/.slabwise/ebay_client_secret
           printf '%s' "$EPN_CAMPAIGN_ID" > ~/.slabwise/epn_campaign_id
+      - name: Slabvalve counts of the last 48 hours (D303, numbers only)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p data/raw/ebay
+          url=$(gh api "repos/$GITHUB_REPOSITORY/actions/artifacts?name=slabvalve-counts&per_page=1" -q '.artifacts[0].archive_download_url // empty')
+          [ -n "$url" ] && gh api "$url" > /tmp/counts.zip && unzip -o -q /tmp/counts.zip -d data/raw/ebay || true
       - name: eBay listings and deals
         if: env.HAS_EBAY == 'true'
         run: |
           PYTHONPATH=. python scripts/ebay_listings.py data/raw/ebay/listings.json
-          PYTHONPATH=. python scripts/deals_refresh.py prototype/data/real.json data/raw/ebay/listings.json
+          PYTHONPATH=. python scripts/deals_refresh.py prototype/data/real.json data/raw/ebay/listings.json data/raw/ebay/counts.json
+      - name: Keep the Slabvalve counts (D303, numbers only)
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: slabvalve-counts
+          path: data/raw/ebay/counts.json
+          retention-days: 3
+          if-no-files-found: ignore
       - name: Page
         run: |
           python - <<'PY'
