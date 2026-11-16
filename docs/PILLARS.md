@@ -1,6 +1,6 @@
 # Slabwise · Pilastri
 
-**Versione 1.2 · 11 novembre 2026 (P12, D265) · Versione 1.1 · 9 novembre 2026 (P12, D250) · Versione 1.0 · 23 ottobre 2026 · Stato: vincolante**
+**Versione 1.3 · 16 novembre 2026 (P12, P16, D310) · Versione 1.2 · 11 novembre 2026 (P12, D265) · Versione 1.1 · 9 novembre 2026 (P12, D250) · Versione 1.0 · 23 ottobre 2026 · Stato: vincolante**
 
 Questo documento è la costituzione del progetto. Ogni decisione su metodo, dati e perimetro deve essere coerente con questi pilastri.
 
@@ -36,7 +36,7 @@ Questo documento è la costituzione del progetto. Ogni decisione su metodo, dati
 
 ## C. Come decidiamo
 
-**P12 · Prove prima delle opinioni.** Un cambiamento al metodo entra solo se migliora il backtest secondo le metriche di `docs/BACKTEST_PROTOCOL.md` e non peggiora nessuna fascia di liquidità. Le soglie di successo si fissano prima di vedere i risultati. *Eccezione (9 novembre 2026, D250):* il proprietario può adottare una variante che manca un criterio registrato solo con una voce motivata nel registro che lo dice apertamente, quando gli altri criteri passano, e con una verifica prospettica obbligatoria già registrata sui dati che arrivano dopo; se la verifica non passa, si corregge con una nuova prova. *Prove ricorrenti (11 novembre 2026, D265):* il metodo in uso è il campione e le prove si ripetono ogni mese e ogni volta che il catalogo cresce di un quarto; una variante entra quando batte il campione in due giri di fila. Le soglie si scrivono come quote o rispetto al campione, mai come conteggi assoluti, perché il catalogo cresce.
+**P12 · Prove prima delle opinioni.** Un cambiamento al metodo entra solo se migliora il backtest secondo le metriche di `docs/BACKTEST_PROTOCOL.md` e non peggiora nessuna fascia di liquidità. Le soglie di successo si fissano prima di vedere i risultati. *Eccezione (9 novembre 2026, D250):* il proprietario può adottare una variante che manca un criterio registrato solo con una voce motivata nel registro che lo dice apertamente, quando gli altri criteri passano, e con una verifica prospettica obbligatoria già registrata sui dati che arrivano dopo; se la verifica non passa, si corregge con una nuova prova. *Prove ricorrenti (11 novembre 2026, D265; riscritte il 16 novembre 2026, D310):* il metodo in uso è il campione e le prove si ripetono ogni mese e ogni volta che il catalogo cresce di un quarto. Una variante che passa tutti i criteri registrati entra subito; il giro successivo è la sua verifica obbligatoria, e se non passa si torna al metodo precedente e si corregge con una nuova prova. Le soglie si scrivono come quote o rispetto al campione, mai come conteggi assoluti, perché il catalogo cresce.
 
 **P13 · Confronto con i concorrenti.** Ogni versione del metodo viene messa in gara con le ricostruzioni dei metodi pubblici dei concorrenti (ultima vendita, mediana a fasce di tcgcharts, media pesata per età di PriceCharting, ultima vendita spostata dall'indice di Card Ladder, pila di regole tipo TCGBerg) e con il nostro prototipo precedente. Se non vinciamo, non lo diciamo.
 
@@ -46,7 +46,7 @@ Questo documento è la costituzione del progetto. Ogni decisione su metodo, dati
 
 **P15 · Deal = probabilità.** Un deal è un annuncio con alta probabilità di valere più del suo costo, per una copia di quell'atomo, dopo il costo finale in Italia. Uno sconto "troppo bello" alza il sospetto, non il punteggio.
 
-**P16 · Rollup onesti.** Market cap, set ed ere separano sempre la crescita dovuta ai prezzi da quella dovuta ai nuovi slab, e mostrano concentrazione (peso delle prime 3 carte) e copertura (quante carte del gruppo seguiamo). Gli indici per era nascono dal fattore di mercato del modello.
+**P16 · Rollup onesti.** Market cap, set ed ere separano sempre la crescita dovuta ai prezzi da quella dovuta ai nuovi slab, e mostrano concentrazione (peso delle prime 3 carte) e copertura (quante carte del gruppo seguiamo). Gli indici sono panieri a pari peso delle voci più scambiate, concatenati, con regolamento e componenti pubblici; il fattore di mercato del modello resta dentro il calcolo dei valori (riscritto il 16 novembre 2026, D310: prima diceva che gli indici "nascono dal fattore di mercato del modello", cosa che il codice non fa dal D38).
 
 **P17 · Trasparenza.** La metodologia pubblica dice come calcoliamo e dove siamo deboli.
 

@@ -838,18 +838,23 @@ def live_chain(key, ix):
                 chain[b_] = round(chain[a_] * sd[b_] / sd[a_], 2)
                 prev = b_
     out = [p for p in pts if p[0] < w0] + [[w, chain[w]] for w in sorted(chain)]
+    k100 = 100.0 / chain[w0] if chain[w0] else 1.0               # D311: every index is 100 on the day it goes live
+    out = [[w, round(v * k100, 2)] for w, v in out]
     lv = [p[1] for p in out]
     ret = {f"w{k}": round(lv[-1] / lv[-1 - k] - 1, 4) for k in (1, 4, 13, 26, 52) if len(lv) > k}
     _y = [i for i, p in enumerate(out) if p[0] >= out[-1][0][:4] + "-01-01"]
     if _y and _y[0] > 0:
         ret["ytd"] = round(lv[-1] / lv[_y[0] - 1] - 1, 4)
-    return dict(ix, points=out, live=w0, returns=dict(ix.get("returns") or {}, **ret),
+    return dict(ix, points=out, live=w0, base=w0, returns=dict(ix.get("returns") or {}, **ret),
                 ch30=round(lv[-1] / lv[max(0, len(lv) - 5)] - 1, 4))
 
 
 if not os.environ.get("SLABWISE_OUT"):                     # test runs (§27, §58) compare rebuilt series only
     indexes = {k: live_chain(k, v) for k, v in indexes.items()}
     index_all = live_chain("tutto", index_all)
+    _lw = [v.get("live") for v in list(indexes.values()) + [index_all] if v and v.get("live")]
+    if _lw and index_source:                                 # D311: the common base is the live start
+        index_source = dict(index_source, base=min(_lw))
 _ih = os.path.join(HERE, "data", "index_history.json")       # D138: rebuilt index history, only once §27 passed
 index_history = json.load(open(_ih)) if os.path.exists(_ih) else None
 # D194: the Slab-Meter, the market's temperature, from four facts of this build (no new data, no effect on prices)

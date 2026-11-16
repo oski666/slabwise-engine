@@ -1,6 +1,6 @@
 # Slabwise · Stato del progetto
 
-**Aggiornato il 16 novembre 2026, sera** (punti 1–4 della revisione del 16 novembre: D303–D306). Fotografia per chi riprende il lavoro (una chat nuova, o Oscar). Non sostituisce le regole: prima di toccare qualcosa leggi `CLAUDE.md` e `docs/PILLARS.md`; le scelte stanno in `docs/DECISIONS.md` (ultima voce D308), il metodo in `docs/METHOD.md`, le prove in `docs/BACKTEST_PROTOCOL.md`, le fonti in `docs/DATA_SOURCES.md`.
+**Aggiornato il 16 novembre 2026, sera** (punti 1–4 della revisione del 16 novembre: D303–D306). Fotografia per chi riprende il lavoro (una chat nuova, o Oscar). Non sostituisce le regole: prima di toccare qualcosa leggi `CLAUDE.md` e `docs/PILLARS.md`; le scelte stanno in `docs/DECISIONS.md` (ultima voce D313), il metodo in `docs/METHOD.md`, le prove in `docs/BACKTEST_PROTOCOL.md`, le fonti in `docs/DATA_SOURCES.md`.
 
 ## In breve
 
@@ -31,6 +31,7 @@
 | Indici | Sul tratto ricostruito la pagina non mostra più in cifre livello, 6 mesi, da inizio anno, 1 anno e calo massimo (Classica risultava +1.056% da gennaio 2024 con le carte di oggi). Restano 1 settimana, 1 mese, 3 mesi, margine, volatilità | D305 |
 | Gemelle giapponesi | §67/§67b: stesso nome normalizzato, stessa era, stessa illustrazione; adottato per decisione di Oscar (G2 mancato per i doppioni). 268 gemelle nuove: carte inglesi con la gemella 262 nel catalogo, 586 con quelle in coda. Tolti 120 id giapponesi doppi (34 erano sul sito due volte). Verifica a dicembre | D307 |
 | Storici lunghi | In corso dal 16 novembre sera nel browser del PC di Oscar (database `swhist_1116`): 326 carte senza storico e 19 giapponesi con SNKRDUNK; poi esportazione e `scripts/tc_history_merge.py` | — |
+| Regole aggiornate | Documento "Slabwise: regole da aggiornare" approvato: Slabvalve unica col Rubinetto dentro (D309), P12 e P16 riscritti (D310), indici a 100 alla partenza dal vivo (D311), storici ogni lunedì sera e un id per stampa giapponese (D312), pulizia (D313) | D309–D313 |
 | Altri enti nei titoli | §66 adottato: fuori i titoli con un altro ente e un voto ("TAG 10 = PSA 10"), circa 150 vendite su 1,6 milioni. Ricostruzione completa lanciata il 16 novembre | D306 |
 
 ## Workflow (GitHub Actions)
@@ -47,14 +48,14 @@
 | `prezzi-giapponesi` | a catena | SNKRDUNK per le giapponesi, 60 carte a giro, salta quelle viste da meno di 7 giorni |
 | `immagini-tcgcharts`, `gemelle` | a mano | D298, D299 |
 | `approva` (a mano, input `ids`; ~3 ore per 100 carte), `richieste` (ogni 3 ore, limite 3 ore), `avvisi`, `raccolta-pokecolor`, `raccolta-alt`, `test` | vari | ingresso delle carte approvate, richieste, avvisi, altre fonti, test |
-| `prova-*` | a mano | prove del protocollo; `prova-slabrange` serve ancora per il giro di dicembre |
+| `prova-slabrange`, `prova-indici`, `prova-motore` | a mano | prove del protocollo: SlabRange (giro di dicembre, D308), indici, mercato simulato (P14) |
 
 ## Problemi aperti
 
 1. **tcgcharts**: dal 15 novembre circa 4 secondi a richiesta (il 14 erano 40), ma ogni tanto ancora errori 503 durante l'ingresso delle carte (il 15: 28 carte rimaste fuori). Fonti: eBay, Goldin, ALT, Fanatics e ora SNKRDUNK (D302). Il controllo del motore (R1/E2 in `add_cards`/`approva`) dura ormai ~2 ore con 1.400 carte: per questo raccolta, candidate e richieste sono state separate (15 novembre). Da valutare se si può accorciare.
 2. **Schede incomplete** (report del 14 novembre, artifact "Slabwise: stato al 14 novembre"): 163 schede complete su 1.096. Le mancanze principali: gemella giapponese non trovata (447 inglesi, in lavoro con D299), immagine (circa 250 giapponesi), SNKRDUNK ambigua (141) o non trovata (47), nessuna asta Cardova riconosciuta (131), rarità e illustratore mancanti (circa 380 giapponesi).
-3. **Misura delle occasioni** (`misura-occasioni`) fallisce dall'11 novembre: da rivedere o togliere.
-4. **Pulizia**: 12 workflow di prova o usati una volta (vedi elenco), 6 rami vecchi (`coerenza`, `creator`, `d228-veloce`, `metodo-v120`, `pagina-carta`, `veloce`). Non toccati: chiedere a Oscar.
+3. ~~Misura delle occasioni~~: tolta il 16 novembre (D313).
+4. ~~Pulizia~~: fatta il 16 novembre (D313): tolti 10 workflow chiusi e 6 rami vecchi.
 5. **Eevee Base Set promo 11** mescola stampe diverse; **Mew Legend Maker PSA 9** ha un valore discutibile.
 6. **Ritardo nelle ere veloci** (Scarlatto e Violetto): il valore insegue il mercato con qualche settimana di ritardo; nessuna idea nuova da provare per ora.
 7. **Valori giapponesi da tenere d'occhio dopo il D302** (16 novembre): su 12 stampe il valore PSA 10 sta in mediana sul prezzo SNKRDUNK delle ultime due settimane (rapporto 1,00), ma alcune sono sotto (sv8-132 0,71; sv11b-174 0,76; sv11w-174 0,83) e m2a-199 sopra (1,62). Se non si allineano, proporre una prova.

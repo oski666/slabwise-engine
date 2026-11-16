@@ -946,31 +946,40 @@ function jaTwinBox(c) {
     <div class="facts"><div class="fact"><span>${tx("Inglese PSA 10", "English PSA 10")}</span><b>${usd(en.value)}</b></div><div class="fact"><span>${tx("Giapponese PSA 10", "Japanese PSA 10")}</span><b>${usd(ja.value)}</b></div><div class="fact"><span>${tx("Rapporto", "Ratio")}</span><b>${nf0.format(r * 100)}%</b></div></div>
     <p class="muted">${tx(`Qui la giapponese costa il ${nf0.format(r * 100)}% dell'inglese${avg ? `; in media, a parità di copie in PSA 10, il ${nf0.format(avg * 100)}%` : ""}. Stessa illustrazione, mercati diversi.`, `Here the Japanese one costs ${nf0.format(r * 100)}% of the English one${avg ? `; on average, for the same PSA 10 copies, ${nf0.format(avg * 100)}%` : ""}. Same art, different markets.`)} <a href="#c-${tw.id}">${tx("Apri l'altra scheda", "Open the other page")}</a></p></div>`;
 }
-/* D225, D303: the Slabvalve — copies on sale now (recognised eBay Buy It Now listings, US/IT/DE/ES, shipping to Italy)
-   against copies sold on eBay in the last 30 days (same market on both sides). Months of supply under 1: closed; over 3:
-   open; in between: balanced. Neutral colours. */
+/* D225, D303, D309: the Slabvalve, one supply signal from two parts. Copies on sale now (recognised eBay Buy It Now
+   listings, US/IT/DE/ES, shipping to Italy) against eBay sales of the grade in 30 days: under 1 month of supply closed,
+   over 3 open. New copies (PSA 10 only, GemRate: new PSA 10 in 30 days against PSA 10 sold in 30 days): over 1.5 open,
+   under 0.67 closed. Open if either part says open; closed only if every part present says closed; else balanced. */
 function valveOf(c, g) {
   const os = c.on_sale ? c.on_sale[String(g.grade)] : null;
-  if (os == null || noOwn(g)) return null;
   const n = g.n30e != null ? g.n30e : (g.n30 || 0);
-  if (!os && !n) return null;
-  const m = n ? os / n : Infinity, st = m < 1 ? "chiusa" : m > 3 ? "aperta" : "equilibrio", al = c.on_sale_capped ? tx("almeno ", "at least ") : "";
+  const hasL = os != null && !noOwn(g) && (os || n);
+  const tp = (D.tap || {})[c.id], r = g.grade === 10 && tp && tp.ratio != null && isFinite(tp.ratio) ? tp.ratio : null;
+  if (!hasL && r == null) return null;
+  const m = hasL ? (n ? os / n : Infinity) : null;
+  const st = (m != null && m > 3) || (r != null && r > 1.5) ? "aperta" : (m == null || m < 1) && (r == null || r < 0.67) ? "chiusa" : "equilibrio";
+  const al = c.on_sale_capped ? tx("almeno ", "at least ") : "";
   const word = {chiusa: tx("Slabvalve chiusa", "Slabvalve closed"), aperta: tx("Slabvalve aperta", "Slabvalve open"), equilibrio: tx("Slabvalve in equilibrio", "Slabvalve balanced")}[st];
-  const line = tx(`${al}${nf0.format(os)} ${os === 1 ? "copia" : "copie"} in vendita adesso in PSA ${g.grade}, ${nf0.format(n)} ${n === 1 ? "venduta" : "vendute"} su eBay negli ultimi 30 giorni`, `${al}${nf0.format(os)} PSA ${g.grade} ${os === 1 ? "copy" : "copies"} on sale now, ${nf0.format(n)} sold on eBay in the last 30 days`);
-  return {st, os, n, m, word, line, chip: `<b>${word}</b>: ${line}.`};
+  const parts = [];
+  if (hasL) parts.push(tx(`${al}${nf0.format(os)} ${os === 1 ? "copia" : "copie"} in vendita adesso in PSA ${g.grade}, ${nf0.format(n)} ${n === 1 ? "venduta" : "vendute"} su eBay negli ultimi 30 giorni`, `${al}${nf0.format(os)} PSA ${g.grade} ${os === 1 ? "copy" : "copies"} on sale now, ${nf0.format(n)} sold on eBay in the last 30 days`));
+  if (r != null) parts.push(tx(`${nf0.format(tp.new10 || 0)} nuovi PSA 10 gradati in 30 giorni, ${nf0.format(Math.round(tp.sold10 || 0))} venduti`, `${nf0.format(tp.new10 || 0)} new PSA 10 graded in 30 days, ${nf0.format(Math.round(tp.sold10 || 0))} sold`));
+  const line = parts.join("; ");
+  return {st, os, n, m, r, hasL, word, line, chip: `<b>${word}</b>: ${line}.`};
 }
 function valveBox(c, g) {
   const v = valveOf(c, g), tp = (D.tap || {})[c.id];
   const w = tp && tp.weekly && tp.weekly.length ? tp.weekly : null;
   if (!v && !w) return "";
   const mx = w ? Math.max(1, ...w) : 1;
-  const mesi = v && isFinite(v.m) ? (v.m < 1 ? tx("meno di un mese di scorta", "less than a month of supply") : tx(`circa ${nf1.format(v.m)} mesi di scorta`, `about ${nf1.format(v.m)} months of supply`)) : tx("nessuna vendita in 30 giorni", "no sale in 30 days");
-  return `<div class="tile q"><div class="qhead"><span class="qn">?</span><h2>${tx("Quante ce ne sono in vendita? La Slabvalve", "How many are on sale? The Slabvalve")}</h2></div>
+  const mesi = v && v.hasL ? (isFinite(v.m) ? (v.m < 1 ? tx("meno di un mese di scorta", "less than a month of supply") : tx(`circa ${nf1.format(v.m)} mesi di scorta`, `about ${nf1.format(v.m)} months of supply`)) : tx("nessuna vendita eBay in 30 giorni", "no eBay sale in 30 days")) : "";
+  const miss = v ? (!v.hasL ? tx(" Per questa carta non contiamo ancora gli annunci in vendita: decide la parte delle copie nuove.", " We do not count this card's listings yet: the new-copies part decides.") : v.r == null && g.grade === 10 ? tx(" Per questa carta non abbiamo ancora i nuovi PSA 10: decide la parte degli annunci.", " We do not have this card's new PSA 10 yet: the listings part decides.") : "") : "";
+  const asof = c.on_sale_asof || D.on_sale_asof;
+  return `<div class="tile q"><div class="qhead"><span class="qn">?</span><h2>${tx("Arrivano più copie di quante se ne vendono? La Slabvalve", "Are more copies coming in than are sold? The Slabvalve")}</h2></div>
     ${v ? `<div class="valuerow"><span class="sticker sky">${v.word}</span></div>
-    <p style="font:600 19px var(--display)">${tx(`${v.line[0].toUpperCase() + v.line.slice(1)}: ${mesi}.`, `${v.line[0].toUpperCase() + v.line.slice(1)}: ${mesi}.`)}</p>
-    <p class="note">${tx("Chiusa: si vende più di quanto c'è in vendita (meno di un mese di scorta). Aperta: oltre tre mesi di scorta. Contiamo gli annunci Compralo Subito su eBay USA, Italia, Germania e Spagna che spediscono in Italia, riconosciuti come questa carta e questo voto, e le vendite su eBay della stessa carta e voto: è un'indicazione, non tutto il mercato.", "Closed: more sells than is on sale (under a month of supply). Open: over three months of supply. We count Buy It Now listings on eBay US, Italy, Germany and Spain that ship to Italy, recognised as this card and grade, and the eBay sales of the same card and grade: a guide, not the whole market.")}${(c.on_sale_asof || D.on_sale_asof) ? tx(` Annunci contati il ${dateF((c.on_sale_asof || D.on_sale_asof).slice(0, 10))}.`, ` Listings counted on ${dateF((c.on_sale_asof || D.on_sale_asof).slice(0, 10))}.`) : ""}</p>`
-      : `<p class="muted">${c.on_sale ? tx(`In PSA ${g.grade} oggi non ci sono annunci né vendite recenti da confrontare.`, `In PSA ${g.grade} there are no listings or recent sales to compare today.`) : tx("Per questa carta non contiamo ancora gli annunci in vendita.", "We do not count the listings of this card yet.")}</p>`}
-    ${w ? `<p class="muted" style="margin-top:10px">${tx(`Nuove copie: negli ultimi 30 giorni PSA ha dato ${nf0.format(tp.new10 || 0)} nuovi 10. Copie gradate a settimana (tutti i voti), ultimo anno:`, `New copies: in the last 30 days PSA gave ${nf0.format(tp.new10 || 0)} new 10s. Copies graded per week (all grades), last year:`)}</p>
+    <p style="font:600 19px var(--display)">${v.line[0].toUpperCase() + v.line.slice(1)}${mesi ? `: ${mesi}` : ""}.</p>
+    <p class="note">${tx("Aperta: oltre tre mesi di copie in vendita, oppure più di 1,5 nuovi PSA 10 per ogni PSA 10 venduto. Chiusa: meno di un mese di copie in vendita e meno di 0,67 nuovi PSA 10 per venduto. Contiamo gli annunci Compralo Subito su eBay USA, Italia, Germania e Spagna che spediscono in Italia e le vendite eBay della stessa carta e voto; le copie nuove sono i PSA 10 gradati nel mese. È un'indicazione, non tutto il mercato.", "Open: over three months of copies on sale, or more than 1.5 new PSA 10 for each PSA 10 sold. Closed: under a month of copies on sale and under 0.67 new PSA 10 per sale. We count Buy It Now listings on eBay US, Italy, Germany and Spain that ship to Italy and eBay sales of the same card and grade; new copies are the PSA 10 graded in the month. A guide, not the whole market.")}${miss}${v.hasL && asof ? tx(` Annunci contati il ${dateF(asof.slice(0, 10))}.`, ` Listings counted on ${dateF(asof.slice(0, 10))}.`) : ""}</p>`
+      : `<p class="muted">${tx("Per questa carta e questo voto non abbiamo ancora annunci né copie nuove da confrontare.", "For this card and grade we have no listings or new copies to compare yet.")}</p>`}
+    ${w ? `<p class="muted" style="margin-top:10px">${tx("Copie gradate da PSA a settimana (tutti i voti), ultimo anno:", "Copies graded by PSA per week (all grades), last year:")}</p>
     <div class="tapbars" aria-label="${tx("Copie gradate da PSA ogni settimana, ultimo anno", "Copies graded by PSA each week, last year")}">${w.map(x => `<i style="height:${Math.max(2, x / mx * 100)}%" title="${x}"></i>`).join("")}</div>
     <p class="note">${tx(`In tutto ${nf0.format(tp.total)} gradate, ${nf0.format(tp.psa10)} in PSA 10. La popolazione conta le gradazioni, non le copie.`, `${nf0.format(tp.total)} graded in all, ${nf0.format(tp.psa10)} in PSA 10. The population counts gradings, not copies.`)}</p>` : ""}</div>`;
 }
