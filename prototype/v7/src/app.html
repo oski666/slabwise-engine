@@ -175,6 +175,13 @@ function slab(c, g, w = 300, cls = "") {
 /* D224: the SlabRange is where sales land (value x exp(+-1.28 sqrt(s^2 + sigma_e^2 + sigma_q^2))), the band the scorecard
    uses; lo/hi (how sure we are of the value) stay in the chart. Older data without slo/shi falls back to lo/hi. */
 const SR = g => [g.slo ?? g.lo, g.shi ?? g.hi];
+/* D305: on the rebuilt stretch of an index (before its live start, D262) the level and the returns over more than 13
+   weeks are not shown as numbers: the rebuilt line holds the cards we know today mattered and rises more than the market. */
+const IX_SHORT = {w1: 1, w4: 1, w13: 1};
+const ixShown = (ix, k) => !!ix && (IX_SHORT[k] || (ix.live && (k === "level" || ix.points.length > 0 && (() => {
+  const wk = {w26: 26, w52: 52}[k], end = Date.parse(ix.points[ix.points.length - 1][0]);
+  const from = wk ? end - wk * 7 * 864e5 : k === "ytd" ? Date.UTC(new Date(end).getUTCFullYear(), 0, 1) : Infinity;
+  return from >= Date.parse(ix.live); })())));
 /* the value range bar: the signature of Slabwise (P10) */
 function fork(g, mini = false, span = 0.7) {   /* 12 Nov (Oscar): a wider scale, so the band is narrower or wider with the card's ± instead of always filling the bar */
   const [lo, hi] = SR(g);
@@ -400,13 +407,13 @@ function eraBody(r) {
       <span class="note">${plural(r.n, tx("carta seguita", "card tracked"), tx("carte seguite", "cards tracked"))}</span>`;
   }
   const last = ix.points[ix.points.length - 1][1];
-  return `<span class="v">${nf1.format(last)}<small>${tx("indice", "index")}</small></span>
-    <span class="${ix.ch30 >= 0 ? "up" : "down"}" style="font-weight:800">${pct(ix.ch30)} ${in30()}</span>${spark(ix.points)}
+  return `${ixShown(ix, "level") ? `<span class="v">${nf1.format(last)}<small>${tx("indice", "index")}</small></span>
+    <span class="${ix.ch30 >= 0 ? "up" : "down"}" style="font-weight:800">${pct(ix.ch30)} ${in30()}</span>` : `<span class="${ix.ch30 >= 0 ? "up" : "down"}" style="font-weight:800">${pct(ix.ch30)} ${in30()}</span>`}${spark(ix.points)}
     <span class="note">${tx("Paniere", "Basket")}: ${plural(ix.basket.length, tx("voce", "item"), tx("voci", "items"))} · ${nf0.format(r.sales)} ${tx("vendite", "sales")}</span>`;
 }
 function erasSection() {
   const inner = `<div class="cs-in">${boxTitle(tx("Le <em>ere</em>", "The <em>eras</em>"), D.real ? tx(`${nf0.format(D.n_sales)} vendite vere · indice: 100 = ${D.index_base ? dateF(D.index_base) : "inizio"}, uguale per tutte le ere`, `${nf0.format(D.n_sales)} real sales · index: 100 = ${D.index_base ? dateF(D.index_base) : "start"}, the same for every era`) : tx("Dati dimostrativi", "Demo data"), "ere")}
-    ${D.index_all ? `<a class="ixhero" href="#indice-tutto"><span class="label">${tx("SlabDex", "SlabDex")}</span><b class="num">${nf1.format(D.index_all.points[D.index_all.points.length - 1][1])}</b><span class="${D.index_all.ch30 >= 0 ? "up" : "down"}" style="font-weight:800">${pct(D.index_all.ch30)} ${in30()}</span><span class="note">${tx(`le ${D.index_all.basket.length} carte e voti inglesi più scambiati del catalogo`, `the ${D.index_all.basket.length} most traded cards and grades of the whole catalogue`)}${Object.keys(D.index_sets || {}).length ? " · " + tx("indici di set", "set indices") + ": " + Object.entries(D.index_sets).map(([k, v]) => esc(v.label)).join(", ") : ""} →</span></a>${(D.indexes || {}).Giappone ? `<a class="ixhero ixja" href="#indice-Giappone"><span class="label">${tx("Indice Giappone", "Japan index")}</span><b class="num">${nf1.format(D.indexes.Giappone.points[D.indexes.Giappone.points.length - 1][1])}</b><span class="${D.indexes.Giappone.ch30 >= 0 ? "up" : "down"}" style="font-weight:800">${pct(D.indexes.Giappone.ch30)} ${in30()}</span><span class="note">${tx("le stampe giapponesi più scambiate, a parte dal mercato inglese", "the most traded Japanese printings, apart from the English market")} →</span></a>` : ""}` : ""}
+    ${D.index_all ? `<a class="ixhero" href="#indice-tutto"><span class="label">${tx("SlabDex", "SlabDex")}</span>${ixShown(D.index_all, "level") ? `<b class="num">${nf1.format(D.index_all.points[D.index_all.points.length - 1][1])}</b>` : ""}<span class="${D.index_all.ch30 >= 0 ? "up" : "down"}" style="font-weight:800">${pct(D.index_all.ch30)} ${in30()}</span><span class="note">${tx(`le ${D.index_all.basket.length} carte e voti inglesi più scambiati del catalogo`, `the ${D.index_all.basket.length} most traded cards and grades of the whole catalogue`)}${Object.keys(D.index_sets || {}).length ? " · " + tx("indici di set", "set indices") + ": " + Object.entries(D.index_sets).map(([k, v]) => esc(v.label)).join(", ") : ""} →</span></a>${(D.indexes || {}).Giappone ? `<a class="ixhero ixja" href="#indice-Giappone"><span class="label">${tx("Indice Giappone", "Japan index")}</span><b class="num">${nf1.format(D.indexes.Giappone.points[D.indexes.Giappone.points.length - 1][1])}</b><span class="${D.indexes.Giappone.ch30 >= 0 ? "up" : "down"}" style="font-weight:800">${pct(D.indexes.Giappone.ch30)} ${in30()}</span><span class="note">${tx("le stampe giapponesi più scambiate, a parte dal mercato inglese", "the most traded Japanese printings, apart from the English market")} →</span></a>` : ""}` : ""}
     ${D.indexes_grade && Object.keys(D.indexes_grade).length ? `<p style="margin:10px 0 0"><a class="chip" href="#indici-voto">${tx("Indici per voto: PSA 10, 9 e 8 →", "Grade indices: PSA 10, 9 and 8 →")}</a></p>` : ""}
     <div class="era7">${D.rollups.map((r, k) => { const top = eraTop(r.series);
       return `<a class="era8 rv" href="#indice-${encodeURIComponent(r.series)}" style="text-decoration:none;color:inherit;--cat:var(--cat-${SERIES_KEY[r.series] || "sv"});--i:${k};--rr:${k % 2 ? 2 : -2}deg">
@@ -845,7 +852,7 @@ function cardMore(c, g) {
   const verdict = ch13 != null && (gW ?? eW) != null ? vsEra(ch13, gW ?? eW)[1].replace(/<\/?b>/g, "") : "";
   const diff = (a, b) => a == null || b == null ? `<td class="num">—</td>` : (d => `<td class="num ${d >= 0 ? "up" : "down"}">${d >= 0 ? "+" : "−"}${nf1.format(Math.abs(d) * 100)} ${tx("punti", "pts")}</td>`)((1 + a) / (1 + b) - 1);
   const gxTable = gx ? `<table class="gixt"><thead><tr><th></th><th>${esc(c.name)} PSA ${g.grade}</th><th>${esc(gName)}</th><th>${tx("Differenza", "Difference")}</th></tr></thead><tbody>
-    ${[[tx("1 mese", "1 month"), g.ch30, gx.ch30], [tx("3 mesi", "3 months"), g.ch90, gx.ch90], [tx("1 anno", "1 year"), g.ch1y, gx.ch1y]].map(([l, a, b]) => `<tr><th>${l}</th><td class="num ${a == null ? "" : a >= 0 ? "up" : "down"}">${pct(a)}</td><td class="num ${b == null ? "" : b >= 0 ? "up" : "down"}">${pct(b)}</td>${diff(a, b)}</tr>`).join("")}
+    ${[[tx("1 mese", "1 month"), g.ch30, gx.ch30], [tx("3 mesi", "3 months"), g.ch90, gx.ch90], [tx("1 anno", "1 year"), g.ch1y, gx.live ? gx.ch1y : null]]   /* D305: the index's year is rebuilt until it is live */.map(([l, a, b]) => `<tr><th>${l}</th><td class="num ${a == null ? "" : a >= 0 ? "up" : "down"}">${pct(a)}</td><td class="num ${b == null ? "" : b >= 0 ? "up" : "down"}">${pct(b)}</td>${diff(a, b)}</tr>`).join("")}
   </tbody></table>` : "";
   const q6 = `<div class="tile q"><div class="qhead"><span class="qn">?</span><h2>${tx("Come va rispetto al mercato?", "How is it doing against the market?")}</h2></div>
     ${verdict ? `<p style="font:600 19px var(--display)">${verdict}</p>` : ""}
@@ -1024,12 +1031,12 @@ function indexChart(series) {
   const dates = [...new Set(all.flatMap(([, p]) => p.map(x => x[0])))].sort(), d0 = Date.parse(dates[0]), d1 = Date.parse(dates[dates.length - 1]);
   const X = d => L + (Date.parse(d) - d0) / Math.max(1, d1 - d0) * (W - L - R), Y = v => T + (1 - (Math.log(v) - Math.log(lo)) / (Math.log(hi) - Math.log(lo))) * (H - T - B);
   const path = p => p.map((x, i) => `${i ? "L" : "M"}${X(x[0]).toFixed(1)},${Y(x[1]).toFixed(1)}`).join("");
-  const ticks = [lo * 1.02, 100, hi / 1.02].map(v => Math.round(v / 10) * 10).filter((v, i, a) => a.indexOf(v) === i);
-  const mine = all.find(([k]) => k === series)[1], last = mine[mine.length - 1];
+  const ticks = [lo * 1.02, 100, hi / 1.02].map(v => Math.round(v / 10) * 10).filter((v, i, a) => a.indexOf(v) === i).filter(v => me.live || v === 100);   /* D305 */
+  const mine = all.find(([k]) => k === series)[1], last = mine[mine.length - 1], lvl = (ix, v) => ixShown(ix, "level") ? ` <b class="num">${nf1.format(v)}</b>` : "";
   const cut = me.live || (full ? base : null);   /* D262: rebuilt (dotted) before the first sealed week, live after */
   const months = [], yearly = d1 - d0 > 730 * 864e5; { const a = new Date(d0); for (let y = a.getUTCFullYear(), m = a.getUTCMonth() + 1; Date.UTC(y, m, 1) <= d1; m++) { const d = new Date(Date.UTC(y, m, 1)); if (!yearly || d.getUTCMonth() === 0) months.push(d.toISOString().slice(0, 10)); } }
   const others = all.filter(([k]) => k !== series).map(([k, p]) => ({k, p}));
-  return `<svg viewBox="0 0 ${W} ${H}" class="ixchart" role="img" aria-label="${tx(`Indice ${ixName(series)} da ${dateF(t0)}: ${nf1.format(last[1])}`, `${ser(series)} index since ${dateF(t0)}: ${nf1.format(last[1])}`)}">
+  return `<svg viewBox="0 0 ${W} ${H}" class="ixchart" role="img" aria-label="${tx(`Indice ${ixName(series)} da ${dateF(t0)}`, `${ser(series)} index since ${dateF(t0)}`)}">
     ${months.filter(m => Date.parse(m) >= d0).map(m => `<line x1="${X(m)}" x2="${X(m)}" y1="${T}" y2="${H - B}" class="grid"/><text x="${X(m)}" y="${H - 10}" class="ax" text-anchor="middle">${yearly ? m.slice(0, 4) : new Date(m).toLocaleDateString(LOC, {month: "short", timeZone: "UTC"})}</text>`).join("")}
     ${ticks.map(v => `<text x="${L - 8}" y="${Y(v) + 4}" class="ax" text-anchor="end">${v}</text>`).join("")}
     <line x1="${L}" x2="${W - R}" y1="${Y(100)}" y2="${Y(100)}" class="base"/>
@@ -1040,7 +1047,7 @@ function indexChart(series) {
     <line class="xh" x1="0" x2="0" y1="${T}" y2="${H - B}" visibility="hidden"/><circle class="xhd" r="5" visibility="hidden"/>
     <rect class="xhit" x="${L}" y="${T}" width="${W - L - R}" height="${H - T - B}" fill="transparent" data-pts='${JSON.stringify(mine.map(p => [p[0], p[1], +X(p[0]).toFixed(1), +Y(p[1]).toFixed(1)]))}' data-w="${W}"/>
   </svg><div class="ixtip" hidden></div>
-  ${others.length ? `<div class="ixlegend"><span class="me-k"><i></i>${esc(ixName(series))} <b class="num">${nf1.format(last[1])}</b></span>${others.map(o => `<a href="#indice-${encodeURIComponent(o.k)}" data-ixk="${esc(o.k)}"><i></i>${esc(ixName(o.k))} <b class="num">${nf1.format(o.p[o.p.length - 1][1])}</b></a>`).join("")}</div>` : ""}`;
+  ${others.length ? `<div class="ixlegend"><span class="me-k"><i></i>${esc(ixName(series))}${lvl(me, last[1])}</span>${others.map(o => `<a href="#indice-${encodeURIComponent(o.k)}" data-ixk="${esc(o.k)}"><i></i>${esc(ixName(o.k))}${lvl(IX[o.k], o.p[o.p.length - 1][1])}</a>`).join("")}</div>` : ""}`;
 }
 /* D126: one index, explained in two lines, with the cards it is made of */
 function viewIndex(key) {
@@ -1054,7 +1061,8 @@ function viewIndex(key) {
   const base = ix ? ix.base || D.index_base : null;
   const scope = kind === "generale" ? tx("di tutto il catalogo inglese", "of the whole English catalogue") : kind === "set" ? tx(`del set ${name}`, `of the ${name} set`) : key === "Giappone" ? tx("delle stampe giapponesi", "of the Japanese printings") : tx(`dell'era ${name}`, `of the ${name} era`);
   const R = ix ? ix.returns || {} : {};
-  const retCell = (k, l) => `<div class="fact"><span>${l}</span><b class="${R[k] == null ? "" : R[k] >= 0 ? "up" : "down"}">${pct(R[k])}</b></div>`;
+  const retCell = (k, l) => ixShown(ix, k) ? `<div class="fact"><span>${l}</span><b class="${R[k] == null ? "" : R[k] >= 0 ? "up" : "down"}">${pct(R[k])}</b></div>`
+    : `<div class="fact" title="${tx("Tratto ricostruito: lo mostreremo quando l'indice sarà dal vivo.", "Rebuilt stretch: shown once the index is live.")}"><span>${l}</span><b>${tx("ricostruito", "rebuilt")}</b></div>`;
   const up = comps.filter(x => (x.contrib || 0) > 0), dn = comps.filter(x => (x.contrib || 0) < 0);
   const sum = comps.reduce((t, x) => t + (x.contrib || 0), 0);
   const story = ix && comps.length > 1 ? tx(`Nelle ultime 4 settimane le voci del paniere si sono mosse in media del ${pct(Math.exp(sum) - 1)}.${up.length ? ` Ha spinto di più ${up[0].c.name} PSA ${up[0].grade} (${pct(up[0].ch4)}).` : ""}${dn.length ? ` Ha frenato di più ${dn[0].c.name} PSA ${dn[0].grade} (${pct(dn[0].ch4)}).` : ""}`,
@@ -1069,8 +1077,8 @@ function viewIndex(key) {
   const others = [["tutto", D.index_all], ...Object.entries(D.indexes || {}), ...Object.entries(D.index_sets || {}).map(([k, v]) => ["set:" + k, v])].filter(([k, v]) => v && k !== key);
   return `<div class="wrap"><section class="sec" style="padding-top:36px">
     <div class="sechead"><div><span class="label"><a href="#mercato">${tx("Indici", "Indices")}</a> · ${kind === "generale" ? tx("tutto il mercato che seguiamo", "the whole market we follow") : kind === "set" ? tx("set", "set") : tx("era", "era")}</span>
-      <h2>${tx("Indice", "Index")} ${esc(name)}${ix ? ` · ${nf1.format(last)}` : ""}</h2>
-      <p class="muted" style="max-width:66ch;margin-top:8px">${ix ? tx(`Un numero solo per il valore ${scope}: segue le ${comps.length} combinazioni carta e voto più vendute, tutte con lo stesso peso. Vale 100 il ${dateF(base)}: a 130 vuol dire +30% da allora.`, `One number for the value ${scope}: it tracks the ${comps.length} card and grade pairs sold most, all with the same weight. It is 100 on ${dateF(base)}: 130 means +30% since then.`)
+      <h2>${tx("Indice", "Index")} ${esc(name)}${ix && ixShown(ix, "level") ? ` · ${nf1.format(last)}` : ""}</h2>
+      <p class="muted" style="max-width:66ch;margin-top:8px">${ix ? tx(`Un numero solo per il valore ${scope}: segue le ${comps.length} combinazioni carta e voto più vendute, tutte con lo stesso peso. ${ix.live ? `Vale 100 il ${dateF(base)}: a 130 vuol dire +30% da allora.` : "Finché l'indice non è dal vivo mostriamo in cifre solo i movimenti fino a 3 mesi: il tratto più vecchio è ricostruito con le carte di oggi e sale più del mercato vero."}`, `One number for the value ${scope}: it tracks the ${comps.length} card and grade pairs sold most, all with the same weight. ${ix.live ? `It is 100 on ${dateF(base)}: 130 means +30% since then.` : "Until the index is live we only show moves of up to 3 months as numbers: the older stretch is rebuilt with today's cards and rises more than the real market."}`)
         : tx(`Per un indice servono almeno sei mesi di vendite: ${name} ancora non li ha.`, `An index needs at least six months of sales: ${name} does not have them yet.`)}</p>
       ${story ? `<p style="max-width:66ch;margin-top:8px;font:600 19px var(--display)">${story}</p>` : ""}
       ${key === "Scarlatto e Violetto" ? `<p class="note" style="max-width:66ch;margin-top:8px">${tx("<b>Indice delle nuove uscite</b>: carte ancora in stampa, che di solito calano nei mesi dopo l'uscita. Non si confronta alla pari con le ere chiuse.", "<b>New-release index</b>: cards still in print, which usually fall in the months after release. Not a like-for-like comparison with closed eras.")}</p>` : ""}
@@ -1079,7 +1087,7 @@ function viewIndex(key) {
         : tx(" Tutta la linea è <b>ricostruita</b> oggi con le vendite passate e con le carte che seguiamo oggi: tende a salire più del mercato vero, perché dentro ci sono le carte che oggi sappiamo importanti. Stiamo ancora aggiungendo le carte principali: quando ci saranno tutte l'indice diventerà <b>dal vivo</b>, e da quel giorno ogni variazione settimanale si sigillerà e non si riscriverà più.", " The whole line is <b>rebuilt</b> today from past sales and with the cards we follow today: it tends to rise more than the real market, because it holds the cards we now know mattered. We are still adding the main cards: once they are all in, the index goes <b>live</b>, and from that day each weekly change is sealed and never rewritten.")}</p></div>
     <div class="facts ixret">${retCell("w1", tx("1 settimana", "1 week"))}${retCell("w4", tx("1 mese", "1 month"))}${ix.margin4 != null ? `<div class="fact" title="${tx("Quanto è sicuro il rendimento a 1 mese: con voci che si muovono in modo diverso o con poche voci il margine si allarga. Un rendimento più piccolo del margine non si distingue da zero.", "How sure the 1-month return is: items moving differently, or few items, widen the margin. A return smaller than the margin cannot be told from zero.")}"><span>${tx("Margine a 1 mese", "1-month margin")}</span><b>±${nf1.format(ix.margin4 * 100)} pt</b></div>` : ""}${retCell("w13", tx("3 mesi", "3 months"))}${retCell("w26", tx("6 mesi", "6 months"))}${retCell("ytd", tx("Da inizio anno", "Year to date"))}${retCell("w52", tx("1 anno", "1 year"))}
       <div class="fact" title="${tx("Quanto oscilla di settimana in settimana, riportato a un anno: più è alto, più l'indice va su e giù.", "How much it swings week to week, scaled to a year: the higher, the bumpier.")}"><span>${tx("Volatilità annua", "Annual volatility")}</span><b>${ix.vol != null ? nf1.format(ix.vol * 100) + "%" : "—"}</b></div>
-      <div class="fact" title="${ix.mdd ? tx(`Dal massimo del ${dateF(ix.mdd.peak)} al minimo del ${dateF(ix.mdd.at)}`, `From the high of ${dateF(ix.mdd.peak)} to the low of ${dateF(ix.mdd.at)}`) : ""}"><span>${tx("Calo massimo dal picco", "Maximum drawdown")}</span><b class="down">${ix.mdd ? pct(ix.mdd.value) : "—"}</b></div></div>
+      <div class="fact" title="${ix.mdd ? tx(`Dal massimo del ${dateF(ix.mdd.peak)} al minimo del ${dateF(ix.mdd.at)}`, `From the high of ${dateF(ix.mdd.peak)} to the low of ${dateF(ix.mdd.at)}`) : ""}"><span>${tx("Calo massimo dal picco", "Maximum drawdown")}</span><b class="down">${ix.mdd && ix.live && ix.mdd.peak >= ix.live ? pct(ix.mdd.value) : "—"}</b></div></div>
     ${kind === "era" && (D.indexes_grade || {})[key] ? `<h3 style="margin:26px 0 6px">${tx("Per voto", "By grade")}</h3><div class="tile" style="padding:18px">${gradeIxChart(key, true)}${gradeIxTable(key)}<p class="note"><a href="#indici-voto">${tx("Tutti gli indici per voto →", "All grade indices →")}</a></p></div>` : ""}
     <h3 style="margin:26px 0 6px">${tx("Componenti", "Components")}</h3>
     <p class="note" style="max-width:70ch">${tx("Contributo = quanto la voce ha spostato l'indice nelle ultime 4 settimane, in punti percentuali: la sua variazione divisa per il numero di voci.", "Contribution = how much the item moved the index in the last 4 weeks, in percentage points: its change divided by the number of items.")}</p>
@@ -1098,7 +1106,7 @@ function viewIndex(key) {
         <li>${tx(`<b>Base.</b> 100 il ${dateF(base)}. Si pubblica dopo almeno 26 settimane di dati.`, `<b>Base.</b> 100 on ${dateF(base)}. Published after at least 26 weeks of data.`)}</li>
         <li>${tx("<b>Cosa non lo muove.</b> I nuovi slab gradati e l'ingresso di nuove carte nel catalogo: conta solo il prezzo delle stesse voci da una settimana all'altra.", "<b>What does not move it.</b> Newly graded slabs and new cards joining the catalogue: only the price of the same items from one week to the next counts.")}</li>
       </ol><p class="note" style="margin-top:10px">${tx('Dettagli e prove nel <a href="#metodo">metodo</a>.', 'Details and tests in the <a href="#metodo">method</a>.')}</p></details>` : `<div class="reqlist" style="margin-top:14px">${own.map(c => `<a class="tile reqrow" href="#c-${c.id}" style="text-decoration:none;color:inherit"><b>${esc(c.name)}</b><span class="num">${usdV(gradeOf(c, 10))}</span></a>`).join("")}</div>`}
-    ${others.length ? `<h3 style="margin:26px 0 10px">${tx("Gli altri indici", "The other indices")}</h3><div class="chips">${others.map(([k, v]) => `<a class="chip" href="#indice-${encodeURIComponent(k)}" style="text-decoration:none">${esc(ixName(k))} · ${nf1.format(v.points[v.points.length - 1][1])} <span class="${v.ch30 >= 0 ? "up" : "down"}">${pct(v.ch30)}</span></a>`).join("")}</div>` : ""}
+    ${others.length ? `<h3 style="margin:26px 0 10px">${tx("Gli altri indici", "The other indices")}</h3><div class="chips">${others.map(([k, v]) => `<a class="chip" href="#indice-${encodeURIComponent(k)}" style="text-decoration:none">${esc(ixName(k))}${ixShown(v, "level") ? ` · ${nf1.format(v.points[v.points.length - 1][1])}` : ""} <span class="${v.ch30 >= 0 ? "up" : "down"}">${pct(v.ch30)}</span></a>`).join("")}</div>` : ""}
   </section></div>`;
 }
 /* the stories are written here from the engine's numbers, in the page's language */
@@ -1610,16 +1618,16 @@ function gradeIxChart(era, small) {
   const years = []; for (let y = new Date(d0).getUTCFullYear() + 1; Date.UTC(y, 0, 1) <= d1; y++) years.push(`${y}-01-01`);
   return `<svg viewBox="0 0 ${W} ${H}" class="ixchart gix" role="img" aria-label="${tx(`Indici per voto, ${ser(era)}`, `Grade indices, ${ser(era)}`)}">
     ${years.map(m => `<line x1="${X(m)}" x2="${X(m)}" y1="${T}" y2="${H - B}" class="grid"/><text x="${X(m)}" y="${H - 9}" class="ax" text-anchor="middle">${m.slice(0, 4)}</text>`).join("")}
-    ${[lo * 1.02, 100, hi / 1.02].map(v => Math.round(v / 10) * 10).filter((v, i, a) => a.indexOf(v) === i).map(v => `<text x="${L - 8}" y="${Y(v) + 4}" class="ax" text-anchor="end">${v}</text>`).join("")}
+    ${[lo * 1.02, 100, hi / 1.02].map(v => Math.round(v / 10) * 10).filter((v, i, a) => a.indexOf(v) === i).filter(v => v === 100 || GIX.every(g => !row[g] || ixShown(row[g], "level"))).map(v => `<text x="${L - 8}" y="${Y(v) + 4}" class="ax" text-anchor="end">${v}</text>`).join("")}
     <line x1="${L}" x2="${W - R}" y1="${Y(100)}" y2="${Y(100)}" class="base"/>
-    ${lines.map(([g, p]) => `<path d="${path(p)}" class="gl gl${g}"><title>PSA ${g}: ${nf1.format(p[p.length - 1][1])}</title></path>`).join("")}
-  </svg><div class="ixlegend">${lines.map(([g, p]) => `<span class="gk gk${g}"><i></i>PSA ${g} <b class="num">${nf1.format(p[p.length - 1][1])}</b></span>`).join("")}</div>`;
+    ${lines.map(([g, p]) => `<path d="${path(p)}" class="gl gl${g}"><title>PSA ${g}</title></path>`).join("")}
+  </svg><div class="ixlegend">${lines.map(([g, p]) => `<span class="gk gk${g}"><i></i>PSA ${g}${ixShown(row[g], "level") ? ` <b class="num">${nf1.format(p[p.length - 1][1])}</b>` : ""}</span>`).join("")}</div>`;
 }
 function gradeIxTable(era) {
   const row = (D.indexes_grade || {})[era] || {};
   const cell = v => `<td class="num ${v == null ? "" : v >= 0 ? "up" : "down"}">${pct(v)}</td>`;
   return `<table class="gixt"><thead><tr><th></th><th>${tx("1 mese", "1 month")}</th><th>${tx("3 mesi", "3 months")}</th><th>${tx("1 anno", "1 year")}</th><th>${tx("Voci", "Items")}</th></tr></thead><tbody>
-    ${GIX.filter(g => row[g]).map(g => { const r = row[g].returns || {}; return `<tr><th><span class="gk gk${g}"><i></i>PSA ${g}</span></th>${cell(r.w4)}${cell(r.w13)}${cell(r.w52)}<td class="num">${row[g].seats}</td></tr>`; }).join("")}
+    ${GIX.filter(g => row[g]).map(g => { const r = row[g].returns || {}; return `<tr><th><span class="gk gk${g}"><i></i>PSA ${g}</span></th>${cell(r.w4)}${cell(r.w13)}${ixShown(row[g], "w52") ? cell(r.w52) : `<td class="num">${tx("ricostruito", "rebuilt")}</td>`}<td class="num">${row[g].seats}</td></tr>`; }).join("")}
   </tbody></table>`;
 }
 function viewGradeIx() {
