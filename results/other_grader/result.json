@@ -1,0 +1,260 @@
+{
+ "n_off": 1371585,
+ "n_on": 1371444,
+ "removed": 141,
+ "share": 0.000103,
+ "G2": true,
+ "below_threshold": [],
+ "G3": true,
+ "by_company": {
+  "TAG": 105,
+  "BECKETT": 2,
+  "ACE": 27,
+  "AGS": 1,
+  "ARS": 5,
+  "HGA": 1
+ },
+ "to_read": [
+  {
+   "card": "swsh7-194",
+   "grade": 9,
+   "venue": "ebay",
+   "date": "2025-11-01"
+  },
+  {
+   "card": "swshp-SWSH050",
+   "grade": 9,
+   "venue": "ebay",
+   "date": "2025-08-12"
+  },
+  {
+   "card": "sv02-211",
+   "grade": 9,
+   "venue": "ebay",
+   "date": "2025-04-11"
+  },
+  {
+   "card": "sv05-177",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2025-09-06"
+  },
+  {
+   "card": "svp-053",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2025-08-26"
+  },
+  {
+   "card": "sv10.5b-171",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2026-02-05"
+  },
+  {
+   "card": "sv05-177",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2025-09-05"
+  },
+  {
+   "card": "swsh7-212",
+   "grade": 9,
+   "venue": "ebay",
+   "date": "2024-03-11"
+  },
+  {
+   "card": "svp-208",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2025-09-18"
+  },
+  {
+   "card": "swsh7-205",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2025-12-31"
+  },
+  {
+   "card": "svp-053",
+   "grade": 9,
+   "venue": "ebay",
+   "date": "2026-02-04"
+  },
+  {
+   "card": "swsh12.5-160",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2025-09-11"
+  },
+  {
+   "card": "swsh7-194",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2022-09-20"
+  },
+  {
+   "card": "sv05-193",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2024-08-07"
+  },
+  {
+   "card": "svp-208",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2025-09-17"
+  },
+  {
+   "card": "swsh7-194",
+   "grade": 9,
+   "venue": "ebay",
+   "date": "2025-09-04"
+  },
+  {
+   "card": "ja:expansion-pack-6",
+   "grade": 9,
+   "venue": "ebay",
+   "date": "2025-04-09"
+  },
+  {
+   "card": "ja:dark-phantasma-74",
+   "grade": 9,
+   "venue": "ebay",
+   "date": "2026-02-12"
+  },
+  {
+   "card": "swsh10.5-011",
+   "grade": 9,
+   "venue": "ebay",
+   "date": "2023-07-16"
+  },
+  {
+   "card": "sv03.5-170",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2025-07-06"
+  },
+  {
+   "card": "ja:sv-p-001",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2025-06-24"
+  },
+  {
+   "card": "sv05-177",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2025-09-06"
+  },
+  {
+   "card": "sv03.5-205",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2025-03-17"
+  },
+  {
+   "card": "sv08.5-144",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2025-11-04"
+  },
+  {
+   "card": "sv08.5-161",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2025-06-22"
+  },
+  {
+   "card": "swsh4.5sv-SV107",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2025-12-07"
+  },
+  {
+   "card": "ja:expansion-pack-26",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2025-11-09"
+  },
+  {
+   "card": "svp-208",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2025-09-14"
+  },
+  {
+   "card": "ja:dark-phantasma-73",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2023-12-08"
+  },
+  {
+   "card": "svp-053",
+   "grade": 9,
+   "venue": "ebay",
+   "date": "2026-02-08"
+  },
+  {
+   "card": "ja:m2-110",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2026-04-12"
+  },
+  {
+   "card": "svp-208",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2026-04-07"
+  },
+  {
+   "card": "swsh8-270",
+   "grade": 9,
+   "venue": "ebay",
+   "date": "2026-06-29"
+  },
+  {
+   "card": "swshp-SWSH262",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2025-07-07"
+  },
+  {
+   "card": "sv03.5-170",
+   "grade": 9,
+   "venue": "ebay",
+   "date": "2025-06-12"
+  },
+  {
+   "card": "swsh8-269",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2025-10-06"
+  },
+  {
+   "card": "swsh4.5sv-SV107",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2023-02-10"
+  },
+  {
+   "card": "ja:sv8a-205",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2025-02-12"
+  },
+  {
+   "card": "sv04.5-233",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2025-09-12"
+  },
+  {
+   "card": "swsh4-138",
+   "grade": 10,
+   "venue": "ebay",
+   "date": "2025-09-05"
+  }
+ ],
+ "note": "titoli letti a mano nella sessione del 16 novembre 2026: 39 su 40 di un altro ente o con due enti; i titoli restano solo nei dati privati (D163)"
+}

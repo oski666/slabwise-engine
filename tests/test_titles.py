@@ -30,3 +30,14 @@ def test_d187_other_languages_and_editions():
     assert match_title("Pokemon Mewtwo GX Mewtwo Shining Legends 2017 78/73 PSA 8 tedesco scintillante")[0] is None
     assert match_title("1999 POKEMON JUNGLE 1° EDIZIONE #3 FLAREON-HOLO PSA 9")[0] == "base2-3/1st"
     assert match_title("1999 Pokemon Jungle Flareon Holo 3/64 PSA 9")[0] == "base2-3"
+
+
+def test_other_grader_with_a_grade_is_out():                # D306, protocol §66
+    from slabwise.sources.auction_titles import other_grader
+    assert other_grader("GASTLY TEMPORAL FORCES #177 TAG 10 RARER THAN A PSA 10")
+    assert other_grader("Pikachu 2023 Crown Zenith #160 ACE 10 LIKE PSA 10")
+    assert other_grader("Mega Charizard X EX SAR #110/080 Japanese Inferno X – Beckett 9.5 PSA10")
+    assert other_grader("Gardevoir EX #233 ACE GEM MINT 10 (PSA 10 Equivalent)")
+    assert not other_grader("2019 POKEMON JP DREAM LEAGUE TAG TEAM SOLGALEO & LUNALA GX 020/049 PSA 10")
+    assert not other_grader('Latias & Latios GX SR[SM9 105/095](Expansion Pack "Tag Bolt")')
+    assert not other_grader("2005 POKEMON EX UNSEEN FORCES #105 LUGIA EX-HOLO PSA 10")

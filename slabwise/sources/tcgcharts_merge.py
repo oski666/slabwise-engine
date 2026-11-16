@@ -8,7 +8,8 @@ from collections import Counter
 
 import os
 
-from .auction_titles import accept_assigned, grade_from_title, match_title
+from . import auction_titles as _at
+from .auction_titles import accept_assigned, grade_from_title, match_title, other_grader
 
 ASSIGN = os.environ.get("SLABWISE_ASSIGN", "1") == "1"   # D258 (protocol §56 passed): keep the providers' card unless the title contradicts it
 
@@ -57,6 +58,9 @@ def tcgcharts_rows(tc_dir, have_ebay, have_auction=(), ja=False):
             if (s.get("grading_service") or "").upper() != "PSA" or str(s.get("grade")) != str(g) or not 7 <= g <= 10:
                 why["tcgcharts SNKRDUNK: voto non PSA 7-10"] += 1
                 continue
+            if _at.OTHER_GRADER_ON and other_grader(s.get("title")):   # D306 (protocol §66)
+                why["tcgcharts: altro ente nel titolo"] += 1
+                continue
             if not _snk_title_ok(s.get("title"), s["card"]):
                 why["tcgcharts SNKRDUNK: set o numero del titolo diversi"] += 1
                 continue
@@ -79,6 +83,9 @@ def tcgcharts_rows(tc_dir, have_ebay, have_auction=(), ja=False):
             continue
         if s.get("is_excluded") or s.get("payment_pending") or s.get("payment_held"):
             why["tcgcharts: esclusa o in attesa"] += 1
+            continue
+        if _at.OTHER_GRADER_ON and other_grader(s.get("title")):   # D306 (protocol §66)
+            why["tcgcharts: altro ente nel titolo"] += 1
             continue
         if ASSIGN:
             keep, reason = accept_assigned(s.get("title") or "", s["card"])

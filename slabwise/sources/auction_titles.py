@@ -392,6 +392,17 @@ GRADE_IN_TITLE = re.compile(
     r"\bpsa\s*(?:gem\s*-?\s*mi?n?t|gem\s*mt|mint|nm\s*-?\s*mt|nm|ex\s*-?\s*mt|ex)?\s*\+?\s*(10|[1-9](?:\.5)?)\b")
 
 
+# D306 (protocol §66): a title naming another grading company followed by a grade ("PSA 10 TAG 10", "Beckett 2.5",
+# "+ ACE 10"): a lot, or a sale where it is unclear which grade counts. "Tag Team" does not count: the grade must follow.
+OTHER_GRADER = re.compile(r"\b(?:cgc|bgs|beckett|sgc|tag|ace|lcc|ars|gma|hga|ags|cga|pca)\s*(?:grade\s*)?"
+                          r"(?:gem\s*-?\s*mi?n?t\s*|pristine\s*|mint\s*|nm\s*-?\s*mt\s*)?(?:10|[1-9](?:\.5)?)\b", re.I)
+OTHER_GRADER_ON = _os.environ.get("SLABWISE_OTHER_GRADER", "1") == "1"   # §66 passed (D306)
+
+
+def other_grader(title: str) -> bool:
+    return bool(OTHER_GRADER.search(title or ""))
+
+
 def grade_from_title(title: str):
     """PSA grade stated in an eBay title, or None if absent or ambiguous (two grades = lot)."""
     t = title.lower()
@@ -412,6 +423,9 @@ def ebay_rows(records, site="ebay.com"):
         title = r.get("title") or ""
         if re.search(r"\b(cgc|bgs|sgc|beckett|tag)\b", title.lower()):
             why["altro grader"] += 1
+            continue
+        if OTHER_GRADER_ON and other_grader(title):          # D306
+            why["altro ente nel titolo"] += 1
             continue
         grade = grade_from_title(title)
         if grade not in (7, 8, 9, 10):
