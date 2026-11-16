@@ -44,7 +44,7 @@ jobs:
     needs: gate
     if: needs.gate.outputs.go == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 150            # D227: a slow day never leaves the site without values
+    timeout-minutes: 210            # D227: a slow day never leaves the site without values; 16 Nov: a full rebuild now takes ~2.5 hours
     env:
       HAS_EBAY: ${{ secrets.EBAY_CLIENT_ID != '' }}
       HAS_CF: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
