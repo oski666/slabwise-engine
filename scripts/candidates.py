@@ -215,12 +215,16 @@ def main():
     q_p = os.path.join(DATA, "candidates_queue.json")             # D122: one queue, kept between runs
     queue = cr_load(q_p, {})
     era_map = cr_load(os.path.join(ROOT, "data", "raw", "era_map.json"), {})
+    have_ja = {c["id"] for c in cr_load(os.path.join(DATA, "cards_ja.json"), [])}
     for cid, r in queue.items():                                  # what happened since the last run
-        st = status.get(f"en:{cid}", {})
-        if cid in have:
+        st = status.get(cid if cid.startswith("ja:") else f"en:{cid}", {})    # 16 Nov: Japanese ids were looked up as en:ja:...
+        if cid in have or cid in have_ja:
             r.update(status="aggiunta", added=r.get("added") or st.get("added") or today)
         elif st.get("status") == "attesa_motore":
             r.update(status="attesa_motore", detail="i controlli del motore non tornano ancora: si riprova ogni settimana (D157)")
+        elif r.get("status") == "pronta" and st.get("status") in ("attesa_vendite", "attesa_coerenza") \
+                and st.get("checked", "") >= r.get("checked", ""):    # 16 Nov: the check at approval is newer, the queue follows it
+            r.update(status=st["status"], detail=st.get("detail", ""), checked=st["checked"])
     checks = 0
 
     def check(cid, row):
