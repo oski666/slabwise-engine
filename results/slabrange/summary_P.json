@@ -1,0 +1,130 @@
+{
+ "n_eval": 678452,
+ "from_": "2025-11-01",
+ "A": {
+  "cov": 0.8612,
+  "cov_tercile": {
+   "bassa": 0.8791,
+   "media": 0.8952,
+   "alta": 0.8094
+  },
+  "rho": 0.1588,
+  "value_inside": 1.0,
+  "cov_era": {
+   "Classica": 0.729,
+   "Di mezzo": 0.6816,
+   "Giappone": 0.823,
+   "Moderna": 0.8559,
+   "Scarlatto e Violetto": 0.913,
+   "Spada e Scudo": 0.9006,
+   "Vintage": 0.8245
+  },
+  "cov_bucket": {
+   "alta (≥26)": 0.8633,
+   "bassa (≤5)": 0.6649,
+   "media (6-25)": 0.7209
+  },
+  "width_median": 0.4646,
+  "width_p90": 0.4875
+ },
+ "Q2": {
+  "cov": 0.8044,
+  "cov_tercile": {
+   "bassa": 0.7981,
+   "media": 0.8039,
+   "alta": 0.8111
+  },
+  "rho": 0.3081,
+  "value_inside": 0.9957,
+  "cov_era": {
+   "Classica": 0.7218,
+   "Di mezzo": 0.739,
+   "Giappone": 0.8013,
+   "Moderna": 0.791,
+   "Scarlatto e Violetto": 0.8137,
+   "Spada e Scudo": 0.821,
+   "Vintage": 0.8117
+  },
+  "cov_bucket": {
+   "alta (≥26)": 0.8065,
+   "bassa (≤5)": 0.5594,
+   "media (6-25)": 0.6697
+  },
+  "width_median": 0.3695,
+  "width_p90": 0.589
+ },
+ "P": {
+  "cov": 0.7947,
+  "cov_tercile": {
+   "bassa": 0.7941,
+   "media": 0.7955,
+   "alta": 0.7945
+  },
+  "rho": 0.3047,
+  "value_inside": 0.9956,
+  "cov_era": {
+   "Classica": 0.6968,
+   "Di mezzo": 0.7083,
+   "Giappone": 0.7893,
+   "Moderna": 0.7817,
+   "Scarlatto e Violetto": 0.8096,
+   "Spada e Scudo": 0.8133,
+   "Vintage": 0.7949
+  },
+  "cov_bucket": {
+   "alta (≥26)": 0.7971,
+   "bassa (≤5)": 0.5394,
+   "media (6-25)": 0.6413
+  },
+  "width_median": 0.3615,
+  "width_p90": 0.5557
+ },
+ "P26": {
+  "cov": 0.7749,
+  "cov_tercile": {
+   "bassa": 0.7682,
+   "media": 0.7783,
+   "alta": 0.7783
+  },
+  "rho": 0.3013,
+  "value_inside": 0.9956,
+  "cov_era": {
+   "Classica": 0.6903,
+   "Di mezzo": 0.6982,
+   "Giappone": 0.7693,
+   "Moderna": 0.7541,
+   "Scarlatto e Violetto": 0.7931,
+   "Spada e Scudo": 0.7874,
+   "Vintage": 0.7806
+  },
+  "cov_bucket": {
+   "alta (≥26)": 0.7772,
+   "bassa (≤5)": 0.5305,
+   "media (6-25)": 0.6312
+  },
+  "width_median": 0.3484,
+  "width_p90": 0.5414
+ },
+ "passed": {
+  "Q2": {
+   "S1": true,
+   "S2": true,
+   "S3": true,
+   "S7": true
+  },
+  "P": {
+   "S1": true,
+   "S2": true,
+   "S3": true,
+   "S7": true
+  },
+  "P26": {
+   "S1": false,
+   "S2": true,
+   "S3": true,
+   "S7": true
+  }
+ },
+ "adopt": "P",
+ "n_cg_median": 520.0
+}
