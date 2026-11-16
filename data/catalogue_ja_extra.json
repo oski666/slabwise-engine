@@ -3004,5 +3004,17 @@
   240,
   150,
   "\\bgx\\W*ultra\\W*shiny\\b"
+ ],
+ "ja:emerald-break-61": [
+  "rayquaza ex",
+  61,
+  -1,
+  "\\bemerald\\W*break\\b"
+ ],
+ "ja:xy-promos-158": [
+  "rayquaza ex",
+  158,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
  ]
 }

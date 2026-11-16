@@ -6739,5 +6739,437 @@
    2000,
    2001
   ]
+ ],
+ "hgssp-HGSS02": [
+  "lugia",
+  "\\bpromo",
+  "hgss2",
+  [
+   2010,
+   2011
+  ]
+ ],
+ "hgss3-90": [
+  "(?:rayquaza\\s*(?:&|and)\\s*deoxys|deoxys\\s*(?:&|and)\\s*rayquaza) legend",
+  "\\bundaunted\\b",
+  90,
+  [
+   2010,
+   2011
+  ]
+ ],
+ "bw5-109": [
+  "gardevoir",
+  "\\bdark\\W*(?:(?:of|the|and)\\W*)?explorers\\b",
+  109,
+  [
+   2012,
+   2013
+  ]
+ ],
+ "dp2-7": [
+  "celebi",
+  "\\bmysterious\\W*(?:(?:of|the|and)\\W*)?treasures\\b",
+  7,
+  [
+   2007,
+   2008
+  ]
+ ],
+ "hgss1-113": [
+  "lugia legend",
+  "(?:\\bheart\\W?gold\\W*(?:(?:of|the|and)\\W*)?soul\\W?silver\\b|\\bhgss\\b)",
+  113,
+  [
+   2010,
+   2011
+  ]
+ ],
+ "xyp-XY126": [
+  "mew ex",
+  "\\bpromo",
+  "xy126",
+  [
+   2013,
+   2014
+  ]
+ ],
+ "ex8-97": [
+  "deoxys ex",
+  "\\bdeoxys\\b",
+  97,
+  [
+   2005,
+   2006
+  ]
+ ],
+ "swsh11tg-TG17": [
+  "pikachu vmax",
+  "\\blost\\W*(?:(?:of|the|and)\\W*)?origin\\W*(?:(?:of|the|and)\\W*)?trainer\\W*(?:(?:of|the|and)\\W*)?gallery\\b",
+  "tg17",
+  [
+   2022,
+   2023
+  ]
+ ],
+ "swsh12.5gg-GG41": [
+  "raikou v",
+  "\\bcrown\\W*(?:(?:of|the|and)\\W*)?zenith\\W*(?:(?:of|the|and)\\W*)?galarian\\W*(?:(?:of|the|and)\\W*)?gallery\\b",
+  "gg41",
+  [
+   2023,
+   2024
+  ]
+ ],
+ "ex14-98": [
+  "swampert ex",
+  "\\bcrystal\\W*(?:(?:of|the|and)\\W*)?guardians\\b",
+  98,
+  [
+   2006,
+   2007
+  ]
+ ],
+ "xy12-13": [
+  "m charizard ex",
+  "\\bevolutions\\b",
+  13,
+  [
+   2016,
+   2017
+  ]
+ ],
+ "smp-SM193": [
+  "(?:garchomp\\s*(?:&|and)\\s*giratina|giratina\\s*(?:&|and)\\s*garchomp) gx",
+  "\\bpromo",
+  "sm193",
+  [
+   2017,
+   2018
+  ]
+ ],
+ "ex5.5-4": [
+  "mudkip",
+  "\\bpoke\\W*(?:(?:of|the|and)\\W*)?card\\W*(?:(?:of|the|and)\\W*)?creator\\W*(?:(?:of|the|and)\\W*)?pack\\b",
+  4,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "ecard1-25": [
+  "raichu",
+  "\\bexpedition\\W*(?:(?:of|the|and)\\W*)?base\\W*(?:(?:of|the|and)\\W*)?set\\b",
+  25,
+  [
+   2002,
+   2003
+  ]
+ ],
+ "swsh12.5gg-GG35": [
+  "leafeon vstar",
+  "\\bcrown\\W*(?:(?:of|the|and)\\W*)?zenith\\W*(?:(?:of|the|and)\\W*)?galarian\\W*(?:(?:of|the|and)\\W*)?gallery\\b",
+  "gg35",
+  [
+   2023,
+   2024
+  ]
+ ],
+ "swsh12.5gg-GG50": [
+  "darkrai vstar",
+  "\\bcrown\\W*(?:(?:of|the|and)\\W*)?zenith\\W*(?:(?:of|the|and)\\W*)?galarian\\W*(?:(?:of|the|and)\\W*)?gallery\\b",
+  "gg50",
+  [
+   2023,
+   2024
+  ]
+ ],
+ "sm115-69": [
+  "(?:moltres\\s*(?:&|and)\\s*zapdos \\& articuno|zapdos \\& articuno\\s*(?:&|and)\\s*moltres) gx",
+  "\\bhidden\\W*(?:(?:of|the|and)\\W*)?fates\\b",
+  69,
+  [
+   2019,
+   2020
+  ]
+ ],
+ "swsh9tg-TG16": [
+  "mimikyu v",
+  "\\bbrilliant\\W*(?:(?:of|the|and)\\W*)?stars\\W*(?:(?:of|the|and)\\W*)?trainer\\W*(?:(?:of|the|and)\\W*)?gallery\\b",
+  "tg16",
+  [
+   2022,
+   2023
+  ]
+ ],
+ "xyp-XY166": [
+  "m gengar\\-ex",
+  "\\bpromo",
+  "xy166",
+  [
+   2013,
+   2014
+  ]
+ ],
+ "sm10-201": [
+  "(?:greninja\\s*(?:&|and)\\s*zoroark|zoroark\\s*(?:&|and)\\s*greninja) gx",
+  "\\bunbroken\\W*(?:(?:of|the|and)\\W*)?bonds\\b",
+  201,
+  [
+   2019,
+   2020
+  ]
+ ],
+ "bw5-106": [
+  "groudon\\-ex",
+  "\\bdark\\W*(?:(?:of|the|and)\\W*)?explorers\\b",
+  106,
+  [
+   2012,
+   2013
+  ]
+ ],
+ "bw10-99": [
+  "dialga\\-ex",
+  "\\bplasma\\W*(?:(?:of|the|and)\\W*)?blast\\b",
+  99,
+  [
+   2013,
+   2014
+  ]
+ ],
+ "ex14-94": [
+  "jirachi ex",
+  "\\bcrystal\\W*(?:(?:of|the|and)\\W*)?guardians\\b",
+  94,
+  [
+   2006,
+   2007
+  ]
+ ],
+ "sm115-44": [
+  "(?:moltres\\s*(?:&|and)\\s*zapdos \\& articuno|zapdos \\& articuno\\s*(?:&|and)\\s*moltres) gx",
+  "\\bhidden\\W*(?:(?:of|the|and)\\W*)?fates\\b",
+  44,
+  [
+   2019,
+   2020
+  ]
+ ],
+ "ex7-106": [
+  "rocket's zapdos ex",
+  "\\bteam\\W*(?:(?:of|the|and)\\W*)?rocket\\W*(?:(?:of|the|and)\\W*)?returns\\b",
+  106,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "xyp-XY143": [
+  "magikarp",
+  "\\bpromo",
+  "xy143",
+  [
+   2013,
+   2014
+  ]
+ ],
+ "sma-SV76": [
+  "sylveon\\-gx",
+  "\\bhidden\\W*(?:(?:of|the|and)\\W*)?fates\\W*(?:(?:of|the|and)\\W*)?shiny\\W*(?:(?:of|the|and)\\W*)?vault\\b",
+  "sv76",
+  [
+   2019,
+   2020
+  ]
+ ],
+ "smp-SM211": [
+  "charizard gx",
+  "\\bpromo",
+  "sm211",
+  [
+   2017,
+   2018
+  ]
+ ],
+ "xyp-XY123": [
+  "venusaur ex",
+  "\\bpromo",
+  "xy123",
+  [
+   2013,
+   2014
+  ]
+ ],
+ "swsh12.5gg-GG45": [
+  "deoxys vmax",
+  "\\bcrown\\W*(?:(?:of|the|and)\\W*)?zenith\\W*(?:(?:of|the|and)\\W*)?galarian\\W*(?:(?:of|the|and)\\W*)?gallery\\b",
+  "gg45",
+  [
+   2023,
+   2024
+  ]
+ ],
+ "bw10-98": [
+  "jirachi\\-ex",
+  "\\bplasma\\W*(?:(?:of|the|and)\\W*)?blast\\b",
+  98,
+  [
+   2013,
+   2014
+  ]
+ ],
+ "ecard3-H25": [
+  "raichu",
+  "\\bskyridge\\b",
+  "h25",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "bw11-115": [
+  "zekrom",
+  "\\blegendary\\W*(?:(?:of|the|and)\\W*)?treasures\\b",
+  115,
+  [
+   2013,
+   2014
+  ]
+ ],
+ "basep-40": [
+  "pok[eé]mon center",
+  "\\bpromo",
+  40,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "bw5-107": [
+  "darkrai\\-ex",
+  "\\bdark\\W*(?:(?:of|the|and)\\W*)?explorers\\b",
+  107,
+  [
+   2012,
+   2013
+  ]
+ ],
+ "ecard1-23": [
+  "pidgeot",
+  "\\bexpedition\\W*(?:(?:of|the|and)\\W*)?base\\W*(?:(?:of|the|and)\\W*)?set\\b",
+  23,
+  [
+   2002,
+   2003
+  ]
+ ],
+ "xy1-141": [
+  "venusaur ex",
+  "\\bxy\\b",
+  141,
+  [
+   2014,
+   2015
+  ]
+ ],
+ "bw11-93": [
+  "rayquaza",
+  "\\blegendary\\W*(?:(?:of|the|and)\\W*)?treasures\\b",
+  93,
+  [
+   2013,
+   2014
+  ]
+ ],
+ "xy12-22": [
+  "m blastoise ex",
+  "\\bevolutions\\b",
+  22,
+  [
+   2016,
+   2017
+  ]
+ ],
+ "cel25-7": [
+  "flying pikachu vmax",
+  "\\bcelebrations\\b",
+  7,
+  [
+   2021,
+   2022
+  ]
+ ],
+ "dp6-141": [
+  "gliscor",
+  "\\blegends\\W*(?:(?:of|the|and)\\W*)?awakened\\b",
+  141,
+  [
+   2008,
+   2009
+  ]
+ ],
+ "bw11-RC21": [
+  "shaymin\\-ex",
+  "\\blegendary\\W*(?:(?:of|the|and)\\W*)?treasures\\b",
+  "rc21",
+  [
+   2013,
+   2014
+  ]
+ ],
+ "sv10-203": [
+  "team rocket's meowth",
+  "\\bdestined\\W*(?:(?:of|the|and)\\W*)?rivals\\b",
+  203,
+  [
+   2025,
+   2026
+  ]
+ ],
+ "pl4-94": [
+  "arceus lv\\.x",
+  "\\barceus\\b",
+  94,
+  [
+   2009,
+   2010
+  ]
+ ],
+ "sv07-170": [
+  "terapagos ex",
+  "\\bstellar\\W*(?:(?:of|the|and)\\W*)?crown\\b",
+  170,
+  [
+   2024,
+   2025
+  ]
+ ],
+ "ecard2-H13": [
+  "jumpluff",
+  "\\baquapolis\\b",
+  "h13",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "ecard1-17": [
+  "magby",
+  "\\bexpedition\\W*(?:(?:of|the|and)\\W*)?base\\W*(?:(?:of|the|and)\\W*)?set\\b",
+  17,
+  [
+   2002,
+   2003
+  ]
+ ],
+ "sm9-162": [
+  "(?:pikachu\\s*(?:&|and)\\s*zekrom|zekrom\\s*(?:&|and)\\s*pikachu) gx",
+  "\\bteam\\W*(?:(?:of|the|and)\\W*)?up\\b",
+  162,
+  [
+   2019,
+   2020
+  ]
  ]
 }
