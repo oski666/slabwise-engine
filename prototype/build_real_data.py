@@ -365,18 +365,36 @@ VARIANT_NAME = {"1st": "1st Edition", "shadowless": "Shadowless", "1st-shadowles
                 "1st-yellow": "1st Edition, Yellow Cheeks", "shadowless-red": "Shadowless, Red Cheeks", "shadowless-yellow": "Shadowless, Yellow Cheeks"}
 variants = [dict(_by_id[v.split("/")[0]], id=v, n=f'{_by_id[v.split("/")[0]]["n"]} ({VARIANT_NAME.get(v.split("/")[1], v.split("/")[1])})', variant=v.split("/")[1])
             for v in cards if "/" in v and v.split("/")[0] in _by_id]
-# D295 (§61b, variant Q2): the SlabRange = where 8 sales in 10 of the card x grade landed, against the value of the week
+# D295 (§61b, variant Q2), D308 (§65, variant P: only sales with genuine probability >= 0.5): the SlabRange = where 8
+# sales in 10 of the card x grade landed, against the value of the week
 # before (venue gap included): 10th and 90th percentile of those errors over the last 52 weeks, mixed with the same of its
 # site era x grade band as (n q_card + 10 q_group) / (n + 10). Old fallback (D224) when the group has no errors.
 SR_TIE = 10.0
 _SR = {}
 try:
-    _cl = clean.loc[(clean["week"] >= max(W - 52, 1)) & (clean["week"] < W), ["card", "grade", "week", "price", "venue"]]
+    _cl = clean.loc[(clean["week"] >= max(W - 52, 1)) & (clean["week"] < W), ["card", "grade", "week", "price", "venue", "day"]]
     _gi = np.array([GRADES.index(int(g)) for g in _cl["grade"]])
     _vx = np.where(_cl["venue"].to_numpy() == "auction", 1, np.where(_cl["venue"].to_numpy() == "fixed", 2, 0))
     _cc, _ww = _cl["card"].to_numpy().astype(int), _cl["week"].to_numpy().astype(int)
     _err = np.log(_cl["price"].to_numpy()) - (est[_ww - 1, _cc, _gi] + np.asarray(lvm.offs)[_vx])
     _ok = np.isfinite(_err)
+    # D308 (§65, variant P): only the sales the engine believes genuine (probability >= 0.5) count in the percentiles
+    from collections import Counter as _Ctr
+    _low = _Ctr()
+    for _i, _f in enumerate(lvm.fit):
+        if _f is None:
+            continue
+        for _o, _p in zip(lvm.obs[_i], _f["pgen"]):
+            if _p < 0.5:
+                _low[(_i, int(_o["g"]), round(float(_o["t"]) * 7, 2), round(float(_o["y"]), 6))] += 1
+    _keep = np.ones(len(_cl), dtype=bool)
+    for _r, _k in enumerate(zip(_cc, _gi, _cl["day"].to_numpy(), np.round(np.log(_cl["price"].to_numpy()), 6))):
+        _k = (int(_k[0]), int(_k[1]), round(float(_k[2]), 2), float(_k[3]))
+        if _low[_k] > 0:
+            _low[_k] -= 1
+            _keep[_r] = False
+    print(f"D308: SlabRange senza {int((~_keep).sum())} vendite non credibili", flush=True)
+    _ok = _ok & _keep
     _grp = np.array(["Giappone" if cards[k].startswith("ja:") else series_of(cards[k].split("/")[0]) for k in _cc], dtype=object)
     _band = np.minimum(_gi, 2)
     _ef = pd.DataFrame(dict(c=_cc[_ok], gi=_gi[_ok], grp=_grp[_ok], band=_band[_ok], e=_err[_ok]))
