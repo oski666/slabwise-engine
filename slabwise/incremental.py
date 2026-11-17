@@ -1,15 +1,18 @@
 """§60 (D270): add cards without a rebuild. The saved engine state of a full rebuild is moved onto the new catalogue:
 the cards already there keep everything they had; the new ones start empty and are marked as satellites (they follow
 the era factors and the shared parameters and never move them, so the old cards' values do not change).
+§68 (D322, variant H): cards that received a long history (old sales) are treated like new ones: they keep their place
+in the index baskets and their past index levels, but their model state starts empty and is refitted as a satellite.
 """
 from __future__ import annotations
 
 import numpy as np
 
 
-def transplant_model(old, fresh, cards_old, cards_new):
+def transplant_model(old, fresh, cards_old, cards_new, redo=()):
     """Engine state of `old` (catalogue cards_old) moved onto `fresh` (built for cards_new, with its era, parents and
-    populations). Returns the model and the boolean satellite mask (True for the new cards)."""
+    populations). Returns the model and the boolean satellite mask (True for the new cards and, §68, for the cards of
+    `redo`, whose state is dropped so that they are refitted from all their sales)."""
     pos = {c: i for i, c in enumerate(cards_new)}
     o2n = np.array([pos[c] for c in cards_old])
     n = len(cards_new)
@@ -38,6 +41,15 @@ def transplant_model(old, fresh, cards_old, cards_new):
         m.pops = pops
     sat = np.ones(n, bool)
     sat[o2n] = False
+    for c in redo:                                         # §68: start again from nothing, like a new card
+        i = pos.get(c)
+        if i is None or sat[i]:
+            continue
+        m.obs[i], m.fit[i], m.jumps[i], m.gjumps[i] = [], None, [], []
+        m._qs[i] = m._qw[i] = 0.0
+        m._step_last.pop(i, None)
+        m._gap_last.pop(i, None)
+        sat[i] = True
     m.satellite = sat
     return m, sat, o2n
 

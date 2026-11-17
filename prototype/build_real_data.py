@@ -178,7 +178,9 @@ if CKPT:
             try:
                 from slabwise.incremental import transplant_index, transplant_model, transplant_series
                 lvm_, eidx_, aidx_, sidx_, e_, s_, gidx_ = _incr_pre[2]
-                lvm, _sat, _o2n = transplant_model(lvm_, lvm, _meta["cards"], cards)
+                _redo = set(json.load(open(os.environ["SLABWISE_REHIST"]))) if os.environ.get("SLABWISE_REHIST") else set()   # §68 (D322)
+                _redo &= set(_meta["cards"])
+                lvm, _sat, _o2n = transplant_model(lvm_, lvm, _meta["cards"], cards, redo=_redo)
                 eidx = transplant_index(eidx_, eidx, _o2n, _meta["series_names"], series_names)
                 aidx = transplant_index(aidx_, aidx, _o2n)
                 sidx = transplant_index(sidx_, sidx, _o2n, _meta["set_names"], set_names)
@@ -186,6 +188,9 @@ if CKPT:
                 est = transplant_series(e_, _o2n, len(cards), W)
                 sd = transplant_series(s_, _o2n, len(cards), W)
                 _new = np.flatnonzero(_sat)
+                for _c in (cards.index(c_) for c_ in _redo):    # §68: the old weeks of a refitted card are recomputed
+                    est[:, _c] = np.nan
+                    sd[:, _c] = np.nan
                 _past = clean[clean["card"].isin(set(_new.tolist())) & (clean["week"] <= _ws)]
                 for _c, _gc in _past.groupby("card"):
                     _byw = {w_: g_ for w_, g_ in _gc.groupby("week")}
@@ -194,10 +199,16 @@ if CKPT:
                             lvm.add_satellite_week(int(_c), w_, _byw[w_])
                         if lvm.fit[int(_c)] is not None:
                             est[w_, int(_c)], sd[w_, int(_c)] = lvm.estimate_card(int(_c), w_)
+                for _ix in [eidx, aidx, sidx, *gidx.values()]:   # §68: the next week's change starts from the refitted value
+                    if _ix.prev is not None:
+                        for _c in (cards.index(c_) for c_ in _redo):
+                            _ix.prev[_c] = est[_ws, _c]
                 w0 = _ws + 1
                 _save_off = True
-                print(f"§60: {len(_new)} carte nuove aggiunte allo stato della settimana {_ws} di {W}, "
+                print(f"§60: {len(_new) - len(_redo)} carte nuove aggiunte allo stato della settimana {_ws} di {W}, "
                       f"senza ricostruire le altre {len(_o2n)}", flush=True)
+                if _redo:
+                    print(f"§68: {len(_redo)} carte con storico nuovo ricalcolate dall'inizio, le altre ferme", flush=True)
             except Exception as ex:                     # anything wrong: the full rebuild, as before
                 print("§60: aggiunta incrementale non riuscita, calcolo completo:", ex, flush=True)
                 os.environ["SLABWISE_INCREMENTAL"] = "0"
