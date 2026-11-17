@@ -1,11 +1,11 @@
 # Slabwise · Stato del progetto
 
-**Aggiornato il 17 novembre 2026, mattina** (punti 1–4 della revisione del 16 novembre: D303–D306). Fotografia per chi riprende il lavoro (una chat nuova, o Oscar). Non sostituisce le regole: prima di toccare qualcosa leggi `CLAUDE.md` e `docs/PILLARS.md`; le scelte stanno in `docs/DECISIONS.md` (ultima voce D317), il metodo in `docs/METHOD.md`, le prove in `docs/BACKTEST_PROTOCOL.md`, le fonti in `docs/DATA_SOURCES.md`.
+**Aggiornato il 17 novembre 2026, sera** (D318–D325). Fotografia per chi riprende il lavoro (una chat nuova, o Oscar). Non sostituisce le regole: prima di toccare qualcosa leggi `CLAUDE.md` e `docs/PILLARS.md`; le scelte stanno in `docs/DECISIONS.md` (ultima voce D325), il metodo in `docs/METHOD.md`, le prove in `docs/BACKTEST_PROTOCOL.md`, le fonti in `docs/DATA_SOURCES.md`.
 
 ## In breve
 
 - **Sito**: slabwise.pages.dev, in sviluppo; Oscar lo usa come anteprima di quello che vedrà il pubblico. Nessuna anteprima separata (l'anteprima `giappone` è stata eliminata, D290).
-- **Catalogo**: 820 carte inglesi e 559 stampe giapponesi (16 novembre).
+- **Catalogo**: 1.450 carte sul sito il 17 novembre sera, comprese 101 stampe 1st Edition e Shadowless (D320).
 - **Motore**: v1.20 (D210), con il ricalcolo veloce del §60 tutti i giorni tranne il 1° del mese (D286); ricostruzione completa a mano con l'opzione `full` del workflow Sito.
 - **Repository**: `oski666/slabwise-engine` (pubblico, codice e sito) e `oski666/slabwise-data` (privato: dati grezzi, D163). Le Actions del repository privato sono bloccate dalla fatturazione: tutto gira nelle Actions del repository pubblico, che legge e scrive i dati privati con il segreto `DATA_TOKEN`.
 - **Proprietario**: Oscar. Si scrive in italiano.
@@ -35,6 +35,12 @@
 | Tempi dei lavori | Nessun lavoro scade in silenzio: tempo proprio per Controllo e ingresso carte, Occasioni in una coda sua, ricostruzione completa chiedibile con `prototype/data/full_rebuild`, avviso sul motore oltre 140 minuti. Solo Occasioni cerca su eBay | D314, D315 |
 | Slabvalve e creator | Slabvalve con tutte le vendite registrate (D316; annunci ancora solo eBay, SNKRDUNK da aggiungere). Studio creator unito al sito con il bollino Master Ball, solo con codice invito (D317) | D316, D317 |
 | Regole aggiornate | Documento "Slabwise: regole da aggiornare" approvato: Slabvalve unica col Rubinetto dentro (D309), P12 e P16 riscritti (D310), indici a 100 alla partenza dal vivo (D311), storici ogni lunedì sera e un id per stampa giapponese (D312), pulizia (D313) | D309–D313 |
+| Storici lunghi | Finiti il 17 novembre: archivio di 2,4 milioni di vendite su 1.489 carte (parte 2: 142.656 vendite su 66 carte; 100 stampe 1st Edition e Shadowless: 102.013). L'unione legge l'archivio una vendita alla volta (a 2,2 milioni intero non stava in memoria) | D320 |
+| Varianti | Le 1st Edition e Shadowless delle prime 3000 con la base nel catalogo entrano da sole (100 al primo giro, 79 sul sito il 17 sera); le basi mancanti vanno in coda; Mega Evolution Black Star Promos riconosciuto | D320 |
+| tcgcharts | Una richiesta ogni 2 secondi (permesso di Marek del 17 novembre, "senza esagerare") | D321 |
+| Storico senza ricostruire | §68 non passato (altre carte non identiche per costruzione, stampe rifatte male, tempo sopra una soglia sbagliata). §68b registrato e in corsa (ripresa settimana per settimana, gruppi G2 e G3); H1 e H5 cambiati dopo il §68: se passa serve comunque il sì di Oscar | D322 |
+| Due ritmi | Raccolta tcgcharts in quattro quarti (mattino e tre con Occasioni, ogni 6 ore circa); Occasioni mostra le vendite nuove con "nuova: entra nel valore domani"; motore una volta al giorno dopo la raccolta del mattino. Ogni 3 ore chiede di cambiare gli orari dell'orologio Cloudflare | D323, D325 |
+| Indici | Indici per Pokémon (più di 10 carte, 10 voci, al massimo 2 voti per carta; 21 Pokémon il 17 sera) e pagina `#indici` per famiglie con tabella di confronto. Da fare prima della partenza dal vivo: mettere indici di set e per Pokémon nell'istantanea sigillata | D324 |
 | Altri enti nei titoli | §66 adottato: fuori i titoli con un altro ente e un voto ("TAG 10 = PSA 10"), circa 150 vendite su 1,6 milioni. Ricostruzione completa lanciata il 16 novembre | D306 |
 
 ## Workflow (GitHub Actions)
