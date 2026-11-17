@@ -235,7 +235,7 @@ jobs:
         run: |
           if [ -f prototype/data/full_rebuild ]; then
             git config user.name "slabwise-bot"; git config user.email "slabwise-bot@users.noreply.github.com"
-            git rm -q prototype/data/full_rebuild && git commit -q -m "Ricostruzione completa pubblicata (D315)" && for k in 1 2 3; do git pull -q --rebase -X theirs && git push -q && break; sleep 5; done
+            git rm -q prototype/data/full_rebuild && git commit -q -m "Ricostruzione completa pubblicata (D315)" && for k in 1 2 3; do git pull -q --rebase --autostash -X theirs && git push -q && break; sleep 5; done   # 17 Nov: without --autostash the build's own files stopped the pull and the request stayed
           fi
       - name: Page audit, after publishing so it never delays the site (D242)
         continue-on-error: true
