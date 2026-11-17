@@ -1,18 +1,27 @@
 # Collection from tcgcharts (D76, D77, D89), on GitHub's own machines: it does not use Claude.
-# Every day the newest page of sales of the cards and grades that are due (one request every 3 seconds, D297);
+# Every day the newest page of sales of the cards and grades that are due (one request every 2 seconds, D297, D321),
+# in four quarters (this morning run and three from Occasioni, D323);
 # on Mondays first the new cards and the PSA populations. Each part stops in time to save what it got.
 name: Raccolta tcgcharts
 on:                               # D116: started by the Cloudflare clock (orologio/worker.js)
   workflow_dispatch: {}
+  workflow_call:                  # D323: a quarter of the day's collection, from Occasioni, three more times a day
+    inputs:
+      quarter:
+        type: boolean
+        default: true
+    secrets:
+      DATA_TOKEN:
+        required: true
 permissions:
   contents: write
-concurrency:
-  group: raccolta-tcgcharts
-  cancel-in-progress: false
 jobs:
   tcgcharts:
     runs-on: ubuntu-latest
     timeout-minutes: 110
+    concurrency:                  # D323: at job level, so the call from Occasioni shares the queue (one tcgcharts job at a time)
+      group: raccolta-tcgcharts
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
         with:
@@ -39,18 +48,19 @@ jobs:
           cp data/raw/tcgcharts/sales.json /tmp/tc/old_sales.json 2>/dev/null || true
           # D297: both parts stop in time (the job has 90 minutes): on Mondays 25 minutes of map and populations, then
           # the newest sales of the cards and grades that are due for the rest of the time
-          BUDGET=70
-          if [ "$(date -u +%u)" = "1" ]; then
+          # D323: the day's 70 minutes in four quarters of 18 (this morning run and three from Occasioni)
+          BUDGET=18
+          if [ "${{ inputs.quarter }}" != "true" ] && [ "$(date -u +%u)" = "1" ]; then
             mkdir -p /tmp/tcw
             TC_BUDGET_MIN=25 PYTHONPATH=. python scripts/tcgcharts.py /tmp/tcw
             cp /tmp/tcw/cards.json data/raw/tcgcharts/cards.json
             python scripts/pop_history.py data/raw/tcgcharts/cards.json data/raw/tcgcharts/pop_history.json
             python scripts/tcgcharts_accumulate.py /tmp/tc/old_sales.json /tmp/tcw/sales.json /tmp/tc/old_sales.json
-            BUDGET=45
           fi
           TC_BUDGET_MIN=$BUDGET PYTHONPATH=. python scripts/tcgcharts.py /tmp/tc --recent
           python scripts/tcgcharts_accumulate.py /tmp/tc/old_sales.json /tmp/tc/sales.json data/raw/tcgcharts/sales.json
       - name: Card requests (D97)
+        if: inputs.quarter != true
         continue-on-error: true
         timeout-minutes: 10
         run: |                   # 15 Nov: only the check; adding cards (engine gate, ~2 hours now) is left to Richieste

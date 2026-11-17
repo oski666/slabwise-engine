@@ -179,3 +179,8 @@ Il costo finale in Italia (IVA, dogana, spedizione, cambio BCE) si applica al pr
 - **Fattore d'era attenuato** (vedi §4): da sostituire con una dinamica a trend locale. Probabilmente migliorerebbe anche il rumore settimanale, l'unico criterio non superato.
 - Il fattore è uno per era. Segmenti più fini (fascia di prezzo, tipo di carta) sono un'estensione naturale ma non ancora provata.
 - I prezzi esclusi della spedizione e le commissioni delle case d'asta vanno normalizzati dalla fonte prima di entrare (schema dati).
+
+## Vendite nuove tra un calcolo e l'altro (D323)
+
+Il motore gira una volta al giorno, dopo la raccolta del mattino. La raccolta di tcgcharts è divisa in quattro quarti di 18 minuti (il mattino e tre volte con Occasioni, alle 11:23, 17:23 e 23:23 UTC), con lo stesso numero di richieste di prima. A ogni giro di Occasioni `scripts/fresh_sales.py` prende le vendite raccolte dopo la data dei valori (`asof`) che passano i controlli che non chiedono il motore (quelli di `tcgcharts_rows`: doppioni, vendite escluse o non pagate, altro ente nel titolo, regole sul titolo, assegnazione alla carta) e non sono già nella lista della carta (stesso giorno, voto e prezzo), e le mette nella lista `fresh` della carta. La pagina le mostra tra le ultime vendite con l'esito "nuova: entra nel valore domani"; valore, SlabRange, indici e pagella non cambiano fino al calcolo del giorno dopo, che le legge come tutte le altre.
+

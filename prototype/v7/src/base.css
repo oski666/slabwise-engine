@@ -504,3 +504,4 @@ mark.hl{color:inherit;background:linear-gradient(100deg,transparent 0 1%,var(--m
 .ixcmp-h{background:none;font-size:12px;text-transform:uppercase;letter-spacing:.04em;opacity:.7}
 .ixcmp-h>:nth-child(n+3){text-align:right}
 @media (max-width:640px){.ixcmp-r{grid-template-columns:minmax(0,1fr) repeat(2,60px)}.ixcmp-r>:nth-child(2),.ixcmp-r>:nth-child(3),.ixcmp-r>:nth-child(6){display:none}}
+.srow b.fresh{color:var(--brand)}   /* D323 */

@@ -659,7 +659,7 @@ async function ensureCard(c) {
   if (!c || !c.lazy || c._full) return c;
   if (!c._p) c._p = fetch(`/api/card/${encodeURIComponent(c.id)}`).then(r => r.ok ? r.json() : Promise.reject(r.status)).then(j => {
     c.grades.forEach(g => { g.history = j.grades[String(g.grade)] || []; });
-    c.sales = j.sales || []; c.excluded = j.excluded || []; c._certs = j.certs || {}; c._full = true;
+    c.sales = j.sales || []; c.excluded = j.excluded || []; c.fresh = j.fresh || []; c._certs = j.certs || {}; c._full = true;
   }).catch(e => { c._p = null; c._err = e; });
   await c._p; return c;
 }
@@ -888,14 +888,14 @@ function cardMore(c, g) {
     ${myCap > 0 ? `<div class="facts" style="margin-top:10px"><div class="fact"><span>"Market Cap PSA 7–10"</span><b>${usd(Math.round(myCap))}</b></div><div class="fact"><span>${tx("Posizione nel catalogo", "Rank in the catalogue")}</span><b>${rank}ª ${tx("su", "of")} ${caps.length}</b></div></div>
       <p class="note">${tx("Slabprice di oggi × copie gradate PSA, voti dal 7 al 10. Una fotografia di oggi: non dice quanto è cresciuta per i prezzi e quanto per i nuovi slab.", "Today's value × PSA graded copies, grades 7 to 10. A snapshot: it does not split growth from prices and from new slabs.")}</p>` : ""}</div>`;
   /* 7: the last sales */
-  const all = [...(c.sales || []).map(s => ({...s, out: s.pgen >= 0.5 ? "ok" : "low"})), ...(c.excluded || []).map(s => ({...s, out: "x"}))].sort((a, b) => b.date.localeCompare(a.date));
-  const OUT = {ok: [tx("usata", "used"), "up"], low: [tx("poco credibile", "implausible"), "down"], x: [tx("scartata", "removed"), ""]};
+  const all = [...(c.fresh || []).map(s => ({...s, out: "new"})), ...(c.sales || []).map(s => ({...s, out: s.pgen >= 0.5 ? "ok" : "low"})), ...(c.excluded || []).map(s => ({...s, out: "x"}))].sort((a, b) => b.date.localeCompare(a.date));
+  const OUT = {ok: [tx("usata", "used"), "up"], low: [tx("poco credibile", "implausible"), "down"], x: [tx("scartata", "removed"), ""], new: [tx("nuova: entra nel valore domani", "new: counts in the value tomorrow"), "fresh"]};   /* D323 */
   const srow = s => `<div class="srow"><span>${dateF(s.date)}</span><span>PSA ${s.grade}</span><span class="num">${usd(s.price)}</span><span>${esc(s.venue ? (LANG === "en" ? VENUE_EN[s.venue] || s.venue : s.venue) : "eBay")}</span><span><b class="${OUT[s.out][1]}">${OUT[s.out][0]}</b>${s.why ? ` <small class="note">${esc(LANG === "en" ? REASON_EN[s.why] || s.why : s.why)}</small>` : ""}</span></div>`;
   const head = `<div class="srow shead"><span>${tx("Data", "Date")}</span><span>${tx("Voto", "Grade")}</span><span class="num">${tx("Prezzo", "Price")}</span><span>${tx("Dove", "Where")}</span><span>${tx("Esito", "Outcome")}</span></div>`;
   const q7 = all.length ? `<div class="tile q"><div class="qhead"><span class="qn">?</span><h2>${tx("Le ultime vendite", "The latest sales")}</h2></div>
     <div class="sgrid">${head}${all.slice(0, 12).map(srow).join("")}</div>
     ${all.length > 12 ? `<details style="margin-top:8px"><summary class="note" style="cursor:pointer">${tx(`Mostra tutte (${all.length})`, `Show all (${all.length})`)}</summary><div class="sgrid">${head}${all.slice(12, 200).map(srow).join("")}</div></details>` : ""}
-    <p class="note">${tx("Usata = entra nel valore. Poco credibile = pesa poco perché il prezzo non torna. Scartata = tolta prima: doppioni, lotti, Best Offer senza prezzo, aste non pagate.", "Used = counts in the value. Implausible = weighs little because the price does not add up. Removed = taken out first: duplicates, lots, Best Offers without price, unpaid auctions.")}</p></div>` : "";
+    <p class="note">${tx("Usata = entra nel valore. Poco credibile = pesa poco perché il prezzo non torna. Scartata = tolta prima: doppioni, lotti, Best Offer senza prezzo, aste non pagate." + ((c.fresh || []).length ? " Nuova = raccolta dopo il calcolo di oggi: valore e SlabRange la contano dal prossimo aggiornamento." : ""), "Used = counts in the value. Implausible = weighs little because the price does not add up. Removed = taken out first: duplicates, lots, Best Offers without price, unpaid auctions." + ((c.fresh || []).length ? " New = collected after today's run: value and SlabRange count it from the next update." : ""))}</p></div>` : "";
   /* technical sheet */
   const fam = c.variant ? [cardById[c.base], ...(cardById[c.base] && cardById[c.base].variants || []).map(id => cardById[id])].filter(x => x && x !== c) : (c.variants || []).map(id => cardById[id]).filter(Boolean);
   const edName = edLabel;

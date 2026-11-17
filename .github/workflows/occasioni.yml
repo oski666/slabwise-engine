@@ -1,5 +1,7 @@
 # Deal refresh (D112): every 6 hours during the day, fresh eBay listings against the values published this morning
 # (artifact of the last "Sito" run), then the page is published again. The engine does not run here.
+# D323 (fast rhythm): first a quarter of the day's tcgcharts collection; the sales collected after the engine's run are
+# shown on the cards as "nuova: entra nel valore domani" (scripts/fresh_sales.py), without touching values.
 name: Occasioni
 on:                               # D116: started by the Cloudflare clock (orologio/worker.js)
   workflow_dispatch: {}
@@ -10,9 +12,19 @@ concurrency:
   group: occasioni                 # D315: its own queue: in the site's queue it waited behind full rebuilds and replaced
   cancel-in-progress: false        # their waiting runs (the 16 Nov build with D308/D309 was lost that way)
 jobs:
+  raccolta:                        # D323: a quarter of the day's collection (same queue as every tcgcharts job)
+    uses: ./.github/workflows/raccolta-tcgcharts.yml
+    permissions:
+      contents: write
+    with:
+      quarter: true
+    secrets:
+      DATA_TOKEN: ${{ secrets.DATA_TOKEN }}
   deals:
+    needs: raccolta
+    if: always()                   # the deals and the page go out even when the collection fails
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     env:
       HAS_EBAY: ${{ secrets.EBAY_CLIENT_ID != '' }}
     steps:
@@ -81,6 +93,10 @@ jobs:
             PYTHONPATH=. python scripts/deals_refresh.py prototype/data/real.json data/raw/ebay/listings.json data/raw/ebay/counts.json
             echo "valori più recenti del Sito $id"
           fi
+      - name: Sales collected after the engine's run (D323)
+        continue-on-error: true
+        timeout-minutes: 6
+        run: PYTHONPATH=. python scripts/fresh_sales.py prototype/data/real.json data/raw/tcgcharts
       - name: Page
         run: |
           python - <<'PY'

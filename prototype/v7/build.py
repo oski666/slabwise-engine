@@ -77,7 +77,8 @@ if split and which == "real":                                # D104: the page ke
     for c in data["cards"]:
         fid = c["id"].replace(":", "_").replace("/", "_")
         full = {"grades": {str(g["grade"]): g.pop("history", []) for g in c["grades"]}, "sales": c.pop("sales", []),
-                "excluded": c.pop("excluded", []), "certs": by_card.get(c["id"], {})}
+                "excluded": c.pop("excluded", []), "certs": by_card.get(c["id"], {}),
+                "fresh": c.pop("fresh", [])}                   # D323: collected after the engine's run
         json.dump(full, open(os.path.join(split, "x", "cards", f"{fid}.json"), "w"), ensure_ascii=False, separators=(",", ":"))
         c["lazy"] = True
         if not c.get("thumb") and c.get("img"):              # Japanese printings have one image: it serves as thumbnail too
