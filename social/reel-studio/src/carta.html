@@ -39,7 +39,7 @@ const nf = new Intl.NumberFormat("it-IT", {maximumFractionDigits: 0}), nf1 = new
 const usd = v => v == null ? "—" : "$" + nf.format(v);
 const pct = v => v == null ? "—" : Math.abs(v) < 0.0005 ? "0,0%" : (v > 0 ? "+" : "−") + nf1.format(Math.abs(v * 100)) + "%";
 const store = (k, v) => { try { v === undefined ? null : localStorage.setItem(k, v); return localStorage.getItem(k); } catch (e) { return null; } };
-const H = {handle: store("sw-handle") || "", photo: null, raw: "", cost: "25"};
+const H = {handle: store("sw-handle") || "", photo: null};   // D319: no raw price in the pack (no raw cards on Slabwise)
 
 function readPick() {
   const [id, gr] = decodeURIComponent(location.hash.slice(1)).split("/");
@@ -187,11 +187,10 @@ async function render() {
     <div class="tile"><h2>Copione</h2><textarea id="tx1">${esc([sc.hook, "", sc.body, "", sc.close].join("\n"))}</textarea><p class="row"><button data-copy="tx1">Copia copione</button></p></div>
     <div class="tile"><h2>Didascalia</h2><textarea id="tx2">${esc(sc.caption)}</textarea><p class="row"><button data-copy="tx2">Copia didascalia</button></p></div>
   </div>
-  <div class="tile" style="margin-top:16px"><h2>Vale la pena gradarla?</h2>
+  <div class="tile" style="margin-top:16px"><h2>Che voto prende di solito?</h2>
     ${gd ? `<p class="muted">Su ${nf.format(p.psa_total)} copie gradate da PSA, ecco quante prendono ogni voto e quanto vale oggi.</p>
     <table><tr><th>Voto</th><th>Copie</th><th>Quota</th><th>Valore oggi</th></tr>${gd.shares.slice().reverse().map(r => `<tr><td>PSA ${r.gr}</td><td>${nf.format(r.g.pop)}</td><td>${nf1.format(r.p * 100)}%</td><td>${usd(r.g.value)}</td></tr>`).join("")}</table>
-    <div class="grid"><div><label for="rw">Prezzo della carta raw ($)</label><input id="rw" inputmode="decimal" value="${esc(H.raw)}"></div><div><label for="ct">Costo del grading con spedizione ($)</label><input id="ct" inputmode="decimal" value="${esc(H.cost)}"></div></div>
-    <p id="ev" class="big" style="margin-top:12px"></p><p id="evn" class="muted"></p>
+    <p class="big" style="margin-top:12px">Valore atteso di una copia gradata: ${usd(gd.ev)}</p>
     <p class="note">Le quote vengono dalle popolazioni PSA di tutte le copie mandate finora: la tua copia può andare meglio o peggio. Il ${nf1.format((1 - gd.covered) * 100)}% delle copie ha preso meno di 7 e qui conta come valore zero. Non è un consiglio d'acquisto.</p>`
     : `<p class="muted">Per questa carta mancano le popolazioni PSA o i valori per voto.</p>`}</div>`;
   const cv1 = $("#cv1"), cv2 = $("#cv2");
@@ -204,14 +203,6 @@ async function render() {
   $("#vd2").onclick = e => video(cv2, p, pts, e.target);
   document.querySelectorAll("[data-copy]").forEach(b => b.onclick = async () => { try { await navigator.clipboard.writeText($("#" + b.dataset.copy).value); b.textContent = "Copiato"; } catch (e) { $("#" + b.dataset.copy).select(); } });
   document.querySelectorAll("[data-gr]").forEach(b => b.onclick = () => { location.hash = encodeURIComponent(p.id) + "/" + b.dataset.gr; });
-  if (gd) {
-    const calc = () => { const raw = parseFloat(($("#rw").value || "").replace(",", ".")), cost = parseFloat(($("#ct").value || "").replace(",", "."));
-      H.raw = $("#rw").value; H.cost = $("#ct").value;
-      if (!isFinite(raw) || !isFinite(cost)) { $("#ev").textContent = `Valore atteso dopo il grading: ${usd(gd.ev)}`; $("#evn").textContent = "Scrivi prezzo raw e costo del grading per vedere la differenza."; return; }
-      const d = gd.ev - raw - cost; $("#ev").innerHTML = `Valore atteso ${usd(gd.ev)} · spesa ${usd(raw + cost)} · <span class="${d >= 0 ? "ok" : "bad"}">${d >= 0 ? "+" : "−"}${usd(Math.abs(d))}</span>`;
-      $("#evn").textContent = d >= 0 ? "In media, gradare una copia così rende più di quanto costa." : "In media, gradare una copia così costa più di quanto rende."; };
-    $("#rw").oninput = calc; $("#ct").oninput = calc; calc();
-  }
 }
 addEventListener("hashchange", render);
 render();
