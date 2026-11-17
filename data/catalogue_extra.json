@@ -7171,5 +7171,50 @@
    2019,
    2020
   ]
+ ],
+ "ex10-104": [
+  "ho\\-oh ex",
+  "\\bunseen\\W*(?:(?:of|the|and)\\W*)?forces\\b",
+  104,
+  [
+   2005,
+   2006
+  ]
+ ],
+ "ex5-93": [
+  "groudon ex",
+  "\\bhidden\\W*(?:(?:of|the|and)\\W*)?legends\\b",
+  93,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "ex7-108": [
+  "torchic",
+  "\\bteam\\W*(?:(?:of|the|and)\\W*)?rocket\\W*(?:(?:of|the|and)\\W*)?returns\\b",
+  108,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "hgss4-101": [
+  "(?:palkia\\s*(?:&|and)\\s*dialga|dialga\\s*(?:&|and)\\s*palkia) legend",
+  "\\btriumphant\\b",
+  101,
+  [
+   2010,
+   2011
+  ]
+ ],
+ "col1-SL6": [
+  "kyogre",
+  "\\bcall\\W*(?:(?:of|the|and)\\W*)?legends\\b",
+  "sl6",
+  [
+   2011,
+   2012
+  ]
  ]
 }

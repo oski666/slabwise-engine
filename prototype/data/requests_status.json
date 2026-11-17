@@ -2549,16 +2549,17 @@
   "added": "2026-11-04"
  },
  "en:dpp-DP38": {
-  "n": 36,
-  "recognised": 32,
-  "share": 0.889,
+  "n": 50,
+  "recognised": 50,
+  "share": 1.0,
+  "contradicting": 0.0,
   "tc_id": 15798,
   "tc_set": "DP Black Star Promos",
   "tc_url": "/pokemon/dp-black-star-promos/giratina-lv-x-dp38",
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-08",
+  "checked": "2026-11-17",
   "requests": 0,
   "source": "catalogo (D111)"
  },
@@ -9713,18 +9714,20 @@
   "added": "2026-11-08"
  },
  "en:ex7-108": {
-  "n": 20,
-  "recognised": 18,
-  "share": 0.9,
+  "n": 39,
+  "recognised": 38,
+  "share": 0.974,
+  "contradicting": 0.026,
   "tc_id": 16906,
   "tc_set": "Team Rocket Returns",
   "tc_url": "/pokemon/team-rocket-returns/torchic-108",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-08",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-17",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-17"
  },
  "en:swsh12.5gg-GG69": {
   "n": 480,
@@ -10196,18 +10199,20 @@
   "added": "2026-11-10"
  },
  "en:col1-SL6": {
-  "n": 29,
-  "recognised": 27,
-  "share": 0.931,
+  "n": 28,
+  "recognised": 26,
+  "share": 0.929,
+  "contradicting": 0.0,
   "tc_id": 13873,
   "tc_set": "Call of Legends",
   "tc_url": "/pokemon/call-of-legends/kyogre-sl6",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-10",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-17",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-17"
  },
  "en:ex12-88": {
   "n": 42,
@@ -12448,18 +12453,20 @@
   "source": "catalogo (D111)"
  },
  "en:ex10-104": {
-  "n": 39,
-  "recognised": 36,
-  "share": 0.923,
+  "n": 46,
+  "recognised": 45,
+  "share": 0.978,
+  "contradicting": 0.0,
   "tc_id": 16528,
   "tc_set": "Unseen Forces",
   "tc_url": "/pokemon/unseen-forces/ho-oh-ex-104",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-08",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-17",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-17"
  },
  "en:ex10-117": {
   "n": 19,
@@ -12521,18 +12528,20 @@
   "added": "2026-11-08"
  },
  "en:ex5-93": {
-  "n": 31,
-  "recognised": 28,
-  "share": 0.903,
+  "n": 39,
+  "recognised": 37,
+  "share": 0.949,
+  "contradicting": 0.0,
   "tc_id": 17255,
   "tc_set": "Hidden Legends",
   "tc_url": "/pokemon/hidden-legends/groudon-ex-93",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-08",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-17",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-17"
  },
  "en:ex5.5-5": {
   "n": 18,
@@ -12551,16 +12560,17 @@
   "added": "2026-11-14"
  },
  "en:ex6-114": {
-  "n": 33,
-  "recognised": 33,
+  "n": 43,
+  "recognised": 43,
   "share": 1.0,
+  "contradicting": 0.0,
   "tc_id": 17027,
   "tc_set": "FireRed & LeafGreen",
   "tc_url": "/pokemon/firered-leafgreen/articuno-ex-114",
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-08",
+  "checked": "2026-11-17",
   "requests": 0,
   "source": "catalogo (D111)"
  },
@@ -12687,18 +12697,20 @@
   "added": "2026-11-16"
  },
  "en:hgss4-101": {
-  "n": 36,
-  "recognised": 29,
-  "share": 0.806,
+  "n": 37,
+  "recognised": 34,
+  "share": 0.919,
+  "contradicting": 0.0,
   "tc_id": 13880,
   "tc_set": "HS—Triumphant",
   "tc_url": "/pokemon/hs-triumphant/palkia-dialga-legend-101",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-08",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-17",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-17"
  },
  "en:hgssp-HGSS02": {
   "n": 22,
@@ -12778,16 +12790,17 @@
   "added": "2026-11-14"
  },
  "en:pl1-124": {
-  "n": 34,
-  "recognised": 28,
-  "share": 0.824,
+  "n": 30,
+  "recognised": 30,
+  "share": 1.0,
+  "contradicting": 0.0,
   "tc_id": 14761,
   "tc_set": "Platinum",
   "tc_url": "/pokemon/platinum/giratina-lv-x-124",
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-08",
+  "checked": "2026-11-17",
   "requests": 0,
   "source": "catalogo (D111)"
  },
