@@ -1,0 +1,44 @@
+{
+ "group": "results/rehist/G2.json",
+ "cards": 32,
+ "atoms": 128,
+ "H1": {
+  "different": 5005,
+  "examples": [
+   "base1-4 PSA 10",
+   "base1-4 PSA 9",
+   "base1-4 PSA 8",
+   "base1-4 PSA 7",
+   "base1-15 PSA 10",
+   "base1-15 PSA 9",
+   "base1-15 PSA 8",
+   "base1-15 PSA 7",
+   "base1-10 PSA 10",
+   "base1-10 PSA 9"
+  ],
+  "passed": false
+ },
+ "H2": {
+  "n": 128,
+  "median": 0.0030273317041701257,
+  "p95": 0.20826465843906053,
+  "passed": false
+ },
+ "H3": {
+  "coverage_B": 0.7322564855604503,
+  "coverage_C": 0.739343459088682,
+  "sales": 2043,
+  "passed": true
+ },
+ "H4": {
+  "n": 104,
+  "median": 0.0012591034458679928,
+  "p95": 0.003912161007528474,
+  "passed": true
+ },
+ "H5": {
+  "seconds_B": 1119.0,
+  "passed": false
+ },
+ "passed": false
+}
