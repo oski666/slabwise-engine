@@ -4,7 +4,7 @@ Usage: PYTHONPATH=. python scripts/fresh_sales.py prototype/data/real.json data/
 The newest tcgcharts pages (sales.json, the daily collection) go through the same checks as in the engine's input
 that need no engine (tcgcharts_rows: duplicates, unpaid or excluded sales, another grader in the title, title rules,
 assignment to the card); a sale already in the card's list (same day, grade and price) is left out. What remains,
-dated after the values' date (`asof`), is written in each card's `fresh` list with the label of the page "nuova: entra
+dated from the values. date (`asof`) on, is written in each card's `fresh` list with the label of the page "nuova: entra
 nel valore domani". Value, SlabRange and indices do not change: they wait for the engine's next run.
 """
 import json
@@ -29,7 +29,7 @@ def main(real_p, tc_dir):
         c.pop("fresh", None)
     for r in rows:
         day, card, grade = r["date"][:10], r["card"], int(r["grade"])
-        if day <= asof or card not in by_id or r.get("excluded"):
+        if day < asof or card not in by_id or r.get("excluded"):   # the day of the values too: the dedup keeps out what the engine had
             continue
         key = (card, grade, day, round(float(r["price_usd"])))
         if key in have:
