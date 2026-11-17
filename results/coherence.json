@@ -3,17 +3,17 @@
  "cards": 1375,
  "checks": {
   "C7": {
-   "n": 33,
+   "n": 29,
    "examples": [
     [
      "sv08.5-161",
      "Umbreon ex",
-     "PSA 8 903 < PSA 7 908"
+     "PSA 8 896 < PSA 7 899"
     ],
     [
      "swsh7-192",
      "Dragonite V",
-     "PSA 9 404 < PSA 8 407"
+     "PSA 9 403 < PSA 8 411"
     ],
     [
      "swsh3.5-79",
@@ -23,17 +23,17 @@
     [
      "swsh7-212",
      "Sylveon VMAX",
-     "PSA 9 292 < PSA 8 311"
+     "PSA 9 290 < PSA 8 310"
     ],
     [
      "me02.5-290",
      "Mega Dragonite ex",
-     "PSA 9 345 < PSA 8 358"
+     "PSA 9 340 < PSA 8 353"
     ],
     [
      "sv10.5w-173",
      "Reshiram ex",
-     "PSA 9 378 < PSA 8 385"
+     "PSA 9 376 < PSA 8 381"
     ],
     [
      "smp-SM163",
@@ -43,7 +43,7 @@
     [
      "sv10-230",
      "Ethan's Ho-Oh ex",
-     "PSA 9 122 < PSA 8 122"
+     "PSA 9 121 < PSA 8 121"
     ],
     [
      "sv03-228",
@@ -53,17 +53,25 @@
     [
      "me02-109",
      "Mega Charizard X ex",
-     "PSA 9 34 < PSA 8 34"
+     "PSA 9 33 < PSA 8 34"
     ],
     [
      "me01-188",
      "Mega Lucario ex",
-     "PSA 8 157 < PSA 7 160"
+     "PSA 8 156 < PSA 7 158"
     ],
     [
      "me02.5-277",
      "Pikachu ex",
-     "PSA 9 213 < PSA 8 224"
+     "PSA 9 212 < PSA 8 222"
+    ]
+   ]
+  },
+  "C9": {
+   "n": 1,
+   "examples": [
+    [
+     "ja:mega-brave-87"
     ]
    ]
   }
