@@ -1127,3 +1127,22 @@ Una stampa giapponese va a una sola carta inglese, quella con la distanza minore
 **Regola.** Come il §67 (M0 e M1, stessa soglia, stesse immagini), con un vincolo in più: la stampa giapponese deve stare nella stessa era del sito della carta inglese (`series_of`, le sei ere del D255, che le giapponesi già seguono). Una ristampa di un'altra epoca non è la gemella. **Criteri invariati** (G1 ≥ 95%, G2 ≤ 5%, G3 ≥ 38 su 40), sulle coppie che passano il vincolo; G3 su 40 collegamenti nuovi presi a caso **fra quelli non già guardati** nel primo giro. Si adotta M0 se passa tutto, poi M1. Se nessuna passa non si fa un terzo giro su questi dati.
 
 **Esito §67b (16 novembre 2026): G2 non superato, nessuna variante adottata per regola.** M0: G1 95,9% sì; G2 19,3% no (544 coppie); G3 sì, 40 su 40 giuste sui 40 nuovi presi fra i non già guardati (fra cui i vintage che il §67 sbagliava: Mewtwo, Nidoking e Machamp del Base Set legati all'Expansion Pack giapponese del 1996); 273 collegamenti nuovi su 261 carte inglesi. M1: G1 96,4%, G2 19,7%, 299 collegamenti. Causa del G2, guardata coppia per coppia: delle 61 coppie "non gemelle" con distanza fino a 30, 49 sono la **stessa stampa giapponese registrata con due id** (quello di TCGdex e quello di tcgcharts: ja:sv8a-217 e ja:terastal-festival-ex-217, ja:sm10b-060 e ja:sky-legend-60…), e 15 di queste coppie sono entrambe pubblicate sul sito come carte diverse; le altre sono stampe giapponesi diverse con lo stesso disegno nella stessa era. G2 misura quindi i doppioni del catalogo, non gli errori del confronto. Per regola non si fa un terzo giro su questi dati; l'adozione resta al proprietario (eccezione del P12, D250). Risultati in `results/ja_twins/`.
+
+## 68. Storico nuovo senza ricostruire (registrato il 17 novembre 2026, prima del codice e dei risultati; D322)
+
+**Domanda (Oscar).** Ogni storico lungo nuovo chiede una ricostruzione completa di 2,5 ore: serve un motore che non la chieda.
+
+**Variante H.** Quando alcune carte già nel catalogo ricevono vendite vecchie (uno storico lungo), il motore riparte dall'ultimo stato salvato come nel §60: quelle carte ripartono vuote e si ricalcolano con tutte le loro vendite seguendo i fattori d'era e i parametri condivisi fermi (non li muovono); le altre carte restano come nello stato salvato; i livelli degli indici delle settimane già calcolate non cambiano, le settimane dopo si calcolano con i valori nuovi. L'elenco delle carte con storico nuovo lo scrive l'unione degli storici.
+
+**Prova.** Due gruppi di carte vere: G1 = le 66 carte dello storico del 17 novembre (seconda parte); G2 = 30 carte estratte a caso (seme 68) tra quelle con vendite di almeno 2 anni. Per ogni gruppo: A = ricostruzione completa senza le vendite del gruppo più vecchie di 13 settimane dall'ultima vendita del file (salva gli stati); B = H partendo dagli stati di A con tutte le vendite; C = ricostruzione completa con tutte le vendite (una sola, comune ai due gruppi).
+
+| # | Criterio | Soglia |
+|---|---|---|
+| H1 | carte fuori dal gruppo | valori di B identici a quelli di A |
+| H2 | carte del gruppo, valore rispetto a C | mediana dello scarto assoluto ≤ 2%, 95° percentile ≤ 10% |
+| H3 | carte del gruppo, SlabRange | copertura delle loro vendite delle ultime 13 settimane in B non più bassa di quella di C meno 2 punti |
+| H4 | indici d'era, Giappone e SlabDex | variazione settimanale delle ultime 13 settimane: mediana della differenza assoluta tra B e C ≤ 0,5 punti percentuali |
+| H5 | tempo | B sotto i 15 minuti |
+
+Si adotta se H1–H5 passano su tutti e due i gruppi (P12, D310: il giro dopo, sul prossimo storico vero, è la verifica). La ricostruzione completa resta il 1° del mese ed è lei il campione.
+

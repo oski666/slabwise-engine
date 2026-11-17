@@ -21,7 +21,7 @@ import urllib.request
 
 BASE = "https://tcgcharts.com"
 UA = "Mozilla/5.0 (Slabwise research; permission from tcgcharts, 27 Oct 2026)"
-PAUSE_S = 3.0
+PAUSE_S = 2.0   # D321: Marek (17 Nov 2026) allows a faster pace, "without overdoing it"; was 3.0
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 
