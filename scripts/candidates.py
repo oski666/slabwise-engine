@@ -49,7 +49,8 @@ ALIASES = {norm("Scarlet & Violet Black Star Promos"): "svp", norm("Sword & Shie
            norm("Wizards Black Star Promos"): "basep", norm("Base"): "base1",
            # D150: tcgcharts writes the HGSS sets with an "HS—" prefix
            norm("HS—Unleashed"): "hgss2", norm("HS—Undaunted"): "hgss3", norm("HS—Triumphant"): "hgss4",
-           norm("HeartGold & SoulSilver"): "hgss1", norm("HGSS Black Star Promos"): "hgssp"}
+           norm("HeartGold & SoulSilver"): "hgss1", norm("HGSS Black Star Promos"): "hgssp",
+           norm("Mega Evolution Black Star Promos"): "mep"}     # D320: these promos never entered the queue
 sets = {norm(s["name"]): s["id"] for s in cr.get(f"{cr.TCGDEX}/en/sets")}
 sets.update(ALIASES)
 set_cards = {}
@@ -107,7 +108,13 @@ def ranking(top=None):
     while len(out) < top:
         d = cr.get(f"{cr.TCG}/api/pokemon/cards?" + urllib.parse.urlencode(
             {"sort": "market_cap", "order": "desc", "limit": 100, "page": page, "language": "EN"}))
-        out += [c for c in d["cards"] if c.get("languageCode") == "EN" and not c.get("variantType")]
+        for c in d["cards"]:
+            if c.get("languageCode") != "EN":
+                continue
+            if not c.get("variantType"):
+                out.append(c)
+            elif c["variantType"] in ("1st Edition", "Shadowless"):    # D320: a printing ranks, its base card enters the queue
+                out.append(dict(c, variantType=None, via_variant=c["variantType"]))
         RANK_JA.extend(c for c in d["cards"] if (c.get("languageCode") or "").upper() == "JA" and not c.get("variantType")
                        and c["id"] not in {x["id"] for x in RANK_JA})          # D231: the Japanese cards of the same pages
         if not d["pagination"].get("hasNextPage"):
@@ -259,7 +266,7 @@ def main():
             unmapped += 1
             continue
         if cid in have or cid in queue:
-            if cid in queue:
+            if cid in queue and not c.get("via_variant"):
                 queue[cid]["rank"] = rank
             continue
         row = dict(id=cid, name=c["name"], set=c["set"]["name"], no=c.get("cardNumber"), rank=rank,
