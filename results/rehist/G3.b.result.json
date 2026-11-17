@@ -1,0 +1,55 @@
+{
+ "group": "results/rehist/G3.json",
+ "cards": 33,
+ "atoms": 132,
+ "H1": {
+  "different": 5389,
+  "examples": [
+   "base1-4 PSA 10",
+   "base1-4 PSA 9",
+   "base1-4 PSA 8",
+   "base1-4 PSA 7",
+   "base1-2 PSA 10",
+   "base1-2 PSA 9",
+   "base1-2 PSA 8",
+   "base1-2 PSA 7",
+   "base1-15 PSA 10",
+   "base1-15 PSA 9"
+  ],
+  "passed": false
+ },
+ "H2": {
+  "n": 132,
+  "median": 0.0014709456905618507,
+  "p95": 0.015996697509459805,
+  "passed": true
+ },
+ "H3": {
+  "coverage_B": 0.6961429915333961,
+  "coverage_C": 0.6994818652849741,
+  "sales": 2126,
+  "passed": true
+ },
+ "H4": {
+  "n": 104,
+  "median": 0.0017841877962953556,
+  "p95": 0.010275842344776054,
+  "passed": true
+ },
+ "H5": {
+  "seconds_B": 1187.0,
+  "passed": false
+ },
+ "passed": true,
+ "H1b": {
+  "n": 5660,
+  "p99": 0.0028848974683824903,
+  "max": 0.02450769357596714,
+  "passed": true
+ },
+ "H5b": {
+  "seconds_B": 1187.0,
+  "seconds_C": 7212.0,
+  "passed": true
+ }
+}
