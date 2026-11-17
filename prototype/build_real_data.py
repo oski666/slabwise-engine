@@ -717,6 +717,42 @@ for c in cards:
     _set_label.setdefault(_set_of(c), next((x["set"] for x in catalog if x["id"] == c), _set_of(c)))
 index_sets = {k: v for k, v in ((s_, publish(sidx, e, "set", _set_label.get(s_, s_))) for e, s_ in enumerate(set_names)) if v}
 print("indice generale", index_all and index_all["points"][-1], "indici di set", list(index_sets))
+# D324: one index per Pokémon with more than 10 cards in the catalogue (English and Japanese, forms and trainers' Pokémon
+# included, printings with their base card): the 10 most traded voices, at most 2 grades of one card, equal weights,
+# rebalanced every 13 weeks like the era indices. Computed after the weekly loop from the stored values, so the baskets
+# are chosen with today's genuineness probabilities of the past sales.
+import re  # noqa: E402
+from collections import Counter  # noqa: E402
+_PK_PRE = re.compile(r"^(?:Mega|Dark|Light|Shining|Radiant|Alolan|Galarian|Hisuian|Paldean|Rocket's|Team Rocket's|"
+                     r"[A-Z][a-z]+'s|N's|Lt\. Surge's)\s+")
+_PK_SUF = re.compile(r"\s+(?:ex|EX|GX|V|VMAX|VSTAR|V-UNION|LV\.?X|BREAK|Prime|LEGEND|δ|☆|Star|[XY])\b.*$")
+
+
+def pokemon_of(name):
+    n = re.sub(r"\s*\(.*?\)", "", name or "").strip()
+    n = _PK_PRE.sub("", n)
+    return _PK_SUF.sub("", n).strip()
+
+
+_pk_name = {}
+for _c in catalog:
+    _pk_name[_c["id"]] = pokemon_of(_c.get("n"))
+for _c in catalog_ja:
+    if not _c.get("pending"):
+        _en = next((x for x in catalog if x["id"] == _c.get("en")), None)
+        _pk_name[_c["id"]] = pokemon_of(_en["n"] if _en else (_c.get("n") or _c.get("name")))
+_pk_count = Counter(v for v in _pk_name.values() if v)
+pokemon_names = sorted(k for k, v in _pk_count.items() if v > 10)
+_pk_of = np.array([pokemon_names.index(_pk_name.get(c.split("/")[0])) if _pk_name.get(c.split("/")[0]) in pokemon_names else -1 for c in cards])
+pkidx = EraIndex(_pk_of, len(pokemon_names), k=10, per_card=2, full_only=True)
+for _w in range(W):
+    pkidx.update(_w, lvm, est[_w])
+index_pokemon = {k: v for k, v in ((p_, publish(pkidx, e, "pokemon", f"Indice {p_}")) for e, p_ in enumerate(pokemon_names)) if v}
+print("indici per Pokémon (D324)", len(index_pokemon), "su", len(pokemon_names), ":", sorted(index_pokemon))
+for _c in out_cards:                                       # D324: the page lists a Pokémon's cards under its index
+    _p = _pk_name.get(_c["id"].split("/")[0])
+    if _p in index_pokemon:
+        _c["pokemon"] = _p
 rollups = [dict(series=r_["series"], n=r_["n"], sales=r_["sales"], ch30=round(float(np.median(r_["ch30"])), 4) if r_["ch30"] else None, cap=None, top3=None)
            for r_ in sorted(roll.values(), key=lambda x: ERAS.index(x["series"]) if x["series"] in ERAS else 99)]   # D154: in time order
 
@@ -915,7 +951,7 @@ for c in out_cards:
         _a, _b = _g10["pop"] / c["psa_total"], _t["psa10"] / _t["total"]
         if abs(_a - _b) > 0.05:
             c["gem_conflict"] = [round(_a, 4), round(_b, 4)]
-res = dict(real=True, indexes_grade=indexes_grade, index_margin=index_margin, rarity_fit=rarity_fit, engine=ENGINE, deals_asof=deals_asof, deal_stats=deal_stats, ja_pending=ja_pending, indexes=indexes, index_history=index_history, index_all=index_all, index_sets=index_sets, index_base=(index_source["base"] if index_source else wk(index_base_w)), index_source=index_source, asof=str(asof), eur_rate=EUR, eur_rate_date=rate_date, cards=out_cards, rollups=rollups, pulse=pulse, slabmeter=slabmeter, tap=tap,
+res = dict(real=True, indexes_grade=indexes_grade, index_margin=index_margin, rarity_fit=rarity_fit, engine=ENGINE, deals_asof=deals_asof, deal_stats=deal_stats, ja_pending=ja_pending, indexes=indexes, index_history=index_history, index_all=index_all, index_sets=index_sets, index_pokemon=index_pokemon, index_base=(index_source["base"] if index_source else wk(index_base_w)), index_source=index_source, asof=str(asof), eur_rate=EUR, eur_rate_date=rate_date, cards=out_cards, rollups=rollups, pulse=pulse, slabmeter=slabmeter, tap=tap,
            params={k: v for k, v in params.__dict__.items()}, n_sales=int(len(clean)), n_removed=int(len(removed)), venues=venues,
            venue_gaps={v: round(float(lvm.offs[k]), 4) for k, v in enumerate(("ebay", "auction", "fixed"))},
            note="Dati veri: vendite concluse eBay (anche tramite Alt e tcgcharts), Goldin e Fanatics Collect (dal 2023). "

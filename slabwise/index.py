@@ -18,7 +18,8 @@ STRATA_MIN = 4                                   # D143: sales needed for a rese
 
 
 class EraIndex:
-    def __init__(self, era, n_eras, start_week=26, rebalance=REBALANCE, min_sales=MIN_SALES, k=K, one_per_card=False, strata=0, quota=None, grades=None):
+    def __init__(self, era, n_eras, start_week=26, rebalance=REBALANCE, min_sales=MIN_SALES, k=K, one_per_card=False, strata=0, quota=None, grades=None,
+                 per_card=None, full_only=False):
         self.era = np.asarray(era)
         self.E = n_eras
         self.start, self.reb, self.min_sales, self.k = start_week, rebalance, min_sales, k
@@ -26,6 +27,8 @@ class EraIndex:
         self.strata = strata                             # D143 (protocol §28): seats reserved for each grade
         self.quota = None if quota is None else np.asarray(quota)   # D245 (protocol §51): equal seats for each sub-group (era)
         self.grades = None if grades is None else set(grades)   # §59 (D266): only these grade indices (0 = PSA 10, 1 = PSA 9...)
+        self.per_card = per_card                         # D324: at most this many grades of one card in the basket
+        self.full_only = full_only                       # D324: no basket unless all k seats are filled
         self.quota_log = []                              # (week, {sub-group: (eligible, seats)}) at each rebalance
         self.basket = {e: [] for e in range(n_eras)}
         self.level = {e: [] for e in range(n_eras)}     # (week, log level); starts at 0 when an era gets a basket
@@ -51,6 +54,17 @@ class EraIndex:
                         seen.add(a[0])
                         uniq.append((n, a))
                 atoms = uniq
+            if self.per_card:                            # D324: no card takes more than per_card seats
+                used, keep = {}, []
+                for n, a in atoms:
+                    if used.get(a[0], 0) < self.per_card:
+                        used[a[0]] = used.get(a[0], 0) + 1
+                        keep.append((n, a))
+                atoms = keep
+            if self.full_only and len(atoms) < self.k:   # D324: an index with fewer seats would not be comparable
+                self.basket[e] = []
+                self.history.append((w, e, []))
+                continue
             if self.quota is not None:                   # D245: k / G seats per sub-group, free seats shared by eligible counts
                 groups = sorted({int(self.quota[a[0]]) for _, a in atoms if self.quota[a[0]] >= 0})
                 by = {g: [a for _, a in atoms if self.quota[a[0]] == g] for g in groups}
