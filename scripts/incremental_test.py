@@ -165,5 +165,21 @@ def compare68(group, a_out, b_out, c_out, b_sec, result):
     print(json.dumps(res, indent=1))
 
 
+def compare68b(group, a_out, b_out, c_out, b_sec, c_sec, result):
+    """§68b: H1b (other cards, 99th percentile of |log(B/A)| <= 2%) and H5b (B at most a third of C) in place of H1, H5."""
+    compare68(group, a_out, b_out, c_out, b_sec, result)
+    res = json.load(open(result))
+    g = set(json.load(open(group)))
+    a, _, _ = _vals(a_out)
+    b, _, _ = _vals(b_out)
+    d = [abs(math.log(b[k][0] / a[k][0])) for k in a if not (k[0] in g or _base(k[0]) in g) and k in b and a[k][0] and b[k][0]]
+    res["H1b"] = dict(n=len(d), p99=_pct(d, 0.99), max=max(d) if d else None, passed=bool(d) and _pct(d, 0.99) <= 0.02)
+    sb, sc = float(open(b_sec).read().strip()), float(open(c_sec).read().strip())
+    res["H5b"] = dict(seconds_B=sb, seconds_C=sc, passed=sb <= sc / 3)
+    res["passed"] = all(res[k]["passed"] for k in ("H1b", "H2", "H3", "H4", "H5b"))
+    json.dump(res, open(result, "w"), indent=1)
+    print("§68b", {k: res[k]["passed"] for k in ("H1b", "H2", "H3", "H4", "H5b")}, "->", res["passed"])
+
+
 if __name__ == "__main__":
-    {"drop": drop, "compare": compare, "drop_old": drop_old, "compare68": compare68}[sys.argv[1]](*sys.argv[2:])
+    {"drop": drop, "compare": compare, "drop_old": drop_old, "compare68": compare68, "compare68b": compare68b}[sys.argv[1]](*sys.argv[2:])

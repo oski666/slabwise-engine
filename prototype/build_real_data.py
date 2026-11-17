@@ -180,6 +180,8 @@ if CKPT:
                 lvm_, eidx_, aidx_, sidx_, e_, s_, gidx_ = _incr_pre[2]
                 _redo = set(json.load(open(os.environ["SLABWISE_REHIST"]))) if os.environ.get("SLABWISE_REHIST") else set()   # §68 (D322)
                 _redo &= set(_meta["cards"])
+                if os.environ.get("SLABWISE_REPLAY_WEEKLY") == "1":     # §68b: printings follow their base card
+                    _redo |= {c_ for c_ in _meta["cards"] if "/" in c_ and c_.split("/")[0] in _redo}
                 lvm, _sat, _o2n = transplant_model(lvm_, lvm, _meta["cards"], cards, redo=_redo)
                 eidx = transplant_index(eidx_, eidx, _o2n, _meta["series_names"], series_names)
                 aidx = transplant_index(aidx_, aidx, _o2n)
@@ -192,13 +194,30 @@ if CKPT:
                     est[:, _c] = np.nan
                     sd[:, _c] = np.nan
                 _past = clean[clean["card"].isin(set(_new.tolist())) & (clean["week"] <= _ws)]
-                for _c, _gc in _past.groupby("card"):
-                    _byw = {w_: g_ for w_, g_ in _gc.groupby("week")}
-                    for w_ in range(int(min(_byw)), _ws + 1):
-                        if w_ in _byw:
-                            lvm.add_satellite_week(int(_c), w_, _byw[w_])
-                        if lvm.fit[int(_c)] is not None:
-                            est[w_, int(_c)], sd[w_, int(_c)] = lvm.estimate_card(int(_c), w_)
+                # §68b: week by week across all the replayed cards, base cards before their printings, as in a full
+                # run: a 1st Edition's prior is its base card's ladder of that week (before, each card was replayed
+                # whole in id order, and a printing could start from a base card not replayed yet)
+                # (in prova: acceso solo con SLABWISE_REPLAY_WEEKLY=1 finché il §68b non passa)
+                _byc = {int(_c): {w_: g_ for w_, g_ in _gc.groupby("week")} for _c, _gc in _past.groupby("card")}
+                _order = sorted(_byc, key=lambda c_: (lvm.parent is not None and lvm.parent[c_] >= 0, c_))
+                if os.environ.get("SLABWISE_REPLAY_WEEKLY") != "1":       # the §60 replay in use: each card whole, in id order
+                    _order = sorted(_byc)
+                    for c_ in _order:
+                        for w_ in range(int(min(_byc[c_])), _ws + 1):
+                            if w_ in _byc[c_]:
+                                lvm.add_satellite_week(c_, w_, _byc[c_][w_])
+                            if lvm.fit[c_] is not None:
+                                est[w_, c_], sd[w_, c_] = lvm.estimate_card(c_, w_)
+                    _byc = {}
+                _start = {c_: int(min(_byc[c_])) for c_ in _order if c_ in _byc}
+                for w_ in range(min(_start.values()) if _start else _ws + 1, _ws + 1):
+                    for c_ in _start:
+                        if w_ < _start[c_]:
+                            continue
+                        if w_ in _byc[c_]:
+                            lvm.add_satellite_week(c_, w_, _byc[c_][w_])
+                        if lvm.fit[c_] is not None:
+                            est[w_, c_], sd[w_, c_] = lvm.estimate_card(c_, w_)
                 for _ix in [eidx, aidx, sidx, *gidx.values()]:   # §68: the next week's change starts from the refitted value
                     if _ix.prev is not None:
                         for _c in (cards.index(c_) for c_ in _redo):

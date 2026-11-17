@@ -1146,3 +1146,31 @@ Una stampa giapponese va a una sola carta inglese, quella con la distanza minore
 
 Si adotta se H1–H5 passano su tutti e due i gruppi (P12, D310: il giro dopo, sul prossimo storico vero, è la verifica). La ricostruzione completa resta il 1° del mese ed è lei il campione.
 
+**Esito §68 (17 novembre 2026): non passa, non si adotta.** Risultati in `results/rehist/G1.result.json` e `G2.result.json`.
+
+| # | G1 (66 carte) | G2 (32 carte) |
+|---|---|---|
+| H1 altre carte identiche ad A | no: 4.326 voci diverse (valori fino all'1,7%, 99° percentile 1,4%) | no: 5.005 voci diverse (99° percentile 0,8%, una fino al 44%) |
+| H2 gruppo contro C | sì: mediana 0,8%, 95° percentile 2,5% | no: mediana 0,3%, 95° percentile 20,8% |
+| H3 SlabRange | sì: 76,8% contro 76,4% | sì: 73,2% contro 73,9% |
+| H4 indici | sì: 0,07 punti | sì: 0,13 punti |
+| H5 tempo di B | no: 25 minuti | no: 19 minuti |
+
+Perché: (H1) le altre carte non possono restare identiche: nelle ultime settimane di A le carte del gruppo erano carte normali e muovevano i fattori d'era e le forchette dell'era × fascia, in B ripartono come satelliti; (H2, G2) gli scarti grandi sono quasi tutti delle stampe 1st Edition e Shadowless della carta base del gruppo (Blastoise base1-2/1st PSA 10: 238.969 $ in B contro 107.289 $ in C) e di carte con 1 vendita in 90 giorni: nella ripresa ogni carta si rifaceva tutta da sola in ordine di id, e una 1st Edition partiva dal valore della carta base non ancora rifatta; (H5) ogni corsa ha 15–20 minuti fissi (2,4 milioni di vendite da leggere, SlabRange, pagina): la soglia di 15 minuti era più bassa del costo di una corsa qualsiasi, anche senza storico (l'aggiornamento giornaliero del 17 novembre: 35 minuti in tutto). Il guadagno vero contro la ricostruzione completa (C: 85 minuti; A: 107–160) è di 4–6 volte.
+
+## 68b. Storico nuovo senza ricostruire, secondo giro (registrato il 17 novembre 2026, dopo l'esito del §68 e prima di questo giro; D322)
+
+**Correzione.** La ripresa rifà le carte settimana per settimana tutte insieme, le carte base prima delle loro stampe (come la ricostruzione completa); le stampe 1st Edition e Shadowless di una carta con storico nuovo ripartono anche loro. Nel codice: `SLABWISE_REPLAY_WEEKLY=1`, spento sul sito.
+
+**Gruppi.** G2 (lo stesso del §68, per vedere la correzione) e G3 = 30 carte nuove estratte a caso (seme 681) tra quelle con vendite di almeno 2 anni, fuori da G1 e G2. Stessi bracci A, B, C.
+
+| # | Criterio | Soglia |
+|---|---|---|
+| H1b | carte fuori dal gruppo, valore in B contro A | 99° percentile dello scarto assoluto ≤ 2% |
+| H2 | carte del gruppo, valore contro C | mediana ≤ 2%, 95° percentile ≤ 10% (invariato) |
+| H3 | SlabRange del gruppo | come nel §68 (invariato) |
+| H4 | indici, variazione settimanale delle ultime 13 settimane | come nel §68 (invariato) |
+| H5b | tempo | B non più di un terzo di C |
+
+**Detto apertamente:** H1b e H5b sostituiscono H1 e H5 **dopo** aver visto l'esito del §68 (sopra il perché: H1 era impossibile per costruzione, H5 sotto il costo fisso di ogni corsa). Per questo, anche se il §68b passa, la variante H entra sul sito solo con il sì di Oscar; H2, H3 e H4 restano quelli registrati prima.
+

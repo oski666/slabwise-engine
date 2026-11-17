@@ -1,6 +1,6 @@
 # Protocol §68 (D322): cards that receive a long history refitted from the last saved state (H) against the full
 # rebuild. A = full rebuild without the group's sales older than 13 weeks (saves the states), B = H from A's states with
-# every sale, C = full rebuild with every sale. H1: other cards B == A; H2-H3: group cards B vs C; H4: indices; H5: time.
+# every sale, C = full rebuild with every sale. §68b: groups G2 and G3, weekly replay (SLABWISE_REPLAY_WEEKLY=1). H1: other cards B == A; H2-H3: group cards B vs C; H4: indices; H5: time.
 name: Prova storico incrementale
 on:
   workflow_dispatch: {}
@@ -37,7 +37,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        arm: [C, A-G1, A-G2]
+        arm: [C, A-G2, A-G3]
     steps:
       - uses: actions/checkout@v4
       - name: Private data (D163)
@@ -86,7 +86,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        group: [G1, G2]
+        group: [G2, G3]
     steps:
       - uses: actions/checkout@v4
       - name: Private data (D163)
@@ -118,7 +118,7 @@ jobs:
           tar -C /tmp -xzf /tmp/a/ck.tgz
           mkdir -p /tmp/b
           start=$(date +%s)
-          SLABWISE_REHIST=results/rehist/${{ matrix.group }}.json SLABWISE_INCREMENTAL=1 SLABWISE_CKPT=/tmp/ck SLABWISE_TC_HISTORY=1 SLABWISE_INDEX_SELF=1 SLABWISE_OUT=/tmp/b/out.json PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json | tee /tmp/b/log.txt
+          SLABWISE_REPLAY_WEEKLY=1 SLABWISE_REHIST=results/rehist/${{ matrix.group }}.json SLABWISE_INCREMENTAL=1 SLABWISE_CKPT=/tmp/ck SLABWISE_TC_HISTORY=1 SLABWISE_INDEX_SELF=1 SLABWISE_OUT=/tmp/b/out.json PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json | tee /tmp/b/log.txt
           echo $(( $(date +%s) - start )) > /tmp/b/seconds.txt
           grep -q "§68:.*carte con storico nuovo" /tmp/b/log.txt
           rm -f /tmp/a/ck.tgz
@@ -141,10 +141,10 @@ jobs:
           pattern: arm-*
       - name: Compare and save
         run: |
-          for G in G1 G2; do
-            python scripts/incremental_test.py compare68 results/rehist/$G.json /tmp/arms/arm-A-$G/out.json /tmp/arms/arm-B-$G/out.json /tmp/arms/arm-C/out.json /tmp/arms/arm-B-$G/seconds.txt results/rehist/$G.result.json
+          for G in G2 G3; do
+            python scripts/incremental_test.py compare68b results/rehist/$G.json /tmp/arms/arm-A-$G/out.json /tmp/arms/arm-B-$G/out.json /tmp/arms/arm-C/out.json /tmp/arms/arm-B-$G/seconds.txt /tmp/arms/arm-C/seconds.txt results/rehist/$G.b.result.json
           done
           git config user.name "slabwise-bot"
           git config user.email "slabwise-bot@users.noreply.github.com"
-          git add results/rehist/*.result.json
-          git diff --cached --quiet || { git commit -m "Prova §68: storico incrementale"; git pull --rebase --autostash -q && git push; }
+          git add results/rehist/*.b.result.json
+          git diff --cached --quiet || { git commit -m "Prova §68b: storico incrementale, secondo giro"; git pull --rebase --autostash -q && git push; }
