@@ -764,6 +764,22 @@ _pk_count = Counter(v for v in _pk_name.values() if v)
 pokemon_names = sorted(k for k, v in _pk_count.items() if v > 10)
 _pk_of = np.array([pokemon_names.index(_pk_name.get(c.split("/")[0])) if _pk_name.get(c.split("/")[0]) in pokemon_names else -1 for c in cards])
 pkidx = EraIndex(_pk_of, len(pokemon_names), k=10, per_card=2, full_only=True)
+# the window's sales are counted from the cleaned sales (after the identity checks): at the end of a run the engine
+# keeps only the recent sales of each card, so their genuineness is not there for the older windows (17 Nov: with
+# the engine's own list only Charizard and Pikachu filled 10 seats, and only from April 2026)
+from slabwise.model import GRADE_INDEX as _GI_PK  # noqa: E402
+_pk_rows = clean[clean["card"].map(lambda c_: _pk_of[int(c_)] >= 0)]
+_pk_key = _pk_rows["card"].to_numpy().astype(np.int64) * 4 + np.array([_GI_PK[int(g_)] for g_ in _pk_rows["grade"]])
+_pk_t = _pk_rows["day"].to_numpy() / 7.0
+
+
+def _pk_counts(w):
+    m = (_pk_t > w - pkidx.reb) & (_pk_t <= w + 1)
+    k_, n_ = np.unique(_pk_key[m], return_counts=True)
+    return {(int(x // 4), int(x % 4)): int(n) for x, n in zip(k_, n_)}
+
+
+pkidx.counts_fn = _pk_counts
 for _w in range(W):
     pkidx.update(_w, lvm, est[_w])
 index_pokemon = {k: v for k, v in ((p_, publish(pkidx, e, "pokemon", f"Indice {p_}")) for e, p_ in enumerate(pokemon_names)) if v}

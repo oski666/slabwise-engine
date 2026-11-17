@@ -35,9 +35,13 @@ class EraIndex:
         self.history = []                                # (week, era, basket) at each rebalance
         self.prev = None
 
+    counts_fn = None                                     # D324: counts of the window from outside (index computed after the loop)
+
     def _rebalance(self, w, lvm):
         counts = {}
-        for c, (ob, f) in enumerate(zip(lvm.obs, lvm.fit)):
+        if self.counts_fn is not None:
+            counts = self.counts_fn(w)
+        for c, (ob, f) in enumerate(zip(lvm.obs, lvm.fit) if self.counts_fn is None else ()):
             if f is None:
                 continue
             for o, pg in zip(ob, f["pgen"]):
