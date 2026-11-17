@@ -108,11 +108,16 @@ jobs:
           fi
       - name: Values and indices with the long history in one run (D149, D228, D244)
         run: |
+          t0=$(date +%s)
           [ -f /tmp/susp_ids.json ] && export SLABWISE_SUSPECTS=/tmp/susp_ids.json
           # D286 (§60 passed): new cards are added to the last saved state; a full rebuild on the 1st of the month
-          if [ "$(date -u +%d)" != "01" ] && [ "${{ github.event.inputs.full }}" != "true" ]; then export SLABWISE_INCREMENTAL=1; fi
+          # D315: a full rebuild can also be asked with the file prototype/data/full_rebuild, so a waiting full run replaced
+          # by a newer push is not lost: the file stays until a full rebuild is published
+          if [ "$(date -u +%d)" != "01" ] && [ "${{ github.event.inputs.full }}" != "true" ] && [ ! -f prototype/data/full_rebuild ]; then export SLABWISE_INCREMENTAL=1; else echo "FULL_DONE=1" >> "$GITHUB_ENV"; fi
           SLABWISE_CKPT=$HOME/.cache/slabwise/state SLABWISE_TC_HISTORY=1 SLABWISE_INDEX_SELF=1 PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json
           mkdir -p /tmp/out && cp prototype/data/real.json /tmp/out/real.json   # D227: the values of this run, kept apart from git
+          m=$(( ($(date +%s) - t0) / 60 )); echo "motore: $m minuti"
+          [ "$m" -gt 140 ] && echo "::warning::D315: il motore ha usato $m minuti su 210 del lavoro: alzare il limite o accorciare il calcolo prima che scada" || true
       - name: Review list of the suspect sales (D275)
         id: susp
         continue-on-error: true
@@ -223,6 +228,14 @@ jobs:
         run: |
           npx --yes wrangler@3 pages project create slabwise --production-branch=main || true
           npx --yes wrangler@3 pages deploy site --project-name=slabwise --branch=${{ github.ref_name }} --commit-dirty=true   # D230: main = live site, any other branch = preview at <branch>.slabwise.pages.dev
+      - name: Full rebuild done, its request removed (D315)
+        if: env.FULL_DONE == '1' && github.ref_name == 'main'
+        continue-on-error: true
+        run: |
+          if [ -f prototype/data/full_rebuild ]; then
+            git config user.name "slabwise-bot"; git config user.email "slabwise-bot@users.noreply.github.com"
+            git rm -q prototype/data/full_rebuild && git commit -q -m "Ricostruzione completa pubblicata (D315)" && for k in 1 2 3; do git pull -q --rebase -X theirs && git push -q && break; sleep 5; done
+          fi
       - name: Page audit, after publishing so it never delays the site (D242)
         continue-on-error: true
         run: |

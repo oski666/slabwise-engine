@@ -7,8 +7,8 @@ permissions:
   contents: read
   actions: read
 concurrency:
-  group: deploy-main               # D230: same queue as the live site build
-  cancel-in-progress: false
+  group: occasioni                 # D315: its own queue: in the site's queue it waited behind full rebuilds and replaced
+  cancel-in-progress: false        # their waiting runs (the 16 Nov build with D308/D309 was lost that way)
 jobs:
   deals:
     runs-on: ubuntu-latest
@@ -32,6 +32,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           id=$(gh run list -R "$GITHUB_REPOSITORY" -w Sito -s success -L 1 --json databaseId -q '.[0].databaseId')
+          echo "SITE_RUN=$id" >> "$GITHUB_ENV"
           gh run download "$id" -R "$GITHUB_REPOSITORY" -n site-data -D /tmp/sd
           cp /tmp/sd/real.json prototype/data/real.json
           cp /tmp/sd/pagella.json prototype/data/pagella.json 2>/dev/null || true
@@ -66,6 +67,20 @@ jobs:
           path: data/raw/ebay/counts.json
           retention-days: 3
           if-no-files-found: ignore
+      - name: Newest values before publishing (D315)
+        if: env.HAS_EBAY == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # a site build finished while this run searched eBay: deals go onto its values, never back onto older ones
+          id=$(gh run list -R "$GITHUB_REPOSITORY" -w Sito -s success -L 1 --json databaseId -q '.[0].databaseId')
+          if [ "$id" != "$SITE_RUN" ]; then
+            rm -rf /tmp/sd2 && gh run download "$id" -R "$GITHUB_REPOSITORY" -n site-data -D /tmp/sd2
+            cp /tmp/sd2/real.json prototype/data/real.json
+            cp /tmp/sd2/pagella.json prototype/data/pagella.json 2>/dev/null || true
+            PYTHONPATH=. python scripts/deals_refresh.py prototype/data/real.json data/raw/ebay/listings.json data/raw/ebay/counts.json
+            echo "valori più recenti del Sito $id"
+          fi
       - name: Page
         run: |
           python - <<'PY'

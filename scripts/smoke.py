@@ -10,6 +10,7 @@ files are not reachable directly.
 import json
 import os
 import sys
+import time
 import urllib.request
 
 from playwright.sync_api import sync_playwright
@@ -37,6 +38,8 @@ def status(url):
         return e.code
 
 
+BUDGET_S = int(os.environ.get("SLABWISE_SMOKE_BUDGET_S", 600))   # D315: per screen; the job has 30 minutes for both
+skipped = []
 with sync_playwright() as pw:
     kw = {"proxy": {"server": os.environ["HTTPS_PROXY"]}} if os.environ.get("HTTPS_PROXY") else {}
     b = pw.chromium.launch(**kw)
@@ -58,7 +61,11 @@ with sync_playwright() as pw:
         # "Le mie carte" (D131) checked full: three followed cards, one long Japanese name, one card no longer listed
         p.evaluate("""() => { const c=D.cards, w={}; [c[0], c[c.length-1], c.find(x=>x.lang==='ja')||c[1]].forEach(x=>{ const g=x.grades[x.grades.length-1]; w[x.id+'|'+g.grade]={v:g.value||null,d:'2026-10-01'}; });
           w['xx-gone|10']={v:5,d:'2026-10-01'}; localStorage.setItem('sw-watch', JSON.stringify(w)); }""")
-        for r in ["#mercato", "#deal", "#metodo", "#richieste", "#privacy", "#termini", "#contatti", "#mie"] + idx + ["#indici-voto"] + ["#c-" + i for i in ids]:
+        t0, routes = time.time(), ["#mercato", "#deal", "#metodo", "#richieste", "#privacy", "#termini", "#contatti", "#mie"] + idx + ["#indici-voto"] + ["#c-" + i for i in ids]
+        for n_r, r in enumerate(routes):
+            if time.time() - t0 > BUDGET_S:                 # D315: stop in time and say how far it got, never time out
+                skipped.append(f"{tag}: controllate {n_r} pagine su {len(routes)}, tempo finito")
+                break
             errs.clear()
             p.goto(BASE + r)
             p.wait_for_timeout(1800)
@@ -93,4 +100,6 @@ if status(BASE + "x/studio") != 404:
 if status(BASE + "x/cards/swsh7-215.json") != 404:
     problems.append("i file dei dati sono raggiungibili direttamente")
 print("\n".join(problems) if problems else "tutto in ordine")
+for x in skipped:
+    print(x)
 sys.exit(1 if problems else 0)

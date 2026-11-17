@@ -27,7 +27,13 @@ queue = ac.load(os.path.join(ac.DATA, "candidates_queue.json"), {})
 sk = lambda cid: cid if cid.startswith("ja:") else f"en:{cid}"                 # status key (D134: Japanese ids carry "ja:")
 # D135: the eBay budget no longer stops cards (D118 replaced): it only decides which cards get their listings checked
 have |= {c["id"] for c in ac.load(os.path.join(ac.DATA, "cards_ja.json"), []) if not c.get("pending")}   # D158: pending pages still need a price
+import time as _time
+_t0, BUDGET_S = _time.time(), int(os.environ.get("SLABWISE_ADD_BUDGET_S", 170 * 60))   # D315: leave the engine gate its time
 for cid in ([] if GATE_ONLY else ids):
+    if _time.time() - _t0 > BUDGET_S:
+        rest = ids[ids.index(cid):]
+        print(f"D315: tempo per le pagine finito, {len(rest)} carte restano pronte per il prossimo giro: {' '.join(rest)}")
+        break
     if cid in have:
         print(f"  {cid}: già nel catalogo")
         continue

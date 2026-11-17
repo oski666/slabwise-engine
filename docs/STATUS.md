@@ -1,6 +1,6 @@
 # Slabwise · Stato del progetto
 
-**Aggiornato il 17 novembre 2026, notte** (punti 1–4 della revisione del 16 novembre: D303–D306). Fotografia per chi riprende il lavoro (una chat nuova, o Oscar). Non sostituisce le regole: prima di toccare qualcosa leggi `CLAUDE.md` e `docs/PILLARS.md`; le scelte stanno in `docs/DECISIONS.md` (ultima voce D313), il metodo in `docs/METHOD.md`, le prove in `docs/BACKTEST_PROTOCOL.md`, le fonti in `docs/DATA_SOURCES.md`.
+**Aggiornato il 17 novembre 2026, mattina** (punti 1–4 della revisione del 16 novembre: D303–D306). Fotografia per chi riprende il lavoro (una chat nuova, o Oscar). Non sostituisce le regole: prima di toccare qualcosa leggi `CLAUDE.md` e `docs/PILLARS.md`; le scelte stanno in `docs/DECISIONS.md` (ultima voce D315), il metodo in `docs/METHOD.md`, le prove in `docs/BACKTEST_PROTOCOL.md`, le fonti in `docs/DATA_SOURCES.md`.
 
 ## In breve
 
@@ -32,6 +32,7 @@
 | Gemelle giapponesi | §67/§67b: stesso nome normalizzato, stessa era, stessa illustrazione; adottato per decisione di Oscar (G2 mancato per i doppioni). 268 gemelle nuove: carte inglesi con la gemella 262 nel catalogo, 586 con quelle in coda. Tolti 120 id giapponesi doppi (34 erano sul sito due volte). Verifica a dicembre | D307 |
 | Storici lunghi | In corso dal 16 novembre sera nel browser del PC di Oscar (database `swhist_1116`): 326 carte senza storico e 19 giapponesi con SNKRDUNK; poi esportazione e `scripts/tc_history_merge.py` | — |
 | Ricostruzione completa | 17 novembre 00:35: pubblicata (D306, D307): 1.370 carte (846 inglesi, 524 giapponesi), nessuno Slabprice fuori dallo SlabRange (C11 = 0), nessuna stampa giapponese doppia, 261 inglesi con la gemella sul sito. Costruzione con D308 (SlabRange P) e D309 (Slabvalve unica) lanciata subito dopo | D306–D309 |
+| Tempi dei lavori | Nessun lavoro scade in silenzio: tempo proprio per Controllo e ingresso carte, Occasioni in una coda sua, ricostruzione completa chiedibile con `prototype/data/full_rebuild`, avviso sul motore oltre 140 minuti. Solo Occasioni cerca su eBay | D314, D315 |
 | Regole aggiornate | Documento "Slabwise: regole da aggiornare" approvato: Slabvalve unica col Rubinetto dentro (D309), P12 e P16 riscritti (D310), indici a 100 alla partenza dal vivo (D311), storici ogni lunedì sera e un id per stampa giapponese (D312), pulizia (D313) | D309–D313 |
 | Altri enti nei titoli | §66 adottato: fuori i titoli con un altro ente e un voto ("TAG 10 = PSA 10"), circa 150 vendite su 1,6 milioni. Ricostruzione completa lanciata il 16 novembre | D306 |
 
@@ -45,7 +46,7 @@
 | `candidati` | dopo la raccolta | coda delle carte dalla classifica tcgcharts, issue "Coda delle carte" (n. 2); salva la coda prima di riprovare le carte fermate dal motore (limite 200 minuti) |
 | `sito` | a ogni push sul codice e dopo la raccolta | ricostruisce valori e pagine, pubblica su Cloudflare Pages |
 | `controllo` | dopo il sito | prova un campione di ~50 carte su telefono e computer (12 minuti circa) |
-| `occasioni` | ogni 6 ore | annunci eBay e offerte (D300) |
+| `occasioni` | ogni 6 ore | annunci eBay e offerte (D300); unico a cercare su eBay (D314); coda sua (D315) |
 | `prezzi-giapponesi` | a catena | SNKRDUNK per le giapponesi, 60 carte a giro, salta quelle viste da meno di 7 giorni |
 | `immagini-tcgcharts`, `gemelle` | a mano | D298, D299 |
 | `approva` (a mano, input `ids`; ~3 ore per 100 carte), `richieste` (ogni 3 ore, limite 3 ore), `avvisi`, `raccolta-pokecolor`, `raccolta-alt`, `test` | vari | ingresso delle carte approvate, richieste, avvisi, altre fonti, test |
