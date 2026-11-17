@@ -85,7 +85,7 @@ if not L["asof"] and CARRY:
         import re as _re
         import urllib.request as _ur
         from datetime import datetime as _dt, timezone as _tz
-        _h = _ur.urlopen(CARRY, timeout=60).read().decode("utf-8")
+        _h = _ur.urlopen(_ur.Request(CARRY, headers={"User-Agent": "slabwise-build"}), timeout=60).read().decode("utf-8")
         _P, _ = json.JSONDecoder().raw_decode(_h[_h.index("const D = ") + 10:])
         _a = _P.get("deals_asof")
         if _a and (_dt.now(_tz.utc) - _dt.strptime(_a, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=_tz.utc)).total_seconds() < 6 * 3600:
