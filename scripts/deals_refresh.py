@@ -76,6 +76,31 @@ counts = slabvalve.merge(slabvalve.counts_from_listings(L) if L["asof"] else {},
 os.makedirs(os.path.dirname(cnt_p) or ".", exist_ok=True)
 json.dump(counts, open(cnt_p, "w"), separators=(",", ":"))
 print(f"Slabvalve: {slabvalve.apply(R, counts)} carte con il conteggio degli annunci")
+# D314: the Sito build no longer searches eBay (its searches used up the daily limit and left Occasioni with none). With no
+# listings of its own, it keeps the deals already on the live page while they are under 6 hours old (they are what the
+# page shows anyway; nothing is stored beyond what is published).
+CARRY = os.environ.get("SLABWISE_CARRY_DEALS")
+if not L["asof"] and CARRY:
+    try:
+        import re as _re
+        import urllib.request as _ur
+        from datetime import datetime as _dt, timezone as _tz
+        _h = _ur.urlopen(CARRY, timeout=60).read().decode("utf-8")
+        _P, _ = json.JSONDecoder().raw_decode(_h[_h.index("const D = ") + 10:])
+        _a = _P.get("deals_asof")
+        if _a and (_dt.now(_tz.utc) - _dt.strptime(_a, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=_tz.utc)).total_seconds() < 6 * 3600:
+            _dl = {c["id"]: c.get("deals") or [] for c in _P["cards"]}
+            for c in R["cards"]:
+                c["deals"] = _dl.get(c["id"], [])
+            for k in ("offers", "deals_asof", "deal_stats", "deal_funnel"):
+                R[k] = _P.get(k)
+            json.dump(R, open(data_p, "w"), ensure_ascii=False, separators=(",", ":"))
+            print(f"Occasioni riprese dalla pagina pubblicata ({_a}): {sum(len(v) for v in _dl.values())}")
+            sys.exit(0)
+        print("Occasioni della pagina pubblicata assenti o più vecchie di 6 ore: nessuna occasione")
+    except Exception as ex:
+        print("Occasioni della pagina pubblicata non lette:", ex)
+
 stats, funnel = None, {"annunci": len(L["listings"]), "scartati": skipped, "valutati": len(rows)}
 if rows:
     pg, pdl, stats = score([r["ask_usd"] for r, *_ in rows], [x[3]["landed_eur"] / EUR for x in rows],
