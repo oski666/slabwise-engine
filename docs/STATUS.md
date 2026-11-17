@@ -45,7 +45,7 @@
 
 ## Workflow (GitHub Actions)
 
-**Coda tcgcharts.** `raccolta-tcgcharts`, `candidati`, `immagini-tcgcharts` e `gemelle` sono nello stesso gruppo di concorrenza `raccolta-tcgcharts`: ne gira uno alla volta e **un solo giro può stare in attesa; una nuova richiesta in attesa annulla quella che c'era**. Lanciare un giro solo quando quello prima è partito, mai due di fila. Il ritmo verso tcgcharts è sempre una richiesta ogni 3 secondi (permesso di Marek).
+**Coda tcgcharts.** `raccolta-tcgcharts`, `candidati`, `immagini-tcgcharts` e `gemelle` sono nello stesso gruppo di concorrenza `raccolta-tcgcharts`: ne gira uno alla volta e **un solo giro può stare in attesa; una nuova richiesta in attesa annulla quella che c'era**. Lanciare un giro solo quando quello prima è partito, mai due di fila. Il ritmo verso tcgcharts è una richiesta ogni 2 secondi (permesso di Marek, D321). Occasioni chiama la raccolta come quarto del giorno nella stessa coda (D325).
 
 | Workflow | Quando | Cosa fa |
 |---|---|---|
@@ -53,11 +53,11 @@
 | `candidati` | dopo la raccolta | coda delle carte dalla classifica tcgcharts, issue "Coda delle carte" (n. 2); salva la coda prima di riprovare le carte fermate dal motore (limite 200 minuti) |
 | `sito` | a ogni push sul codice e dopo la raccolta | ricostruisce valori e pagine, pubblica su Cloudflare Pages |
 | `controllo` | dopo il sito | prova un campione di ~50 carte su telefono e computer (12 minuti circa) |
-| `occasioni` | ogni 6 ore | annunci eBay e offerte (D300); unico a cercare su eBay (D314); coda sua (D315) |
+| `occasioni` | 11:23, 17:23, 23:23 UTC | un quarto della raccolta tcgcharts, vendite nuove "nuova: entra nel valore domani" (D323, D325), annunci eBay e offerte (D300); unico a cercare su eBay (D314); coda sua (D315) |
 | `prezzi-giapponesi` | a catena | SNKRDUNK per le giapponesi, 60 carte a giro, salta quelle viste da meno di 7 giorni |
 | `immagini-tcgcharts`, `gemelle` | a mano | D298, D299 |
 | `approva` (a mano, input `ids`; ~3 ore per 100 carte), `richieste` (ogni 3 ore, limite 3 ore), `avvisi`, `raccolta-pokecolor`, `raccolta-alt`, `test` | vari | ingresso delle carte approvate, richieste, avvisi, altre fonti, test |
-| `prova-slabrange`, `prova-indici`, `prova-motore` | a mano | prove del protocollo: SlabRange (giro di dicembre, D308), indici, mercato simulato (P14) |
+| `prova-slabrange`, `prova-indici`, `prova-motore`, `prova-storico-incrementale` | a mano | prove del protocollo: SlabRange (giro di dicembre, D308), indici, mercato simulato (P14) |
 
 ## Problemi aperti
 
