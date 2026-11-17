@@ -737,6 +737,27 @@ function resold(c) {
     <div class="chips" style="flex-wrap:wrap">${l.slice(0, 12).map(([n, s]) => { const o = counted(s);
       return `<a class="chip" href="#cert-${n}" style="text-decoration:none">PSA ${s[s.length - 1][2]} · ${n} · ${o.length}× · <span class="${o[o.length - 1][3] >= o[0][3] ? "up" : "down"}">${pct(o[o.length - 1][3] / o[0][3] - 1)}</span></a>`; }).join("")}</div>`;
 }
+/* D256: creators with an invite code (cookie sw_creator_ui, set by /studio?invito=) see a badge under the slab that
+   opens and takes them to the studio with this card and grade. PICK_IMG and PICK_SAY are placeholders for Oscar. */
+const PICK_IMG = "img/creator-badge.png";
+const PICK_SAY = () => tx("Scelgo te!", "I choose you!");
+const isCreator = () => /(^|; )(sw_creator_ui|sw_staff)=1/.test(document.cookie);
+function pickBadge(c, g) {
+  if (!isCreator() || !g || !g.value) return "";
+  return `<button class="pick" type="button" data-pick="${esc(c.id)}" data-pickg="${g.grade}" aria-label="${tx("Crea contenuti su questa carta nello studio", "Make content on this card in the studio")}">
+    <span class="say" aria-hidden="true">${PICK_SAY()}</span>
+    <span class="ball" aria-hidden="true"><img src="${PICK_IMG}" alt="" onload="this.parentNode.classList.add('hasimg')" onerror="this.remove()"><span class="top"></span><span class="bot"></span><span class="dot"></span></span>
+    <span>${tx("Crea contenuti", "Make content")}</span></button>`;
+}
+function goPick(el) {
+  const c = cardById[el.dataset.pick], gr = +el.dataset.pickg; if (!c) return;
+  const pick = {id: c.id, name: c.name, set: c.set, no: c.no, tot: c.tot, lang: c.lang, series: c.series, img: c.img, rarity: c.rarity,
+                psa_total: c.psa_total, grade: gr, lang_ui: LANG,
+                grades: c.grades.map(x => ({grade: x.grade, value: x.value, slo: x.slo, shi: x.shi, ch30: x.ch30, ch90: x.ch90, pop: x.pop, sales90: x.sales90, last_sale: x.last_sale, off: x.off, stale: x.stale}))};
+  try { localStorage.setItem("sw-pick", JSON.stringify(pick)); } catch (e) { /* the studio reads the card from the address too */ }
+  el.classList.add("go");
+  setTimeout(() => { location.href = `/studio/carta#${encodeURIComponent(c.id)}/${gr}`; }, matchMedia("(prefers-reduced-motion: reduce)").matches ? 150 : 1100);
+}
 function viewCard(id) {
   if (id.startsWith("ja:") && !cardById[id]) return viewJa(id);
   const c = cardById[id]; if (!c) return viewMarket();
@@ -750,6 +771,7 @@ function viewCard(id) {
   <div class="cardpage">
     <div class="leftcol">
       ${slab(c, g.grade, 320, "bob")}
+      ${pickBadge(c, g)}
       <div class="chips" role="group" aria-label="${tx("Voto", "Grade")}">${c.grades.map(x => `<button class="chip" data-cg="${x.grade}" aria-pressed="${x.grade === g.grade}">PSA ${x.grade}</button>`).join("")}</div>
       <p class="note" style="text-align:center">${esc(c.rarity || "")}${byIll(c)}</p>
       ${c.variant || c.variants ? `<div class="edbox"><span class="label">${tx("Stampa", "Printing")}</span><div class="chips">${[c.variant ? cardById[c.base] : c, ...((c.variant ? cardById[c.base] : c).variants || []).map(id => cardById[id])].filter(Boolean).map(x => `<a class="chip" href="#c-${x.id}" aria-pressed="${x === c}" style="text-decoration:none">${edLabel(x)}</a>`).join("")}</div><p class="note">${tx("Sono carte diverse, con prezzi diversi. L'immagine è la stessa per tutte e può mostrare il timbro di un'altra stampa.", "They are different cards with different prices. The picture is shared and may show another printing's stamp.")}</p></div>` : ""}
@@ -946,13 +968,13 @@ function jaTwinBox(c) {
     <div class="facts"><div class="fact"><span>${tx("Inglese PSA 10", "English PSA 10")}</span><b>${usd(en.value)}</b></div><div class="fact"><span>${tx("Giapponese PSA 10", "Japanese PSA 10")}</span><b>${usd(ja.value)}</b></div><div class="fact"><span>${tx("Rapporto", "Ratio")}</span><b>${nf0.format(r * 100)}%</b></div></div>
     <p class="muted">${tx(`Qui la giapponese costa il ${nf0.format(r * 100)}% dell'inglese${avg ? `; in media, a parità di copie in PSA 10, il ${nf0.format(avg * 100)}%` : ""}. Stessa illustrazione, mercati diversi.`, `Here the Japanese one costs ${nf0.format(r * 100)}% of the English one${avg ? `; on average, for the same PSA 10 copies, ${nf0.format(avg * 100)}%` : ""}. Same art, different markets.`)} <a href="#c-${tw.id}">${tx("Apri l'altra scheda", "Open the other page")}</a></p></div>`;
 }
-/* D225, D303, D309: the Slabvalve, one supply signal from two parts. Copies on sale now (recognised eBay Buy It Now
-   listings, US/IT/DE/ES, shipping to Italy) against eBay sales of the grade in 30 days: under 1 month of supply closed,
+/* D225, D303, D309, D316: the Slabvalve, one supply signal from two parts. Copies on sale now (recognised eBay Buy It Now
+   listings, US/IT/DE/ES, shipping to Italy) against every recorded sale of the grade in 30 days: under 1 month of supply closed,
    over 3 open. New copies (PSA 10 only, GemRate: new PSA 10 in 30 days against PSA 10 sold in 30 days): over 1.5 open,
    under 0.67 closed. Open if either part says open; closed only if every part present says closed; else balanced. */
 function valveOf(c, g) {
   const os = c.on_sale ? c.on_sale[String(g.grade)] : null;
-  const n = g.n30e != null ? g.n30e : (g.n30 || 0);
+  const n = g.n30 || 0;                                     // D316: every sale we count (eBay, auctions, SNKRDUNK, Cardova)
   const hasL = os != null && !noOwn(g) && (os || n);
   const tp = (D.tap || {})[c.id], r = g.grade === 10 && tp && tp.ratio != null && isFinite(tp.ratio) ? tp.ratio : null;
   if (!hasL && r == null) return null;
@@ -961,7 +983,7 @@ function valveOf(c, g) {
   const al = c.on_sale_capped ? tx("almeno ", "at least ") : "";
   const word = {chiusa: tx("Slabvalve chiusa", "Slabvalve closed"), aperta: tx("Slabvalve aperta", "Slabvalve open"), equilibrio: tx("Slabvalve in equilibrio", "Slabvalve balanced")}[st];
   const parts = [];
-  if (hasL) parts.push(tx(`${al}${nf0.format(os)} ${os === 1 ? "copia" : "copie"} in vendita adesso in PSA ${g.grade}, ${nf0.format(n)} ${n === 1 ? "venduta" : "vendute"} su eBay negli ultimi 30 giorni`, `${al}${nf0.format(os)} PSA ${g.grade} ${os === 1 ? "copy" : "copies"} on sale now, ${nf0.format(n)} sold on eBay in the last 30 days`));
+  if (hasL) parts.push(tx(`${al}${nf0.format(os)} ${os === 1 ? "copia" : "copie"} in vendita adesso in PSA ${g.grade}, ${nf0.format(n)} ${n === 1 ? "venduta" : "vendute"} negli ultimi 30 giorni`, `${al}${nf0.format(os)} PSA ${g.grade} ${os === 1 ? "copy" : "copies"} on sale now, ${nf0.format(n)} sold in the last 30 days`));
   if (r != null) parts.push(tx(`${nf0.format(tp.new10 || 0)} nuovi PSA 10 gradati in 30 giorni, ${nf0.format(Math.round(tp.sold10 || 0))} venduti`, `${nf0.format(tp.new10 || 0)} new PSA 10 graded in 30 days, ${nf0.format(Math.round(tp.sold10 || 0))} sold`));
   const line = parts.join("; ");
   return {st, os, n, m, r, hasL, word, line, chip: `<b>${word}</b>: ${line}.`};
@@ -971,13 +993,13 @@ function valveBox(c, g) {
   const w = tp && tp.weekly && tp.weekly.length ? tp.weekly : null;
   if (!v && !w) return "";
   const mx = w ? Math.max(1, ...w) : 1;
-  const mesi = v && v.hasL ? (isFinite(v.m) ? (v.m < 1 ? tx("meno di un mese di scorta", "less than a month of supply") : tx(`circa ${nf1.format(v.m)} mesi di scorta`, `about ${nf1.format(v.m)} months of supply`)) : tx("nessuna vendita eBay in 30 giorni", "no eBay sale in 30 days")) : "";
+  const mesi = v && v.hasL ? (isFinite(v.m) ? (v.m < 1 ? tx("meno di un mese di scorta", "less than a month of supply") : tx(`circa ${nf1.format(v.m)} mesi di scorta`, `about ${nf1.format(v.m)} months of supply`)) : tx("nessuna vendita in 30 giorni", "no sale in 30 days")) : "";
   const miss = v ? (!v.hasL ? tx(" Per questa carta non contiamo ancora gli annunci in vendita: decide la parte delle copie nuove.", " We do not count this card's listings yet: the new-copies part decides.") : v.r == null && g.grade === 10 ? tx(" Per questa carta non abbiamo ancora i nuovi PSA 10: decide la parte degli annunci.", " We do not have this card's new PSA 10 yet: the listings part decides.") : "") : "";
   const asof = c.on_sale_asof || D.on_sale_asof;
   return `<div class="tile q"><div class="qhead"><span class="qn">?</span><h2>${tx("Arrivano più copie di quante se ne vendono? La Slabvalve", "Are more copies coming in than are sold? The Slabvalve")}</h2></div>
     ${v ? `<div class="valuerow"><span class="sticker sky">${v.word}</span></div>
     <p style="font:600 19px var(--display)">${v.line[0].toUpperCase() + v.line.slice(1)}${mesi ? `: ${mesi}` : ""}.</p>
-    <p class="note">${tx("Aperta: oltre tre mesi di copie in vendita, oppure più di 1,5 nuovi PSA 10 per ogni PSA 10 venduto. Chiusa: meno di un mese di copie in vendita e meno di 0,67 nuovi PSA 10 per venduto. Contiamo gli annunci Compralo Subito su eBay USA, Italia, Germania e Spagna che spediscono in Italia e le vendite eBay della stessa carta e voto; le copie nuove sono i PSA 10 gradati nel mese. È un'indicazione, non tutto il mercato.", "Open: over three months of copies on sale, or more than 1.5 new PSA 10 for each PSA 10 sold. Closed: under a month of copies on sale and under 0.67 new PSA 10 per sale. We count Buy It Now listings on eBay US, Italy, Germany and Spain that ship to Italy and eBay sales of the same card and grade; new copies are the PSA 10 graded in the month. A guide, not the whole market.")}${miss}${v.hasL && asof ? tx(` Annunci contati il ${dateF(asof.slice(0, 10))}.`, ` Listings counted on ${dateF(asof.slice(0, 10))}.`) : ""}</p>`
+    <p class="note">${tx("Aperta: oltre tre mesi di copie in vendita, oppure più di 1,5 nuovi PSA 10 per ogni PSA 10 venduto. Chiusa: meno di un mese di copie in vendita e meno di 0,67 nuovi PSA 10 per venduto. Contiamo gli annunci Compralo Subito su eBay USA, Italia, Germania e Spagna che spediscono in Italia e tutte le vendite della stessa carta e voto che registriamo (eBay, case d'asta, mercati giapponesi); le copie nuove sono i PSA 10 gradati nel mese. È un'indicazione, non tutto il mercato.", "Open: over three months of copies on sale, or more than 1.5 new PSA 10 for each PSA 10 sold. Closed: under a month of copies on sale and under 0.67 new PSA 10 per sale. We count Buy It Now listings on eBay US, Italy, Germany and Spain that ship to Italy and every sale of the same card and grade we record (eBay, auction houses, Japanese marketplaces); new copies are the PSA 10 graded in the month. A guide, not the whole market.")}${miss}${v.hasL && asof ? tx(` Annunci contati il ${dateF(asof.slice(0, 10))}.`, ` Listings counted on ${dateF(asof.slice(0, 10))}.`) : ""}</p>`
       : `<p class="muted">${tx("Per questa carta e questo voto non abbiamo ancora annunci né copie nuove da confrontare.", "For this card and grade we have no listings or new copies to compare yet.")}</p>`}
     ${w ? `<p class="muted" style="margin-top:10px">${tx("Copie gradate da PSA a settimana (tutti i voti), ultimo anno:", "Copies graded by PSA per week (all grades), last year:")}</p>
     <div class="tapbars" aria-label="${tx("Copie gradate da PSA ogni settimana, ultimo anno", "Copies graded by PSA each week, last year")}">${w.map(x => `<i style="height:${Math.max(2, x / mx * 100)}%" title="${x}"></i>`).join("")}</div>
@@ -1304,6 +1326,7 @@ const LEGAL = {
     parts: [
       [["Chi gestisce Slabwise", "Who runs Slabwise"], ["Slabwise è un progetto personale di Oscar, in Italia, che decide come vengono trattati i pochi dati descritti qui (titolare del trattamento). Per qualsiasi domanda o richiesta usa la pagina Contatti.", "Slabwise is a personal project of Oscar, in Italy, who decides how the few data described here are handled (data controller). For any question or request use the Contact page."]],
       [["Cosa non raccogliamo", "What we do not collect"], ["Non ci sono account, pubblicità o cookie di profilazione. Non vendiamo e non cediamo dati a nessuno.", "There are no accounts, no advertising and no profiling cookies. We do not sell or hand over data to anyone."]],
+      [["Codici invito per i creator", "Invite codes for creators"], ["Ai creator che provano lo studio diamo un codice invito personale. Aprendo il link, il sito salva su quel dispositivo due cookie tecnici che ricordano il codice, finché non li cancelli. Non chiediamo nome, email o altri dati: conserviamo solo un'impronta del codice, non il codice in chiaro.", "Creators who try the studio get a personal invite code. Opening the link, the site stores two technical cookies on that device that remember the code, until you delete them. We do not ask for a name, an email or any other data: we keep only a fingerprint of the code, not the code itself."]],
       [["Statistiche anonime", "Anonymous statistics"], ["Contiamo in forma anonima le visite al sito (con Cloudflare Web Analytics, che non usa cookie e non segue le persone tra siti diversi), quante volte si apre la scheda di ogni carta e quante persone seguono o possiedono ogni carta in ogni voto. Ci arrivano solo numeri: nessun identificativo, nessun prezzo pagato, nessun numero di cert. Servono a capire quali carte interessano. Puoi spegnere il conteggio delle tue carte e delle schede che apri dalla pagina Le mie carte.", "We count anonymously the visits to the site (with Cloudflare Web Analytics, which uses no cookies and does not follow people across sites), how often each card page is opened and how many people follow or own each card in each grade. We receive only numbers: no identifier, no price paid, no cert number. They tell us which cards matter. You can turn off the counting of your cards and of the pages you open on the My cards page."]],
       [["Richieste di carte", "Card requests"], ["Quando chiedi di aggiungere una carta salviamo la carta richiesta e, per limitare gli abusi (al massimo 10 richieste al giorno per connessione), un'impronta cifrata del tuo indirizzo di rete insieme alla data. L'impronta non permette di risalire all'indirizzo e si cancella da sola dopo 24 ore.", "When you ask us to add a card we store the card and, to limit abuse (at most 10 requests a day per connection), an encrypted fingerprint of your network address with the date. The fingerprint cannot be turned back into the address and deletes itself after 24 hours."]],
       [["Messaggi dal modulo Contatti", "Messages from the Contact form"], ["Salviamo il testo del messaggio e, solo se la scrivi, l'email a cui risponderti. Li usiamo solo per risponderti e li cancelliamo entro 12 mesi, o prima se ce lo chiedi. Anche qui un'impronta dell'indirizzo di rete limita gli invii a 5 al giorno e si cancella dopo 24 ore.", "We store the text of the message and, only if you write it, the email to answer you at. We use them only to answer and delete them within 12 months, or earlier if you ask. Here too a fingerprint of the network address limits sending to 5 a day and deletes itself after 24 hours."]],
@@ -1716,6 +1739,8 @@ document.addEventListener("click", e => {
   if (u) { if (u.id === "mineExport") { mineExport(); return; } const o = collGet(); const [x] = o.splice(+u.dataset.uncoll, 1); collSet(o); if (x) countSend([{k: "c", id: x.id, g: x.g, d: -1}]); const y = scrollY; route(); scrollTo({top: y}); toast(tx("Tolta dalla collezione", "Removed from the collection")); return; }
   const w = e.target.closest("[data-watch],[data-unwatch]");
   if (w) { watchToggle(w.dataset.watch || w.dataset.unwatch); const y = scrollY; route(); scrollTo({top: y}); return; }
+  const pk = e.target.closest("[data-pick]");
+  if (pk) { goPick(pk); return; }
   const ir = e.target.closest("[data-ixr]");
   if (ir) { S.ixr = ir.dataset.ixr; const y = scrollY; route(); scrollTo({top: y}); return; }
   const el = e.target.closest("[data-g],[data-sort],[data-cg],[data-min],[data-or],[data-copy],[data-copytext],#copyAll");

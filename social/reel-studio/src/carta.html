@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slabwise Studio · Carta</title>
+<!-- D256: the content pack of one card for the creators. Everything is made here, in the browser, from the card the
+     creator picked on the site (localStorage "sw-pick") and its price history (/api/card/<id>). Nothing is sent anywhere. -->
+<style>
+  :root{--bg:#f5f7ff;--paper:#fff;--ink:#0b1240;--muted:#59608a;--line:#e3e6f7;--brand:#3d4bff;--mint:#19c39b;--coral:#ff5b6b;--sun:#ffd23f;--edge:#0b1240}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1240;--paper:#121b58;--ink:#f3f5ff;--muted:#aab2e6;--line:#26348a;--edge:#000}}
+  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px 16px 60px}
+  h1{font-size:clamp(24px,4vw,36px);margin:4px 0} h2{font-size:20px;margin:0 0 8px}
+  .muted{color:var(--muted)} .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:16px}
+  .tile{background:var(--paper);border:2px solid var(--line);border-radius:18px;padding:18px}
+  label{font-weight:700;font-size:14px} input,select{font:inherit;padding:8px 10px;border:2px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%}
+  button,.btn{font:800 15px system-ui;padding:10px 14px;border-radius:12px;border:2px solid var(--edge);background:var(--sun);color:#0b1240;cursor:pointer;text-decoration:none;display:inline-block}
+  button.ghost{background:var(--paper);color:var(--ink)}
+  canvas{width:100%;height:auto;border-radius:12px;border:2px solid var(--line);background:#fff}
+  textarea{width:100%;min-height:170px;font:15px/1.5 system-ui;padding:10px;border:2px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+  .note{font-size:13px;color:var(--muted)} .big{font:900 28px system-ui} .ok{color:var(--mint)} .bad{color:var(--coral)}
+  .grades button{background:var(--paper);color:var(--ink)} .grades button[aria-pressed="true"]{background:var(--brand);color:#fff}
+  table{border-collapse:collapse;width:100%} td,th{padding:6px 4px;border-bottom:1px solid var(--line);text-align:right} td:first-child,th:first-child{text-align:left}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="note"><a href="/" style="color:inherit">← Slabwise</a> · <a href="/studio" style="color:inherit">Studio della settimana</a></p>
+  <div id="app"><p class="muted">Carico la carta…</p></div>
+</div>
+<script>
+"use strict";
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+const nf = new Intl.NumberFormat("it-IT", {maximumFractionDigits: 0}), nf1 = new Intl.NumberFormat("it-IT", {minimumFractionDigits: 1, maximumFractionDigits: 1});
+const usd = v => v == null ? "—" : "$" + nf.format(v);
+const pct = v => v == null ? "—" : Math.abs(v) < 0.0005 ? "0,0%" : (v > 0 ? "+" : "−") + nf1.format(Math.abs(v * 100)) + "%";
+const store = (k, v) => { try { v === undefined ? null : localStorage.setItem(k, v); return localStorage.getItem(k); } catch (e) { return null; } };
+const H = {handle: store("sw-handle") || "", photo: null, raw: "", cost: "25"};
+
+function readPick() {
+  const [id, gr] = decodeURIComponent(location.hash.slice(1)).split("/");
+  let p = null; try { p = JSON.parse(localStorage.getItem("sw-pick") || "null"); } catch (e) { p = null; }
+  if (!p || (id && p.id !== id)) return null;
+  if (gr) p.grade = +gr;
+  return p;
+}
+const G = (p, gr) => p.grades.find(x => x.grade === gr) || p.grades[0];
+const gemRate = p => { const g10 = G(p, 10); return g10 && g10.pop && p.psa_total ? g10.pop / p.psa_total : null; };
+
+async function history(p) {
+  try { const r = await fetch("/api/card/" + encodeURIComponent(p.id)); if (!r.ok) return []; const d = await r.json(); return (d.grades && d.grades[p.grade]) || []; }
+  catch (e) { return []; }
+}
+
+function script(p) {
+  const g = G(p, p.grade), gr = gemRate(p), name = `${p.name} (${p.set} #${p.no})`;
+  const dir = g.ch90 == null ? "" : g.ch90 > 0.03 ? `è salita del ${pct(g.ch90).slice(1)}` : g.ch90 < -0.03 ? `è scesa del ${pct(g.ch90).slice(1)}` : "è rimasta quasi ferma";
+  const hook = g.ch90 != null && Math.abs(g.ch90) > 0.1 ? `${p.name} in PSA ${g.grade}: ${dir} in 3 mesi. Vediamo perché.` : `Quanto vale davvero ${p.name} in PSA ${g.grade}?`;
+  const body = [`Oggi una copia tipica in PSA ${g.grade} vale circa ${usd(g.value)}: 8 vendite su 10 finiscono tra ${usd(g.slo)} e ${usd(g.shi)}.`,
+    dir ? `Negli ultimi 3 mesi ${dir}.` : "",
+    g.sales90 ? `Negli ultimi 90 giorni ne sono state vendute ${g.sales90} in PSA ${g.grade}.` : `In PSA ${g.grade} si vende raramente: il prezzo può muoversi molto.`,
+    gr != null ? `Solo il ${nf1.format(gr * 100)}% delle copie gradate da PSA ha preso 10${G(p, 10).pop ? ` (${nf.format(G(p, 10).pop)} copie)` : ""}.` : ""].filter(Boolean).join(" ");
+  const close = `Dati Slabwise, aggiornati ogni giorno. Non è un consiglio d'acquisto: fate le vostre valutazioni.${H.handle ? " " + H.handle : ""}`;
+  const caption = `${name} · PSA ${g.grade}\n${usd(g.value)} (SlabRange ${usd(g.slo)}–${usd(g.shi)}) · 3 mesi ${pct(g.ch90)}\nDati: slabwise.pages.dev · non è un consiglio d'acquisto\n#pokemon #pokemoncards #psa #psa${g.grade} #slabwise`;
+  return {hook, body, close, caption};
+}
+
+function grading(p) {
+  const tot = p.psa_total, rows = [7, 8, 9, 10].map(gr => ({gr, g: G(p, gr)})).filter(r => r.g && r.g.grade === r.gr && r.g.pop && r.g.value);
+  if (!tot || !rows.length) return null;
+  const shares = rows.map(r => ({...r, p: r.g.pop / tot}));
+  const covered = shares.reduce((a, r) => a + r.p, 0);
+  return {shares, covered, ev: shares.reduce((a, r) => a + r.p * r.g.value, 0)};
+}
+
+async function loadImg(src) { return new Promise(ok => { const im = new Image(); im.onload = () => ok(im); im.onerror = () => ok(null); im.src = src; }); }
+
+async function drawCard(cv, p) {
+  const x = cv.getContext("2d"), W = 1080, Hh = 1920, g = G(p, p.grade);
+  cv.width = W; cv.height = Hh;
+  x.fillStyle = "#0b1240"; x.fillRect(0, 0, W, Hh);
+  x.fillStyle = "#ffd23f"; x.font = "900 54px system-ui"; x.fillText("SLABWISE", 70, 120);
+  x.fillStyle = "#fff"; x.font = "800 64px system-ui"; wrap(x, p.name, 70, 230, 940, 72);
+  x.fillStyle = "#aab2e6"; x.font = "600 38px system-ui"; x.fillText(`${p.set} · #${p.no} · PSA ${g.grade}`, 70, 400);
+  const im = H.photo || await loadImg("/" + p.img);
+  if (im) { const h = 820, w = h * im.width / im.height; x.save(); roundRect(x, (W - w) / 2, 450, w, h, 28); x.clip(); x.drawImage(im, (W - w) / 2, 450, w, h); x.restore(); }
+  x.fillStyle = "#ffd23f"; x.font = "900 120px system-ui"; x.fillText(usd(g.value), 70, 1430);
+  x.fillStyle = "#fff"; x.font = "700 40px system-ui"; x.fillText(`8 vendite su 10 tra ${usd(g.slo)} e ${usd(g.shi)}`, 70, 1500);
+  x.fillStyle = g.ch90 >= 0 ? "#19c39b" : "#ff5b6b"; x.font = "900 64px system-ui"; x.fillText(`${pct(g.ch90)} in 3 mesi`, 70, 1600);
+  const gr = gemRate(p); x.fillStyle = "#aab2e6"; x.font = "600 36px system-ui";
+  x.fillText(`Pop PSA ${g.grade}: ${g.pop ? nf.format(g.pop) : "—"}${gr != null ? ` · Gem Rate ${nf1.format(gr * 100)}%` : ""}`, 70, 1680);
+  x.font = "600 30px system-ui"; x.fillText(`${H.handle ? H.handle + " · " : ""}dati Slabwise · non è un consiglio d'acquisto`, 70, 1840);
+}
+
+function drawChart(cv, p, pts, upto = 1) {
+  const x = cv.getContext("2d"), W = 1080, Hh = 1920, g = G(p, p.grade);
+  cv.width = W; cv.height = Hh;
+  x.fillStyle = "#0b1240"; x.fillRect(0, 0, W, Hh);
+  x.fillStyle = "#ffd23f"; x.font = "900 54px system-ui"; x.fillText("SLABWISE", 70, 120);
+  x.fillStyle = "#fff"; x.font = "800 58px system-ui"; wrap(x, `${p.name} · PSA ${g.grade}`, 70, 230, 940, 66);
+  if (pts.length > 1) {
+    const vs = pts.map(q => q[1]), lo = Math.min(...pts.map(q => q[2] ?? q[1])), hi = Math.max(...pts.map(q => q[3] ?? q[1]));
+    const X = i => 90 + i * (900 / (pts.length - 1)), Y = v => 1500 - (v - lo) / (hi - lo || 1) * 900;
+    const n = Math.max(2, Math.round(pts.length * upto));
+    x.fillStyle = "rgba(61,75,255,.35)"; x.beginPath();
+    pts.slice(0, n).forEach((q, i) => i ? x.lineTo(X(i), Y(q[3] ?? q[1])) : x.moveTo(X(i), Y(q[3] ?? q[1])));
+    pts.slice(0, n).reverse().forEach((q, i) => x.lineTo(X(n - 1 - i), Y(q[2] ?? q[1]))); x.fill();
+    x.strokeStyle = "#ffd23f"; x.lineWidth = 8; x.lineJoin = "round"; x.beginPath();
+    vs.slice(0, n).forEach((v, i) => i ? x.lineTo(X(i), Y(v)) : x.moveTo(X(i), Y(v))); x.stroke();
+    x.fillStyle = "#aab2e6"; x.font = "600 34px system-ui"; x.fillText(pts[0][0].slice(0, 7), 90, 1570); const last = pts[pts.length - 1][0].slice(0, 7);
+    x.fillText(last, 990 - x.measureText(last).width, 1570);
+    x.fillStyle = "#fff"; x.font = "900 96px system-ui"; x.fillText(usd(vs[n - 1]), 70, 1720);
+  }
+  x.fillStyle = "#aab2e6"; x.font = "600 30px system-ui"; x.fillText(`${H.handle ? H.handle + " · " : ""}dati Slabwise · fascia: SlabRange`, 70, 1840);
+}
+
+function wrap(x, text, X, Y, max, lh) { let line = "", y = Y; for (const w of String(text).split(" ")) { const t = line ? line + " " + w : w; if (x.measureText(t).width > max && line) { x.fillText(line, X, y); line = w; y += lh; } else line = t; } x.fillText(line, X, y); }
+function roundRect(x, X, Y, w, h, r) { x.beginPath(); x.moveTo(X + r, Y); x.arcTo(X + w, Y, X + w, Y + h, r); x.arcTo(X + w, Y + h, X, Y + h, r); x.arcTo(X, Y + h, X, Y, r); x.arcTo(X, Y, X + w, Y, r); x.closePath(); }
+function save(cv, name) { cv.toBlob(b => { const a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = name; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 5000); }, "image/png"); }
+
+async function video(cv, p, pts, btn) {
+  if (!cv.captureStream || !window.MediaRecorder) { alert("Questo browser non sa registrare il video: usa l'immagine."); return; }
+  const type = ["video/mp4", "video/webm;codecs=vp9", "video/webm"].find(t => MediaRecorder.isTypeSupported(t));
+  const rec = new MediaRecorder(cv.captureStream(30), type ? {mimeType: type} : undefined), parts = [];
+  rec.ondataavailable = e => parts.push(e.data);
+  rec.onstop = () => { const b = new Blob(parts, {type: rec.mimeType}); const a = document.createElement("a"); a.href = URL.createObjectURL(b);
+    a.download = `slabwise-${p.id}-psa${p.grade}.${rec.mimeType.includes("mp4") ? "mp4" : "webm"}`; a.click(); btn.disabled = false; btn.textContent = "Video del grafico"; drawChart(cv, p, pts); };
+  btn.disabled = true; btn.textContent = "Registro…"; rec.start();
+  const t0 = performance.now(), dur = 5000;
+  const step = now => { const k = Math.min(1, (now - t0) / dur); drawChart(cv, p, pts, k); if (k < 1 || now - t0 < dur + 1500) requestAnimationFrame(step); else rec.stop(); };
+  requestAnimationFrame(step);
+}
+
+async function render() {
+  const p = readPick();
+  if (!p) { $("#app").innerHTML = `<h1>Scegli una carta</h1><p class="muted">Apri una carta su <a href="/">Slabwise</a> e tocca il bollino sotto lo slab: qui trovi il pacchetto pronto.</p>`; return; }
+  const g = G(p, p.grade), sc = script(p), gd = grading(p), pts = await history(p);
+  const link = `https://slabwise.pages.dev/#c-${encodeURIComponent(p.id)}`;
+  $("#app").innerHTML = `
+  <span class="note">${esc(p.series || "")} · ${esc(p.set)} · #${esc(p.no)}${p.tot ? "/" + esc(p.tot) : ""}</span>
+  <h1>${esc(p.name)}</h1>
+  <div class="row grades" role="group" aria-label="Voto">${p.grades.filter(x => x.value).map(x => `<button data-gr="${x.grade}" aria-pressed="${x.grade === p.grade}">PSA ${x.grade}</button>`).join("")}</div>
+  <div class="grid">
+    <div class="tile"><h2>Il tuo nome e la tua foto</h2>
+      <label for="hd">Il tuo nome sui contenuti</label><input id="hd" placeholder="@tuonome" value="${esc(H.handle)}">
+      <p class="note">Facoltativa: carica la foto della tua copia, va al posto dell'immagine della carta.</p>
+      <input id="ph" type="file" accept="image/*"></div>
+    <div class="tile"><h2>In breve</h2>
+      <p class="big">${usd(g.value)}</p><p class="muted">PSA ${g.grade} · 8 vendite su 10 tra ${usd(g.slo)} e ${usd(g.shi)} · 3 mesi ${pct(g.ch90)} · 30 giorni ${pct(g.ch30)}</p>
+      <p class="muted">${g.sales90 || 0} vendite in 90 giorni · Pop PSA ${g.pop ? nf.format(g.pop) : "—"}</p>
+      <p><a class="btn" href="${link}" target="_blank" rel="noopener">Link alla scheda da citare</a></p>
+      <p class="note">Il link porta alla scheda pubblica con il prezzo di oggi; ogni settimana i prezzi vengono sigillati con una firma digitale pubblica.</p></div>
+  </div>
+  <div class="grid">
+    <div class="tile"><h2>Scheda verticale</h2><canvas id="cv1"></canvas><p class="row" style="margin-top:10px"><button id="dl1">Scarica immagine</button></p></div>
+    <div class="tile"><h2>Grafico del prezzo</h2><canvas id="cv2"></canvas><p class="row" style="margin-top:10px"><button id="dl2">Scarica immagine</button><button id="vd2" class="ghost">Video del grafico</button></p>
+      ${pts.length < 2 ? `<p class="note">Storico non disponibile per questo voto.</p>` : ""}</div>
+  </div>
+  <div class="grid">
+    <div class="tile"><h2>Copione</h2><textarea id="tx1">${esc([sc.hook, "", sc.body, "", sc.close].join("\n"))}</textarea><p class="row"><button data-copy="tx1">Copia copione</button></p></div>
+    <div class="tile"><h2>Didascalia</h2><textarea id="tx2">${esc(sc.caption)}</textarea><p class="row"><button data-copy="tx2">Copia didascalia</button></p></div>
+  </div>
+  <div class="tile" style="margin-top:16px"><h2>Vale la pena gradarla?</h2>
+    ${gd ? `<p class="muted">Su ${nf.format(p.psa_total)} copie gradate da PSA, ecco quante prendono ogni voto e quanto vale oggi.</p>
+    <table><tr><th>Voto</th><th>Copie</th><th>Quota</th><th>Valore oggi</th></tr>${gd.shares.slice().reverse().map(r => `<tr><td>PSA ${r.gr}</td><td>${nf.format(r.g.pop)}</td><td>${nf1.format(r.p * 100)}%</td><td>${usd(r.g.value)}</td></tr>`).join("")}</table>
+    <div class="grid"><div><label for="rw">Prezzo della carta raw ($)</label><input id="rw" inputmode="decimal" value="${esc(H.raw)}"></div><div><label for="ct">Costo del grading con spedizione ($)</label><input id="ct" inputmode="decimal" value="${esc(H.cost)}"></div></div>
+    <p id="ev" class="big" style="margin-top:12px"></p><p id="evn" class="muted"></p>
+    <p class="note">Le quote vengono dalle popolazioni PSA di tutte le copie mandate finora: la tua copia può andare meglio o peggio. Il ${nf1.format((1 - gd.covered) * 100)}% delle copie ha preso meno di 7 e qui conta come valore zero. Non è un consiglio d'acquisto.</p>`
+    : `<p class="muted">Per questa carta mancano le popolazioni PSA o i valori per voto.</p>`}</div>`;
+  const cv1 = $("#cv1"), cv2 = $("#cv2");
+  const redraw = () => { drawCard(cv1, p); drawChart(cv2, p, pts); };
+  redraw();
+  $("#hd").oninput = e => { H.handle = e.target.value.trim(); store("sw-handle", H.handle); redraw(); const s2 = script(p); $("#tx1").value = [s2.hook, "", s2.body, "", s2.close].join("\n"); };
+  $("#ph").onchange = async e => { const f = e.target.files[0]; if (!f) return; H.photo = await loadImg(URL.createObjectURL(f)); redraw(); };
+  $("#dl1").onclick = () => save(cv1, `slabwise-${p.id}-psa${p.grade}-scheda.png`);
+  $("#dl2").onclick = () => save(cv2, `slabwise-${p.id}-psa${p.grade}-grafico.png`);
+  $("#vd2").onclick = e => video(cv2, p, pts, e.target);
+  document.querySelectorAll("[data-copy]").forEach(b => b.onclick = async () => { try { await navigator.clipboard.writeText($("#" + b.dataset.copy).value); b.textContent = "Copiato"; } catch (e) { $("#" + b.dataset.copy).select(); } });
+  document.querySelectorAll("[data-gr]").forEach(b => b.onclick = () => { location.hash = encodeURIComponent(p.id) + "/" + b.dataset.gr; });
+  if (gd) {
+    const calc = () => { const raw = parseFloat(($("#rw").value || "").replace(",", ".")), cost = parseFloat(($("#ct").value || "").replace(",", "."));
+      H.raw = $("#rw").value; H.cost = $("#ct").value;
+      if (!isFinite(raw) || !isFinite(cost)) { $("#ev").textContent = `Valore atteso dopo il grading: ${usd(gd.ev)}`; $("#evn").textContent = "Scrivi prezzo raw e costo del grading per vedere la differenza."; return; }
+      const d = gd.ev - raw - cost; $("#ev").innerHTML = `Valore atteso ${usd(gd.ev)} · spesa ${usd(raw + cost)} · <span class="${d >= 0 ? "ok" : "bad"}">${d >= 0 ? "+" : "−"}${usd(Math.abs(d))}</span>`;
+      $("#evn").textContent = d >= 0 ? "In media, gradare una copia così rende più di quanto costa." : "In media, gradare una copia così costa più di quanto rende."; };
+    $("#rw").oninput = calc; $("#ct").oninput = calc; calc();
+  }
+}
+addEventListener("hashchange", render);
+render();
+</script>
+</body>
+</html>

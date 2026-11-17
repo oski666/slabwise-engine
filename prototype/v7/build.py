@@ -51,6 +51,10 @@ if split and which == "real":                                # D104: the page ke
     os.makedirs(os.path.join(split, "x", "cards"), exist_ok=True)
     os.makedirs(os.path.join(split, "x", "certs"), exist_ok=True)
     os.makedirs(os.path.join(split, "img"), exist_ok=True)
+    _badge = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "character", "creator", "creator-badge.png")
+    if os.path.exists(_badge):                                  # D256: the creator badge drawn by Oscar (PICK_IMG in app.html)
+        import shutil
+        shutil.copyfile(_badge, os.path.join(split, "img", "creator-badge.png"))
     json.dump({c_["id"]: f'{c_["name"]} · {c_.get("set", "")} #{c_.get("no", "")}' for c_ in data["cards"]},   # D133: names for the studio
               open(os.path.join(split, "x", "names.json"), "w"), ensure_ascii=False)
     certs_all = (data.pop("certs", None) or {})
