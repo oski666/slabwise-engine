@@ -51,9 +51,27 @@ function readPick() {
 const G = (p, gr) => p.grades.find(x => x.grade === gr) || p.grades[0];
 const gemRate = p => { const g10 = G(p, 10); return g10 && g10.pop && p.psa_total ? g10.pop / p.psa_total : null; };
 
+let SALES = [];
 async function history(p) {
-  try { const r = await fetch("/api/card/" + encodeURIComponent(p.id)); if (!r.ok) return []; const d = await r.json(); return (d.grades && d.grades[p.grade]) || []; }
+  try { const r = await fetch("/api/card/" + encodeURIComponent(p.id)); if (!r.ok) return []; const d = await r.json();
+    SALES = (d.sales || []).filter(x => x.grade === p.grade && (x.pgen == null || x.pgen >= 0.5));   // D317: the believable sales, for "just happened"
+    return (d.grades && d.grades[p.grade]) || []; }
   catch (e) { return []; }
+}
+const dIt = s => { const [y, m, d] = String(s).slice(0, 10).split("-"); return `${+d}/${+m}/${y}`; };
+// D317: what just happened to this card, from the data of the site (no guesses): biggest and latest sales, the move of
+// the month, new PSA 10, the weekly stories of the site that name it
+function news(p) {
+  const g = G(p, p.grade), out = [], cut = new Date(Date.now() - 30 * 864e5).toISOString().slice(0, 10);
+  const last = SALES[SALES.length - 1];
+  if (last) out.push(`Ultima vendita in PSA ${p.grade}: ${usd(last.price)} il ${dIt(last.date)}${last.venue ? ` (${last.venue})` : ""}.`);
+  const m = SALES.filter(x => x.date >= cut).sort((a, b) => b.price - a.price)[0];
+  if (m && m !== last) out.push(`Vendita più alta del mese: ${usd(m.price)} il ${dIt(m.date)}.`);
+  if (g.ch30 != null && Math.abs(g.ch30) >= 0.1) out.push(`In 30 giorni il valore ${g.ch30 > 0 ? "è salito" : "è sceso"} del ${pct(g.ch30).slice(1)}.`);
+  if (p.tap && p.tap.new10) out.push(`${nf.format(p.tap.new10)} nuovi PSA 10 gradati nell'ultimo mese.`);
+  const wk = p.week ? " dal " + p.week.split("/").map(dIt).join(" al ") : "";   // the story's own numbers stay in the story (C10)
+  for (const st of p.stories || []) out.push(`È tra le storie Slabwise della settimana${wk}: "${st.title}".`);
+  return out;
 }
 
 function script(p) {
@@ -63,7 +81,9 @@ function script(p) {
   const body = [`Oggi una copia tipica in PSA ${g.grade} vale circa ${usd(g.value)}: 8 vendite su 10 finiscono tra ${usd(g.slo)} e ${usd(g.shi)}.`,
     dir ? `Negli ultimi 3 mesi ${dir}.` : "",
     g.sales90 ? `Negli ultimi 90 giorni ne sono state vendute ${g.sales90} in PSA ${g.grade}.` : `In PSA ${g.grade} si vende raramente: il prezzo può muoversi molto.`,
-    gr != null ? `Solo il ${nf1.format(gr * 100)}% delle copie gradate da PSA ha preso 10${G(p, 10).pop ? ` (${nf.format(G(p, 10).pop)} copie)` : ""}.` : ""].filter(Boolean).join(" ");
+    gr != null ? `Solo il ${nf1.format(gr * 100)}% delle copie gradate da PSA ha preso 10${G(p, 10).pop ? ` (${nf.format(G(p, 10).pop)} copie)` : ""}.` : "",
+    p.tap && p.tap.new10 ? `Nell'ultimo mese PSA ne ha gradate ${nf.format(p.tap.new10)} nuove in 10.` : "",
+    g.valve ? `${g.valve.word}: ${g.valve.line}.` : ""].filter(Boolean).join(" ");
   const close = `Dati Slabwise, aggiornati ogni giorno. Non è un consiglio d'acquisto: fate le vostre valutazioni.${H.handle ? " " + H.handle : ""}`;
   const caption = `${name} · PSA ${g.grade}\n${usd(g.value)} (SlabRange ${usd(g.slo)}–${usd(g.shi)}) · 3 mesi ${pct(g.ch90)}\nDati: slabwise.pages.dev · non è un consiglio d'acquisto\n#pokemon #pokemoncards #psa #psa${g.grade} #slabwise`;
   return {hook, body, close, caption};
@@ -151,7 +171,8 @@ async function render() {
       <input id="ph" type="file" accept="image/*"></div>
     <div class="tile"><h2>In breve</h2>
       <p class="big">${usd(g.value)}</p><p class="muted">PSA ${g.grade} · 8 vendite su 10 tra ${usd(g.slo)} e ${usd(g.shi)} · 3 mesi ${pct(g.ch90)} · 30 giorni ${pct(g.ch30)}</p>
-      <p class="muted">${g.sales90 || 0} vendite in 90 giorni · Pop PSA ${g.pop ? nf.format(g.pop) : "—"}</p>
+      <p class="muted">${g.sales90 || 0} vendite in 90 giorni · Pop PSA ${g.pop ? nf.format(g.pop) : "—"}${p.tap && p.tap.year ? ` · ${nf.format(p.tap.year)} copie gradate da PSA nell'ultimo anno (tutti i voti)` : ""}</p>
+      ${g.valve ? `<p><b>${esc(g.valve.word)}</b>: ${esc(g.valve.line)}.</p>` : ""}
       <p><a class="btn" href="${link}" target="_blank" rel="noopener">Link alla scheda da citare</a></p>
       <p class="note">Il link porta alla scheda pubblica con il prezzo di oggi; ogni settimana i prezzi vengono sigillati con una firma digitale pubblica.</p></div>
   </div>
@@ -160,6 +181,8 @@ async function render() {
     <div class="tile"><h2>Grafico del prezzo</h2><canvas id="cv2"></canvas><p class="row" style="margin-top:10px"><button id="dl2">Scarica immagine</button><button id="vd2" class="ghost">Video del grafico</button></p>
       ${pts.length < 2 ? `<p class="note">Storico non disponibile per questo voto.</p>` : ""}</div>
   </div>
+  <div class="tile" style="margin-top:16px"><h2>Appena successo</h2>
+    ${(() => { const n = news(p); return n.length ? `<ul>${n.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : `<p class="muted">Niente di nuovo su questa carta in PSA ${p.grade} nell'ultimo mese.</p>`; })()}</div>
   <div class="grid">
     <div class="tile"><h2>Copione</h2><textarea id="tx1">${esc([sc.hook, "", sc.body, "", sc.close].join("\n"))}</textarea><p class="row"><button data-copy="tx1">Copia copione</button></p></div>
     <div class="tile"><h2>Didascalia</h2><textarea id="tx2">${esc(sc.caption)}</textarea><p class="row"><button data-copy="tx2">Copia didascalia</button></p></div>

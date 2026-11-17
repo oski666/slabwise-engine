@@ -50,6 +50,8 @@ by_card = {c["id"]: c for c in R["cards"]}
 rows = []
 skipped = {"carta non nel catalogo": 0, "voto senza stima": 0, "cert di un'altra carta": 0}
 for r in L["listings"]:
+    if r.get("auction"):                 # D318: an open auction counts in the Slabvalve but has no price to judge as a deal
+        continue
     c = by_card.get(r["card"])
     if not c:
         skipped["carta non nel catalogo"] += 1

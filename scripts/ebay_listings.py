@@ -140,7 +140,8 @@ def parse_item(it, market, queries, eur):
         return None                                          # an Asian printing is another catalogue card
     if FOREIGN_NAME.search(low):
         return None                                          # D187: German or French name of the Pokémon, so not the English card
-    ask = money(it.get("price"), eur)
+    auction = "AUCTION" in (it.get("buyingOptions") or []) and "FIXED_PRICE" not in (it.get("buyingOptions") or [])
+    ask = money(it.get("currentBidPrice") or it.get("price"), eur) if auction else money(it.get("price"), eur)   # D318
     ship_opts = it.get("shippingOptions") or []
     ship = money(ship_opts[0].get("shippingCost"), eur) if ship_opts else None
     if ask is None or ship is None:
@@ -156,6 +157,7 @@ def parse_item(it, market, queries, eur):
                      url=it.get("itemAffiliateWebUrl") or it.get("itemWebUrl"), affiliate=bool(it.get("itemAffiliateWebUrl")),
                      seller_pct=seller.get("feedbackPercentage"), seller_n=seller.get("feedbackScore"),
                      programs=it.get("qualifiedPrograms") or [], best_offer="BEST_OFFER" in (it.get("buyingOptions") or []),
+                     auction=auction,
                      image=(it.get("image") or {}).get("imageUrl"), cert=None)
 
 
@@ -192,7 +194,7 @@ def main():
             break
         for market, cat in MARKETS.items():
             params = {"q": q.replace("#", "") + " PSA", "limit": "200",
-                      "filter": "buyingOptions:{FIXED_PRICE},deliveryCountry:IT"}
+                      "filter": "buyingOptions:{FIXED_PRICE|AUCTION},deliveryCountry:IT"}   # D318: open auctions count in the Slabvalve
             if cat:
                 params["category_ids"] = cat
             try:
