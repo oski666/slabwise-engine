@@ -4246,5 +4246,377 @@
   95,
   -1,
   "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:30th-celebration-r": [
+  "mew",
+  -1,
+  -1,
+  "\\b30th\\W*celebration\\b"
+ ],
+ "ja:s-p-305": [
+  "lucario vstar",
+  305,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:10th-movie-commemoration-set-1": [
+  "striking back mewtwo",
+  1,
+  -1,
+  "\\b10th\\W*movie\\W*commemoration\\W*set\\b"
+ ],
+ "ja:sm-p-239": [
+  "zekrom\\-gx",
+  239,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:xy-p-096": [
+  "warm pikachu",
+  96,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:jet-black-spirit-86": [
+  "shadow rider calyrex vmax",
+  86,
+  -1,
+  "\\bjet\\W*black\\W*spirit\\b"
+ ],
+ "ja:xy-p-164": [
+  "skyla",
+  164,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:storm-emeralda-113": [
+  "mega rayquaza ex",
+  113,
+  -1,
+  "\\bstorm\\W*emeralda\\b"
+ ],
+ "ja:melee-pokemon-scramble-7": [
+  "pikachu",
+  7,
+  -1,
+  "\\bmelee\\W*scramble\\b"
+ ],
+ "ja:silver-lance-85": [
+  "ice rider calyrex vmax",
+  85,
+  -1,
+  "\\bsilver\\W*lance\\b"
+ ],
+ "ja:xy-p-154": [
+  "pikachu",
+  154,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:full-metal-wall-61": [
+  "green's exploration",
+  61,
+  -1,
+  "\\bfull\\W*metal\\W*wall\\b"
+ ],
+ "ja:30th-celebration-b": [
+  "mew",
+  -1,
+  -1,
+  "\\b30th\\W*celebration\\b"
+ ],
+ "ja:xy-p-247": [
+  "pikachu libre",
+  247,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:promo-card-pack-25th-anniversary-edition-5": [
+  "dark gyarados",
+  5,
+  -1,
+  "\\bpromo\\W*pack\\W*25th\\W*anniversary\\W*edition\\b"
+ ],
+ "ja:play-promos-12": [
+  "_____'s celebi",
+  12,
+  -1,
+  "\\bplay\\W*promos\\b"
+ ],
+ "ja:red-collection-72": [
+  "meowth",
+  72,
+  -1,
+  "\\bred\\W*collection\\b"
+ ],
+ "ja:10th-movie-commemoration-set-5": [
+  "alto mare's latias",
+  5,
+  -1,
+  "\\b10th\\W*movie\\W*commemoration\\W*set\\b"
+ ],
+ "ja:10th-movie-commemoration-set-6": [
+  "alto mare's latios",
+  6,
+  -1,
+  "\\b10th\\W*movie\\W*commemoration\\W*set\\b"
+ ],
+ "ja:sm-p-393": [
+  "pikachu\\-gx",
+  393,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:mystery-of-the-fossils-26": [
+  "raichu",
+  26,
+  -1,
+  "(?:\\b(?:fossil|mystery\\W*fossils)\\b|化石の秘密)"
+ ],
+ "ja:vstar-universe-213": [
+  "entei v",
+  213,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:alolan-moonlight-55": [
+  "mallow",
+  55,
+  -1,
+  "\\balolan\\W*moonlight\\b"
+ ],
+ "ja:play-promos-14": [
+  "_____'s jirachi",
+  14,
+  -1,
+  "\\bplay\\W*promos\\b"
+ ],
+ "ja:vending-machine-series-3-green-58": [
+  "growlithe",
+  58,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*3\\W*green\\b"
+ ],
+ "ja:vmax-climax-276": [
+  "gloria",
+  276,
+  -1,
+  "\\bvmax\\W*climax\\b"
+ ],
+ "ja:pokemon-tcg-classic-blastoise-3": [
+  "blastoise",
+  3,
+  -1,
+  "\\btcg\\W*classic\\W*blastoise\\b"
+ ],
+ "ja:sm-p-200": [
+  "pikachu",
+  200,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:vstar-universe-234": [
+  "hisuian zoroark vstar",
+  234,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:the-best-of-xy-183": [
+  "karen",
+  183,
+  -1,
+  "\\bbest\\W*xy\\b"
+ ],
+ "ja:dp-p-112": [
+  "pichu",
+  112,
+  -1,
+  "\\b(?:dp|diamond\\W*(?:&|and)?\\W*pearl)\\W*(?:black\\W*star\\W*)?promo|\\b(?:dp|diamond\\W*(?:&|and)?\\W*pearl)\\W?p\\b"
+ ],
+ "ja:vending-machine-series-1-blue-113": [
+  "chansey",
+  113,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*1\\W*blue\\b"
+ ],
+ "ja:pokemon-tcg-classic-blastoise-14": [
+  "mewtwo",
+  14,
+  -1,
+  "\\btcg\\W*classic\\W*blastoise\\b"
+ ],
+ "ja:pokepark-blue-9": [
+  "rayquaza",
+  9,
+  -1,
+  "\\bpok\\W*park\\W*blue\\b"
+ ],
+ "ja:mystery-of-the-fossils-93": [
+  "haunter",
+  93,
+  -1,
+  "(?:\\b(?:fossil|mystery\\W*fossils)\\b|化石の秘密)"
+ ],
+ "ja:neo-premium-file-1-154": [
+  "meganium",
+  154,
+  -1,
+  "\\bneo\\W*premium\\W*file\\W*1\\b"
+ ],
+ "ja:vmax-climax-17": [
+  "charizard",
+  17,
+  -1,
+  "\\bvmax\\W*climax\\b"
+ ],
+ "ja:s-p-069": [
+  "pok[eé]mon center lady",
+  69,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:battle-partners-105": [
+  "lillie's ribombee",
+  105,
+  -1,
+  "\\bbattle\\W*partners\\b"
+ ],
+ "ja:play-promos-32": [
+  "jirachi ex",
+  32,
+  -1,
+  "\\bplay\\W*promos\\b"
+ ],
+ "ja:awakening-legends-251": [
+  "celebi",
+  251,
+  -1,
+  "(?:\\b(?:neo\\W*revelation|neo\\W*3|awakening\\W*legends)\\b|めざめる伝説)"
+ ],
+ "ja:dp-p-071": [
+  "infernape lv\\.x",
+  71,
+  -1,
+  "\\b(?:dp|diamond\\W*(?:&|and)?\\W*pearl)\\W*(?:black\\W*star\\W*)?promo|\\b(?:dp|diamond\\W*(?:&|and)?\\W*pearl)\\W?p\\b"
+ ],
+ "ja:ppp-promos-7": [
+  "darkrai",
+  7,
+  -1,
+  "\\bppp\\W*promos\\b"
+ ],
+ "ja:vending-machine-series-1-blue-4": [
+  "charmander",
+  4,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*1\\W*blue\\b"
+ ],
+ "ja:promo-card-pack-25th-anniversary-edition-22": [
+  "mewtwo ex",
+  22,
+  -1,
+  "\\bpromo\\W*pack\\W*25th\\W*anniversary\\W*edition\\b"
+ ],
+ "ja:dp-p-048": [
+  "pikachu",
+  48,
+  -1,
+  "\\b(?:dp|diamond\\W*(?:&|and)?\\W*pearl)\\W*(?:black\\W*star\\W*)?promo|\\b(?:dp|diamond\\W*(?:&|and)?\\W*pearl)\\W?p\\b"
+ ],
+ "ja:incandescent-arcana-74": [
+  "altaria",
+  74,
+  -1,
+  "\\bincandescent\\W*arcana\\b"
+ ],
+ "ja:violet-ex-100": [
+  "miriam",
+  100,
+  -1,
+  "\\bviolet\\W*ex\\b"
+ ],
+ "ja:rocket-gang-65": [
+  "dark alakazam",
+  65,
+  -1,
+  "(?:\\b(?:rocket|rocket\\W*gang)\\b|ロケット団)"
+ ],
+ "ja:play-promos-28": [
+  "groudon ex",
+  28,
+  -1,
+  "\\bplay\\W*promos\\b"
+ ],
+ "ja:crossing-the-ruins-212": [
+  "scizor",
+  212,
+  -1,
+  "(?:\\b(?:neo\\W*discovery|neo\\W*2|crossing\\W*the\\W*ruins|crossing\\W*ruins)\\b|遺跡をこえて)"
+ ],
+ "ja:sm-p-125": [
+  "umbreon\\-gx",
+  125,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:awakening-legends-243": [
+  "raikou",
+  243,
+  -1,
+  "(?:\\b(?:neo\\W*revelation|neo\\W*3|awakening\\W*legends)\\b|めざめる伝説)"
+ ],
+ "ja:alter-genesis-107": [
+  "(?:mallow\\s*(?:&|and)\\s*lana|lana\\s*(?:&|and)\\s*mallow)",
+  107,
+  -1,
+  "\\balter\\W*genesis\\b"
+ ],
+ "ja:shiny-treasure-ex-115": [
+  "charizard ex",
+  115,
+  -1,
+  "\\bshiny\\W*treasure\\W*ex\\b"
+ ],
+ "ja:tag-bolt-31": [
+  "(?:pikachu\\s*(?:&|and)\\s*zekrom\\-gx|zekrom\\-gx\\s*(?:&|and)\\s*pikachu)",
+  31,
+  -1,
+  "(?:\\b(?:tag\\W*bolt|sm9\\b|tag\\W*bolt)\\b)"
+ ],
+ "ja:pcg-promos-153": [
+  "pikachu",
+  153,
+  -1,
+  "\\bpcg\\W*promos\\b"
+ ],
+ "ja:dp-p-126": [
+  "snorlax",
+  126,
+  -1,
+  "\\b(?:dp|diamond\\W*(?:&|and)?\\W*pearl)\\W*(?:black\\W*star\\W*)?promo|\\b(?:dp|diamond\\W*(?:&|and)?\\W*pearl)\\W?p\\b"
+ ],
+ "ja:terastal-festival-ex-203": [
+  "ceruledge ex",
+  203,
+  -1,
+  "\\bterastal\\W*festival\\W*ex\\b"
+ ],
+ "ja:gx-ultra-shiny-219": [
+  "mewtwo\\-gx",
+  219,
+  -1,
+  "\\bgx\\W*ultra\\W*shiny\\b"
+ ],
+ "ja:awakening-legends-142": [
+  "aerodactyl",
+  142,
+  -1,
+  "(?:\\b(?:neo\\W*revelation|neo\\W*3|awakening\\W*legends)\\b|めざめる伝説)"
+ ],
+ "ja:mystery-of-the-fossils-132": [
+  "ditto",
+  132,
+  -1,
+  "(?:\\b(?:fossil|mystery\\W*fossils)\\b|化石の秘密)"
  ]
 }
