@@ -3862,5 +3862,389 @@
   71,
   -1,
   "\\brocket\\W*gang\\W*strikes\\W*back\\b"
+ ],
+ "ja:legendary-heartbeat-50": [
+  "jirachi",
+  50,
+  -1,
+  "\\blegendary\\W*heartbeat\\b"
+ ],
+ "ja:collection-x-61": [
+  "venusaur\\-ex",
+  61,
+  -1,
+  "\\bcollection\\W*x\\b"
+ ],
+ "ja:holon-research-tower-49": [
+  "espeon",
+  49,
+  -1,
+  "\\bholon\\W*research\\W*tower\\b"
+ ],
+ "ja:rocket-gang-strikes-back-60": [
+  "rocket's hitmonchan ex",
+  60,
+  -1,
+  "\\brocket\\W*gang\\W*strikes\\W*back\\b"
+ ],
+ "ja:cold-flare-60": [
+  "celebi\\-ex",
+  60,
+  -1,
+  "\\bcold\\W*flare\\b"
+ ],
+ "ja:the-town-on-no-map-62": [
+  "togetic",
+  62,
+  -1,
+  "\\btown\\W*on\\W*no\\W*map\\b"
+ ],
+ "ja:holon-research-tower-69": [
+  "umbreon",
+  69,
+  -1,
+  "\\bholon\\W*research\\W*tower\\b"
+ ],
+ "ja:holon-research-tower-39": [
+  "dragonite",
+  39,
+  -1,
+  "\\bholon\\W*research\\W*tower\\b"
+ ],
+ "ja:galactic-s-conquest-33": [
+  "palkia g lv\\.x",
+  33,
+  -1,
+  "\\bgalactic\\W*s\\W*conquest\\b"
+ ],
+ "ja:mysterious-mountains-43": [
+  "gengar",
+  43,
+  -1,
+  "\\bmysterious\\W*mountains\\b"
+ ],
+ "ja:advent-of-arceus-17": [
+  "charizard",
+  17,
+  -1,
+  "(?:\\b(?:advent\\W*of\\W*arceus|advent\\W*arceus)\\b|アルセウス光臨)"
+ ],
+ "ja:shield-70": [
+  "snorlax vmax",
+  70,
+  -1,
+  "\\bshield\\b"
+ ],
+ "ja:legendary-heartbeat-9": [
+  "celebi",
+  9,
+  -1,
+  "\\blegendary\\W*heartbeat\\b"
+ ],
+ "ja:galactic-s-conquest-66": [
+  "dialga g lv\\.x",
+  66,
+  -1,
+  "\\bgalactic\\W*s\\W*conquest\\b"
+ ],
+ "ja:dragon-blade-53": [
+  "rayquaza\\-ex",
+  53,
+  -1,
+  "\\bdragon\\W*blade\\b"
+ ],
+ "ja:wind-from-the-sea-42": [
+  "kingdra",
+  42,
+  -1,
+  "(?:\\b(?:wind\\W*from\\W*the\\W*sea|wind\\W*from\\W*sea)\\b|海からの風)"
+ ],
+ "ja:holon-research-tower-18": [
+  "flareon",
+  18,
+  -1,
+  "\\bholon\\W*research\\W*tower\\b"
+ ],
+ "ja:sm-p-214": [
+  "pikachu",
+  214,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:sky-legend-59": [
+  "(?:moltres\\s*(?:&|and)\\s*zapdos \\& articuno\\-gx|zapdos \\& articuno\\-gx\\s*(?:&|and)\\s*moltres)",
+  59,
+  -1,
+  "\\bsky\\W*legend\\b"
+ ],
+ "ja:wind-from-the-sea-73": [
+  "steelix",
+  73,
+  -1,
+  "(?:\\b(?:wind\\W*from\\W*the\\W*sea|wind\\W*from\\W*sea)\\b|海からの風)"
+ ],
+ "ja:tag-team-gx-tag-all-stars-53": [
+  "(?:trevenant\\s*(?:&|and)\\s*dusknoir\\-gx|dusknoir\\-gx\\s*(?:&|and)\\s*trevenant)",
+  53,
+  -1,
+  "\\btag\\W*team\\W*gx\\W*tag\\W*all\\W*stars\\b"
+ ],
+ "ja:advent-of-arceus-72": [
+  "salamence lv\\.x",
+  72,
+  -1,
+  "(?:\\b(?:advent\\W*of\\W*arceus|advent\\W*arceus)\\b|アルセウス光臨)"
+ ],
+ "ja:secret-of-the-lakes-301": [
+  "celebi",
+  301,
+  -1,
+  "\\bsecret\\W*lakes\\b"
+ ],
+ "ja:to-have-seen-the-battle-rainbow-11": [
+  "charizard\\-gx",
+  11,
+  -1,
+  "(?:\\b(?:battle\\W*rainbow|sm3h|to\\W*have\\W*seen\\W*battle\\W*rainbow)\\b)"
+ ],
+ "ja:promo-card-pack-25th-anniversary-edition-1": [
+  "charizard",
+  1,
+  -1,
+  "\\bpromo\\W*pack\\W*25th\\W*anniversary\\W*edition\\b"
+ ],
+ "ja:promo-card-pack-25th-anniversary-edition-7": [
+  "_____'s pikachu",
+  7,
+  -1,
+  "\\bpromo\\W*pack\\W*25th\\W*anniversary\\W*edition\\b"
+ ],
+ "ja:promo-card-pack-25th-anniversary-edition-12": [
+  "umbreon",
+  12,
+  -1,
+  "\\bpromo\\W*pack\\W*25th\\W*anniversary\\W*edition\\b"
+ ],
+ "ja:collection-moon-66": [
+  "lillie",
+  66,
+  -1,
+  "\\bcollection\\W*moon\\b"
+ ],
+ "ja:facing-a-new-trial-56": [
+  "acerola",
+  56,
+  -1,
+  "\\bfacing\\W*a\\W*new\\W*trial\\b"
+ ],
+ "ja:start-deck-100-battle-collection-766": [
+  "mega charizard y",
+  766,
+  -1,
+  "\\bstart\\W*deck\\W*100\\W*battle\\W*collection\\b"
+ ],
+ "ja:sky-splitting-charisma-104": [
+  "lisia",
+  104,
+  -1,
+  "\\bsky\\W*splitting\\W*charisma\\b"
+ ],
+ "ja:shield-68": [
+  "marnie",
+  68,
+  -1,
+  "\\bshield\\b"
+ ],
+ "ja:unnumbered-promos-76": [
+  "golem",
+  76,
+  -1,
+  "\\bunnumbered\\W*promos\\b"
+ ],
+ "ja:unnumbered-promos-139": [
+  "omastar",
+  139,
+  -1,
+  "\\bunnumbered\\W*promos\\b"
+ ],
+ "ja:promo-card-pack-25th-anniversary-edition-10": [
+  "shining magikarp",
+  10,
+  -1,
+  "\\bpromo\\W*pack\\W*25th\\W*anniversary\\W*edition\\b"
+ ],
+ "ja:promo-card-pack-25th-anniversary-edition-3": [
+  "blastoise",
+  3,
+  -1,
+  "\\bpromo\\W*pack\\W*25th\\W*anniversary\\W*edition\\b"
+ ],
+ "ja:the-best-of-xy-181": [
+  "hex maniac",
+  181,
+  -1,
+  "\\bbest\\W*xy\\b"
+ ],
+ "ja:gx-battle-boost-120": [
+  "lusamine",
+  120,
+  -1,
+  "\\bgx\\W*battle\\W*boost\\b"
+ ],
+ "ja:rocket-gang-strikes-back-20": [
+  "torchic",
+  20,
+  -1,
+  "\\brocket\\W*gang\\W*strikes\\W*back\\b"
+ ],
+ "ja:crossing-the-ruins-196": [
+  "espeon",
+  196,
+  -1,
+  "(?:\\b(?:neo\\W*discovery|neo\\W*2|crossing\\W*the\\W*ruins|crossing\\W*ruins)\\b|遺跡をこえて)"
+ ],
+ "ja:ultradimensional-beasts-55": [
+  "lusamine",
+  55,
+  -1,
+  "\\bultradimensional\\W*beasts\\b"
+ ],
+ "ja:pokekyun-collection-20": [
+  "m gardevoir\\-ex",
+  20,
+  -1,
+  "\\bpok\\W*kyun\\W*collection\\b"
+ ],
+ "ja:promo-card-pack-25th-anniversary-edition-2": [
+  "venusaur",
+  2,
+  -1,
+  "\\bpromo\\W*pack\\W*25th\\W*anniversary\\W*edition\\b"
+ ],
+ "ja:darkness-and-to-light-164": [
+  "shining noctowl",
+  164,
+  -1,
+  "(?:\\b(?:neo\\W*destiny|neo\\W*4|darkness\\W*to\\W*light)\\b|闇、?そして光へ)"
+ ],
+ "ja:sm-p-363": [
+  "mewtwo\\-gx",
+  363,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:ash-vs-team-rocket-deck-kit-5": [
+  "ash's pikachu gx",
+  5,
+  -1,
+  "\\bash\\W*vs\\W*team\\W*rocket\\W*deck\\W*kit\\b"
+ ],
+ "ja:promo-card-pack-25th-anniversary-edition-24": [
+  "m rayquaza ex",
+  24,
+  -1,
+  "\\bpromo\\W*pack\\W*25th\\W*anniversary\\W*edition\\b"
+ ],
+ "ja:10th-movie-commemoration-set-2": [
+  "explosive birth lugia",
+  2,
+  -1,
+  "\\b10th\\W*movie\\W*commemoration\\W*set\\b"
+ ],
+ "ja:sm-p-068": [
+  "pikachu",
+  68,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:promo-card-pack-25th-anniversary-edition-14": [
+  "mew ex",
+  14,
+  -1,
+  "\\bpromo\\W*pack\\W*25th\\W*anniversary\\W*edition\\b"
+ ],
+ "ja:promo-card-pack-25th-anniversary-edition-21": [
+  "zekrom",
+  21,
+  -1,
+  "\\bpromo\\W*pack\\W*25th\\W*anniversary\\W*edition\\b"
+ ],
+ "ja:the-best-of-xy-185": [
+  "shauna",
+  185,
+  -1,
+  "\\bbest\\W*xy\\b"
+ ],
+ "ja:10th-movie-commemoration-set-9": [
+  "tree of beginning's mew",
+  9,
+  -1,
+  "\\b10th\\W*movie\\W*commemoration\\W*set\\b"
+ ],
+ "ja:sm-p-080": [
+  "lillie",
+  80,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:start-deck-100-419": [
+  "marnie's pride",
+  419,
+  -1,
+  "\\bstart\\W*deck\\W*100\\b"
+ ],
+ "ja:melee-pokemon-scramble-9": [
+  "mewtwo",
+  9,
+  -1,
+  "\\bmelee\\W*scramble\\b"
+ ],
+ "ja:ultra-moon-70": [
+  "cynthia",
+  70,
+  -1,
+  "\\bultra\\W*moon\\b"
+ ],
+ "ja:p-promos-4": [
+  "pikachu",
+  4,
+  -1,
+  "\\bp\\W*promos\\b"
+ ],
+ "ja:alter-genesis-106": [
+  "(?:cynthia\\s*(?:&|and)\\s*caitlin|caitlin\\s*(?:&|and)\\s*cynthia)",
+  106,
+  -1,
+  "\\balter\\W*genesis\\b"
+ ],
+ "ja:promo-card-pack-25th-anniversary-edition-20": [
+  "reshiram",
+  20,
+  -1,
+  "\\bpromo\\W*pack\\W*25th\\W*anniversary\\W*edition\\b"
+ ],
+ "ja:pokepark-forest-2": [
+  "pokepark's torchic",
+  2,
+  -1,
+  "\\bpokepark\\W*forest\\b"
+ ],
+ "ja:the-best-of-xy-184": [
+  "delinquent",
+  184,
+  -1,
+  "\\bbest\\W*xy\\b"
+ ],
+ "ja:space-juggler-77": [
+  "irida",
+  77,
+  -1,
+  "\\bspace\\W*juggler\\b"
+ ],
+ "ja:xy-p-095": [
+  "warm pikachu",
+  95,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
  ]
 }
