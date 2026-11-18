@@ -3016,5 +3016,461 @@
   158,
   -1,
   "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:expansion-pack-20th-anniversary-94": [
+  "pikachu\\-ex",
+  94,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:25th-anniversary-golden-box-1": [
+  "pikachu v",
+  1,
+  -1,
+  "\\b25th\\W*anniversary\\W*golden\\W*box\\b"
+ ],
+ "ja:start-deck-100-battle-collection-764": [
+  "pikachu ex",
+  764,
+  -1,
+  "\\bstart\\W*deck\\W*100\\W*battle\\W*collection\\b"
+ ],
+ "ja:pokekyun-collection-10": [
+  "pikachu",
+  10,
+  -1,
+  "\\bpok\\W*kyun\\W*collection\\b"
+ ],
+ "ja:pokekyun-collection-7": [
+  "flareon\\-ex",
+  7,
+  -1,
+  "\\bpok\\W*kyun\\W*collection\\b"
+ ],
+ "ja:s-p-323": [
+  "pikachu",
+  323,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:s-p-188": [
+  "jolteon vmax",
+  188,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:expansion-pack-20th-anniversary-90": [
+  "charizard\\-ex",
+  90,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:s-p-187": [
+  "vaporeon vmax",
+  187,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:s-p-186": [
+  "flareon vmax",
+  186,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:shiny-collection-24": [
+  "mew\\-ex",
+  24,
+  -1,
+  "\\bshiny\\W*collection\\b"
+ ],
+ "ja:25th-anniversary-collection-30": [
+  "mew",
+  30,
+  -1,
+  "\\b25th\\W*anniversary\\W*collection\\b"
+ ],
+ "ja:play-promos-29": [
+  "rayquaza ex",
+  29,
+  -1,
+  "\\bplay\\W*promos\\b"
+ ],
+ "ja:venusaur-charizard-blastoise-special-deck-set-51": [
+  "charmander",
+  51,
+  -1,
+  "\\bvenusaur\\W*charizard\\W*blastoise\\W*special\\W*deck\\W*set\\b"
+ ],
+ "ja:expansion-pack-20th-anniversary-92": [
+  "blastoise\\-ex",
+  92,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:gold-silver-to-a-new-world-157": [
+  "typhlosion",
+  157,
+  -1,
+  "(?:\\b(?:neo\\W*genesis|neo\\W*1|gold\\W*silver|gold\\W*silver\\W*to\\W*a\\W*new\\W*world)\\b|金、?・?銀、?・?新世界へ)"
+ ],
+ "ja:expansion-pack-20th-anniversary-91": [
+  "m charizard\\-ex",
+  91,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:legendary-shine-collection-8": [
+  "pikachu\\-ex",
+  8,
+  -1,
+  "\\blegendary\\W*shine\\W*collection\\b"
+ ],
+ "ja:melee-pokemon-scramble-10": [
+  "mew",
+  10,
+  -1,
+  "\\bmelee\\W*scramble\\b"
+ ],
+ "ja:mysterious-mountains-44": [
+  "gengar",
+  44,
+  -1,
+  "\\bmysterious\\W*mountains\\b"
+ ],
+ "ja:bw-p-188": [
+  "umbreon",
+  188,
+  -1,
+  "\\b(?:bw|black\\W*(?:&|and)?\\W*white)\\W*(?:black\\W*star\\W*)?promo|\\b(?:bw|black\\W*(?:&|and)?\\W*white)\\W?p\\b"
+ ],
+ "ja:to-have-seen-the-battle-rainbow-52": [
+  "charizard\\-gx",
+  52,
+  -1,
+  "(?:\\b(?:battle\\W*rainbow|sm3h|to\\W*have\\W*seen\\W*battle\\W*rainbow)\\b)"
+ ],
+ "ja:pokekyun-collection-6": [
+  "flareon\\-ex",
+  6,
+  -1,
+  "\\bpok\\W*kyun\\W*collection\\b"
+ ],
+ "ja:rocket-gang-strikes-back-62": [
+  "rocket's snorlax ex",
+  62,
+  -1,
+  "\\brocket\\W*gang\\W*strikes\\W*back\\b"
+ ],
+ "ja:s-p-103": [
+  "charizard v",
+  103,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:expansion-pack-20th-anniversary-88": [
+  "venusaur\\-ex",
+  88,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:pokekyun-collection-25": [
+  "sylveon\\-ex",
+  25,
+  -1,
+  "\\bpok\\W*kyun\\W*collection\\b"
+ ],
+ "ja:the-best-of-xy-187": [
+  "yveltal\\-ex",
+  187,
+  -1,
+  "\\bbest\\W*xy\\b"
+ ],
+ "ja:rocket-gang-strikes-back-64": [
+  "rocket's mewtwo ex",
+  64,
+  -1,
+  "\\brocket\\W*gang\\W*strikes\\W*back\\b"
+ ],
+ "ja:glory-of-team-rocket-109": [
+  "team rocket's meowth",
+  109,
+  -1,
+  "\\bglory\\W*team\\W*rocket\\b"
+ ],
+ "ja:miracle-crystal-33": [
+  "alakazam",
+  33,
+  -1,
+  "(?:\\b(?:miracle\\W*crystal|miracle\\W*crystal)\\b|きせきの結晶)"
+ ],
+ "ja:tag-bolt-113": [
+  "(?:gengar\\s*(?:&|and)\\s*mimikyu\\-gx|mimikyu\\-gx\\s*(?:&|and)\\s*gengar)",
+  113,
+  -1,
+  "(?:\\b(?:tag\\W*bolt|sm9\\b|tag\\W*bolt)\\b)"
+ ],
+ "ja:awakening-legends-250": [
+  "ho\\-oh",
+  250,
+  -1,
+  "(?:\\b(?:neo\\W*revelation|neo\\W*3|awakening\\W*legends)\\b|めざめる伝説)"
+ ],
+ "ja:bandit-ring-95": [
+  "m rayquaza\\-ex",
+  95,
+  -1,
+  "\\bbandit\\W*ring\\b"
+ ],
+ "ja:gx-ultra-shiny-238": [
+  "sylveon\\-gx",
+  238,
+  -1,
+  "\\bgx\\W*ultra\\W*shiny\\b"
+ ],
+ "ja:clay-burst-74": [
+  "raichu",
+  74,
+  -1,
+  "\\bclay\\W*burst\\b"
+ ],
+ "ja:mythical-legendary-dream-shine-collection-24": [
+  "darkrai",
+  24,
+  -1,
+  "\\bmythical\\W*legendary\\W*dream\\W*shine\\W*collection\\b"
+ ],
+ "ja:shining-darkness-299": [
+  "lugia",
+  299,
+  -1,
+  "\\bshining\\W*darkness\\b"
+ ],
+ "ja:star-birth-118": [
+  "charizard vstar",
+  118,
+  -1,
+  "\\bstar\\W*birth\\b"
+ ],
+ "ja:peerless-fighters-86": [
+  "blaziken vmax",
+  86,
+  -1,
+  "\\bpeerless\\W*fighters\\b"
+ ],
+ "ja:crimson-haze-92": [
+  "perrin",
+  92,
+  -1,
+  "\\bcrimson\\W*haze\\b"
+ ],
+ "ja:tag-team-gx-starter-sets-10": [
+  "(?:umbreon\\s*(?:&|and)\\s*darkrai\\-gx|darkrai\\-gx\\s*(?:&|and)\\s*umbreon)",
+  10,
+  -1,
+  "\\btag\\W*team\\W*gx\\W*starter\\W*sets\\b"
+ ],
+ "ja:wind-from-the-sea-71": [
+  "tyranitar",
+  71,
+  -1,
+  "(?:\\b(?:wind\\W*from\\W*the\\W*sea|wind\\W*from\\W*sea)\\b|海からの風)"
+ ],
+ "ja:challenge-from-the-darkness-145": [
+  "rocket's zapdos",
+  145,
+  -1,
+  "(?:\\b(?:gym\\W*challenge|gym\\W*2|challenge\\W*from|challenge\\W*from\\W*darkness)\\b|闇からの挑戦)"
+ ],
+ "ja:tag-team-gx-tag-all-stars-221": [
+  "(?:pikachu\\s*(?:&|and)\\s*zekrom\\-gx|zekrom\\-gx\\s*(?:&|and)\\s*pikachu)",
+  221,
+  -1,
+  "\\btag\\W*team\\W*gx\\W*tag\\W*all\\W*stars\\b"
+ ],
+ "ja:legendary-heartbeat-56": [
+  "rayquaza",
+  56,
+  -1,
+  "\\blegendary\\W*heartbeat\\b"
+ ],
+ "ja:tag-team-gx-tag-all-stars-226": [
+  "(?:moltres\\s*(?:&|and)\\s*zapdos \\& articuno\\-gx|zapdos \\& articuno\\-gx\\s*(?:&|and)\\s*moltres)",
+  226,
+  -1,
+  "\\btag\\W*team\\W*gx\\W*tag\\W*all\\W*stars\\b"
+ ],
+ "ja:expansion-pack-34": [
+  "nidoking",
+  34,
+  -1,
+  "(?:\\b(?:base\\W*set|basic|expansion\\W*pack)\\b|拡張パック)"
+ ],
+ "ja:expansion-pack-20th-anniversary-95": [
+  "mewtwo\\-ex",
+  95,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:tag-bolt-100": [
+  "(?:pikachu\\s*(?:&|and)\\s*zekrom\\-gx|zekrom\\-gx\\s*(?:&|and)\\s*pikachu)",
+  100,
+  -1,
+  "(?:\\b(?:tag\\W*bolt|sm9\\b|tag\\W*bolt)\\b)"
+ ],
+ "ja:play-promos-27": [
+  "kyogre ex",
+  27,
+  -1,
+  "\\bplay\\W*promos\\b"
+ ],
+ "ja:heat-wave-arena-70": [
+  "ethan's typhlosion",
+  70,
+  -1,
+  "\\bhot\\W*air\\W*arena\\b"
+ ],
+ "ja:mirage-forest-41": [
+  "mew ex",
+  41,
+  -1,
+  "\\bmirage\\W*forest\\b"
+ ],
+ "ja:vmax-starter-set-charizard-2": [
+  "charizard vmax",
+  2,
+  -1,
+  "\\bvmax\\W*starter\\W*set\\W*charizard\\b"
+ ],
+ "ja:shining-darkness-6": [
+  "charizard",
+  6,
+  -1,
+  "\\bshining\\W*darkness\\b"
+ ],
+ "ja:awakening-legends-244": [
+  "entei",
+  244,
+  -1,
+  "(?:\\b(?:neo\\W*revelation|neo\\W*3|awakening\\W*legends)\\b|めざめる伝説)"
+ ],
+ "ja:tag-bolt-19": [
+  "(?:magikarp\\s*(?:&|and)\\s*wailord\\-gx|wailord\\-gx\\s*(?:&|and)\\s*magikarp)",
+  19,
+  -1,
+  "(?:\\b(?:tag\\W*bolt|sm9\\b|tag\\W*bolt)\\b)"
+ ],
+ "ja:emerald-break-85": [
+  "rayquaza\\-ex",
+  85,
+  -1,
+  "\\bemerald\\W*break\\b"
+ ],
+ "ja:the-town-on-no-map-71": [
+  "houndoom",
+  71,
+  -1,
+  "\\btown\\W*on\\W*no\\W*map\\b"
+ ],
+ "ja:red-collection-70": [
+  "victini",
+  70,
+  -1,
+  "\\bred\\W*collection\\b"
+ ],
+ "ja:mythical-legendary-dream-shine-collection-27": [
+  "jirachi",
+  27,
+  -1,
+  "\\bmythical\\W*legendary\\W*dream\\W*shine\\W*collection\\b"
+ ],
+ "ja:space-juggler-71": [
+  "origin forme palkia v",
+  71,
+  -1,
+  "\\bspace\\W*juggler\\b"
+ ],
+ "ja:tag-bolt-66": [
+  "(?:eevee\\s*(?:&|and)\\s*snorlax\\-gx|snorlax\\-gx\\s*(?:&|and)\\s*eevee)",
+  66,
+  -1,
+  "(?:\\b(?:tag\\W*bolt|sm9\\b|tag\\W*bolt)\\b)"
+ ],
+ "ja:melee-pokemon-scramble-6": [
+  "gyarados",
+  6,
+  -1,
+  "\\bmelee\\W*scramble\\b"
+ ],
+ "ja:vstar-universe-226": [
+  "lucario vstar",
+  226,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:shining-darkness-182": [
+  "mew",
+  182,
+  -1,
+  "\\bshining\\W*darkness\\b"
+ ],
+ "ja:expansion-pack-20th-anniversary-98": [
+  "dragonite\\-ex",
+  98,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:ruler-of-the-black-flame-125": [
+  "charizard ex",
+  125,
+  -1,
+  "\\bruler\\W*black\\W*flame\\b"
+ ],
+ "ja:offense-and-defense-of-the-furthest-ends-28": [
+  "rayquaza ex",
+  28,
+  -1,
+  "(?:\\b(?:dragon\\W*frontiers|furthest\\W*ends|offense\\W*defense\\W*furthest\\W*ends)\\b|さいはての攻防)"
+ ],
+ "ja:time-gazer-73": [
+  "machamp v",
+  73,
+  -1,
+  "\\btime\\W*gazer\\b"
+ ],
+ "ja:emerald-break-86": [
+  "m rayquaza\\-ex",
+  86,
+  -1,
+  "\\bemerald\\W*break\\b"
+ ],
+ "ja:holon-research-tower-28": [
+  "kyogre",
+  28,
+  -1,
+  "\\bholon\\W*research\\W*tower\\b"
+ ],
+ "ja:25th-anniversary-collection-24": [
+  "flying pikachu vmax",
+  24,
+  -1,
+  "\\b25th\\W*anniversary\\W*collection\\b"
+ ],
+ "ja:sm-p-366": [
+  "charizard",
+  366,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:star-birth-112": [
+  "arceus v",
+  112,
+  -1,
+  "\\bstar\\W*birth\\b"
+ ],
+ "ja:wind-from-the-sea-89": [
+  "kingdra",
+  89,
+  -1,
+  "(?:\\b(?:wind\\W*from\\W*the\\W*sea|wind\\W*from\\W*sea)\\b|海からの風)"
  ]
 }
