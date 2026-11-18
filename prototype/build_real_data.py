@@ -64,8 +64,14 @@ if (os.environ.get("SLABWISE_INCREMENTAL") == "1" and os.environ.get("SLABWISE_C
             _m = _head.get("meta")
             if _m and _m["eras"] == list(eras) and set(_m["cards"]) <= set(cards) and _head["w"] < W:
                 _cand.append((_head["w"], _f[:-5] + ".pkl", _m))
-        except Exception:
-            pass
+            elif _m:                                       # 19 Nov 2026: say why a saved state is not used
+                _gone = sorted(set(_m["cards"]) - set(cards))
+                print(f"§60: stato della settimana {_head['w']} non usabile:"
+                      f"{' ere diverse ' + str(sorted(set(_m['eras']) ^ set(eras))) if _m['eras'] != list(eras) else ''}"
+                      f"{' carte sparite ' + str(len(_gone)) + ' ' + str(_gone[:8]) if _gone else ''}"
+                      f"{' settimana non prima di ' + str(W) if _head['w'] >= W else ''}", flush=True)
+        except Exception as _e:
+            print("§60: stato non letto:", _f, _e, flush=True)
     if _cand:
         _ws, _pf, _meta = max(_cand, key=lambda x: x[0])
         try:
