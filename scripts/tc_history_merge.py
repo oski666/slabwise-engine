@@ -3,6 +3,7 @@
 Usage: python scripts/tc_history_merge.py <export.json> [data/raw/tcgcharts/history.json.gz]
 A sale already in the archive (same card, grade and tcgcharts sale id) is kept once; payment and exclusion flags
 take the newer value, so a sale "payment pending" yesterday becomes a normal sale when tcgcharts confirms it.
+The cards with new sales go in rehist.json next to the archive (D326): the next engine run refits them alone.
 The archive is read and rewritten one sale at a time (17 Nov 2026: at 2.2 million sales loading it whole was killed
 for lack of memory); only the export is held in memory.
 """
@@ -65,4 +66,14 @@ with gzip.open(tmp, "wt") as o:
             cards.add(r["card"])
     o.write("]")
 os.replace(tmp, path)
+# D326 (§68b): the cards that received sales are refitted alone by the next engine run, without a full rebuild
+from datetime import date  # noqa: E402
+rh_p = os.path.join(os.path.dirname(path), "rehist.json")
+rh = json.load(open(rh_p)) if os.path.exists(rh_p) else {}
+today = str(date.today())
+for k in fresh:
+    if k not in seen:
+        rh[k[0]] = today
+rh = {c: d for c, d in rh.items() if d >= str(date.fromordinal(date.today().toordinal() - 60))}
+json.dump(dict(sorted(rh.items())), open(rh_p, "w"), indent=0)
 print(f"{added} nuove, {updated} aggiornate, {total} in tutto, {len(cards)} carte")

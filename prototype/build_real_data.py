@@ -178,9 +178,15 @@ if CKPT:
             try:
                 from slabwise.incremental import transplant_index, transplant_model, transplant_series
                 lvm_, eidx_, aidx_, sidx_, e_, s_, gidx_ = _incr_pre[2]
-                _redo = set(json.load(open(os.environ["SLABWISE_REHIST"]))) if os.environ.get("SLABWISE_REHIST") else set()   # §68 (D322)
+                # §68b (D326): cards that received a long history since the saved state; the merge writes
+                # data/raw/tcgcharts/rehist.json as {card: day}; a plain list (the protocol's groups) counts whole
+                _rh = json.load(open(os.environ["SLABWISE_REHIST"])) if os.environ.get("SLABWISE_REHIST") and os.path.exists(os.environ["SLABWISE_REHIST"]) else []
+                if isinstance(_rh, dict):
+                    _sd = str((t0 + pd.Timedelta(weeks=_ws)).date())
+                    _rh = [c_ for c_, d_ in _rh.items() if d_ >= _sd]
+                _redo = set(_rh)
                 _redo &= set(_meta["cards"])
-                if os.environ.get("SLABWISE_REPLAY_WEEKLY") == "1":     # §68b: printings follow their base card
+                if os.environ.get("SLABWISE_REPLAY_WEEKLY", "1") == "1":     # §68b (D326): printings follow their base card
                     _redo |= {c_ for c_ in _meta["cards"] if "/" in c_ and c_.split("/")[0] in _redo}
                 lvm, _sat, _o2n = transplant_model(lvm_, lvm, _meta["cards"], cards, redo=_redo)
                 eidx = transplant_index(eidx_, eidx, _o2n, _meta["series_names"], series_names)
@@ -197,10 +203,10 @@ if CKPT:
                 # §68b: week by week across all the replayed cards, base cards before their printings, as in a full
                 # run: a 1st Edition's prior is its base card's ladder of that week (before, each card was replayed
                 # whole in id order, and a printing could start from a base card not replayed yet)
-                # (in prova: acceso solo con SLABWISE_REPLAY_WEEKLY=1 finché il §68b non passa)
+                # (adottato con il §68b, D326; SLABWISE_REPLAY_WEEKLY=0 torna alla ripresa di prima)
                 _byc = {int(_c): {w_: g_ for w_, g_ in _gc.groupby("week")} for _c, _gc in _past.groupby("card")}
                 _order = sorted(_byc, key=lambda c_: (lvm.parent is not None and lvm.parent[c_] >= 0, c_))
-                if os.environ.get("SLABWISE_REPLAY_WEEKLY") != "1":       # the §60 replay in use: each card whole, in id order
+                if os.environ.get("SLABWISE_REPLAY_WEEKLY", "1") != "1":  # the old §60 replay: each card whole, in id order
                     _order = sorted(_byc)
                     for c_ in _order:
                         for w_ in range(int(min(_byc[c_])), _ws + 1):

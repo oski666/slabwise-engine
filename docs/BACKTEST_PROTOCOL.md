@@ -1174,3 +1174,15 @@ Perché: (H1) le altre carte non possono restare identiche: nelle ultime settima
 
 **Detto apertamente:** H1b e H5b sostituiscono H1 e H5 **dopo** aver visto l'esito del §68 (sopra il perché: H1 era impossibile per costruzione, H5 sotto il costo fisso di ogni corsa). Per questo, anche se il §68b passa, la variante H entra sul sito solo con il sì di Oscar; H2, H3 e H4 restano quelli registrati prima.
 
+**Esito §68b (17 novembre 2026, sera): passa su tutti e due i gruppi; adottato il 18 novembre con il sì di Oscar ("Ok per tutto", D326).** Risultati in `results/rehist/G2.b.result.json` e `G3.b.result.json`.
+
+| # | G2 (34 carte) | G3 (33 carte) |
+|---|---|---|
+| H1b altre carte, 99° percentile | 0,41% (massimo 1,1%) | 0,29% (massimo 2,5%) |
+| H2 gruppo contro C | mediana 0,17%, 95° percentile 5,2% | mediana 0,15%, 95° percentile 1,6% |
+| H3 SlabRange | 72,2% contro 72,7% | 69,6% contro 69,9% |
+| H4 indici | 0,11 punti | 0,18 punti |
+| H5b tempo | 12 minuti contro 120 | 20 minuti contro 120 |
+
+La correzione (ripresa settimana per settimana, carte base prima delle stampe) toglie gli scarti del §68 su G2 (95° percentile da 20,8% a 5,2%). Il primo storico vero dopo l'adozione è la verifica (D310).
+

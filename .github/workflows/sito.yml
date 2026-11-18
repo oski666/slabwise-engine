@@ -114,6 +114,7 @@ jobs:
           # D315: a full rebuild can also be asked with the file prototype/data/full_rebuild, so a waiting full run replaced
           # by a newer push is not lost: the file stays until a full rebuild is published
           if [ "$(date -u +%d)" != "01" ] && [ "${{ github.event.inputs.full }}" != "true" ] && [ ! -f prototype/data/full_rebuild ]; then export SLABWISE_INCREMENTAL=1; else echo "FULL_DONE=1" >> "$GITHUB_ENV"; fi
+          export SLABWISE_REHIST=data/raw/tcgcharts/rehist.json   # D326 (§68b): a long history no longer asks for a full rebuild
           SLABWISE_CKPT=$HOME/.cache/slabwise/state SLABWISE_TC_HISTORY=1 SLABWISE_INDEX_SELF=1 PYTHONPATH=. python prototype/build_real_data.py data/raw/sales_all.csv data/raw/era_map.json
           mkdir -p /tmp/out && cp prototype/data/real.json /tmp/out/real.json   # D227: the values of this run, kept apart from git
           m=$(( ($(date +%s) - t0) / 60 )); echo "motore: $m minuti"
