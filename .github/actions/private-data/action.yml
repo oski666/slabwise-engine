@@ -41,6 +41,12 @@ runs:
           git add -A
           if git diff --cached --quiet; then echo "dati privati: niente da salvare"; exit 0; fi
           git commit -q -m "$MSG"
-          for i in 1 2 3; do git pull -q --rebase && git push -q && echo "dati privati salvati" && exit 0; sleep 5; done
+          for i in 1 2 3; do
+            if git pull -q --rebase; then git push -q && echo "dati privati salvati" && exit 0
+            elif python3 "$GITHUB_WORKSPACE/scripts/merge_private_conflict.py" && GIT_EDITOR=true git rebase --continue; then
+              git push -q && echo "dati privati salvati (conflitto unito, D328)" && exit 0
+            else git rebase --abort 2>/dev/null; fi
+            sleep 5
+          done
           echo "dati privati: push non riuscito"; exit 1
         fi

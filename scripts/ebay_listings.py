@@ -63,6 +63,11 @@ def get(path, tok, market, params=None):
                 time.sleep(5 * (attempt + 1))
                 continue
             raise
+        except (urllib.error.URLError, TimeoutError, ConnectionError):
+            if attempt < 2:                                  # 18 Nov 2026: a TLS handshake timeout stopped the whole run
+                time.sleep(5 * (attempt + 1))
+                continue
+            raise
 
 
 class QuotaExhausted(Exception):
@@ -93,6 +98,8 @@ def get_items(ids, tok, market):
             except urllib.error.HTTPError as e:
                 if e.code not in (404, 410):
                     raise
+            except (urllib.error.URLError, TimeoutError, ConnectionError):
+                continue                                     # one listing that cannot be read is skipped, not the run
             time.sleep(PAUSE_S)
     return out
 
