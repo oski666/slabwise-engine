@@ -18,5 +18,9 @@ st = json.load(open(os.path.join(DATA, "requests_status.json"))) if os.path.exis
 week = str(datetime.date.today() - datetime.timedelta(days=7))
 if "--recheck" not in sys.argv:
     ids = [k for k in ids if not ((st.get(k) or {}).get("checked", "") >= week)]
+# 18 Nov 2026: the twins of English cards already on the site first (they complete a card page and the Japanese
+# index), then by tcgcharts rank; before, queue order left the twins behind 1.500 Japanese-only cards
+_en = {c["id"] for c in json.load(open(os.path.join(DATA, "cards.json")))}
+ids.sort(key=lambda k: (q[k].get("en") not in _en, q[k].get("rank") or 1e9))
 for i in range(0, len(ids), 8):
     print(" ".join(ids[i:i + 8]))

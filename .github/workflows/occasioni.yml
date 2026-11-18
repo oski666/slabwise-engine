@@ -16,6 +16,7 @@ jobs:
     uses: ./.github/workflows/raccolta-tcgcharts.yml
     permissions:
       contents: write
+      actions: write
     with:
       quarter: true
     secrets:

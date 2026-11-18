@@ -15,6 +15,7 @@ on:                               # D116: started by the Cloudflare clock (orolo
         required: true
 permissions:
   contents: write
+  actions: write                  # restart of the Japanese checks
 jobs:
   tcgcharts:
     runs-on: ubuntu-latest
@@ -78,3 +79,17 @@ jobs:
           mode: push
           token: ${{ secrets.DATA_TOKEN }}
           message: "tcgcharts: raccolta del giorno"
+      - name: Restart the Japanese checks if their chain stopped (18 Nov 2026)
+        if: inputs.quarter != true
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # the chain of "Prezzi giapponesi" (D284) stopped on 13 November when a waiting run was replaced in the shared
+          # queue, and 1.776 Japanese printings waited five days unchecked: every morning, if cards are due and no
+          # run is waiting or running, one is started
+          left=$(python scripts/ja_due.py | wc -w)
+          busy=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/prezzi-giapponesi.yml/runs?per_page=5" --jq '[.workflow_runs[]|select(.status!="completed")]|length')
+          echo "giapponesi da controllare: $left; giri in corso o in attesa: $busy"
+          if [ "$left" -gt 0 ] && [ "$busy" = "0" ]; then gh workflow run prezzi-giapponesi.yml -R "$GITHUB_REPOSITORY"; fi
+
