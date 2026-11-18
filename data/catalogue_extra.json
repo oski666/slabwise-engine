@@ -7216,5 +7216,41 @@
    2011,
    2012
   ]
+ ],
+ "dpp-DP19": [
+  "darkrai",
+  "\\bpromo",
+  "dp19",
+  [
+   2007,
+   2008
+  ]
+ ],
+ "ecard1-5": [
+  "butterfree",
+  "\\bexpedition\\W*(?:(?:of|the|and)\\W*)?base\\W*(?:(?:of|the|and)\\W*)?set\\b",
+  5,
+  [
+   2002,
+   2003
+  ]
+ ],
+ "ecard1-6": [
+  "charizard",
+  "\\bexpedition\\W*(?:(?:of|the|and)\\W*)?base\\W*(?:(?:of|the|and)\\W*)?set\\b",
+  6,
+  [
+   2002,
+   2003
+  ]
+ ],
+ "ecard3-H13": [
+  "kabutops",
+  "\\bskyridge\\b",
+  "h13",
+  [
+   2003,
+   2004
+  ]
  ]
 }
