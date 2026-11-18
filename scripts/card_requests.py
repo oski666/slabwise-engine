@@ -215,6 +215,30 @@ def check_ja(key, it, entry):
 WINDOW_DAYS, TOLERANCE, MAX_PAGES = 365, 1.0, 6   # D232: a year of sales on every platform; D266: no tolerance below 10
 
 
+_CARDOVA = None
+
+
+def _cardova():
+    """D327: Cardova's paid closed PSA 7-10 auctions (private data, D280) as (day, grade, title), read once."""
+    global _CARDOVA
+    if _CARDOVA is None:
+        _CARDOVA = []
+        p = os.path.join(HERE, "..", "data", "raw", "cardova", "aste_chiuse.json.gz")
+        if os.path.exists(p):
+            import gzip
+            for r in json.load(gzip.open(p, "rt"))["rows"]:
+                if r.get("finished") != 1 or r.get("bid_payment_status") != 5 or r.get("authentication_company_code") != "P":
+                    continue
+                try:
+                    g = int(float(r["grade"]))
+                except (TypeError, ValueError):
+                    continue
+                if 7 <= g <= 10 and r.get("bid_price"):
+                    m = re.match(r"\D*0*(\d+)", str(r.get("card_number") or ""))
+                    _CARDOVA.append((int(m.group(1)) if m else -1, r["end_date"][:10], g, f"{r['year']} Pokemon {r['variety']} {r['card_number']} {r['player']} {r.get('attribute') or ''} PSA {g}"))
+    return _CARDOVA
+
+
 def measure(it, key, min_sales=None):
     """D97 admission rules on the sales of the last WINDOW_DAYS days, on every platform tcgcharts lists (D232)."""
     min_sales = min_sales or MIN_SALES
@@ -233,6 +257,13 @@ def measure(it, key, min_sales=None):
                 if s.get("is_excluded"):
                     continue
                 n += 1
+                if str(key).startswith("ja:") and "snkr" in (s.get("platform") or s.get("source") or "").lower():
+                    # D327: a SNKRDUNK trade sits on the card's own product page and carries its PSA grade as a field
+                    # (its title is the shop's product name, not a seller's): it counts, without the title reader
+                    if str(s.get("grade") or "") == str(g):
+                        rec += 1
+                        by_grade[g] = by_grade.get(g, 0) + 1
+                    continue
                 ok, why = at.accept_assigned(s.get("title") or "", key)   # D258: the providers' card unless the title contradicts it
                 if not ASSIGN:
                     ok = at.match_title(s.get("title") or "")[0] == key
@@ -243,6 +274,13 @@ def measure(it, key, min_sales=None):
                     by_grade[g] = by_grade.get(g, 0) + 1
             if old or not d["pagination"].get("has_next"):
                 break
+    if str(key).startswith("ja:"):                      # D327: Cardova's paid closed auctions read by our title reader
+        no = (at.JA_CATALOGUE.get(key) or (None, -1))[1]
+        for num, day, cg, title in _cardova():          # the number first: the title reader is slow on 230.000 rows
+            if (no < 0 or num == no) and day >= since and at.match_title(title)[0] == key:
+                n += 1
+                rec += 1
+                by_grade[cg] = by_grade.get(cg, 0) + 1
     at.CATALOGUE.pop(key, None)
     at.JA_CATALOGUE.pop(key, None)
     share = rec / n if n else 0.0
