@@ -3,27 +3,27 @@
  "cards": 1450,
  "checks": {
   "C7": {
-   "n": 30,
+   "n": 31,
    "examples": [
     [
      "sv08.5-161",
      "Umbreon ex",
-     "PSA 8 896 < PSA 7 898"
+     "PSA 8 895 < PSA 7 898"
     ],
     [
      "swsh7-192",
      "Dragonite V",
-     "PSA 9 402 < PSA 8 409"
+     "PSA 9 400 < PSA 8 407"
     ],
     [
      "swsh3.5-79",
      "Charizard V",
-     "PSA 9 191 < PSA 8 211"
+     "PSA 9 191 < PSA 8 210"
     ],
     [
      "swsh7-212",
      "Sylveon VMAX",
-     "PSA 9 289 < PSA 8 309"
+     "PSA 9 288 < PSA 8 308"
     ],
     [
      "me02.5-290",
