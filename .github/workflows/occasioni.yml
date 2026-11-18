@@ -44,7 +44,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          id=$(gh run list -R "$GITHUB_REPOSITORY" -w Sito -s success -L 1 --json databaseId -q '.[0].databaseId')
+          id=$(gh api "repos/$GITHUB_REPOSITORY/actions/artifacts?name=site-data&per_page=1" --jq '.artifacts[0].workflow_run.id')   # 18 Nov: the newest run that has values (a skipped Sito run has none)
           echo "SITE_RUN=$id" >> "$GITHUB_ENV"
           gh run download "$id" -R "$GITHUB_REPOSITORY" -n site-data -D /tmp/sd
           cp /tmp/sd/real.json prototype/data/real.json
@@ -86,7 +86,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           # a site build finished while this run searched eBay: deals go onto its values, never back onto older ones
-          id=$(gh run list -R "$GITHUB_REPOSITORY" -w Sito -s success -L 1 --json databaseId -q '.[0].databaseId')
+          id=$(gh api "repos/$GITHUB_REPOSITORY/actions/artifacts?name=site-data&per_page=1" --jq '.artifacts[0].workflow_run.id')   # 18 Nov: the newest run that has values (a skipped Sito run has none)
           if [ "$id" != "$SITE_RUN" ]; then
             rm -rf /tmp/sd2 && gh run download "$id" -R "$GITHUB_REPOSITORY" -n site-data -D /tmp/sd2
             cp /tmp/sd2/real.json prototype/data/real.json
