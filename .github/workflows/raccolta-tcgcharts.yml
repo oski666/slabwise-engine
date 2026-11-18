@@ -20,8 +20,10 @@ jobs:
   tcgcharts:
     runs-on: ubuntu-latest
     timeout-minutes: 110
-    concurrency:                  # D323: at job level, so the call from Occasioni shares the queue (one tcgcharts job at a time)
-      group: raccolta-tcgcharts
+    concurrency:                  # D323: at job level. 18 Nov: the quarter called by Occasioni has its own queue: in the shared
+      # one a waiting quarter was replaced by the next Japanese check and the whole Occasioni run was cancelled (11:23 UTC);
+      # so at most two tcgcharts jobs at once, at 2 s a request each: one request a second in all (D321)
+      group: ${{ inputs.quarter && 'raccolta-quarto' || 'raccolta-tcgcharts' }}
       cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
