@@ -6904,5 +6904,455 @@
   337,
   -1,
   "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:gengar-vmax-high-class-deck-1": [
+  "gengar v",
+  1,
+  -1,
+  "\\bgengar\\W*vmax\\W*high\\W*class\\W*deck\\b"
+ ],
+ "ja:vstar-universe-197": [
+  "ditto",
+  197,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:miracle-twin-54": [
+  "(?:mega sableye\\s*(?:&|and)\\s*tyranitar\\-gx|tyranitar\\-gx\\s*(?:&|and)\\s*mega sableye)",
+  54,
+  -1,
+  "\\bmiracle\\W*twin\\b"
+ ],
+ "ja:tag-team-gx-tag-all-stars-185": [
+  "(?:togepi\\s*(?:&|and)\\s*cleffa \\& igglybuff\\-gx|cleffa \\& igglybuff\\-gx\\s*(?:&|and)\\s*togepi)",
+  185,
+  -1,
+  "\\btag\\W*team\\W*gx\\W*tag\\W*all\\W*stars\\b"
+ ],
+ "ja:inferno-x-89": [
+  "toxtricity",
+  89,
+  -1,
+  "\\binferno\\W*x\\b"
+ ],
+ "ja:s-p-024": [
+  "pikachu",
+  24,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:expansion-pack-129": [
+  "magikarp",
+  129,
+  -1,
+  "(?:\\b(?:base\\W*set|basic|expansion\\W*pack)\\b|拡張パック)"
+ ],
+ "ja:rocket-gang-82": [
+  "dark magneton",
+  82,
+  -1,
+  "(?:\\b(?:rocket|rocket\\W*gang)\\b|ロケット団)"
+ ],
+ "ja:rocket-gang-133": [
+  "eevee",
+  133,
+  -1,
+  "(?:\\b(?:rocket|rocket\\W*gang)\\b|ロケット団)"
+ ],
+ "ja:sm-p-179": [
+  "pikachu",
+  179,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:pokemon-go-28": [
+  "pikachu",
+  28,
+  -1,
+  "\\bpok\\W*mon\\W*go\\b"
+ ],
+ "ja:split-earth-33": [
+  "pikachu",
+  33,
+  -1,
+  "\\bsplit\\W*earth\\b"
+ ],
+ "ja:s-p-145": [
+  "milotic",
+  145,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:leaders-stadium-25": [
+  "lt\\. surge's pikachu",
+  25,
+  -1,
+  "(?:\\b(?:gym\\W*heroes|gym\\W*1|leaders?\\W*stadium|leaders\\W*stadium)\\b|リーダーズスタジアム)"
+ ],
+ "ja:mega-brave-70": [
+  "garganacl",
+  70,
+  -1,
+  "\\bmega\\W*brave\\b"
+ ],
+ "ja:pokekyun-collection-1": [
+  "chikorita",
+  1,
+  -1,
+  "\\bpok\\W*kyun\\W*collection\\b"
+ ],
+ "ja:amazing-volt-tackle-12": [
+  "charizard",
+  12,
+  -1,
+  "\\bamazing\\W*volt\\W*tackle\\b"
+ ],
+ "ja:eevee-heroes-86": [
+  "aroma lady",
+  86,
+  -1,
+  "\\beevee\\W*heroes\\b"
+ ],
+ "ja:rocket-gang-45": [
+  "dark vileplume",
+  45,
+  -1,
+  "(?:\\b(?:rocket|rocket\\W*gang)\\b|ロケット団)"
+ ],
+ "ja:terastal-festival-ex-41": [
+  "glaceon ex",
+  41,
+  -1,
+  "\\bterastal\\W*festival\\W*ex\\b"
+ ],
+ "ja:terastal-festival-ex-221": [
+  "dragapult ex",
+  221,
+  -1,
+  "\\bterastal\\W*festival\\W*ex\\b"
+ ],
+ "ja:terastal-festival-ex-22": [
+  "flareon ex",
+  22,
+  -1,
+  "\\bterastal\\W*festival\\W*ex\\b"
+ ],
+ "ja:the-town-on-no-map-20": [
+  "psyduck",
+  20,
+  -1,
+  "\\btown\\W*on\\W*no\\W*map\\b"
+ ],
+ "ja:expansion-pack-124": [
+  "jynx",
+  124,
+  -1,
+  "(?:\\b(?:base\\W*set|basic|expansion\\W*pack)\\b|拡張パック)"
+ ],
+ "ja:terastal-festival-ex-31": [
+  "vaporeon ex",
+  31,
+  -1,
+  "\\bterastal\\W*festival\\W*ex\\b"
+ ],
+ "ja:intro-pack-squirtle-32": [
+  "arcanine",
+  32,
+  -1,
+  "\\bintro\\W*pack\\W*squirtle\\b"
+ ],
+ "ja:crossing-the-ruins-202": [
+  "wobbuffet",
+  202,
+  -1,
+  "(?:\\b(?:neo\\W*discovery|neo\\W*2|crossing\\W*the\\W*ruins|crossing\\W*ruins)\\b|遺跡をこえて)"
+ ],
+ "ja:expansion-pack-5": [
+  "charmeleon",
+  5,
+  -1,
+  "(?:\\b(?:base\\W*set|basic|expansion\\W*pack)\\b|拡張パック)"
+ ],
+ "ja:legendary-shine-collection-20": [
+  "black kyurem",
+  20,
+  -1,
+  "\\blegendary\\W*shine\\W*collection\\b"
+ ],
+ "ja:dp-p-076": [
+  "torterra lv\\.x",
+  76,
+  -1,
+  "\\b(?:dp|diamond\\W*(?:&|and)?\\W*pearl)\\W*(?:black\\W*star\\W*)?promo|\\b(?:dp|diamond\\W*(?:&|and)?\\W*pearl)\\W?p\\b"
+ ],
+ "ja:xy-p-213": [
+  "charizard\\-ex",
+  213,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:vmax-climax-200": [
+  "dedenne",
+  200,
+  -1,
+  "\\bvmax\\W*climax\\b"
+ ],
+ "ja:challenge-from-the-darkness-15": [
+  "koga's beedrill",
+  15,
+  -1,
+  "(?:\\b(?:gym\\W*challenge|gym\\W*2|challenge\\W*from|challenge\\W*from\\W*darkness)\\b|闇からの挑戦)"
+ ],
+ "ja:mega-brave-66": [
+  "exeggutor",
+  66,
+  -1,
+  "\\bmega\\W*brave\\b"
+ ],
+ "ja:sm-p-276": [
+  "pikachu",
+  276,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:mega-dream-ex-198": [
+  "numel",
+  198,
+  -1,
+  "(?:\\b(?:mega\\W*dream|m2a|mega\\W*dream\\W*ex)\\b)"
+ ],
+ "ja:mega-brave-89": [
+  "mega absol ex",
+  89,
+  -1,
+  "\\bmega\\W*brave\\b"
+ ],
+ "ja:shining-legends-59": [
+  "shining arceus",
+  59,
+  -1,
+  "(?:\\b(?:shining\\W*legends|sm3\\+|shining\\W*legends)\\b)"
+ ],
+ "ja:leaders-stadium-112": [
+  "brock's rhydon",
+  112,
+  -1,
+  "(?:\\b(?:gym\\W*heroes|gym\\W*1|leaders?\\W*stadium|leaders\\W*stadium)\\b|リーダーズスタジアム)"
+ ],
+ "ja:inferno-x-88": [
+  "flygon",
+  88,
+  -1,
+  "\\binferno\\W*x\\b"
+ ],
+ "ja:tag-team-gx-tag-all-stars-100": [
+  "rayquaza\\-gx",
+  100,
+  -1,
+  "\\btag\\W*team\\W*gx\\W*tag\\W*all\\W*stars\\b"
+ ],
+ "ja:jungle-40": [
+  "wigglytuff",
+  40,
+  -1,
+  "(?:\\b(?:jungle|jungle)\\b|ジャングル)"
+ ],
+ "ja:shining-legends-43": [
+  "shining jirachi",
+  43,
+  -1,
+  "(?:\\b(?:shining\\W*legends|sm3\\+|shining\\W*legends)\\b)"
+ ],
+ "ja:vending-machine-series-3-green-80": [
+  "slowbro",
+  80,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*3\\W*green\\b"
+ ],
+ "ja:inferno-x-82": [
+  "nymble",
+  82,
+  -1,
+  "\\binferno\\W*x\\b"
+ ],
+ "ja:remix-bout-1": [
+  "(?:venusaur\\s*(?:&|and)\\s*snivy\\-gx|snivy\\-gx\\s*(?:&|and)\\s*venusaur)",
+  1,
+  -1,
+  "\\bremix\\W*bout\\b"
+ ],
+ "ja:mega-dream-ex-194": [
+  "beautifly",
+  194,
+  -1,
+  "(?:\\b(?:mega\\W*dream|m2a|mega\\W*dream\\W*ex)\\b)"
+ ],
+ "ja:glory-of-team-rocket-127": [
+  "team rocket's crobat ex",
+  127,
+  -1,
+  "\\bglory\\W*team\\W*rocket\\b"
+ ],
+ "ja:m-p-043": [
+  "team rocket's mewtwo ex",
+  43,
+  -1,
+  "\\b(?:m|mega(?:\\W*evolution)?)\\W*(?:black\\W*star\\W*)?promo|\\b(?:m|mega(?:\\W*evolution)?)\\W?p\\b"
+ ],
+ "ja:t-promos-11": [
+  "charmeleon",
+  11,
+  -1,
+  "\\bt\\W*promos\\b"
+ ],
+ "ja:30th-celebration-142": [
+  "lugia",
+  142,
+  -1,
+  "\\b30th\\W*celebration\\b"
+ ],
+ "ja:ultra-sun-70": [
+  "gardenia",
+  70,
+  -1,
+  "\\bultra\\W*sun\\b"
+ ],
+ "ja:s-p-338": [
+  "arcanine",
+  338,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:scarlet-ex-84": [
+  "kirlia",
+  84,
+  -1,
+  "\\bscarlet\\W*ex\\b"
+ ],
+ "ja:inferno-x-84": [
+  "dewgong",
+  84,
+  -1,
+  "\\binferno\\W*x\\b"
+ ],
+ "ja:sky-legend-56": [
+  "(?:rowlet\\s*(?:&|and)\\s*alolan exeggutor\\-gx|alolan exeggutor\\-gx\\s*(?:&|and)\\s*rowlet)",
+  56,
+  -1,
+  "\\bsky\\W*legend\\b"
+ ],
+ "ja:triplet-beat-75": [
+  "sprigatito",
+  75,
+  -1,
+  "\\btriplet\\W*beat\\b"
+ ],
+ "ja:mega-dream-ex-233": [
+  "mega froslass ex",
+  233,
+  -1,
+  "(?:\\b(?:mega\\W*dream|m2a|mega\\W*dream\\W*ex)\\b)"
+ ],
+ "ja:t-promos-15": [
+  "zapdos",
+  15,
+  -1,
+  "\\bt\\W*promos\\b"
+ ],
+ "ja:miracle-twin-95": [
+  "(?:slowpoke\\s*(?:&|and)\\s*psyduck\\-gx|psyduck\\-gx\\s*(?:&|and)\\s*slowpoke)",
+  95,
+  -1,
+  "\\bmiracle\\W*twin\\b"
+ ],
+ "ja:nihil-zero-91": [
+  "doublade",
+  91,
+  -1,
+  "\\bnihil\\W*zero\\b"
+ ],
+ "ja:sv-p-174": [
+  "celebratory fanfare",
+  174,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:eevee-heroes-94": [
+  "umbreon vmax",
+  94,
+  -1,
+  "\\beevee\\W*heroes\\b"
+ ],
+ "ja:mega-brave-78": [
+  "mega lucario ex",
+  78,
+  -1,
+  "\\bmega\\W*brave\\b"
+ ],
+ "ja:lost-abyss-125": [
+  "giratina vstar",
+  125,
+  -1,
+  "\\blost\\W*abyss\\b"
+ ],
+ "ja:vstar-universe-220": [
+  "zeraora vstar",
+  220,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:galactic-s-conquest-52": [
+  "giratina lv\\.x",
+  52,
+  -1,
+  "\\bgalactic\\W*s\\W*conquest\\b"
+ ],
+ "ja:black-deck-kit-14": [
+  "rocket's moltres ex",
+  14,
+  -1,
+  "\\bblack\\W*deck\\W*kit\\b"
+ ],
+ "ja:vmax-climax-277": [
+  "nessa",
+  277,
+  -1,
+  "\\bvmax\\W*climax\\b"
+ ],
+ "ja:jungle-127": [
+  "pinsir",
+  127,
+  -1,
+  "(?:\\b(?:jungle|jungle)\\b|ジャングル)"
+ ],
+ "ja:vmax-climax-120": [
+  "rayquaza vmax",
+  120,
+  -1,
+  "\\bvmax\\W*climax\\b"
+ ],
+ "ja:p-promos-43": [
+  "entei",
+  43,
+  -1,
+  "\\bp\\W*promos\\b"
+ ],
+ "ja:future-flash-90": [
+  "altaria ex",
+  90,
+  -1,
+  "\\bfuture\\W*flash\\b"
+ ],
+ "ja:rocket-gang-24": [
+  "dark arbok",
+  24,
+  -1,
+  "(?:\\b(?:rocket|rocket\\W*gang)\\b|ロケット団)"
+ ],
+ "ja:mystery-of-the-fossils-97": [
+  "hypno",
+  97,
+  -1,
+  "(?:\\b(?:fossil|mystery\\W*fossils)\\b|化石の秘密)"
  ]
 }
