@@ -93,5 +93,7 @@ jobs:
           left=$(python scripts/ja_due.py | wc -w)
           busy=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/prezzi-giapponesi.yml/runs?per_page=5" --jq '[.workflow_runs[]|select(.status!="completed")]|length')
           echo "giapponesi da controllare: $left; giri in corso o in attesa: $busy"
-          if [ "$left" -gt 0 ] && [ "$busy" = "0" ]; then gh workflow run prezzi-giapponesi.yml -R "$GITHUB_REPOSITORY"; fi
+          # 19 Nov (D330): not started from here any more: the Candidate run starts right after this one and two runs
+          # waiting in the same queue cancel each other; the hourly Richieste run restarts the chain when the queue is free
+          echo "la catena riparte dal lavoro Richieste quando la coda è libera"
 

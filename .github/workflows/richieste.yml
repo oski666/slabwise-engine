@@ -30,6 +30,12 @@ jobs:
           ready = [k for k, v in st.items() if v.get("status") == "pronta"]
           print("go=" + ("true" if todo or ready else "false"))
           PY
+          # 19 Nov 2026 (D330): GitHub keeps one waiting run per queue; an hourly request run joining the tcgcharts queue
+          # replaced the waiting Candidate run. If a tcgcharts job is already waiting, the requests wait for the next hour
+          for w in raccolta-tcgcharts.yml candidati.yml approva.yml prezzi-giapponesi.yml; do
+            n=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/$w/runs?per_page=5" --jq '[.workflow_runs[]|select(.status=="queued" or .status=="pending" or .status=="waiting" or .status=="requested")]|length' 2>/dev/null || echo 0)
+            if [ "$n" != "0" ]; then echo "go=false" >> "$GITHUB_OUTPUT"; echo "$w aspetta: richieste rinviate"; break; fi
+          done
   ja-chain:                       # 19 Nov 2026: the Japanese checks (D284) start again within 3 hours whenever their chain stops
     runs-on: ubuntu-latest
     timeout-minutes: 3
