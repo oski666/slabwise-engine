@@ -30,6 +30,27 @@ jobs:
           ready = [k for k, v in st.items() if v.get("status") == "pronta"]
           print("go=" + ("true" if todo or ready else "false"))
           PY
+  ja-chain:                       # 19 Nov 2026: the Japanese checks (D284) start again within 3 hours whenever their chain stops
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts/ja_due.py
+            prototype/data
+      - name: Restart the Japanese checks if nothing of the tcgcharts queue is running or waiting
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          left=$(python3 scripts/ja_due.py | wc -w)
+          busy=0
+          for w in prezzi-giapponesi.yml raccolta-tcgcharts.yml candidati.yml approva.yml gemelle.yml immagini-tcgcharts.yml; do
+            n=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/$w/runs?per_page=5" --jq '[.workflow_runs[]|select(.status!="completed")]|length' 2>/dev/null || echo 0)
+            busy=$((busy + n))
+          done
+          echo "giapponesi da controllare: $left; lavori tcgcharts in corso o in attesa: $busy"
+          if [ "$left" -gt 0 ] && [ "$busy" = "0" ]; then gh workflow run prezzi-giapponesi.yml -R "$GITHUB_REPOSITORY"; echo "catena giapponese ripartita"; fi
   requests:
     needs: gate
     if: needs.gate.outputs.go == 'true'

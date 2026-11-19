@@ -80,4 +80,13 @@ jobs:
         run: |
           left=$(python scripts/ja_due.py | wc -w)
           echo "giapponesi ancora da controllare: $left"
+          # 19 Nov 2026: a new batch waiting in the shared queue replaced the morning collection (04:11 UTC, cancelled);
+          # the collection, the candidates and the approvals go first: if one of them is waiting, no new batch here
+          # (the morning collection starts the chain again when it ends)
+          wait=0
+          for w in raccolta-tcgcharts.yml candidati.yml approva.yml; do
+            n=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/$w/runs?per_page=5" --jq '[.workflow_runs[]|select(.status=="queued" or .status=="pending" or .status=="waiting" or .status=="requested")]|length')
+            wait=$((wait + n))
+          done
+          if [ "$wait" -gt 0 ]; then echo "un lavoro della coda tcgcharts aspetta: la catena riparte dopo di lui"; exit 0; fi
           if [ "$left" -gt 0 ]; then gh workflow run prezzi-giapponesi.yml -R "$GITHUB_REPOSITORY"; fi
