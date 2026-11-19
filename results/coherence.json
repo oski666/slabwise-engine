@@ -1,6 +1,6 @@
 {
  "asof": "2026-11-19",
- "cards": 2120,
+ "cards": 2192,
  "checks": {
   "C7": {
    "n": 42,
@@ -64,14 +64,6 @@
      "me02-130",
      "Mega Charizard X ex",
      "PSA 8 184 < PSA 7 192"
-    ]
-   ]
-  },
-  "C9": {
-   "n": 1,
-   "examples": [
-    [
-     "ja:split-earth-52"
     ]
    ]
   }
