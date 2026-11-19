@@ -1,24 +1,24 @@
 {
  "asof": "2026-11-19",
- "cards": 2046,
+ "cards": 2120,
  "checks": {
   "C7": {
-   "n": 38,
+   "n": 42,
    "examples": [
     [
      "sv08.5-161",
      "Umbreon ex",
-     "PSA 8 890 < PSA 7 891"
+     "PSA 8 890 < PSA 7 890"
     ],
     [
      "swsh7-192",
      "Dragonite V",
-     "PSA 9 398 < PSA 8 403"
+     "PSA 9 397 < PSA 8 402"
     ],
     [
      "swsh3.5-79",
      "Charizard V",
-     "PSA 9 190 < PSA 8 209"
+     "PSA 9 190 < PSA 8 208"
     ],
     [
      "swsh7-212",
@@ -58,23 +58,20 @@
     [
      "me02.5-277",
      "Pikachu ex",
-     "PSA 9 212 < PSA 8 220"
+     "PSA 9 211 < PSA 8 220"
     ],
     [
      "me02-130",
      "Mega Charizard X ex",
-     "PSA 8 185 < PSA 7 193"
+     "PSA 8 184 < PSA 7 192"
     ]
    ]
   },
   "C9": {
-   "n": 2,
+   "n": 1,
    "examples": [
     [
-     "ex15-93"
-    ],
-    [
-     "ja:shield-46"
+     "ja:split-earth-52"
     ]
    ]
   }
