@@ -8272,5 +8272,467 @@
   175,
   -1,
   "\\bvstar\\W*universe\\b"
+ ],
+ "ja:expansion-pack-20th-anniversary-13": [
+  "m charizard\\-ex",
+  13,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:expansion-pack-20th-anniversary-89": [
+  "m venusaur\\-ex",
+  89,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:expansion-pack-20th-anniversary-12": [
+  "charizard\\-ex",
+  12,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:expansion-pack-20th-anniversary-51": [
+  "mew",
+  51,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:expansion-pack-20th-anniversary-49": [
+  "mewtwo",
+  49,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:expansion-pack-20th-anniversary-99": [
+  "misty's determination",
+  99,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:expansion-pack-20th-anniversary-33": [
+  "pikachu",
+  33,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:expansion-pack-20th-anniversary-34": [
+  "raichu",
+  34,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:expansion-pack-20th-anniversary-93": [
+  "m blastoise\\-ex",
+  93,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:expansion-pack-20th-anniversary-40": [
+  "zapdos",
+  40,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:violet-ex-87": [
+  "greavard",
+  87,
+  -1,
+  "\\bviolet\\W*ex\\b"
+ ],
+ "ja:tag-team-gx-tag-all-stars-83": [
+  "(?:lucario\\s*(?:&|and)\\s*melmetal\\-gx|melmetal\\-gx\\s*(?:&|and)\\s*lucario)",
+  83,
+  -1,
+  "\\btag\\W*team\\W*gx\\W*tag\\W*all\\W*stars\\b"
+ ],
+ "ja:battle-region-73": [
+  "hoothoot",
+  73,
+  -1,
+  "\\bbattle\\W*region\\b"
+ ],
+ "ja:darkness-and-to-light-184": [
+  "light azumarill",
+  184,
+  -1,
+  "(?:\\b(?:neo\\W*destiny|neo\\W*4|darkness\\W*to\\W*light)\\b|闇、?そして光へ)"
+ ],
+ "ja:alter-genesis-73": [
+  "(?:mega lopunny\\s*(?:&|and)\\s*jigglypuff\\-gx|jigglypuff\\-gx\\s*(?:&|and)\\s*mega lopunny)",
+  73,
+  -1,
+  "\\balter\\W*genesis\\b"
+ ],
+ "ja:dark-order-58": [
+  "jasmine",
+  58,
+  -1,
+  "\\bdark\\W*order\\b"
+ ],
+ "ja:vstar-universe-188": [
+  "galarian zapdos",
+  188,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:terastal-festival-ex-213": [
+  "iron valiant ex",
+  213,
+  -1,
+  "\\bterastal\\W*festival\\W*ex\\b"
+ ],
+ "ja:dark-phantasma-75": [
+  "hisuian arcanine",
+  75,
+  -1,
+  "\\bdark\\W*phantasma\\b"
+ ],
+ "ja:vstar-universe-204": [
+  "bidoof",
+  204,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:unnumbered-promos-68": [
+  "machamp",
+  68,
+  -1,
+  "\\bunnumbered\\W*promos\\b"
+ ],
+ "ja:sm-p-207": [
+  "pikachu",
+  207,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:forbidden-light-100": [
+  "lady",
+  100,
+  -1,
+  "\\bforbidden\\W*light\\b"
+ ],
+ "ja:tag-bolt-114": [
+  "(?:latias\\s*(?:&|and)\\s*latios\\-gx|latios\\-gx\\s*(?:&|and)\\s*latias)",
+  114,
+  -1,
+  "(?:\\b(?:tag\\W*bolt|sm9\\b|tag\\W*bolt)\\b)"
+ ],
+ "ja:s-p-101": [
+  "eevee vmax",
+  101,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:mystery-of-the-fossils-89": [
+  "muk",
+  89,
+  -1,
+  "(?:\\b(?:fossil|mystery\\W*fossils)\\b|化石の秘密)"
+ ],
+ "ja:rocket-gang-134": [
+  "dark vaporeon",
+  134,
+  -1,
+  "(?:\\b(?:rocket|rocket\\W*gang)\\b|ロケット団)"
+ ],
+ "ja:vending-machine-series-1-blue-61": [
+  "poliwhirl",
+  61,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*1\\W*blue\\b"
+ ],
+ "ja:gx-ultra-shiny-159": [
+  "evelyn",
+  159,
+  -1,
+  "\\bgx\\W*ultra\\W*shiny\\b"
+ ],
+ "ja:mega-dream-ex-126": [
+  "mega dragonite ex",
+  126,
+  -1,
+  "(?:\\b(?:mega\\W*dream|m2a|mega\\W*dream\\W*ex)\\b)"
+ ],
+ "ja:vending-machine-series-2-red-100": [
+  "voltorb",
+  100,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*2\\W*red\\b"
+ ],
+ "ja:intro-pack-squirtle-18": [
+  "squirtle",
+  18,
+  -1,
+  "\\bintro\\W*pack\\W*squirtle\\b"
+ ],
+ "ja:violet-ex-92": [
+  "arcanine ex",
+  92,
+  -1,
+  "\\bviolet\\W*ex\\b"
+ ],
+ "ja:sm-p-405": [
+  "mewtwo",
+  405,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:full-metal-wall-59": [
+  "(?:lucario\\s*(?:&|and)\\s*melmetal\\-gx|melmetal\\-gx\\s*(?:&|and)\\s*lucario)",
+  59,
+  -1,
+  "\\bfull\\W*metal\\W*wall\\b"
+ ],
+ "ja:pikachu-s-new-friends-4": [
+  "pikachu",
+  4,
+  -1,
+  "\\bpikachu\\W*s\\W*new\\W*friends\\b"
+ ],
+ "ja:mega-symphonia-84": [
+  "acerola's mischief",
+  84,
+  -1,
+  "\\bmega\\W*symphonia\\b"
+ ],
+ "ja:the-best-of-xy-104": [
+  "rayquaza\\-ex",
+  104,
+  -1,
+  "\\bbest\\W*xy\\b"
+ ],
+ "ja:crossing-the-ruins-15": [
+  "beedrill",
+  15,
+  -1,
+  "(?:\\b(?:neo\\W*discovery|neo\\W*2|crossing\\W*the\\W*ruins|crossing\\W*ruins)\\b|遺跡をこえて)"
+ ],
+ "ja:eevee-heroes-47": [
+  "umbreon v",
+  47,
+  -1,
+  "\\beevee\\W*heroes\\b"
+ ],
+ "ja:mega-brave-74": [
+  "spearow",
+  74,
+  -1,
+  "\\bmega\\W*brave\\b"
+ ],
+ "ja:xy-p-261": [
+  "snorlax",
+  261,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:vstar-universe-194": [
+  "altaria",
+  194,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:mega-dream-ex-200": [
+  "snorunt",
+  200,
+  -1,
+  "(?:\\b(?:mega\\W*dream|m2a|mega\\W*dream\\W*ex)\\b)"
+ ],
+ "ja:ruler-of-the-black-flame-109": [
+  "gloom",
+  109,
+  -1,
+  "\\bruler\\W*black\\W*flame\\b"
+ ],
+ "ja:incandescent-arcana-72": [
+  "gardevoir",
+  72,
+  -1,
+  "\\bincandescent\\W*arcana\\b"
+ ],
+ "ja:11th-movie-commemoration-set-1": [
+  "icy sky's shaymin",
+  1,
+  -1,
+  "\\b11th\\W*movie\\W*commemoration\\W*set\\b"
+ ],
+ "ja:gg-end-32": [
+  "(?:garchomp\\s*(?:&|and)\\s*giratina\\-gx|giratina\\-gx\\s*(?:&|and)\\s*garchomp)",
+  32,
+  -1,
+  "\\bgg\\W*end\\b"
+ ],
+ "ja:mega-symphonia-66": [
+  "litleo",
+  66,
+  -1,
+  "\\bmega\\W*symphonia\\b"
+ ],
+ "ja:shiny-collection-6": [
+  "piplup",
+  6,
+  -1,
+  "\\bshiny\\W*collection\\b"
+ ],
+ "ja:wild-force-95": [
+  "raging bolt ex",
+  95,
+  -1,
+  "\\bwild\\W*force\\b"
+ ],
+ "ja:glory-of-team-rocket-106": [
+  "team rocket's murkrow",
+  106,
+  -1,
+  "\\bglory\\W*team\\W*rocket\\b"
+ ],
+ "ja:tag-team-gx-tag-all-stars-197": [
+  "roxie",
+  197,
+  -1,
+  "\\btag\\W*team\\W*gx\\W*tag\\W*all\\W*stars\\b"
+ ],
+ "ja:vstar-universe-191": [
+  "absol",
+  191,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:awakening-legends-233": [
+  "porygon2",
+  233,
+  -1,
+  "(?:\\b(?:neo\\W*revelation|neo\\W*3|awakening\\W*legends)\\b|めざめる伝説)"
+ ],
+ "ja:sm-p-342": [
+  "mew",
+  342,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:battle-partners-111": [
+  "noibat",
+  111,
+  -1,
+  "\\bbattle\\W*partners\\b"
+ ],
+ "ja:darkness-and-to-light-134": [
+  "light vaporeon",
+  134,
+  -1,
+  "(?:\\b(?:neo\\W*destiny|neo\\W*4|darkness\\W*to\\W*light)\\b|闇、?そして光へ)"
+ ],
+ "ja:mega-symphonia-69": [
+  "inteleon",
+  69,
+  -1,
+  "\\bmega\\W*symphonia\\b"
+ ],
+ "ja:mega-symphonia-72": [
+  "shedinja",
+  72,
+  -1,
+  "\\bmega\\W*symphonia\\b"
+ ],
+ "ja:nihil-zero-82": [
+  "rowlet",
+  82,
+  -1,
+  "\\bnihil\\W*zero\\b"
+ ],
+ "ja:tag-team-gx-tag-all-stars-187": [
+  "eevee\\-gx",
+  187,
+  -1,
+  "\\btag\\W*team\\W*gx\\W*tag\\W*all\\W*stars\\b"
+ ],
+ "ja:clay-burst-72": [
+  "heracross",
+  72,
+  -1,
+  "\\bclay\\W*burst\\b"
+ ],
+ "ja:battle-partners-107": [
+  "lycanroc",
+  107,
+  -1,
+  "\\bbattle\\W*partners\\b"
+ ],
+ "ja:tag-team-gx-tag-all-stars-214": [
+  "jirachi\\-gx",
+  214,
+  -1,
+  "\\btag\\W*team\\W*gx\\W*tag\\W*all\\W*stars\\b"
+ ],
+ "ja:moonlit-pursuit-181": [
+  "mewtwo",
+  181,
+  -1,
+  "\\bmoonlit\\W*pursuit\\b"
+ ],
+ "ja:mega-brave-3": [
+  "mega venusaur ex",
+  3,
+  -1,
+  "\\bmega\\W*brave\\b"
+ ],
+ "ja:vstar-universe-208": [
+  "poochyena",
+  208,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:vending-machine-series-2-red-67": [
+  "machoke",
+  67,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*2\\W*red\\b"
+ ],
+ "ja:night-wanderer-66": [
+  "houndoom",
+  66,
+  -1,
+  "\\bnight\\W*wanderer\\b"
+ ],
+ "ja:mega-symphonia-73": [
+  "houndstone",
+  73,
+  -1,
+  "\\bmega\\W*symphonia\\b"
+ ],
+ "ja:tag-team-gx-tag-all-stars-198": [
+  "mina",
+  198,
+  -1,
+  "\\btag\\W*team\\W*gx\\W*tag\\W*all\\W*stars\\b"
+ ],
+ "ja:premium-champion-pack-36": [
+  "pikachu",
+  36,
+  -1,
+  "\\bpremium\\W*champion\\W*pack\\b"
+ ],
+ "ja:megalo-cannon-82": [
+  "iris",
+  82,
+  -1,
+  "\\bmegalo\\W*cannon\\b"
+ ],
+ "ja:vending-machine-series-2-red-66": [
+  "machop",
+  66,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*2\\W*red\\b"
+ ],
+ "ja:thunder-knuckle-31": [
+  "umbreon",
+  31,
+  -1,
+  "\\bthunder\\W*knuckle\\b"
+ ],
+ "ja:25th-anniversary-collection-2": [
+  "mew",
+  2,
+  -1,
+  "\\b25th\\W*anniversary\\W*collection\\b"
  ]
 }
