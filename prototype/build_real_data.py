@@ -413,6 +413,7 @@ variants = [dict(_by_id[v.split("/")[0]], id=v, n=f'{_by_id[v.split("/")[0]]["n"
 # site era x grade band as (n q_card + 10 q_group) / (n + 10). Old fallback (D224) when the group has no errors.
 SR_TIE = 10.0
 _SR = {}
+_NOTCRED = set()        # D332: the clean sales of the last 52 weeks the engine does not believe genuine (index labels)
 try:
     _cl = clean.loc[(clean["week"] >= max(W - 52, 1)) & (clean["week"] < W), ["card", "grade", "week", "price", "venue", "day"]]
     _gi = np.array([GRADES.index(int(g)) for g in _cl["grade"]])
@@ -436,6 +437,20 @@ try:
             _low[_k] -= 1
             _keep[_r] = False
     print(f"D308: SlabRange senza {int((~_keep).sum())} vendite non credibili", flush=True)
+    # D332: the same test over the 13 weeks of the review (D98), this week included
+    _low2 = _Ctr()
+    for _i, _f in enumerate(lvm.fit):
+        if _f is not None:
+            for _o, _p in zip(lvm.obs[_i], _f["pgen"]):
+                if _p < 0.5:
+                    _low2[(_i, int(_o["g"]), round(float(_o["t"]) * 7, 2), round(float(_o["y"]), 6))] += 1
+    _c13 = clean.loc[clean["week"] >= W - 13, ["card", "grade", "day", "price"]]
+    for _ix, _a, _b, _d, _pr in zip(_c13.index, _c13["card"].to_numpy(), _c13["grade"].to_numpy(), _c13["day"].to_numpy(), _c13["price"].to_numpy()):
+        _k = (int(_a), GRADES.index(int(_b)), round(float(_d), 2), round(float(np.log(_pr)), 6))
+        if _low2[_k] > 0:
+            _low2[_k] -= 1
+            _NOTCRED.add(_ix)
+    print(f"D332: {len(_NOTCRED)} vendite non credibili fuori dal controllo di revisione", flush=True)
     _ok = _ok & _keep
     _grp = np.array(["Giappone" if cards[k].startswith("ja:") else series_of(cards[k].split("/")[0]) for k in _cc], dtype=object)
     _band = np.minimum(_gi, 2)
@@ -474,9 +489,11 @@ for c in catalog + variants:
         n_g = int(((clean["card"] == i) & (clean["grade"] == g)).sum())
         n13 = int(((clean["card"] == i) & (clean["grade"] == g) & (clean["week"] >= W - 13)).sum())
         rec = clean.loc[(clean["card"] == i) & (clean["grade"] == g) & (clean["week"] >= W - 13), "price"]
+        rec = rec[~rec.index.isin(_NOTCRED)]              # D332: a $32 "Charizard PSA 10" the engine rejected does not put the value under review
         med13 = float(rec.median()) if len(rec) else None
         if REVIEW_RECENT and len(rec):                    # D204 test: 30 days if >= 5 sales, else the last 5 of the 13 weeks
             _r = clean.loc[(clean["card"] == i) & (clean["grade"] == g) & (clean["week"] >= W - 13)].sort_values("day")
+            _r = _r[~_r.index.isin(_NOTCRED)]
             _d30 = _r.loc[_r["day"] >= clean["day"].max() - 30, "price"]
             med13 = float((_d30 if len(_d30) >= 5 else _r["price"].tail(5)).median())
         # D98: an estimate more than 2x away from the median of its own sales of the last 13 weeks is not shown
