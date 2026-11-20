@@ -8734,5 +8734,95 @@
   2,
   -1,
   "\\b25th\\W*anniversary\\W*collection\\b"
+ ],
+ "ja:wild-blaze-55": [
+  "m charizard\\-ex",
+  55,
+  -1,
+  "\\bwild\\W*blaze\\b"
+ ],
+ "ja:sm4p-119": [
+  "lillie|リーリエ",
+  119,
+  114,
+  "\\bgx\\W*battle\\W*boost\\b"
+ ],
+ "ja:awakening-psychic-king-82": [
+  "umbreon ex",
+  82,
+  -1,
+  "\\bawakening\\W*psychic\\W*king\\b"
+ ],
+ "ja:phantom-gate-34": [
+  "m gengar ex",
+  34,
+  -1,
+  "\\bphantom\\W*gate\\b"
+ ],
+ "ja:sv9-129": [
+  "salamence ex|ボーマンダ\\s?ex",
+  129,
+  100,
+  "\\bbattle\\W*partners\\b"
+ ],
+ "ja:s12a-190": [
+  "galarian moltres|ガラル\\ ファイヤー",
+  190,
+  172,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:sm12a-220": [
+  "(?:reshiram\\s*(?:&|and)\\s*charizard|charizard\\s*(?:&|and)\\s*reshiram) gx|レシラム\\&リザードン\\s?gx",
+  220,
+  173,
+  "\\btag\\W*team\\W*gx\\W*tag\\W*all\\W*stars\\b"
+ ],
+ "ja:s12a-223": [
+  "deoxys vstar|デオキシス\\s?vstar",
+  223,
+  172,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:s8b-280": [
+  "mew vmax|ミュウ\\s?vmax",
+  280,
+  184,
+  "\\bvmax\\W*climax\\b"
+ ],
+ "ja:gx-ultra-shiny-224": [
+  "lucario\\-gx",
+  224,
+  -1,
+  "\\bgx\\W*ultra\\W*shiny\\b"
+ ],
+ "ja:mc-765": [
+  "lillie's clefairy ex|リーリエのピッピ\\s?ex",
+  765,
+  742,
+  "\\bstart\\W*deck\\W*100\\W*battle\\W*collection\\b"
+ ],
+ "ja:awakening-psychic-king-59": [
+  "lugia break",
+  59,
+  -1,
+  "\\bawakening\\W*psychic\\W*king\\b"
+ ],
+ "ja:rulers-of-the-heavens-15": [
+  "kingdra ex",
+  15,
+  -1,
+  "(?:\\b(?:rulers\\W*of\\W*the\\W*heavens|rulers\\W*heavens)\\b|天空の覇者)"
+ ],
+ "ja:sword-shield-promos-161": [
+  "umbreon",
+  161,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:sm3p-004": [
+  "shining celebi|ひかるセレビィ",
+  4,
+  72,
+  "(?:\\b(?:shining\\W*legends|sm3\\+|shining\\W*legends)\\b)"
  ]
 }
