@@ -496,7 +496,6 @@ mark.hl{color:inherit;background:linear-gradient(100deg,transparent 0 1%,var(--m
 .ixtile b{font-size:17px}
 .ixtile .num{font-size:22px;font-weight:800}
 .ixtile .spark{width:100%;height:40px}
-.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
 .ixcmp{display:grid;gap:4px}
 .ixcmp-r{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1.2fr) repeat(4,minmax(64px,.8fr));gap:10px;align-items:center;padding:8px 12px;border-radius:12px;background:var(--bg2);color:inherit;text-decoration:none}
 .ixcmp-r:hover{background:var(--brand-soft)}

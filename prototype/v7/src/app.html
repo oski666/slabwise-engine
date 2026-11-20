@@ -1807,7 +1807,7 @@ function bindSections() {
   if (secObs) secObs.disconnect();
   const links = [...document.querySelectorAll(".snav [data-sec]")];
   const onMarket = !!document.getElementById("sec-home");
-  if (!onMarket) return;
+  if (!onMarket) { links.forEach(a => { if (!a.dataset.nav) a.removeAttribute("aria-current"); }); return; }   /* 20 Nov: a market section stayed lit on other pages */
   secObs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) {
     const id = e.target.dataset.secId === "week" ? "slab" : e.target.dataset.secId;
     links.forEach(a => a.dataset.sec === id ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current")); } }), {rootMargin: "-45% 0px -50% 0px"});
