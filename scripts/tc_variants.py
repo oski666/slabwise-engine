@@ -28,7 +28,8 @@ for k, v in queue.items():
     if v.get("tc_url") and k in catalogue:
         url2our.setdefault(v["tc_url"], k)
 
-SUFFIX = {"1st Edition": "1st", "Shadowless": "shadowless"}
+SUFFIX = {"1st Edition": "1st", "Shadowless": "shadowless",
+          "Reverse Foil": "reverse", "No Rarity Symbol": "norarity", "Master Ball Reverse Holo": "masterball"}   # D337
 added, no_base, have = [], [], 0
 for x in rank:
     if x.get("r", 1e9) > top or x.get("v") not in SUFFIX:

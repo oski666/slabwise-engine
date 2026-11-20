@@ -403,7 +403,8 @@ if os.path.exists(_tp0):
 out_cards = []
 # D141: 1st Edition and Shadowless printings estimated by the engine get a page of their own; their base becomes "Unlimited"
 _by_id = {c["id"]: c for c in catalog}
-VARIANT_NAME = {"1st": "1st Edition", "shadowless": "Shadowless", "1st-shadowless": "1st Edition", "1st-red": "1st Edition, Red Cheeks",
+VARIANT_NAME = {"1st": "1st Edition", "shadowless": "Shadowless", "reverse": "Reverse Foil", "norarity": "No Rarity Symbol", "masterball": "Master Ball Reverse",  # D337
+                "1st-shadowless": "1st Edition", "1st-red": "1st Edition, Red Cheeks",
                 "1st-yellow": "1st Edition, Yellow Cheeks", "shadowless-red": "Shadowless, Red Cheeks", "shadowless-yellow": "Shadowless, Yellow Cheeks"}
 variants = [dict(_by_id[v.split("/")[0]], id=v, n=f'{_by_id[v.split("/")[0]]["n"]} ({VARIANT_NAME.get(v.split("/")[1], v.split("/")[1])})', variant=v.split("/")[1])
             for v in cards if "/" in v and v.split("/")[0] in _by_id]

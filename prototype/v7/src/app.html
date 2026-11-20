@@ -677,7 +677,7 @@ async function ensureCert(n) {
   const l = CERT[n]; if (l) await ensureCard(cardById[l[l.length - 1][1]] || cardById[l[l.length - 1][1].split("/")[0]]);
 }
 const loadingView = () => `<div class="wrap"><section class="sec" style="padding-top:36px"><div class="tile empty">${tx("Carico i dati…", "Loading data…")}</div></section></div>`;
-const VARIANT = {"1st": ["1ª edizione", "1st Edition"], shadowless: ["Shadowless", "Shadowless"]};
+const VARIANT = {"1st": ["1ª edizione", "1st Edition"], shadowless: ["Shadowless", "Shadowless"], reverse: ["Reverse Foil", "Reverse Foil"], norarity: ["Senza simbolo di rarità", "No Rarity Symbol"], masterball: ["Master Ball Reverse", "Master Ball Reverse"]};
 const psaLink = n => `<a href="https://www.psacard.com/cert/${encodeURIComponent(n)}" target="_blank" rel="noopener">${tx("Verifica il cert su PSA", "Verify the cert on PSA")} ↗</a>`;
 function copyInfo(cid) {
   const [base, v] = cid.split("/"), c = cardById[cid] || (v ? null : cardById[base]);   // D141: editions have their own page
@@ -838,7 +838,11 @@ function viewCard(id) {
 }
 /* D137: the card page, more complete — grades side by side, liquidity, market, last sales, technical sheet */
 /* D141: printing label of a card page */
-const edLabel = x => !x.variant ? "Unlimited" : ((x.variant.startsWith("1st") ? tx("1ª edizione", "1st Edition") : "Shadowless") + (x.variant.endsWith("-red") ? tx(", guance rosse", ", red cheeks") : x.variant.endsWith("-yellow") ? tx(", guance gialle", ", yellow cheeks") : ""));
+// D337: Reverse Foil, No Rarity and Master Ball printings too; the base is "Unlimited" only next to a 1st Edition or Shadowless
+const ED_OTHER = {reverse: ["Reverse Foil", "Reverse Foil"], norarity: ["Senza simbolo di rarità", "No Rarity Symbol"], masterball: ["Master Ball Reverse", "Master Ball Reverse"]};
+const edLabel = x => !x.variant ? ((x.variants || []).some(v => /\/(1st|shadowless)/.test(v)) ? "Unlimited" : tx("Normale", "Regular"))
+  : ED_OTHER[x.variant] ? tx(...ED_OTHER[x.variant])
+  : ((x.variant.startsWith("1st") ? tx("1ª edizione", "1st Edition") : "Shadowless") + (x.variant.endsWith("-red") ? tx(", guance rosse", ", red cheeks") : x.variant.endsWith("-yellow") ? tx(", guance gialle", ", yellow cheeks") : ""));
 const setOf = c => c.id.split("/")[0].replace(/^ja:/, "").replace(/-[^-]+$/, "");
 const median = a => { const b = a.filter(x => x != null && isFinite(x)).sort((x, y) => x - y); return b.length ? (b.length % 2 ? b[(b.length - 1) / 2] : (b[b.length / 2 - 1] + b[b.length / 2]) / 2) : null; };
 const share10 = c => { const g = gradeOf(c, 10); return !c.gem_conflict && g && g.pop && c.psa_total ? g.pop / c.psa_total : null; };

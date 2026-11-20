@@ -127,7 +127,7 @@ def ranking(top=None):
                 continue
             if not c.get("variantType"):
                 out.append(c)
-            elif c["variantType"] in ("1st Edition", "Shadowless"):    # D320: a printing ranks, its base card enters the queue
+            elif c["variantType"] in ("1st Edition", "Shadowless", "Reverse Foil"):    # D320, D337: a printing ranks, its base card enters the queue
                 out.append(dict(c, variantType=None, via_variant=c["variantType"]))
         if not d["pagination"].get("hasNextPage"):
             break
@@ -429,7 +429,7 @@ def perimeter_report(path):
         lang = (c.get("languageCode") or "").upper()
         if lang not in ("EN", "JA", "ZH-CN"):
             continue
-        part = lang if not c.get("variantType") else (f"{lang} variante" if c["variantType"] in ("1st Edition", "Shadowless") else None)
+        part = lang if not c.get("variantType") else (f"{lang} variante" if c["variantType"] in ("1st Edition", "Shadowless", "Reverse Foil", "No Rarity Symbol", "Master Ball Reverse Holo") else None)   # D337
         cap = float(c.get("marketCap") or 0)
         k = part or "altre varianti (fuori, da decidere)"
         a = by.setdefault(k, dict(carte=0, dentro=0, cap=0.0, cap_dentro=0.0))

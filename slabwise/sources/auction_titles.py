@@ -452,6 +452,8 @@ _SETWORDS = ((r"celebrations|classic collection", ("cel",)), (r"(?<!prismatic )(
              (r"expedition", ("ecard1",)), (r"base set 2|base set ii\b|base ii\b", ("base4",)), (r"legendary collection", ("base6",)))
 _JA_SIGN = re.compile(r"\b(?:japanese|japan|jpn|jp|jap|jpn\.)\b")
 _VARIANT_WORD = re.compile(r"\b(?:1st\s*ed(?:ition|\.)?|first\s*edition|shadowless)\b")
+_VARIANT_WORDS = {"reverse": re.compile(r"reverse|\brev\W?(?:holo|foil)\b"),        # D337: the printing must be named in the title
+                  "norarity": re.compile(r"no\W*rarity|マークなし"), "masterball": re.compile(r"master\W*ball|マスターボール")}
 
 
 def _card_number(card):
@@ -497,7 +499,7 @@ def accept_assigned(title: str, card: str):
         return False, "numero diverso"
     if "/" not in card and _VARIANT_WORD.search(t) and not (JA_1ST and card.rsplit("-", 1)[0] in _JA_1ST_SETS):
         return False, "stampa diversa"
-    if "/" in card and not _VARIANT_WORD.search(t):
+    if "/" in card and not _VARIANT_WORDS.get(card.split("/")[1].split("-")[0], _VARIANT_WORD).search(t):
         return False, "stampa non detta"
     if ASSIGN_NAME:                                      # D281 (protocol §63): the card's Pokémon named, no other product
         if not _name_in_title(card, t) and _other_species(card, t):   # §63b: another Pokémon named, not this card
