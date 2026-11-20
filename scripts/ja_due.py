@@ -21,6 +21,10 @@ if "--recheck" not in sys.argv:
 # 18 Nov 2026: the twins of English cards already on the site first (they complete a card page and the Japanese
 # index), then by tcgcharts rank; before, queue order left the twins behind 1.500 Japanese-only cards
 _en = {c["id"] for c in json.load(open(os.path.join(DATA, "cards.json")))}
-ids.sort(key=lambda k: (q[k].get("en") not in _en, q[k].get("rank") or 1e9))
+# 20 Nov (Oscar: "dobbiamo tirare dentro carte che ancora non ne hanno di gemelle in modo prioritario assolutamente"):
+# first the twins of English cards with no Japanese twin on the site yet, then the other twins, then the rest
+_twinned = {c.get("en") for c in json.load(open(os.path.join(DATA, "cards_ja.json"))) if not c.get("pending") and c.get("en")}
+ids.sort(key=lambda k: (0 if q[k].get("en") in _en and q[k].get("en") not in _twinned else 1 if q[k].get("en") in _en else 2,
+                        q[k].get("rank") or 1e9))
 for i in range(0, len(ids), 8):
     print(" ".join(ids[i:i + 8]))
