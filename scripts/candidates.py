@@ -71,6 +71,8 @@ def tcgdex_id(card):
 
 
 RANK_JA = []                                          # D231: Japanese cards met in the ranking, in market-cap order
+RANK_ALL = []                                         # D336: every position read, for the perimeter coverage
+RANK_ZH = []                                          # D336: Chinese (simplified) cards met in the ranking; their catalogue is still to be built
 JA_PROMO_CODE = {"XY": "xy-p", "Sun & Moon": "sm-p", "Sword & Shield": "s-p", "Scarlet & Violet": "sv-p", "Mega Evolution": "m-p",
                  "Black & White": "bw-p", "Diamond & Pearl": "dp-p"}
 JA_OLD_SERIES = {"Original", "Neo", "Gym", "E-Card", "VS", "PCG", "Vending", "Other"}   # vintage: our ids from the set's name (D158)
@@ -103,20 +105,30 @@ def ja_only_key(c):
 
 
 def ranking(top=None):
+    """English cards among the first `top` positions of the full ranking (D336: positions of all languages, not the
+    first `top` English cards); the Japanese and Chinese ones of the same positions go to RANK_JA and RANK_ZH."""
     top = top or TOP
-    out, page = [], 1
-    while len(out) < top:
+    out, page, pos = [], 1, 0
+    while pos < top:
         d = cr.get(f"{cr.TCG}/api/pokemon/cards?" + urllib.parse.urlencode(
-            {"sort": "market_cap", "order": "desc", "limit": 100, "page": page, "language": "EN"}))
+            {"sort": "market_cap", "order": "desc", "limit": 100, "page": page}))
         for c in d["cards"]:
+            pos += 1
+            if pos > top:
+                break
+            c["pos"] = pos
+            RANK_ALL.append(c)
+            lang = (c.get("languageCode") or "").upper()
+            if lang in ("JA", "ZH-CN") and not c.get("variantType"):   # D231: the Japanese cards of the same positions; D336: the Chinese
+                lst = RANK_JA if lang == "JA" else RANK_ZH
+                if c["id"] not in {x["id"] for x in lst}:
+                    lst.append(c)
             if c.get("languageCode") != "EN":
                 continue
             if not c.get("variantType"):
                 out.append(c)
             elif c["variantType"] in ("1st Edition", "Shadowless"):    # D320: a printing ranks, its base card enters the queue
                 out.append(dict(c, variantType=None, via_variant=c["variantType"]))
-        RANK_JA.extend(c for c in d["cards"] if (c.get("languageCode") or "").upper() == "JA" and not c.get("variantType")
-                       and c["id"] not in {x["id"] for x in RANK_JA})          # D231: the Japanese cards of the same pages
         if not d["pagination"].get("hasNextPage"):
             break
         page += 1
@@ -258,7 +270,8 @@ def main():
             except Exception as e:
                 print(f"  {cid}: errore {str(e)[:80]}")
     unmapped = 0
-    for rank, c in enumerate(ranking(), 1):                      # new cards, highest market cap first
+    for c in ranking():                                           # new cards, highest market cap first
+        rank = c["pos"]
         if checks >= CHECKS:
             break
         cid = tcgdex_id(c)
@@ -313,7 +326,8 @@ def main():
     print("ere da completare:", need, flush=True)
     fill_checks = 0
     if need and FILL:
-        for rank, c in enumerate(ranking(FILL_TOP), 1):
+        for c in ranking(FILL_TOP):
+            rank = c["pos"]
             if fill_checks >= FILL or not need:
                 break
             if rank <= TOP:
@@ -363,6 +377,7 @@ def main():
             print(f"  {c['id']}: nessuna stampa giapponese con lo stesso illustratore su TCGdex" + (f" ({nt} trovate solo su tcgcharts)" if nt else ""), flush=True)
     json.dump(scanned, open(scan_p, "w"), indent=1)
     json.dump(queue, open(q_p, "w"), ensure_ascii=False, indent=1)
+    perimeter_report(os.path.join(DATA, "perimetro.json"))
     ready = sorted([r for r in queue.values() if r["status"] == "pronta" and r.get("lang") != "ja"], key=lambda r: r["rank"] or 9999)
     ready_ja = sorted([r for r in queue.values() if r["status"] == "pronta" and r.get("lang") == "ja"], key=lambda r: -(r.get("recognised") or 0))
     wait = sorted([r for r in queue.values() if r["status"] not in ("pronta", "aggiunta")], key=lambda r: r.get("rank") or 9999)
@@ -392,13 +407,45 @@ def main():
               if r["status"] in ("attesa_vendite", "attesa_coerenza", "non_trovata") else "") for r in wait[:WAIT_SHOWN]]
     if len(wait) > WAIT_SHOWN:                                     # 13 Nov: GitHub refuses an issue body over 65,536 characters
         md.append(f"- … e altre {len(wait) - WAIT_SHOWN} (l'elenco completo è in `prototype/data/candidates_queue.json`)")
-    md += ["", "</details>", "", f"Classifica letta: prime {TOP} carte; {unmapped} non collegate a TCGdex. Controlli in questo giro: {checks}."]
+    md += ["", "</details>", "", f"Classifica letta: prime {TOP} posizioni (tutte le lingue, D336); cinesi incontrate: {len(RANK_ZH)}; {unmapped} non collegate a TCGdex. Controlli in questo giro: {checks}."]
     body = "\n".join(md) + "\n"
     if len(body) > 60000:                                          # never over GitHub's limit, whatever the queue holds
         body = body[:60000].rsplit("\n", 1)[0] + "\n\n_Elenco tagliato: troppo lungo per una issue._\n"
     open(os.path.join(out_dir, "issue.md"), "w").write(body)
     open(os.path.join(out_dir, "new_ready.txt"), "w").write(str(sum(1 for r in ready + ready_ja if r.get("checked") == today)))
     print(f"{len(ready)} pronte, {len(wait)} in attesa, {len(added)} aggiunte")
+
+
+def perimeter_report(path):
+    """D336: market-cap coverage of the perimeter, the first TOP positions of the ranking in English, Japanese and
+    simplified Chinese (base cards, 1st Edition and Shadowless). A position is covered when its tcgcharts card is in
+    data/raw/tcgcharts/cards.json (the catalogue's links). The live start of the indices waits for 100%."""
+    if not RANK_ALL:
+        return
+    have = {str(abs(int(v["tc_id"]))) for v in cr_load(os.path.join(ROOT, "data", "raw", "tcgcharts", "cards.json"), {}).values()
+            if v.get("tc_id") is not None}
+    by, missing = {}, []
+    for c in RANK_ALL[:TOP]:
+        lang = (c.get("languageCode") or "").upper()
+        if lang not in ("EN", "JA", "ZH-CN"):
+            continue
+        part = lang if not c.get("variantType") else (f"{lang} variante" if c["variantType"] in ("1st Edition", "Shadowless") else None)
+        cap = float(c.get("marketCap") or 0)
+        k = part or "altre varianti (fuori, da decidere)"
+        a = by.setdefault(k, dict(carte=0, dentro=0, cap=0.0, cap_dentro=0.0))
+        a["carte"] += 1
+        a["cap"] += cap
+        if str(abs(int(c["id"]))) in have:
+            a["dentro"] += 1
+            a["cap_dentro"] += cap
+        elif part:
+            missing.append(dict(pos=c["pos"], lingua=lang, nome=c["name"], set=(c.get("set") or {}).get("name"), variante=c.get("variantType"), cap=round(cap)))
+    inside = [a for k, a in by.items() if not k.startswith("altre")]
+    tot, cov = sum(a["cap"] for a in inside), sum(a["cap_dentro"] for a in inside)
+    json.dump(dict(data=date.today().isoformat(), posizioni=TOP, copertura=round(cov / tot, 4) if tot else None,
+                   parti={k: dict(a, copertura=round(a["cap_dentro"] / a["cap"], 4) if a["cap"] else None) for k, a in by.items()},
+                   mancanti=missing), open(path, "w"), ensure_ascii=False, indent=1)
+    print(f"perimetro (D336): prime {TOP} posizioni, capitalizzazione coperta {cov / tot:.1%}, mancano {len(missing)}", flush=True)
 
 
 def cr_load(p, default):
