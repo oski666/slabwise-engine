@@ -1596,7 +1596,10 @@ function reqList() {
   if (REQ.live === null) return `<div class="tile empty">${tx("Carico le richieste…", "Loading requests…")}</div>`;
   if (REQ.live === false) return `<div class="tile empty">${tx("Le richieste non sono ancora attive su questo sito.", "Requests are not active on this site yet.")}</div>`;
   if (!REQ.live.length) return `<div class="tile empty">${tx("Nessuna richiesta per ora: sii il primo.", "No requests yet: be the first.")}</div>`;
-  return `<div class="reqlist">${REQ.live.slice(0, 60).map(r => { const s = reqStatus(r); return `<div class="tile reqrow"><div><b>${esc(r.name || r.id)}</b><span class="muted"> · ${esc(r.set || "")} · ${esc(r.id)} · ${r.lang === "ja" ? tx("giapponese", "Japanese") : tx("inglese", "English")}</span><div class="note">${s.label}${s.why ? " · " + esc(s.why) : ""}</div></div><span class="pill">${r.n} ${r.n === 1 ? tx("richiesta", "request") : tx("richieste", "requests")}</span></div>`; }).join("")}</div>`;
+  const open = REQ.live.filter(r => reqStatus(r).k !== "aggiunta"), done = REQ.live.length - open.length;   // 20 Nov: a card already in the catalogue leaves the list
+  const doneNote = done ? `<div class="note" style="margin-top:8px">${done === 1 ? tx("1 carta richiesta è già entrata nel catalogo.", "1 requested card is already in the catalogue.") : tx(`${done} carte richieste sono già entrate nel catalogo.`, `${done} requested cards are already in the catalogue.`)}</div>` : "";
+  if (!open.length) return `<div class="tile empty">${tx("Nessuna richiesta aperta.", "No open requests.")}</div>${doneNote}`;
+  return `<div class="reqlist">${open.slice(0, 60).map(r => { const s = reqStatus(r); return `<div class="tile reqrow"><div><b>${esc(r.name || r.id)}</b><span class="muted"> · ${esc(r.set || "")} · ${esc(r.id)} · ${r.lang === "ja" ? tx("giapponese", "Japanese") : tx("inglese", "English")}</span><div class="note">${s.label}${s.why ? " · " + esc(s.why) : ""}</div></div><span class="pill">${r.n} ${r.n === 1 ? tx("richiesta", "request") : tx("richieste", "requests")}</span></div>`; }).join("")}</div>${doneNote}`;
 }
 function reqHave(id, lang = REQ.lang) {
   const k = lang === "ja" ? "ja:" + id.toLowerCase() : id;

@@ -62,10 +62,14 @@ def auto_name(n: str):
 def english(card: dict, en_names: dict):
     """(name, set, name_ja, set_ja, ja_only) for a Japanese printing of the catalogue (keys n, set, en, id)."""
     n, st = card.get("n") or "", card.get("set") or ""
-    ja_only = not (card.get("en") and card["en"] in en_names)
-    if not ja_only:
+    linked = bool(card.get("en") and card["en"] in en_names)
+    if linked:
         name = en_names[card["en"]]
     else:
         name = _CARDS.get(card["id"]) or (auto_name(n) if has_japanese(n) else re.sub(r"\s*\(giapponese\)$", "", n)) or n
     set_en = _SETS.get(st, st)
+    # 20 Nov 2026 (Oscar): "solo in Giappone" was shown for every printing without an English twin in our catalogue,
+    # even when the card exists in English in another set. Now only when the search for an English printing with the
+    # same illustration, in any set, found none ("en_none": True)
+    ja_only = not linked and card.get("en_none") is True
     return name, set_en, (n if has_japanese(n) else None), (st if has_japanese(st) else None), ja_only

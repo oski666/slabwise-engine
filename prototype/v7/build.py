@@ -116,7 +116,20 @@ def self_host_fonts(html, extra_link, folder):
     html = _re.sub(r'<link rel="preconnect" href="https://fonts\.googleapis\.com">\n?', "", html)
     html = _re.sub(r'<link rel="stylesheet" href="https://fonts\.googleapis\.com/css2\?[^"]+">', "", html)
     open(os.path.join(folder, "fonts", "fonts.css"), "w").write(css_all.replace("url(fonts/", "url("))
-    return html.replace("<style>", '<link rel="stylesheet" href="fonts/fonts.css">\n<style>', 1), ""
+    # 20 Nov 2026: the fonts swap in late ("font-display: swap"), and for a moment the page shows in the fallback fonts,
+    # which looked like an old version of the site under the new one. The basic-Latin files of the fonts used on every
+    # page are preloaded, so they arrive while the 7 MB page is still downloading.
+    pre = []
+    for block in _re.findall(r"@font-face\s*{[^}]*}", css_all):
+        fam = _re.search(r"font-family:\s*'([^']+)'", block)
+        src_ = _re.search(r"url\((fonts/[^)]+\.woff2)\)", block)
+        if fam and src_ and fam.group(1) in PRELOAD_FONTS and "U+0000-00FF" in block and src_.group(1) not in pre:
+            pre.append(src_.group(1))
+    tags = "".join(f'<link rel="preload" href="{u}" as="font" type="font/woff2" crossorigin>\n' for u in pre)
+    return html.replace("<style>", tags + '<link rel="stylesheet" href="fonts/fonts.css">\n<style>', 1), ""
+
+
+PRELOAD_FONTS = {"Luckiest Guy", "Bricolage Grotesque", "DM Serif Display", "Anton", "Dela Gothic One"}
 
 
 if split:

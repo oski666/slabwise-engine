@@ -507,8 +507,8 @@ mark.hl{color:inherit;background:linear-gradient(100deg,transparent 0 1%,var(--m
 
 /* 20 Nov 2026: the card page's backdrop (art softly blurred, set name in outline) */
 #app{position:relative;isolation:isolate}
-.cardbg{position:absolute;inset:0 0 auto 0;height:min(980px,120vh);z-index:-1;overflow:hidden;pointer-events:none}
+.cardbg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}  /* 20 Nov: fixed, so the backdrop stays behind the whole card page while scrolling */
 .cardbg .art{position:absolute;inset:-40px;background:center 28%/cover no-repeat;filter:blur(16px) saturate(1.35);opacity:.6;transform:scale(1.1)}
-.cardbg .tint{position:absolute;inset:0;background:linear-gradient(180deg,color-mix(in srgb,var(--bg) 25%,transparent) 0%,color-mix(in srgb,var(--bg) 60%,transparent) 55%,var(--bg) 100%)}
+.cardbg .tint{position:absolute;inset:0;background:linear-gradient(180deg,color-mix(in srgb,var(--bg) 25%,transparent) 0%,color-mix(in srgb,var(--bg) 55%,transparent) 60%,color-mix(in srgb,var(--bg) 65%,transparent) 100%)}
 .cardbg .big{position:absolute;right:-10px;top:110px;max-width:70%;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:900;font-size:clamp(70px,12vw,180px);line-height:.85;letter-spacing:-.04em;text-transform:uppercase;color:transparent;-webkit-text-stroke:2px color-mix(in srgb,var(--bg) 75%,transparent);text-align:right;overflow-wrap:anywhere}
 @media (prefers-reduced-transparency:reduce){.cardbg .art{display:none}}
