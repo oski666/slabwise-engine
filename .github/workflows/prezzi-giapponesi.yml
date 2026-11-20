@@ -84,7 +84,7 @@ jobs:
           # the collection, the candidates and the approvals go first: if one of them is waiting, no new batch here
           # (the morning collection starts the chain again when it ends)
           wait=0
-          for w in raccolta-tcgcharts.yml candidati.yml approva.yml; do
+          for w in raccolta-tcgcharts.yml candidati.yml approva.yml immagini-tcgcharts.yml gemelle.yml; do
             n=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/$w/runs?per_page=5" --jq '[.workflow_runs[]|select(.status=="queued" or .status=="pending" or .status=="waiting" or .status=="requested")]|length')
             wait=$((wait + n))
           done
