@@ -49,7 +49,7 @@ def test_d231_promo_numbers():
 def test_d233_promo_number_without_name():
     entry = ("poncho\\-wearing pikachu|poncho\\W*(?:wearing\\W*)? pikachu", 207, -1, "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b")
     saved = dict(at.JA_CATALOGUE)
-    for k in ("ja:xy-p-207", "ja:xy-p-208", "ja:xy-p-230", "ja:xy-p-231"):
+    for k in ("ja:xy-p-207", "ja:xy-p-208", "ja:xy-p-230", "ja:xy-p-231", "ja:sm-p-207"):   # 20 Nov: sm-p-207 is now a real card
         at.JA_CATALOGUE.pop(k, None)
     at.JA_CATALOGUE["ja:xy-p-207"] = entry
     try:
