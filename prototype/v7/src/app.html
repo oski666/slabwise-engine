@@ -118,6 +118,10 @@ const rsn = s => s && LANG === "en" ? REASON_EN[s] || s : s;
 const ori = o => LANG === "en" ? ({UE: "EU", USA: "US"})[o] || o : o;
 
 const halfw = g => (g.hi - g.lo) / 2 / g.value;
+/* 20 Nov 2026: a card without a picture had img = null, and <img src="null"> asked the server for "/null", which
+   answered with the whole page (1 MB, 7 seconds): a plain card shape stands in until the picture arrives */
+const NOIMG = "data:image/svg+xml," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63 88"><rect x="1" y="1" width="61" height="86" rx="4" fill="#e9e9ef" stroke="#c9c9d3" stroke-width="2"/><circle cx="31.5" cy="44" r="9" fill="none" stroke="#c9c9d3" stroke-width="3"/><path d="M22.5 44h18" stroke="#c9c9d3" stroke-width="3"/></svg>');
+D.cards.forEach(c => { if (!c.img && !c.thumb) { c.img = c.thumb = NOIMG; c.noimg = true; } else { c.img = c.img || c.thumb; c.thumb = c.thumb || c.img; } });
 const cardById = Object.fromEntries(D.cards.map(c => [c.id, c]));
 const gradeOf = (c, g) => c.grades.find(x => x.grade === g);
 const capOf = c => D.real ? shown(c.grades[0]) : c.grades.reduce((s, g) => s + g.value * g.pop, 0);
@@ -185,7 +189,10 @@ const ixShown = (ix, k) => !!ix && (IX_SHORT[k] || (ix.live && (k === "level" ||
 /* the value range bar: the signature of Slabwise (P10) */
 function fork(g, mini = false, span = 0.7) {   /* 12 Nov (Oscar): a wider scale, so the band is narrower or wider with the card's ± instead of always filling the bar */
   const [lo, hi] = SR(g);
-  const pos = v => 50 + 50 * Math.log(v / g.value) / Math.log(1 + span);
+  /* 20 Nov (Oscar): a wide SlabRange ran off one end of the bar and stopped short of the other; the scale now always
+     leaves room on both sides, with the Slabprice in the middle */
+  const L = Math.max(Math.log(1 + span), 1.15 * Math.max(Math.log(hi / g.value), Math.log(g.value / lo)));
+  const pos = v => 50 + 50 * Math.log(v / g.value) / L;
   const a = Math.max(0, pos(lo)), b = Math.min(100, pos(hi));
   return `<div class="fork${mini ? " mini" : ""}" role="img" aria-label="${tx(`Slabprice ${usd(g.value)}, SlabRange da ${usd(lo)} a ${usd(hi)}`, `Slabprice ${usd(g.value)}, SlabRange from ${usd(lo)} to ${usd(hi)}`)}">
     <div class="track"><div class="band" style="left:${a}%;width:${b - a}%"></div><div class="pin" style="left:50%"></div></div>
@@ -922,7 +929,8 @@ function vsEra(a, e) {
   const say = (k, it, en) => [k, `<b>${tx(it, en)}</b>` + tail];
   const ON = ["Entro le aspettative", "Right on track"], UP = ["Occhio! Rendimento maggiore rispetto alla sua era", "Heads up! Outperforming its era"],
         VS = ["Deal o Bolla? Controtendenza rispetto alla sua era", "Deal or bubble? Going against its era"],
-        SLOW = ["In Frenata", "Slowing down"], DIVE = ["In Picchiata", "Nosediving"], HARD = ["Che fatica!", "Uphill struggle!"];
+        SLOW = ["In Frenata", "Slowing down"], DIVE = ["In Picchiata", "Nosediving"], HARD = ["Che fatica!", "Uphill struggle!"],
+        BEHIND = ["Sale, ma meno della sua era", "Rising, but less than its era"];
   if (Math.abs(d) <= 0.03) return say("flat", ...ON);                      // 1
   if (Math.abs(a) < 0.01) return say("flat", ...SLOW);                     // 10, 11
   if (d > 0) {
@@ -934,6 +942,7 @@ function vsEra(a, e) {
   if (a < 0 && e < 0) return say("down", ...DIVE);                         // 6
   if (a < 0 && e > 0.01) return say("down", ...VS);                        // 7
   if (a < 0) return say("down", ...SLOW);                                  // 8
+  if (a >= 0.10) return say("flat", ...BEHIND);                            // 9a (20 Nov, Oscar: "Che fatica" at +66% read wrong)
   return say("flat", ...HARD);                                             // 9
 }
 /* D195: level 1, the verdict in a few plain signals (each says why) */

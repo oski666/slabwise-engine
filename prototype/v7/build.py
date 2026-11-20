@@ -22,7 +22,9 @@ if which == "real" and os.path.exists(pag):                     # D108: only the
     data["pagella"] = {"seals": json.load(open(pag, encoding="utf-8")).get("seals", [])}
 reqs = os.path.join(here, "..", "data", "requests_status.json")   # D97: daily check of the card requests
 if which == "real" and os.path.exists(reqs):
-    data["requests_status"] = json.load(open(reqs, encoding="utf-8"))
+    # 20 Nov 2026: the page only shows the status and its note; the whole file was 770 KB of each page load
+    data["requests_status"] = {k: {x: v[x] for x in ("status", "detail") if v.get(x)}
+                               for k, v in json.load(open(reqs, encoding="utf-8")).items()}
 cur = os.path.join(here, "..", "data", "curiosita.json")          # D182: curiosities for the weekly scripts, in our own words
 if which == "real" and os.path.exists(cur):
     data["curiosita"] = {k: v for k, v in json.load(open(cur, encoding="utf-8")).items() if not k.startswith("_")}
