@@ -2,7 +2,7 @@
 // leaves the page. Usage (by Claude, through the browser pane): set TODO = [[card id, tcgcharts id, card type], ...] (card
 // type "base" if left out; "variant" for a 1st Edition or Shadowless page, D320) and DB, run,
 // poll window.SWH; then export with the second snippet and merge with scripts/tc_history_merge.py.
-// One request every 2 seconds (permission from tcgcharts, 27 Oct 2026; faster since 17 Nov, D321). Progress survives a reload (IndexedDB).
+// One request every 1.75 seconds (permission from tcgcharts, 27 Oct 2026; faster since 17 Nov, D321, D333). Progress survives a reload (IndexedDB).
 const TODO = [];
 const DB = "swhist";
 const KEYS = ["platform", "sale_id", "title", "grading_service", "grade", "price_cents", "sold_date", "source",
@@ -26,7 +26,7 @@ window.SWH = {state: "running", done: 0, total: TODO.length * 4, rows: 0, err: [
           if (!r.ok) throw new Error(r.status);
           const d = (await r.json()).data;
           for (const s of d.sales) { const o = {card: cid, tc_grade: g}; for (const x of KEYS) o[x] = s[x] ?? null; out.push(o); }
-          await new Promise(z => setTimeout(z, 2000));
+          await new Promise(z => setTimeout(z, 1750));
           if (!d.pagination.has_next) break;
         }
         await put(k, out); SWH.done++; SWH.rows += out.length; ok = true;

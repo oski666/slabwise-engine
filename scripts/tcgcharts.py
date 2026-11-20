@@ -21,8 +21,16 @@ import urllib.request
 
 BASE = "https://tcgcharts.com"
 UA = "Mozilla/5.0 (Slabwise research; permission from tcgcharts, 27 Oct 2026)"
-PAUSE_S = 2.0   # D321: Marek (17 Nov 2026) allows a faster pace, "without overdoing it"; was 3.0
+PAUSE_S = 1.75  # D333 (20 Nov): 1.75 s, back to 2 s for the rest of the run at the first 429/5xx; D321: 2.0; before 3.0
 HERE = os.path.dirname(os.path.abspath(__file__))
+
+
+def slow_down():
+    """D333: at the first sign of strain (429 or 5xx) this run goes back to 2 seconds a request."""
+    global PAUSE_S
+    if PAUSE_S < 2.0:
+        PAUSE_S = 2.0
+        print("tcgcharts: errore di carico, si torna a 2 secondi a richiesta (D333)", flush=True)
 
 
 def get(path, raw=False):
@@ -34,6 +42,8 @@ def get(path, raw=False):
             time.sleep(PAUSE_S)
             return body if raw else json.loads(body)
         except urllib.error.HTTPError as e:
+            if e.code in (429, 500, 502, 503):
+                slow_down()
             if e.code in (429, 500, 502, 503) and attempt < 2:
                 time.sleep(20 * (attempt + 1))
                 continue

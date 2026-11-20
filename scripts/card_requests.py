@@ -30,13 +30,14 @@ SITE = "https://slabwise.pages.dev/api/richieste"
 TCGDEX = "https://api.tcgdex.net/v2"
 TCG = "https://tcgcharts.com"
 UA = "Mozilla/5.0 (Slabwise research; permission from tcgcharts, 27 Oct 2026)"
-PAUSE_S = 2.0   # D321: Marek (17 Nov 2026) allows a faster pace, "without overdoing it"; was 3.0
+PAUSE_S = 1.75  # D333 (20 Nov): back to 2 s at the first 429/5xx; D321: 2.0; before 3.0
 MAX_CHECKS = 15
 MIN_SALES, MIN_GRADE_SALES, MIN_GRADES, MAX_CONTRA = 10, 5, 1, 0.40   # D266: 10 sales in a year, 5 in one grade; D281: at most 40% contradicting titles
 GRAIL_RANK, GRAIL_MIN_SALES = 100, 10          # D150, D266: same threshold for every card now
 
 
 def get(url, raw=False):
+    global PAUSE_S
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
     for attempt in range(5):               # 7 Nov: tcgcharts answers 503 after a long run; wait and slow down, never hammer
         try:
@@ -46,6 +47,7 @@ def get(url, raw=False):
         except urllib.error.HTTPError as e:
             if e.code not in (429, 500, 502, 503) or attempt == 4 or not url.startswith(TCG):
                 raise
+            PAUSE_S = max(PAUSE_S, 2.0)                    # D333
             time.sleep(60 * (attempt + 1))
         except (TimeoutError, urllib.error.URLError, ConnectionError):   # 14 Nov: slow answers and 500s from tcgcharts
             if attempt == 4 or not url.startswith(TCG):
