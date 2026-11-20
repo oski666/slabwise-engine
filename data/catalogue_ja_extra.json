@@ -8824,5 +8824,425 @@
   4,
   72,
   "(?:\\b(?:shining\\W*legends|sm3\\+|shining\\W*legends)\\b)"
+ ],
+ "ja:battle-partners-130": [
+  "iono's bellibolt ex",
+  130,
+  -1,
+  "\\bbattle\\W*partners\\b"
+ ],
+ "ja:mega-dream-ex-212": [
+  "drakloak",
+  212,
+  -1,
+  "(?:\\b(?:mega\\W*dream|m2a|mega\\W*dream\\W*ex)\\b)"
+ ],
+ "ja:vmax-climax-190": [
+  "kingdra",
+  190,
+  -1,
+  "\\bvmax\\W*climax\\b"
+ ],
+ "ja:sm-p-114": [
+  "pikachu",
+  114,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:vstar-universe-200": [
+  "bibarel",
+  200,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:sm-p-081": [
+  "cosmog",
+  81,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:start-deck-100-battle-collection-763": [
+  "mega feraligatr ex",
+  763,
+  -1,
+  "\\bstart\\W*deck\\W*100\\W*battle\\W*collection\\b"
+ ],
+ "ja:glory-of-team-rocket-110": [
+  "kangaskhan",
+  110,
+  -1,
+  "\\bglory\\W*team\\W*rocket\\b"
+ ],
+ "ja:mythical-legendary-dream-shine-collection-19": [
+  "meloetta",
+  19,
+  -1,
+  "\\bmythical\\W*legendary\\W*dream\\W*shine\\W*collection\\b"
+ ],
+ "ja:vending-machine-series-3-green-97": [
+  "hypno",
+  97,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*3\\W*green\\b"
+ ],
+ "ja:battle-partners-106": [
+  "swinub",
+  106,
+  -1,
+  "\\bbattle\\W*partners\\b"
+ ],
+ "ja:scarlet-ex-86": [
+  "riolu",
+  86,
+  -1,
+  "\\bscarlet\\W*ex\\b"
+ ],
+ "ja:white-flare-102": [
+  "oshawott",
+  102,
+  -1,
+  "\\bwhite\\W*flare\\b"
+ ],
+ "ja:shiny-treasure-ex-310": [
+  "snorlax",
+  310,
+  -1,
+  "\\bshiny\\W*treasure\\W*ex\\b"
+ ],
+ "ja:golden-sky-silvery-ocean-13": [
+  "flareon",
+  13,
+  -1,
+  "(?:\\b(?:golden\\W*sky|golden\\W*sky\\W*silvery\\W*ocean)\\b|金の空、?銀の海)"
+ ],
+ "ja:gold-silver-to-a-new-world-182": [
+  "bellossom",
+  182,
+  -1,
+  "(?:\\b(?:neo\\W*genesis|neo\\W*1|gold\\W*silver|gold\\W*silver\\W*to\\W*a\\W*new\\W*world)\\b|金、?・?銀、?・?新世界へ)"
+ ],
+ "ja:pokemon-go-31": [
+  "mewtwo vstar",
+  31,
+  -1,
+  "\\bpok\\W*mon\\W*go\\b"
+ ],
+ "ja:crossing-the-ruins-193": [
+  "yanma",
+  193,
+  -1,
+  "(?:\\b(?:neo\\W*discovery|neo\\W*2|crossing\\W*the\\W*ruins|crossing\\W*ruins)\\b|遺跡をこえて)"
+ ],
+ "ja:sv-p-049": [
+  "koraidon",
+  49,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:mega-dream-ex-201": [
+  "heliolisk",
+  201,
+  -1,
+  "(?:\\b(?:mega\\W*dream|m2a|mega\\W*dream\\W*ex)\\b)"
+ ],
+ "ja:the-town-on-no-map-38": [
+  "zapdos",
+  38,
+  -1,
+  "\\btown\\W*on\\W*no\\W*map\\b"
+ ],
+ "ja:vstar-universe-176": [
+  "oricorio",
+  176,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:nihil-zero-92": [
+  "raticate",
+  92,
+  -1,
+  "\\bnihil\\W*zero\\b"
+ ],
+ "ja:mega-dream-ex-239": [
+  "mega hawlucha ex",
+  239,
+  -1,
+  "(?:\\b(?:mega\\W*dream|m2a|mega\\W*dream\\W*ex)\\b)"
+ ],
+ "ja:intro-pack-squirtle-10": [
+  "wartortle",
+  10,
+  -1,
+  "\\bintro\\W*pack\\W*squirtle\\b"
+ ],
+ "ja:nihil-zero-89": [
+  "tyrunt",
+  89,
+  -1,
+  "\\bnihil\\W*zero\\b"
+ ],
+ "ja:cyber-judge-80": [
+  "metagross",
+  80,
+  -1,
+  "\\bcyber\\W*judge\\b"
+ ],
+ "ja:vstar-universe-181": [
+  "toxtricity",
+  181,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:nihil-zero-87": [
+  "espurr",
+  87,
+  -1,
+  "\\bnihil\\W*zero\\b"
+ ],
+ "ja:fairy-rise-60": [
+  "mimikyu\\-gx",
+  60,
+  -1,
+  "\\bfairy\\W*rise\\b"
+ ],
+ "ja:freeze-bolt-12": [
+  "charizard",
+  12,
+  -1,
+  "\\bfreeze\\W*bolt\\b"
+ ],
+ "ja:cyber-judge-73": [
+  "deerling",
+  73,
+  -1,
+  "\\bcyber\\W*judge\\b"
+ ],
+ "ja:paradigm-trigger-80": [
+  "lugia vstar",
+  80,
+  -1,
+  "\\bparadigm\\W*trigger\\b"
+ ],
+ "ja:rocket-gang-129": [
+  "magikarp",
+  129,
+  -1,
+  "(?:\\b(?:rocket|rocket\\W*gang)\\b|ロケット団)"
+ ],
+ "ja:clay-burst-80": [
+  "grafaiai",
+  80,
+  -1,
+  "\\bclay\\W*burst\\b"
+ ],
+ "ja:violet-ex-84": [
+  "pachirisu",
+  84,
+  -1,
+  "\\bviolet\\W*ex\\b"
+ ],
+ "ja:vending-machine-series-2-red-125": [
+  "electabuzz",
+  125,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*2\\W*red\\b"
+ ],
+ "ja:vending-machine-series-3-green-116": [
+  "horsea",
+  116,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*3\\W*green\\b"
+ ],
+ "ja:sv-p-193": [
+  "paldean wooper",
+  193,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:triplet-beat-97": [
+  "skeledirge ex",
+  97,
+  -1,
+  "\\btriplet\\W*beat\\b"
+ ],
+ "ja:xy-p-141": [
+  "sylveon",
+  141,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:xy-p-037": [
+  "darkrai",
+  37,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:vending-machine-series-2-red-142": [
+  "aerodactyl",
+  142,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*2\\W*red\\b"
+ ],
+ "ja:vending-machine-series-3-green-123": [
+  "scyther",
+  123,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*3\\W*green\\b"
+ ],
+ "ja:split-earth-39": [
+  "raikou",
+  39,
+  -1,
+  "\\bsplit\\W*earth\\b"
+ ],
+ "ja:vstar-universe-233": [
+  "regigigas vstar",
+  233,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:mega-symphonia-70": [
+  "helioptile",
+  70,
+  -1,
+  "\\bmega\\W*symphonia\\b"
+ ],
+ "ja:m-p-033": [
+  "celebratory fanfare",
+  33,
+  -1,
+  "\\b(?:m|mega(?:\\W*evolution)?)\\W*(?:black\\W*star\\W*)?promo|\\b(?:m|mega(?:\\W*evolution)?)\\W?p\\b"
+ ],
+ "ja:scarlet-ex-103": [
+  "koraidon ex",
+  103,
+  -1,
+  "\\bscarlet\\W*ex\\b"
+ ],
+ "ja:tag-bolt-104": [
+  "(?:latias\\s*(?:&|and)\\s*latios\\-gx|latios\\-gx\\s*(?:&|and)\\s*latias)",
+  104,
+  -1,
+  "(?:\\b(?:tag\\W*bolt|sm9\\b|tag\\W*bolt)\\b)"
+ ],
+ "ja:alter-genesis-65": [
+  "(?:arceus\\s*(?:&|and)\\s*dialga \\& palkia\\-gx|dialga \\& palkia\\-gx\\s*(?:&|and)\\s*arceus)",
+  65,
+  -1,
+  "\\balter\\W*genesis\\b"
+ ],
+ "ja:fusion-arts-105": [
+  "mew v",
+  105,
+  -1,
+  "\\bfusion\\W*arts\\b"
+ ],
+ "ja:heat-wave-arena-89": [
+  "ethan's adventure",
+  89,
+  -1,
+  "\\bhot\\W*air\\W*arena\\b"
+ ],
+ "ja:amazing-volt-tackle-111": [
+  "nessa",
+  111,
+  -1,
+  "\\bamazing\\W*volt\\W*tackle\\b"
+ ],
+ "ja:vstar-universe-184": [
+  "lunatone",
+  184,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:glory-of-team-rocket-108": [
+  "team rocket's raticate",
+  108,
+  -1,
+  "\\bglory\\W*team\\W*rocket\\b"
+ ],
+ "ja:pokemon-tcg-classic-blastoise-13": [
+  "mr\\. mime",
+  13,
+  -1,
+  "\\btcg\\W*classic\\W*blastoise\\b"
+ ],
+ "ja:mega-diancie-ex-starter-set-mega-22": [
+  "meloetta",
+  22,
+  -1,
+  "\\bmega\\W*diancie\\W*ex\\W*starter\\W*set\\W*mega\\b"
+ ],
+ "ja:xy-p-156": [
+  "pikachu",
+  156,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:leaders-stadium-125": [
+  "lt\\. surge's electabuzz",
+  125,
+  -1,
+  "(?:\\b(?:gym\\W*heroes|gym\\W*1|leaders?\\W*stadium|leaders\\W*stadium)\\b|リーダーズスタジアム)"
+ ],
+ "ja:rocket-gang-110": [
+  "dark weezing",
+  110,
+  -1,
+  "(?:\\b(?:rocket|rocket\\W*gang)\\b|ロケット団)"
+ ],
+ "ja:fairy-rise-54": [
+  "mimikyu\\-gx",
+  54,
+  -1,
+  "\\bfairy\\W*rise\\b"
+ ],
+ "ja:vending-machine-series-1-blue-13": [
+  "weedle",
+  13,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*1\\W*blue\\b"
+ ],
+ "ja:rocket-gang-4": [
+  "charmander",
+  4,
+  -1,
+  "(?:\\b(?:rocket|rocket\\W*gang)\\b|ロケット団)"
+ ],
+ "ja:gx-ultra-shiny-158": [
+  "dana",
+  158,
+  -1,
+  "\\bgx\\W*ultra\\W*shiny\\b"
+ ],
+ "ja:sv-p-259": [
+  "team rocket's meowth",
+  259,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:vstar-universe-180": [
+  "electivire",
+  180,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:tag-team-gx-tag-all-stars-67": [
+  "(?:marshadow\\s*(?:&|and)\\s*machamp\\-gx|machamp\\-gx\\s*(?:&|and)\\s*marshadow)",
+  67,
+  -1,
+  "\\btag\\W*team\\W*gx\\W*tag\\W*all\\W*stars\\b"
+ ],
+ "ja:expansion-pack-8": [
+  "wartortle",
+  8,
+  -1,
+  "(?:\\b(?:base\\W*set|basic|expansion\\W*pack)\\b|拡張パック)"
+ ],
+ "ja:vending-machine-series-3-green-77": [
+  "ponyta",
+  77,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*3\\W*green\\b"
  ]
 }
