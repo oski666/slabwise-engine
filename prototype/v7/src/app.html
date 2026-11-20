@@ -625,7 +625,7 @@ function viewGems() {
 /* D152: the English card is shown as "the same card" only when the illustration and the Pokémon match (en_same) */
 const enOf = j => j && j.en_same ? cardById[j.en] : null;
 /* D291: a Japanese printing is shown in English; a small caption says it is Japanese and keeps the original name */
-const jaCap = c => c && String(c.id).startsWith("ja:") ? `<span class="jcap">${c.ja_only ? tx("Solo in Giappone", "Japan only") : tx("Stampa giapponese", "Japanese print")}${c.name_ja ? ` · <span lang="ja">${esc(c.name_ja)}</span>` : ""}</span>` : "";
+const jaCap = c => c && String(c.id).startsWith("ja:") ? `<span class="jcap">${c.ja_only ? tx("Solo in Giappone", "Japan only") : tx("Stampa giapponese", "Japanese print")}${!c.en && c.en_ext ? tx(" · esiste anche in inglese, non ancora nel catalogo", " · also printed in English, not in the catalogue yet") : ""}${c.name_ja ? ` · <span lang="ja">${esc(c.name_ja)}</span>` : ""}</span>` : "";
 const jaOf = c => D.cards.find(x => x.lang === "ja" && x.en === c.id && x.en_same) || (D.ja_pending || []).find(x => x.en === c.id && x.en_same);
 const jaById = Object.fromEntries((D.ja_pending || []).map(j => [j.id, j]));
 const engBox = en => `<a class="tile jabox" href="#c-${en.id}" style="text-decoration:none;color:inherit"><span class="label">${tx("Stampa inglese", "English printing")}</span>
