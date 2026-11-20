@@ -242,6 +242,7 @@ Ricerca del 3 novembre 2026 (Oscar ha segnalato Traded).
 | Accesso | il sito usa una verifica Cloudflare (Turnstile): niente raccolta da GitHub né dal nostro server; solo dal browser integrato di Oscar, dopo che lui ha fatto la verifica, una richiesta ogni 5 s o più |
 | Rischi | pagine e formati non documentati; il permesso è informale; il report conta le gradazioni, non le copie (rinvii e sbustamenti contano due volte, come già per PSA, D109) |
 | Copertura | dal D261 tutti i set del catalogo che hanno una pagina (160 set, anche giapponesi; promo divise per anno); `scripts/gemrate_merge.py` unisce le letture in `sets.json` |
+| Andamento per set (D334) | dalle pagine "Population Trend" dei set: PSA 10 e gradazioni PSA cumulate giorno per giorno da aprile 2021, per i 180 set del catalogo (`scripts/browser/gemrate_trend.js`, una richiesta ogni 5 s dal browser di Oscar, 20 novembre 2026: 282.213 giorni); in `data/raw/gemrate/trend.json`; `scripts/gemrate_severity.py` ne ricava la quota mensile di PSA 10 tra gli slab nuovi per era |
 | Regole | solo popolazioni e gradazioni, solo PSA per i nostri calcoli (D165); dati grezzi in `data/raw/gemrate/` nel repository privato `slabwise-data`; sul sito la fonte non si nomina |
 
 ## PokeAPI (github.com/PokeAPI/pokeapi): nomi delle specie in giapponese (D237) — non attiva (§47 non superato)
