@@ -94741,5 +94741,16 @@
   "status": "attesa_era",
   "detail": "epoca non coperta dal motore",
   "checked": "2026-11-21"
+ },
+ "me02.5-268": {
+  "id": "me02.5-268",
+  "name": "Mega Hawlucha ex",
+  "set": null,
+  "no": "268",
+  "rank": null,
+  "status": "in_valutazione",
+  "checked": "2026-11-21",
+  "twin_of": "ja:mega-dream-ex-229",
+  "detail": "gemella inglese di una stampa giapponese del catalogo (ricerca dalla giapponese)"
  }
 }
