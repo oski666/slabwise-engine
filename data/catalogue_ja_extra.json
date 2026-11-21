@@ -9634,5 +9634,455 @@
   82,
   -1,
   "\\bcyber\\W*judge\\b"
+ ],
+ "ja:mysterious-mountains-53": [
+  "machamp",
+  53,
+  -1,
+  "\\bmysterious\\W*mountains\\b"
+ ],
+ "ja:incandescent-arcana-70": [
+  "milotic",
+  70,
+  -1,
+  "\\bincandescent\\W*arcana\\b"
+ ],
+ "ja:eevee-heroes-3": [
+  "leafeon vmax",
+  3,
+  -1,
+  "\\beevee\\W*heroes\\b"
+ ],
+ "ja:m-charizard-ex-mega-battle-deck-1": [
+  "charizard ex",
+  1,
+  -1,
+  "\\bm\\W*charizard\\W*ex\\W*mega\\W*battle\\W*deck\\b"
+ ],
+ "ja:vstar-universe-189": [
+  "solrock",
+  189,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:sm-p-269": [
+  "glaceon\\-gx",
+  269,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:stellar-miracle-deck-build-box-1": [
+  "radiant charizard",
+  1,
+  -1,
+  "\\bstellar\\W*miracle\\W*deck\\W*build\\W*box\\b"
+ ],
+ "ja:cyber-judge-74": [
+  "sawsbuck",
+  74,
+  -1,
+  "\\bcyber\\W*judge\\b"
+ ],
+ "ja:cyber-judge-77": [
+  "iron thorns",
+  77,
+  -1,
+  "\\bcyber\\W*judge\\b"
+ ],
+ "ja:s-p-146": [
+  "sobble",
+  146,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:paradise-dragona-73": [
+  "skarmory",
+  73,
+  -1,
+  "\\bparadise\\W*dragona\\b"
+ ],
+ "ja:violet-ex-97": [
+  "katy",
+  97,
+  -1,
+  "\\bviolet\\W*ex\\b"
+ ],
+ "ja:paradise-dragona-89": [
+  "alolan exeggutor ex",
+  89,
+  -1,
+  "\\bparadise\\W*dragona\\b"
+ ],
+ "ja:mega-dream-ex-196": [
+  "budew",
+  196,
+  -1,
+  "(?:\\b(?:mega\\W*dream|m2a|mega\\W*dream\\W*ex)\\b)"
+ ],
+ "ja:wind-from-the-sea-49": [
+  "ampharos",
+  49,
+  -1,
+  "(?:\\b(?:wind\\W*from\\W*the\\W*sea|wind\\W*from\\W*sea)\\b|海からの風)"
+ ],
+ "ja:expansion-pack-2": [
+  "ivysaur",
+  2,
+  -1,
+  "(?:\\b(?:base\\W*set|basic|expansion\\W*pack)\\b|拡張パック)"
+ ],
+ "ja:pokemon-go-73": [
+  "mewtwo v",
+  73,
+  -1,
+  "\\bpok\\W*mon\\W*go\\b"
+ ],
+ "ja:mega-dream-ex-203": [
+  "togekiss",
+  203,
+  -1,
+  "(?:\\b(?:mega\\W*dream|m2a|mega\\W*dream\\W*ex)\\b)"
+ ],
+ "ja:gx-ultra-shiny-210": [
+  "ho\\-oh\\-gx",
+  210,
+  -1,
+  "\\bgx\\W*ultra\\W*shiny\\b"
+ ],
+ "ja:super-burst-impact-15": [
+  "celebi ◇",
+  15,
+  -1,
+  "\\bsuper\\W*burst\\W*impact\\b"
+ ],
+ "ja:vending-machine-series-2-red-138": [
+  "omanyte",
+  138,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*2\\W*red\\b"
+ ],
+ "ja:clay-burst-73": [
+  "fletchinder",
+  73,
+  -1,
+  "\\bclay\\W*burst\\b"
+ ],
+ "ja:rapid-strike-master-79": [
+  "korrina's focus",
+  79,
+  -1,
+  "\\brapid\\W*strike\\W*master\\b"
+ ],
+ "ja:eevee-heroes-25": [
+  "glaceon vmax",
+  25,
+  -1,
+  "\\beevee\\W*heroes\\b"
+ ],
+ "ja:pcg-promos-50": [
+  "pok[eé]park's jirachi",
+  50,
+  -1,
+  "\\bpcg\\W*promos\\b"
+ ],
+ "ja:promo-card-pack-25th-anniversary-edition-9": [
+  "cleffa",
+  9,
+  -1,
+  "\\bpromo\\W*pack\\W*25th\\W*anniversary\\W*edition\\b"
+ ],
+ "ja:jungle-49": [
+  "venomoth",
+  49,
+  -1,
+  "(?:\\b(?:jungle|jungle)\\b|ジャングル)"
+ ],
+ "ja:white-flare-169": [
+  "keldeo ex",
+  169,
+  -1,
+  "\\bwhite\\W*flare\\b"
+ ],
+ "ja:super-electric-breaker-118": [
+  "kecleon",
+  118,
+  -1,
+  "\\bsuper\\W*electric\\W*breaker\\b"
+ ],
+ "ja:crimson-haze-67": [
+  "pinsir",
+  67,
+  -1,
+  "\\bcrimson\\W*haze\\b"
+ ],
+ "ja:vstar-universe-198": [
+  "dunsparce",
+  198,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:super-electric-breaker-108": [
+  "larvesta",
+  108,
+  -1,
+  "\\bsuper\\W*electric\\W*breaker\\b"
+ ],
+ "ja:vending-machine-series-3-green-37": [
+  "vulpix",
+  37,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*3\\W*green\\b"
+ ],
+ "ja:mythical-legendary-dream-shine-collection-14": [
+  "keldeo",
+  14,
+  -1,
+  "\\bmythical\\W*legendary\\W*dream\\W*shine\\W*collection\\b"
+ ],
+ "ja:super-electric-breaker-114": [
+  "mesprit",
+  114,
+  -1,
+  "\\bsuper\\W*electric\\W*breaker\\b"
+ ],
+ "ja:battle-partners-112": [
+  "hop's wooloo",
+  112,
+  -1,
+  "\\bbattle\\W*partners\\b"
+ ],
+ "ja:dream-league-69": [
+  "vileplume\\-gx",
+  69,
+  -1,
+  "\\bdream\\W*league\\b"
+ ],
+ "ja:expansion-pack-20th-anniversary-61": [
+  "clefairy",
+  61,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:peerless-fighters-81": [
+  "karen's conviction",
+  81,
+  -1,
+  "\\bpeerless\\W*fighters\\b"
+ ],
+ "ja:battle-partners-101": [
+  "maractus",
+  101,
+  -1,
+  "\\bbattle\\W*partners\\b"
+ ],
+ "ja:blue-sky-stream-47": [
+  "rayquaza vmax",
+  47,
+  -1,
+  "\\bblue\\W*sky\\W*stream\\b"
+ ],
+ "ja:alter-genesis-102": [
+  "(?:naganadel\\s*(?:&|and)\\s*guzzlord\\-gx|guzzlord\\-gx\\s*(?:&|and)\\s*naganadel)",
+  102,
+  -1,
+  "\\balter\\W*genesis\\b"
+ ],
+ "ja:dream-league-60": [
+  "steelix",
+  60,
+  -1,
+  "\\bdream\\W*league\\b"
+ ],
+ "ja:rocket-gang-strikes-back-70": [
+  "dark tyranitar",
+  70,
+  -1,
+  "\\brocket\\W*gang\\W*strikes\\W*back\\b"
+ ],
+ "ja:nihil-zero-90": [
+  "drapion",
+  90,
+  -1,
+  "\\bnihil\\W*zero\\b"
+ ],
+ "ja:gx-ultra-shiny-211": [
+  "reshiram\\-gx",
+  211,
+  -1,
+  "\\bgx\\W*ultra\\W*shiny\\b"
+ ],
+ "ja:dream-league-53": [
+  "wishiwashi",
+  53,
+  -1,
+  "\\bdream\\W*league\\b"
+ ],
+ "ja:darkness-and-to-light-199": [
+  "dark slowking",
+  199,
+  -1,
+  "(?:\\b(?:neo\\W*destiny|neo\\W*4|darkness\\W*to\\W*light)\\b|闇、?そして光へ)"
+ ],
+ "ja:gx-ultra-shiny-160": [
+  "nita",
+  160,
+  -1,
+  "\\bgx\\W*ultra\\W*shiny\\b"
+ ],
+ "ja:bw-p-182": [
+  "leafeon",
+  182,
+  -1,
+  "\\b(?:bw|black\\W*(?:&|and)?\\W*white)\\W*(?:black\\W*star\\W*)?promo|\\b(?:bw|black\\W*(?:&|and)?\\W*white)\\W?p\\b"
+ ],
+ "ja:intense-fight-in-the-destroyed-sky-26": [
+  "raichu lv\\.x",
+  26,
+  -1,
+  "\\bintense\\W*fight\\W*in\\W*destroyed\\W*sky\\b"
+ ],
+ "ja:awakening-legends-26": [
+  "raichu",
+  26,
+  -1,
+  "(?:\\b(?:neo\\W*revelation|neo\\W*3|awakening\\W*legends)\\b|めざめる伝説)"
+ ],
+ "ja:vstar-universe-173": [
+  "hisuian voltorb",
+  173,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:inferno-x-113": [
+  "mega sharpedo ex",
+  113,
+  -1,
+  "\\binferno\\W*x\\b"
+ ],
+ "ja:remix-bout-73": [
+  "roller skater",
+  73,
+  -1,
+  "\\bremix\\W*bout\\b"
+ ],
+ "ja:super-electric-breaker-115": [
+  "phanpy",
+  115,
+  -1,
+  "\\bsuper\\W*electric\\W*breaker\\b"
+ ],
+ "ja:split-earth-45": [
+  "starmie",
+  45,
+  -1,
+  "\\bsplit\\W*earth\\b"
+ ],
+ "ja:battle-partners-128": [
+  "hop's zacian ex",
+  128,
+  -1,
+  "\\bbattle\\W*partners\\b"
+ ],
+ "ja:triplet-beat-92": [
+  "dendra",
+  92,
+  -1,
+  "\\btriplet\\W*beat\\b"
+ ],
+ "ja:darkness-and-to-light-232": [
+  "dark donphan",
+  232,
+  -1,
+  "(?:\\b(?:neo\\W*destiny|neo\\W*4|darkness\\W*to\\W*light)\\b|闇、?そして光へ)"
+ ],
+ "ja:vstar-universe-207": [
+  "paras",
+  207,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:violet-ex-85": [
+  "pawmot",
+  85,
+  -1,
+  "\\bviolet\\W*ex\\b"
+ ],
+ "ja:vending-machine-series-2-red-26": [
+  "raichu",
+  26,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*2\\W*red\\b"
+ ],
+ "ja:gold-silver-to-a-new-world-158": [
+  "totodile",
+  158,
+  -1,
+  "(?:\\b(?:neo\\W*genesis|neo\\W*1|gold\\W*silver|gold\\W*silver\\W*to\\W*a\\W*new\\W*world)\\b|金、?・?銀、?・?新世界へ)"
+ ],
+ "ja:pcg-promos-45": [
+  "pok[eé]park's latios",
+  45,
+  -1,
+  "\\bpcg\\W*promos\\b"
+ ],
+ "ja:offense-and-defense-of-the-furthest-ends-34": [
+  "typhlosion",
+  34,
+  -1,
+  "(?:\\b(?:dragon\\W*frontiers|furthest\\W*ends|offense\\W*defense\\W*furthest\\W*ends)\\b|さいはての攻防)"
+ ],
+ "ja:holon-phantom-22": [
+  "deoxys",
+  22,
+  -1,
+  "(?:\\b(?:holon\\W*phantoms?|holon\\W*phantom)\\b|ホロンの幻影)"
+ ],
+ "ja:nihil-zero-83": [
+  "talonflame",
+  83,
+  -1,
+  "\\bnihil\\W*zero\\b"
+ ],
+ "ja:intro-pack-squirtle-40": [
+  "squirtle",
+  40,
+  -1,
+  "\\bintro\\W*pack\\W*squirtle\\b"
+ ],
+ "ja:30th-celebration-137": [
+  "charizard",
+  137,
+  -1,
+  "\\b30th\\W*celebration\\b"
+ ],
+ "ja:gx-ultra-shiny-237": [
+  "gardevoir\\-gx",
+  237,
+  -1,
+  "\\bgx\\W*ultra\\W*shiny\\b"
+ ],
+ "ja:sm-p-408": [
+  "gardevoir",
+  408,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:super-electric-breaker-135": [
+  "jasmine's look",
+  135,
+  -1,
+  "\\bsuper\\W*electric\\W*breaker\\b"
+ ],
+ "ja:wild-force-94": [
+  "walking wake ex",
+  94,
+  -1,
+  "\\bwild\\W*force\\b"
+ ],
+ "ja:vmax-climax-100": [
+  "umbreon v",
+  100,
+  -1,
+  "\\bvmax\\W*climax\\b"
  ]
 }
