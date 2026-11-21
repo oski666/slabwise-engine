@@ -10474,5 +10474,449 @@
   43,
   190,
   "\\bbandit\\W*ring\\b"
+ ],
+ "ja:forbidden-light-101": [
+  "diantha",
+  101,
+  -1,
+  "\\bforbidden\\W*light\\b"
+ ],
+ "ja:vstar-universe-186": [
+  "diancie",
+  186,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:sv-p-033": [
+  "eevee",
+  33,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:sv-p-196": [
+  "eevee",
+  196,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:vending-machine-series-2-red-107": [
+  "hitmonchan",
+  107,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*2\\W*red\\b"
+ ],
+ "ja:vmax-climax-216": [
+  "blaziken v",
+  216,
+  -1,
+  "\\bvmax\\W*climax\\b"
+ ],
+ "ja:platinum-promos-11": [
+  "mismagius gl lv\\.x",
+  11,
+  -1,
+  "\\bplatinum\\W*promos\\b"
+ ],
+ "ja:scarlet-ex-105": [
+  "penny",
+  105,
+  -1,
+  "\\bscarlet\\W*ex\\b"
+ ],
+ "ja:promo-card-pack-25th-anniversary-edition-25": [
+  "tapu lele gx",
+  25,
+  -1,
+  "\\bpromo\\W*pack\\W*25th\\W*anniversary\\W*edition\\b"
+ ],
+ "ja:cyber-judge-79": [
+  "excadrill",
+  79,
+  -1,
+  "\\bcyber\\W*judge\\b"
+ ],
+ "ja:pokemon-go-49": [
+  "dragonite v",
+  49,
+  -1,
+  "\\bpok\\W*mon\\W*go\\b"
+ ],
+ "ja:pcg-promos-44": [
+  "pok[eé]park's celebi",
+  44,
+  -1,
+  "\\bpcg\\W*promos\\b"
+ ],
+ "ja:alter-genesis-112": [
+  "(?:arceus\\s*(?:&|and)\\s*dialga \\& palkia\\-gx|dialga \\& palkia\\-gx\\s*(?:&|and)\\s*arceus)",
+  112,
+  -1,
+  "\\balter\\W*genesis\\b"
+ ],
+ "ja:champion-road-77": [
+  "copycat",
+  77,
+  -1,
+  "\\bchampion\\W*road\\b"
+ ],
+ "ja:shiny-treasure-ex-354": [
+  "penny",
+  354,
+  -1,
+  "\\bshiny\\W*treasure\\W*ex\\b"
+ ],
+ "ja:vmax-climax-242": [
+  "galarian moltres v",
+  242,
+  -1,
+  "\\bvmax\\W*climax\\b"
+ ],
+ "ja:xy-p-192": [
+  "leafeon\\-ex",
+  192,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:raging-surf-85": [
+  "garchomp ex",
+  85,
+  -1,
+  "\\braging\\W*surf\\b"
+ ],
+ "ja:promo-card-pack-25th-anniversary-edition-13": [
+  "rocket's admin\\.",
+  13,
+  -1,
+  "\\bpromo\\W*pack\\W*25th\\W*anniversary\\W*edition\\b"
+ ],
+ "ja:neo-premium-file-3-245": [
+  "suicune",
+  245,
+  -1,
+  "\\bneo\\W*premium\\W*file\\W*3\\b"
+ ],
+ "ja:s-p-151": [
+  "lugia",
+  151,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:nihil-zero-49": [
+  "gengar",
+  49,
+  -1,
+  "\\bnihil\\W*zero\\b"
+ ],
+ "ja:thunderclap-spark-43": [
+  "ditto ◇",
+  43,
+  -1,
+  "\\bthunderclap\\W*spark\\b"
+ ],
+ "ja:gx-battle-boost-28": [
+  "pikachu",
+  28,
+  -1,
+  "\\bgx\\W*battle\\W*boost\\b"
+ ],
+ "ja:the-best-of-xy-45": [
+  "espeon\\-ex",
+  45,
+  -1,
+  "\\bbest\\W*xy\\b"
+ ],
+ "ja:vmax-climax-77": [
+  "mimikyu vmax",
+  77,
+  -1,
+  "\\bvmax\\W*climax\\b"
+ ],
+ "ja:single-strike-master-80": [
+  "phoebe",
+  80,
+  -1,
+  "\\bsingle\\W*strike\\W*master\\b"
+ ],
+ "ja:paradigm-trigger-109": [
+  "lugia v",
+  109,
+  -1,
+  "\\bparadigm\\W*trigger\\b"
+ ],
+ "ja:expansion-pack-20th-anniversary-68": [
+  "chansey",
+  68,
+  -1,
+  "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
+ ],
+ "ja:glory-of-team-rocket-104": [
+  "team rocket's orbeetle",
+  104,
+  -1,
+  "\\bglory\\W*team\\W*rocket\\b"
+ ],
+ "ja:bw-p-195": [
+  "salamence",
+  195,
+  -1,
+  "\\b(?:bw|black\\W*(?:&|and)?\\W*white)\\W*(?:black\\W*star\\W*)?promo|\\b(?:bw|black\\W*(?:&|and)?\\W*white)\\W?p\\b"
+ ],
+ "ja:scarlet-ex-90": [
+  "starly",
+  90,
+  -1,
+  "\\bscarlet\\W*ex\\b"
+ ],
+ "ja:stellar-miracle-109": [
+  "zeraora",
+  109,
+  -1,
+  "\\bstellar\\W*miracle\\b"
+ ],
+ "ja:golden-sky-silvery-ocean-95": [
+  "steelix ex",
+  95,
+  -1,
+  "(?:\\b(?:golden\\W*sky|golden\\W*sky\\W*silvery\\W*ocean)\\b|金の空、?銀の海)"
+ ],
+ "ja:sky-splitting-charisma-67": [
+  "latios ◇",
+  67,
+  -1,
+  "\\bsky\\W*splitting\\W*charisma\\b"
+ ],
+ "ja:lost-abyss-120": [
+  "giratina vstar",
+  120,
+  -1,
+  "\\blost\\W*abyss\\b"
+ ],
+ "ja:shiny-treasure-ex-237": [
+  "raichu",
+  237,
+  -1,
+  "\\bshiny\\W*treasure\\W*ex\\b"
+ ],
+ "ja:intro-pack-squirtle-26": [
+  "growlithe",
+  26,
+  -1,
+  "\\bintro\\W*pack\\W*squirtle\\b"
+ ],
+ "ja:paradise-dragona-65": [
+  "exeggcute",
+  65,
+  -1,
+  "\\bparadise\\W*dragona\\b"
+ ],
+ "ja:gx-ultra-shiny-230": [
+  "darkrai\\-gx",
+  230,
+  -1,
+  "\\bgx\\W*ultra\\W*shiny\\b"
+ ],
+ "ja:mega-symphonia-67": [
+  "snover",
+  67,
+  -1,
+  "\\bmega\\W*symphonia\\b"
+ ],
+ "ja:inferno-x-106": [
+  "dawn",
+  106,
+  -1,
+  "\\binferno\\W*x\\b"
+ ],
+ "ja:darkness-and-to-light-136": [
+  "light flareon",
+  136,
+  -1,
+  "(?:\\b(?:neo\\W*destiny|neo\\W*4|darkness\\W*to\\W*light)\\b|闇、?そして光へ)"
+ ],
+ "ja:expansion-pack-63": [
+  "abra",
+  63,
+  -1,
+  "(?:\\b(?:base\\W*set|basic|expansion\\W*pack)\\b|拡張パック)"
+ ],
+ "ja:tag-bolt-98": [
+  "(?:magikarp\\s*(?:&|and)\\s*wailord\\-gx|wailord\\-gx\\s*(?:&|and)\\s*magikarp)",
+  98,
+  -1,
+  "(?:\\b(?:tag\\W*bolt|sm9\\b|tag\\W*bolt)\\b)"
+ ],
+ "ja:shining-darkness-9": [
+  "blastoise",
+  9,
+  -1,
+  "\\bshining\\W*darkness\\b"
+ ],
+ "ja:incandescent-arcana-45": [
+  "radiant jirachi",
+  45,
+  -1,
+  "\\bincandescent\\W*arcana\\b"
+ ],
+ "ja:sm-p-338": [
+  "detective pikachu",
+  338,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:sv-p-241": [
+  "feraligatr",
+  241,
+  -1,
+  "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
+ ],
+ "ja:awakening-legends-169": [
+  "crobat",
+  169,
+  -1,
+  "(?:\\b(?:neo\\W*revelation|neo\\W*3|awakening\\W*legends)\\b|めざめる伝説)"
+ ],
+ "ja:vending-machine-series-1-blue-137": [
+  "porygon",
+  137,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*1\\W*blue\\b"
+ ],
+ "ja:transformation-mask-102": [
+  "sunflora",
+  102,
+  -1,
+  "\\bmask\\W*change\\b"
+ ],
+ "ja:triplet-beat-84": [
+  "paldean tauros",
+  84,
+  -1,
+  "\\btriplet\\W*beat\\b"
+ ],
+ "ja:raging-surf-87": [
+  "gholdengo ex",
+  87,
+  -1,
+  "\\braging\\W*surf\\b"
+ ],
+ "ja:vending-machine-series-2-red-109": [
+  "koffing",
+  109,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*2\\W*red\\b"
+ ],
+ "ja:gx-ultra-shiny-206": [
+  "leafeon\\-gx",
+  206,
+  -1,
+  "\\bgx\\W*ultra\\W*shiny\\b"
+ ],
+ "ja:double-blaze-42": [
+  "(?:marshadow\\s*(?:&|and)\\s*machamp\\-gx|machamp\\-gx\\s*(?:&|and)\\s*marshadow)",
+  42,
+  -1,
+  "\\bdouble\\W*blaze\\b"
+ ],
+ "ja:vending-machine-series-2-red-90": [
+  "shellder",
+  90,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*2\\W*red\\b"
+ ],
+ "ja:s-p-292": [
+  "dragonite v",
+  292,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:sword-25": [
+  "gengar",
+  25,
+  -1,
+  "\\bsword\\b"
+ ],
+ "ja:expansion-pack-92": [
+  "gastly",
+  92,
+  -1,
+  "(?:\\b(?:base\\W*set|basic|expansion\\W*pack)\\b|拡張パック)"
+ ],
+ "ja:vmax-climax-45": [
+  "pikachu v",
+  45,
+  -1,
+  "\\bvmax\\W*climax\\b"
+ ],
+ "ja:pokemon-go-30": [
+  "mewtwo v",
+  30,
+  -1,
+  "\\bpok\\W*mon\\W*go\\b"
+ ],
+ "ja:amazing-volt-tackle-109": [
+  "bea",
+  109,
+  -1,
+  "\\bamazing\\W*volt\\W*tackle\\b"
+ ],
+ "ja:rapid-strike-master-81": [
+  "cheryl",
+  81,
+  -1,
+  "\\brapid\\W*strike\\W*master\\b"
+ ],
+ "ja:vstar-universe-50": [
+  "mewtwo v",
+  50,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:dream-league-3": [
+  "vileplume\\-gx",
+  3,
+  -1,
+  "\\bdream\\W*league\\b"
+ ],
+ "ja:challenge-from-the-darkness-124": [
+  "sabrina's jynx",
+  124,
+  -1,
+  "(?:\\b(?:gym\\W*challenge|gym\\W*2|challenge\\W*from|challenge\\W*from\\W*darkness)\\b|闇からの挑戦)"
+ ],
+ "ja:p-promos-35": [
+  "togepi",
+  35,
+  -1,
+  "\\bp\\W*promos\\b"
+ ],
+ "ja:awakened-heroes-22": [
+  "gengar",
+  22,
+  -1,
+  "\\bawakened\\W*heroes\\b"
+ ],
+ "ja:30th-celebration-129": [
+  "mew ex",
+  129,
+  -1,
+  "\\b30th\\W*celebration\\b"
+ ],
+ "ja:xy-p-102": [
+  "m metagross\\-ex",
+  102,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:incandescent-arcana-89": [
+  "serena",
+  89,
+  -1,
+  "\\bincandescent\\W*arcana\\b"
+ ],
+ "ja:vending-machine-series-1-blue-74": [
+  "geodude",
+  74,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*1\\W*blue\\b"
  ]
 }
