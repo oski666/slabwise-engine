@@ -12483,8 +12483,10 @@
   "r": null,
   "ill": null,
   "set_en": "Sun & Moon Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_sm-p-214.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sun-moon-promos-japanese/214-large.webp"
  },
  {
   "id": "ja:sky-legend-59",
@@ -17277,9 +17279,11 @@
   "r": null,
   "ill": null,
   "set_en": "VMAX Climax",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
-  "en_none": true
+  "en_none": true,
+  "img": "file:img/ja_vmax-climax-258.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/vmax-climax-japanese/258-large.webp"
  },
  {
   "id": "ja:dp-p-107",
@@ -17294,8 +17298,10 @@
   "r": null,
   "ill": null,
   "set_en": "Diamond & Pearl Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_dp-p-107.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/diamond-pearl-promos-japanese/107-large.webp"
  },
  {
   "id": "ja:pcg-promos-48",
@@ -17310,8 +17316,10 @@
   "r": null,
   "ill": null,
   "set_en": "PCG Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_pcg-promos-48.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/pcg-promos-japanese/48-large.webp"
  },
  {
   "id": "ja:25th-anniversary-collection-23",
@@ -17346,8 +17354,10 @@
   "r": null,
   "ill": null,
   "set_en": "10th Movie Commemoration Set",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_10th-movie-commemoration-set-4.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/card-back/ja-large.webp"
  },
  {
   "id": "ja:tag-bolt-13",
@@ -17362,12 +17372,14 @@
   "r": null,
   "ill": null,
   "set_en": "Tag Bolt",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "sm9-14",
    "name": "Charizard"
-  }
+  },
+  "img": "file:img/ja_tag-bolt-13.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/tag-bolt-japanese/13-large.webp"
  },
  {
   "id": "ja:star-birth-15",
@@ -17382,12 +17394,14 @@
   "r": null,
   "ill": null,
   "set_en": "Star Birth",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swsh9-018",
    "name": "Charizard VSTAR"
-  }
+  },
+  "img": "file:img/ja_star-birth-15.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/star-birth-japanese/15-large.webp"
  },
  {
   "id": "ja:tag-team-gx-tag-all-stars-94",
@@ -17402,8 +17416,10 @@
   "r": null,
   "ill": null,
   "set_en": "TAG TEAM GX: Tag All Stars",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_tag-team-gx-tag-all-stars-94.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/tag-team-gx-tag-all-stars-japanese/94-large.webp"
  },
  {
   "id": "ja:expansion-pack-82",
@@ -17418,8 +17434,10 @@
   "r": null,
   "ill": null,
   "set_en": "Expansion Pack",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_expansion-pack-82.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/expansion-pack-japanese/39-large.webp"
  },
  {
   "id": "ja:incandescent-arcana-82",
@@ -17434,12 +17452,14 @@
   "r": null,
   "ill": null,
   "set_en": "Incandescent Arcana",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swsh12-190",
    "name": "Furisode Girl"
-  }
+  },
+  "img": "file:img/ja_incandescent-arcana-82.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/incandescent-arcana-japanese/82-large.webp"
  },
  {
   "id": "ja:pokekyun-collection-29",
@@ -17454,12 +17474,14 @@
   "r": null,
   "ill": null,
   "set_en": "PokéKyun Collection",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "g1-RC24",
    "name": "Altaria"
-  }
+  },
+  "img": "file:img/ja_pokekyun-collection-29.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/pokekyun-collection-japanese/29-large.webp"
  },
  {
   "id": "ja:10th-movie-commemoration-set-8",
@@ -17474,8 +17496,10 @@
   "r": null,
   "ill": null,
   "set_en": "10th Movie Commemoration Set",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_10th-movie-commemoration-set-8.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/card-back/ja-large.webp"
  },
  {
   "id": "ja:darkness-and-to-light-212",
@@ -17490,12 +17514,14 @@
   "r": null,
   "ill": null,
   "set_en": "Darkness, and to Light...",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "neo4-9",
    "name": "Dark Scizor"
-  }
+  },
+  "img": "file:img/ja_darkness-and-to-light-212.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/darkness-and-to-light-japanese/83-large.webp"
  },
  {
   "id": "ja:start-deck-100-corocoro-comic-version-1",
@@ -17510,12 +17536,14 @@
   "r": null,
   "ill": null,
   "set_en": "Start Deck 100 CoroCoro Comic Version",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swshp-SWSH285",
    "name": "Pikachu V"
-  }
+  },
+  "img": "file:img/ja_start-deck-100-corocoro-comic-version-1.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/start-deck-100-corocoro-comic-version-japanese/1-large.webp"
  },
  {
   "id": "ja:legendary-shine-collection-17",
@@ -17530,12 +17558,14 @@
   "r": null,
   "ill": null,
   "set_en": "Legendary Shine Collection",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "xyp-XY77",
    "name": "Dialga"
-  }
+  },
+  "img": "file:img/ja_legendary-shine-collection-17.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/legendary-shine-collection-japanese/17-large.webp"
  },
  {
   "id": "ja:challenge-from-the-darkness-68",
@@ -17550,12 +17580,14 @@
   "r": null,
   "ill": null,
   "set_en": "Challenge from the Darkness",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "gym2-6",
    "name": "Giovanni's Machamp"
-  }
+  },
+  "img": "file:img/ja_challenge-from-the-darkness-68.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/challenge-from-the-darkness-japanese/61-large.webp"
  },
  {
   "id": "ja:mega-symphonia-89",
@@ -17570,12 +17602,14 @@
   "r": null,
   "ill": null,
   "set_en": "Mega Symphonia",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "me01-182",
    "name": "Mega Kangaskhan ex"
-  }
+  },
+  "img": "file:img/ja_mega-symphonia-89.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/mega-symphonia-japanese/89-large.webp"
  },
  {
   "id": "ja:shiny-collection-23",
@@ -17590,12 +17624,14 @@
   "r": null,
   "ill": null,
   "set_en": "Shiny Collection",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "bw11-RC23",
    "name": "Emolga"
-  }
+  },
+  "img": "file:img/ja_shiny-collection-23.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/shiny-collection-japanese/23-large.webp"
  },
  {
   "id": "ja:alter-genesis-108",
@@ -17610,12 +17646,14 @@
   "r": null,
   "ill": null,
   "set_en": "Alter Genesis",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "sm12-234",
    "name": "Red & Blue"
-  }
+  },
+  "img": "file:img/ja_alter-genesis-108.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/alter-genesis-japanese/108-large.webp"
  },
  {
   "id": "ja:tag-team-gx-tag-all-stars-72",
@@ -17630,8 +17668,10 @@
   "r": null,
   "ill": null,
   "set_en": "TAG TEAM GX: Tag All Stars",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_tag-team-gx-tag-all-stars-72.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/tag-team-gx-tag-all-stars-japanese/72-large.webp"
  },
  {
   "id": "ja:jungle-123",
@@ -17646,12 +17686,14 @@
   "r": null,
   "ill": null,
   "set_en": "Jungle",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "base2-10",
    "name": "Scyther"
-  }
+  },
+  "img": "file:img/ja_jungle-123.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/jungle-japanese/17-large.webp"
  },
  {
   "id": "ja:10th-movie-commemoration-set-7",
@@ -17666,8 +17708,10 @@
   "r": null,
   "ill": null,
   "set_en": "10th Movie Commemoration Set",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_10th-movie-commemoration-set-7.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/card-back/ja-large.webp"
  },
  {
   "id": "ja:platinum-promos-18",
@@ -17682,12 +17726,14 @@
   "r": null,
   "ill": null,
   "set_en": "Platinum Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "pl3-56",
    "name": "Dragonite FB"
-  }
+  },
+  "img": "file:img/ja_platinum-promos-18.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/platinum-promos-japanese/18-large.webp"
  },
  {
   "id": "ja:mega-brave-69",
@@ -17702,12 +17748,14 @@
   "r": null,
   "ill": null,
   "set_en": "Mega Brave",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "me01-146",
    "name": "Marshadow"
-  }
+  },
+  "img": "file:img/ja_mega-brave-69.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/mega-brave-japanese/69-large.webp"
  },
  {
   "id": "ja:miracle-twin-108",
@@ -17722,8 +17770,10 @@
   "r": null,
   "ill": null,
   "set_en": "Miracle Twin",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_miracle-twin-108.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/miracle-twin-japanese/108-large.webp"
  },
  {
   "id": "ja:mythical-legendary-dream-shine-collection-36",
@@ -17738,12 +17788,14 @@
   "r": null,
   "ill": null,
   "set_en": "Mythical & Legendary Dream Shine Collection",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "xyp-XY116",
    "name": "Arceus"
-  }
+  },
+  "img": "file:img/ja_mythical-legendary-dream-shine-collection-36.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/mythical-legendary-dream-shine-collection-japanese/36-large.webp"
  },
  {
   "id": "ja:vending-machine-series-3-green-92",
@@ -17758,12 +17810,14 @@
   "r": null,
   "ill": null,
   "set_en": "Vending Machine Series 3 (Green)",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "A1-120",
    "name": "Gastly"
-  }
+  },
+  "img": "file:img/ja_vending-machine-series-3-green-92.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/vending-machine-series-3-green-japanese/92-large.webp"
  },
  {
   "id": "ja:vstar-universe-108",
@@ -17778,12 +17832,14 @@
   "r": null,
   "ill": null,
   "set_en": "VSTAR Universe",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swsh7-111",
    "name": "Rayquaza VMAX"
-  }
+  },
+  "img": "file:img/ja_vstar-universe-108.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/vstar-universe-japanese/108-large.webp"
  },
  {
   "id": "ja:intro-pack-squirtle-16",
@@ -17798,8 +17854,10 @@
   "r": null,
   "ill": null,
   "set_en": "Intro Pack (Squirtle)",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_intro-pack-squirtle-16.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/intro-pack-squirtle-japanese/16-large.webp"
  },
  {
   "id": "ja:dream-league-62",
@@ -17814,8 +17872,10 @@
   "r": null,
   "ill": null,
   "set_en": "Dream League",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_dream-league-62.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/dream-league-japanese/62-large.webp"
  },
  {
   "id": "ja:25th-anniversary-collection-27",
@@ -17830,12 +17890,14 @@
   "r": null,
   "ill": null,
   "set_en": "25th Anniversary Collection",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swshp-SWSH141",
    "name": "Pikachu V-UNION"
-  }
+  },
+  "img": "file:img/ja_25th-anniversary-collection-27.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/25th-anniversary-collection-japanese/27-large.webp"
  },
  {
   "id": "ja:dp-p-025",
@@ -17850,12 +17912,14 @@
   "r": null,
   "ill": null,
   "set_en": "Diamond & Pearl Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "pop6-9",
    "name": "Pikachu"
-  }
+  },
+  "img": "file:img/ja_dp-p-025.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/diamond-pearl-promos-japanese/25-large.webp"
  },
  {
   "id": "ja:expansion-pack-1",
@@ -17870,8 +17934,10 @@
   "r": null,
   "ill": null,
   "set_en": "Expansion Pack",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_expansion-pack-1.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/expansion-pack-japanese/1-large.webp"
  },
  {
   "id": "ja:t-promos-16",
@@ -17886,8 +17952,10 @@
   "r": null,
   "ill": null,
   "set_en": "T Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_t-promos-16.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/t-promos-japanese/16-large.webp"
  },
  {
   "id": "ja:ppp-promos-3",
@@ -17902,12 +17970,14 @@
   "r": null,
   "ill": null,
   "set_en": "PPP Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "dp5-72",
    "name": "Piplup"
-  }
+  },
+  "img": "file:img/ja_ppp-promos-3.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/ppp-promos-japanese/3-large.webp"
  },
  {
   "id": "ja:vmax-climax-101",
@@ -17922,12 +17992,14 @@
   "r": null,
   "ill": null,
   "set_en": "VMAX Climax",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swsh7-95",
    "name": "Umbreon VMAX"
-  }
+  },
+  "img": "file:img/ja_vmax-climax-101.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/vmax-climax-japanese/101-large.webp"
  },
  {
   "id": "ja:leaders-stadium-38",
@@ -17942,12 +18014,14 @@
   "r": null,
   "ill": null,
   "set_en": "Leaders' Stadium",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "gym2-3",
    "name": "Brock's Ninetales"
-  }
+  },
+  "img": "file:img/ja_leaders-stadium-38.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/leaders-stadium-japanese/19-large.webp"
  },
  {
   "id": "ja:sm-p-147",
@@ -17962,8 +18036,10 @@
   "r": null,
   "ill": null,
   "set_en": "Sun & Moon Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_sm-p-147.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sun-moon-promos-japanese/147-large.webp"
  },
  {
   "id": "ja:mysterious-mountains-17",
@@ -17978,8 +18054,10 @@
   "r": null,
   "ill": null,
   "set_en": "Mysterious Mountains",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_mysterious-mountains-17.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/mysterious-mountains-japanese/17-large.webp"
  },
  {
   "id": "ja:25th-anniversary-golden-box-5",
@@ -17994,12 +18072,14 @@
   "r": null,
   "ill": null,
   "set_en": "25th Anniversary Golden Box",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swshp-SWSH063",
    "name": "Pikachu V"
-  }
+  },
+  "img": "file:img/ja_25th-anniversary-golden-box-5.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/25th-anniversary-golden-box-japanese/5-large.webp"
  },
  {
   "id": "ja:sm-p-074",
@@ -18014,12 +18094,14 @@
   "r": null,
   "ill": null,
   "set_en": "Sun & Moon Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "smp-SM112",
    "name": "Ash's Pikachu"
-  }
+  },
+  "img": "file:img/ja_sm-p-074.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sun-moon-promos-japanese/74-large.webp"
  },
  {
   "id": "ja:eevee-heroes-48",
@@ -18034,12 +18116,14 @@
   "r": null,
   "ill": null,
   "set_en": "Eevee Heroes",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swsh7-95",
    "name": "Umbreon VMAX"
-  }
+  },
+  "img": "file:img/ja_eevee-heroes-48.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/eevee-heroes-japanese/48-large.webp"
  },
  {
   "id": "ja:s-p-304",
@@ -18054,12 +18138,14 @@
   "r": null,
   "ill": null,
   "set_en": "Sword & Shield Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swshp-SWSH213",
    "name": "Lucario V"
-  }
+  },
+  "img": "file:img/ja_s-p-304.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sword-shield-promos-japanese/304-large.webp"
  },
  {
   "id": "ja:challenge-from-the-darkness-143",
@@ -18074,12 +18160,14 @@
   "r": null,
   "ill": null,
   "set_en": "Challenge from the Darkness",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "gym1-33",
    "name": "Rocket's Snorlax"
-  }
+  },
+  "img": "file:img/ja_challenge-from-the-darkness-143.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/challenge-from-the-darkness-japanese/73-large.webp"
  },
  {
   "id": "ja:inferno-x-92",
@@ -18094,12 +18182,14 @@
   "r": null,
   "ill": null,
   "set_en": "Inferno X",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "me02-107",
    "name": "Ambipom"
-  }
+  },
+  "img": "file:img/ja_inferno-x-92.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/inferno-x-japanese/92-large.webp"
  },
  {
   "id": "ja:mega-dream-ex-225",
@@ -18114,12 +18204,14 @@
   "r": null,
   "ill": null,
   "set_en": "MEGA Dream ex",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "me02.5-266",
    "name": "Mega Eelektross ex"
-  }
+  },
+  "img": "file:img/ja_mega-dream-ex-225.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/mega-dream-ex-japanese/225-large.webp"
  },
  {
   "id": "ja:25th-anniversary-collection-25",
@@ -18134,8 +18226,10 @@
   "r": null,
   "ill": null,
   "set_en": "25th Anniversary Collection",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_25th-anniversary-collection-25.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/25th-anniversary-collection-japanese/25-large.webp"
  },
  {
   "id": "ja:vending-machine-series-2-red-140",
@@ -18150,8 +18244,10 @@
   "r": null,
   "ill": null,
   "set_en": "Vending Machine Series 2 (Red)",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_vending-machine-series-2-red-140.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/vending-machine-series-2-red-japanese/140-large.webp"
  },
  {
   "id": "ja:vstar-universe-13",
@@ -18166,12 +18262,14 @@
   "r": null,
   "ill": null,
   "set_en": "VSTAR Universe",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swsh9-017",
    "name": "Charizard V"
-  }
+  },
+  "img": "file:img/ja_vstar-universe-13.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/vstar-universe-japanese/13-large.webp"
  },
  {
   "id": "ja:sky-splitting-charisma-101",
@@ -18186,8 +18284,10 @@
   "r": null,
   "ill": null,
   "set_en": "Sky-Splitting Charisma",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_sky-splitting-charisma-101.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sky-splitting-charisma-japanese/101-large.webp"
  },
  {
   "id": "ja:dp-p-125",
@@ -18202,12 +18302,14 @@
   "r": null,
   "ill": null,
   "set_en": "Diamond & Pearl Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "pl2-70",
    "name": "Munchlax"
-  }
+  },
+  "img": "file:img/ja_dp-p-125.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/diamond-pearl-promos-japanese/125-large.webp"
  },
  {
   "id": "ja:mega-symphonia-71",
@@ -18222,8 +18324,10 @@
   "r": null,
   "ill": null,
   "set_en": "Mega Symphonia",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_mega-symphonia-71.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/mega-symphonia-japanese/71-large.webp"
  },
  {
   "id": "ja:violet-ex-102",
@@ -18238,12 +18342,14 @@
   "r": null,
   "ill": null,
   "set_en": "Violet ex",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "sv01-244",
    "name": "Miraidon ex"
-  }
+  },
+  "img": "file:img/ja_violet-ex-102.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/violet-ex-japanese/102-large.webp"
  },
  {
   "id": "ja:melee-pokemon-scramble-8",
@@ -18258,12 +18364,14 @@
   "r": null,
   "ill": null,
   "set_en": "Melee! Pokemon Scramble",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "ru1-8",
    "name": "Zapdos"
-  }
+  },
+  "img": "file:img/ja_melee-pokemon-scramble-8.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/melee-pok-mon-scramble/008.webp"
  },
  {
   "id": "ja:s-p-001",
@@ -18278,12 +18386,14 @@
   "r": null,
   "ill": null,
   "set_en": "Sword & Shield Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swshp-SWSH020",
    "name": "Pikachu"
-  }
+  },
+  "img": "file:img/ja_s-p-001.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sword-shield-promos-japanese/1-large.webp"
  },
  {
   "id": "ja:awakening-legends-181",
@@ -18298,12 +18408,14 @@
   "r": null,
   "ill": null,
   "set_en": "Awakening Legends",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "neo3-1",
    "name": "Ampharos"
-  }
+  },
+  "img": "file:img/ja_awakening-legends-181.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/awakening-legends-japanese/28-large.webp"
  },
  {
   "id": "ja:s-p-325",
@@ -18318,8 +18430,10 @@
   "r": null,
   "ill": null,
   "set_en": "Sword & Shield Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_s-p-325.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sword-shield-promos-japanese/325-large.webp"
  },
  {
   "id": "ja:platinum-promos-9",
@@ -18334,8 +18448,10 @@
   "r": null,
   "ill": null,
   "set_en": "Platinum Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_platinum-promos-9.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/platinum-promos-japanese/9-large.webp"
  },
  {
   "id": "ja:platinum-promos-49",
@@ -18350,8 +18466,10 @@
   "r": null,
   "ill": null,
   "set_en": "Platinum Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_platinum-promos-49.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/platinum-promos-japanese/49-large.webp"
  },
  {
   "id": "ja:gold-silver-to-a-new-world-176",
@@ -18366,12 +18484,14 @@
   "r": null,
   "ill": null,
   "set_en": "Gold, Silver, to a New World...",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "neo1-16",
    "name": "Togetic"
-  }
+  },
+  "img": "file:img/ja_gold-silver-to-a-new-world-176.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/gold-silver-to-a-new-world-japanese/71-large.webp"
  },
  {
   "id": "ja:darkness-and-to-light-160",
@@ -18386,12 +18506,14 @@
   "r": null,
   "ill": null,
   "set_en": "Darkness, and to Light...",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "neo4-5",
    "name": "Dark Feraligatr"
-  }
+  },
+  "img": "file:img/ja_darkness-and-to-light-160.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/darkness-and-to-light-japanese/39-large.webp"
  },
  {
   "id": "ja:mystery-of-the-fossils-106",
@@ -18406,12 +18528,14 @@
   "r": null,
   "ill": null,
   "set_en": "Mystery of the Fossils",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "lc-13",
    "name": "Hitmonlee"
-  }
+  },
+  "img": "file:img/ja_mystery-of-the-fossils-106.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/mystery-of-the-fossils-japanese/39-large.webp"
  },
  {
   "id": "ja:ruler-of-the-black-flame-66",
@@ -18426,12 +18550,14 @@
   "r": null,
   "ill": null,
   "set_en": "Ruler of the Black Flame",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "sv04.5-054",
    "name": "Charizard ex"
-  }
+  },
+  "img": "file:img/ja_ruler-of-the-black-flame-66.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/ruler-of-the-black-flame-japanese/66-large.webp"
  },
  {
   "id": "ja:25th-anniversary-golden-box-2",
@@ -18446,8 +18572,10 @@
   "r": null,
   "ill": null,
   "set_en": "25th Anniversary Golden Box",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_25th-anniversary-golden-box-2.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/25th-anniversary-golden-box-japanese/2-large.webp"
  },
  {
   "id": "ja:sm-p-227",
@@ -18462,8 +18590,10 @@
   "r": null,
   "ill": null,
   "set_en": "Sun & Moon Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_sm-p-227.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sun-moon-promos-japanese/227-large.webp"
  },
  {
   "id": "ja:promo-card-pack-25th-anniversary-edition-8",
@@ -18478,8 +18608,10 @@
   "r": null,
   "ill": null,
   "set_en": "Promo Card Pack 25th Anniversary Edition",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_promo-card-pack-25th-anniversary-edition-8.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/promo-card-pack-25th-anniversary-edition-japanese/8-large.webp"
  },
  {
   "id": "ja:sky-legend-35",
@@ -18494,8 +18626,10 @@
   "r": null,
   "ill": null,
   "set_en": "Sky Legend",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_sky-legend-35.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sky-legend-japanese/35-large.webp"
  },
  {
   "id": "ja:sm-p-073",
@@ -18510,12 +18644,14 @@
   "r": null,
   "ill": null,
   "set_en": "Sun & Moon Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "smp-SM111",
    "name": "Ash's Pikachu"
-  }
+  },
+  "img": "file:img/ja_sm-p-073.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sun-moon-promos-japanese/73-large.webp"
  },
  {
   "id": "ja:super-electric-breaker-33",
@@ -18530,12 +18666,14 @@
   "r": null,
   "ill": null,
   "set_en": "Super Electric Breaker",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "me02.5-057",
    "name": "Pikachu ex"
-  }
+  },
+  "img": "file:img/ja_super-electric-breaker-33.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/super-electric-breaker-japanese/33-large.webp"
  },
  {
   "id": "ja:sm-p-242",
@@ -18550,12 +18688,14 @@
   "r": null,
   "ill": null,
   "set_en": "Sun & Moon Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "smp-SM157",
    "name": "Pikachu"
-  }
+  },
+  "img": "file:img/ja_sm-p-242.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sun-moon-promos-japanese/242-large.webp"
  },
  {
   "id": "ja:jungle-31",
@@ -18570,12 +18710,14 @@
   "r": null,
   "ill": null,
   "set_en": "Jungle",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "base2-7",
    "name": "Nidoqueen"
-  }
+  },
+  "img": "file:img/ja_jungle-31.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/jungle-japanese/13-large.webp"
  },
  {
   "id": "ja:peerless-fighters-82",
@@ -18590,12 +18732,14 @@
   "r": null,
   "ill": null,
   "set_en": "Peerless Fighters",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swsh6-194",
    "name": "Klara"
-  }
+  },
+  "img": "file:img/ja_peerless-fighters-82.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/peerless-fighters-japanese/82-large.webp"
  },
  {
   "id": "ja:raging-surf-89",
@@ -18610,12 +18754,14 @@
   "r": null,
   "ill": null,
   "set_en": "Raging Surf",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "sv04-255",
    "name": "Parasol Lady"
-  }
+  },
+  "img": "file:img/ja_raging-surf-89.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/raging-surf-japanese/89-large.webp"
  },
  {
   "id": "ja:tag-team-gx-starter-sets-1",
@@ -18630,8 +18776,10 @@
   "r": null,
   "ill": null,
   "set_en": "Tag Team GX Starter Sets",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_tag-team-gx-starter-sets-1.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/tag-team-gx-starter-sets-japanese/1-large.webp"
  },
  {
   "id": "ja:crossing-the-ruins-228",
@@ -18646,8 +18794,10 @@
   "r": null,
   "ill": null,
   "set_en": "Crossing the Ruins...",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_crossing-the-ruins-228.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/crossing-the-ruins-japanese/12-large.webp"
  },
  {
   "id": "ja:inferno-x-115",
@@ -18662,12 +18812,14 @@
   "r": null,
   "ill": null,
   "set_en": "Inferno X",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "me02-129",
    "name": "Dawn"
-  }
+  },
+  "img": "file:img/ja_inferno-x-115.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/inferno-x-japanese/115-large.webp"
  },
  {
   "id": "ja:tag-team-gx-tag-all-stars-225",
@@ -18682,8 +18834,10 @@
   "r": null,
   "ill": null,
   "set_en": "TAG TEAM GX: Tag All Stars",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_tag-team-gx-tag-all-stars-225.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/tag-team-gx-tag-all-stars-japanese/225-large.webp"
  },
  {
   "id": "ja:heat-wave-arena-65",
@@ -18698,8 +18852,10 @@
   "r": null,
   "ill": null,
   "set_en": "Hot Air Arena",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_heat-wave-arena-65.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/heat-wave-arena-japanese/65-large.webp"
  },
  {
   "id": "ja:mirage-forest-40",
@@ -18714,12 +18870,14 @@
   "r": null,
   "ill": null,
   "set_en": "Mirage Forest",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "ex12-5",
    "name": "Gengar"
-  }
+  },
+  "img": "file:img/ja_mirage-forest-40.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/mirage-forest-japanese/40-large.webp"
  },
  {
   "id": "ja:promo-card-pack-25th-anniversary-edition-11",
@@ -18734,12 +18892,14 @@
   "r": null,
   "ill": null,
   "set_en": "Promo Card Pack 25th Anniversary Edition",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "ex4-9",
    "name": "Team Magma's Groudon"
-  }
+  },
+  "img": "file:img/ja_promo-card-pack-25th-anniversary-edition-11.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/promo-card-pack-25th-anniversary-edition-japanese/11-large.webp"
  },
  {
   "id": "ja:platinum-promos-44",
@@ -18754,8 +18914,10 @@
   "r": null,
   "ill": null,
   "set_en": "Platinum Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_platinum-promos-44.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/platinum-promos-japanese/44-large.webp"
  },
  {
   "id": "ja:pokemon-go-18",
@@ -18770,12 +18932,14 @@
   "r": null,
   "ill": null,
   "set_en": "Pokémon GO",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swsh10.5-018",
    "name": "Radiant Blastoise"
-  }
+  },
+  "img": "file:img/ja_pokemon-go-18.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/pokemon-go-japanese/18-large.webp"
  },
  {
   "id": "ja:t-promos-17",
@@ -18790,8 +18954,10 @@
   "r": null,
   "ill": null,
   "set_en": "T Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_t-promos-17.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/t-promos-japanese/17-large.webp"
  },
  {
   "id": "ja:s-p-322",
@@ -18806,9 +18972,11 @@
   "r": null,
   "ill": null,
   "set_en": "Sword & Shield Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
-  "en_none": true
+  "en_none": true,
+  "img": "file:img/ja_s-p-322.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sword-shield-promos-japanese/322-large.webp"
  },
  {
   "id": "ja:darkness-and-to-light-181",
@@ -18823,12 +18991,14 @@
   "r": null,
   "ill": null,
   "set_en": "Darkness, and to Light...",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "neo4-1",
    "name": "Dark Ampharos"
-  }
+  },
+  "img": "file:img/ja_darkness-and-to-light-181.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/darkness-and-to-light-japanese/46-large.webp"
  },
  {
   "id": "ja:sv-p-048",
@@ -18843,12 +19013,14 @@
   "r": "Promo",
   "ill": "Akira Komayama",
   "set_en": "Scarlet & Violet Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "svp-013",
    "name": "Miraidon"
-  }
+  },
+  "img": "file:img/ja_sv-p-048.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/scarlet-violet-promos-japanese/48-large.webp"
  },
  {
   "id": "ja:white-flare-173",
@@ -18863,12 +19035,14 @@
   "r": null,
   "ill": null,
   "set_en": "White Flare",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "sv10.5w-171",
    "name": "Hilda"
-  }
+  },
+  "img": "file:img/ja_white-flare-173.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/white-flare-japanese/173-large.webp"
  },
  {
   "id": "ja:star-birth-114",
@@ -18883,12 +19057,14 @@
   "r": null,
   "ill": null,
   "set_en": "Star Birth",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swsh9-169",
    "name": "Cynthia's Ambition"
-  }
+  },
+  "img": "file:img/ja_star-birth-114.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/star-birth-japanese/114-large.webp"
  },
  {
   "id": "ja:star-birth-14",
@@ -18903,12 +19079,14 @@
   "r": null,
   "ill": null,
   "set_en": "Star Birth",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swsh9-017",
    "name": "Charizard V"
-  }
+  },
+  "img": "file:img/ja_star-birth-14.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/star-birth-japanese/14-large.webp"
  },
  {
   "id": "ja:eevee-heroes-84",
@@ -18923,12 +19101,14 @@
   "r": null,
   "ill": null,
   "set_en": "Eevee Heroes",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swsh7-188",
    "name": "Umbreon V"
-  }
+  },
+  "img": "file:img/ja_eevee-heroes-84.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/eevee-heroes-japanese/84-large.webp"
  },
  {
   "id": "ja:sm-p-075",
@@ -18943,8 +19123,10 @@
   "r": null,
   "ill": null,
   "set_en": "Sun & Moon Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_sm-p-075.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sun-moon-promos-japanese/75-large.webp"
  },
  {
   "id": "ja:m-p-019",
@@ -18959,8 +19141,10 @@
   "r": "Promo",
   "ill": "Saboteri",
   "set_en": "Mega Evolution Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_m-p-019.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/mega-evolution-promos-japanese/19-large.webp"
  },
  {
   "id": "ja:mythical-legendary-dream-shine-collection-12",
@@ -18975,12 +19159,14 @@
   "r": null,
   "ill": null,
   "set_en": "Mythical & Legendary Dream Shine Collection",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "xyp-XY113",
    "name": "Manaphy"
-  }
+  },
+  "img": "file:img/ja_mythical-legendary-dream-shine-collection-12.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/mythical-legendary-dream-shine-collection-japanese/12-large.webp"
  },
  {
   "id": "ja:paradigm-trigger-113",
@@ -18995,12 +19181,14 @@
   "r": null,
   "ill": null,
   "set_en": "Paradigm Trigger",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swsh12-189",
    "name": "Candice"
-  }
+  },
+  "img": "file:img/ja_paradigm-trigger-113.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/paradigm-trigger-japanese/113-large.webp"
  },
  {
   "id": "ja:10th-movie-commemoration-set-10",
@@ -19015,8 +19203,10 @@
   "r": null,
   "ill": null,
   "set_en": "10th Movie Commemoration Set",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_10th-movie-commemoration-set-10.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/card-back/ja-large.webp"
  },
  {
   "id": "ja:pcg-promos-41",
@@ -19031,8 +19221,10 @@
   "r": null,
   "ill": null,
   "set_en": "PCG Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_pcg-promos-41.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/pcg-promos-japanese/41-large.webp"
  },
  {
   "id": "ja:s-p-339",
@@ -19047,8 +19239,10 @@
   "r": null,
   "ill": null,
   "set_en": "Sword & Shield Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_s-p-339.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sword-shield-promos-japanese/339-large.webp"
  },
  {
   "id": "ja:vmax-climax-231",
@@ -19063,8 +19257,10 @@
   "r": null,
   "ill": null,
   "set_en": "VMAX Climax",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_vmax-climax-231.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/vmax-climax-japanese/231-large.webp"
  },
  {
   "id": "ja:vstar-universe-195",
@@ -19079,8 +19275,10 @@
   "r": null,
   "ill": null,
   "set_en": "VSTAR Universe",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_vstar-universe-195.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/vstar-universe-japanese/195-large.webp"
  },
  {
   "id": "ja:ppp-promos-5",
@@ -19095,12 +19293,14 @@
   "r": null,
   "ill": null,
   "set_en": "PPP Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "dp5-4",
    "name": "Dialga"
-  }
+  },
+  "img": "file:img/ja_ppp-promos-5.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/ppp-promos-japanese/5-large.webp"
  },
  {
   "id": "ja:rocket-gang-97",
@@ -19115,12 +19315,14 @@
   "r": null,
   "ill": null,
   "set_en": "Rocket Gang",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "base5-9",
    "name": "Dark Hypno"
-  }
+  },
+  "img": "file:img/ja_rocket-gang-97.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/rocket-gang-japanese/37-large.webp"
  },
  {
   "id": "ja:dragon-storm-59",
@@ -19135,8 +19337,10 @@
   "r": null,
   "ill": null,
   "set_en": "Dragon Storm",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_dragon-storm-59.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/dragon-storm-japanese/59-large.webp"
  },
  {
   "id": "ja:pokemon-tcg-classic-blastoise-2",
@@ -19151,12 +19355,14 @@
   "r": null,
   "ill": null,
   "set_en": "Pokemon TCG Classic: Blastoise",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "base4-63",
    "name": "Wartortle"
-  }
+  },
+  "img": "file:img/ja_pokemon-tcg-classic-blastoise-2.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/pokemon-tcg-classic-blastoise-japanese/2-large.webp"
  },
  {
   "id": "ja:s-p-003",
@@ -19171,12 +19377,14 @@
   "r": null,
   "ill": null,
   "set_en": "Sword & Shield Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swshp-SWSH029",
    "name": "Rayquaza"
-  }
+  },
+  "img": "file:img/ja_s-p-003.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sword-shield-promos-japanese/3-large.webp"
  },
  {
   "id": "ja:the-best-of-xy-176",
@@ -19191,8 +19399,10 @@
   "r": null,
   "ill": null,
   "set_en": "The Best of XY",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_the-best-of-xy-176.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/the-best-of-xy-japanese/176-large.webp"
  },
  {
   "id": "ja:golden-sky-silvery-ocean-20",
@@ -19207,8 +19417,10 @@
   "r": null,
   "ill": null,
   "set_en": "Golden Sky, Silvery Ocean",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_golden-sky-silvery-ocean-20.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/golden-sky-silvery-ocean-japanese/20-large.webp"
  },
  {
   "id": "ja:11th-movie-commemoration-set-8",
@@ -19223,12 +19435,14 @@
   "r": null,
   "ill": null,
   "set_en": "11th Movie Commemoration Set",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "dpp-DP49",
    "name": "Dialga"
-  }
+  },
+  "img": "file:img/ja_11th-movie-commemoration-set-8.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/11th-movie-commemoration-set/008.webp"
  },
  {
   "id": "ja:pokemon-card-151-177",
@@ -19243,12 +19457,14 @@
   "r": null,
   "ill": null,
   "set_en": "Pokémon Card 151",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "sv03.5-177",
    "name": "Machoke"
-  }
+  },
+  "img": "file:img/ja_pokemon-card-151-177.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/pokemon-card-151-japanese/177-large.webp"
  },
  {
   "id": "ja:thunderclap-spark-65",
@@ -19263,12 +19479,14 @@
   "r": null,
   "ill": null,
   "set_en": "Thunderclap Spark",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "sm8-210",
    "name": "Kahili"
-  }
+  },
+  "img": "file:img/ja_thunderclap-spark-65.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/thunderclap-spark-japanese/65-large.webp"
  },
  {
   "id": "ja:pokemon-go-55",
@@ -19283,12 +19501,14 @@
   "r": null,
   "ill": null,
   "set_en": "Pokémon GO",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swshp-SWSH230",
    "name": "Radiant Eevee"
-  }
+  },
+  "img": "file:img/ja_pokemon-go-55.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/pokemon-go-japanese/55-large.webp"
  },
  {
   "id": "ja:xy-p-001",
@@ -19303,12 +19523,14 @@
   "r": null,
   "ill": null,
   "set_en": "XY Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "xy3-27",
    "name": "Pikachu"
-  }
+  },
+  "img": "file:img/ja_xy-p-001.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/xy-promos-japanese/1-large.webp"
  },
  {
   "id": "ja:vstar-universe-185",
@@ -19323,8 +19545,10 @@
   "r": null,
   "ill": null,
   "set_en": "VSTAR Universe",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_vstar-universe-185.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/vstar-universe-japanese/185-large.webp"
  },
  {
   "id": "ja:platinum-promos-30",
@@ -19339,8 +19563,10 @@
   "r": null,
   "ill": null,
   "set_en": "Platinum Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_platinum-promos-30.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/platinum-promos-japanese/30-large.webp"
  },
  {
   "id": "ja:inferno-x-91",
@@ -19355,12 +19581,14 @@
   "r": null,
   "ill": null,
   "set_en": "Inferno X",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "me02-105",
    "name": "Wigglytuff"
-  }
+  },
+  "img": "file:img/ja_inferno-x-91.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/inferno-x-japanese/91-large.webp"
  },
  {
   "id": "ja:battle-partners-104",
@@ -19375,12 +19603,14 @@
   "r": null,
   "ill": null,
   "set_en": "Battle Partners",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "sv09-163",
    "name": "Iono's Kilowattrel"
-  }
+  },
+  "img": "file:img/ja_battle-partners-104.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/battle-partners-japanese/104-large.webp"
  },
  {
   "id": "ja:dp-p-063",
@@ -19395,12 +19625,14 @@
   "r": null,
   "ill": null,
   "set_en": "Diamond & Pearl Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "dp5-62",
    "name": "Eevee"
-  }
+  },
+  "img": "file:img/ja_dp-p-063.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/diamond-pearl-promos-japanese/63-large.webp"
  },
  {
   "id": "ja:vstar-universe-219",
@@ -19415,8 +19647,10 @@
   "r": null,
   "ill": null,
   "set_en": "VSTAR Universe",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_vstar-universe-219.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/vstar-universe-japanese/219-large.webp"
  },
  {
   "id": "ja:25th-anniversary-collection-26",
@@ -19431,12 +19665,14 @@
   "r": null,
   "ill": null,
   "set_en": "25th Anniversary Collection",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swshp-SWSH140",
    "name": "Pikachu V-UNION"
-  }
+  },
+  "img": "file:img/ja_25th-anniversary-collection-26.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/25th-anniversary-collection-japanese/26-large.webp"
  },
  {
   "id": "ja:dp-p-124",
@@ -19451,8 +19687,10 @@
   "r": null,
   "ill": null,
   "set_en": "Diamond & Pearl Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_dp-p-124.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/diamond-pearl-promos-japanese/124-large.webp"
  },
  {
   "id": "ja:s-p-125",
@@ -19467,12 +19705,14 @@
   "r": null,
   "ill": null,
   "set_en": "Sword & Shield Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "sm10-54",
    "name": "Pikachu"
-  }
+  },
+  "img": "file:img/ja_s-p-125.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sword-shield-promos-japanese/125-large.webp"
  },
  {
   "id": "ja:blue-sky-stream-77",
@@ -19487,12 +19727,14 @@
   "r": null,
   "ill": null,
   "set_en": "Blue Sky Stream",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swsh8-263",
    "name": "Shauna"
-  }
+  },
+  "img": "file:img/ja_blue-sky-stream-77.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/blue-sky-stream-japanese/77-large.webp"
  },
  {
   "id": "ja:vstar-universe-247",
@@ -19507,12 +19749,14 @@
   "r": null,
   "ill": null,
   "set_en": "VSTAR Universe",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swsh12.5-149",
    "name": "Friends in Sinnoh"
-  }
+  },
+  "img": "file:img/ja_vstar-universe-247.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/vstar-universe-japanese/247-large.webp"
  },
  {
   "id": "ja:intro-pack-squirtle-37",
@@ -19527,8 +19771,10 @@
   "r": null,
   "ill": null,
   "set_en": "Intro Pack (Squirtle)",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_intro-pack-squirtle-37.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/intro-pack-squirtle-japanese/37-large.webp"
  },
  {
   "id": "ja:25th-anniversary-collection-20",
@@ -19543,12 +19789,14 @@
   "r": null,
   "ill": null,
   "set_en": "25th Anniversary Collection",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swshp-SWSH143",
    "name": "Pikachu V"
-  }
+  },
+  "img": "file:img/ja_25th-anniversary-collection-20.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/25th-anniversary-collection-japanese/20-large.webp"
  },
  {
   "id": "ja:inferno-x-87",
@@ -19563,12 +19811,14 @@
   "r": null,
   "ill": null,
   "set_en": "Inferno X",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "me02-100",
    "name": "Zacian"
-  }
+  },
+  "img": "file:img/ja_inferno-x-87.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/inferno-x-japanese/87-large.webp"
  },
  {
   "id": "ja:25th-anniversary-golden-box-3",
@@ -19583,12 +19833,14 @@
   "r": null,
   "ill": null,
   "set_en": "25th Anniversary Golden Box",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swsh1-65",
    "name": "Pikachu"
-  }
+  },
+  "img": "file:img/ja_25th-anniversary-golden-box-3.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/official-ja/41666-c45df0f4-large.webp"
  },
  {
   "id": "ja:11th-movie-commemoration-set-2",
@@ -19603,8 +19855,10 @@
   "r": null,
   "ill": null,
   "set_en": "11th Movie Commemoration Set",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_11th-movie-commemoration-set-2.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/11th-movie-commemoration-set/002.webp"
  },
  {
   "id": "ja:mega-dream-ex-209",
@@ -19619,12 +19873,14 @@
   "r": null,
   "ill": null,
   "set_en": "MEGA Dream ex",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "me02.5-245",
    "name": "Galarian Obstagoon"
-  }
+  },
+  "img": "file:img/ja_mega-dream-ex-209.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/mega-dream-ex-japanese/209-large.webp"
  },
  {
   "id": "ja:vmax-starter-set-charizard-1",
@@ -19639,12 +19895,14 @@
   "r": null,
   "ill": null,
   "set_en": "VMAX Starter Set (Charizard)",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swsh3-19",
    "name": "Charizard V"
-  }
+  },
+  "img": "file:img/ja_vmax-starter-set-charizard-1.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/vmax-starter-set-charizard/001.webp"
  },
  {
   "id": "ja:tag-bolt-1",
@@ -19659,12 +19917,14 @@
   "r": null,
   "ill": null,
   "set_en": "Tag Bolt",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "sm9-1",
    "name": "Celebi & Venusaur GX"
-  }
+  },
+  "img": "file:img/ja_tag-bolt-1.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/tag-bolt-japanese/1-large.webp"
  },
  {
   "id": "ja:vstar-universe-206",
@@ -19679,8 +19939,10 @@
   "r": null,
   "ill": null,
   "set_en": "VSTAR Universe",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_vstar-universe-206.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/vstar-universe-japanese/206-large.webp"
  },
  {
   "id": "ja:mega-brave-73",
@@ -19695,12 +19957,14 @@
   "r": null,
   "ill": null,
   "set_en": "Mega Brave",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "me01-150",
    "name": "Steelix"
-  }
+  },
+  "img": "file:img/ja_mega-brave-73.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/mega-brave-japanese/73-large.webp"
  },
  {
   "id": "ja:vstar-universe-48",
@@ -19715,12 +19979,14 @@
   "r": null,
   "ill": null,
   "set_en": "VSTAR Universe",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swshp-SWSH241",
    "name": "Gengar"
-  }
+  },
+  "img": "file:img/ja_vstar-universe-48.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/vstar-universe-japanese/48-large.webp"
  },
  {
   "id": "ja:glory-of-team-rocket-100",
@@ -19735,12 +20001,14 @@
   "r": null,
   "ill": null,
   "set_en": "Glory of Team Rocket",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "sv10-191",
    "name": "Team Rocket's Houndoom"
-  }
+  },
+  "img": "file:img/ja_glory-of-team-rocket-100.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/glory-of-team-rocket-japanese/100-large.webp"
  },
  {
   "id": "ja:play-promos-2",
@@ -19755,12 +20023,14 @@
   "r": null,
   "ill": null,
   "set_en": "PLAY Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "ex9-99",
    "name": "Regirock ex"
-  }
+  },
+  "img": "file:img/ja_play-promos-2.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/play-promos-japanese/2-large.webp"
  },
  {
   "id": "ja:tag-team-gx-tag-all-stars-99",
@@ -19775,8 +20045,10 @@
   "r": null,
   "ill": null,
   "set_en": "TAG TEAM GX: Tag All Stars",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_tag-team-gx-tag-all-stars-99.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/tag-team-gx-tag-all-stars-japanese/99-large.webp"
  },
  {
   "id": "ja:xy-p-281",
@@ -19791,12 +20063,14 @@
   "r": null,
   "ill": null,
   "set_en": "XY Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "basep-1",
    "name": "Pikachu"
-  }
+  },
+  "img": "file:img/ja_xy-p-281.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/xy-promos-japanese/281-large.webp"
  },
  {
   "id": "ja:sm-p-086",
@@ -19811,8 +20085,10 @@
   "r": null,
   "ill": null,
   "set_en": "Sun & Moon Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_sm-p-086.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sun-moon-promos-japanese/86-large.webp"
  },
  {
   "id": "ja:vending-machine-series-1-blue-63",
@@ -19827,12 +20103,14 @@
   "r": null,
   "ill": null,
   "set_en": "Vending Machine Series 1 (Blue)",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "A1-115",
    "name": "Abra"
-  }
+  },
+  "img": "file:img/ja_vending-machine-series-1-blue-63.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/vending-machine-series-1-blue-japanese/63-large.webp"
  },
  {
   "id": "ja:pokemon-go-91",
@@ -19847,12 +20125,14 @@
   "r": null,
   "ill": null,
   "set_en": "Pokémon GO",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swsh10.5-086",
    "name": "Mewtwo VSTAR"
-  }
+  },
+  "img": "file:img/ja_pokemon-go-91.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/pokemon-go-japanese/91-large.webp"
  },
  {
   "id": "ja:platinum-promos-31",
@@ -19867,8 +20147,10 @@
   "r": null,
   "ill": null,
   "set_en": "Platinum Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_platinum-promos-31.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/platinum-promos-japanese/31-large.webp"
  },
  {
   "id": "ja:pokemon-card-151-174",
@@ -19883,12 +20165,14 @@
   "r": null,
   "ill": null,
   "set_en": "Pokémon Card 151",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "sv03.5-174",
    "name": "Nidoking"
-  }
+  },
+  "img": "file:img/ja_pokemon-card-151-174.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/pokemon-card-151-japanese/174-large.webp"
  },
  {
   "id": "ja:bw-p-151",
@@ -19903,12 +20187,14 @@
   "r": null,
   "ill": null,
   "set_en": "Black & White Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "bwp-BW77",
    "name": "Pikachu"
-  }
+  },
+  "img": "file:img/ja_bw-p-151.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/black-white-promos-japanese/151-large.webp"
  },
  {
   "id": "ja:glory-of-team-rocket-114",
@@ -19923,8 +20209,10 @@
   "r": null,
   "ill": null,
   "set_en": "Glory of Team Rocket",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_glory-of-team-rocket-114.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/glory-of-team-rocket-japanese/114-large.webp"
  },
  {
   "id": "ja:s-p-122",
@@ -19939,12 +20227,14 @@
   "r": null,
   "ill": null,
   "set_en": "Sword & Shield Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swshp-SWSH061",
    "name": "Pikachu V"
-  }
+  },
+  "img": "file:img/ja_s-p-122.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sword-shield-promos-japanese/122-large.webp"
  },
  {
   "id": "ja:vending-machine-series-3-green-115",
@@ -19959,8 +20249,10 @@
   "r": null,
   "ill": null,
   "set_en": "Vending Machine Series 3 (Green)",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_vending-machine-series-3-green-115.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/vending-machine-series-3-green-japanese/115-large.webp"
  },
  {
   "id": "ja:expansion-pack-120",
@@ -19975,8 +20267,10 @@
   "r": null,
   "ill": null,
   "set_en": "Expansion Pack",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_expansion-pack-120.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/expansion-pack-japanese/25-large.webp"
  },
  {
   "id": "ja:sm-p-003",
@@ -19991,12 +20285,14 @@
   "r": null,
   "ill": null,
   "set_en": "Sun & Moon Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "smp-SM81",
    "name": "Pikachu"
-  }
+  },
+  "img": "file:img/ja_sm-p-003.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sun-moon-promos-japanese/3-large.webp"
  },
  {
   "id": "ja:vending-machine-series-2-red-132",
@@ -20011,8 +20307,10 @@
   "r": null,
   "ill": null,
   "set_en": "Vending Machine Series 2 (Red)",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_vending-machine-series-2-red-132.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/vending-machine-series-2-red-japanese/132-large.webp"
  },
  {
   "id": "ja:m-p-018",
@@ -20027,12 +20325,14 @@
   "r": "Promo",
   "ill": "Tomomi Ozaki",
   "set_en": "Mega Evolution Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "sv08-029",
    "name": "Fuecoco"
-  }
+  },
+  "img": "file:img/ja_m-p-018.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/mega-evolution-promos-japanese/18-large.webp"
  },
  {
   "id": "ja:pokemon-card-151-186",
@@ -20047,12 +20347,14 @@
   "r": null,
   "ill": null,
   "set_en": "Pokémon Card 151",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "sv03.5-184",
    "name": "Blastoise ex"
-  }
+  },
+  "img": "file:img/ja_pokemon-card-151-186.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/pokemon-card-151-japanese/186-large.webp"
  },
  {
   "id": "ja:vmax-rising-77",
@@ -20067,12 +20369,14 @@
   "r": null,
   "ill": null,
   "set_en": "VMAX Rising",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swsh2-192",
    "name": "Sonia"
-  }
+  },
+  "img": "file:img/ja_vmax-rising-77.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/vmax-rising-japanese/77-large.webp"
  },
  {
   "id": "ja:rocket-gang-51",
@@ -20087,12 +20391,14 @@
   "r": null,
   "ill": null,
   "set_en": "Rocket Gang",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "base5-6",
    "name": "Dark Dugtrio"
-  }
+  },
+  "img": "file:img/ja_rocket-gang-51.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/rocket-gang-japanese/43-large.webp"
  },
  {
   "id": "ja:double-blaze-107",
@@ -20107,8 +20413,10 @@
   "r": null,
   "ill": null,
   "set_en": "Double Blaze",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_double-blaze-107.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/double-blaze-japanese/107-large.webp"
  },
  {
   "id": "ja:transformation-mask-112",
@@ -20123,12 +20431,14 @@
   "r": null,
   "ill": null,
   "set_en": "Mask of Change",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "sv06-186",
    "name": "Tatsugiri"
-  }
+  },
+  "img": "file:img/ja_transformation-mask-112.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/transformation-mask-japanese/112-large.webp"
  },
  {
   "id": "ja:m-p-021",
@@ -20143,8 +20453,10 @@
   "r": "Promo",
   "ill": "Terada Tera",
   "set_en": "Mega Evolution Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_m-p-021.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/mega-evolution-promos-japanese/21-large.webp"
  },
  {
   "id": "ja:darkness-and-to-light-176",
@@ -20159,12 +20471,14 @@
   "r": null,
   "ill": null,
   "set_en": "Darkness, and to Light...",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "neo4-15",
    "name": "Light Togetic"
-  }
+  },
+  "img": "file:img/ja_darkness-and-to-light-176.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/darkness-and-to-light-japanese/95-large.webp"
  },
  {
   "id": "ja:sm-p-146",
@@ -20179,12 +20493,14 @@
   "r": null,
   "ill": null,
   "set_en": "Sun & Moon Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "sm9-15",
    "name": "Vulpix"
-  }
+  },
+  "img": "file:img/ja_sm-p-146.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sun-moon-promos-japanese/146-large.webp"
  },
  {
   "id": "ja:battle-partners-127",
@@ -20199,12 +20515,14 @@
   "r": null,
   "ill": null,
   "set_en": "Battle Partners",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "sv09-185",
    "name": "N's Zoroark ex"
-  }
+  },
+  "img": "file:img/ja_battle-partners-127.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/battle-partners-japanese/127-large.webp"
  },
  {
   "id": "ja:mega-brave-68",
@@ -20219,8 +20537,10 @@
   "r": null,
   "ill": null,
   "set_en": "Mega Brave",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_mega-brave-68.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/mega-brave-japanese/68-large.webp"
  },
  {
   "id": "ja:cyber-judge-97",
@@ -20235,12 +20555,14 @@
   "r": null,
   "ill": null,
   "set_en": "Cyber Judge",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "sv05-209",
    "name": "Bianca's Devotion"
-  }
+  },
+  "img": "file:img/ja_cyber-judge-97.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/cyber-judge-japanese/97-large.webp"
  },
  {
   "id": "ja:gg-end-8",
@@ -20255,8 +20577,10 @@
   "r": null,
   "ill": null,
   "set_en": "GG End",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_gg-end-8.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/gg-end-japanese/8-large.webp"
  },
  {
   "id": "ja:sm-p-323",
@@ -20271,9 +20595,11 @@
   "r": null,
   "ill": null,
   "set_en": "Sun & Moon Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
-  "en_none": true
+  "en_none": true,
+  "img": "file:img/ja_sm-p-323.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sun-moon-promos-japanese/323-large.webp"
  },
  {
   "id": "ja:sm-p-237",
@@ -20288,12 +20614,14 @@
   "r": null,
   "ill": null,
   "set_en": "Sun & Moon Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "sm9-131",
    "name": "Lugia"
-  }
+  },
+  "img": "file:img/ja_sm-p-237.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sun-moon-promos-japanese/237-large.webp"
  },
  {
   "id": "ja:great-detective-pikachu-25",
@@ -20308,8 +20636,10 @@
   "r": null,
   "ill": null,
   "set_en": "Great Detective Pikachu",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_great-detective-pikachu-25.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/great-detective-pikachu-japanese/25-large.webp"
  },
  {
   "id": "ja:s-p-210",
@@ -20324,8 +20654,10 @@
   "r": null,
   "ill": null,
   "set_en": "Sword & Shield Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_s-p-210.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sword-shield-promos-japanese/210-large.webp"
  },
  {
   "id": "ja:promo-card-pack-25th-anniversary-edition-6",
@@ -20340,12 +20672,14 @@
   "r": null,
   "ill": null,
   "set_en": "Promo Card Pack 25th Anniversary Edition",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "xy12-113",
    "name": "Here Comes Team Rocket!"
-  }
+  },
+  "img": "file:img/ja_promo-card-pack-25th-anniversary-edition-6.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/promo-card-pack-25th-anniversary-edition-japanese/6-large.webp"
  },
  {
   "id": "ja:vstar-universe-249",
@@ -20360,12 +20694,14 @@
   "r": null,
   "ill": null,
   "set_en": "VSTAR Universe",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swsh12.5-148",
    "name": "Friends in Hisui"
-  }
+  },
+  "img": "file:img/ja_vstar-universe-249.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/vstar-universe-japanese/249-large.webp"
  },
  {
   "id": "ja:p-promos-5",
@@ -20380,8 +20716,10 @@
   "r": null,
   "ill": null,
   "set_en": "P Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_p-promos-5.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/p-promos-japanese/5-large.webp"
  },
  {
   "id": "ja:jungle-36",
@@ -20396,12 +20734,14 @@
   "r": null,
   "ill": null,
   "set_en": "Jungle",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "base4-5",
    "name": "Clefable"
-  }
+  },
+  "img": "file:img/ja_jungle-36.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/jungle-japanese/44-large.webp"
  },
  {
   "id": "ja:t-promos-14",
@@ -20416,8 +20756,10 @@
   "r": null,
   "ill": null,
   "set_en": "T Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_t-promos-14.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/t-promos-japanese/14-large.webp"
  },
  {
   "id": "ja:dream-league-66",
@@ -20432,8 +20774,10 @@
   "r": null,
   "ill": null,
   "set_en": "Dream League",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_dream-league-66.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/dream-league-japanese/66-large.webp"
  },
  {
   "id": "ja:black-bolt-173",
@@ -20448,8 +20792,10 @@
   "r": null,
   "ill": null,
   "set_en": "Black Bolt",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_black-bolt-173.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/black-bolt-japanese/173-large.webp"
  },
  {
   "id": "ja:jungle-122",
@@ -20464,12 +20810,14 @@
   "r": null,
   "ill": null,
   "set_en": "Jungle",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "base2-6",
    "name": "Mr. Mime"
-  }
+  },
+  "img": "file:img/ja_jungle-122.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/jungle-japanese/27-large.webp"
  },
  {
   "id": "ja:vending-machine-series-1-blue-122",
@@ -20484,8 +20832,10 @@
   "r": null,
   "ill": null,
   "set_en": "Vending Machine Series 1 (Blue)",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_vending-machine-series-1-blue-122.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/vending-machine-series-1-blue-japanese/122-large.webp"
  },
  {
   "id": "ja:pokekyun-collection-11",
@@ -20500,12 +20850,14 @@
   "r": null,
   "ill": null,
   "set_en": "PokéKyun Collection",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "g1-RC9",
    "name": "Raichu"
-  }
+  },
+  "img": "file:img/ja_pokekyun-collection-11.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/pokekyun-collection-japanese/11-large.webp"
  },
  {
   "id": "ja:pokemon-go-10",
@@ -20520,12 +20872,14 @@
   "r": null,
   "ill": null,
   "set_en": "Pokémon GO",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swsh10.5-010",
    "name": "Charizard"
-  }
+  },
+  "img": "file:img/ja_pokemon-go-10.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/pokemon-go-japanese/10-large.webp"
  },
  {
   "id": "ja:paradigm-trigger-123",
@@ -20540,12 +20894,14 @@
   "r": null,
   "ill": null,
   "set_en": "Paradigm Trigger",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swsh12-211",
    "name": "Lugia VSTAR"
-  }
+  },
+  "img": "file:img/ja_paradigm-trigger-123.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/paradigm-trigger-japanese/123-large.webp"
  },
  {
   "id": "ja:s-p-140",
@@ -20560,12 +20916,14 @@
   "r": null,
   "ill": null,
   "set_en": "Sword & Shield Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swshp-SWSH120",
    "name": "Marnie"
-  }
+  },
+  "img": "file:img/ja_s-p-140.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sword-shield-promos-japanese/140-large.webp"
  },
  {
   "id": "ja:mythical-legendary-dream-shine-collection-4",
@@ -20580,12 +20938,14 @@
   "r": null,
   "ill": null,
   "set_en": "Mythical & Legendary Dream Shine Collection",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "xyp-XY115",
    "name": "Shaymin"
-  }
+  },
+  "img": "file:img/ja_mythical-legendary-dream-shine-collection-4.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/mythical-legendary-dream-shine-collection-japanese/4-large.webp"
  },
  {
   "id": "ja:m-p-017",
@@ -20600,8 +20960,10 @@
   "r": "Promo",
   "ill": "Mina Nakai",
   "set_en": "Mega Evolution Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_m-p-017.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/mega-evolution-promos-japanese/17-large.webp"
  },
  {
   "id": "ja:glory-of-team-rocket-103",
@@ -20616,9 +20978,11 @@
   "r": null,
   "ill": null,
   "set_en": "Glory of Team Rocket",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
-  "en_none": true
+  "en_none": true,
+  "img": "file:img/ja_glory-of-team-rocket-103.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/glory-of-team-rocket-japanese/103-large.webp"
  },
  {
   "id": "ja:fusion-arts-113",
@@ -20633,12 +20997,14 @@
   "r": null,
   "ill": null,
   "set_en": "Fusion Arts",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swsh8-260",
    "name": "Elesa's Sparkle"
-  }
+  },
+  "img": "file:img/ja_fusion-arts-113.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/fusion-arts-japanese/113-large.webp"
  },
  {
   "id": "ja:tag-team-gx-tag-all-stars-212",
@@ -20653,8 +21019,10 @@
   "r": null,
   "ill": null,
   "set_en": "TAG TEAM GX: Tag All Stars",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_tag-team-gx-tag-all-stars-212.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/tag-team-gx-tag-all-stars-japanese/212-large.webp"
  },
  {
   "id": "ja:10th-movie-commemoration-set-3",
@@ -20669,8 +21037,10 @@
   "r": null,
   "ill": null,
   "set_en": "10th Movie Commemoration Set",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_10th-movie-commemoration-set-3.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/card-back/ja-large.webp"
  },
  {
   "id": "ja:intro-pack-bulbasaur-40",
@@ -20685,12 +21055,14 @@
   "r": null,
   "ill": null,
   "set_en": "Intro Pack (Bulbasaur)",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "xyp-XY202",
    "name": "Pikachu"
-  }
+  },
+  "img": "file:img/ja_intro-pack-bulbasaur-40.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/intro-pack-bulbasaur-japanese/40-large.webp"
  },
  {
   "id": "ja:awakening-legends-230",
@@ -20705,12 +21077,14 @@
   "r": null,
   "ill": null,
   "set_en": "Awakening Legends",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "neo3-19",
    "name": "Kingdra"
-  }
+  },
+  "img": "file:img/ja_awakening-legends-230.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/awakening-legends-japanese/20-large.webp"
  },
  {
   "id": "ja:play-promos-3",
@@ -20725,12 +21099,14 @@
   "r": null,
   "ill": null,
   "set_en": "PLAY Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "ex9-100",
    "name": "Registeel ex"
-  }
+  },
+  "img": "file:img/ja_play-promos-3.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/play-promos-japanese/3-large.webp"
  },
  {
   "id": "ja:terastal-festival-ex-52",
@@ -20745,12 +21121,14 @@
   "r": null,
   "ill": null,
   "set_en": "Terastal Festival ex",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "sv08.5-030",
    "name": "Jolteon ex"
-  }
+  },
+  "img": "file:img/ja_terastal-festival-ex-52.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/terastal-festival-ex-japanese/52-large.webp"
  },
  {
   "id": "ja:nihil-zero-113",
@@ -20765,8 +21143,10 @@
   "r": null,
   "ill": null,
   "set_en": "Nihil Zero",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_nihil-zero-113.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/nihil-zero-japanese/113-large.webp"
  },
  {
   "id": "ja:sm-p-249",
@@ -20781,8 +21161,10 @@
   "r": null,
   "ill": null,
   "set_en": "Sun & Moon Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_sm-p-249.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sun-moon-promos-japanese/249-large.webp"
  },
  {
   "id": "ja:inferno-x-81",
@@ -20797,12 +21179,14 @@
   "r": null,
   "ill": null,
   "set_en": "Inferno X",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "me02-095",
    "name": "Ludicolo"
-  }
+  },
+  "img": "file:img/ja_inferno-x-81.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/inferno-x-japanese/81-large.webp"
  },
  {
   "id": "ja:ppp-promos-1",
@@ -20817,12 +21201,14 @@
   "r": null,
   "ill": null,
   "set_en": "PPP Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "dp5-78",
    "name": "Turtwig"
-  }
+  },
+  "img": "file:img/ja_ppp-promos-1.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/ppp-promos-japanese/1-large.webp"
  },
  {
   "id": "ja:night-unison-31",
@@ -20837,8 +21223,10 @@
   "r": null,
   "ill": null,
   "set_en": "Night Unison",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_night-unison-31.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/night-unison-japanese/31-large.webp"
  },
  {
   "id": "ja:incandescent-arcana-69",
@@ -20853,8 +21241,10 @@
   "r": null,
   "ill": null,
   "set_en": "Incandescent Arcana",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_incandescent-arcana-69.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/incandescent-arcana-japanese/69-large.webp"
  },
  {
   "id": "ja:legendary-shine-collection-21",
@@ -20869,12 +21259,14 @@
   "r": null,
   "ill": null,
   "set_en": "Legendary Shine Collection",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "xyp-XY81",
    "name": "White Kyurem"
-  }
+  },
+  "img": "file:img/ja_legendary-shine-collection-21.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/legendary-shine-collection-japanese/21-large.webp"
  },
  {
   "id": "ja:promo-card-pack-25th-anniversary-edition-18",
@@ -20889,8 +21281,10 @@
   "r": null,
   "ill": null,
   "set_en": "Promo Card Pack 25th Anniversary Edition",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_promo-card-pack-25th-anniversary-edition-18.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/promo-card-pack-25th-anniversary-edition-japanese/18-large.webp"
  },
  {
   "id": "ja:terastal-festival-ex-69",
@@ -20905,12 +21299,14 @@
   "r": null,
   "ill": null,
   "set_en": "Terastal Festival ex",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "sv08.5-041",
    "name": "Sylveon ex"
-  }
+  },
+  "img": "file:img/ja_terastal-festival-ex-69.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/terastal-festival-ex-japanese/69-large.webp"
  },
  {
   "id": "ja:sm-p-320",
@@ -20925,8 +21321,10 @@
   "r": null,
   "ill": null,
   "set_en": "Sun & Moon Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_sm-p-320.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sun-moon-promos-japanese/320-large.webp"
  },
  {
   "id": "ja:pcg-promos-113",
@@ -20941,12 +21339,14 @@
   "r": null,
   "ill": null,
   "set_en": "PCG Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "np-35",
    "name": "Pikachu δ"
-  }
+  },
+  "img": "file:img/ja_pcg-promos-113.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/pcg-promos-japanese/113-large.webp"
  },
  {
   "id": "ja:mega-brave-67",
@@ -20961,12 +21361,14 @@
   "r": null,
   "ill": null,
   "set_en": "Mega Brave",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "me01-138",
    "name": "Vulpix"
-  }
+  },
+  "img": "file:img/ja_mega-brave-67.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/mega-brave-japanese/67-large.webp"
  },
  {
   "id": "ja:s-p-340",
@@ -20981,8 +21383,10 @@
   "r": null,
   "ill": null,
   "set_en": "Sword & Shield Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_s-p-340.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sword-shield-promos-japanese/340-large.webp"
  },
  {
   "id": "ja:gold-silver-to-a-new-world-181",
@@ -20997,12 +21401,14 @@
   "r": null,
   "ill": null,
   "set_en": "Gold, Silver, to a New World...",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "neo1-1",
    "name": "Ampharos"
-  }
+  },
+  "img": "file:img/ja_gold-silver-to-a-new-world-181.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/gold-silver-to-a-new-world-japanese/43-large.webp"
  },
  {
   "id": "ja:shiny-star-v-36",
@@ -21017,8 +21423,10 @@
   "r": null,
   "ill": null,
   "set_en": "Shiny Star V",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_shiny-star-v-36.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/shiny-star-v-japanese/36-large.webp"
  },
  {
   "id": "ja:leaders-stadium-107",
@@ -21033,12 +21441,14 @@
   "r": null,
   "ill": null,
   "set_en": "Leaders' Stadium",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "gym1-11",
    "name": "Rocket's Hitmonchan"
-  }
+  },
+  "img": "file:img/ja_leaders-stadium-107.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/leaders-stadium-japanese/54-large.webp"
  },
  {
   "id": "ja:shiny-star-v-197",
@@ -21053,12 +21463,14 @@
   "r": null,
   "ill": null,
   "set_en": "Shiny Star V",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swsh4.5-70",
    "name": "Poké Kid"
-  }
+  },
+  "img": "file:img/ja_shiny-star-v-197.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/shiny-star-v-japanese/197-large.webp"
  },
  {
   "id": "ja:sm-p-339",
@@ -21073,8 +21485,10 @@
   "r": null,
   "ill": null,
   "set_en": "Sun & Moon Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_sm-p-339.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sun-moon-promos-japanese/339-large.webp"
  },
  {
   "id": "ja:s-p-254",
@@ -21089,8 +21503,10 @@
   "r": null,
   "ill": null,
   "set_en": "Sword & Shield Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_s-p-254.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sword-shield-promos-japanese/254-large.webp"
  },
  {
   "id": "ja:tag-bolt-106",
@@ -21105,8 +21521,10 @@
   "r": null,
   "ill": null,
   "set_en": "Tag Bolt",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_tag-bolt-106.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/tag-bolt-japanese/106-large.webp"
  },
  {
   "id": "ja:sm-p-124",
@@ -21121,8 +21539,10 @@
   "r": null,
   "ill": null,
   "set_en": "Sun & Moon Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_sm-p-124.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/sun-moon-promos-japanese/124-large.webp"
  },
  {
   "id": "ja:pcg-promos-84",
@@ -21137,12 +21557,14 @@
   "r": null,
   "ill": null,
   "set_en": "PCG Promos",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "pop4-13",
    "name": "Pikachu"
-  }
+  },
+  "img": "file:img/ja_pcg-promos-84.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/pcg-promos-japanese/84-large.webp"
  },
  {
   "id": "ja:terastal-festival-ex-126",
@@ -21157,12 +21579,14 @@
   "r": null,
   "ill": null,
   "set_en": "Terastal Festival ex",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "sv08.5-075",
    "name": "Eevee ex"
-  }
+  },
+  "img": "file:img/ja_terastal-festival-ex-126.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/terastal-festival-ex-japanese/126-large.webp"
  },
  {
   "id": "ja:blue-sky-stream-79",
@@ -21177,12 +21601,14 @@
   "r": null,
   "ill": null,
   "set_en": "Blue Sky Stream",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "swsh7-203",
    "name": "Zinnia's Resolve"
-  }
+  },
+  "img": "file:img/ja_blue-sky-stream-79.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/blue-sky-stream-japanese/79-large.webp"
  },
  {
   "id": "ja:t-promos-5",
@@ -21197,8 +21623,10 @@
   "r": null,
   "ill": null,
   "set_en": "T Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_t-promos-5.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/t-promos-japanese/5-large.webp"
  },
  {
   "id": "ja:start-deck-100-battle-collection-corociao-version-19",
@@ -21213,8 +21641,10 @@
   "r": null,
   "ill": null,
   "set_en": "Start Deck 100 Battle Collection CoroCiao Version",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_start-deck-100-battle-collection-corociao-version-19.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/start-deck-100-battle-collection-corociao-version-japanese/19-large.webp"
  },
  {
   "id": "ja:ruler-of-the-black-flame-deck-build-box-1",
@@ -21229,8 +21659,10 @@
   "r": null,
   "ill": null,
   "set_en": "Ruler of the Black Flame Deck Build Box",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_ruler-of-the-black-flame-deck-build-box-1.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/ruler-of-the-black-flame-deck-build-box-japanese/1-large.webp"
  },
  {
   "id": "ja:sv-p-270",
@@ -21245,8 +21677,10 @@
   "r": "Promo",
   "ill": "DOM",
   "set_en": "Scarlet & Violet Promos",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_sv-p-270.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/scarlet-violet-promos-japanese/270-large.webp"
  },
  {
   "id": "ja:dream-league-70",
@@ -21261,8 +21695,10 @@
   "r": null,
   "ill": null,
   "set_en": "Dream League",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_dream-league-70.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/dream-league-japanese/70-large.webp"
  },
  {
   "id": "ja:challenge-from-the-darkness-113",
@@ -21277,8 +21713,10 @@
   "r": null,
   "ill": null,
   "set_en": "Challenge from the Darkness",
-  "source": "TCGdex ja",
-  "added": "D134"
+  "source": "immagine da tcgcharts (permesso, D298)",
+  "added": "D134",
+  "img": "file:img/ja_challenge-from-the-darkness-113.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/challenge-from-the-darkness-japanese/75-large.webp"
  },
  {
   "id": "ja:terastal-festival-ex-63",
@@ -21293,12 +21731,14 @@
   "r": null,
   "ill": null,
   "set_en": "Terastal Festival ex",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "sv08.5-034",
    "name": "Espeon ex"
-  }
+  },
+  "img": "file:img/ja_terastal-festival-ex-63.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/terastal-festival-ex-japanese/63-large.webp"
  },
  {
   "id": "ja:ancient-roar-90",
@@ -21313,12 +21753,14 @@
   "r": null,
   "ill": null,
   "set_en": "Ancient Roar",
-  "source": "TCGdex ja",
+  "source": "immagine da tcgcharts (permesso, D298)",
   "added": "D134",
   "en_ext": {
    "id": "sv04-251",
    "name": "Roaring Moon ex"
-  }
+  },
+  "img": "file:img/ja_ancient-roar-90.webp",
+  "img_url": "https://images.tcgcharts.com/pokemon/ancient-roar-japanese/90-large.webp"
  },
  {
   "id": "ja:m-p-022",
