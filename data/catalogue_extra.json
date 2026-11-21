@@ -8206,5 +8206,338 @@
    2005,
    2006
   ]
+ ],
+ "np-40": [
+  "mew",
+  "\\bpromo",
+  40,
+  [
+   2003,
+   2004
+  ]
+ ],
+ "ex5-96": [
+  "ninetales ex",
+  "\\bhidden\\W*(?:(?:of|the|and)\\W*)?legends\\b",
+  96,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "ecard1-28": [
+  "typhlosion",
+  "\\bexpedition\\W*(?:(?:of|the|and)\\W*)?base\\W*(?:(?:of|the|and)\\W*)?set\\b",
+  28,
+  [
+   2002,
+   2003
+  ]
+ ],
+ "gym1-12": [
+  "rocket's moltres",
+  "\\bgym\\W*(?:(?:of|the|and)\\W*)?heroes\\b",
+  12,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "base3-3": [
+  "ditto",
+  "\\bfossil\\b",
+  3,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "base5-11": [
+  "dark magneton",
+  "\\bteam\\W*(?:(?:of|the|and)\\W*)?rocket\\b",
+  11,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "base3-9": [
+  "kabutops",
+  "\\bfossil\\b",
+  9,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "gym1-4": [
+  "erika's dragonair",
+  "\\bgym\\W*(?:(?:of|the|and)\\W*)?heroes\\b",
+  4,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "base5-10": [
+  "dark machamp",
+  "\\bteam\\W*(?:(?:of|the|and)\\W*)?rocket\\b",
+  10,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "neo1-15": [
+  "steelix",
+  "\\bneo\\W*(?:(?:of|the|and)\\W*)?genesis\\b",
+  15,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "neo2-10": [
+  "scizor",
+  "\\bneo\\W*(?:(?:of|the|and)\\W*)?discovery\\b",
+  10,
+  [
+   2001,
+   2002
+  ]
+ ],
+ "neo1-4": [
+  "feraligatr",
+  "\\bneo\\W*(?:(?:of|the|and)\\W*)?genesis\\b",
+  4,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "gym2-11": [
+  "lt\\. surge's raichu",
+  "\\bgym\\W*(?:(?:of|the|and)\\W*)?challenge\\b",
+  11,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "gym2-12": [
+  "misty's golduck",
+  "\\bgym\\W*(?:(?:of|the|and)\\W*)?challenge\\b",
+  12,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "neo1-2": [
+  "azumarill",
+  "\\bneo\\W*(?:(?:of|the|and)\\W*)?genesis\\b",
+  2,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "base3-1": [
+  "aerodactyl",
+  "\\bfossil\\b",
+  1,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "neo1-1": [
+  "ampharos",
+  "\\bneo\\W*(?:(?:of|the|and)\\W*)?genesis\\b",
+  1,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "neo1-6": [
+  "heracross",
+  "\\bneo\\W*(?:(?:of|the|and)\\W*)?genesis\\b",
+  6,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "neo4-11": [
+  "dark tyranitar",
+  "\\bneo\\W*(?:(?:of|the|and)\\W*)?destiny\\b",
+  11,
+  [
+   2002,
+   2003
+  ]
+ ],
+ "base5-9": [
+  "dark hypno",
+  "\\bteam\\W*(?:(?:of|the|and)\\W*)?rocket\\b",
+  9,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "neo1-16": [
+  "togetic",
+  "\\bneo\\W*(?:(?:of|the|and)\\W*)?genesis\\b",
+  16,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "neo3-3": [
+  "celebi",
+  "\\bneo\\W*(?:(?:of|the|and)\\W*)?revelation\\b",
+  3,
+  [
+   2001,
+   2002
+  ]
+ ],
+ "base2-51": [
+  "eevee",
+  "\\bjungle\\b",
+  51,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "base2-8": [
+  "pidgeot",
+  "\\bjungle\\b",
+  8,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "base3-11": [
+  "magneton",
+  "\\bfossil\\b",
+  11,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "base2-16": [
+  "wigglytuff",
+  "\\bjungle\\b",
+  16,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "neo1-11": [
+  "meganium",
+  "\\bneo\\W*(?:(?:of|the|and)\\W*)?genesis\\b",
+  11,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "gym2-3": [
+  "brock's ninetales",
+  "\\bgym\\W*(?:(?:of|the|and)\\W*)?challenge\\b",
+  3,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "neo4-7": [
+  "dark houndoom",
+  "\\bneo\\W*(?:(?:of|the|and)\\W*)?destiny\\b",
+  7,
+  [
+   2002,
+   2003
+  ]
+ ],
+ "gym2-7": [
+  "giovanni's nidoking",
+  "\\bgym\\W*(?:(?:of|the|and)\\W*)?challenge\\b",
+  7,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "base3-7": [
+  "hitmonlee",
+  "\\bfossil\\b",
+  7,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "base5-50": [
+  "charmander",
+  "\\bteam\\W*(?:(?:of|the|and)\\W*)?rocket\\b",
+  50,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "base3-19": [
+  "dragonite",
+  "\\bfossil\\b",
+  19,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "neo3-2": [
+  "blissey",
+  "\\bneo\\W*(?:(?:of|the|and)\\W*)?revelation\\b",
+  2,
+  [
+   2001,
+   2002
+  ]
+ ],
+ "neo4-10": [
+  "dark typhlosion",
+  "\\bneo\\W*(?:(?:of|the|and)\\W*)?destiny\\b",
+  10,
+  [
+   2002,
+   2003
+  ]
+ ],
+ "base5-6": [
+  "dark dugtrio",
+  "\\bteam\\W*(?:(?:of|the|and)\\W*)?rocket\\b",
+  6,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "base3-8": [
+  "hypno",
+  "\\bfossil\\b",
+  8,
+  [
+   1999,
+   2000
+  ]
  ]
 }
