@@ -1186,3 +1186,14 @@ Perché: (H1) le altre carte non possono restare identiche: nelle ultime settima
 
 La correzione (ripresa settimana per settimana, carte base prima delle stampe) toglie gli scarti del §68 su G2 (95° percentile da 20,8% a 5,2%). Il primo storico vero dopo l'adozione è la verifica (D310).
 
+## 69. Indice generale di tutte le lingue (registrato il 21 novembre 2026, prima del codice e dei risultati; D339)
+
+**Domanda.** Oscar: "il generale diventa generale vero e allo stesso modo di quello giapponese ne avremo uno inglese e uno cinese, se ha senso con queste poche carte". Oggi lo SlabDex (indice generale, D169, D250) prende solo carte inglesi: 60 voci, 12 posti per era. Le stampe giapponesi e cinesi possono entrare nei posti della loro era senza rompere l'indice?
+
+**Bracci.** A: il generale di oggi (solo inglesi). **Q**: lo stesso metodo (60 voci, 12 posti per era, le più scambiate) con le stampe giapponesi e cinesi nei posti della loro era (l'era viene dal set, D211, D338); le promo restano fuori come oggi. M: la media semplice degli indici d'era inglesi, come nel §51. Codice: `SLABWISE_IX_GLOBAL_TEST=1` in `prototype/build_real_data.py`, serie in `results/ix_global/series.json`, giudizio con `scripts/ix_quota_test.py` (lo stesso del §51, SEATS=12, Q3 contro A).
+
+**Criteri (gli stessi del §51, fissati ora).** Q1: a ogni ribilanciamento ogni era con almeno 12 voci idonee ha almeno 12 posti. Q2: scarto mediano a 13 settimane tra Q e M non peggiore di quello di A. Q3: volatilità di Q (variazioni settimanali logaritmiche, ultime 26 settimane, ×√52) ≤ 1,5 × quella di A. Q4: nessuna variazione settimanale di Q oltre ±15%. Solo riportato: quota di voci giapponesi e cinesi nei panieri di Q.
+
+**Se passa.** Lo SlabDex diventa Q (tutte le lingue) dalla settimana di adozione; la serie di prima resta com'era (indici sigillati, D265) e si concatena. L'indice di oggi resta pubblicato come "SlabDex inglese". **Se non passa**: lo SlabDex resta inglese e si guarda con Oscar quale criterio cade.
+
+**Indice Cina.** Si pubblica solo con almeno 10 stampe cinesi con prezzo nel suo paniere; sotto resta calcolato ma nascosto. Soglia fissata ora, prima di avere le cinesi nel catalogo.

@@ -148,6 +148,11 @@ if GTEST:
     CKPT = None
 if QTEST:                                               # §51/§52: A is now the general of D169 (most traded), Q the one in use (D250)
     qidx = EraIndex(np.where(_qg >= 0, 0, -1), 1, k=60)
+XTEST = os.environ.get("SLABWISE_IX_GLOBAL_TEST") == "1"   # protocol §69 (D339): the general index with every language
+if XTEST:
+    CKPT = None                                          # Japanese and Chinese printings join the seats of their era
+    _qgx = np.array([-1 if is_promo(c) or series_of(c.split("/")[0]) not in series_names else series_names.index(series_of(c.split("/")[0])) for c in cards])
+    xidx = EraIndex(np.where(_qgx >= 0, 0, -1), 1, k=int(os.environ.get("SLABWISE_IX_KALL", "60")), quota=_qgx)
 _code = b"".join(open(os.path.join(HERE, "..", f), "rb").read() for f in
                  ("slabwise/model.py", "slabwise/index.py", "slabwise/stats.py", "prototype/build_real_data.py") if os.path.exists(os.path.join(HERE, "..", f)))
 _static = hashlib.sha256(repr((np.__version__, pd.__version__, sys.version, cards, eras, era.tolist(), str(t0), repr(params), series_names, set_names, ser_id.tolist(),
@@ -257,6 +262,8 @@ for w in range(w0, W):
     sidx.update(w, lvm, est[w])
     if QTEST:
         qidx.update(w, lvm, est[w])
+    if XTEST:
+        xidx.update(w, lvm, est[w])
     for _gx in gidx.values():                            # D296
         _gx.update(w, lvm, est[w])
     if JTEST:
@@ -289,6 +296,19 @@ if QTEST:                                               # §51: the series for s
                    quota_log=[[int(w_), {series_names[g]: list(v) for g, v in d_.items()}] for w_, d_ in aidx.quota_log],
                    A_baskets=[[int(w_), [series_names[_qg[c]] if _qg[c] >= 0 else "?" for c, g in b_]] for w_, e_, b_ in qidx.history]),
               open(os.path.join(HERE, "..", "results", "ix_quota", "series.json"), "w"))
+if XTEST:                                               # §69: the series for scripts/ix_quota_test.py (A today's general, Q every language)
+    os.makedirs(os.path.join(HERE, "..", "results", "ix_global"), exist_ok=True)
+    _f = lambda xs: [None if not np.isfinite(v) else float(v) for v in xs]   # noqa: E731
+    _eras6 = [n for n in series_names if n not in ("Giappone", "Cina")]
+    _lang = lambda c: "ja" if cards[c].startswith("ja:") else "zh" if cards[c].startswith("zh:") else "en"   # noqa: E731
+    json.dump(dict(weeks=[str((t0 + pd.Timedelta(weeks=w + 1)).date()) for w in range(W)],
+                   A=_f(aidx.series(0, W)), Q=_f(xidx.series(0, W)),
+                   eras={n: _f(eidx.series(series_names.index(n), W)) for n in _eras6},
+                   cina=_f(eidx.series(series_names.index("Cina"), W)) if "Cina" in series_names else None,
+                   quota_log=[[int(w_), {series_names[g]: list(v) for g, v in d_.items()}] for w_, d_ in xidx.quota_log],
+                   A_baskets=[[int(w_), [_lang(c) for c, g in b_]] for w_, e_, b_ in xidx.history],
+                   cina_baskets=[[int(w_), len(b_)] for w_, e_, b_ in eidx.history if "Cina" in series_names and e_ == series_names.index("Cina")]),
+              open(os.path.join(HERE, "..", "results", "ix_global", "series.json"), "w"))
 if JTEST:                                               # §53: the series for scripts/ix_quota_test.py (A, Q, eras, seats)
     os.makedirs(os.path.join(HERE, "..", "results", "ix_ja"), exist_ok=True)
     _gj = series_names.index("Giappone")
@@ -670,11 +690,14 @@ for _w, _e, _bk in eidx.history:
         if len(_ch) >= 5:
             index_margin.setdefault(series_names[_e], []).append([wk(_w), round(float(1.96 * np.std(_ch, ddof=1) / np.sqrt(len(_ch))), 4)])
 INDEX_MIN_WEEKS = 26                                       # D121: a series index is shown once it has half a year
-_first = [int(np.argmax(np.isfinite(v))) for v in _ser.values() if np.isfinite(v).sum() >= INDEX_MIN_WEEKS]
+_first = [int(np.argmax(np.isfinite(v))) for e_, v in _ser.items() if np.isfinite(v).sum() >= INDEX_MIN_WEEKS
+          and series_names[e_] != "Cina"]           # D339: the young Chinese series must not move the common base of the others
 index_base_w = max(_first) if _first else 0                # D121: one common base, 100 on the same week for every series
 for e, name in enumerate(series_names):
     ser = _ser[e]
     if np.isfinite(ser).sum() < INDEX_MIN_WEEKS:
+        continue
+    if name == "Cina" and os.environ.get("SLABWISE_IX_CINA") != "1":   # D339: hidden until §69 and 10 priced Chinese cards
         continue
     ser = ser - ser[index_base_w] if np.isfinite(ser[index_base_w]) else ser
     pts = [[wk(w), round(float(100 * np.exp(v)), 2)] for w, v in enumerate(ser) if np.isfinite(v)]
