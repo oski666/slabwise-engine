@@ -99,6 +99,19 @@ if split and which == "real":                                # D104: the page ke
                     c[k] = f"img/{fid}{suf}.{ext}"
                 else:
                     c[k] = None
+    for c in data.get("ja_pending") or []:                  # 21 Nov: Japanese printings still waiting for a price, same images
+        v = c.get("img") or ""
+        if v.startswith("file:"):
+            fid = c["id"].replace(":", "_").replace("/", "_")
+            ext = v.rsplit(".", 1)[1]
+            src_ = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", v[5:])
+            if os.path.exists(src_):
+                shutil.copyfile(src_, os.path.join(split, "img", f"{fid}.{ext}"))
+                c["img"] = f"img/{fid}.{ext}"
+            else:
+                c["img"] = None
+
+
 def self_host_fonts(html, extra_link, folder):
     """D129: the Google Fonts stylesheets are downloaded at build time and served from our own site, so a visitor's
     browser never contacts Google (privacy). On any network error the page keeps the Google links."""
