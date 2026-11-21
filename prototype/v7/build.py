@@ -4,6 +4,7 @@ import json
 import os
 import sys
 import base64
+import shutil
 
 here = os.path.dirname(os.path.abspath(__file__))
 src = open(os.path.join(here, "src", "app.html"), encoding="utf-8").read()
