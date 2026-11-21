@@ -14,21 +14,21 @@ Documenti che descrivono il dettaglio: `docs/PILLARS.md` (pilastri, P12 v1.2), `
 |---|---|
 | Il proprietario è Oscar; le scelte di perimetro, spesa e pubblicazione sono sue. Si lavora in autonomia e gli si scrive solo quando deve decidere o agire. | D243 |
 | Prove prima delle opinioni (P12 v1.2): un cambiamento al metodo entra se batte il metodo in uso in una prova registrata prima dei risultati; le soglie non si toccano dopo l'esito. | D3, D265 |
-| **Campione contro sfidante, prove ricorrenti**: motore e indici in uso sono il campione; le prove si ripetono ogni mese e ogni volta che il catalogo cresce di un quarto; una variante entra quando batte il campione in due giri di fila, con l'intervallo al 95% della differenza dalla parte giusta. Le varianti bocciate con un catalogo più piccolo di metà di quello di oggi si riprovano. | D265 |
+| **Campione contro sfidante, prove ricorrenti**: motore e indici in uso sono il campione; una variante che passa tutti i criteri registrati entra subito e il giro dopo è la sua verifica (P12, D310). **Finché il perimetro non è coperto al 100% (fase di costruzione) i giri ricorrenti e le prove sugli indici non si fanno**: si fanno tutti insieme a catalogo completo, comprese le varianti bocciate con un catalogo più piccolo e le verifiche prospettiche già fissate (§52, §55). Da lì: ogni mese e ogni volta che il catalogo cresce di un quarto. | D265, D310, D340, D341 |
 | **Soglie come quote o rispetto al campione, mai come conteggi assoluti** ("per 1.000 voci", "per 10.000 titoli", "non peggio del campione"), perché il catalogo cresce. Le prove già chiuse restano chiuse con le loro soglie. | D264, D265 |
 | Eccezione del proprietario (P12): Oscar può adottare una variante che manca un solo criterio, con voce motivata e verifica prospettica già registrata. | D250 |
 | Dalla v1.20 del motore non si torna indietro. | D241 |
 | Nessuna spesa senza una voce in questo registro (P19). Oggi la spesa è zero. | D4 |
 | Mai presentare risultati del mercato simulato come reali (P14). | D18 |
-| Ogni modifica al sito si prova prima su un ramo con l'anteprima `<ramo>.slabwise.pages.dev`; i test (`pytest`) girano da soli a ogni modifica. | D230, D260 |
+| Il sito è in sviluppo: le modifiche vanno su `main` dopo i test (`pytest`, prima di ogni commit e da soli a ogni modifica); un ramo a parte solo per lavori lunghi o rischiosi, come quello delle cinesi. Le anteprime per ramo non si usano più. | D230, D290, D341 |
 
 ## 2. Cosa misuriamo
 
 | Regola in vigore | Da |
 |---|---|
 | Solo carte gradate PSA 7–10; le carte raw sono fuori dal progetto. | D1, D165 |
-| La lingua fa parte dell'identità: giapponese, coreano e cinese sono stampe separate; le lingue europee sono la stessa carta con uno scarto di lingua. Le giapponesi sono un catalogo a sé, collegato alle inglesi solo dalla "gemella" (stessa carta e stessa illustrazione). | D28, D152, D166 |
-| 1st Edition e Shadowless sono stampe con una pagina loro; le varianti ambigue nei titoli si escludono (per esempio Pikachu guance rosse o gialle). | D81, D141 |
+| La lingua fa parte dell'identità: giapponese, coreano e cinese sono stampe separate; le lingue europee sono la stessa carta con uno scarto di lingua. Giapponesi e cinesi sono cataloghi a sé, collegati alle inglesi solo dalla "gemella" (stessa carta e stessa illustrazione, cercata in qualunque set e in tutte e due le direzioni). | D28, D152, D166, D307, D338, D341 |
+| 1st Edition, Shadowless, Reverse Foil, "senza simbolo di rarità" e Master Ball sono stampe con una pagina loro, e il titolo deve nominarle; le varianti ambigue nei titoli si escludono (per esempio Pikachu guance rosse o gialle). | D81, D141, D320, D337 |
 | Un'asta non pagata non è una vendita; i voti con riserva (OC, MK, ST, PD, MC) non sono il voto pieno. | D46, D50, D221 |
 
 ## 3. Il motore dei prezzi
@@ -50,12 +50,12 @@ Dettaglio, permessi e rischi in `docs/DATA_SOURCES.md`. Dati grezzi solo nel rep
 | Fonte | Stato | Da |
 |---|---|---|
 | tcgcharts | fonte principale di vendite (eBay, aste, marketplace) e popolazioni; permesso del titolare; raccolta giornaliera, storico lungo scaricato dal browser di Oscar; vendite assegnate dalle sue fonti tenute salvo contraddizioni | D76, D77, D80, D89, D258 |
-| GemRate | popolazioni PSA per stampa e un anno di gradazioni a settimana, per tutti i set del catalogo che hanno una pagina; permesso; letto dal browser di Oscar | D189, D257, D261 |
+| GemRate | popolazioni PSA per stampa e un anno di gradazioni a settimana, per tutti i set del catalogo che hanno una pagina, lette ogni domenica e conservate lettura per lettura; andamento per set dal 2021; permesso; letto dal browser di Oscar | D189, D257, D261, D334, D335 |
 | eBay Browse API | annunci attivi per occasioni e Slabvalve, mai salvati, mostrati solo se controllati nelle ultime 6 ore | D72, D112, D225 |
 | Fanatics Collect (archivio pubblico) | vendite con flag di pagamento e storia dei cert | D46, D50, D63 |
 | Pokecolor | vendite concluse, permesso; raccolta, nei prezzi solo dopo una prova | D180 |
-| Cardova | aste chiuse giapponesi con certificato, voto, prezzo e pagamento; permesso per lo sviluppo, per mostrarle serve il permesso finale con citazione | D273 |
-| SNKRDUNK | permesso di raccolta continua con l'account di Oscar per lo sviluppo; per pubblicare serve un accordo nuovo; nei prezzi solo dopo una prova | D266 |
+| Cardova | aste chiuse giapponesi con certificato, voto, prezzo e pagamento; nei valori e nell'ingresso delle giapponesi; permesso per lo sviluppo, per mostrarle sul sito serve il permesso finale con citazione | D273, D292, D327 |
+| SNKRDUNK | nei valori e nell'ingresso delle giapponesi, letto anche da tcgcharts; permesso di raccolta con l'account di Oscar; per mostrarlo per nome serve un accordo nuovo | D266, D292, D302, D327 |
 | Alt | permesso; raccolta ferma (le sue vendite eBay arrivano già da tcgcharts) | D64, D89 |
 | Immagini | TCGdex, CDN della Pokémon TCG API, database ufficiale giapponese; per le carte che non hanno altra immagine, tcgcharts con il permesso di Marek (D298) | D45, D151, D152, D298 |
 | Escluse | Courtyard e marketplace in cassaforte o a pacchetti; prezzi raw | D1, D147 |
@@ -68,18 +68,17 @@ Dettaglio, permessi e rischi in `docs/DATA_SOURCES.md`. Dati grezzi solo nel rep
 | Una vendita è di una carta se il titolo la nomina senza contraddizioni (numero, set, nome, lingua, stampa, voto); più carte possibili = nessuna. Regole e sigle in METHOD §4b ("Titoli inglesi", "Titoli giapponesi"). | D153, D214, D233–D239 |
 | Le vendite che tcgcharts riceve già legate a una carta si tengono salvo contraddizioni. | D258, D259 |
 | Sigle di lingua (ITA, GER, KOR…) e coreane brevi escludono la vendita o l'annuncio. | D160, D239 |
-| Le regole nuove sui titoli entrano solo con una prova registrata. | D214, D216 |
+| Le regole nuove sui titoli che cambiano le vendite di carte già sul sito entrano solo con una prova registrata. Quelle per stampe nuove (che nessuna carta del sito ha ancora) entrano con una misura scritta nella voce: quante vendite tengono e quante ne tolgono alle carte già presenti. | D214, D216, D341 |
 
 ## 6. Il catalogo: chi entra
 
 | Regola in vigore | Da |
 |---|---|
 | Una coda sola (`prototype/data/candidates_queue.json`): richieste dei visitatori (anche tramite Slabby), classifica per capitalizzazione di tcgcharts (prime 2.000 posizioni di tutte le lingue: inglesi, giapponesi e cinesi, D336), stampe giapponesi gemelle e carte solo giapponesi (promo, serie vecchie e, dal D269, espansioni moderne senza gemella). Le carte entrano senza l'ok di Oscar una per una; lui riceve il riepilogo. | D97, D100, D122, D218, D231, D243, D269 |
-| **Soglia d'ingresso**: almeno **10 vendite PSA 7–10 riconosciute in 365 giorni**, su tutte le piattaforme, almeno 5 nello stesso voto; non più del 40% di titoli che contraddicono la carta (D281); poi il controllo del motore sulla carta (R1/E2r), con il motore del sito. | D213, D232, D266 |
+| **Soglia d'ingresso**: almeno **10 vendite PSA 7–10 riconosciute in 365 giorni**, su tutte le piattaforme (per le giapponesi anche SNKRDUNK e Cardova), almeno 5 nello stesso voto (2 voti per le inglesi, 1 per giapponesi e cinesi); non più del 40% di titoli che contraddicono la carta; poi il controllo del motore sulla carta (R1/E2r), con il motore del sito. | D213, D231, D232, D266, D281, D327, D338 |
 | Le carte fermate dal motore si riprovano ogni settimana, 8 per giro. | D157 |
 | Le carte poco scambiate entrano con la frase "poco scambiata: il prezzo segue l'ultima vendita". | D232 |
 | Le ere senza un gruppo proprio nel motore entrano nel più vicino. | D117, D183 |
-| Coerenza dei titoli: in attesa se più del 40% delle vendite dell'anno ha un titolo che contraddice la carta (prima: almeno il 60% riconosciuti). | D266, D281 |
 
 ## 7. Le ere
 
@@ -92,13 +91,13 @@ Dettaglio, permessi e rischi in `docs/DATA_SOURCES.md`. Dati grezzi solo nel rep
 
 | Regola in vigore | Da |
 |---|---|
-| Indici come quelli veri: generale (SlabDex), sei ere, Giappone (SlabJap) e set con almeno 8 carte; pesi uguali, concatenati, panieri rivisti ogni 13 settimane con le voci più scambiate (almeno 6 vendite credibili in 13 settimane), regolamento e componenti sulla pagina. Dettaglio in METHOD §4b. | D38, D136, D142, D203 |
+| Indici come quelli veri: generale (SlabDex), sei ere, Giappone (SlabJap), set con almeno 8 carte, per voto (PSA 10, 9, 8) e per Pokémon (più di 10 carte, 10 voci, al massimo 2 per carta); Cina calcolato ma nascosto (D339). Pesi uguali, concatenati, panieri rivisti ogni 13 settimane con le voci più scambiate (almeno 6 vendite credibili in 13 settimane), regolamento e componenti sulla pagina. Dettaglio in METHOD §4b. | D38, D136, D142, D203, D296, D324, D339 |
 | Paniere: **40 voci** per era e Giappone, 60 per lo SlabDex (10 per era); Giappone con posti uguali per le sue ere; le promo restano fuori dagli indici. | D169, D250, D252, D268 |
 | Calcolati con lo storico lungo, base comune 100. | D121, D149 |
-| **Ricostruito e dal vivo**: fino alla data di partenza decisa da Oscar (`prototype/data/index_live.json`, oggi nessuna) la linea è ricostruita con il catalogo di oggi, a puntini. Dalla partenza le variazioni settimanali si sigillano e non si riscrivono. La partenza è prevista quando le carte seguite coprono il 90% della capitalizzazione delle prime 3.000 di tcgcharts (11 novembre: 62%). | D262, D265, D271 |
+| **Ricostruito e dal vivo**: fino alla partenza (`prototype/data/index_live.json`, oggi nessuna) la linea è ricostruita con il catalogo di oggi, a puntini, a ogni ricostruzione. La partenza viene quando le carte seguite coprono il **100%** della capitalizzazione del perimetro (prime 2.000 posizioni di tutte le lingue, misura in `prototype/data/perimetro.json`; 21 novembre: 80,8%), dopo il giro di prove sugli indici a catalogo completo (§69 e le altre registrate entro allora). Dalla partenza gli indici valgono 100 e le variazioni settimanali si sigillano. | D262, D311, D336, D340 |
 | Ingressi e uscite sul modello degli indici veri: chi entra sposta l'indice solo in avanti; una carta vecchia aggiunta ora entra al ribilanciamento senza attesa; una carta appena uscita dopo l'attesa delle vendite minime; chi perde scambi esce. "Entrata rapida" da provare. | D265 |
 | Margine a 1 mese (±N punti) su ogni indice. | D262 |
-| In prova: indici fatti con un voto solo, PSA 10, 9 o 8 (§59, solo misura); SlabDex a quote, verifica prospettica il 1° febbraio 2027 (§52). | D249, D263, D266 |
+| Da provare a catalogo completo: SlabDex di tutte le lingue (§69), SlabDex a quote (verifica del §52), le ere (§55). | D249, D339, D340, D341 |
 
 ## 9. La pagina della carta e le misure
 
@@ -124,18 +123,17 @@ Dettaglio, permessi e rischi in `docs/DATA_SOURCES.md`. Dati grezzi solo nel rep
 
 | Regola in vigore | Da |
 |---|---|
-| Tutto gira su GitHub Actions (repository pubblico, minuti illimitati) e Cloudflare Pages; un orologio Cloudflare avvia le corse; le corse partono in fila. | D74, D75, D116, D164 |
-| La ricostruzione riparte dall'ultimo stato salvato, con risultato identico al calcolo completo. | D228, D244, D246 |
+| Tutto gira su GitHub Actions (repository pubblico, minuti illimitati) e Cloudflare Pages; un orologio Cloudflare avvia le corse; le corse partono in fila, una sola in attesa per coda, e nessun lavoro ne scavalca un altro in attesa (raccolta, candidate, approvazione, gemelle, immagini prima del giro giapponese successivo). Due ritmi: vendite nuove ogni 6 ore senza motore, conti una volta al giorno. tcgcharts a una richiesta ogni 1,75 secondi. | D74, D75, D116, D164, D315, D323, D325, D328, D330, D333 |
+| La ricostruzione riparte dall'ultimo stato salvato, con risultato identico al calcolo completo; carte nuove e storici nuovi si aggiungono senza ricostruire tutto; ricostruzione completa il 1° del mese. | D228, D244, D246, D286, D326 |
 | Backend leggero: storico e vendite si leggono una carta alla volta da `/api/card/<id>`. | D104 |
 | Privacy: nessuna analitica di terzi né cookie di profilazione; modulo contatti senza email pubblicata; statistiche anonime solo per noi. | D129, D133 |
 | Studio e pacchetto creator dietro password o codici invito; il pacchetto creator si pubblica dopo l'ok di Oscar. | D126, D256 |
 
 ## 12. Aperto, in attesa di Oscar
 
-- Regola dei titoli all'ingresso: 60% riconosciuti oppure quota di titoli che contraddicono (sez. 6).
-- Prova sul ritardo del motore con le regole del D265 (sez. 3).
-- Data di partenza degli indici dal vivo (sez. 8).
-- Immagini delle promo giapponesi dal database ufficiale; spesa per dati giapponesi (PokemonPriceTracker, Scrydex).
+- Prova sul ritardo del motore (sez. 3): nel giro a catalogo completo (D341).
+- Spesa per dati giapponesi (PokemonPriceTracker, Scrydex).
+- Indice Cina: si mostra solo con almeno 10 cinesi con prezzo e dopo il §69.
 - Pagine GemRate da trovare a mano: set PCG9, Machamp Base Set, righe 1st Edition ambigue.
 - Pacchetto creator: badge PNG e ok alla pubblicazione.
 
@@ -219,3 +217,4 @@ Dettaglio, permessi e rischi in `docs/DATA_SOURCES.md`. Dati grezzi solo nel rep
 | D338 | 2026-11-21 | **Le stampe cinesi passano dalle strade delle giapponesi** (D336; Oscar: "per le cinesi facciamo ovviamente catalogo a parte"; "diamo priorità assoluta a ste gemelle e a finire le cinesi"). Id `zh:<set>-<numero>`; coda dei candidati con le stesse regole d'ingresso delle giapponesi (D97, un voto basta come D231); vendite dalla pagina tcgcharts della carta, tenute se il titolo ha un segno di cinese ("chinese", "simplified", 中文, 简体…) oppure il nome di un set stampato solo in cinese ("Collection 151", "Gem Pack"), nessun segno di giapponese, e fuori il cinese tradizionale (stampa diversa), coreano, lotti, sigillati, altri enti; "pack" e "chinese" non escludono come per le giapponesi. Era del motore e del sito dal set (tabella `ZH_SET_ERAS`): Gem Pack, Collection 151, SV-P, Bonus Round, Fearless Terastal → Scarlatto e Violetto; Polychromatic Gathering, Marine Shadow, Dynamax Clash → Spada e Scudo; Shining Synergy, Lillie's gift box → Moderna. Indice proprio "Cina" (fuori dagli indici inglesi come il "Giappone", D142); sezione "Cina" sul sito, didascalia "Stampa cinese". Prova del 21 novembre sulle 23 cinesi delle prime 2.000: 14 pronte (16–247 vendite PSA riconosciute in un anno, quota riconosciuta 99–100%), 9 in attesa di vendite (le Gem Pack: nessuna vendita PSA su tcgcharts). Prima dell'approvazione la regola dei titoli non toccava nessuna carta già sul sito | D97, D142, D231, D336 |
 | D339 | 2026-11-21 | **Indice generale di tutte le lingue, più gli indici per lingua** (Oscar: "il generale diventa generale vero e allo stesso modo di quello giapponese ne avremo uno inglese e uno cinese, se ha senso con queste poche carte"). Proposta: lo SlabDex prende le stampe giapponesi e cinesi nei posti della loro era (D250); l'attuale diventa "SlabDex inglese"; restano l'indice Giappone (SlabJap) e nasce l'indice Cina, pubblicato solo con almeno 10 cinesi con prezzo. Cambia il metodo degli indici (D142, D169, D250): passa dalla prova §69, registrata prima del codice e dei risultati, dopo l'ingresso delle prime cinesi | D142, D169, D250, D265, D338 |
 | D340 | 2026-11-21 | **Le prove sugli indici si fanno tutte insieme a catalogo completo** (Oscar: "siccome non siamo live vanno tutti ricalcolati fin quando il catalogo non è al 100% di quello che vogliamo ottenere, da lì partiranno live… li ricalcoleremo tutti quando tutte le carte saranno dentro e potremo fare prove concrete e magari aggiustarli anche con criteri differenti"). La prova §69 (D339) resta registrata con i suoi criteri ma parte solo quando la copertura del perimetro (D336) è al 100%, insieme alle altre prove sugli indici che si vorranno registrare prima di allora. Fino ad allora gli indici del sito restano ricostruiti con il catalogo del giorno, come oggi (D262), e non sono ancora "dal vivo" | D262, D336, D339 |
+| D341 | 2026-11-21 | **Regole riallineate** (Oscar: "riguarda le ultime regole scritte in generale e vedi se abbiamo incoerenze che ci rallentano il lavoro con quanto scritto più nel passato, se necessario cancellare regole passate va fatto"). Lo stato qui sopra diceva ancora cose superate: partenza degli indici al 90% delle prime 3.000 (ora 100% del perimetro, D336); SNKRDUNK e Cardova "nei prezzi solo dopo una prova" (dentro dal D292); la regola dei titoli all'ingresso e le immagini giapponesi tra le cose aperte (decise, D281, D288); anteprime per ramo obbligatorie (tolte di fatto dal D290). Due regole cambiano davvero: (1) **fase di costruzione**: finché il perimetro non è coperto al 100% non si fanno i giri ricorrenti delle prove né le prove sugli indici; si fanno tutti insieme a catalogo completo (il P12 e il D265 restano per ogni cambiamento al metodo dei prezzi, che passa sempre da una prova); (2) **titoli di stampe nuove**: le regole sui titoli per stampe che nessuna carta del sito ha ancora (cinesi, varianti del D337) entrano con una misura scritta nella voce invece che con una prova registrata; quelle che toccano carte già sul sito passano ancora da una prova. Aggiornati P12 e le sezioni 1, 2, 4, 5, 6, 8, 11 e 12 | D265, D290, D310, D336, D337, D338, D340 |
