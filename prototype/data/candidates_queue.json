@@ -36,7 +36,7 @@
   "name": "Pikachu ☆",
   "set": "Holon Phantoms",
   "no": "104",
-  "rank": 8,
+  "rank": 9,
   "pop10": 119,
   "pop9": 446,
   "n": 17,
@@ -52,7 +52,7 @@
   "name": "Mew ☆ δ",
   "set": "Dragon Frontiers",
   "no": "101",
-  "rank": 10,
+  "rank": 16,
   "pop10": 73,
   "pop9": 481,
   "n": 41,
@@ -68,7 +68,7 @@
   "name": "Charizard",
   "set": "Skyridge",
   "no": "146",
-  "rank": 11,
+  "rank": 21,
   "pop10": 250,
   "pop9": 344,
   "n": 11,
@@ -84,7 +84,7 @@
   "name": "Mewtwo ☆",
   "set": "Holon Phantoms",
   "no": "103",
-  "rank": 19,
+  "rank": 25,
   "pop10": 128,
   "pop9": 305,
   "n": 34,
@@ -116,7 +116,7 @@
   "name": "Gyarados ☆ δ",
   "set": "Holon Phantoms",
   "no": "102",
-  "rank": 32,
+  "rank": 55,
   "pop10": 37,
   "pop9": 188,
   "n": 20,
@@ -132,19 +132,19 @@
   "name": "Espeon ☆",
   "set": "POP Series 5",
   "no": "16",
-  "rank": 23,
+  "rank": 37,
   "pop10": 58,
   "pop9": 156,
   "status": "non_trovata",
   "detail": "",
-  "checked": "2026-11-14"
+  "checked": "2026-11-21"
  },
  "ex6-108": {
   "id": "ex6-108",
   "name": "Gengar ex",
   "set": "FireRed & LeafGreen",
   "no": "108",
-  "rank": 37,
+  "rank": 73,
   "pop10": 105,
   "pop9": 441,
   "n": 60,
@@ -164,7 +164,7 @@
   "name": "Mudkip ☆",
   "set": "Team Rocket Returns",
   "no": "107",
-  "rank": 20,
+  "rank": 30,
   "pop10": 42,
   "pop9": 281,
   "n": 25,
@@ -180,7 +180,7 @@
   "name": "Charizard ex",
   "set": "FireRed & LeafGreen",
   "no": "105",
-  "rank": 43,
+  "rank": 80,
   "pop10": 237,
   "pop9": 693,
   "n": 51,
@@ -200,7 +200,7 @@
   "name": "Umbreon",
   "set": "Skyridge",
   "no": "H30",
-  "rank": 39,
+  "rank": 67,
   "pop10": 129,
   "pop9": 418,
   "n": 27,
@@ -216,7 +216,7 @@
   "name": "Treecko ☆",
   "set": "Team Rocket Returns",
   "no": "109",
-  "rank": 38,
+  "rank": 76,
   "pop10": 53,
   "pop9": 287,
   "n": 22,
@@ -232,19 +232,19 @@
   "name": "Umbreon ☆",
   "set": "POP Series 5",
   "no": "17",
-  "rank": 17,
+  "rank": 31,
   "pop10": 53,
   "pop9": 145,
   "status": "non_trovata",
   "detail": "",
-  "checked": "2026-11-14"
+  "checked": "2026-11-21"
  },
  "xy4-114": {
   "id": "xy4-114",
   "name": "Gengar-EX",
   "set": "Phantom Forces",
   "no": "114",
-  "rank": 90,
+  "rank": 166,
   "pop10": 86,
   "pop9": 557,
   "n": 125,
@@ -264,7 +264,7 @@
   "name": "Rayquaza ex",
   "set": "Dragon",
   "no": "97",
-  "rank": 105,
+  "rank": 194,
   "pop10": 130,
   "pop9": 588,
   "status": "aggiunta",
@@ -280,7 +280,7 @@
   "name": "Giratina VSTAR",
   "set": "Crown Zenith Galarian Gallery",
   "no": "GG69",
-  "rank": 75,
+  "rank": 133,
   "pop10": 24731,
   "pop9": 16294,
   "n": 194,
@@ -300,7 +300,7 @@
   "name": "Gengar",
   "set": "Expedition Base Set",
   "no": "13",
-  "rank": 91,
+  "rank": 167,
   "pop10": 84,
   "pop9": 455,
   "n": 68,
@@ -320,7 +320,7 @@
   "name": "Mewtwo VSTAR",
   "set": "Crown Zenith Galarian Gallery",
   "no": "GG44",
-  "rank": 82,
+  "rank": 149,
   "pop10": 27068,
   "pop9": 17381,
   "n": 204,
@@ -340,7 +340,7 @@
   "name": "Mewtwo",
   "set": "Expedition Base Set",
   "no": "20",
-  "rank": 147,
+  "rank": 259,
   "pop10": 62,
   "pop9": 386,
   "n": 41,
@@ -360,7 +360,7 @@
   "name": "Ho-oh",
   "set": "Skyridge",
   "no": "149",
-  "rank": 94,
+  "rank": 170,
   "pop10": 107,
   "pop9": 319,
   "n": 16,
@@ -376,7 +376,7 @@
   "name": "Charizard ex",
   "set": "Paldean Fates",
   "no": "234",
-  "rank": 83,
+  "rank": 151,
   "pop10": 16580,
   "pop9": 19746,
   "n": 221,
@@ -392,7 +392,7 @@
   "name": "Latias ☆",
   "set": "Deoxys",
   "no": "105",
-  "rank": 92,
+  "rank": 169,
   "pop10": 22,
   "pop9": 175,
   "n": 20,
@@ -408,7 +408,7 @@
   "name": "M Rayquaza-EX",
   "set": "Ancient Origins",
   "no": "98",
-  "rank": 99,
+  "rank": 178,
   "pop10": 845,
   "pop9": 1274,
   "n": 119,
@@ -428,7 +428,7 @@
   "name": "Rayquaza ex",
   "set": "Nintendo Black Star Promos",
   "no": "39",
-  "rank": 145,
+  "rank": 272,
   "pop10": 49,
   "pop9": 316,
   "status": "aggiunta",
@@ -444,7 +444,7 @@
   "name": "Latios ☆",
   "set": "Deoxys",
   "no": "106",
-  "rank": 89,
+  "rank": 163,
   "pop10": 28,
   "pop9": 217,
   "n": 17,
@@ -459,7 +459,7 @@
   "name": "Charizard",
   "set": "Plasma Storm",
   "no": "136",
-  "rank": 118,
+  "rank": 213,
   "pop10": 79,
   "pop9": 752,
   "n": 64,
@@ -475,7 +475,7 @@
   "name": "Charizard",
   "set": "Evolutions",
   "no": "11",
-  "rank": 95,
+  "rank": 173,
   "pop10": 601,
   "pop9": 24290,
   "n": 282,
@@ -495,7 +495,7 @@
   "name": "Umbreon",
   "set": "Aquapolis",
   "no": "H29",
-  "rank": 87,
+  "rank": 158,
   "pop10": 91,
   "pop9": 300,
   "n": 29,
@@ -511,7 +511,7 @@
   "name": "Charizard VSTAR",
   "set": "SWSH Black Star Promos",
   "no": "SWSH262",
-  "rank": 96,
+  "rank": 174,
   "pop10": 9299,
   "pop9": 32320,
   "n": 301,
@@ -531,7 +531,7 @@
   "name": "Dragonite V",
   "set": "Evolving Skies",
   "no": "192",
-  "rank": 98,
+  "rank": 176,
   "pop10": 10865,
   "pop9": 8507,
   "n": 194,
@@ -547,7 +547,7 @@
   "name": "Special Delivery Charizard",
   "set": "SWSH Black Star Promos",
   "no": "SWSH075",
-  "rank": 100,
+  "rank": 179,
   "pop10": 4554,
   "pop9": 18617,
   "n": 267,
@@ -566,7 +566,7 @@
   "name": "Charizard G LV.X",
   "set": "Supreme Victors",
   "no": "143",
-  "rank": 111,
+  "rank": 207,
   "pop10": 118,
   "pop9": 694,
   "n": 97,
@@ -582,7 +582,7 @@
   "name": "Blastoise ex",
   "set": "151",
   "no": "200",
-  "rank": 103,
+  "rank": 185,
   "pop10": 19130,
   "pop9": 32270,
   "n": 301,
@@ -598,7 +598,7 @@
   "name": "Mew ex",
   "set": "Holon Phantoms",
   "no": "100",
-  "rank": 131,
+  "rank": 233,
   "pop10": 60,
   "pop9": 288,
   "n": 37,
@@ -614,7 +614,7 @@
   "name": "Pikachu",
   "set": "XY",
   "no": "42",
-  "rank": 104,
+  "rank": 186,
   "pop10": 22,
   "pop9": 95,
   "n": 3,
@@ -629,7 +629,7 @@
   "name": "Rayquaza V",
   "set": "Evolving Skies",
   "no": "194",
-  "rank": 101,
+  "rank": 181,
   "pop10": 9930,
   "pop9": 6722,
   "n": 200,
@@ -645,7 +645,7 @@
   "name": "Rocket's Mewtwo ex",
   "set": "Team Rocket Returns",
   "no": "99",
-  "rank": 107,
+  "rank": 197,
   "pop10": 84,
   "pop9": 316,
   "n": 36,
@@ -661,7 +661,7 @@
   "name": "Alakazam ☆",
   "set": "Crystal Guardians",
   "no": "99",
-  "rank": 40,
+  "rank": 68,
   "pop10": 82,
   "pop9": 343,
   "status": "aggiunta",
@@ -674,7 +674,7 @@
   "name": "Charizard-GX",
   "set": "Hidden Fates Shiny Vault",
   "no": "SV49",
-  "rank": 44,
+  "rank": 82,
   "pop10": 9781,
   "pop9": 8294,
   "n": 172,
@@ -694,7 +694,7 @@
   "name": "Groudon ☆",
   "set": "Delta Species",
   "no": "111",
-  "rank": 63,
+  "rank": 120,
   "pop10": 74,
   "pop9": 276,
   "n": 22,
@@ -710,7 +710,7 @@
   "name": "Entei ☆",
   "set": "Unseen Forces",
   "no": "113",
-  "rank": 71,
+  "rank": 129,
   "pop10": 300,
   "pop9": 1553,
   "n": 86,
@@ -726,7 +726,7 @@
   "name": "Suicune ☆",
   "set": "Unseen Forces",
   "no": "115",
-  "rank": 50,
+  "rank": 94,
   "pop10": 269,
   "pop9": 1438,
   "n": 70,
@@ -742,7 +742,7 @@
   "name": "Moltres & Zapdos & Articuno-GX",
   "set": "SM Black Star Promos",
   "no": "SM210",
-  "rank": 46,
+  "rank": 92,
   "pop10": 44609,
   "pop9": 27960,
   "n": 193,
@@ -762,7 +762,7 @@
   "name": "Raikou ☆",
   "set": "Unseen Forces",
   "no": "114",
-  "rank": 51,
+  "rank": 98,
   "pop10": 387,
   "pop9": 1503,
   "n": 95,
@@ -778,7 +778,7 @@
   "name": "Mew",
   "set": "Southern Islands",
   "no": "1",
-  "rank": 85,
+  "rank": 156,
   "pop10": 20,
   "pop9": 502,
   "status": "aggiunta",
@@ -794,7 +794,7 @@
   "name": "Flareon ☆",
   "set": "Power Keepers",
   "no": "100",
-  "rank": 67,
+  "rank": 124,
   "pop10": 95,
   "pop9": 420,
   "n": 24,
@@ -810,7 +810,7 @@
   "name": "Rayquaza",
   "set": "Call of Legends",
   "no": "SL10",
-  "rank": 48,
+  "rank": 93,
   "pop10": 23,
   "pop9": 210,
   "n": 35,
@@ -830,7 +830,7 @@
   "name": "Vaporeon ☆",
   "set": "Power Keepers",
   "no": "102",
-  "rank": 41,
+  "rank": 74,
   "pop10": 110,
   "pop9": 448,
   "n": 38,
@@ -846,7 +846,7 @@
   "name": "Gengar & Mimikyu-GX",
   "set": "Team Up",
   "no": "165",
-  "rank": 66,
+  "rank": 106,
   "pop10": 2251,
   "pop9": 1577,
   "n": 129,
@@ -862,7 +862,7 @@
   "name": "Slowking",
   "set": "Southern Islands",
   "no": "14",
-  "rank": 222,
+  "rank": 413,
   "pop10": 54,
   "pop9": 648,
   "status": "aggiunta",
@@ -878,7 +878,7 @@
   "name": "Mega Gengar ex",
   "set": "Ascended Heroes",
   "no": "284",
-  "rank": 59,
+  "rank": 110,
   "pop10": 10832,
   "pop9": 5832,
   "n": 185,
@@ -894,7 +894,7 @@
   "name": "Mewtwo & Mew-GX",
   "set": "SM Black Star Promos",
   "no": "SM191",
-  "rank": 65,
+  "rank": 115,
   "pop10": 10218,
   "pop9": 7392,
   "n": 211,
@@ -914,7 +914,7 @@
   "name": "Kyogre ☆",
   "set": "Delta Species",
   "no": "112",
-  "rank": 62,
+  "rank": 114,
   "pop10": 73,
   "pop9": 286,
   "n": 20,
@@ -930,7 +930,7 @@
   "name": "Team Rocket's Mewtwo ex",
   "set": "Destined Rivals",
   "no": "231",
-  "rank": 68,
+  "rank": 123,
   "pop10": 18071,
   "pop9": 9307,
   "n": 208,
@@ -946,7 +946,7 @@
   "name": "Charizard",
   "set": "Base Set 2",
   "no": "4",
-  "rank": 70,
+  "rank": 127,
   "pop10": 70,
   "pop9": 1401,
   "status": "aggiunta",
@@ -962,7 +962,7 @@
   "name": "Lugia ex",
   "set": "Unseen Forces",
   "no": "105",
-  "rank": 81,
+  "rank": 154,
   "pop10": 71,
   "pop9": 344,
   "n": 34,
@@ -978,7 +978,7 @@
   "name": "Metagross ☆",
   "set": "Delta Species",
   "no": "113",
-  "rank": 76,
+  "rank": 139,
   "pop10": 66,
   "pop9": 290,
   "n": 20,
@@ -994,7 +994,7 @@
   "name": "Pikachu ex",
   "set": "Ascended Heroes",
   "no": "276",
-  "rank": 86,
+  "rank": 155,
   "pop10": 8972,
   "pop9": 5003,
   "n": 193,
@@ -1014,7 +1014,7 @@
   "name": "Jolteon ☆",
   "set": "Power Keepers",
   "no": "101",
-  "rank": 77,
+  "rank": 136,
   "pop10": 92,
   "pop9": 451,
   "n": 35,
@@ -1030,7 +1030,7 @@
   "name": "Dragonite ex",
   "set": "Dragon",
   "no": "90",
-  "rank": 122,
+  "rank": 221,
   "pop10": 127,
   "pop9": 586,
   "n": 68,
@@ -1046,7 +1046,7 @@
   "name": "Mewtwo ex",
   "set": "Ruby & Sapphire",
   "no": "101",
-  "rank": 125,
+  "rank": 226,
   "pop10": 75,
   "pop9": 486,
   "n": 87,
@@ -1062,7 +1062,7 @@
   "name": "Shining Tyranitar",
   "set": "Neo Destiny",
   "no": "113",
-  "rank": 144,
+  "rank": 260,
   "pop10": 262,
   "pop9": 848,
   "n": 51,
@@ -1078,7 +1078,7 @@
   "name": "Rayquaza",
   "set": "Dragons Exalted",
   "no": "128",
-  "rank": 175,
+  "rank": 315,
   "pop10": 33,
   "pop9": 312,
   "n": 42,
@@ -1094,7 +1094,7 @@
   "name": "Pikachu-EX",
   "set": "XY Black Star Promos",
   "no": "XY124",
-  "rank": 114,
+  "rank": 206,
   "pop10": 62,
   "pop9": 613,
   "n": 165,
@@ -1114,7 +1114,7 @@
   "name": "Celebi",
   "set": "Skyridge",
   "no": "145",
-  "rank": 110,
+  "rank": 205,
   "pop10": 218,
   "pop9": 273,
   "n": 18,
@@ -1130,7 +1130,7 @@
   "name": "Regirock ☆",
   "set": "Legend Maker",
   "no": "91",
-  "rank": 187,
+  "rank": 338,
   "pop10": 93,
   "pop9": 277,
   "n": 24,
@@ -1146,7 +1146,7 @@
   "name": "Umbreon & Darkrai-GX",
   "set": "SM Black Star Promos",
   "no": "SM241",
-  "rank": 138,
+  "rank": 243,
   "pop10": 1164,
   "pop9": 6644,
   "n": 219,
@@ -1166,7 +1166,7 @@
   "name": "Charizard",
   "set": "Dragon",
   "no": "100",
-  "rank": 128,
+  "rank": 232,
   "pop10": 163,
   "pop9": 634,
   "status": "aggiunta",
@@ -1182,7 +1182,7 @@
   "name": "Gengar-EX",
   "set": "Phantom Forces",
   "no": "34",
-  "rank": 300,
+  "rank": 550,
   "pop10": 4936,
   "pop9": 2609,
   "n": 264,
@@ -1198,7 +1198,7 @@
   "name": "Mew ex",
   "set": "Scarlet & Violet Black Star Promos",
   "no": "53",
-  "rank": 120,
+  "rank": 217,
   "pop10": 11151,
   "pop9": 33847,
   "status": "aggiunta",
@@ -1214,7 +1214,7 @@
   "name": "Registeel ☆",
   "set": "Legend Maker",
   "no": "92",
-  "rank": 117,
+  "rank": 210,
   "pop10": 74,
   "pop9": 327,
   "n": 28,
@@ -1230,7 +1230,7 @@
   "name": "Magikarp & Wailord-GX",
   "set": "Team Up",
   "no": "161",
-  "rank": 129,
+  "rank": 228,
   "pop10": 2332,
   "pop9": 1286,
   "n": 89,
@@ -1250,7 +1250,7 @@
   "name": "Pikachu & Zekrom-GX",
   "set": "SM Black Star Promos",
   "no": "SM168",
-  "rank": 130,
+  "rank": 231,
   "pop10": 5694,
   "pop9": 6373,
   "n": 215,
@@ -1270,7 +1270,7 @@
   "name": "Nidoking",
   "set": "Aquapolis",
   "no": "150",
-  "rank": 141,
+  "rank": 250,
   "pop10": 112,
   "pop9": 468,
   "n": 36,
@@ -1286,7 +1286,7 @@
   "name": "Umbreon",
   "set": "Neo Discovery",
   "no": "13",
-  "rank": 124,
+  "rank": 224,
   "pop10": 112,
   "pop9": 995,
   "n": 118,
@@ -1302,7 +1302,7 @@
   "name": "Charizard V",
   "set": "Champion's Path",
   "no": "79",
-  "rank": 136,
+  "rank": 241,
   "pop10": 18536,
   "pop9": 8066,
   "n": 168,
@@ -1318,7 +1318,7 @@
   "name": "Mew",
   "set": "Expedition Base Set",
   "no": "19",
-  "rank": 57,
+  "rank": 104,
   "pop10": 27,
   "pop9": 236,
   "n": 48,
@@ -1337,7 +1337,7 @@
   "name": "Lugia",
   "set": "Call of Legends",
   "no": "SL7",
-  "rank": 143,
+  "rank": 256,
   "pop10": 19,
   "pop9": 210,
   "n": 36,
@@ -1357,7 +1357,7 @@
   "name": "Mew-EX",
   "set": "Legendary Treasures",
   "no": "RC24",
-  "rank": 119,
+  "rank": 212,
   "pop10": 158,
   "pop9": 1169,
   "n": 170,
@@ -1377,7 +1377,7 @@
   "name": "Gengar LV.X",
   "set": "Arceus",
   "no": "97",
-  "rank": 160,
+  "rank": 290,
   "pop10": 46,
   "pop9": 345,
   "n": 98,
@@ -1393,7 +1393,7 @@
   "name": "Tyranitar",
   "set": "Aquapolis",
   "no": "H28",
-  "rank": 201,
+  "rank": 360,
   "pop10": 116,
   "pop9": 311,
   "n": 29,
@@ -1409,7 +1409,7 @@
   "name": "Special Delivery Pikachu",
   "set": "SWSH Black Star Promos",
   "no": "SWSH074",
-  "rank": 148,
+  "rank": 262,
   "pop10": 1420,
   "pop9": 8429,
   "n": 156,
@@ -1429,7 +1429,7 @@
   "name": "Dragonite",
   "set": "Expedition Base Set",
   "no": "9",
-  "rank": 80,
+  "rank": 141,
   "pop10": 36,
   "pop9": 347,
   "n": 71,
@@ -1449,7 +1449,7 @@
   "name": "M Charizard-EX",
   "set": "Evolutions",
   "no": "101",
-  "rank": 133,
+  "rank": 236,
   "pop10": 13525,
   "pop9": 13452,
   "n": 240,
@@ -1469,7 +1469,7 @@
   "name": "Sylveon VMAX",
   "set": "Evolving Skies",
   "no": "212",
-  "rank": 150,
+  "rank": 270,
   "pop10": 14484,
   "pop9": 4354,
   "n": 131,
@@ -1485,7 +1485,7 @@
   "name": "Dialga-EX",
   "set": "Phantom Forces",
   "no": "122",
-  "rank": 140,
+  "rank": 274,
   "pop10": 55,
   "pop9": 442,
   "n": 52,
@@ -1505,7 +1505,7 @@
   "name": "Charizard-EX",
   "set": "XY Black Star Promos",
   "no": "XY121",
-  "rank": 153,
+  "rank": 277,
   "pop10": 410,
   "pop9": 2379,
   "n": 210,
@@ -1525,7 +1525,7 @@
   "name": "Venusaur ex",
   "set": "151",
   "no": "198",
-  "rank": 149,
+  "rank": 268,
   "pop10": 16499,
   "pop9": 29131,
   "n": 257,
@@ -1541,7 +1541,7 @@
   "name": "Gyarados-EX",
   "set": "BREAKpoint",
   "no": "123",
-  "rank": 142,
+  "rank": 247,
   "pop10": 1517,
   "pop9": 2955,
   "n": 194,
@@ -1557,7 +1557,7 @@
   "name": "Espeon VMAX",
   "set": "Fusion Strike",
   "no": "270",
-  "rank": 139,
+  "rank": 244,
   "pop10": 12828,
   "pop9": 6818,
   "n": 168,
@@ -1637,7 +1637,7 @@
   "name": "Mew",
   "set": "Wizards Black Star Promos",
   "no": "9",
-  "rank": 183,
+  "rank": 335,
   "pop10": 289,
   "pop9": 3384,
   "n": 252,
@@ -1657,7 +1657,7 @@
   "name": "Charizard-GX",
   "set": "Burning Shadows",
   "no": "150",
-  "rank": 188,
+  "rank": 339,
   "pop10": 835,
   "pop9": 2483,
   "n": 93,
@@ -1673,7 +1673,7 @@
   "name": "Kabutops",
   "set": "Skyridge",
   "no": "150",
-  "rank": 292,
+  "rank": 544,
   "pop10": 224,
   "pop9": 424,
   "n": 31,
@@ -1689,7 +1689,7 @@
   "name": "Charizard VMAX",
   "set": "Shining Fates Shiny Vault",
   "no": "SV107",
-  "rank": 135,
+  "rank": 239,
   "pop10": 36964,
   "pop9": 9728,
   "n": 180,
@@ -1709,7 +1709,7 @@
   "name": "Pikachu",
   "set": "Cosmic Eclipse",
   "no": "241",
-  "rank": 159,
+  "rank": 288,
   "pop10": 3744,
   "pop9": 8414,
   "n": 247,
@@ -1725,7 +1725,7 @@
   "name": "Arceus VSTAR",
   "set": "Crown Zenith Galarian Gallery",
   "no": "GG70",
-  "rank": 156,
+  "rank": 283,
   "pop10": 20865,
   "pop9": 12484,
   "n": 190,
@@ -1745,7 +1745,7 @@
   "name": "Zekrom ex",
   "set": "Black Bolt",
   "no": "172",
-  "rank": 146,
+  "rank": 258,
   "pop10": 6614,
   "pop9": 5623,
   "n": 194,
@@ -1761,7 +1761,7 @@
   "name": "Charmander",
   "set": "Scarlet & Violet Black Star Promos",
   "no": "44",
-  "rank": 158,
+  "rank": 284,
   "pop10": 11218,
   "pop9": 23894,
   "status": "aggiunta",
@@ -1777,7 +1777,7 @@
   "name": "Charizard",
   "set": "Stormfront",
   "no": "103",
-  "rank": 263,
+  "rank": 477,
   "pop10": 49,
   "pop9": 502,
   "n": 60,
@@ -1793,7 +1793,7 @@
   "name": "Alakazam-EX",
   "set": "Fates Collide",
   "no": "125",
-  "rank": 185,
+  "rank": 337,
   "pop10": 794,
   "pop9": 2834,
   "n": 233,
@@ -1829,7 +1829,7 @@
   "name": "Gyarados",
   "set": "Skyridge",
   "no": "H10",
-  "rank": 154,
+  "rank": 280,
   "pop10": 137,
   "pop9": 355,
   "n": 35,
@@ -1845,7 +1845,7 @@
   "name": "Mew ex",
   "set": "Legend Maker",
   "no": "88",
-  "rank": 198,
+  "rank": 357,
   "pop10": 77,
   "pop9": 269,
   "n": 32,
@@ -1861,7 +1861,7 @@
   "name": "Charizard",
   "set": "Expedition Base Set",
   "no": "6",
-  "rank": 73,
+  "rank": 132,
   "pop10": 45,
   "pop9": 459,
   "n": 61,
@@ -1881,7 +1881,7 @@
   "name": "Charizard VMAX",
   "set": "Champion's Path",
   "no": "74",
-  "rank": 164,
+  "rank": 296,
   "pop10": 20945,
   "pop9": 7692,
   "n": 140,
@@ -1897,7 +1897,7 @@
   "name": "Gengar & Mimikyu-GX",
   "set": "Team Up",
   "no": "53",
-  "rank": 157,
+  "rank": 285,
   "pop10": 2657,
   "pop9": 3612,
   "n": 202,
@@ -1913,7 +1913,7 @@
   "name": "Snorlax LV.X",
   "set": "Rising Rivals",
   "no": "111",
-  "rank": 316,
+  "rank": 575,
   "pop10": 25,
   "pop9": 159,
   "n": 15,
@@ -1929,7 +1929,7 @@
   "name": "Team Magma's Groudon-EX",
   "set": "Double Crisis",
   "no": "15",
-  "rank": 193,
+  "rank": 351,
   "pop10": 19,
   "pop9": 241,
   "n": 68,
@@ -1949,7 +1949,7 @@
   "name": "Rocket's Snorlax ex",
   "set": "Team Rocket Returns",
   "no": "104",
-  "rank": 55,
+  "rank": 103,
   "pop10": 109,
   "pop9": 333,
   "n": 22,
@@ -1965,7 +1965,7 @@
   "name": "Mega Charizard X ex",
   "set": "Phantasmal Flames",
   "no": "130",
-  "rank": 179,
+  "rank": 326,
   "pop10": 2055,
   "pop9": 11561,
   "n": 236,
@@ -1985,7 +1985,7 @@
   "name": "Gardevoir & Sylveon-GX",
   "set": "Unbroken Bonds",
   "no": "205",
-  "rank": 174,
+  "rank": 314,
   "pop10": 1925,
   "pop9": 1634,
   "n": 110,
@@ -2005,7 +2005,7 @@
   "name": "Sabrina's Gengar",
   "set": "Gym Heroes",
   "no": "14",
-  "rank": 161,
+  "rank": 294,
   "pop10": 34,
   "pop9": 779,
   "n": 154,
@@ -2021,7 +2021,7 @@
   "name": "Arceus & Dialga & Palkia-GX",
   "set": "Cosmic Eclipse",
   "no": "221",
-  "rank": 172,
+  "rank": 320,
   "pop10": 1731,
   "pop9": 2014,
   "n": 105,
@@ -2041,7 +2041,7 @@
   "name": "Umbreon",
   "set": "BW Black Star Promos",
   "no": "BW93",
-  "rank": 216,
+  "rank": 401,
   "pop10": 14,
   "pop9": 211,
   "n": 61,
@@ -2061,7 +2061,7 @@
   "name": "Greninja ☆",
   "set": "SWSH Black Star Promos",
   "no": "SWSH144",
-  "rank": 186,
+  "rank": 341,
   "pop10": 3076,
   "pop9": 23063,
   "n": 353,
@@ -2081,7 +2081,7 @@
   "name": "Mega Dragonite ex",
   "set": "Ascended Heroes",
   "no": "290",
-  "rank": 176,
+  "rank": 316,
   "pop10": 7534,
   "pop9": 3959,
   "n": 205,
@@ -2097,7 +2097,7 @@
   "name": "Charizard VMAX",
   "set": "SWSH Black Star Promos",
   "no": "SWSH261",
-  "rank": 180,
+  "rank": 327,
   "pop10": 9942,
   "pop9": 25121,
   "n": 303,
@@ -2117,7 +2117,7 @@
   "name": "Regice ☆",
   "set": "Legend Maker",
   "no": "90",
-  "rank": 127,
+  "rank": 227,
   "pop10": 59,
   "pop9": 268,
   "n": 24,
@@ -2132,7 +2132,7 @@
   "name": "Golem",
   "set": "Skyridge",
   "no": "148",
-  "rank": 219,
+  "rank": 429,
   "pop10": 258,
   "pop9": 396,
   "n": 31,
@@ -2148,7 +2148,7 @@
   "name": "Pikachu",
   "set": "Crown Zenith",
   "no": "160",
-  "rank": 177,
+  "rank": 318,
   "pop10": 33619,
   "pop9": 24853,
   "n": 227,
@@ -2164,7 +2164,7 @@
   "name": "Umbreon ex",
   "set": "Unseen Forces",
   "no": "112",
-  "rank": 97,
+  "rank": 175,
   "pop10": 46,
   "pop9": 261,
   "n": 28,
@@ -2180,7 +2180,7 @@
   "name": "_____'s Pikachu",
   "set": "Wizards Black Star Promos",
   "no": "24",
-  "rank": 151,
+  "rank": 273,
   "pop10": 148,
   "pop9": 2009,
   "status": "non_trovata",
@@ -2192,7 +2192,7 @@
   "name": "Rayquaza ex",
   "set": "Deoxys",
   "no": "102",
-  "rank": 211,
+  "rank": 393,
   "pop10": 41,
   "pop9": 235,
   "n": 45,
@@ -2208,7 +2208,7 @@
   "name": "Lugia",
   "set": "Call of Legends",
   "no": "15",
-  "rank": 289,
+  "rank": 527,
   "pop10": 13,
   "pop9": 140,
   "n": 75,
@@ -2228,7 +2228,7 @@
   "name": "Lugia-EX",
   "set": "Ancient Origins",
   "no": "94",
-  "rank": 297,
+  "rank": 555,
   "pop10": 497,
   "pop9": 995,
   "n": 137,
@@ -2244,7 +2244,7 @@
   "name": "Charizard-EX",
   "set": "Flashfire",
   "no": "100",
-  "rank": 204,
+  "rank": 368,
   "pop10": 184,
   "pop9": 1016,
   "n": 95,
@@ -2260,7 +2260,7 @@
   "name": "Shining Magikarp",
   "set": "Neo Revelation",
   "no": "66",
-  "rank": 196,
+  "rank": 354,
   "pop10": 67,
   "pop9": 877,
   "n": 81,
@@ -2276,7 +2276,7 @@
   "name": "Lugia-EX",
   "set": "Plasma Storm",
   "no": "134",
-  "rank": 240,
+  "rank": 454,
   "pop10": 21,
   "pop9": 294,
   "n": 113,
@@ -2296,7 +2296,7 @@
   "name": "Blastoise",
   "set": "Expedition Base Set",
   "no": "4",
-  "rank": 262,
+  "rank": 489,
   "pop10": 89,
   "pop9": 365,
   "n": 43,
@@ -2316,7 +2316,7 @@
   "name": "Ho-Oh",
   "set": "Call of Legends",
   "no": "SL5",
-  "rank": 189,
+  "rank": 342,
   "pop10": 26,
   "pop9": 176,
   "n": 29,
@@ -2464,7 +2464,7 @@
   "name": "Armored Mewtwo",
   "set": "SM Black Star Promos",
   "no": "SM228",
-  "rank": 278,
+  "rank": 507,
   "pop10": 303,
   "pop9": 1838,
   "n": 131,
@@ -2484,7 +2484,7 @@
   "name": "Mew",
   "set": "Crown Zenith Galarian Gallery",
   "no": "GG10",
-  "rank": 208,
+  "rank": 378,
   "pop10": 7722,
   "pop9": 15374,
   "n": 241,
@@ -2504,7 +2504,7 @@
   "name": "Flareon-EX",
   "set": "Generations",
   "no": "RC28",
-  "rank": 223,
+  "rank": 410,
   "pop10": 310,
   "pop9": 2254,
   "n": 199,
@@ -2520,7 +2520,7 @@
   "name": "Suicune ex",
   "set": "Team Magma vs Team Aqua",
   "no": "94",
-  "rank": 165,
+  "rank": 297,
   "pop10": 49,
   "pop9": 279,
   "n": 35,
@@ -2536,7 +2536,7 @@
   "name": "Team Aqua's Kyogre-EX",
   "set": "Double Crisis",
   "no": "6",
-  "rank": 220,
+  "rank": 409,
   "pop10": 11,
   "pop9": 232,
   "n": 65,
@@ -2552,7 +2552,7 @@
   "name": "Rayquaza C LV.X",
   "set": "Supreme Victors",
   "no": "146",
-  "rank": 317,
+  "rank": 576,
   "pop10": 45,
   "pop9": 288,
   "n": 52,
@@ -2819,7 +2819,7 @@
   "name": "Charizard",
   "set": "Legendary Treasures",
   "no": "19",
-  "rank": 459,
+  "rank": 835,
   "pop10": 182,
   "pop9": 854,
   "fill": "Nero e Bianco",
@@ -4172,7 +4172,7 @@
   "name": "Gengar",
   "set": "Skyridge",
   "no": "H9",
-  "rank": 26,
+  "rank": 44,
   "pop10": 100,
   "pop9": 349,
   "status": "aggiunta",
@@ -4188,7 +4188,7 @@
   "name": "Umbreon",
   "set": "HS—Undaunted",
   "no": "86",
-  "rank": 93,
+  "rank": 159,
   "pop10": 83,
   "pop9": 821,
   "n": 156,
@@ -4204,7 +4204,7 @@
   "name": "Gengar",
   "set": "HS—Triumphant",
   "no": "94",
-  "rank": 106,
+  "rank": 191,
   "pop10": 160,
   "pop9": 952,
   "n": 90,
@@ -4220,7 +4220,7 @@
   "name": "Espeon",
   "set": "HS—Undaunted",
   "no": "81",
-  "rank": 206,
+  "rank": 366,
   "pop10": 54,
   "pop9": 605,
   "n": 118,
@@ -4236,7 +4236,7 @@
   "name": "Mew",
   "set": "HS—Triumphant",
   "no": "97",
-  "rank": 173,
+  "rank": 317,
   "pop10": 154,
   "pop9": 742,
   "n": 116,
@@ -4252,7 +4252,7 @@
   "name": "Pikachu",
   "set": "Pokémon Rumble",
   "no": "7",
-  "rank": 182,
+  "rank": 334,
   "pop10": 21,
   "pop9": 151,
   "status": "pronta",
@@ -4267,7 +4267,7 @@
   "name": "Sylveon ex",
   "set": "Prismatic Evolutions",
   "no": "156",
-  "rank": 205,
+  "rank": 373,
   "pop10": 4327,
   "pop9": 7403,
   "n": 201,
@@ -4283,7 +4283,7 @@
   "name": "Zapdos ex",
   "set": "151",
   "no": "202",
-  "rank": 207,
+  "rank": 391,
   "pop10": 14354,
   "pop9": 25200,
   "n": 255,
@@ -4299,7 +4299,7 @@
   "name": "Reshiram ex",
   "set": "White Flare",
   "no": "173",
-  "rank": 191,
+  "rank": 346,
   "pop10": 7109,
   "pop9": 4260,
   "n": 191,
@@ -4315,7 +4315,7 @@
   "name": "Leafeon VMAX",
   "set": "Evolving Skies",
   "no": "205",
-  "rank": 192,
+  "rank": 348,
   "pop10": 11575,
   "pop9": 3370,
   "n": 126,
@@ -4331,7 +4331,7 @@
   "name": "Eevee & Snorlax-GX",
   "set": "SM Black Star Promos",
   "no": "SM169",
-  "rank": 227,
+  "rank": 421,
   "pop10": 4544,
   "pop9": 5157,
   "n": 275,
@@ -4351,7 +4351,7 @@
   "name": "Blaine's Charizard",
   "set": "Gym Challenge",
   "no": "2",
-  "rank": 203,
+  "rank": 364,
   "pop10": 172,
   "pop9": 1615,
   "n": 131,
@@ -4367,7 +4367,7 @@
   "name": "Espeon ex",
   "set": "Unseen Forces",
   "no": "102",
-  "rank": 152,
+  "rank": 276,
   "pop10": 45,
   "pop9": 254,
   "n": 30,
@@ -4382,7 +4382,7 @@
   "name": "Celebi",
   "set": "HS—Triumphant",
   "no": "92",
-  "rank": 483,
+  "rank": 894,
   "pop10": 123,
   "pop9": 602,
   "n": 121,
@@ -4398,7 +4398,7 @@
   "name": "Charizard δ",
   "set": "Crystal Guardians",
   "no": "4",
-  "rank": 162,
+  "rank": 291,
   "pop10": 79,
   "pop9": 693,
   "n": 91,
@@ -4414,7 +4414,7 @@
   "name": "Espeon",
   "set": "Aquapolis",
   "no": "H9",
-  "rank": 261,
+  "rank": 500,
   "pop10": 105,
   "pop9": 295,
   "status": "aggiunta",
@@ -4430,7 +4430,7 @@
   "name": "Umbreon-EX",
   "set": "Fates Collide",
   "no": "119",
-  "rank": 277,
+  "rank": 508,
   "pop10": 718,
   "pop9": 1821,
   "n": 168,
@@ -4446,7 +4446,7 @@
   "name": "Charizard",
   "set": "Secret Wonders",
   "no": "3",
-  "rank": 221,
+  "rank": 408,
   "pop10": 51,
   "pop9": 377,
   "n": 66,
@@ -4462,7 +4462,7 @@
   "name": "Garchomp LV.X",
   "set": "Majestic Dawn",
   "no": "97",
-  "rank": 226,
+  "rank": 419,
   "pop10": 7,
   "pop9": 79,
   "n": 28,
@@ -4478,7 +4478,7 @@
   "name": "Mewtwo",
   "set": "Scarlet & Violet Black Star Promos",
   "no": "52",
-  "rank": 229,
+  "rank": 437,
   "pop10": 8571,
   "pop9": 19501,
   "status": "aggiunta",
@@ -4494,7 +4494,7 @@
   "name": "Greninja ex",
   "set": "Scarlet & Violet Black Star Promos",
   "no": "132",
-  "rank": 212,
+  "rank": 394,
   "pop10": 14985,
   "pop9": 19681,
   "status": "aggiunta",
@@ -4510,7 +4510,7 @@
   "name": "Eevee",
   "set": "Wizards Black Star Promos",
   "no": "11",
-  "rank": 199,
+  "rank": 359,
   "pop10": 31,
   "pop9": 1749,
   "n": 179,
@@ -4530,7 +4530,7 @@
   "name": "Shining Mew",
   "set": "Shining Legends",
   "no": "40",
-  "rank": 230,
+  "rank": 426,
   "pop10": 3442,
   "pop9": 6037,
   "n": 193,
@@ -4546,7 +4546,7 @@
   "name": "Tyranitar",
   "set": "Expedition Base Set",
   "no": "29",
-  "rank": 234,
+  "rank": 430,
   "pop10": 73,
   "pop9": 396,
   "n": 63,
@@ -4565,7 +4565,7 @@
   "name": "Glaceon LV.X",
   "set": "Majestic Dawn",
   "no": "98",
-  "rank": 242,
+  "rank": 441,
   "pop10": 10,
   "pop9": 98,
   "n": 41,
@@ -4581,7 +4581,7 @@
   "name": "Charizard V",
   "set": "SWSH Black Star Promos",
   "no": "SWSH260",
-  "rank": 215,
+  "rank": 388,
   "pop10": 7724,
   "pop9": 24761,
   "n": 296,
@@ -4601,7 +4601,7 @@
   "name": "Zekrom",
   "set": "Black & White",
   "no": "114",
-  "rank": 490,
+  "rank": 914,
   "pop10": 281,
   "pop9": 1251,
   "n": 78,
@@ -4617,7 +4617,7 @@
   "name": "Latios ex",
   "set": "Dragon",
   "no": "94",
-  "rank": 275,
+  "rank": 518,
   "pop10": 79,
   "pop9": 394,
   "n": 47,
@@ -4633,7 +4633,7 @@
   "name": "Alakazam",
   "set": "Skyridge",
   "no": "H1",
-  "rank": 181,
+  "rank": 330,
   "pop10": 155,
   "pop9": 294,
   "status": "aggiunta",
@@ -4649,7 +4649,7 @@
   "name": "Charizard V",
   "set": "SWSH Black Star Promos",
   "no": "SWSH050",
-  "rank": 272,
+  "rank": 501,
   "pop10": 51409,
   "pop9": 31559,
   "n": 244,
@@ -4669,7 +4669,7 @@
   "name": "Umbreon-GX",
   "set": "Hidden Fates Shiny Vault",
   "no": "SV69",
-  "rank": 256,
+  "rank": 468,
   "pop10": 7191,
   "pop9": 5431,
   "n": 231,
@@ -4689,7 +4689,7 @@
   "name": "Tyranitar V",
   "set": "Battle Styles",
   "no": "155",
-  "rank": 251,
+  "rank": 462,
   "pop10": 7204,
   "pop9": 5668,
   "n": 165,
@@ -4705,7 +4705,7 @@
   "name": "Mew",
   "set": "XY Black Star Promos",
   "no": "XY110",
-  "rank": 228,
+  "rank": 424,
   "pop10": 160,
   "pop9": 1047,
   "n": 115,
@@ -4725,7 +4725,7 @@
   "name": "Squirtle",
   "set": "Stellar Crown",
   "no": "148",
-  "rank": 225,
+  "rank": 414,
   "pop10": 14217,
   "pop9": 20317,
   "n": 215,
@@ -4741,7 +4741,7 @@
   "name": "Glaceon VMAX",
   "set": "Evolving Skies",
   "no": "209",
-  "rank": 247,
+  "rank": 457,
   "pop10": 11193,
   "pop9": 3522,
   "n": 129,
@@ -4757,7 +4757,7 @@
   "name": "Darkrai",
   "set": "BW Black Star Promos",
   "no": "BW73",
-  "rank": 314,
+  "rank": 566,
   "pop10": 33,
   "pop9": 279,
   "n": 88,
@@ -4777,7 +4777,7 @@
   "name": "Kingdra ex",
   "set": "Scarlet & Violet Black Star Promos",
   "no": "131",
-  "rank": 245,
+  "rank": 449,
   "pop10": 18781,
   "pop9": 15946,
   "status": "aggiunta",
@@ -4793,7 +4793,7 @@
   "name": "Flareon",
   "set": "Skyridge",
   "no": "H7",
-  "rank": 348,
+  "rank": 627,
   "pop10": 103,
   "pop9": 328,
   "status": "aggiunta",
@@ -4809,7 +4809,7 @@
   "name": "Groudon ex",
   "set": "Nintendo Black Star Promos",
   "no": "38",
-  "rank": 338,
+  "rank": 618,
   "pop10": 38,
   "pop9": 200,
   "status": "pronta",
@@ -4824,7 +4824,7 @@
   "name": "Mew",
   "set": "Nintendo Black Star Promos",
   "no": "40",
-  "rank": 368,
+  "rank": 668,
   "pop10": 27,
   "pop9": 147,
   "status": "pronta",
@@ -4839,7 +4839,7 @@
   "name": "Dialga",
   "set": "Call of Legends",
   "no": "SL2",
-  "rank": 364,
+  "rank": 645,
   "pop10": 20,
   "pop9": 141,
   "n": 26,
@@ -4859,7 +4859,7 @@
   "name": "Gengar",
   "set": "Legend Maker",
   "no": "5",
-  "rank": 417,
+  "rank": 756,
   "pop10": 76,
   "pop9": 453,
   "n": 100,
@@ -4874,7 +4874,7 @@
   "name": "Pikachu",
   "set": "Nintendo Black Star Promos",
   "no": "12",
-  "rank": 339,
+  "rank": 634,
   "pop10": 404,
   "pop9": 1175,
   "status": "aggiunta",
@@ -4890,7 +4890,7 @@
   "name": "Venusaur ex",
   "set": "FireRed & LeafGreen",
   "no": "112",
-  "rank": 461,
+  "rank": 833,
   "pop10": 181,
   "pop9": 483,
   "n": 44,
@@ -4910,7 +4910,7 @@
   "name": "Gardevoir ex",
   "set": "Paldean Fates",
   "no": "233",
-  "rank": 346,
+  "rank": 592,
   "pop10": 9541,
   "pop9": 10840,
   "n": 196,
@@ -4941,7 +4941,7 @@
   "name": "Houndoom",
   "set": "Skyridge",
   "no": "H11",
-  "rank": 350,
+  "rank": 631,
   "pop10": 74,
   "pop9": 315,
   "n": 32,
@@ -4957,7 +4957,7 @@
   "name": "Articuno ex",
   "set": "FireRed & LeafGreen",
   "no": "114",
-  "rank": 496,
+  "rank": 907,
   "pop10": 218,
   "pop9": 378,
   "n": 27,
@@ -4976,7 +4976,7 @@
   "name": "Slowking",
   "set": "Aquapolis",
   "no": "H22",
-  "rank": 428,
+  "rank": 775,
   "pop10": 54,
   "pop9": 211,
   "n": 32,
@@ -4992,7 +4992,7 @@
   "name": "Arcanine ex",
   "set": "Legend Maker",
   "no": "83",
-  "rank": 414,
+  "rank": 742,
   "pop10": 76,
   "pop9": 305,
   "n": 24,
@@ -5007,7 +5007,7 @@
   "name": "Mega Charizard Y ex",
   "set": "Ascended Heroes",
   "no": "294",
-  "rank": 383,
+  "rank": 689,
   "pop10": 1606,
   "pop9": 4417,
   "n": 248,
@@ -5027,7 +5027,7 @@
   "name": "Lucky Stadium",
   "set": "Wizards Black Star Promos",
   "no": "41",
-  "rank": 361,
+  "rank": 648,
   "pop10": 209,
   "pop9": 427,
   "n": 31,
@@ -5047,7 +5047,7 @@
   "name": "Espeon V",
   "set": "Evolving Skies",
   "no": "180",
-  "rank": 357,
+  "rank": 638,
   "pop10": 6993,
   "pop9": 4958,
   "n": 140,
@@ -5063,7 +5063,7 @@
   "name": "Mew",
   "set": "Celebrations",
   "no": "25",
-  "rank": 378,
+  "rank": 673,
   "pop10": 17819,
   "pop9": 12969,
   "n": 403,
@@ -5083,7 +5083,7 @@
   "name": "Mewtwo-EX",
   "set": "Evolutions",
   "no": "103",
-  "rank": 347,
+  "rank": 626,
   "pop10": 3303,
   "pop9": 5848,
   "n": 266,
@@ -5103,7 +5103,7 @@
   "name": "Snorlax",
   "set": "Scarlet & Violet Black Star Promos",
   "no": "51",
-  "rank": 391,
+  "rank": 708,
   "pop10": 11806,
   "pop9": 22411,
   "status": "aggiunta",
@@ -5119,7 +5119,7 @@
   "name": "Raichu ex",
   "set": "Sandstorm",
   "no": "98",
-  "rank": 384,
+  "rank": 697,
   "pop10": 106,
   "pop9": 478,
   "n": 57,
@@ -5135,7 +5135,7 @@
   "name": "Umbreon",
   "set": "Call of Legends",
   "no": "22",
-  "rank": 341,
+  "rank": 607,
   "pop10": 22,
   "pop9": 224,
   "n": 61,
@@ -5171,7 +5171,7 @@
   "name": "Entei",
   "set": "Wizards Black Star Promos",
   "no": "34",
-  "rank": 380,
+  "rank": 680,
   "pop10": 1034,
   "pop9": 8632,
   "n": 172,
@@ -5190,7 +5190,7 @@
   "name": "Charmeleon",
   "set": "151",
   "no": "169",
-  "rank": 329,
+  "rank": 586,
   "pop10": 7723,
   "pop9": 18132,
   "n": 246,
@@ -5206,7 +5206,7 @@
   "name": "Blastoise",
   "set": "Plasma Storm",
   "no": "137",
-  "rank": 506,
+  "rank": 923,
   "pop10": 46,
   "pop9": 408,
   "n": 32,
@@ -5222,7 +5222,7 @@
   "name": "Rocket's Raikou ex",
   "set": "Deoxys",
   "no": "108",
-  "rank": 358,
+  "rank": 623,
   "pop10": 77,
   "pop9": 381,
   "n": 64,
@@ -5238,7 +5238,7 @@
   "name": "Dragonite",
   "set": "Wizards Black Star Promos",
   "no": "5",
-  "rank": 365,
+  "rank": 656,
   "pop10": 1167,
   "pop9": 3924,
   "n": 71,
@@ -5258,7 +5258,7 @@
   "name": "Charizard VMAX",
   "set": "Darkness Ablaze",
   "no": "20",
-  "rank": 371,
+  "rank": 660,
   "pop10": 24129,
   "pop9": 7266,
   "n": 184,
@@ -5274,7 +5274,7 @@
   "name": "Mewtwo",
   "set": "Pokémon Rumble",
   "no": "9",
-  "rank": 405,
+  "rank": 727,
   "pop10": 26,
   "pop9": 128,
   "status": "pronta",
@@ -5289,7 +5289,7 @@
   "name": "Shining Kabutops",
   "set": "Neo Destiny",
   "no": "108",
-  "rank": 385,
+  "rank": 691,
   "pop10": 329,
   "pop9": 834,
   "n": 43,
@@ -5398,7 +5398,7 @@
   "name": "Gyarados",
   "set": "HeartGold & SoulSilver",
   "no": "123",
-  "rank": 500,
+  "rank": 920,
   "pop10": 12,
   "pop9": 122,
   "fill": "HeartGold SoulSilver",
@@ -5944,7 +5944,7 @@
   "name": "Charizard",
   "set": "Power Keepers",
   "no": "6",
-  "rank": 345,
+  "rank": 636,
   "pop10": 151,
   "pop9": 700,
   "n": 82,
@@ -5960,7 +5960,7 @@
   "name": "Espeon & Deoxys-GX",
   "set": "SM Black Star Promos",
   "no": "SM240",
-  "rank": 239,
+  "rank": 444,
   "pop10": 957,
   "pop9": 5413,
   "n": 202,
@@ -5980,7 +5980,7 @@
   "name": "Rayquaza VMAX",
   "set": "Silver Tempest Trainer Gallery",
   "no": "TG20",
-  "rank": 237,
+  "rank": 438,
   "pop10": 17816,
   "pop9": 4559,
   "n": 425,
@@ -6000,7 +6000,7 @@
   "name": "Pikachu",
   "set": "SM Black Star Promos",
   "no": "SM162",
-  "rank": 236,
+  "rank": 436,
   "pop10": 1965,
   "pop9": 5908,
   "n": 286,
@@ -6020,7 +6020,7 @@
   "name": "Shining Celebi",
   "set": "Neo Destiny",
   "no": "106",
-  "rank": 344,
+  "rank": 632,
   "pop10": 290,
   "pop9": 826,
   "n": 64,
@@ -6036,7 +6036,7 @@
   "name": "Squirtle",
   "set": "151",
   "no": "170",
-  "rank": 258,
+  "rank": 464,
   "pop10": 9218,
   "pop9": 20187,
   "n": 237,
@@ -6052,7 +6052,7 @@
   "name": "Gyarados ex",
   "set": "FireRed & LeafGreen",
   "no": "109",
-  "rank": 374,
+  "rank": 669,
   "pop10": 154,
   "pop9": 393,
   "n": 39,
@@ -6072,7 +6072,7 @@
   "name": "Shining Raichu",
   "set": "Neo Destiny",
   "no": "111",
-  "rank": 274,
+  "rank": 503,
   "pop10": 293,
   "pop9": 881,
   "n": 64,
@@ -6088,7 +6088,7 @@
   "name": "Dragonite-EX",
   "set": "Evolutions",
   "no": "106",
-  "rank": 360,
+  "rank": 630,
   "pop10": 4096,
   "pop9": 6443,
   "n": 291,
@@ -6108,7 +6108,7 @@
   "name": "Venusaur",
   "set": "Wizards Black Star Promos",
   "no": "13",
-  "rank": 224,
+  "rank": 416,
   "pop10": 9,
   "pop9": 333,
   "n": 61,
@@ -6128,7 +6128,7 @@
   "name": "Latias ex",
   "set": "Dragon",
   "no": "93",
-  "rank": 311,
+  "rank": 577,
   "pop10": 87,
   "pop9": 464,
   "n": 54,
@@ -6144,7 +6144,7 @@
   "name": "Rocket's Mewtwo",
   "set": "Best of Game",
   "no": "8",
-  "rank": 331,
+  "rank": 601,
   "pop10": 46,
   "pop9": 431,
   "status": "attesa_vendite",
@@ -6159,7 +6159,7 @@
   "name": "Blastoise & Piplup-GX",
   "set": "Cosmic Eclipse",
   "no": "215",
-  "rank": 248,
+  "rank": 461,
   "pop10": 1650,
   "pop9": 2182,
   "n": 90,
@@ -6179,7 +6179,7 @@
   "name": "Leafeon LV.X",
   "set": "Majestic Dawn",
   "no": "99",
-  "rank": 308,
+  "rank": 563,
   "pop10": 6,
   "pop9": 92,
   "n": 24,
@@ -6195,7 +6195,7 @@
   "name": "Blastoise ex",
   "set": "FireRed & LeafGreen",
   "no": "104",
-  "rank": 312,
+  "rank": 567,
   "pop10": 165,
   "pop9": 454,
   "n": 52,
@@ -6215,7 +6215,7 @@
   "name": "Reshiram & Charizard-GX",
   "set": "SM Black Star Promos",
   "no": "SM201",
-  "rank": 354,
+  "rank": 637,
   "pop10": 372,
   "pop9": 1866,
   "n": 87,
@@ -6235,7 +6235,7 @@
   "name": "Origin Forme Dialga VSTAR",
   "set": "Crown Zenith Galarian Gallery",
   "no": "GG68",
-  "rank": 268,
+  "rank": 496,
   "pop10": 17587,
   "pop9": 10908,
   "n": 296,
@@ -6255,7 +6255,7 @@
   "name": "Deoxys-EX",
   "set": "Plasma Freeze",
   "no": "111",
-  "rank": 301,
+  "rank": 548,
   "pop10": 34,
   "pop9": 167,
   "n": 50,
@@ -6275,7 +6275,7 @@
   "name": "Rayquaza ex δ",
   "set": "Dragon Frontiers",
   "no": "97",
-  "rank": 356,
+  "rank": 639,
   "pop10": 64,
   "pop9": 280,
   "n": 39,
@@ -6291,7 +6291,7 @@
   "name": "Pichu",
   "set": "Expedition Base Set",
   "no": "22",
-  "rank": 389,
+  "rank": 699,
   "pop10": 37,
   "pop9": 230,
   "n": 42,
@@ -6311,7 +6311,7 @@
   "name": "Dragonite ex δ",
   "set": "Dragon Frontiers",
   "no": "91",
-  "rank": 369,
+  "rank": 661,
   "pop10": 30,
   "pop9": 266,
   "n": 35,
@@ -6327,7 +6327,7 @@
   "name": "Houndoom",
   "set": "Aquapolis",
   "no": "H11",
-  "rank": 167,
+  "rank": 307,
   "pop10": 59,
   "pop9": 276,
   "n": 27,
@@ -6343,7 +6343,7 @@
   "name": "M Rayquaza-EX",
   "set": "Roaring Skies",
   "no": "105",
-  "rank": 270,
+  "rank": 497,
   "pop10": 116,
   "pop9": 637,
   "n": 70,
@@ -6359,7 +6359,7 @@
   "name": "Milotic ex",
   "set": "Emerald",
   "no": "96",
-  "rank": 280,
+  "rank": 514,
   "pop10": 31,
   "pop9": 236,
   "n": 27,
@@ -6374,7 +6374,7 @@
   "name": "Tyranitar ex",
   "set": "Unseen Forces",
   "no": "111",
-  "rank": 326,
+  "rank": 608,
   "pop10": 49,
   "pop9": 260,
   "n": 27,
@@ -6390,7 +6390,7 @@
   "name": "Origin Forme Palkia VSTAR",
   "set": "Crown Zenith Galarian Gallery",
   "no": "GG67",
-  "rank": 257,
+  "rank": 479,
   "pop10": 16738,
   "pop9": 11732,
   "n": 292,
@@ -6410,7 +6410,7 @@
   "name": "Rocket's Suicune ex",
   "set": "Team Rocket Returns",
   "no": "105",
-  "rank": 319,
+  "rank": 582,
   "pop10": 82,
   "pop9": 263,
   "n": 33,
@@ -6795,7 +6795,7 @@
   "name": "Blaziken VMAX",
   "set": "Chilling Reign",
   "no": "201",
-  "rank": 276,
+  "rank": 506,
   "pop10": 7054,
   "pop9": 2553,
   "n": 123,
@@ -6811,7 +6811,7 @@
   "name": "Celebi ex",
   "set": "Unseen Forces",
   "no": "117",
-  "rank": 115,
+  "rank": 209,
   "pop10": 39,
   "pop9": 194,
   "n": 19,
@@ -6827,7 +6827,7 @@
   "name": "Special Delivery Bidoof",
   "set": "SWSH Black Star Promos",
   "no": "SWSH177",
-  "rank": 255,
+  "rank": 471,
   "pop10": 1041,
   "pop9": 2787,
   "n": 63,
@@ -6843,7 +6843,7 @@
   "name": "Pikachu",
   "set": "Generations",
   "no": "RC29",
-  "rank": 281,
+  "rank": 526,
   "pop10": 459,
   "pop9": 2532,
   "n": 193,
@@ -6859,7 +6859,7 @@
   "name": "Cynthia's Garchomp ex",
   "set": "Destined Rivals",
   "no": "232",
-  "rank": 273,
+  "rank": 502,
   "pop10": 12119,
   "pop9": 5596,
   "n": 205,
@@ -6875,7 +6875,7 @@
   "name": "Bulbasaur",
   "set": "Stellar Crown",
   "no": "143",
-  "rank": 295,
+  "rank": 533,
   "pop10": 13091,
   "pop9": 18731,
   "n": 199,
@@ -6891,7 +6891,7 @@
   "name": "M Charizard-EX",
   "set": "Flashfire",
   "no": "69",
-  "rank": 306,
+  "rank": 542,
   "pop10": 1680,
   "pop9": 1799,
   "n": 139,
@@ -6907,7 +6907,7 @@
   "name": "Lugia",
   "set": "Secret Wonders",
   "no": "14",
-  "rank": 126,
+  "rank": 225,
   "pop10": 26,
   "pop9": 186,
   "n": 53,
@@ -6923,7 +6923,7 @@
   "name": "Feraligatr",
   "set": "Expedition Base Set",
   "no": "12",
-  "rank": 467,
+  "rank": 854,
   "pop10": 49,
   "pop9": 302,
   "n": 45,
@@ -6938,7 +6938,7 @@
   "name": "Raichu & Alolan Raichu-GX",
   "set": "Unified Minds",
   "no": "221",
-  "rank": 307,
+  "rank": 562,
   "pop10": 1728,
   "pop9": 1909,
   "n": 101,
@@ -6954,7 +6954,7 @@
   "name": "Pikachu",
   "set": "151",
   "no": "173",
-  "rank": 288,
+  "rank": 523,
   "pop10": 9009,
   "pop9": 18338,
   "n": 242,
@@ -6970,7 +6970,7 @@
   "name": "Vaporeon",
   "set": "Skyridge",
   "no": "H31",
-  "rank": 321,
+  "rank": 585,
   "pop10": 115,
   "pop9": 351,
   "n": 36,
@@ -6986,7 +6986,7 @@
   "name": "Eevee",
   "set": "Scarlet & Violet Black Star Promos",
   "no": "173",
-  "rank": 327,
+  "rank": 602,
   "pop10": 31506,
   "pop9": 44322,
   "status": "aggiunta",
@@ -7002,7 +7002,7 @@
   "name": "Mega Lucario ex",
   "set": "Mega Evolution",
   "no": "179",
-  "rank": 298,
+  "rank": 545,
   "pop10": 14374,
   "pop9": 6832,
   "n": 197,
@@ -7018,7 +7018,7 @@
   "name": "Sylveon-EX",
   "set": "Generations",
   "no": "RC32",
-  "rank": 294,
+  "rank": 541,
   "pop10": 303,
   "pop9": 1976,
   "n": 173,
@@ -7034,7 +7034,7 @@
   "name": "Victini",
   "set": "Black Bolt",
   "no": "171",
-  "rank": 299,
+  "rank": 540,
   "pop10": 3103,
   "pop9": 2839,
   "n": 144,
@@ -7050,7 +7050,7 @@
   "name": "Deoxys",
   "set": "Call of Legends",
   "no": "SL1",
-  "rank": 352,
+  "rank": 543,
   "pop10": 25,
   "pop9": 155,
   "n": 30,
@@ -7065,7 +7065,7 @@
   "name": "Marill",
   "set": "Southern Islands",
   "no": "11",
-  "rank": 282,
+  "rank": 516,
   "pop10": 37,
   "pop9": 507,
   "n": 76,
@@ -7081,7 +7081,7 @@
   "name": "Primal Groudon-EX",
   "set": "Ancient Origins",
   "no": "97",
-  "rank": 266,
+  "rank": 484,
   "pop10": 806,
   "pop9": 911,
   "n": 108,
@@ -7097,7 +7097,7 @@
   "name": "Giratina",
   "set": "BW Black Star Promos",
   "no": "BW74",
-  "rank": 359,
+  "rank": 640,
   "pop10": 15,
   "pop9": 174,
   "n": 64,
@@ -7113,7 +7113,7 @@
   "name": "Mewtwo-EX",
   "set": "Next Destinies",
   "no": "98",
-  "rank": 342,
+  "rank": 622,
   "pop10": 13,
   "pop9": 149,
   "n": 46,
@@ -7129,7 +7129,7 @@
   "name": "Shining Lugia",
   "set": "SM Black Star Promos",
   "no": "SM82",
-  "rank": 318,
+  "rank": 588,
   "pop10": 824,
   "pop9": 3152,
   "n": 151,
@@ -7145,7 +7145,7 @@
   "name": "Charizard G LV.X",
   "set": "DP Black Star Promos",
   "no": "DP45",
-  "rank": 469,
+  "rank": 860,
   "pop10": 19,
   "pop9": 197,
   "n": 83,
@@ -7160,7 +7160,7 @@
   "name": "Latias ex",
   "set": "Surging Sparks",
   "no": "239",
-  "rank": 328,
+  "rank": 596,
   "pop10": 7810,
   "pop9": 10942,
   "n": 210,
@@ -7176,7 +7176,7 @@
   "name": "Kingdra",
   "set": "Aquapolis",
   "no": "148",
-  "rank": 349,
+  "rank": 629,
   "pop10": 95,
   "pop9": 348,
   "n": 24,
@@ -7192,7 +7192,7 @@
   "name": "Pikachu",
   "set": "Poké Card Creator Pack",
   "no": "5",
-  "rank": 253,
+  "rank": 466,
   "pop10": 12,
   "pop9": 78,
   "n": 16,
@@ -7208,7 +7208,7 @@
   "name": "Mew VMAX",
   "set": "Fusion Strike",
   "no": "269",
-  "rank": 332,
+  "rank": 603,
   "pop10": 8606,
   "pop9": 4012,
   "n": 147,
@@ -7224,7 +7224,7 @@
   "name": "Rayquaza",
   "set": "Call of Legends",
   "no": "20",
-  "rank": 296,
+  "rank": 547,
   "pop10": 20,
   "pop9": 127,
   "n": 54,
@@ -7240,7 +7240,7 @@
   "name": "Leafeon ex",
   "set": "Prismatic Evolutions",
   "no": "144",
-  "rank": 323,
+  "rank": 597,
   "pop10": 4596,
   "pop9": 6832,
   "n": 216,
@@ -7256,7 +7256,7 @@
   "name": "Shining Rayquaza",
   "set": "Shining Legends",
   "no": "56",
-  "rank": 336,
+  "rank": 614,
   "pop10": 2995,
   "pop9": 5128,
   "n": 207,
@@ -7272,7 +7272,7 @@
   "name": "Alakazam ex",
   "set": "151",
   "no": "201",
-  "rank": 302,
+  "rank": 552,
   "pop10": 11675,
   "pop9": 20691,
   "n": 248,
@@ -7288,7 +7288,7 @@
   "name": "Eevee",
   "set": "Twilight Masquerade",
   "no": "188",
-  "rank": 343,
+  "rank": 620,
   "pop10": 12185,
   "pop9": 15361,
   "n": 192,
@@ -7304,7 +7304,7 @@
   "name": "Gengar",
   "set": "Lost Origin Trainer Gallery",
   "no": "TG06",
-  "rank": 305,
+  "rank": 561,
   "pop10": 5395,
   "pop9": 13138,
   "n": 258,
@@ -7319,7 +7319,7 @@
   "name": "Espeon ex",
   "set": "Prismatic Evolutions",
   "no": "155",
-  "rank": 330,
+  "rank": 599,
   "pop10": 3770,
   "pop9": 7144,
   "n": 192,
@@ -7335,7 +7335,7 @@
   "name": "Mega Sableye & Tyranitar-GX",
   "set": "Unified Minds",
   "no": "226",
-  "rank": 333,
+  "rank": 616,
   "pop10": 1601,
   "pop9": 1910,
   "n": 103,
@@ -7351,7 +7351,7 @@
   "name": "Mewtwo-EX",
   "set": "BREAKthrough",
   "no": "163",
-  "rank": 398,
+  "rank": 710,
   "pop10": 238,
   "pop9": 928,
   "n": 91,
@@ -7367,7 +7367,7 @@
   "name": "Victini",
   "set": "White Flare",
   "no": "172",
-  "rank": 324,
+  "rank": 591,
   "pop10": 2891,
   "pop9": 2632,
   "n": 158,
@@ -7383,7 +7383,7 @@
   "name": "Pikachu ex",
   "set": "Ascended Heroes",
   "no": "277",
-  "rank": 376,
+  "rank": 670,
   "pop10": 5608,
   "pop9": 3926,
   "n": 215,
@@ -7399,7 +7399,7 @@
   "name": "Salamence ex δ",
   "set": "Dragon Frontiers",
   "no": "98",
-  "rank": 460,
+  "rank": 839,
   "pop10": 41,
   "pop9": 202,
   "n": 31,
@@ -7415,7 +7415,7 @@
   "name": "Dark Gengar",
   "set": "Neo Destiny",
   "no": "6",
-  "rank": 334,
+  "rank": 617,
   "pop10": 95,
   "pop9": 457,
   "n": 56,
@@ -7431,7 +7431,7 @@
   "name": "Ampharos ex",
   "set": "Dragon",
   "no": "89",
-  "rank": 418,
+  "rank": 772,
   "pop10": 56,
   "pop9": 360,
   "n": 49,
@@ -7463,7 +7463,7 @@
   "name": "M Charizard-EX",
   "set": "Flashfire",
   "no": "108",
-  "rank": 392,
+  "rank": 706,
   "pop10": 176,
   "pop9": 713,
   "n": 50,
@@ -7479,7 +7479,7 @@
   "name": "Zekrom ex",
   "set": "Black Bolt",
   "no": "166",
-  "rank": 397,
+  "rank": 712,
   "pop10": 8426,
   "pop9": 4481,
   "n": 180,
@@ -7495,7 +7495,7 @@
   "name": "Snorlax",
   "set": "Wizards Black Star Promos",
   "no": "49",
-  "rank": 363,
+  "rank": 649,
   "pop10": 293,
   "pop9": 1011,
   "n": 87,
@@ -7511,7 +7511,7 @@
   "name": "Blastoise-EX",
   "set": "XY Black Star Promos",
   "no": "XY122",
-  "rank": 313,
+  "rank": 568,
   "pop10": 95,
   "pop9": 711,
   "n": 117,
@@ -7527,7 +7527,7 @@
   "name": "Suicune",
   "set": "Call of Legends",
   "no": "SL11",
-  "rank": 355,
+  "rank": 642,
   "pop10": 31,
   "pop9": 154,
   "n": 32,
@@ -7543,7 +7543,7 @@
   "name": "Mew-EX",
   "set": "Dragons Exalted",
   "no": "120",
-  "rank": 394,
+  "rank": 654,
   "pop10": 23,
   "pop9": 209,
   "n": 44,
@@ -7559,7 +7559,7 @@
   "name": "Primal Kyogre-EX",
   "set": "Ancient Origins",
   "no": "96",
-  "rank": 395,
+  "rank": 711,
   "pop10": 520,
   "pop9": 875,
   "n": 77,
@@ -7575,7 +7575,7 @@
   "name": "Slowpoke & Psyduck-GX",
   "set": "Unified Minds",
   "no": "218",
-  "rank": 388,
+  "rank": 693,
   "pop10": 1582,
   "pop9": 1675,
   "n": 82,
@@ -7591,7 +7591,7 @@
   "name": "Mega Gardevoir ex",
   "set": "Mega Evolution",
   "no": "178",
-  "rank": 401,
+  "rank": 716,
   "pop10": 12671,
   "pop9": 6451,
   "n": 193,
@@ -7607,7 +7607,7 @@
   "name": "Rayquaza-EX",
   "set": "Dragons Exalted",
   "no": "123",
-  "rank": 232,
+  "rank": 427,
   "pop10": 13,
   "pop9": 137,
   "n": 43,
@@ -7623,7 +7623,7 @@
   "name": "Arcanine",
   "set": "Aquapolis",
   "no": "H2",
-  "rank": 408,
+  "rank": 733,
   "pop10": 73,
   "pop9": 257,
   "status": "aggiunta",
@@ -7639,7 +7639,7 @@
   "name": "Pikachu V",
   "set": "Lost Origin Trainer Gallery",
   "no": "TG16",
-  "rank": 402,
+  "rank": 722,
   "pop10": 8563,
   "pop9": 6262,
   "n": 228,
@@ -7654,7 +7654,7 @@
   "name": "Galarian Moltres V",
   "set": "Chilling Reign",
   "no": "177",
-  "rank": 372,
+  "rank": 666,
   "pop10": 7537,
   "pop9": 4298,
   "n": 126,
@@ -7670,7 +7670,7 @@
   "name": "Dark Persian",
   "set": "Wizards Black Star Promos",
   "no": "17",
-  "rank": 513,
+  "rank": 943,
   "pop10": 78,
   "pop9": 679,
   "n": 20,
@@ -7686,7 +7686,7 @@
   "name": "Crobat",
   "set": "Skyridge",
   "no": "147",
-  "rank": 404,
+  "rank": 719,
   "pop10": 101,
   "pop9": 281,
   "n": 20,
@@ -7701,7 +7701,7 @@
   "name": "Suicune V",
   "set": "Crown Zenith Galarian Gallery",
   "no": "GG38",
-  "rank": 399,
+  "rank": 714,
   "pop10": 16252,
   "pop9": 11314,
   "n": 361,
@@ -7716,7 +7716,7 @@
   "name": "Mewtwo-EX",
   "set": "BREAKthrough",
   "no": "164",
-  "rank": 375,
+  "rank": 671,
   "pop10": 272,
   "pop9": 1024,
   "n": 94,
@@ -7732,7 +7732,7 @@
   "name": "Celebi V",
   "set": "Fusion Strike",
   "no": "245",
-  "rank": 377,
+  "rank": 676,
   "pop10": 9051,
   "pop9": 8677,
   "n": 202,
@@ -7748,7 +7748,7 @@
   "name": "Togepi",
   "set": "Southern Islands",
   "no": "4",
-  "rank": 386,
+  "rank": 694,
   "pop10": 18,
   "pop9": 392,
   "n": 81,
@@ -7764,7 +7764,7 @@
   "name": "Pikachu",
   "set": "Lost Origin Trainer Gallery",
   "no": "TG05",
-  "rank": 370,
+  "rank": 677,
   "pop10": 3955,
   "pop9": 9878,
   "n": 258,
@@ -7779,7 +7779,7 @@
   "name": "Reshiram",
   "set": "Legendary Treasures",
   "no": "RC22",
-  "rank": 303,
+  "rank": 554,
   "pop10": 134,
   "pop9": 935,
   "n": 131,
@@ -7811,7 +7811,7 @@
   "name": "Pikachu δ",
   "set": "Legend Maker",
   "no": "93",
-  "rank": 381,
+  "rank": 682,
   "pop10": 80,
   "pop9": 338,
   "n": 40,
@@ -7826,7 +7826,7 @@
   "name": "Vaporeon VMAX",
   "set": "SWSH Black Star Promos",
   "no": "SWSH182",
-  "rank": 382,
+  "rank": 688,
   "pop10": 4285,
   "pop9": 7999,
   "n": 168,
@@ -7842,7 +7842,7 @@
   "name": "Ampharos",
   "set": "Expedition Base Set",
   "no": "2",
-  "rank": 470,
+  "rank": 862,
   "pop10": 22,
   "pop9": 173,
   "n": 28,
@@ -7857,7 +7857,7 @@
   "name": "Houndoom",
   "set": "Neo Revelation",
   "no": "8",
-  "rank": 403,
+  "rank": 718,
   "pop10": 11,
   "pop9": 265,
   "n": 46,
@@ -7873,7 +7873,7 @@
   "name": "Blastoise",
   "set": "Base Set 2",
   "no": "2",
-  "rank": 400,
+  "rank": 715,
   "pop10": 61,
   "pop9": 1099,
   "status": "aggiunta",
@@ -7889,7 +7889,7 @@
   "name": "Ethan's Ho-Oh ex",
   "set": "Destined Rivals",
   "no": "230",
-  "rank": 413,
+  "rank": 743,
   "pop10": 10661,
   "pop9": 5536,
   "n": 206,
@@ -7905,7 +7905,7 @@
   "name": "Team Rocket's Mewtwo ex",
   "set": "Ascended Heroes",
   "no": "281",
-  "rank": 434,
+  "rank": 786,
   "pop10": 7255,
   "pop9": 3308,
   "n": 206,
@@ -7921,7 +7921,7 @@
   "name": "Misty's Psyduck",
   "set": "Destined Rivals",
   "no": "193",
-  "rank": 409,
+  "rank": 734,
   "pop10": 8388,
   "pop9": 17298,
   "n": 239,
@@ -7937,7 +7937,7 @@
   "name": "Aerodactyl V",
   "set": "Lost Origin",
   "no": "180",
-  "rank": 390,
+  "rank": 704,
   "pop10": 5542,
   "pop9": 4829,
   "n": 162,
@@ -7953,7 +7953,7 @@
   "name": "Glaceon ex",
   "set": "Prismatic Evolutions",
   "no": "150",
-  "rank": 438,
+  "rank": 797,
   "pop10": 3895,
   "pop9": 6387,
   "n": 212,
@@ -7969,7 +7969,7 @@
   "name": "Rayquaza-EX",
   "set": "Roaring Skies",
   "no": "104",
-  "rank": 436,
+  "rank": 796,
   "pop10": 35,
   "pop9": 302,
   "n": 82,
@@ -8001,7 +8001,7 @@
   "name": "Sylveon V",
   "set": "Evolving Skies",
   "no": "184",
-  "rank": 440,
+  "rank": 804,
   "pop10": 7246,
   "pop9": 5442,
   "n": 129,
@@ -8017,7 +8017,7 @@
   "name": "Yveltal-EX",
   "set": "XY Black Star Promos",
   "no": "XY150a",
-  "rank": 480,
+  "rank": 887,
   "pop10": 113,
   "pop9": 451,
   "n": 14,
@@ -8033,7 +8033,7 @@
   "name": "Moltres",
   "set": "Skyridge",
   "no": "H20",
-  "rank": 452,
+  "rank": 820,
   "pop10": 115,
   "pop9": 305,
   "n": 30,
@@ -8049,7 +8049,7 @@
   "name": "Vaporeon ex",
   "set": "Prismatic Evolutions",
   "no": "149",
-  "rank": 407,
+  "rank": 731,
   "pop10": 3035,
   "pop9": 6329,
   "n": 164,
@@ -8740,7 +8740,7 @@
   "name": "Mewtwo δ",
   "set": "Delta Species",
   "no": "12",
-  "rank": 309,
+  "rank": 536,
   "pop10": 85,
   "pop9": 351,
   "n": 61,
@@ -8756,7 +8756,7 @@
   "name": "Groudon",
   "set": "Paradox Rift",
   "no": "199",
-  "rank": 396,
+  "rank": 709,
   "pop10": 5976,
   "pop9": 9708,
   "n": 202,
@@ -8772,7 +8772,7 @@
   "name": "Gastly",
   "set": "Temporal Forces",
   "no": "177",
-  "rank": 427,
+  "rank": 773,
   "pop10": 5606,
   "pop9": 9514,
   "n": 206,
@@ -8788,7 +8788,7 @@
   "name": "Celebi & Venusaur-GX",
   "set": "SM Black Star Promos",
   "no": "SM167",
-  "rank": 468,
+  "rank": 856,
   "pop10": 3222,
   "pop9": 4527,
   "n": 219,
@@ -8803,7 +8803,7 @@
   "name": "Starmie V",
   "set": "Astral Radiance Trainer Gallery",
   "no": "TG13",
-  "rank": 373,
+  "rank": 667,
   "pop10": 9907,
   "pop9": 7049,
   "n": 185,
@@ -8834,7 +8834,7 @@
   "name": "Jessie & James",
   "set": "Hidden Fates",
   "no": "68",
-  "rank": 416,
+  "rank": 749,
   "pop10": 16609,
   "pop9": 8579,
   "n": 206,
@@ -8850,7 +8850,7 @@
   "name": "Pikachu",
   "set": "Rising Rivals",
   "no": "112",
-  "rank": 474,
+  "rank": 869,
   "pop10": 11,
   "pop9": 120,
   "n": 21,
@@ -8866,7 +8866,7 @@
   "name": "Articuno",
   "set": "Skyridge",
   "no": "H3",
-  "rank": 499,
+  "rank": 909,
   "pop10": 149,
   "pop9": 286,
   "status": "aggiunta",
@@ -8882,7 +8882,7 @@
   "name": "Mewtwo-GX",
   "set": "Hidden Fates Shiny Vault",
   "no": "SV59",
-  "rank": 518,
+  "rank": 950,
   "pop10": 7646,
   "pop9": 5572,
   "n": 204,
@@ -8897,7 +8897,7 @@
   "name": "Charizard VSTAR",
   "set": "Brilliant Stars",
   "no": "174",
-  "rank": 425,
+  "rank": 763,
   "pop10": 12953,
   "pop9": 8389,
   "n": 189,
@@ -8913,7 +8913,7 @@
   "name": "Arcanine",
   "set": "Skyridge",
   "no": "H2",
-  "rank": 424,
+  "rank": 764,
   "pop10": 137,
   "pop9": 286,
   "status": "aggiunta",
@@ -8929,7 +8929,7 @@
   "name": "Mew V",
   "set": "Fusion Strike",
   "no": "251",
-  "rank": 441,
+  "rank": 795,
   "pop10": 6520,
   "pop9": 6096,
   "n": 184,
@@ -8945,7 +8945,7 @@
   "name": "Mew",
   "set": "Wizards Black Star Promos",
   "no": "8",
-  "rank": 485,
+  "rank": 868,
   "pop10": 3499,
   "pop9": 6277,
   "n": 286,
@@ -8961,7 +8961,7 @@
   "name": "Charizard ex",
   "set": "Obsidian Flames",
   "no": "228",
-  "rank": 435,
+  "rank": 822,
   "pop10": 9171,
   "pop9": 17647,
   "n": 243,
@@ -8977,7 +8977,7 @@
   "name": "Typhlosion",
   "set": "Neo Genesis",
   "no": "17",
-  "rank": 422,
+  "rank": 760,
   "pop10": 4,
   "pop9": 205,
   "n": 70,
@@ -8993,7 +8993,7 @@
   "name": "Jolteon VMAX",
   "set": "SWSH Black Star Promos",
   "no": "SWSH184",
-  "rank": 411,
+  "rank": 739,
   "pop10": 3817,
   "pop9": 7363,
   "n": 157,
@@ -9009,7 +9009,7 @@
   "name": "Wartortle",
   "set": "151",
   "no": "171",
-  "rank": 446,
+  "rank": 819,
   "pop10": 6809,
   "pop9": 15534,
   "n": 228,
@@ -9041,7 +9041,7 @@
   "name": "Espeon",
   "set": "Neo Discovery",
   "no": "1",
-  "rank": 439,
+  "rank": 800,
   "pop10": 100,
   "pop9": 712,
   "n": 80,
@@ -9073,7 +9073,7 @@
   "name": "Entei V",
   "set": "Crown Zenith Galarian Gallery",
   "no": "GG36",
-  "rank": 442,
+  "rank": 807,
   "pop10": 17257,
   "pop9": 9132,
   "n": 394,
@@ -9104,7 +9104,7 @@
   "name": "Bulbasaur",
   "set": "151",
   "no": "166",
-  "rank": 455,
+  "rank": 831,
   "pop10": 8564,
   "pop9": 16871,
   "n": 221,
@@ -9136,7 +9136,7 @@
   "name": "Shining Steelix",
   "set": "Neo Destiny",
   "no": "112",
-  "rank": 447,
+  "rank": 814,
   "pop10": 312,
   "pop9": 719,
   "n": 51,
@@ -9152,7 +9152,7 @@
   "name": "Umbreon VMAX",
   "set": "Brilliant Stars Trainer Gallery",
   "no": "TG23",
-  "rank": 444,
+  "rank": 812,
   "pop10": 14268,
   "pop9": 4580,
   "n": 321,
@@ -9167,7 +9167,7 @@
   "name": "Reshiram & Zekrom-GX",
   "set": "Cosmic Eclipse",
   "no": "222",
-  "rank": 433,
+  "rank": 777,
   "pop10": 1261,
   "pop9": 1811,
   "n": 78,
@@ -9199,7 +9199,7 @@
   "name": "Ho-Oh ex",
   "set": "Unseen Forces",
   "no": "104",
-  "rank": 507,
+  "rank": 927,
   "pop10": 47,
   "pop9": 265,
   "n": 22,
@@ -9215,7 +9215,7 @@
   "name": "Entei ex",
   "set": "Team Magma vs Team Aqua",
   "no": "91",
-  "rank": 503,
+  "rank": 912,
   "pop10": 30,
   "pop9": 197,
   "n": 32,
@@ -9231,7 +9231,7 @@
   "name": "Rocket's Moltres ex",
   "set": "Team Rocket Returns",
   "no": "100",
-  "rank": 478,
+  "rank": 881,
   "pop10": 83,
   "pop9": 270,
   "n": 31,
@@ -9247,7 +9247,7 @@
   "name": "M Blastoise-EX",
   "set": "Evolutions",
   "no": "102",
-  "rank": 454,
+  "rank": 828,
   "pop10": 6441,
   "pop9": 7298,
   "n": 305,
@@ -9262,7 +9262,7 @@
   "name": "Gengar & Mimikyu-GX",
   "set": "Team Up",
   "no": "186",
-  "rank": 481,
+  "rank": 885,
   "pop10": 956,
   "pop9": 1024,
   "n": 73,
@@ -9278,7 +9278,7 @@
   "name": "Suicune",
   "set": "Aquapolis",
   "no": "H25",
-  "rank": 508,
+  "rank": 930,
   "pop10": 70,
   "pop9": 229,
   "n": 28,
@@ -9310,7 +9310,7 @@
   "name": "Mew-EX",
   "set": "XY Black Star Promos",
   "no": "XY126",
-  "rank": 516,
+  "rank": 932,
   "pop10": 78,
   "pop9": 341,
   "n": 66,
@@ -9341,7 +9341,7 @@
   "name": "Reshiram & Charizard-GX",
   "set": "Unbroken Bonds",
   "no": "20",
-  "rank": 463,
+  "rank": 799,
   "pop10": 11363,
   "pop9": 6084,
   "n": 188,
@@ -9439,7 +9439,7 @@
   "name": "Deoxys ex",
   "set": "Deoxys",
   "no": "97",
-  "rank": 456,
+  "rank": 829,
   "pop10": 29,
   "pop9": 182,
   "n": 26,
@@ -9455,7 +9455,7 @@
   "name": "Charizard",
   "set": "Arceus",
   "no": "1",
-  "rank": 430,
+  "rank": 780,
   "pop10": 51,
   "pop9": 553,
   "n": 58,
@@ -9471,7 +9471,7 @@
   "name": "Mega Gengar ex",
   "set": "Ascended Heroes",
   "no": "269",
-  "rank": 489,
+  "rank": 895,
   "pop10": 22234,
   "pop9": 8441,
   "n": 216,
@@ -9487,7 +9487,7 @@
   "name": "Solgaleo & Lunala-GX",
   "set": "Cosmic Eclipse",
   "no": "216",
-  "rank": 448,
+  "rank": 815,
   "pop10": 1365,
   "pop9": 1955,
   "n": 75,
@@ -9503,7 +9503,7 @@
   "name": "Raikou",
   "set": "Skyridge",
   "no": "H26",
-  "rank": 471,
+  "rank": 861,
   "pop10": 157,
   "pop9": 335,
   "n": 20,
@@ -9519,7 +9519,7 @@
   "name": "Pikachu VMAX",
   "set": "Lost Origin Trainer Gallery",
   "no": "TG17",
-  "rank": 466,
+  "rank": 848,
   "pop10": 11494,
   "pop9": 4871,
   "n": 222,
@@ -9535,7 +9535,7 @@
   "name": "Raikou V",
   "set": "Crown Zenith Galarian Gallery",
   "no": "GG41",
-  "rank": 462,
+  "rank": 841,
   "pop10": 15330,
   "pop9": 10083,
   "n": 383,
@@ -9551,7 +9551,7 @@
   "name": "M Charizard-EX",
   "set": "Generations",
   "no": "12",
-  "rank": 484,
+  "rank": 883,
   "pop10": 583,
   "pop9": 1794,
   "n": 115,
@@ -9567,7 +9567,7 @@
   "name": "Lucario VSTAR",
   "set": "SWSH Black Star Promos",
   "no": "SWSH291",
-  "rank": 429,
+  "rank": 788,
   "pop10": 26081,
   "pop9": 15281,
   "n": 216,
@@ -9583,7 +9583,7 @@
   "name": "Gengar & Mimikyu-GX",
   "set": "Team Up",
   "no": "164",
-  "rank": 473,
+  "rank": 867,
   "pop10": 1505,
   "pop9": 929,
   "n": 68,
@@ -9599,7 +9599,7 @@
   "name": "Rayquaza",
   "set": "Vivid Voltage",
   "no": "138",
-  "rank": 415,
+  "rank": 746,
   "pop10": 14230,
   "pop9": 8135,
   "n": 205,
@@ -9679,7 +9679,7 @@
   "name": "M Charizard-EX",
   "set": "Evolutions",
   "no": "13",
-  "rank": 502,
+  "rank": 915,
   "pop10": 10240,
   "pop9": 8988,
   "n": 344,
@@ -9711,7 +9711,7 @@
   "name": "Garchomp & Giratina-GX",
   "set": "SM Black Star Promos",
   "no": "SM193",
-  "rank": 510,
+  "rank": 936,
   "pop10": 5108,
   "pop9": 3588,
   "n": 205,
@@ -9727,7 +9727,7 @@
   "name": "Mudkip",
   "set": "Poké Card Creator Pack",
   "no": "4",
-  "rank": 479,
+  "rank": 882,
   "pop10": 15,
   "pop9": 112,
   "n": 12,
@@ -9743,7 +9743,7 @@
   "name": "Flareon ex",
   "set": "Prismatic Evolutions",
   "no": "146",
-  "rank": 520,
+  "rank": 951,
   "pop10": 3733,
   "pop9": 6053,
   "n": 180,
@@ -9791,7 +9791,7 @@
   "name": "Mega Charizard X ex",
   "set": "Phantasmal Flames",
   "no": "109",
-  "rank": 528,
+  "rank": 959,
   "pop10": 22996,
   "pop9": 14295,
   "n": 207,
@@ -9807,7 +9807,7 @@
   "name": "Mewtwo & Mew-GX",
   "set": "Unified Minds",
   "no": "71",
-  "rank": 493,
+  "rank": 902,
   "pop10": 2918,
   "pop9": 2904,
   "n": 183,
@@ -9823,7 +9823,7 @@
   "name": "Leafeon VSTAR",
   "set": "Crown Zenith Galarian Gallery",
   "no": "GG35",
-  "rank": 464,
+  "rank": 843,
   "pop10": 13715,
   "pop9": 8773,
   "n": 264,
@@ -9839,7 +9839,7 @@
   "name": "Mega Lucario ex",
   "set": "Mega Evolution",
   "no": "188",
-  "rank": 488,
+  "rank": 903,
   "pop10": 2833,
   "pop9": 5428,
   "n": 220,
@@ -9871,7 +9871,7 @@
   "name": "Lillie",
   "set": "Ultra Prism",
   "no": "151",
-  "rank": 494,
+  "rank": 898,
   "pop10": 1409,
   "pop9": 1698,
   "n": 53,
@@ -9903,7 +9903,7 @@
   "name": "Darkrai VSTAR",
   "set": "Crown Zenith Galarian Gallery",
   "no": "GG50",
-  "rank": 472,
+  "rank": 865,
   "pop10": 11768,
   "pop9": 7029,
   "n": 299,
@@ -9951,7 +9951,7 @@
   "name": "Moltres & Zapdos & Articuno-GX",
   "set": "Hidden Fates",
   "no": "69",
-  "rank": 531,
+  "rank": 973,
   "pop10": 17335,
   "pop9": 8467,
   "n": 424,
@@ -10015,7 +10015,7 @@
   "name": "Mimikyu V",
   "set": "Brilliant Stars Trainer Gallery",
   "no": "TG16",
-  "rank": 530,
+  "rank": 963,
   "pop10": 6103,
   "pop9": 4060,
   "n": 287,
@@ -10047,7 +10047,7 @@
   "name": "Pikachu",
   "set": "Wizards Black Star Promos",
   "no": "4",
-  "rank": 514,
+  "rank": 941,
   "pop10": 1159,
   "pop9": 3370,
   "n": 28,
@@ -11103,12 +11103,12 @@
   "name": "Charizard",
   "set": "Legendary Collection",
   "no": "3",
-  "rank": 249,
+  "rank": 458,
   "pop10": 85,
   "pop9": 386,
   "status": "attesa_era",
   "detail": "epoca non coperta dal motore",
-  "checked": "2026-11-14"
+  "checked": "2026-11-21"
  },
  "sm10-201": {
   "id": "sm10-201",
@@ -11147,7 +11147,7 @@
   "name": "Groudon-EX",
   "set": "Dark Explorers",
   "no": "106",
-  "rank": 512,
+  "rank": 945,
   "pop10": 18,
   "pop9": 101,
   "n": 31,
@@ -11179,7 +11179,7 @@
   "name": "Dialga-EX",
   "set": "Plasma Blast",
   "no": "99",
-  "rank": 214,
+  "rank": 398,
   "pop10": 39,
   "pop9": 168,
   "n": 44,
@@ -11195,7 +11195,7 @@
   "name": "Jirachi ex",
   "set": "Crystal Guardians",
   "no": "94",
-  "rank": 501,
+  "rank": 913,
   "pop10": 82,
   "pop9": 270,
   "n": 34,
@@ -11211,7 +11211,7 @@
   "name": "Mewtwo V",
   "set": "Pokémon GO",
   "no": "72",
-  "rank": 497,
+  "rank": 908,
   "pop10": 8471,
   "pop9": 6543,
   "n": 202,
@@ -11227,7 +11227,7 @@
   "name": "Pichu",
   "set": "Wizards Black Star Promos",
   "no": "35",
-  "rank": 527,
+  "rank": 957,
   "pop10": 69,
   "pop9": 588,
   "n": 73,
@@ -11290,7 +11290,7 @@
   "name": "Tyranitar",
   "set": "HS—Unleashed",
   "no": "88",
-  "rank": 465,
+  "rank": 847,
   "pop10": 12,
   "pop9": 184,
   "n": 63,
@@ -11306,7 +11306,7 @@
   "name": "Lillie's Clefairy ex",
   "set": "Journey Together",
   "no": "184",
-  "rank": 487,
+  "rank": 900,
   "pop10": 6640,
   "pop9": 11425,
   "n": 211,
@@ -11322,7 +11322,7 @@
   "name": "Dark Espeon",
   "set": "Neo Destiny",
   "no": "4",
-  "rank": 492,
+  "rank": 905,
   "pop10": 45,
   "pop9": 302,
   "n": 40,
@@ -11370,7 +11370,7 @@
   "name": "Glaceon V",
   "set": "Evolving Skies",
   "no": "175",
-  "rank": 517,
+  "rank": 972,
   "pop10": 6389,
   "pop9": 5191,
   "n": 120,
@@ -11386,7 +11386,7 @@
   "name": "Reshiram ex",
   "set": "White Flare",
   "no": "166",
-  "rank": 521,
+  "rank": 954,
   "pop10": 5841,
   "pop9": 4134,
   "n": 148,
@@ -11421,12 +11421,12 @@
   "rank": 643,
   "pop10": 596,
   "pop9": 2403,
-  "n": 88,
-  "recognised": 43,
-  "share": 0.489,
+  "n": 73,
+  "recognised": 36,
+  "share": 0.493,
   "status": "attesa_coerenza",
   "detail": "51% dei titoli contraddice la carta (al massimo il 40%)",
-  "checked": "2026-11-14"
+  "checked": "2026-11-21"
  },
  "xy11-116": {
   "id": "xy11-116",
@@ -11465,7 +11465,7 @@
   "name": "Radiant Charizard",
   "set": "Crown Zenith",
   "no": "20",
-  "rank": 519,
+  "rank": 974,
   "pop10": 16853,
   "pop9": 12980,
   "n": 205,
@@ -11497,7 +11497,7 @@
   "name": "Sylveon-GX",
   "set": "Hidden Fates Shiny Vault",
   "no": "SV76",
-  "rank": 495,
+  "rank": 906,
   "pop10": 5466,
   "pop9": 3493,
   "n": 138,
@@ -11513,7 +11513,7 @@
   "name": "Charizard-GX",
   "set": "SM Black Star Promos",
   "no": "SM211",
-  "rank": 524,
+  "rank": 955,
   "pop10": 16956,
   "pop9": 17328,
   "n": 471,
@@ -11545,7 +11545,7 @@
   "name": "Venusaur-EX",
   "set": "XY Black Star Promos",
   "no": "XY123",
-  "rank": 525,
+  "rank": 961,
   "pop10": 66,
   "pop9": 420,
   "n": 86,
@@ -11703,7 +11703,7 @@
   "name": "Deoxys VMAX",
   "set": "Crown Zenith Galarian Gallery",
   "no": "GG45",
-  "rank": 523,
+  "rank": 956,
   "pop10": 16306,
   "pop9": 4005,
   "n": 358,
@@ -12296,7 +12296,7 @@
   "name": "Vaporeon V",
   "set": "SWSH Black Star Promos",
   "no": "SWSH181",
-  "rank": 504,
+  "rank": 918,
   "pop10": 1390,
   "pop9": 5517,
   "n": 92,
@@ -12343,7 +12343,7 @@
   "name": "Glaceon VSTAR",
   "set": "Crown Zenith Galarian Gallery",
   "no": "GG40",
-  "rank": 522,
+  "rank": 952,
   "pop10": 13800,
   "pop9": 8465,
   "n": 332,
@@ -13918,9 +13918,10 @@
    -1,
    "\\bplay\\W*promos\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-07"
+  "checked": "2026-11-07",
+  "added": "2026-11-21"
  },
  "ja:sm-p-325": {
   "id": "ja:sm-p-325",
@@ -14179,9 +14180,10 @@
    -1,
    "\\bmcdonald\\W*s\\W*pok\\W*mon\\W*e\\W*minimum\\W*pack\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-07"
+  "checked": "2026-11-07",
+  "added": "2026-11-21"
  },
  "ja:sv-p-261": {
   "id": "ja:sv-p-261",
@@ -14437,9 +14439,10 @@
    -1,
    "\\bplay\\W*promos\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-07"
+  "checked": "2026-11-07",
+  "added": "2026-11-21"
  },
  "ja:sm-p-407": {
   "id": "ja:sm-p-407",
@@ -14523,9 +14526,10 @@
    -1,
    "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-07"
+  "checked": "2026-11-07",
+  "added": "2026-11-21"
  },
  "ja:s-p-002": {
   "id": "ja:s-p-002",
@@ -14698,9 +14702,10 @@
    -1,
    "\\bclash\\W*blue\\W*sky\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-07"
+  "checked": "2026-11-07",
+  "added": "2026-11-21"
  },
  "ja:sm-p-381": {
   "id": "ja:sm-p-381",
@@ -15655,9 +15660,10 @@
    -1,
    "(?:\\b(?:neo\\W*destiny|neo\\W*4|darkness\\W*to\\W*light)\\b|闇、?そして光へ)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-07"
+  "checked": "2026-11-07",
+  "added": "2026-11-21"
  },
  "ja:neo-premium-file-1-157": {
   "id": "ja:neo-premium-file-1-157",
@@ -20349,9 +20355,10 @@
   "n": 6,
   "recognised": 6,
   "share": 1.0,
-  "status": "attesa_vendite",
+  "status": "aggiunta",
   "detail": "6 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
-  "checked": "2026-11-15"
+  "checked": "2026-11-15",
+  "added": "2026-11-20"
  },
  "ja:sv4a-331": {
   "id": "ja:sv4a-331",
@@ -20752,7 +20759,7 @@
   "name": "Dragonite",
   "set": "Legends Awakened",
   "no": "2",
-  "rank": 529,
+  "rank": 953,
   "pop10": 10,
   "pop9": 87,
   "n": 40,
@@ -21607,7 +21614,7 @@
   "name": "Psyduck",
   "set": "Wizards Black Star Promos",
   "no": "20",
-  "rank": 498,
+  "rank": 962,
   "pop10": 1330,
   "pop9": 1876,
   "n": 111,
@@ -21876,7 +21883,7 @@
   "name": "Pikachu δ",
   "set": "Nintendo Black Star Promos",
   "no": "35",
-  "rank": 260,
+  "rank": 481,
   "pop10": 12,
   "pop9": 147,
   "n": 39,
@@ -22000,7 +22007,7 @@
   "name": "Butterfree",
   "set": "Expedition Base Set",
   "no": "5",
-  "rank": 841,
+  "rank": 606,
   "pop10": 19,
   "pop9": 199,
   "n": 29,
@@ -22347,7 +22354,7 @@
   "name": "Poliwrath",
   "set": "Expedition Base Set",
   "no": "24",
-  "rank": 453,
+  "rank": 825,
   "pop10": 15,
   "pop9": 210,
   "n": 41,
@@ -22441,7 +22448,7 @@
   "name": "Gengar",
   "set": "Legendary Collection",
   "no": "11",
-  "rank": 511,
+  "rank": 940,
   "pop10": 20,
   "pop9": 229,
   "status": "attesa_era",
@@ -60602,9 +60609,10 @@
    -1,
    "\\bbattle\\W*partners\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:mega-dream-ex-212": {
   "id": "ja:mega-dream-ex-212",
@@ -60630,9 +60638,10 @@
    -1,
    "(?:\\b(?:mega\\W*dream|m2a|mega\\W*dream\\W*ex)\\b)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:expansion-pack-20th-anniversary-15": {
   "id": "ja:expansion-pack-20th-anniversary-15",
@@ -60687,9 +60696,10 @@
    -1,
    "\\bvmax\\W*climax\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:sm-p-114": {
   "id": "ja:sm-p-114",
@@ -60715,9 +60725,10 @@
    -1,
    "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:vstar-universe-200": {
   "id": "ja:vstar-universe-200",
@@ -60743,9 +60754,10 @@
    -1,
    "\\bvstar\\W*universe\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:sm-p-081": {
   "id": "ja:sm-p-081",
@@ -60771,9 +60783,10 @@
    -1,
    "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:glory-of-team-rocket-110": {
   "id": "ja:glory-of-team-rocket-110",
@@ -60799,9 +60812,10 @@
    -1,
    "\\bglory\\W*team\\W*rocket\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:mythical-legendary-dream-shine-collection-19": {
   "id": "ja:mythical-legendary-dream-shine-collection-19",
@@ -60827,9 +60841,10 @@
    -1,
    "\\bmythical\\W*legendary\\W*dream\\W*shine\\W*collection\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:vending-machine-series-3-green-97": {
   "id": "ja:vending-machine-series-3-green-97",
@@ -60855,9 +60870,10 @@
    -1,
    "\\bvending\\W*machine\\W*series\\W*3\\W*green\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:pcg-promos-154": {
   "id": "ja:pcg-promos-154",
@@ -60911,9 +60927,10 @@
    -1,
    "\\bbattle\\W*partners\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:theater-limited-vs-pack-9": {
   "id": "ja:theater-limited-vs-pack-9",
@@ -60967,9 +60984,10 @@
    -1,
    "\\bscarlet\\W*ex\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:white-flare-102": {
   "id": "ja:white-flare-102",
@@ -60995,9 +61013,10 @@
    -1,
    "\\bwhite\\W*flare\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:shiny-treasure-ex-310": {
   "id": "ja:shiny-treasure-ex-310",
@@ -61023,9 +61042,10 @@
    -1,
    "\\bshiny\\W*treasure\\W*ex\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:golden-sky-silvery-ocean-13": {
   "id": "ja:golden-sky-silvery-ocean-13",
@@ -61051,9 +61071,10 @@
    -1,
    "(?:\\b(?:golden\\W*sky|golden\\W*sky\\W*silvery\\W*ocean)\\b|金の空、?銀の海)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:gold-silver-to-a-new-world-182": {
   "id": "ja:gold-silver-to-a-new-world-182",
@@ -61079,9 +61100,10 @@
    -1,
    "(?:\\b(?:neo\\W*genesis|neo\\W*1|gold\\W*silver|gold\\W*silver\\W*to\\W*a\\W*new\\W*world)\\b|金、?・?銀、?・?新世界へ)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:pokemon-go-31": {
   "id": "ja:pokemon-go-31",
@@ -61107,9 +61129,10 @@
    -1,
    "\\bpok\\W*mon\\W*go\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:crossing-the-ruins-193": {
   "id": "ja:crossing-the-ruins-193",
@@ -61135,9 +61158,10 @@
    -1,
    "(?:\\b(?:neo\\W*discovery|neo\\W*2|crossing\\W*the\\W*ruins|crossing\\W*ruins)\\b|遺跡をこえて)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:bandit-ring-91": {
   "id": "ja:bandit-ring-91",
@@ -61193,9 +61217,10 @@
    -1,
    "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:mega-dream-ex-201": {
   "id": "ja:mega-dream-ex-201",
@@ -61221,9 +61246,10 @@
    -1,
    "(?:\\b(?:mega\\W*dream|m2a|mega\\W*dream\\W*ex)\\b)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:mcdonalds-pokemon-e-minimum-pack-8": {
   "id": "ja:mcdonalds-pokemon-e-minimum-pack-8",
@@ -61277,9 +61303,10 @@
    -1,
    "\\btown\\W*on\\W*no\\W*map\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:vstar-universe-176": {
   "id": "ja:vstar-universe-176",
@@ -61305,9 +61332,10 @@
    -1,
    "\\bvstar\\W*universe\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:nihil-zero-92": {
   "id": "ja:nihil-zero-92",
@@ -61333,9 +61361,10 @@
    -1,
    "\\bnihil\\W*zero\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:mega-dream-ex-239": {
   "id": "ja:mega-dream-ex-239",
@@ -61361,9 +61390,10 @@
    -1,
    "(?:\\b(?:mega\\W*dream|m2a|mega\\W*dream\\W*ex)\\b)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:t-promos-10": {
   "id": "ja:t-promos-10",
@@ -61445,9 +61475,10 @@
    -1,
    "\\bintro\\W*pack\\W*squirtle\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:nihil-zero-89": {
   "id": "ja:nihil-zero-89",
@@ -61473,9 +61504,10 @@
    -1,
    "\\bnihil\\W*zero\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:platinum-promos-42": {
   "id": "ja:platinum-promos-42",
@@ -61557,9 +61589,10 @@
    -1,
    "\\bcyber\\W*judge\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:vstar-universe-181": {
   "id": "ja:vstar-universe-181",
@@ -61585,9 +61618,10 @@
    -1,
    "\\bvstar\\W*universe\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:nihil-zero-87": {
   "id": "ja:nihil-zero-87",
@@ -61613,9 +61647,10 @@
    -1,
    "\\bnihil\\W*zero\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:fairy-rise-60": {
   "id": "ja:fairy-rise-60",
@@ -61641,9 +61676,10 @@
    -1,
    "\\bfairy\\W*rise\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:rocket-gang-strikes-back-71": {
   "id": "ja:rocket-gang-strikes-back-71",
@@ -61699,9 +61735,10 @@
    -1,
    "\\bfreeze\\W*bolt\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:cyber-judge-73": {
   "id": "ja:cyber-judge-73",
@@ -61727,9 +61764,10 @@
    -1,
    "\\bcyber\\W*judge\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:paradigm-trigger-80": {
   "id": "ja:paradigm-trigger-80",
@@ -61755,9 +61793,10 @@
    -1,
    "\\bparadigm\\W*trigger\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:legendary-heartbeat-50": {
   "id": "ja:legendary-heartbeat-50",
@@ -61813,9 +61852,10 @@
    -1,
    "(?:\\b(?:rocket|rocket\\W*gang)\\b|ロケット団)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:clay-burst-80": {
   "id": "ja:clay-burst-80",
@@ -61841,9 +61881,10 @@
    -1,
    "\\bclay\\W*burst\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:violet-ex-84": {
   "id": "ja:violet-ex-84",
@@ -61869,9 +61910,10 @@
    -1,
    "\\bviolet\\W*ex\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:vending-machine-series-2-red-125": {
   "id": "ja:vending-machine-series-2-red-125",
@@ -61897,9 +61939,10 @@
    -1,
    "\\bvending\\W*machine\\W*series\\W*2\\W*red\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:vending-machine-series-3-green-116": {
   "id": "ja:vending-machine-series-3-green-116",
@@ -61925,9 +61968,10 @@
    -1,
    "\\bvending\\W*machine\\W*series\\W*3\\W*green\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:sv-p-193": {
   "id": "ja:sv-p-193",
@@ -61953,9 +61997,10 @@
    -1,
    "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:triplet-beat-97": {
   "id": "ja:triplet-beat-97",
@@ -61981,9 +62026,10 @@
    -1,
    "\\btriplet\\W*beat\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:pcg-promos-1": {
   "id": "ja:pcg-promos-1",
@@ -62037,9 +62083,10 @@
    -1,
    "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:gx-ultra-shiny-216": {
   "id": "ja:gx-ultra-shiny-216",
@@ -62093,9 +62140,10 @@
    -1,
    "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:vending-machine-series-2-red-142": {
   "id": "ja:vending-machine-series-2-red-142",
@@ -62121,9 +62169,10 @@
    -1,
    "\\bvending\\W*machine\\W*series\\W*2\\W*red\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:vending-machine-series-3-green-64": {
   "id": "ja:vending-machine-series-3-green-64",
@@ -62149,8 +62198,8 @@
    -1,
    "\\bvending\\W*machine\\W*series\\W*3\\W*green\\b"
   ],
-  "status": "in_valutazione",
-  "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
+  "status": "attesa_motore",
+  "detail": "i controlli del motore non tornano ancora: si riprova ogni settimana (D157)",
   "checked": "2026-11-12"
  },
  "ja:s-p-161": {
@@ -62205,9 +62254,10 @@
    -1,
    "\\bvending\\W*machine\\W*series\\W*3\\W*green\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:offense-and-defense-of-the-furthest-ends-22": {
   "id": "ja:offense-and-defense-of-the-furthest-ends-22",
@@ -62262,9 +62312,10 @@
    -1,
    "\\bsplit\\W*earth\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:vstar-universe-233": {
   "id": "ja:vstar-universe-233",
@@ -62290,9 +62341,10 @@
    -1,
    "\\bvstar\\W*universe\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:mega-symphonia-70": {
   "id": "ja:mega-symphonia-70",
@@ -62318,9 +62370,10 @@
    -1,
    "\\bmega\\W*symphonia\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:m-p-033": {
   "id": "ja:m-p-033",
@@ -62346,9 +62399,10 @@
    -1,
    "\\b(?:m|mega(?:\\W*evolution)?)\\W*(?:black\\W*star\\W*)?promo|\\b(?:m|mega(?:\\W*evolution)?)\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:scarlet-ex-103": {
   "id": "ja:scarlet-ex-103",
@@ -62374,9 +62428,10 @@
    -1,
    "\\bscarlet\\W*ex\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:tag-bolt-104": {
   "id": "ja:tag-bolt-104",
@@ -62402,9 +62457,10 @@
    -1,
    "(?:\\b(?:tag\\W*bolt|sm9\\b|tag\\W*bolt)\\b)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:alter-genesis-65": {
   "id": "ja:alter-genesis-65",
@@ -62430,9 +62486,10 @@
    -1,
    "\\balter\\W*genesis\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:collection-sun-68": {
   "id": "ja:collection-sun-68",
@@ -62486,9 +62543,10 @@
    -1,
    "\\bfusion\\W*arts\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:heat-wave-arena-89": {
   "id": "ja:heat-wave-arena-89",
@@ -62514,9 +62572,10 @@
    -1,
    "\\bhot\\W*air\\W*arena\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:amazing-volt-tackle-111": {
   "id": "ja:amazing-volt-tackle-111",
@@ -62542,9 +62601,10 @@
    -1,
    "\\bamazing\\W*volt\\W*tackle\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:vstar-universe-184": {
   "id": "ja:vstar-universe-184",
@@ -62570,9 +62630,10 @@
    -1,
    "\\bvstar\\W*universe\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:glory-of-team-rocket-108": {
   "id": "ja:glory-of-team-rocket-108",
@@ -62598,9 +62659,10 @@
    -1,
    "\\bglory\\W*team\\W*rocket\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:mega-diancie-ex-starter-set-mega-22": {
   "id": "ja:mega-diancie-ex-starter-set-mega-22",
@@ -62626,9 +62688,10 @@
    -1,
    "\\bmega\\W*diancie\\W*ex\\W*starter\\W*set\\W*mega\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:xy-p-156": {
   "id": "ja:xy-p-156",
@@ -62654,9 +62717,10 @@
    -1,
    "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:leaders-stadium-125": {
   "id": "ja:leaders-stadium-125",
@@ -62682,9 +62746,10 @@
    -1,
    "(?:\\b(?:gym\\W*heroes|gym\\W*1|leaders?\\W*stadium|leaders\\W*stadium)\\b|リーダーズスタジアム)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:platinum-promos-51": {
   "id": "ja:platinum-promos-51",
@@ -62795,9 +62860,10 @@
    -1,
    "(?:\\b(?:rocket|rocket\\W*gang)\\b|ロケット団)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:fairy-rise-54": {
   "id": "ja:fairy-rise-54",
@@ -62823,9 +62889,10 @@
    -1,
    "\\bfairy\\W*rise\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:extra-regulation-box-19": {
   "id": "ja:extra-regulation-box-19",
@@ -62879,9 +62946,10 @@
    -1,
    "(?:\\b(?:rocket|rocket\\W*gang)\\b|ロケット団)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:gx-ultra-shiny-158": {
   "id": "ja:gx-ultra-shiny-158",
@@ -62907,9 +62975,10 @@
    -1,
    "\\bgx\\W*ultra\\W*shiny\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:sv-p-259": {
   "id": "ja:sv-p-259",
@@ -62935,9 +63004,10 @@
    -1,
    "\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sv|scarlet\\W*(?:&|and)?\\W*violet)\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:vstar-universe-180": {
   "id": "ja:vstar-universe-180",
@@ -62963,9 +63033,10 @@
    -1,
    "\\bvstar\\W*universe\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:master-kit-side-deck-6": {
   "id": "ja:master-kit-side-deck-6",
@@ -63019,9 +63090,10 @@
    -1,
    "\\btag\\W*team\\W*gx\\W*tag\\W*all\\W*stars\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:expansion-pack-8": {
   "id": "ja:expansion-pack-8",
@@ -63047,9 +63119,10 @@
    -1,
    "(?:\\b(?:base\\W*set|basic|expansion\\W*pack)\\b|拡張パック)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:pcg-promos-26": {
   "id": "ja:pcg-promos-26",
@@ -63103,9 +63176,10 @@
    -1,
    "\\bsingle\\W*strike\\W*master\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:mega-symphonia-64": {
   "id": "ja:mega-symphonia-64",
@@ -63131,9 +63205,10 @@
    -1,
    "\\bmega\\W*symphonia\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:vending-machine-series-3-green-48": {
   "id": "ja:vending-machine-series-3-green-48",
@@ -63159,9 +63234,10 @@
    -1,
    "\\bvending\\W*machine\\W*series\\W*3\\W*green\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:vstar-universe-202": {
   "id": "ja:vstar-universe-202",
@@ -63187,9 +63263,10 @@
    -1,
    "\\bvstar\\W*universe\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:megalo-cannon-78": {
   "id": "ja:megalo-cannon-78",
@@ -63243,9 +63320,10 @@
    -1,
    "\\bincandescent\\W*arcana\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:intro-pack-squirtle-3": {
   "id": "ja:intro-pack-squirtle-3",
@@ -63329,9 +63407,10 @@
    -1,
    "(?:\\b(?:neo\\W*discovery|neo\\W*2|crossing\\W*the\\W*ruins|crossing\\W*ruins)\\b|遺跡をこえて)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:battle-region-68": {
   "id": "ja:battle-region-68",
@@ -63357,9 +63436,10 @@
    -1,
    "\\bbattle\\W*region\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:wild-blaze-55": {
   "id": "ja:wild-blaze-55",
@@ -63384,11 +63464,12 @@
    -1,
    "\\bwild\\W*blaze\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
   "checked": "2026-11-12",
   "en_same": true,
-  "en_check": "illustrazione uguale (distanza 28/256, §67b M0, D307)"
+  "en_check": "illustrazione uguale (distanza 28/256, §67b M0, D307)",
+  "added": "2026-11-20"
  },
  "ja:holon-research-tower-49": {
   "id": "ja:holon-research-tower-49",
@@ -63444,9 +63525,10 @@
    -1,
    "\\bvstar\\W*universe\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:pokemon-vs-31": {
   "id": "ja:pokemon-vs-31",
@@ -63500,9 +63582,10 @@
    -1,
    "\\bpeerless\\W*fighters\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:raichu-break-evolution-pack-1": {
   "id": "ja:raichu-break-evolution-pack-1",
@@ -63528,9 +63611,10 @@
    -1,
    "\\braichu\\W*break\\W*evolution\\W*pack\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:gold-silver-to-a-new-world-79": {
   "id": "ja:gold-silver-to-a-new-world-79",
@@ -63556,9 +63640,10 @@
    -1,
    "(?:\\b(?:neo\\W*genesis|neo\\W*1|gold\\W*silver|gold\\W*silver\\W*to\\W*a\\W*new\\W*world)\\b|金、?・?銀、?・?新世界へ)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:super-electric-breaker-116": {
   "id": "ja:super-electric-breaker-116",
@@ -63584,9 +63669,10 @@
    -1,
    "\\bsuper\\W*electric\\W*breaker\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:mega-dream-ex-244": {
   "id": "ja:mega-dream-ex-244",
@@ -63612,9 +63698,10 @@
    -1,
    "(?:\\b(?:mega\\W*dream|m2a|mega\\W*dream\\W*ex)\\b)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:battle-partners-131": {
   "id": "ja:battle-partners-131",
@@ -63640,9 +63727,10 @@
    -1,
    "\\bbattle\\W*partners\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:clay-burst-93": {
   "id": "ja:clay-burst-93",
@@ -63668,9 +63756,10 @@
    -1,
    "\\bclay\\W*burst\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:mcdonalds-pokemon-e-minimum-pack-9": {
   "id": "ja:mcdonalds-pokemon-e-minimum-pack-9",
@@ -63724,9 +63813,10 @@
    -1,
    "\\binteleon\\W*vmax\\W*high\\W*class\\W*deck\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:pokemon-card-151-9": {
   "id": "ja:pokemon-card-151-9",
@@ -63752,9 +63842,10 @@
    -1,
    "\\bpok\\W*mon\\W*151\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:expansion-pack-20th-anniversary-89": {
   "id": "ja:expansion-pack-20th-anniversary-89",
@@ -63810,9 +63901,10 @@
    -1,
    "\\bvstar\\W*universe\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:mega-dream-ex-211": {
   "id": "ja:mega-dream-ex-211",
@@ -63838,9 +63930,10 @@
    -1,
    "(?:\\b(?:mega\\W*dream|m2a|mega\\W*dream\\W*ex)\\b)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:leaders-stadium-45": {
   "id": "ja:leaders-stadium-45",
@@ -63866,9 +63959,10 @@
    -1,
    "(?:\\b(?:gym\\W*heroes|gym\\W*1|leaders?\\W*stadium|leaders\\W*stadium)\\b|リーダーズスタジアム)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:silver-deck-kit-10": {
   "id": "ja:silver-deck-kit-10",
@@ -63894,9 +63988,10 @@
    -1,
    "\\bsilver\\W*deck\\W*kit\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:ex-battle-boost-95": {
   "id": "ja:ex-battle-boost-95",
@@ -63950,9 +64045,10 @@
    -1,
    "(?:\\b(?:mega\\W*dream|m2a|mega\\W*dream\\W*ex)\\b)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:p-promos-7": {
   "id": "ja:p-promos-7",
@@ -64006,9 +64102,10 @@
    -1,
    "\\btime\\W*gazer\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:sm-p-238": {
   "id": "ja:sm-p-238",
@@ -64034,9 +64131,10 @@
    -1,
    "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:shiny-collection-5": {
   "id": "ja:shiny-collection-5",
@@ -64062,9 +64160,10 @@
    -1,
    "\\bshiny\\W*collection\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:xy-p-272": {
   "id": "ja:xy-p-272",
@@ -64146,9 +64245,10 @@
    -1,
    "\\bex\\W*battle\\W*boost\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:pcg-promos-24": {
   "id": "ja:pcg-promos-24",
@@ -64202,9 +64302,10 @@
    -1,
    "\\bvstar\\W*universe\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:expansion-pack-20th-anniversary-43": {
   "id": "ja:expansion-pack-20th-anniversary-43",
@@ -64287,9 +64388,10 @@
    -1,
    "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:melee-pokemon-scramble-5": {
   "id": "ja:melee-pokemon-scramble-5",
@@ -64371,9 +64473,10 @@
    -1,
    "\\bparadigm\\W*trigger\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:gx-ultra-shiny-98": {
   "id": "ja:gx-ultra-shiny-98",
@@ -64399,9 +64502,10 @@
    -1,
    "\\bgx\\W*ultra\\W*shiny\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:mega-symphonia-68": {
   "id": "ja:mega-symphonia-68",
@@ -64427,9 +64531,10 @@
    -1,
    "\\bmega\\W*symphonia\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:vmax-climax-212": {
   "id": "ja:vmax-climax-212",
@@ -64455,9 +64560,10 @@
    -1,
    "\\bvmax\\W*climax\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:pcg-promos-40": {
   "id": "ja:pcg-promos-40",
@@ -64511,9 +64617,10 @@
    -1,
    "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:golden-sky-silvery-ocean-96": {
   "id": "ja:golden-sky-silvery-ocean-96",
@@ -64539,9 +64646,10 @@
    -1,
    "(?:\\b(?:golden\\W*sky|golden\\W*sky\\W*silvery\\W*ocean)\\b|金の空、?銀の海)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:flight-of-legends-74": {
   "id": "ja:flight-of-legends-74",
@@ -64623,9 +64731,10 @@
    -1,
    "\\blegendary\\W*shine\\W*collection\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:mythical-legendary-dream-shine-collection-31": {
   "id": "ja:mythical-legendary-dream-shine-collection-31",
@@ -64651,9 +64760,10 @@
    -1,
    "\\bmythical\\W*legendary\\W*dream\\W*shine\\W*collection\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:s-p-127": {
   "id": "ja:s-p-127",
@@ -64679,8 +64789,8 @@
    -1,
    "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
   ],
-  "status": "in_valutazione",
-  "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
+  "status": "attesa_motore",
+  "detail": "i controlli del motore non tornano ancora: si riprova ogni settimana (D157)",
   "checked": "2026-11-12"
  },
  "ja:vstar-universe-174": {
@@ -64707,9 +64817,10 @@
    -1,
    "\\bvstar\\W*universe\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:sm-p-010": {
   "id": "ja:sm-p-010",
@@ -64763,9 +64874,10 @@
    -1,
    "\\bnihil\\W*zero\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:bandit-ring-89": {
   "id": "ja:bandit-ring-89",
@@ -64820,9 +64932,10 @@
    -1,
    "\\bvending\\W*machine\\W*series\\W*3\\W*green\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:eevee-heroes-41": {
   "id": "ja:eevee-heroes-41",
@@ -64848,9 +64961,10 @@
    -1,
    "\\beevee\\W*heroes\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:crossing-the-ruins-217": {
   "id": "ja:crossing-the-ruins-217",
@@ -64876,9 +64990,10 @@
    -1,
    "(?:\\b(?:neo\\W*discovery|neo\\W*2|crossing\\W*the\\W*ruins|crossing\\W*ruins)\\b|遺跡をこえて)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:abyss-eye-118": {
   "id": "ja:abyss-eye-118",
@@ -64904,9 +65019,10 @@
    -1,
    "\\babyss\\W*eye\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:pokemon-vs-77": {
   "id": "ja:pokemon-vs-77",
@@ -64960,9 +65076,10 @@
    -1,
    "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:ruler-of-the-black-flame-115": {
   "id": "ja:ruler-of-the-black-flame-115",
@@ -64988,9 +65105,10 @@
    -1,
    "\\bruler\\W*black\\W*flame\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:vending-machine-series-1-blue-16": {
   "id": "ja:vending-machine-series-1-blue-16",
@@ -65016,9 +65134,10 @@
    -1,
    "\\bvending\\W*machine\\W*series\\W*1\\W*blue\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:shiny-treasure-ex-265": {
   "id": "ja:shiny-treasure-ex-265",
@@ -65044,9 +65163,10 @@
    -1,
    "\\bshiny\\W*treasure\\W*ex\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:vstar-universe-187": {
   "id": "ja:vstar-universe-187",
@@ -65072,9 +65192,10 @@
    -1,
    "\\bvstar\\W*universe\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:vstar-universe-243": {
   "id": "ja:vstar-universe-243",
@@ -65100,9 +65221,10 @@
    -1,
    "\\bvstar\\W*universe\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:tag-team-gx-tag-all-stars-224": {
   "id": "ja:tag-team-gx-tag-all-stars-224",
@@ -65128,9 +65250,10 @@
    -1,
    "\\btag\\W*team\\W*gx\\W*tag\\W*all\\W*stars\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:gold-silver-to-a-new-world-189": {
   "id": "ja:gold-silver-to-a-new-world-189",
@@ -65156,9 +65279,10 @@
    -1,
    "(?:\\b(?:neo\\W*genesis|neo\\W*1|gold\\W*silver|gold\\W*silver\\W*to\\W*a\\W*new\\W*world)\\b|金、?・?銀、?・?新世界へ)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:pokekyun-collection-14": {
   "id": "ja:pokekyun-collection-14",
@@ -65184,9 +65308,10 @@
    -1,
    "\\bpok\\W*kyun\\W*collection\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:nihil-zero-81": {
   "id": "ja:nihil-zero-81",
@@ -65212,9 +65337,10 @@
    -1,
    "\\bnihil\\W*zero\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:xy-p-064": {
   "id": "ja:xy-p-064",
@@ -65240,9 +65366,10 @@
    -1,
    "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:expansion-pack-20th-anniversary-57": {
   "id": "ja:expansion-pack-20th-anniversary-57",
@@ -65268,9 +65395,10 @@
    -1,
    "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:super-electric-breaker-110": {
   "id": "ja:super-electric-breaker-110",
@@ -65296,9 +65424,10 @@
    -1,
    "\\bsuper\\W*electric\\W*breaker\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:t-promos-21": {
   "id": "ja:t-promos-21",
@@ -65352,9 +65481,10 @@
    -1,
    "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:incandescent-arcana-71": {
   "id": "ja:incandescent-arcana-71",
@@ -65380,9 +65510,10 @@
    -1,
    "\\bincandescent\\W*arcana\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:rocket-gang-7": {
   "id": "ja:rocket-gang-7",
@@ -65408,8 +65539,8 @@
    -1,
    "(?:\\b(?:rocket|rocket\\W*gang)\\b|ロケット団)"
   ],
-  "status": "in_valutazione",
-  "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
+  "status": "attesa_motore",
+  "detail": "i controlli del motore non tornano ancora: si riprova ogni settimana (D157)",
   "checked": "2026-11-12"
  },
  "ja:blue-sky-stream-75": {
@@ -65436,9 +65567,10 @@
    -1,
    "\\bblue\\W*sky\\W*stream\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:30th-celebration-premium-deck-set-espeon-umbreon-44": {
   "id": "ja:30th-celebration-premium-deck-set-espeon-umbreon-44",
@@ -65464,9 +65596,10 @@
    -1,
    "\\b30th\\W*celebration\\W*premium\\W*deck\\W*set\\W*espeon\\W*umbreon\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:fairy-rise-56": {
   "id": "ja:fairy-rise-56",
@@ -65492,9 +65625,10 @@
    -1,
    "\\bfairy\\W*rise\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:cyber-judge-82": {
   "id": "ja:cyber-judge-82",
@@ -65520,9 +65654,10 @@
    -1,
    "\\bcyber\\W*judge\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:incandescent-arcana-70": {
   "id": "ja:incandescent-arcana-70",
@@ -65548,9 +65683,10 @@
    -1,
    "\\bincandescent\\W*arcana\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:eevee-heroes-3": {
   "id": "ja:eevee-heroes-3",
@@ -65576,9 +65712,10 @@
    -1,
    "\\beevee\\W*heroes\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:m-charizard-ex-mega-battle-deck-1": {
   "id": "ja:m-charizard-ex-mega-battle-deck-1",
@@ -65604,9 +65741,10 @@
    -1,
    "\\bm\\W*charizard\\W*ex\\W*mega\\W*battle\\W*deck\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:vstar-universe-189": {
   "id": "ja:vstar-universe-189",
@@ -65632,9 +65770,10 @@
    -1,
    "\\bvstar\\W*universe\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:sm-p-269": {
   "id": "ja:sm-p-269",
@@ -65660,9 +65799,10 @@
    -1,
    "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:stellar-miracle-deck-build-box-1": {
   "id": "ja:stellar-miracle-deck-build-box-1",
@@ -65688,9 +65828,10 @@
    -1,
    "\\bstellar\\W*miracle\\W*deck\\W*build\\W*box\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:cyber-judge-74": {
   "id": "ja:cyber-judge-74",
@@ -65716,9 +65857,10 @@
    -1,
    "\\bcyber\\W*judge\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:cyber-judge-77": {
   "id": "ja:cyber-judge-77",
@@ -65744,9 +65886,10 @@
    -1,
    "\\bcyber\\W*judge\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:s-p-146": {
   "id": "ja:s-p-146",
@@ -65772,9 +65915,10 @@
    -1,
    "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:xy-p-121": {
   "id": "ja:xy-p-121",
@@ -65828,9 +65972,10 @@
    -1,
    "\\bparadise\\W*dragona\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:paradise-dragona-89": {
   "id": "ja:paradise-dragona-89",
@@ -65856,9 +66001,10 @@
    -1,
    "\\bparadise\\W*dragona\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:mega-dream-ex-196": {
   "id": "ja:mega-dream-ex-196",
@@ -65884,9 +66030,10 @@
    -1,
    "(?:\\b(?:mega\\W*dream|m2a|mega\\W*dream\\W*ex)\\b)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:wind-from-the-sea-49": {
   "id": "ja:wind-from-the-sea-49",
@@ -65912,9 +66059,10 @@
    -1,
    "(?:\\b(?:wind\\W*from\\W*the\\W*sea|wind\\W*from\\W*sea)\\b|海からの風)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:expansion-pack-2": {
   "id": "ja:expansion-pack-2",
@@ -65940,9 +66088,10 @@
    -1,
    "(?:\\b(?:base\\W*set|basic|expansion\\W*pack)\\b|拡張パック)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:pokemon-go-73": {
   "id": "ja:pokemon-go-73",
@@ -65968,9 +66117,10 @@
    -1,
    "\\bpok\\W*mon\\W*go\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:rocket-gang-strikes-back-60": {
   "id": "ja:rocket-gang-strikes-back-60",
@@ -66026,9 +66176,10 @@
    -1,
    "(?:\\b(?:mega\\W*dream|m2a|mega\\W*dream\\W*ex)\\b)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:gx-ultra-shiny-210": {
   "id": "ja:gx-ultra-shiny-210",
@@ -66054,9 +66205,10 @@
    -1,
    "\\bgx\\W*ultra\\W*shiny\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:super-burst-impact-15": {
   "id": "ja:super-burst-impact-15",
@@ -66082,9 +66234,10 @@
    -1,
    "\\bsuper\\W*burst\\W*impact\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:thunder-knuckle-53": {
   "id": "ja:thunder-knuckle-53",
@@ -66139,9 +66292,10 @@
    -1,
    "\\bvending\\W*machine\\W*series\\W*2\\W*red\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:clay-burst-73": {
   "id": "ja:clay-burst-73",
@@ -66167,9 +66321,10 @@
    -1,
    "\\bclay\\W*burst\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:rapid-strike-master-79": {
   "id": "ja:rapid-strike-master-79",
@@ -66195,9 +66350,10 @@
    -1,
    "\\brapid\\W*strike\\W*master\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:eevee-heroes-25": {
   "id": "ja:eevee-heroes-25",
@@ -66223,9 +66379,10 @@
    -1,
    "\\beevee\\W*heroes\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:pcg-promos-50": {
   "id": "ja:pcg-promos-50",
@@ -66251,9 +66408,10 @@
    -1,
    "\\bpcg\\W*promos\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:promo-card-pack-25th-anniversary-edition-9": {
   "id": "ja:promo-card-pack-25th-anniversary-edition-9",
@@ -66279,9 +66437,10 @@
    -1,
    "\\bpromo\\W*pack\\W*25th\\W*anniversary\\W*edition\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:p-promos-10": {
   "id": "ja:p-promos-10",
@@ -66335,9 +66494,10 @@
    -1,
    "(?:\\b(?:jungle|jungle)\\b|ジャングル)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:white-flare-169": {
   "id": "ja:white-flare-169",
@@ -66363,9 +66523,10 @@
    -1,
    "\\bwhite\\W*flare\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:super-electric-breaker-118": {
   "id": "ja:super-electric-breaker-118",
@@ -66391,9 +66552,10 @@
    -1,
    "\\bsuper\\W*electric\\W*breaker\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:crimson-haze-67": {
   "id": "ja:crimson-haze-67",
@@ -66419,9 +66581,10 @@
    -1,
    "\\bcrimson\\W*haze\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:vstar-universe-198": {
   "id": "ja:vstar-universe-198",
@@ -66447,9 +66610,10 @@
    -1,
    "\\bvstar\\W*universe\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:super-electric-breaker-108": {
   "id": "ja:super-electric-breaker-108",
@@ -66475,9 +66639,10 @@
    -1,
    "\\bsuper\\W*electric\\W*breaker\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:vending-machine-series-3-green-37": {
   "id": "ja:vending-machine-series-3-green-37",
@@ -66503,9 +66668,10 @@
    -1,
    "\\bvending\\W*machine\\W*series\\W*3\\W*green\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:mythical-legendary-dream-shine-collection-14": {
   "id": "ja:mythical-legendary-dream-shine-collection-14",
@@ -66531,9 +66697,10 @@
    -1,
    "\\bmythical\\W*legendary\\W*dream\\W*shine\\W*collection\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:super-electric-breaker-114": {
   "id": "ja:super-electric-breaker-114",
@@ -66559,9 +66726,10 @@
    -1,
    "\\bsuper\\W*electric\\W*breaker\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:battle-partners-112": {
   "id": "ja:battle-partners-112",
@@ -66587,9 +66755,10 @@
    -1,
    "\\bbattle\\W*partners\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:dream-league-69": {
   "id": "ja:dream-league-69",
@@ -66615,9 +66784,10 @@
    -1,
    "\\bdream\\W*league\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:battle-partners-101": {
   "id": "ja:battle-partners-101",
@@ -66643,9 +66813,10 @@
    -1,
    "\\bbattle\\W*partners\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:blue-sky-stream-47": {
   "id": "ja:blue-sky-stream-47",
@@ -66671,9 +66842,10 @@
    -1,
    "\\bblue\\W*sky\\W*stream\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:alter-genesis-102": {
   "id": "ja:alter-genesis-102",
@@ -66699,9 +66871,10 @@
    -1,
    "\\balter\\W*genesis\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:m-master-deck-build-box-power-style-11": {
   "id": "ja:m-master-deck-build-box-power-style-11",
@@ -66813,9 +66986,10 @@
    -1,
    "\\bdream\\W*league\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:rocket-gang-strikes-back-70": {
   "id": "ja:rocket-gang-strikes-back-70",
@@ -66841,9 +67015,10 @@
    -1,
    "\\brocket\\W*gang\\W*strikes\\W*back\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:nihil-zero-90": {
   "id": "ja:nihil-zero-90",
@@ -66869,9 +67044,10 @@
    -1,
    "\\bnihil\\W*zero\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:gx-ultra-shiny-211": {
   "id": "ja:gx-ultra-shiny-211",
@@ -66897,9 +67073,10 @@
    -1,
    "\\bgx\\W*ultra\\W*shiny\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:dream-league-53": {
   "id": "ja:dream-league-53",
@@ -66925,9 +67102,10 @@
    -1,
    "\\bdream\\W*league\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:darkness-and-to-light-199": {
   "id": "ja:darkness-and-to-light-199",
@@ -66953,9 +67131,10 @@
    -1,
    "(?:\\b(?:neo\\W*destiny|neo\\W*4|darkness\\W*to\\W*light)\\b|闇、?そして光へ)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:gx-ultra-shiny-160": {
   "id": "ja:gx-ultra-shiny-160",
@@ -66981,9 +67160,10 @@
    -1,
    "\\bgx\\W*ultra\\W*shiny\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:bw-p-182": {
   "id": "ja:bw-p-182",
@@ -67009,9 +67189,10 @@
    -1,
    "\\b(?:bw|black\\W*(?:&|and)?\\W*white)\\W*(?:black\\W*star\\W*)?promo|\\b(?:bw|black\\W*(?:&|and)?\\W*white)\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:j-promos-2": {
   "id": "ja:j-promos-2",
@@ -67123,9 +67304,10 @@
    -1,
    "\\bintense\\W*fight\\W*in\\W*destroyed\\W*sky\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:awakening-legends-26": {
   "id": "ja:awakening-legends-26",
@@ -67151,9 +67333,10 @@
    -1,
    "(?:\\b(?:neo\\W*revelation|neo\\W*3|awakening\\W*legends)\\b|めざめる伝説)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:vstar-universe-173": {
   "id": "ja:vstar-universe-173",
@@ -67179,9 +67362,10 @@
    -1,
    "\\bvstar\\W*universe\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:expansion-pack-20th-anniversary-25": {
   "id": "ja:expansion-pack-20th-anniversary-25",
@@ -67264,9 +67448,10 @@
    -1,
    "\\binferno\\W*x\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:remix-bout-73": {
   "id": "ja:remix-bout-73",
@@ -67292,9 +67477,10 @@
    -1,
    "\\bremix\\W*bout\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:super-electric-breaker-115": {
   "id": "ja:super-electric-breaker-115",
@@ -67320,9 +67506,10 @@
    -1,
    "\\bsuper\\W*electric\\W*breaker\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:split-earth-45": {
   "id": "ja:split-earth-45",
@@ -67348,9 +67535,10 @@
    -1,
    "\\bsplit\\W*earth\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:battle-partners-128": {
   "id": "ja:battle-partners-128",
@@ -67376,9 +67564,10 @@
    -1,
    "\\bbattle\\W*partners\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:triplet-beat-92": {
   "id": "ja:triplet-beat-92",
@@ -67404,9 +67593,10 @@
    -1,
    "\\btriplet\\W*beat\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:darkness-and-to-light-232": {
   "id": "ja:darkness-and-to-light-232",
@@ -67432,9 +67622,10 @@
    -1,
    "(?:\\b(?:neo\\W*destiny|neo\\W*4|darkness\\W*to\\W*light)\\b|闇、?そして光へ)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:vstar-universe-207": {
   "id": "ja:vstar-universe-207",
@@ -67460,9 +67651,10 @@
    -1,
    "\\bvstar\\W*universe\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:p-promos-15": {
   "id": "ja:p-promos-15",
@@ -67516,9 +67708,10 @@
    -1,
    "\\bviolet\\W*ex\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:vending-machine-series-2-red-26": {
   "id": "ja:vending-machine-series-2-red-26",
@@ -67544,9 +67737,10 @@
    -1,
    "\\bvending\\W*machine\\W*series\\W*2\\W*red\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:vending-machine-series-3-green-30": {
   "id": "ja:vending-machine-series-3-green-30",
@@ -67572,8 +67766,8 @@
    -1,
    "\\bvending\\W*machine\\W*series\\W*3\\W*green\\b"
   ],
-  "status": "in_valutazione",
-  "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
+  "status": "attesa_motore",
+  "detail": "i controlli del motore non tornano ancora: si riprova ogni settimana (D157)",
   "checked": "2026-11-12"
  },
  "ja:pcg-promos-45": {
@@ -67600,9 +67794,10 @@
    -1,
    "\\bpcg\\W*promos\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:pokemon-vs-102": {
   "id": "ja:pokemon-vs-102",
@@ -67656,9 +67851,10 @@
    -1,
    "\\bnihil\\W*zero\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:holon-research-tower-69": {
   "id": "ja:holon-research-tower-69",
@@ -67714,9 +67910,10 @@
    -1,
    "\\bintro\\W*pack\\W*squirtle\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:30th-celebration-137": {
   "id": "ja:30th-celebration-137",
@@ -67742,9 +67939,10 @@
    -1,
    "\\b30th\\W*celebration\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:gx-ultra-shiny-237": {
   "id": "ja:gx-ultra-shiny-237",
@@ -67770,9 +67968,10 @@
    -1,
    "\\bgx\\W*ultra\\W*shiny\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:sm-p-408": {
   "id": "ja:sm-p-408",
@@ -67798,9 +67997,10 @@
    -1,
    "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:super-electric-breaker-135": {
   "id": "ja:super-electric-breaker-135",
@@ -67826,9 +68026,10 @@
    -1,
    "\\bsuper\\W*electric\\W*breaker\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:pokekyun-collection-18": {
   "id": "ja:pokekyun-collection-18",
@@ -67882,9 +68083,10 @@
    -1,
    "\\bwild\\W*force\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:vmax-climax-100": {
   "id": "ja:vmax-climax-100",
@@ -67910,9 +68112,10 @@
    -1,
    "\\bvmax\\W*climax\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-20"
  },
  "ja:mcdonalds-pokemon-e-minimum-pack-6": {
   "id": "ja:mcdonalds-pokemon-e-minimum-pack-6",
@@ -67966,9 +68169,10 @@
    -1,
    "\\bmega\\W*symphonia\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:vending-machine-series-2-red-131": {
   "id": "ja:vending-machine-series-2-red-131",
@@ -67994,9 +68198,10 @@
    -1,
    "\\bvending\\W*machine\\W*series\\W*2\\W*red\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:snow-hazard-73": {
   "id": "ja:snow-hazard-73",
@@ -68022,9 +68227,10 @@
    -1,
    "\\bsnow\\W*hazard\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:raging-surf-66": {
   "id": "ja:raging-surf-66",
@@ -68050,9 +68256,10 @@
    -1,
    "\\braging\\W*surf\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:arceus-lv-x-deck-lightning-psychic-11": {
   "id": "ja:arceus-lv-x-deck-lightning-psychic-11",
@@ -68107,9 +68314,10 @@
    -1,
    "\\bvstar\\W*universe\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:pokemon-go-50": {
   "id": "ja:pokemon-go-50",
@@ -68135,9 +68343,10 @@
    -1,
    "\\bpok\\W*mon\\W*go\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:secret-of-the-lakes-26": {
   "id": "ja:secret-of-the-lakes-26",
@@ -68163,9 +68372,10 @@
    -1,
    "\\bsecret\\W*lakes\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:violet-ex-81": {
   "id": "ja:violet-ex-81",
@@ -68191,9 +68401,10 @@
    -1,
    "\\bviolet\\W*ex\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:pokemon-card-151-94": {
   "id": "ja:pokemon-card-151-94",
@@ -68219,9 +68430,10 @@
    -1,
    "\\bpok\\W*mon\\W*151\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:vending-machine-series-3-green-69": {
   "id": "ja:vending-machine-series-3-green-69",
@@ -68247,9 +68459,10 @@
    -1,
    "\\bvending\\W*machine\\W*series\\W*3\\W*green\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:holon-research-tower-39": {
   "id": "ja:holon-research-tower-39",
@@ -68305,9 +68518,10 @@
    -1,
    "\\bdark\\W*phantasma\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:split-earth-37": {
   "id": "ja:split-earth-37",
@@ -68333,9 +68547,10 @@
    -1,
    "\\bsplit\\W*earth\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:nihil-zero-107": {
   "id": "ja:nihil-zero-107",
@@ -68361,9 +68576,10 @@
    -1,
    "\\bnihil\\W*zero\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:rebellion-crash-106": {
   "id": "ja:rebellion-crash-106",
@@ -68389,9 +68605,10 @@
    -1,
    "\\brebellion\\W*crash\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:shining-legends-75": {
   "id": "ja:shining-legends-75",
@@ -68417,9 +68634,10 @@
    -1,
    "(?:\\b(?:shining\\W*legends|sm3\\+|shining\\W*legends)\\b)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:gold-silver-to-a-new-world-159": {
   "id": "ja:gold-silver-to-a-new-world-159",
@@ -68473,9 +68691,10 @@
    -1,
    "\\bcrimson\\W*haze\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:cyber-judge-94": {
   "id": "ja:cyber-judge-94",
@@ -68501,9 +68720,10 @@
    -1,
    "\\bcyber\\W*judge\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:pokemon-vs-72": {
   "id": "ja:pokemon-vs-72",
@@ -68557,9 +68777,10 @@
    -1,
    "(?:\\b(?:neo\\W*destiny|neo\\W*4|darkness\\W*to\\W*light)\\b|闇、?そして光へ)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:glory-of-team-rocket-99": {
   "id": "ja:glory-of-team-rocket-99",
@@ -68585,9 +68806,10 @@
    -1,
    "\\bglory\\W*team\\W*rocket\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:megalo-cannon-79": {
   "id": "ja:megalo-cannon-79",
@@ -68700,9 +68922,10 @@
    -1,
    "\\bpcg\\W*promos\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:paradise-dragona-76": {
   "id": "ja:paradise-dragona-76",
@@ -68728,9 +68951,10 @@
    -1,
    "\\bparadise\\W*dragona\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:s-p-100": {
   "id": "ja:s-p-100",
@@ -68756,9 +68980,10 @@
    -1,
    "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:xy-p-194": {
   "id": "ja:xy-p-194",
@@ -68784,9 +69009,10 @@
    -1,
    "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:s-p-156": {
   "id": "ja:s-p-156",
@@ -68812,9 +69038,10 @@
    -1,
    "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:sm-p-247": {
   "id": "ja:sm-p-247",
@@ -68868,9 +69095,10 @@
    -1,
    "\\bvending\\W*machine\\W*series\\W*1\\W*blue\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:triplet-beat-78": {
   "id": "ja:triplet-beat-78",
@@ -68896,9 +69124,10 @@
    -1,
    "\\btriplet\\W*beat\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:shiny-treasure-ex-210": {
   "id": "ja:shiny-treasure-ex-210",
@@ -68924,9 +69153,10 @@
    -1,
    "\\bshiny\\W*treasure\\W*ex\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:secret-of-the-lakes-298": {
   "id": "ja:secret-of-the-lakes-298",
@@ -68952,9 +69182,10 @@
    -1,
    "\\bsecret\\W*lakes\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:rocket-gang-5": {
   "id": "ja:rocket-gang-5",
@@ -68980,9 +69211,10 @@
    -1,
    "(?:\\b(?:rocket|rocket\\W*gang)\\b|ロケット団)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:emerald-break-88": {
   "id": "ja:emerald-break-88",
@@ -69036,9 +69268,10 @@
    -1,
    "\\bnihil\\W*zero\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:transformation-mask-108": {
   "id": "ja:transformation-mask-108",
@@ -69064,9 +69297,10 @@
    -1,
    "\\bmask\\W*change\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:ancient-roar-76": {
   "id": "ja:ancient-roar-76",
@@ -69092,9 +69326,10 @@
    -1,
    "\\bancient\\W*roar\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:advent-of-arceus-17": {
   "id": "ja:advent-of-arceus-17",
@@ -69178,9 +69413,10 @@
    -1,
    "\\bvstar\\W*universe\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:awakening-legends-82": {
   "id": "ja:awakening-legends-82",
@@ -69206,9 +69442,10 @@
    -1,
    "(?:\\b(?:neo\\W*revelation|neo\\W*3|awakening\\W*legends)\\b|めざめる伝説)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:pokemon-tcg-classic-blastoise-6": {
   "id": "ja:pokemon-tcg-classic-blastoise-6",
@@ -69234,9 +69471,10 @@
    -1,
    "\\btcg\\W*classic\\W*blastoise\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:tag-team-gx-tag-all-stars-180": {
   "id": "ja:tag-team-gx-tag-all-stars-180",
@@ -69262,9 +69500,10 @@
    -1,
    "\\btag\\W*team\\W*gx\\W*tag\\W*all\\W*stars\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:pokemon-go-86": {
   "id": "ja:pokemon-go-86",
@@ -69290,9 +69529,10 @@
    -1,
    "\\bpok\\W*mon\\W*go\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:25th-anniversary-golden-box-4": {
   "id": "ja:25th-anniversary-golden-box-4",
@@ -69318,9 +69558,10 @@
    -1,
    "\\b25th\\W*anniversary\\W*golden\\W*box\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:rocket-gang-strikes-back-44": {
   "id": "ja:rocket-gang-strikes-back-44",
@@ -69346,9 +69587,10 @@
    -1,
    "\\brocket\\W*gang\\W*strikes\\W*back\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:xy-p-259": {
   "id": "ja:xy-p-259",
@@ -69374,9 +69616,10 @@
    -1,
    "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:pokemon-card-151-3": {
   "id": "ja:pokemon-card-151-3",
@@ -69402,9 +69645,10 @@
    -1,
    "\\bpok\\W*mon\\W*151\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:emerald-break-82": {
   "id": "ja:emerald-break-82",
@@ -69430,9 +69674,10 @@
    -1,
    "\\bemerald\\W*break\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:11th-movie-commemoration-set-9": {
   "id": "ja:11th-movie-commemoration-set-9",
@@ -69458,9 +69703,10 @@
    -1,
    "\\b11th\\W*movie\\W*commemoration\\W*set\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:dark-phantasma-76": {
   "id": "ja:dark-phantasma-76",
@@ -69486,9 +69732,10 @@
    -1,
    "\\bdark\\W*phantasma\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:xy-p-075": {
   "id": "ja:xy-p-075",
@@ -69542,9 +69789,10 @@
    -1,
    "\\bmask\\W*change\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:xy-p-209": {
   "id": "ja:xy-p-209",
@@ -69570,9 +69818,10 @@
    -1,
    "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:sky-legend-53": {
   "id": "ja:sky-legend-53",
@@ -69598,9 +69847,10 @@
    -1,
    "\\bsky\\W*legend\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:nihil-zero-85": {
   "id": "ja:nihil-zero-85",
@@ -69626,9 +69876,10 @@
    -1,
    "\\bnihil\\W*zero\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:dream-league-61": {
   "id": "ja:dream-league-61",
@@ -69654,9 +69905,10 @@
    -1,
    "\\bdream\\W*league\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:triplet-beat-83": {
   "id": "ja:triplet-beat-83",
@@ -69682,9 +69934,10 @@
    -1,
    "\\btriplet\\W*beat\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "added": "2026-11-21"
  },
  "ja:shiny-collection-10": {
   "id": "ja:shiny-collection-10",
@@ -77917,7 +78170,7 @@
   "name": "Mew",
   "set": "Pokémon Rumble",
   "no": "10",
-  "rank": 250,
+  "rank": 460,
   "pop10": 29,
   "pop9": 146,
   "n": 12,
@@ -79231,7 +79484,7 @@
   "pop9": 4109,
   "status": "non_trovata",
   "detail": "",
-  "checked": "2026-11-14"
+  "checked": "2026-11-21"
  },
  "ex11-109": {
   "id": "ex11-109",
@@ -79964,9 +80217,10 @@
    -1,
    "\\bstart\\W*deck\\W*100\\W*battle\\W*collection\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-14"
+  "checked": "2026-11-14",
+  "added": "2026-11-20"
  },
  "ja:moonlit-pursuit-308": {
   "id": "ja:moonlit-pursuit-308",
@@ -80020,9 +80274,10 @@
    -1,
    "\\bvending\\W*machine\\W*series\\W*1\\W*blue\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-14"
+  "checked": "2026-11-14",
+  "added": "2026-11-20"
  },
  "ja:vending-machine-series-3-green-77": {
   "id": "ja:vending-machine-series-3-green-77",
@@ -80048,9 +80303,10 @@
    -1,
    "\\bvending\\W*machine\\W*series\\W*3\\W*green\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-14"
+  "checked": "2026-11-14",
+  "added": "2026-11-20"
  },
  "ja:holon-research-tower-38": {
   "id": "ja:holon-research-tower-38",
@@ -80076,9 +80332,10 @@
    -1,
    "\\bholon\\W*research\\W*tower\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-14"
+  "checked": "2026-11-14",
+  "added": "2026-11-20"
  },
  "ja:start-deck-100-battle-collection-761": {
   "id": "ja:start-deck-100-battle-collection-761",
@@ -80104,9 +80361,10 @@
    -1,
    "\\bstart\\W*deck\\W*100\\W*battle\\W*collection\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-14"
+  "checked": "2026-11-14",
+  "added": "2026-11-20"
  },
  "ja:expansion-pack-83": {
   "id": "ja:expansion-pack-83",
@@ -80160,9 +80418,10 @@
    -1,
    "(?:\\b(?:base\\W*set|basic|expansion\\W*pack)\\b|拡張パック)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-14"
+  "checked": "2026-11-14",
+  "added": "2026-11-20"
  },
  "ja:p-promos-24": {
   "id": "ja:p-promos-24",
@@ -80216,9 +80475,10 @@
    -1,
    "\\bvending\\W*machine\\W*series\\W*1\\W*blue\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-14"
+  "checked": "2026-11-14",
+  "added": "2026-11-20"
  },
  "ja:flight-of-legends-72": {
   "id": "ja:flight-of-legends-72",
@@ -80300,9 +80560,10 @@
    -1,
    "(?:\\b(?:neo\\W*genesis|neo\\W*1|gold\\W*silver|gold\\W*silver\\W*to\\W*a\\W*new\\W*world)\\b|金、?・?銀、?・?新世界へ)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-14"
+  "checked": "2026-11-14",
+  "added": "2026-11-20"
  },
  "ja:offense-and-defense-of-the-furthest-ends-34": {
   "id": "ja:offense-and-defense-of-the-furthest-ends-34",
@@ -80328,9 +80589,10 @@
    -1,
    "(?:\\b(?:dragon\\W*frontiers|furthest\\W*ends|offense\\W*defense\\W*furthest\\W*ends)\\b|さいはての攻防)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-14"
+  "checked": "2026-11-14",
+  "added": "2026-11-20"
  },
  "ja:holon-phantom-22": {
   "id": "ja:holon-phantom-22",
@@ -80356,9 +80618,10 @@
    -1,
    "(?:\\b(?:holon\\W*phantoms?|holon\\W*phantom)\\b|ホロンの幻影)"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-14"
+  "checked": "2026-11-14",
+  "added": "2026-11-20"
  },
  "ja:galactic-s-conquest-33": {
   "id": "ja:galactic-s-conquest-33",
@@ -80442,9 +80705,10 @@
    -1,
    "\\bvending\\W*machine\\W*series\\W*1\\W*blue\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-14"
+  "checked": "2026-11-14",
+  "added": "2026-11-21"
  },
  "ja:vending-machine-series-2-red-124": {
   "id": "ja:vending-machine-series-2-red-124",
@@ -80470,9 +80734,10 @@
    -1,
    "\\bvending\\W*machine\\W*series\\W*2\\W*red\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-14"
+  "checked": "2026-11-14",
+  "added": "2026-11-21"
  },
  "ja:vending-machine-series-1-blue-42": {
   "id": "ja:vending-machine-series-1-blue-42",
@@ -80498,9 +80763,10 @@
    -1,
    "\\bvending\\W*machine\\W*series\\W*1\\W*blue\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-14"
+  "checked": "2026-11-14",
+  "added": "2026-11-21"
  },
  "ja:pcg-promos-39": {
   "id": "ja:pcg-promos-39",
@@ -80526,9 +80792,10 @@
    -1,
    "\\bpcg\\W*promos\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-14"
+  "checked": "2026-11-14",
+  "added": "2026-11-21"
  },
  "ja:intro-pack-bulbasaur-16": {
   "id": "ja:intro-pack-bulbasaur-16",
@@ -82560,9 +82827,10 @@
   "n": 2,
   "recognised": 2,
   "share": 1.0,
-  "status": "attesa_vendite",
+  "status": "aggiunta",
   "detail": "2 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
-  "checked": "2026-11-14"
+  "checked": "2026-11-14",
+  "added": "2026-11-20"
  },
  "ja:awakening-psychic-king-81": {
   "id": "ja:awakening-psychic-king-81",
@@ -82590,12 +82858,12 @@
    -1,
    "\\bawakening\\W*psychic\\W*king\\b"
   ],
-  "n": 1,
-  "recognised": 1,
+  "n": 6,
+  "recognised": 6,
   "share": 1.0,
   "status": "attesa_vendite",
-  "detail": "1 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
-  "checked": "2026-11-14"
+  "detail": "6 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "checked": "2026-11-21"
  },
  "ja:phantom-gate-34": {
   "id": "ja:phantom-gate-34",
@@ -82626,9 +82894,10 @@
   "n": 6,
   "recognised": 6,
   "share": 1.0,
-  "status": "attesa_vendite",
+  "status": "aggiunta",
   "detail": "6 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
-  "checked": "2026-11-14"
+  "checked": "2026-11-14",
+  "added": "2026-11-20"
  },
  "ja:xy-promos-79": {
   "id": "ja:xy-promos-79",
@@ -82758,12 +83027,12 @@
    -1,
    "\\bbase\\W*expansion\\W*pack\\b"
   ],
-  "n": 16,
+  "n": 14,
   "recognised": 0,
   "share": 0.0,
   "status": "attesa_vendite",
   "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
-  "checked": "2026-11-14"
+  "checked": "2026-11-21"
  },
  "ja:base-expansion-pack-117": {
   "id": "ja:base-expansion-pack-117",
@@ -82791,12 +83060,12 @@
    -1,
    "\\bbase\\W*expansion\\W*pack\\b"
   ],
-  "n": 38,
-  "recognised": 3,
-  "share": 0.079,
-  "status": "attesa_vendite",
-  "detail": "3 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
-  "checked": "2026-11-14"
+  "n": 51,
+  "recognised": 17,
+  "share": 0.333,
+  "status": "attesa_coerenza",
+  "detail": "67% dei titoli contraddice la carta (al massimo il 40%)",
+  "checked": "2026-11-21"
  },
  "ja:sv2a-181": {
   "id": "ja:sv2a-181",
@@ -83149,9 +83418,10 @@
   "n": 43,
   "recognised": 36,
   "share": 0.837,
-  "status": "attesa_coerenza",
+  "status": "aggiunta",
   "detail": "69% dei titoli contraddice la carta (al massimo il 40%)",
-  "checked": "2026-11-15"
+  "checked": "2026-11-15",
+  "added": "2026-11-20"
  },
  "ja:s12a-190": {
   "id": "ja:s12a-190",
@@ -83181,9 +83451,10 @@
   "n": 181,
   "recognised": 170,
   "share": 0.939,
-  "status": "attesa_coerenza",
+  "status": "aggiunta",
   "detail": "50% dei titoli contraddice la carta (al massimo il 40%)",
-  "checked": "2026-11-15"
+  "checked": "2026-11-15",
+  "added": "2026-11-20"
  },
  "ja:sm12a-220": {
   "id": "ja:sm12a-220",
@@ -83213,9 +83484,10 @@
   "n": 29,
   "recognised": 29,
   "share": 1.0,
-  "status": "attesa_coerenza",
+  "status": "aggiunta",
   "detail": "46% dei titoli contraddice la carta (al massimo il 40%)",
-  "checked": "2026-11-15"
+  "checked": "2026-11-15",
+  "added": "2026-11-20"
  },
  "ja:sm12a-177": {
   "id": "ja:sm12a-177",
@@ -83277,9 +83549,10 @@
   "n": 74,
   "recognised": 69,
   "share": 0.932,
-  "status": "attesa_coerenza",
+  "status": "aggiunta",
   "detail": "62% dei titoli contraddice la carta (al massimo il 40%)",
-  "checked": "2026-11-15"
+  "checked": "2026-11-15",
+  "added": "2026-11-20"
  },
  "ja:s8b-280": {
   "id": "ja:s8b-280",
@@ -83309,9 +83582,10 @@
   "n": 16,
   "recognised": 16,
   "share": 1.0,
-  "status": "attesa_coerenza",
+  "status": "aggiunta",
   "detail": "93% dei titoli contraddice la carta (al massimo il 40%)",
-  "checked": "2026-11-15"
+  "checked": "2026-11-15",
+  "added": "2026-11-20"
  },
  "ja:sv4a-327": {
   "id": "ja:sv4a-327",
@@ -83472,9 +83746,10 @@
   "n": 4,
   "recognised": 4,
   "share": 1.0,
-  "status": "attesa_vendite",
+  "status": "aggiunta",
   "detail": "4 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
-  "checked": "2026-11-14"
+  "checked": "2026-11-14",
+  "added": "2026-11-20"
  },
  "ja:mc-765": {
   "id": "ja:mc-765",
@@ -83504,9 +83779,10 @@
   "n": 10,
   "recognised": 8,
   "share": 0.8,
-  "status": "attesa_vendite",
+  "status": "aggiunta",
   "detail": "8 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
-  "checked": "2026-11-14"
+  "checked": "2026-11-14",
+  "added": "2026-11-20"
  },
  "ja:sun-moon-promos-72": {
   "id": "ja:sun-moon-promos-72",
@@ -83638,7 +83914,7 @@
   "share": 1.0,
   "status": "attesa_vendite",
   "detail": "1 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
-  "checked": "2026-11-14"
+  "checked": "2026-11-21"
  },
  "ja:sm12-104": {
   "id": "ja:sm12-104",
@@ -83699,12 +83975,12 @@
    -1,
    "\\bbase\\W*expansion\\W*pack\\b"
   ],
-  "n": 39,
-  "recognised": 5,
-  "share": 0.128,
-  "status": "attesa_vendite",
-  "detail": "5 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
-  "checked": "2026-11-14"
+  "n": 43,
+  "recognised": 12,
+  "share": 0.279,
+  "status": "attesa_coerenza",
+  "detail": "72% dei titoli contraddice la carta (al massimo il 40%)",
+  "checked": "2026-11-21"
  },
  "ja:xy-promos-123": {
   "id": "ja:xy-promos-123",
@@ -83766,12 +84042,12 @@
    -1,
    "\\bblue\\W*shock\\b"
   ],
-  "n": 1,
-  "recognised": 1,
+  "n": 8,
+  "recognised": 8,
   "share": 1.0,
   "status": "attesa_vendite",
-  "detail": "1 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
-  "checked": "2026-11-14"
+  "detail": "8 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "checked": "2026-11-21"
  },
  "ja:rage-of-the-broken-heavens-85": {
   "id": "ja:rage-of-the-broken-heavens-85",
@@ -83804,7 +84080,7 @@
   "share": 1.0,
   "status": "attesa_vendite",
   "detail": "2 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
-  "checked": "2026-11-14"
+  "checked": "2026-11-21"
  },
  "ja:xy-promos-140": {
   "id": "ja:xy-promos-140",
@@ -83832,12 +84108,12 @@
    -1,
    "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
   ],
-  "n": 0,
-  "recognised": 0,
-  "share": 0.0,
+  "n": 4,
+  "recognised": 4,
+  "share": 1.0,
   "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
-  "checked": "2026-11-14"
+  "detail": "4 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "checked": "2026-11-21"
  },
  "ja:bonds-to-the-end-of-time-90": {
   "id": "ja:bonds-to-the-end-of-time-90",
@@ -83870,7 +84146,7 @@
   "share": 1.0,
   "status": "attesa_vendite",
   "detail": "5 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
-  "checked": "2026-11-14"
+  "checked": "2026-11-21"
  },
  "ja:m5-114": {
   "id": "ja:m5-114",
@@ -83936,7 +84212,7 @@
   "share": 0.0,
   "status": "attesa_vendite",
   "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
-  "checked": "2026-11-14"
+  "checked": "2026-11-21"
  },
  "ja:base-expansion-pack-118": {
   "id": "ja:base-expansion-pack-118",
@@ -83965,11 +84241,11 @@
    "\\bbase\\W*expansion\\W*pack\\b"
   ],
   "n": 56,
-  "recognised": 1,
-  "share": 0.018,
+  "recognised": 5,
+  "share": 0.089,
   "status": "attesa_vendite",
-  "detail": "1 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
-  "checked": "2026-11-14"
+  "detail": "5 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "checked": "2026-11-21"
  },
  "ja:base-expansion-pack-76": {
   "id": "ja:base-expansion-pack-76",
@@ -83997,12 +84273,12 @@
    -1,
    "\\bbase\\W*expansion\\W*pack\\b"
   ],
-  "n": 8,
+  "n": 7,
   "recognised": 0,
   "share": 0.0,
   "status": "attesa_vendite",
   "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
-  "checked": "2026-11-14"
+  "checked": "2026-11-21"
  },
  "ja:base-expansion-pack-108": {
   "id": "ja:base-expansion-pack-108",
@@ -84030,12 +84306,12 @@
    -1,
    "\\bbase\\W*expansion\\W*pack\\b"
   ],
-  "n": 49,
-  "recognised": 6,
-  "share": 0.122,
+  "n": 51,
+  "recognised": 9,
+  "share": 0.176,
   "status": "attesa_vendite",
-  "detail": "6 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
-  "checked": "2026-11-14"
+  "detail": "9 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "checked": "2026-11-21"
  },
  "ja:adv-expansion-pack-30": {
   "id": "ja:adv-expansion-pack-30",
@@ -84102,7 +84378,7 @@
   "share": 1.0,
   "status": "attesa_vendite",
   "detail": "7 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
-  "checked": "2026-11-14"
+  "checked": "2026-11-21"
  },
  "ja:awakening-psychic-king-59": {
   "id": "ja:awakening-psychic-king-59",
@@ -84133,9 +84409,10 @@
   "n": 4,
   "recognised": 4,
   "share": 1.0,
-  "status": "attesa_vendite",
+  "status": "aggiunta",
   "detail": "4 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
-  "checked": "2026-11-14"
+  "checked": "2026-11-14",
+  "added": "2026-11-20"
  },
  "ja:phantom-gate-97": {
   "id": "ja:phantom-gate-97",
@@ -84163,12 +84440,12 @@
    -1,
    "\\bphantom\\W*gate\\b"
   ],
-  "n": 0,
-  "recognised": 0,
-  "share": 0.0,
+  "n": 9,
+  "recognised": 9,
+  "share": 1.0,
   "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
-  "checked": "2026-11-14"
+  "detail": "9 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "checked": "2026-11-21"
  },
  "ja:miracle-of-the-desert-21": {
   "id": "ja:miracle-of-the-desert-21",
@@ -84365,9 +84642,10 @@
   "n": 9,
   "recognised": 9,
   "share": 1.0,
-  "status": "attesa_vendite",
+  "status": "aggiunta",
   "detail": "9 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
-  "checked": "2026-11-14"
+  "checked": "2026-11-14",
+  "added": "2026-11-20"
  },
  "ja:base-expansion-pack-97": {
   "id": "ja:base-expansion-pack-97",
@@ -85151,9 +85429,10 @@
    -1,
    "\\bexpansion\\W*pack\\W*20th\\W*anniversary\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-15"
+  "checked": "2026-11-15",
+  "added": "2026-11-20"
  },
  "ja:amazing-volt-tackle-109": {
   "id": "ja:amazing-volt-tackle-109",
@@ -85692,9 +85971,10 @@
   "n": 27,
   "recognised": 26,
   "share": 0.963,
-  "status": "attesa_coerenza",
+  "status": "aggiunta",
   "detail": "50% dei titoli contraddice la carta (al massimo il 40%)",
-  "checked": "2026-11-16"
+  "checked": "2026-11-16",
+  "added": "2026-11-20"
  },
  "ja:sm3p-004": {
   "id": "ja:sm3p-004",
@@ -85724,9 +86004,10 @@
   "n": 20,
   "recognised": 17,
   "share": 0.85,
-  "status": "attesa_coerenza",
+  "status": "aggiunta",
   "detail": "61% dei titoli contraddice la carta (al massimo il 40%)",
-  "checked": "2026-11-16"
+  "checked": "2026-11-16",
+  "added": "2026-11-20"
  },
  "ja:s12-105": {
   "id": "ja:s12-105",
@@ -87322,9 +87603,10 @@
    -1,
    "\\bviolet\\W*ex\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-16"
+  "checked": "2026-11-16",
+  "added": "2026-11-20"
  },
  "ja:peerless-fighters-81": {
   "id": "ja:peerless-fighters-81",
@@ -87350,9 +87632,10 @@
    -1,
    "\\bpeerless\\W*fighters\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-16"
+  "checked": "2026-11-16",
+  "added": "2026-11-20"
  },
  "ja:blue-shock-65": {
   "id": "ja:blue-shock-65",
@@ -87407,9 +87690,10 @@
    -1,
    "\\bvstar\\W*universe\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-16"
+  "checked": "2026-11-16",
+  "added": "2026-11-21"
  },
  "ja:forbidden-light-101": {
   "id": "ja:forbidden-light-101",
@@ -88362,9 +88646,10 @@
    -1,
    "\\btcg\\W*classic\\W*blastoise\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-17"
+  "checked": "2026-11-17",
+  "added": "2026-11-20"
  },
  "ja:theater-limited-vs-pack-3": {
   "id": "ja:theater-limited-vs-pack-3",
@@ -88418,9 +88703,10 @@
    -1,
    "\\b(?:m|mega(?:\\W*evolution)?)\\W*(?:black\\W*star\\W*)?promo|\\b(?:m|mega(?:\\W*evolution)?)\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-17"
+  "checked": "2026-11-17",
+  "added": "2026-11-21"
  },
  "ja:xy-p-002": {
   "id": "ja:xy-p-002",
@@ -88446,9 +88732,10 @@
    -1,
    "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
   ],
-  "status": "in_valutazione",
+  "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-17"
+  "checked": "2026-11-17",
+  "added": "2026-11-21"
  },
  "ja:sm-p-067": {
   "id": "ja:sm-p-067",
@@ -88707,7 +88994,7 @@
   "name": "Mega Charizard X ex",
   "set": "Mega Evolution Black Star Promos",
   "no": "23",
-  "rank": 134,
+  "rank": 237,
   "pop10": 62021,
   "pop9": 48449,
   "status": "non_trovata",
@@ -88839,7 +89126,7 @@
   "name": "Oricorio ex",
   "set": "Mega Evolution Black Star Promos",
   "no": "24",
-  "rank": 431,
+  "rank": 783,
   "pop10": 35587,
   "pop9": 26145,
   "status": "non_trovata",
@@ -88866,7 +89153,7 @@
   "name": "Charmander",
   "set": "Mega Evolution Black Star Promos",
   "no": "38",
-  "rank": 457,
+  "rank": 834,
   "pop10": 35118,
   "pop9": 6303,
   "status": "non_trovata",
@@ -94171,9 +94458,10 @@
   "n": 18,
   "recognised": 17,
   "share": 0.944,
-  "status": "pronta",
+  "status": "aggiunta",
   "detail": "17 vendite PSA in un anno",
-  "checked": "2026-11-20"
+  "checked": "2026-11-20",
+  "added": "2026-11-20"
  },
  "ja:mysterious-mountains-52": {
   "id": "ja:mysterious-mountains-52",
@@ -94207,5 +94495,251 @@
   "status": "attesa_vendite",
   "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
   "checked": "2026-11-20"
+ },
+ "lc-86": {
+  "id": "lc-86",
+  "name": "Pikachu",
+  "set": "Legendary Collection",
+  "no": "86",
+  "rank": 70,
+  "pop10": 35,
+  "pop9": 227,
+  "status": "attesa_era",
+  "detail": "epoca non coperta dal motore",
+  "checked": "2026-11-21"
+ },
+ "lc-29": {
+  "id": "lc-29",
+  "name": "Mewtwo",
+  "set": "Legendary Collection",
+  "no": "29",
+  "rank": 86,
+  "pop10": 54,
+  "pop9": 308,
+  "status": "attesa_era",
+  "detail": "epoca non coperta dal motore",
+  "checked": "2026-11-21"
+ },
+ "lc-74": {
+  "id": "lc-74",
+  "name": "Eevee",
+  "set": "Legendary Collection",
+  "no": "74",
+  "rank": 99,
+  "pop10": 27,
+  "pop9": 235,
+  "status": "attesa_era",
+  "detail": "epoca non coperta dal motore",
+  "checked": "2026-11-21"
+ },
+ "lc-64": {
+  "id": "lc-64",
+  "name": "Snorlax",
+  "set": "Legendary Collection",
+  "no": "64",
+  "rank": 101,
+  "pop10": 21,
+  "pop9": 209,
+  "status": "attesa_era",
+  "detail": "epoca non coperta dal motore",
+  "checked": "2026-11-21"
+ },
+ "lc-12": {
+  "id": "lc-12",
+  "name": "Gyarados",
+  "set": "Legendary Collection",
+  "no": "12",
+  "rank": 229,
+  "pop10": 21,
+  "pop9": 176,
+  "status": "attesa_era",
+  "detail": "epoca non coperta dal motore",
+  "checked": "2026-11-21"
+ },
+ "lc-18": {
+  "id": "lc-18",
+  "name": "Venusaur",
+  "set": "Legendary Collection",
+  "no": "18",
+  "rank": 356,
+  "pop10": 82,
+  "pop9": 322,
+  "status": "attesa_era",
+  "detail": "epoca non coperta dal motore",
+  "checked": "2026-11-21"
+ },
+ "lc-88": {
+  "id": "lc-88",
+  "name": "Psyduck",
+  "set": "Legendary Collection",
+  "no": "88",
+  "rank": 400,
+  "pop10": 44,
+  "pop9": 219,
+  "status": "attesa_era",
+  "detail": "epoca non coperta dal motore",
+  "checked": "2026-11-21"
+ },
+ "lc-52": {
+  "id": "lc-52",
+  "name": "Magikarp",
+  "set": "Legendary Collection",
+  "no": "52",
+  "rank": 404,
+  "pop10": 27,
+  "pop9": 152,
+  "status": "attesa_era",
+  "detail": "epoca non coperta dal motore",
+  "checked": "2026-11-21"
+ },
+ "lc-70": {
+  "id": "lc-70",
+  "name": "Charmander",
+  "set": "Legendary Collection",
+  "no": "70",
+  "rank": 420,
+  "pop10": 36,
+  "pop9": 251,
+  "status": "attesa_era",
+  "detail": "epoca non coperta dal motore",
+  "checked": "2026-11-21"
+ },
+ "lc-95": {
+  "id": "lc-95",
+  "name": "Squirtle",
+  "set": "Legendary Collection",
+  "no": "95",
+  "rank": 446,
+  "pop10": 51,
+  "pop9": 234,
+  "status": "attesa_era",
+  "detail": "epoca non coperta dal motore",
+  "checked": "2026-11-21"
+ },
+ "lc-1": {
+  "id": "lc-1",
+  "name": "Alakazam",
+  "set": "Legendary Collection",
+  "no": "1",
+  "rank": 525,
+  "pop10": 35,
+  "pop9": 244,
+  "status": "attesa_era",
+  "detail": "epoca non coperta dal motore",
+  "checked": "2026-11-21"
+ },
+ "lc-10": {
+  "id": "lc-10",
+  "name": "Flareon",
+  "set": "Legendary Collection",
+  "no": "10",
+  "rank": 529,
+  "pop10": 58,
+  "pop9": 270,
+  "status": "attesa_era",
+  "detail": "epoca non coperta dal motore",
+  "checked": "2026-11-21"
+ },
+ "ex9-60": {
+  "id": "ex9-60",
+  "name": "Pikachu",
+  "set": "Emerald",
+  "no": "60",
+  "rank": 717,
+  "pop10": 28,
+  "pop9": 204,
+  "n": 36,
+  "recognised": 35,
+  "share": 0.972,
+  "status": "pronta",
+  "detail": "35 vendite PSA in un anno",
+  "checked": "2026-11-21"
+ },
+ "ex8-22": {
+  "id": "ex8-22",
+  "name": "Rayquaza",
+  "set": "Deoxys",
+  "no": "22",
+  "rank": 762,
+  "pop10": 20,
+  "pop9": 155,
+  "n": 41,
+  "recognised": 37,
+  "share": 0.902,
+  "status": "pronta",
+  "detail": "37 vendite PSA in un anno",
+  "checked": "2026-11-21"
+ },
+ "lc-38": {
+  "id": "lc-38",
+  "name": "Dark Dragonair",
+  "set": "Legendary Collection",
+  "no": "38",
+  "rank": 791,
+  "pop10": 47,
+  "pop9": 213,
+  "status": "attesa_era",
+  "detail": "epoca non coperta dal motore",
+  "checked": "2026-11-21"
+ },
+ "lc-68": {
+  "id": "lc-68",
+  "name": "Bulbasaur",
+  "set": "Legendary Collection",
+  "no": "68",
+  "rank": 798,
+  "pop10": 25,
+  "pop9": 212,
+  "status": "attesa_era",
+  "detail": "epoca non coperta dal motore",
+  "checked": "2026-11-21"
+ },
+ "lc-19": {
+  "id": "lc-19",
+  "name": "Zapdos",
+  "set": "Legendary Collection",
+  "no": "19",
+  "rank": 806,
+  "pop10": 51,
+  "pop9": 247,
+  "status": "attesa_era",
+  "detail": "epoca non coperta dal motore",
+  "checked": "2026-11-21"
+ },
+ "lc-30": {
+  "id": "lc-30",
+  "name": "Moltres",
+  "set": "Legendary Collection",
+  "no": "30",
+  "rank": 866,
+  "pop10": 43,
+  "pop9": 287,
+  "status": "attesa_era",
+  "detail": "epoca non coperta dal motore",
+  "checked": "2026-11-21"
+ },
+ "lc-14": {
+  "id": "lc-14",
+  "name": "Jolteon",
+  "set": "Legendary Collection",
+  "no": "14",
+  "rank": 893,
+  "pop10": 33,
+  "pop9": 192,
+  "status": "attesa_era",
+  "detail": "epoca non coperta dal motore",
+  "checked": "2026-11-21"
+ },
+ "lc-2": {
+  "id": "lc-2",
+  "name": "Articuno",
+  "set": "Legendary Collection",
+  "no": "2",
+  "rank": 976,
+  "pop10": 47,
+  "pop9": 233,
+  "status": "attesa_era",
+  "detail": "epoca non coperta dal motore",
+  "checked": "2026-11-21"
  }
 }
