@@ -378,6 +378,8 @@ def main():
     json.dump(scanned, open(scan_p, "w"), indent=1)
     json.dump(queue, open(q_p, "w"), ensure_ascii=False, indent=1)
     perimeter_report(os.path.join(DATA, "perimetro.json"))
+    if RANK_ZH:                                           # D336: the Chinese cards met, for scripts/zh_catalogue.py
+        json.dump(RANK_ZH, open(os.path.join(DATA, "zh_rank.json"), "w"), ensure_ascii=False)
     ready = sorted([r for r in queue.values() if r["status"] == "pronta" and r.get("lang") != "ja"], key=lambda r: r["rank"] or 9999)
     ready_ja = sorted([r for r in queue.values() if r["status"] == "pronta" and r.get("lang") == "ja"], key=lambda r: -(r.get("recognised") or 0))
     wait = sorted([r for r in queue.values() if r["status"] not in ("pronta", "aggiunta")], key=lambda r: r.get("rank") or 9999)
