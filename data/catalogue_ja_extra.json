@@ -10462,5 +10462,17 @@
   83,
   -1,
   "\\btriplet\\W*beat\\b"
+ ],
+ "ja:s12-033": [
+  "gengar ex|レジエレキ\\s?v",
+  33,
+  98,
+  "\\bphantom\\W*gate\\b"
+ ],
+ "ja:sv4a-043": [
+  "m tyranitar ex|ウェーニバル\\s?ex",
+  43,
+  190,
+  "\\bbandit\\W*ring\\b"
  ]
 }
