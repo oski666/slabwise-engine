@@ -7252,5 +7252,50 @@
    2003,
    2004
   ]
+ ],
+ "hgss3-83": [
+  "raichu",
+  "\\bundaunted\\b",
+  83,
+  [
+   2010,
+   2011
+  ]
+ ],
+ "si1-17": [
+  "vileplume",
+  "\\bsouthern\\W*(?:(?:of|the|and)\\W*)?islands\\b",
+  17,
+  [
+   2001,
+   2002
+  ]
+ ],
+ "ex11-8": [
+  "latias",
+  "\\bdelta\\W*(?:(?:of|the|and)\\W*)?species\\b",
+  8,
+  [
+   2005,
+   2006
+  ]
+ ],
+ "ex2-97": [
+  "kabutops ex",
+  "\\bsandstorm\\b",
+  97,
+  [
+   2003,
+   2004
+  ]
+ ],
+ "bw4-97": [
+  "zekrom\\-ex",
+  "\\bnext\\W*(?:(?:of|the|and)\\W*)?destinies\\b",
+  97,
+  [
+   2012,
+   2013
+  ]
  ]
 }

@@ -10546,13 +10546,14 @@
   "n": 36,
   "recognised": 34,
   "share": 0.944,
+  "contradicting": 0.056,
   "tc_id": 11439,
   "tc_set": "Primal Clash",
   "tc_url": "/pokemon/primal-clash/kyogre-ex-148",
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-10",
+  "checked": "2026-11-21",
   "requests": 0,
   "source": "catalogo (D111)"
  },
@@ -11977,18 +11978,20 @@
   "added": "2026-11-14"
  },
  "en:bw4-97": {
-  "n": 25,
-  "recognised": 25,
+  "n": 26,
+  "recognised": 26,
   "share": 1.0,
+  "contradicting": 0.0,
   "tc_id": 13340,
   "tc_set": "Next Destinies",
   "tc_url": "/pokemon/next-destinies/zekrom-ex-97",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-12",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-21",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-21"
  },
  "en:bw4-98": {
   "n": 47,
@@ -14038,18 +14041,20 @@
   "added": "2026-11-10"
  },
  "en:hgss3-83": {
-  "n": 39,
-  "recognised": 38,
-  "share": 0.974,
+  "n": 45,
+  "recognised": 43,
+  "share": 0.956,
+  "contradicting": 0.022,
   "tc_id": 14061,
   "tc_set": "HS—Undaunted",
   "tc_url": "/pokemon/hs-undaunted/raichu-83",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-10",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-21",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-21"
  },
  "en:me01-181": {
   "n": 392,
@@ -14172,18 +14177,20 @@
   "added": "2026-11-10"
  },
  "en:si1-17": {
-  "n": 92,
-  "recognised": 76,
-  "share": 0.826,
+  "n": 104,
+  "recognised": 85,
+  "share": 0.817,
+  "contradicting": 0.183,
   "tc_id": 18543,
   "tc_set": "Southern Islands",
   "tc_url": "/pokemon/southern-islands/vileplume-17",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-10",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-21",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-21"
  },
  "en:sm11-125": {
   "n": 164,
@@ -14921,18 +14928,20 @@
   "added": "2026-11-11"
  },
  "en:ex2-97": {
-  "n": 48,
-  "recognised": 48,
+  "n": 53,
+  "recognised": 53,
   "share": 1.0,
+  "contradicting": 0.0,
   "tc_id": 17596,
   "tc_set": "Sandstorm",
   "tc_url": "/pokemon/sandstorm/kabutops-ex-97",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-11",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-21",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-21"
  },
  "en:svp-208": {
   "n": 308,
@@ -15010,18 +15019,20 @@
   "added": "2026-11-11"
  },
  "en:ex11-8": {
-  "n": 37,
-  "recognised": 34,
-  "share": 0.919,
+  "n": 39,
+  "recognised": 36,
+  "share": 0.923,
+  "contradicting": 0.026,
   "tc_id": 16497,
   "tc_set": "Delta Species",
   "tc_url": "/pokemon/delta-species/latias-8",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-11",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-21",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-21"
  },
  "en:sv02-222": {
   "n": 137,
