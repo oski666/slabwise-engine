@@ -1,6 +1,6 @@
 {
  "asof": "2026-11-20",
- "cards": 2625,
+ "cards": 2630,
  "checks": {
   "C7": {
    "n": 46,
@@ -71,10 +71,10 @@
    "n": 2,
    "examples": [
     [
-     "ecard2-H19"
+     "sv10-194"
     ],
     [
-     "sv10-194"
+     "ja:battle-partners-110"
     ]
    ]
   }
