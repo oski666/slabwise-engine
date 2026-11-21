@@ -142,11 +142,13 @@ def add_ja(key, row):
         c = cr.get(f"{cr.TCGDEX}/ja/cards/{urllib.parse.quote(row['tcgdex'])}") if row.get("tcgdex") else \
             dict(name=row.get("ja_name") or row.get("name"), localId=row.get("no"), set=dict(name=row.get("set")))   # D158: vintage, from tcgcharts
         s = c.get("set") or {}
-        entry = dict(id=key, en=row.get("en"), en_same=row.get("en_same"), en_check=row.get("en_check"), lang="ja", n=c.get("name"), no=str(c.get("localId")), set=s.get("name"),
+        entry = dict(id=key, en=row.get("en"), en_same=row.get("en_same"), en_check=row.get("en_check"), en_ext=row.get("en_ext"), lang=key[:2], n=c.get("name"), no=str(c.get("localId")), set=s.get("name"),
                      tot=(s.get("cardCount") or {}).get("official"), r=c.get("rarity"), ill=c.get("illustrator"),
                      set_en=row.get("set_en"), source="TCGdex ja", added="D134")
         if c.get("image"):
             entry.update(img=webp(c["image"] + "/high.webp", 360), img_url=c["image"] + "/high.webp")
+        elif row.get("img_url"):                                    # D338: Chinese printings, image from the ranking
+            entry.update(img=webp(row["img_url"], 360), img_url=row["img_url"])
         ja = load(ja_p, [])
         old = next((x for x in ja if x["id"] == key), None)          # D158: a pending page gets its price, keeps its picture
         if old:

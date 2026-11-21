@@ -287,7 +287,7 @@ def measure(it, key, min_sales=None):
     at.JA_CATALOGUE.pop(key, None)
     share = rec / n if n else 0.0
     out = dict(n=n, recognised=rec, share=round(share, 3), contradicting=round(contra / n, 3) if n else 0.0, tc_id=it["id"], tc_set=it.get("set"), tc_url=it.get("url"), tc_type=it.get("cardType"))
-    min_grades = 1 if str(key).startswith("ja:") else MIN_GRADES   # D231: a Japanese card may trade in PSA 10 only
+    min_grades = 1 if str(key).startswith(("ja:", "zh:")) else MIN_GRADES   # D231: a Japanese card may trade in PSA 10 only (D338: a Chinese one too)
     if rec < need or sum(v >= MIN_GRADE_SALES for v in by_grade.values()) < min_grades:
         return dict(out, status="attesa_vendite", detail=f"{rec} vendite PSA riconosciute in un anno (ne servono {need}, con almeno {MIN_GRADE_SALES} in {min_grades} vot{'o' if min_grades == 1 else 'i'})")
     if n and contra / n > MAX_CONTRA:                  # D281: replaces "at least 60% recognised"

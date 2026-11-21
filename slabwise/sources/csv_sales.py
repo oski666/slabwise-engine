@@ -71,7 +71,7 @@ def era_of(card: str, era_map: dict) -> str:
     mode = os.environ.get("SLABWISE_MODEL_ERAS", "")       # protocol §57 (D260): the site's eras as the model's groups
     if mode in ("site", "site_ja"):
         from ..series import series_of
-        if mode == "site_ja" and card.startswith("ja:"):
+        if mode == "site_ja" and card.startswith(("ja:", "zh:")):
             return "ja_moderne" if re.match(r"ja:(?:sv|m\d|m-p|s\d|s-p|sm|xy|bw)", card) else "ja_vecchie"
         return series_of(card.split("/")[0])
     if card in era_map:
@@ -79,6 +79,9 @@ def era_of(card: str, era_map: dict) -> str:
     base = card.split("/")[0]
     if base in era_map:
         return era_map[base]
+    if card.startswith("zh:"):          # D338: Chinese printings share the pool of their era, like the Japanese ones
+        from ..series import series_of
+        return "sv" if series_of(card) == "Scarlatto e Violetto" else "sm_swsh"
     for pre, e in PREFIX_ERA:
         if card.startswith(pre):
             return e

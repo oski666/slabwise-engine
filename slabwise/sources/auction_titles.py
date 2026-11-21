@@ -451,13 +451,18 @@ def ebay_rows(records, site="ebay.com"):
 _SETWORDS = ((r"celebrations|classic collection", ("cel",)), (r"(?<!prismatic )(?<!mega )evolutions", ("xy12",)),
              (r"expedition", ("ecard1",)), (r"base set 2|base set ii\b|base ii\b", ("base4",)), (r"legendary collection", ("base6",)))
 _JA_SIGN = re.compile(r"\b(?:japanese|japan|jpn|jp|jap|jpn\.)\b")
+_ZH_SIGN = re.compile(r"\b(?:chinese|s-chinese|simplified|china|chn|cn)\b|中文|简体|簡體")   # D338
+# D338: the exclusions of a Chinese printing: JA_EXCLUDE without "chinese" and without "pack" (Gem Pack is a set), plus
+# traditional Chinese, a different printing
+_ZH_EXCLUDE = re.compile(r"(?<![a-z0-9])(?:kor|kr)(?![a-z0-9])|\blot\b|\(\d+\)|sealed|signed|proxy|\bbgs\b|\bcgc\b|\bsgc\b|\bars\b|korean|"
+                         r"traditional|t-chinese|繁体|繁體|韓国|\bpsa\s*(?:10|[1-9](?:\.5)?)\s*\(?\s*(?:oc|mk|st|pd|mc)\b")
 _VARIANT_WORD = re.compile(r"\b(?:1st\s*ed(?:ition|\.)?|first\s*edition|shadowless)\b")
 _VARIANT_WORDS = {"reverse": re.compile(r"reverse|\brev\W?(?:holo|foil)\b"),        # D337: the printing must be named in the title
                   "norarity": re.compile(r"no\W*rarity|マークなし"), "masterball": re.compile(r"master\W*ball|マスターボール")}
 
 
 def _card_number(card):
-    if card.startswith("ja:"):
+    if card.startswith(("ja:", "zh:")):
         m = re.search(r"(\d+)$", card)
         return {int(m.group(1))} if m else set()
     no = CATALOGUE.get(card.split("/")[0], (None, None, None, None))[2]
@@ -480,7 +485,16 @@ def accept_assigned(title: str, card: str):
         return False, "ambigua"
     t = " ".join((title or "").lower().replace("’", "'").split())
     base = card.split("/")[0]
-    if card.startswith("ja:"):
+    if card.startswith("zh:"):                               # D338: a Chinese printing needs a Chinese sign, no Japanese one;
+        e = JA_CATALOGUE.get(card)                             # the name of a set printed only in Chinese ("Collection 151",
+        own_set = bool(e and e[3] and re.search(e[3], t))       # "Gem Pack") is a sign by itself
+        if not (_ZH_SIGN.search(t) or own_set):
+            return False, "nessun segno di cinese"
+        if _JA_SIGN.search(t) or re.search(r"[\u3040-\u30ff]", title or ""):
+            return False, "segno di giapponese"
+        if _ZH_EXCLUDE.search(t):
+            return False, "esclusa"
+    elif card.startswith("ja:"):
         if not (is_japanese(title) or _JA_SIGN.search(t)):
             return False, "nessun segno di giapponese"
         if JA_EXCLUDE.search(t):
@@ -548,7 +562,7 @@ def _other_species(card, t):
 def _name_in_title(card, t):
     """D281: does the title name the card's Pokémon (or trainer)? Words of the catalogue name, with the Japanese
     species name for the Japanese cards."""
-    e = JA_CATALOGUE.get(card) if card.startswith("ja:") else CATALOGUE.get(card.split("/")[0])
+    e = JA_CATALOGUE.get(card) if card.startswith(("ja:", "zh:")) else CATALOGUE.get(card.split("/")[0])
     if not e:
         return True                                      # unknown card: the rule cannot judge it
     rx = re.sub(r"\(\?<?[!=][^)]*\)", " ", e[0]).replace("\\", "")

@@ -253,7 +253,7 @@ def main():
             era_of(cid, era_map)
         except KeyError:
             return dict(row, status="attesa_era", detail="epoca non coperta dal motore", checked=today)
-        if row.get("lang") == "ja":
+        if row.get("lang") in ("ja", "zh"):                 # D338: a Chinese printing is checked like a Japanese one
             st = cr.check_ja(cid, {"id": row["tc_id"], "cardType": row["tc_type"], "set": row.get("tc_set"), "url": row["tc_url"]}, row["entry"])
             return dict(row, **{k: v for k, v in st.items() if k in ("status", "detail", "recognised", "share", "n")}, checked=today)
         st = cr.check({"lang": "en", "id": cid, "rank": row.get("rank")}, have)
@@ -313,6 +313,20 @@ def main():
                           status="in_valutazione", detail="solo giapponese, dalla classifica (D231): si controllano le vendite", checked=today)
         n_ja += 1
     print(f"giapponesi senza gemella inglese messe in coda: {n_ja}", flush=True)
+    n_zh = 0                                               # D338: the Chinese cards of the perimeter, as the Japanese-only ones
+    zh_cat = {c["id"]: c for c in cr_load(os.path.join(DATA, "cards_zh.json"), [])}
+    for c in RANK_ZH:
+        key = zh_key(c)
+        if str(c["id"]) in known_tc or key in queue or key in have_all_ja:
+            continue
+        set_name, z = c["set"].get("name"), zh_cat.get(key, {})
+        queue[key] = dict(id=key, lang="zh", en=z.get("en"), en_ext=z.get("en_ext"), en_check=z.get("en_check"), name=f"{c['name']} (cinese)",
+                          ja_name=None, set=set_name, no=c.get("cardNumber"), rank=c.get("pos") or c.get("marketCapRank"), tc_id=c["id"], tc_type="base",
+                          tc_url=f"/pokemon/{c['set'].get('slug')}/{c.get('slug')}", tc_set=set_name, set_en=set_name, tcgdex=None,
+                          img_url=c.get("imageUrlHires") or c.get("imageUrl"), entry=cr.ja_entry(c["name"], None, c.get("cardNumber"), None, set_name),
+                          status="in_valutazione", detail="carta cinese delle prime 2.000 (D336): si controllano le vendite", checked=today)
+        n_zh += 1
+    print(f"cinesi messe in coda: {n_zh}", flush=True)
     # D139: eras whose indices have too few cards get extra checks, deeper in the ranking, before anything else waits
     from slabwise.series import series_of
     cnt = {}
@@ -348,7 +362,7 @@ def main():
                 need = {k: v for k, v in need.items() if v > 0}
             print(f"  completare {series_of(cid)}: #{rank} {cid} {c['name']}: {queue[cid]['status']} {queue[cid].get('detail', '')}", flush=True)
     have_ja = {c["id"] for c in cr_load(os.path.join(DATA, "cards_ja.json"), []) if not c.get("pending")}
-    for cid in [k for k, r in queue.items() if r.get("lang") == "ja" and k in have_ja]:
+    for cid in [k for k, r in queue.items() if r.get("lang") in ("ja", "zh") and k in have_ja]:
         queue[cid].update(status="aggiunta", added=queue[cid].get("added") or today)
     scan_p = os.path.join(DATA, "ja_scan.json")                  # D134: catalogue cards already searched for Japanese printings
     scanned = cr_load(scan_p, {})
@@ -380,8 +394,8 @@ def main():
     perimeter_report(os.path.join(DATA, "perimetro.json"))
     if RANK_ZH:                                           # D336: the Chinese cards met, for scripts/zh_catalogue.py
         json.dump(RANK_ZH, open(os.path.join(DATA, "zh_rank.json"), "w"), ensure_ascii=False)
-    ready = sorted([r for r in queue.values() if r["status"] == "pronta" and r.get("lang") != "ja"], key=lambda r: r["rank"] or 9999)
-    ready_ja = sorted([r for r in queue.values() if r["status"] == "pronta" and r.get("lang") == "ja"], key=lambda r: -(r.get("recognised") or 0))
+    ready = sorted([r for r in queue.values() if r["status"] == "pronta" and r.get("lang") not in ("ja", "zh")], key=lambda r: r["rank"] or 9999)
+    ready_ja = sorted([r for r in queue.values() if r["status"] == "pronta" and r.get("lang") in ("ja", "zh")], key=lambda r: -(r.get("recognised") or 0))
     wait = sorted([r for r in queue.values() if r["status"] not in ("pronta", "aggiunta")], key=lambda r: r.get("rank") or 9999)
     added = [r for r in queue.values() if r["status"] == "aggiunta"]
     from slabwise.ebay_budget import limit                         # D135: the budget limits deals, not cards
@@ -416,6 +430,12 @@ def main():
     open(os.path.join(out_dir, "issue.md"), "w").write(body)
     open(os.path.join(out_dir, "new_ready.txt"), "w").write(str(sum(1 for r in ready + ready_ja if r.get("checked") == today)))
     print(f"{len(ready)} pronte, {len(wait)} in attesa, {len(added)} aggiunte")
+
+
+def zh_key(c):
+    """D338: id of a Chinese card of the ranking, as scripts/zh_catalogue.py: zh:<set slug without -chinese>-<number>."""
+    no = str(c.get("cardNumber") or "").split("/")[0].strip() or str(c["id"])
+    return f"zh:{c['set']['slug'].removesuffix('-chinese')}-{no}"
 
 
 def perimeter_report(path):

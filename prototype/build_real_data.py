@@ -31,18 +31,20 @@ catalog = json.load(open(os.path.join(HERE, "data", "cards.json")))
 catalog_ja = json.load(open(os.path.join(HERE, "data", "cards_ja.json")))      # Japanese printings (D28)
 catalog += catalog_ja
 from slabwise.ja_names import english as _ja_english   # noqa: E402  D291: Japanese printings shown in English
-_EN_NAMES = {c["id"]: c["n"] for c in catalog if c.get("lang", "en") != "ja" and not c["id"].startswith("ja:")}
+_EN_NAMES = {c["id"]: c["n"] for c in catalog if c.get("lang", "en") not in ("ja", "zh") and not c["id"].startswith(("ja:", "zh:"))}
 
 
 def _shown(c):
     """D291: name, set and the Japanese caption fields of a card as the site shows it."""
+    if c["id"].startswith("zh:"):                           # D338: Chinese printings keep tcgcharts' English name and set
+        return dict(name=c["n"], set=c["set"], zh=True)
     if not c["id"].startswith("ja:"):
         return dict(name=c["n"], set=c["set"])
     n, st, n_ja, st_ja, only = _ja_english(c, _EN_NAMES)
     return dict(name=n, set=st, name_ja=n_ja, set_ja=st_ja, ja_only=only)
 thumbs = json.load(open(os.path.join(HERE, "data", "images.json")))
 hires = json.load(open(os.path.join(HERE, "data", "hires.json")))
-from slabwise.series import ERAS, SERIES, JA_SERIES, series_of, is_promo  # noqa: E402,F401  (D121, D154)
+from slabwise.series import ERAS, SERIES, JA_SERIES, series_of, is_promo, is_asian  # noqa: E402,F401  (D121, D154, D338)
 
 raw = pd.read_csv(path)
 t0 = pd.to_datetime(raw["date"], utc=True, format="mixed").min().normalize()
@@ -109,21 +111,21 @@ sd = np.full((W, len(cards), 4), np.nan)
 # published index (v1.4, D39), grouped by series since D121: the algorithm is the same, the groups are the ones on the page
 # D142: Japanese printings have an index of their own; the English indices hold English cards only
 # D154: five eras of the market; promo sets stay out of the era and general indices
-ix_group = lambda c: "Giappone" if c.startswith("ja:") else (None if is_promo(c) else series_of(c.split("/")[0]))  # noqa: E731
+ix_group = lambda c: "Giappone" if c.startswith("ja:") else "Cina" if c.startswith("zh:") else (None if is_promo(c) else series_of(c.split("/")[0]))  # noqa: E731  D338: "Cina"
 series_names = sorted({ix_group(c) for c in cards} - {None})
 ser_id = np.array([series_names.index(ix_group(c)) if ix_group(c) else -1 for c in cards])
-_jera = sorted({series_of(c) for c in cards if c.startswith("ja:")})
-_eq = np.array([_jera.index(series_of(c)) if c.startswith("ja:") else 100 + int(ser_id[i]) for i, c in enumerate(cards)])   # D252: Japanese eras
+_jera = sorted({series_of(c) for c in cards if is_asian(c)})
+_eq = np.array([_jera.index(series_of(c)) if is_asian(c) else 100 + int(ser_id[i]) for i, c in enumerate(cards)])   # D252: Japanese eras
 eidx = EraIndex(ser_id, len(series_names), k=int(os.environ.get("SLABWISE_IX_K", "40")), quota=_eq)   # §58 (D268): 40 items per era (§31, D169: 20); §53 (D252):
 # inside "Giappone" equal seats per Japanese era; an English era is a single sub-group, so its basket is the same as without quota
 # D136: the general index (whole catalogue, 30 items) and set indices (sets with at least 8 catalogue cards)
-_qg = np.array([-1 if c.startswith("ja:") or is_promo(c) else series_names.index(ix_group(c)) for c in cards])   # D250: the era of each item
+_qg = np.array([-1 if is_asian(c) or is_promo(c) else series_names.index(ix_group(c)) for c in cards])   # D250: the era of each item
 aidx = EraIndex(np.where(_qg >= 0, 0, -1), 1, k=int(os.environ.get("SLABWISE_IX_KALL", "60")), quota=_qg)   # D169: 60 items; D250: 12 per era
 SET_MIN = 8
 _set_of = lambda c: c.split("/")[0].rsplit("-", 1)[0]
-_base_cards = [c for c in cards if "/" not in c and not c.startswith("ja:")]
+_base_cards = [c for c in cards if "/" not in c and not is_asian(c)]
 set_names = sorted({_set_of(c) for c in _base_cards if sum(_set_of(x) == _set_of(c) for x in _base_cards) >= SET_MIN})
-sidx = EraIndex(np.array([set_names.index(_set_of(c)) if not c.startswith("ja:") and _set_of(c) in set_names else -1 for c in cards]), len(set_names))
+sidx = EraIndex(np.array([set_names.index(_set_of(c)) if not is_asian(c) and _set_of(c) in set_names else -1 for c in cards]), len(set_names))
 # D244: replay from a saved state. The weekly loop only depends on the sales of the weeks it has seen, the catalogue,
 # the parameters and the code; a state saved after week w is reused when all of those are unchanged up to w, and the
 # run continues from w + 1. Same arithmetic in the same order, so the result is the full run's, bit for bit.
@@ -453,7 +455,7 @@ try:
             _NOTCRED.add(_ix)
     print(f"D332: {len(_NOTCRED)} vendite non credibili fuori dal controllo di revisione", flush=True)
     _ok = _ok & _keep
-    _grp = np.array(["Giappone" if cards[k].startswith("ja:") else series_of(cards[k].split("/")[0]) for k in _cc], dtype=object)
+    _grp = np.array(["Giappone" if cards[k].startswith("ja:") else "Cina" if cards[k].startswith("zh:") else series_of(cards[k].split("/")[0]) for k in _cc], dtype=object)
     _band = np.minimum(_gi, 2)
     _ef = pd.DataFrame(dict(c=_cc[_ok], gi=_gi[_ok], grp=_grp[_ok], band=_band[_ok], e=_err[_ok]))
     _qg = {k: np.quantile(v.to_numpy(), [0.1, 0.9]) for k, v in _ef.groupby(["grp", "band"])["e"]}
@@ -466,7 +468,7 @@ except Exception as ex:                                   # never stops the buil
 
 
 def _slabrange(i, gi, now, fallback):
-    k = (("Giappone" if cards[i].startswith("ja:") else series_of(cards[i].split("/")[0])), min(gi, 2))
+    k = (("Giappone" if cards[i].startswith("ja:") else "Cina" if cards[i].startswith("zh:") else series_of(cards[i].split("/")[0])), min(gi, 2))
     if k not in _qg:
         return fallback
     n, q = _SR.get((i, gi), (0, np.zeros(2)))

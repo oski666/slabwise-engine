@@ -32,7 +32,20 @@ TC_SERIES_ERA = {"Scarlet & Violet": "Scarlatto e Violetto", "Mega Evolution": "
                  "Platinum": "Di mezzo", "Diamond & Pearl": "Di mezzo"}
 
 
+# D336/D338: Chinese (simplified) printings, "zh:<tcgcharts set slug>-<number>". Their sets are all modern; the era of
+# each set by hand from its English counterpart (Gem Pack and Collection 151 are Chinese-only Scarlet & Violet sets).
+ZH_SET_ERAS = {"gem-pack": "Scarlatto e Violetto", "collection-151": "Scarlatto e Violetto", "sv-p": "Scarlatto e Violetto",
+               "bonus-round": "Scarlatto e Violetto", "fearless-terastal": "Scarlatto e Violetto",
+               "polychromatic-gathering": "Spada e Scudo", "marine-shadow": "Spada e Scudo", "dynamax-clash": "Spada e Scudo",
+               "shining-synergy": "Moderna", "lillies-support": "Moderna"}
+is_asian = lambda cid: str(cid).startswith(("ja:", "zh:"))  # noqa: E731  D338: a Japanese or Chinese printing
+lang_of = lambda cid: "ja" if str(cid).startswith("ja:") else "zh" if str(cid).startswith("zh:") else "en"  # noqa: E731
+
+
 def series_of(cid):
+    if cid.startswith("zh:"):
+        slug = cid.split("/")[0][3:]
+        return next((lab for pre, lab in ZH_SET_ERAS.items() if slug.startswith(pre)), "Scarlatto e Violetto")
     if cid.startswith("ja:"):
         slug = cid.split("/")[0].rsplit("-", 1)[0][3:]
         if slug in JA_SET_ERAS:
@@ -41,4 +54,4 @@ def series_of(cid):
     return next((lab for pre, lab in SERIES if cid.startswith(pre)), "Altro")
 
 
-is_promo = lambda cid: bool(re.match(r"^[a-z]+p-|^ja:[a-z]+-p-", cid.split("/")[0])) or cid.startswith("svp-")  # noqa: E731  Black Star Promos
+is_promo = lambda cid: bool(re.match(r"^[a-z]+p-|^(?:ja|zh):[a-z]+-p-", cid.split("/")[0])) or cid.startswith("svp-")  # noqa: E731  Black Star Promos

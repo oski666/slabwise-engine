@@ -24,7 +24,7 @@ status = ac.load(status_p, {})
 have = {c["id"] for c in ac.load(os.path.join(ac.DATA, "cards.json"), [])}
 added = []
 queue = ac.load(os.path.join(ac.DATA, "candidates_queue.json"), {})
-sk = lambda cid: cid if cid.startswith("ja:") else f"en:{cid}"                 # status key (D134: Japanese ids carry "ja:")
+sk = lambda cid: cid if cid.startswith(("ja:", "zh:")) else f"en:{cid}"                 # status key (D134: Japanese ids carry "ja:")
 # D135: the eBay budget no longer stops cards (D118 replaced): it only decides which cards get their listings checked
 have |= {c["id"] for c in ac.load(os.path.join(ac.DATA, "cards_ja.json"), []) if not c.get("pending")}   # D158: pending pages still need a price
 import time as _time
@@ -37,9 +37,9 @@ for cid in ([] if GATE_ONLY else ids):
     if cid in have:
         print(f"  {cid}: già nel catalogo")
         continue
-    if cid.startswith("ja:"):                                                   # D134: Japanese counterpart from the queue
+    if cid.startswith(("ja:", "zh:")):                                          # D134: Japanese counterpart from the queue (D338: Chinese too)
         row = queue.get(cid)
-        if not row or row.get("lang") != "ja":
+        if not row or row.get("lang") != cid[:2]:
             print(f"  {cid}: non è nella coda")
             continue
         try:
@@ -47,7 +47,7 @@ for cid in ([] if GATE_ONLY else ids):
         except Exception as e:                                                  # a source error never stops the batch
             print(f"  {cid}: errore {str(e)[:100]}")
             continue
-        st.update(checked=today, requests=0, source="coda giapponese (D134)")
+        st.update(checked=today, requests=0, source="coda giapponese (D134)" if cid.startswith("ja:") else "catalogo cinese (D338)")
         status[cid] = st
         if st["status"] != "pronta":
             print(f"  {cid}: {st['status']} {st.get('detail', '')}")
