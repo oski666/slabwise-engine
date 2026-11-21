@@ -1,5 +1,6 @@
 """D152: is a Japanese printing the same card as an English one? Same Pokémon (Pokédex number) and same illustration."""
 import base64
+import os
 import io
 import urllib.request
 
@@ -17,6 +18,8 @@ def load(src):
             raw = src
         elif src.startswith("data:"):
             raw = base64.b64decode(src.split(",", 1)[1])
+        elif src.startswith("file:"):                     # an image kept next to the catalogue (scripts/ja_img_out.py)
+            raw = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "prototype", "data", src[5:]), "rb").read()
         else:
             raw = urllib.request.urlopen(urllib.request.Request(src, headers={"User-Agent": "slabwise/0.1"}), timeout=30).read()
         return Image.open(io.BytesIO(raw)).convert("L")

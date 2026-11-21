@@ -46,7 +46,7 @@ thumbs = json.load(open(os.path.join(data, "images.json")))
 used = {s[1].split("/")[0] for v in certs.values() for s in v}
 real = json.load(open(os.path.join(data, "real.json")))           # cards already on the site bring their own image
 shown = {c["id"] for c in real["cards"]} | {c["id"] for c in real.get("ja_pending", [])}
-names = {i: [cat[i]["n"], cat[i]["set"], cat[i]["no"], cat[i].get("tot"), None if i in shown else thumbs.get(i) or cat[i].get("img")]
+names = {i: [cat[i]["n"], cat[i]["set"], cat[i]["no"], cat[i].get("tot"), None if i in shown else thumbs.get(i) or (None if str(cat[i].get("img") or "").startswith("file:") else cat[i].get("img"))]
          for i in sorted(used) if i in cat}
 json.dump({"asof": last.strftime("%Y-%m-%d") if last else None, "names": names, "certs": certs}, open(out, "w"), ensure_ascii=False, separators=(",", ":"))
 rep = sum(1 for v in certs.values() if len(v) > 1)

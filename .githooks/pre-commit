@@ -1,3 +1,5 @@
 #!/bin/sh
+# Japanese images go to files, not into cards_ja.json (scripts/ja_img_out.py)
+if git diff --cached --name-only | grep -q '^prototype/data/cards_ja.json$'; then python3 scripts/ja_img_out.py --stage || exit 1; fi
 # Bot commits: never save conflict markers or broken JSON (scripts/no_conflict.py)
 exec python3 scripts/no_conflict.py

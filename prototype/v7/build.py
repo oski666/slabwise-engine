@@ -91,6 +91,14 @@ if split and which == "real":                                # D104: the page ke
                 ext = v[11:v.index(";")]
                 open(os.path.join(split, "img", f"{fid}{suf}.{ext}"), "wb").write(base64.b64decode(v.split(",", 1)[1]))
                 c[k] = f"img/{fid}{suf}.{ext}"
+            elif v.startswith("file:"):                      # scripts/ja_img_out.py: the image is a file next to the catalogue
+                ext = v.rsplit(".", 1)[1]
+                src_ = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", v[5:])
+                if os.path.exists(src_):
+                    shutil.copyfile(src_, os.path.join(split, "img", f"{fid}{suf}.{ext}"))
+                    c[k] = f"img/{fid}{suf}.{ext}"
+                else:
+                    c[k] = None
 def self_host_fonts(html, extra_link, folder):
     """D129: the Google Fonts stylesheets are downloaded at build time and served from our own site, so a visitor's
     browser never contacts Google (privacy). On any network error the page keeps the Google links."""
