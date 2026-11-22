@@ -1041,7 +1041,27 @@ for c in out_cards:
         _a, _b = _g10["pop"] / c["psa_total"], _t["psa10"] / _t["total"]
         if abs(_a - _b) > 0.05:
             c["gem_conflict"] = [round(_a, 4), round(_b, 4)]
-res = dict(real=True, indexes_grade=indexes_grade, index_margin=index_margin, rarity_fit=rarity_fit, engine=ENGINE, deals_asof=deals_asof, deal_stats=deal_stats, ja_pending=ja_pending, indexes=indexes, index_history=index_history, index_all=index_all, index_sets=index_sets, index_pokemon=index_pokemon, index_base=(index_source["base"] if index_source else wk(index_base_w)), index_source=index_source, asof=str(asof), eur_rate=EUR, eur_rate_date=rate_date, cards=out_cards, rollups=rollups, pulse=pulse, slabmeter=slabmeter, tap=tap,
+# D334: "Quanti 10 dà PSA oggi": the share of PSA 10 among the new PSA slabs of each era, last 6 complete months, the
+# same months a year before, and the first 12 months of the series (July 2021 - June 2022). Not a price; the source of
+# the counts is not named on the site (D108)
+psa10_share = None
+_sev_p = os.environ.get("SLABWISE_PSA10_SHARE", os.path.join(HERE, "..", "data", "raw", "gemrate", "severity.json"))
+if os.path.exists(_sev_p):
+    try:
+        _sev = json.load(open(_sev_p))["by_era"]
+        _months = sorted({m for e in _sev.values() for m in e})
+        _last = [m for m in _months if m < str(asof)[:7]][-6:]
+        _prev = [f"{int(m[:4]) - 1}{m[4:]}" for m in _last]
+        _first = [m for m in _months if "2021-07" <= m <= "2022-06"]
+        def _share(e, ms):
+            g = sum(_sev[e].get(m, {}).get("gems", 0) for m in ms)
+            t = sum(_sev[e].get(m, {}).get("grades", 0) for m in ms)
+            return round(g / t, 4) if t >= 500 else None
+        psa10_share = dict(months=[_last[0], _last[-1]] if _last else None,
+                           eras={e: dict(now=_share(e, _last), y1=_share(e, _prev), start=_share(e, _first)) for e in _sev})
+    except Exception as _e:
+        print(f"quota di PSA 10 non calcolata: {_e}", flush=True)
+res = dict(real=True, psa10_share=psa10_share, indexes_grade=indexes_grade, index_margin=index_margin, rarity_fit=rarity_fit, engine=ENGINE, deals_asof=deals_asof, deal_stats=deal_stats, ja_pending=ja_pending, indexes=indexes, index_history=index_history, index_all=index_all, index_sets=index_sets, index_pokemon=index_pokemon, index_base=(index_source["base"] if index_source else wk(index_base_w)), index_source=index_source, asof=str(asof), eur_rate=EUR, eur_rate_date=rate_date, cards=out_cards, rollups=rollups, pulse=pulse, slabmeter=slabmeter, tap=tap,
            params={k: v for k, v in params.__dict__.items()}, n_sales=int(len(clean)), n_removed=int(len(removed)), venues=venues,
            venue_gaps={v: round(float(lvm.offs[k]), 4) for k, v in enumerate(("ebay", "auction", "fixed"))},
            note="Dati veri: vendite concluse eBay (anche tramite Alt e tcgcharts), Goldin e Fanatics Collect (dal 2023). "
