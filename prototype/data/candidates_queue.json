@@ -14165,7 +14165,7 @@
  "ja:p-promos-14": {
   "id": "ja:p-promos-14",
   "lang": "ja",
-  "en": null,
+  "en": "ecard1-39",
   "name": "Charizard (giapponese)",
   "ja_name": null,
   "set": "P Promos",
@@ -14188,7 +14188,9 @@
   ],
   "status": "in_valutazione",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-07"
+  "checked": "2026-11-07",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 42/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:mcdonalds-pokemon-e-minimum-pack-10": {
   "id": "ja:mcdonalds-pokemon-e-minimum-pack-10",
@@ -14773,7 +14775,7 @@
  "ja:play-promos-23": {
   "id": "ja:play-promos-23",
   "lang": "ja",
-  "en": null,
+  "en": "ex16-101",
   "name": "Jolteon ☆ (giapponese)",
   "ja_name": null,
   "set": "PLAY Promos",
@@ -14796,7 +14798,9 @@
   ],
   "status": "in_valutazione",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-07"
+  "checked": "2026-11-07",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 37/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:sm-p-141": {
   "id": "ja:sm-p-141",
@@ -16398,7 +16402,7 @@
  "ja:gift-box-mew-lucario-mew-quarter-deck-3": {
   "id": "ja:gift-box-mew-lucario-mew-quarter-deck-3",
   "lang": "ja",
-  "en": null,
+  "en": "ex13-100",
   "name": "Mew ex (giapponese)",
   "ja_name": null,
   "set": "Gift Box Mew - Lucario (Mew Quarter Deck)",
@@ -16421,7 +16425,9 @@
   ],
   "status": "in_valutazione",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-07"
+  "checked": "2026-11-07",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 36/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:sm-p-137": {
   "id": "ja:sm-p-137",
@@ -17500,7 +17506,7 @@
  "ja:xy-p-140": {
   "id": "ja:xy-p-140",
   "lang": "ja",
-  "en": null,
+  "en": "xyp-XY96",
   "name": "Umbreon (giapponese)",
   "ja_name": null,
   "set": "XY Promos",
@@ -17523,7 +17529,9 @@
   ],
   "status": "scartata",
   "detail": "doppione di ja:xy-promos-140 (stessa carta su tcgcharts, D307)",
-  "checked": "2026-11-07"
+  "checked": "2026-11-07",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 43/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:p-promos-13": {
   "id": "ja:p-promos-13",
@@ -19439,7 +19447,7 @@
  "ja:split-earth-91": {
   "id": "ja:split-earth-91",
   "lang": "ja",
-  "en": null,
+  "en": "ecard3-149",
   "name": "Ho-oh (giapponese)",
   "ja_name": null,
   "set": "Split Earth",
@@ -19462,7 +19470,9 @@
   ],
   "status": "in_valutazione",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-07"
+  "checked": "2026-11-07",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 67/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:xy-p-164": {
   "id": "ja:xy-p-164",
@@ -22250,7 +22260,7 @@
  "ja:bw-p-159": {
   "id": "ja:bw-p-159",
   "lang": "ja",
-  "en": null,
+  "en": "bw4-97",
   "name": "Zekrom-EX (giapponese)",
   "ja_name": null,
   "set": "Black & White Promos",
@@ -22273,7 +22283,9 @@
   ],
   "status": "in_valutazione",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-10"
+  "checked": "2026-11-10",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 34/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "bw6-122": {
   "id": "bw6-122",
@@ -26452,7 +26464,7 @@
  "ja:promo-card-pack-25th-anniversary-edition-2": {
   "id": "ja:promo-card-pack-25th-anniversary-edition-2",
   "lang": "ja",
-  "en": null,
+  "en": "base4-18",
   "name": "Venusaur (giapponese)",
   "ja_name": null,
   "set": "Promo Card Pack 25th Anniversary Edition",
@@ -26476,7 +26488,9 @@
   "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
   "checked": "2026-11-11",
-  "added": "2026-11-18"
+  "added": "2026-11-18",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 67/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:tag-team-gx-tag-all-stars-186": {
   "id": "ja:tag-team-gx-tag-all-stars-186",
@@ -26806,7 +26820,7 @@
  "ja:expansion-pack-20th-anniversary-51": {
   "id": "ja:expansion-pack-20th-anniversary-51",
   "lang": "ja",
-  "en": null,
+  "en": "xy12-53",
   "name": "Mew (giapponese)",
   "ja_name": null,
   "set": "Expansion Pack 20th Anniversary",
@@ -26830,7 +26844,9 @@
   "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
   "checked": "2026-11-11",
-  "added": "2026-11-20"
+  "added": "2026-11-20",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 32/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:mega-symphonia-92": {
   "id": "ja:mega-symphonia-92",
@@ -28155,7 +28171,7 @@
  "ja:gx-ultra-shiny-229": {
   "id": "ja:gx-ultra-shiny-229",
   "lang": "ja",
-  "en": null,
+  "en": "sma-SV69",
   "name": "Umbreon-GX (giapponese)",
   "ja_name": null,
   "set": "GX Ultra Shiny",
@@ -28179,7 +28195,9 @@
   "status": "scartata",
   "detail": "doppione di ja:sm8b-229 (stessa carta su tcgcharts, D307)",
   "checked": "2026-11-11",
-  "added": "2026-11-12"
+  "added": "2026-11-12",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 55/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:pokemon-card-151-185": {
   "id": "ja:pokemon-card-151-185",
@@ -29546,7 +29564,7 @@
  "ja:vmax-climax-279": {
   "id": "ja:vmax-climax-279",
   "lang": "ja",
-  "en": null,
+  "en": "swsh11tg-TG29",
   "name": "Pikachu VMAX (giapponese)",
   "ja_name": null,
   "set": "VMAX Climax",
@@ -29570,7 +29588,9 @@
   "status": "scartata",
   "detail": "doppione di ja:s8b-279 (stessa carta su tcgcharts, D307)",
   "checked": "2026-11-11",
-  "added": "2026-11-12"
+  "added": "2026-11-12",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 29/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:vmax-climax-245": {
   "id": "ja:vmax-climax-245",
@@ -31751,7 +31771,7 @@
  "ja:vstar-universe-218": {
   "id": "ja:vstar-universe-218",
   "lang": "ja",
-  "en": null,
+  "en": "swsh12.5gg-GG41",
   "name": "Raikou V (giapponese)",
   "ja_name": null,
   "set": "VSTAR Universe",
@@ -31774,7 +31794,9 @@
   ],
   "status": "scartata",
   "detail": "doppione di ja:s12a-218 (stessa carta su tcgcharts, D307)",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 66/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:pokemon-tcg-classic-blastoise-14": {
   "id": "ja:pokemon-tcg-classic-blastoise-14",
@@ -33083,7 +33105,7 @@
  "ja:gg-end-60": {
   "id": "ja:gg-end-60",
   "lang": "ja",
-  "en": null,
+  "en": "smp-SM193",
   "name": "Garchomp & Giratina-GX (giapponese)",
   "ja_name": null,
   "set": "GG End",
@@ -33106,7 +33128,9 @@
   ],
   "status": "scartata",
   "detail": "doppione di ja:sm10a-060 (stessa carta su tcgcharts, D307)",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 42/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:challenge-from-the-darkness-145": {
   "id": "ja:challenge-from-the-darkness-145",
@@ -34703,7 +34727,7 @@
  "ja:pcg-promos-94": {
   "id": "ja:pcg-promos-94",
   "lang": "ja",
-  "en": null,
+  "en": "ex8-22",
   "name": "Rayquaza (giapponese)",
   "ja_name": null,
   "set": "PCG Promos",
@@ -34726,7 +34750,9 @@
   ],
   "status": "in_valutazione",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 51/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:mirage-forest-41": {
   "id": "ja:mirage-forest-41",
@@ -35113,7 +35139,7 @@
  "ja:vstar-universe-222": {
   "id": "ja:vstar-universe-222",
   "lang": "ja",
-  "en": null,
+  "en": "swsh12.5gg-GG45",
   "name": "Deoxys VMAX (giapponese)",
   "ja_name": null,
   "set": "VSTAR Universe",
@@ -35136,7 +35162,9 @@
   ],
   "status": "scartata",
   "detail": "doppione di ja:s12a-222 (stessa carta su tcgcharts, D307)",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 26/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:emerald-break-85": {
   "id": "ja:emerald-break-85",
@@ -37258,7 +37286,7 @@
  "ja:xy-p-264": {
   "id": "ja:xy-p-264",
   "lang": "ja",
-  "en": null,
+  "en": "xy12-111",
   "name": "Surfing Pikachu (giapponese)",
   "ja_name": null,
   "set": "XY Promos",
@@ -37281,7 +37309,9 @@
   ],
   "status": "scartata",
   "detail": "doppione di ja:xy-promos-264 (stessa carta su tcgcharts, D307)",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 17/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:shiny-star-v-71": {
   "id": "ja:shiny-star-v-71",
@@ -39812,7 +39842,7 @@
  "ja:pcg-promos-53": {
   "id": "ja:pcg-promos-53",
   "lang": "ja",
-  "en": null,
+  "en": "ex10-116",
   "name": "Rocket's Persian ex (giapponese)",
   "ja_name": null,
   "set": "PCG Promos",
@@ -39835,7 +39865,9 @@
   ],
   "status": "in_valutazione",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 61/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:tag-team-gx-tag-all-stars-94": {
   "id": "ja:tag-team-gx-tag-all-stars-94",
@@ -41403,7 +41435,7 @@
  "ja:expansion-pack-20th-anniversary-33": {
   "id": "ja:expansion-pack-20th-anniversary-33",
   "lang": "ja",
-  "en": null,
+  "en": "pl2-112",
   "name": "Pikachu (giapponese)",
   "ja_name": null,
   "set": "Expansion Pack 20th Anniversary",
@@ -41427,7 +41459,9 @@
   "status": "aggiunta",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
   "checked": "2026-11-12",
-  "added": "2026-11-20"
+  "added": "2026-11-20",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 79/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:challenge-from-the-darkness-143": {
   "id": "ja:challenge-from-the-darkness-143",
@@ -42242,7 +42276,7 @@
  "ja:xy-p-292": {
   "id": "ja:xy-p-292",
   "lang": "ja",
-  "en": null,
+  "en": "basep-25",
   "name": "Flying Pikachu (giapponese)",
   "ja_name": null,
   "set": "XY Promos",
@@ -42265,7 +42299,9 @@
   ],
   "status": "scartata",
   "detail": "doppione di ja:xy-promos-292 (stessa carta su tcgcharts, D307)",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 27/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:darkness-and-to-light-160": {
   "id": "ja:darkness-and-to-light-160",
@@ -42962,7 +42998,7 @@
  "ja:glory-of-team-rocket-130": {
   "id": "ja:glory-of-team-rocket-130",
   "lang": "ja",
-  "en": null,
+  "en": "sv10-240",
   "name": "Team Rocket's Mewtwo ex (giapponese)",
   "ja_name": null,
   "set": "Glory of Team Rocket",
@@ -42985,7 +43021,9 @@
   ],
   "status": "scartata",
   "detail": "doppione di ja:sv10-130 (stessa carta su tcgcharts, D307)",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 19/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:mirage-forest-40": {
   "id": "ja:mirage-forest-40",
@@ -45480,7 +45518,7 @@
  "ja:world-champions-pack-11": {
   "id": "ja:world-champions-pack-11",
   "lang": "ja",
-  "en": null,
+  "en": "ex16-100",
   "name": "Flareon ☆ (giapponese)",
   "ja_name": null,
   "set": "World Champions Pack",
@@ -45503,7 +45541,9 @@
   ],
   "status": "in_valutazione",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 24/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:t-promos-6": {
   "id": "ja:t-promos-6",
@@ -47444,7 +47484,7 @@
  "ja:premium-champion-pack-49": {
   "id": "ja:premium-champion-pack-49",
   "lang": "ja",
-  "en": null,
+  "en": "xy4-121",
   "name": "M Gengar-EX (giapponese)",
   "ja_name": null,
   "set": "Premium Champion Pack",
@@ -47467,7 +47507,9 @@
   ],
   "status": "in_valutazione",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 49/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:incandescent-arcana-69": {
   "id": "ja:incandescent-arcana-69",
@@ -48139,7 +48181,7 @@
  "ja:emerald-gift-box-deoxys-19": {
   "id": "ja:emerald-gift-box-deoxys-19",
   "lang": "ja",
-  "en": null,
+  "en": "ex9-93",
   "name": "Deoxys ex (giapponese)",
   "ja_name": null,
   "set": "Emerald Gift Box (Deoxys)",
@@ -48162,7 +48204,9 @@
   ],
   "status": "in_valutazione",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 35/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:pcg-promos-84": {
   "id": "ja:pcg-promos-84",
@@ -49846,7 +49890,7 @@
  "ja:mirage-forest-33": {
   "id": "ja:mirage-forest-33",
   "lang": "ja",
-  "en": null,
+  "en": "ex12-90",
   "name": "Regice ☆ (giapponese)",
   "ja_name": null,
   "set": "Mirage Forest",
@@ -49869,7 +49913,9 @@
   ],
   "status": "in_valutazione",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 23/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:pokemon-go-28": {
   "id": "ja:pokemon-go-28",
@@ -52392,7 +52438,7 @@
  "ja:stellar-miracle-130": {
   "id": "ja:stellar-miracle-130",
   "lang": "ja",
-  "en": null,
+  "en": "sv07-170",
   "name": "Terapagos ex (giapponese)",
   "ja_name": null,
   "set": "Stellar Miracle",
@@ -52415,7 +52461,9 @@
   ],
   "status": "scartata",
   "detail": "doppione di ja:sv7-130 (stessa carta su tcgcharts, D307)",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 25/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:sv-p-216": {
   "id": "ja:sv-p-216",
@@ -52795,7 +52843,7 @@
  "ja:mysterious-mountains-90": {
   "id": "ja:mysterious-mountains-90",
   "lang": "ja",
-  "en": null,
+  "en": "ecard3-147",
   "name": "Crobat (giapponese)",
   "ja_name": null,
   "set": "Mysterious Mountains",
@@ -52818,7 +52866,9 @@
   ],
   "status": "in_valutazione",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 39/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:bw-p-186": {
   "id": "ja:bw-p-186",
@@ -52968,7 +53018,7 @@
  "ja:water-quick-construction-pack-4": {
   "id": "ja:water-quick-construction-pack-4",
   "lang": "ja",
-  "en": null,
+  "en": "ex9-96",
   "name": "Milotic ex (giapponese)",
   "ja_name": null,
   "set": "Water Quick Construction Pack",
@@ -52991,7 +53041,9 @@
   ],
   "status": "in_valutazione",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 29/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:sm-p-001": {
   "id": "ja:sm-p-001",
@@ -54301,7 +54353,7 @@
  "ja:world-champions-pack-15": {
   "id": "ja:world-champions-pack-15",
   "lang": "ja",
-  "en": null,
+  "en": "ex16-102",
   "name": "Vaporeon ☆ (giapponese)",
   "ja_name": null,
   "set": "World Champions Pack",
@@ -54324,7 +54376,9 @@
   ],
   "status": "in_valutazione",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 22/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:inferno-x-83": {
   "id": "ja:inferno-x-83",
@@ -57606,7 +57660,7 @@
  "ja:shining-legends-80": {
   "id": "ja:shining-legends-80",
   "lang": "ja",
-  "en": null,
+  "en": "sma-SV59",
   "name": "Mewtwo-GX (giapponese)",
   "ja_name": null,
   "set": "Shining Legends",
@@ -57629,7 +57683,9 @@
   ],
   "status": "in_valutazione",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 68/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:mega-dream-ex-247": {
   "id": "ja:mega-dream-ex-247",
@@ -58095,7 +58151,7 @@
  "ja:tag-team-gx-tag-all-stars-58": {
   "id": "ja:tag-team-gx-tag-all-stars-58",
   "lang": "ja",
-  "en": null,
+  "en": "sm5-58",
   "name": "Giratina ◇ (giapponese)",
   "ja_name": null,
   "set": "TAG TEAM GX: Tag All Stars",
@@ -58118,7 +58174,9 @@
   ],
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora: si riprova ogni settimana (D157)",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 53/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:violet-ex-87": {
   "id": "ja:violet-ex-87",
@@ -58354,7 +58412,7 @@
  "ja:pcg-promos-35": {
   "id": "ja:pcg-promos-35",
   "lang": "ja",
-  "en": null,
+  "en": "ex8-108",
   "name": "Rocket's Raikou ex (giapponese)",
   "ja_name": null,
   "set": "PCG Promos",
@@ -58377,7 +58435,9 @@
   ],
   "status": "in_valutazione",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 55/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:terastal-festival-ex-213": {
   "id": "ja:terastal-festival-ex-213",
@@ -60293,7 +60353,7 @@
  "ja:feraligatr-constructed-starter-deck-3": {
   "id": "ja:feraligatr-constructed-starter-deck-3",
   "lang": "ja",
-  "en": null,
+  "en": "ex10-103",
   "name": "Feraligatr ex (giapponese)",
   "ja_name": null,
   "set": "Feraligatr Constructed Starter Deck",
@@ -60316,7 +60376,9 @@
   ],
   "status": "in_valutazione",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 38/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:night-wanderer-66": {
   "id": "ja:night-wanderer-66",
@@ -75825,7 +75887,7 @@
  "ja:the-town-on-no-map-42": {
   "id": "ja:the-town-on-no-map-42",
   "lang": "ja",
-  "en": null,
+  "en": "ecard2-H12",
   "name": "Hypno (giapponese)",
   "ja_name": null,
   "set": "The Town on No Map",
@@ -75848,7 +75910,9 @@
   ],
   "status": "in_valutazione",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-12"
+  "checked": "2026-11-12",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 43/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:vmax-climax-207": {
   "id": "ja:vmax-climax-207",
@@ -80317,7 +80381,7 @@
  "ja:world-champions-pack-8": {
   "id": "ja:world-champions-pack-8",
   "lang": "ja",
-  "en": null,
+  "en": "ex16-6",
   "name": "Charizard (giapponese)",
   "ja_name": null,
   "set": "World Champions Pack",
@@ -80340,7 +80404,9 @@
   ],
   "status": "in_valutazione",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-14"
+  "checked": "2026-11-14",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 54/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:rocket-gang-strikes-back-57": {
   "id": "ja:rocket-gang-strikes-back-57",
@@ -81179,7 +81245,7 @@
  "ja:flight-of-legends-24": {
   "id": "ja:flight-of-legends-24",
   "lang": "ja",
-  "en": null,
+  "en": "ex6-115",
   "name": "Moltres ex (giapponese)",
   "ja_name": null,
   "set": "Flight of Legends",
@@ -81202,7 +81268,9 @@
   ],
   "status": "in_valutazione",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-14"
+  "checked": "2026-11-14",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 75/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:vending-machine-series-2-red-90": {
   "id": "ja:vending-machine-series-2-red-90",
@@ -82150,7 +82218,7 @@
  "ja:holon-research-tower-41": {
   "id": "ja:holon-research-tower-41",
   "lang": "ja",
-  "en": null,
+  "en": "ex11-8",
   "name": "Latias δ (giapponese)",
   "ja_name": null,
   "set": "Holon Research Tower",
@@ -82173,7 +82241,9 @@
   ],
   "status": "in_valutazione",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-14"
+  "checked": "2026-11-14",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 36/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:holon-research-tower-30": {
   "id": "ja:holon-research-tower-30",
@@ -89053,7 +89123,7 @@
  "ja:pcg-promos-80": {
   "id": "ja:pcg-promos-80",
   "lang": "ja",
-  "en": null,
+  "en": "np-40",
   "name": "Mew (giapponese)",
   "ja_name": null,
   "set": "PCG Promos",
@@ -89076,7 +89146,9 @@
   ],
   "status": "in_valutazione",
   "detail": "solo giapponese, dalla classifica (D231): si controllano le vendite",
-  "checked": "2026-11-17"
+  "checked": "2026-11-17",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 30/256, §67 M1, ricerca dalla inglese fra le giapponesi note)"
  },
  "ja:sm-p-376": {
   "id": "ja:sm-p-376",
