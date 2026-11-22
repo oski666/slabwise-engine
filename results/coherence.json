@@ -1,9 +1,9 @@
 {
- "asof": "2026-11-20",
- "cards": 2812,
+ "asof": "2026-11-21",
+ "cards": 2863,
  "checks": {
   "C7": {
-   "n": 53,
+   "n": 52,
    "examples": [
     [
      "sv08.5-161",
@@ -71,7 +71,7 @@
    "n": 1,
    "examples": [
     [
-     "ja:inteleon-vmax-high-class-deck-23"
+     "swsh10tg-TG23"
     ]
    ]
   }
