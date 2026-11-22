@@ -16,8 +16,10 @@ ids = [k for k, r in q.items() if r.get("lang") == "ja" and r.get("tc_id") and k
 import datetime  # noqa: E402
 st = json.load(open(os.path.join(DATA, "requests_status.json"))) if os.path.exists(os.path.join(DATA, "requests_status.json")) else {}
 week = str(datetime.date.today() - datetime.timedelta(days=7))
-if "--recheck" not in sys.argv:
-    ids = [k for k in ids if not ((st.get(k) or {}).get("checked", "") >= week)]
+_en0 = {c["id"] for c in json.load(open(os.path.join(DATA, "cards.json")))}
+_tw0 = {c.get("en") for c in json.load(open(os.path.join(DATA, "cards_ja.json"))) if not c.get("pending") and c.get("en")}
+if "--recheck" not in sys.argv:   # 22 Nov: the twin of an English card still without one is never held back by the 7 days
+    ids = [k for k in ids if not ((st.get(k) or {}).get("checked", "") >= week) or (q[k].get("en") in _en0 and q[k].get("en") not in _tw0)]
 # 18 Nov 2026: the twins of English cards already on the site first (they complete a card page and the Japanese
 # index), then by tcgcharts rank; before, queue order left the twins behind 1.500 Japanese-only cards
 _en = {c["id"] for c in json.load(open(os.path.join(DATA, "cards.json")))}
