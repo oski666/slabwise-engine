@@ -166,11 +166,17 @@ def ja_counterparts(c, tc_map, fallback=False):
         if norm(name) != norm(c["n"]):
             continue
         cd = cr.get(cr.TCG + url.replace("/pokemon/", "/api/pokemon/card-detail/", 1)).get("card", {})
-        if not c.get("ill") or norm(cd.get("artist")) != norm(c["ill"]) or cd.get("variantType") or not cd.get("id"):
+        if cd.get("variantType") or not cd.get("id"):
+            continue
+        art, ill = norm(cd.get("artist")), norm(c.get("ill"))
+        if art and ill and art != ill:
             continue
         no = cr.num_key(cd.get("cardNumber")) or "0"
-        hits = cr.get(f"{cr.TCGDEX}/ja/cards?" + urllib.parse.urlencode({"localId": no, "illustrator": c["ill"]}))
-        hits = [h for h in hits if cr.num_key(h.get("localId")) == no] if isinstance(hits, list) else []
+        if art and ill:
+            hits = cr.get(f"{cr.TCGDEX}/ja/cards?" + urllib.parse.urlencode({"localId": no, "illustrator": c["ill"]}))
+            hits = [h for h in hits if cr.num_key(h.get("localId")) == no] if isinstance(hits, list) else []
+        else:            # 22 Nov 2026: tcgcharts often has no illustrator for a Japanese card (279 English cards found
+            hits = []    # nothing): without it only the image decides, on the tcgcharts fallback below (same illustration)
         if en_card is None:                                       # D152: same Pokémon and same illustration
             try:
                 en_card = cr.get(f"{cr.TCGDEX}/en/cards/{urllib.parse.quote(c['id'])}")
