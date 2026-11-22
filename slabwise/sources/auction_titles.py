@@ -451,6 +451,14 @@ def ebay_rows(records, site="ebay.com"):
 _SETWORDS = ((r"celebrations|classic collection", ("cel",)), (r"(?<!prismatic )(?<!mega )evolutions", ("xy12",)),
              (r"expedition", ("ecard1",)), (r"base set 2|base set ii\b|base ii\b", ("base4",)), (r"legendary collection", ("base6",)))
 _JA_SIGN = re.compile(r"\b(?:japanese|japan|jpn|jp|jap|jpn\.)\b")
+# Protocol §70: the listing format of the Japanese stores (and of SNKRDUNK's English pages), as in
+# 'Mewtwo VSTAR SAR[s12a 221/172](High Class Pack "VSTAR Universe")': the Japanese set code with number/total in square
+# brackets, or the Japanese product line in brackets. Every card listed this way is a Japanese printing.
+JA_FORMAT = _os.environ.get("SLABWISE_JA_FORMAT", "1") == "1"   # §70 passed (D342)
+_JA_STORE = re.compile(r"\[\s*(?:s|sv|sm|m|xy|bw|cp|e|l|pt|dp|pcg|adv)\d{0,2}[a-z]{0,2}\s*[-_]?\s*[a-z]?\d{1,3}\s*/\s*\d{2,3}\s*\]|"
+                       r"\[\s*(?:s|sv|sm|xy|bw|m)-?p\s+\d{1,3}\s*\]|"
+                       r"\((?:enhanced\s+)?expansion\s+pack\b|\(high\s+class\s+pack\b|\(\w{0,4}-?p\s+promotional\s+cards\)|"
+                       r"\((?:scarlet\s*&\s*violet|sword\s*&\s*shield|sun\s*&\s*moon)\s+expansion\s+pack\b")
 _ZH_SIGN = re.compile(r"\b(?:chinese|s-chinese|simplified|china|chn|cn)\b|中文|简体|簡體")   # D338
 # D338: the exclusions of a Chinese printing: JA_EXCLUDE without "chinese" and without "pack" (Gem Pack is a set), plus
 # traditional Chinese, a different printing
@@ -495,7 +503,7 @@ def accept_assigned(title: str, card: str):
         if _ZH_EXCLUDE.search(t):
             return False, "esclusa"
     elif card.startswith("ja:"):
-        if not (is_japanese(title) or _JA_SIGN.search(t)):
+        if not (is_japanese(title) or _JA_SIGN.search(t) or (JA_FORMAT and _JA_STORE.search(t))):
             return False, "nessun segno di giapponese"
         if JA_EXCLUDE.search(t):
             return False, "esclusa"

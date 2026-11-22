@@ -22632,8 +22632,8 @@
   "n": 0,
   "recognised": 0,
   "share": 0.0,
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-18"
  },
  "ja:bw8a-039": {
@@ -22664,8 +22664,8 @@
   "n": 0,
   "recognised": 0,
   "share": 0.0,
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-18"
  },
  "ex15-96": {
@@ -83127,8 +83127,8 @@
   "n": 6,
   "recognised": 6,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "6 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-21"
  },
  "ja:phantom-gate-34": {
@@ -83296,8 +83296,8 @@
   "n": 14,
   "recognised": 0,
   "share": 0.0,
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-21"
  },
  "ja:base-expansion-pack-117": {
@@ -84178,8 +84178,8 @@
   "n": 1,
   "recognised": 1,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "1 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-21"
  },
  "ja:sm12-104": {
@@ -84311,8 +84311,8 @@
   "n": 8,
   "recognised": 8,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "8 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-21"
  },
  "ja:rage-of-the-broken-heavens-85": {
@@ -84344,8 +84344,8 @@
   "n": 2,
   "recognised": 2,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "2 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-21"
  },
  "ja:xy-promos-140": {
@@ -84377,8 +84377,8 @@
   "n": 4,
   "recognised": 4,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "4 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-21"
  },
  "ja:bonds-to-the-end-of-time-90": {
@@ -84410,8 +84410,8 @@
   "n": 5,
   "recognised": 5,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "5 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-21"
  },
  "ja:m5-114": {
@@ -84476,8 +84476,8 @@
   "n": 10,
   "recognised": 0,
   "share": 0.0,
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-21"
  },
  "ja:base-expansion-pack-118": {
@@ -84509,8 +84509,8 @@
   "n": 56,
   "recognised": 5,
   "share": 0.089,
-  "status": "attesa_vendite",
-  "detail": "5 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-21"
  },
  "ja:base-expansion-pack-76": {
@@ -84542,8 +84542,8 @@
   "n": 7,
   "recognised": 0,
   "share": 0.0,
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-21"
  },
  "ja:base-expansion-pack-108": {
@@ -84575,8 +84575,8 @@
   "n": 51,
   "recognised": 9,
   "share": 0.176,
-  "status": "attesa_vendite",
-  "detail": "9 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-21"
  },
  "ja:adv-expansion-pack-30": {
@@ -84642,8 +84642,8 @@
   "n": 7,
   "recognised": 7,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "7 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-21"
  },
  "ja:awakening-psychic-king-59": {
@@ -84709,8 +84709,8 @@
   "n": 9,
   "recognised": 9,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "9 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-21"
  },
  "ja:miracle-of-the-desert-21": {
@@ -84742,8 +84742,8 @@
   "n": 7,
   "recognised": 7,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "7 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-22"
  },
  "ja:beat-of-the-frontier-98": {
@@ -84775,8 +84775,8 @@
   "n": 3,
   "recognised": 1,
   "share": 0.333,
-  "status": "attesa_vendite",
-  "detail": "1 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-22"
  },
  "ja:beat-of-the-frontier-100": {
@@ -84808,8 +84808,8 @@
   "n": 2,
   "recognised": 2,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "2 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-22"
  },
  "ja:lost-link-27": {
@@ -84942,8 +84942,8 @@
   "n": 14,
   "recognised": 2,
   "share": 0.143,
-  "status": "attesa_vendite",
-  "detail": "2 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-22"
  },
  "ja:beat-of-the-frontier-20": {
@@ -84975,8 +84975,8 @@
   "n": 8,
   "recognised": 7,
   "share": 0.875,
-  "status": "attesa_vendite",
-  "detail": "7 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-22"
  },
  "ja:pcg-promos-36": {
@@ -85008,8 +85008,8 @@
   "n": 9,
   "recognised": 9,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "9 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-22"
  },
  "ja:spiral-force-53": {
@@ -85041,8 +85041,8 @@
   "n": 0,
   "recognised": 0,
   "share": 0.0,
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-22"
  },
  "ja:split-earth-16": {
@@ -85074,8 +85074,8 @@
   "n": 8,
   "recognised": 8,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "8 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-22"
  },
  "ja:diamond-pearl-promos-127": {
@@ -86221,8 +86221,8 @@
   "n": 2,
   "recognised": 2,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "2 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-22"
  },
  "ja:sword-shield-promos-161": {
@@ -86421,8 +86421,8 @@
   "n": 2,
   "recognised": 2,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "2 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-22"
  },
  "ja:rising-fist-100": {
@@ -86487,8 +86487,8 @@
   "n": 29,
   "recognised": 5,
   "share": 0.172,
-  "status": "attesa_vendite",
-  "detail": "5 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-22"
  },
  "ja:wind-from-the-sea-74": {
@@ -86520,8 +86520,8 @@
   "n": 0,
   "recognised": 0,
   "share": 0.0,
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:beat-of-the-frontier-65": {
@@ -86553,8 +86553,8 @@
   "n": 4,
   "recognised": 4,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "4 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:base-expansion-pack-109": {
@@ -86586,8 +86586,8 @@
   "n": 29,
   "recognised": 3,
   "share": 0.103,
-  "status": "attesa_vendite",
-  "detail": "3 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:split-earth-38": {
@@ -86619,8 +86619,8 @@
   "n": 2,
   "recognised": 2,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "2 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:mysterious-mountains-16": {
@@ -86685,8 +86685,8 @@
   "n": 2,
   "recognised": 2,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "2 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:the-town-on-no-map-41": {
@@ -86751,8 +86751,8 @@
   "n": 18,
   "recognised": 0,
   "share": 0.0,
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:undone-seal-38": {
@@ -86784,8 +86784,8 @@
   "n": 5,
   "recognised": 5,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "5 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:base-expansion-pack-102": {
@@ -86817,8 +86817,8 @@
   "n": 21,
   "recognised": 0,
   "share": 0.0,
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:split-earth-36": {
@@ -86850,8 +86850,8 @@
   "n": 3,
   "recognised": 3,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "3 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:base-expansion-pack-90": {
@@ -86883,8 +86883,8 @@
   "n": 2,
   "recognised": 0,
   "share": 0.0,
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:base-expansion-pack-122": {
@@ -86916,8 +86916,8 @@
   "n": 19,
   "recognised": 0,
   "share": 0.0,
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:plasma-gale-59": {
@@ -86949,8 +86949,8 @@
   "n": 7,
   "recognised": 7,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "7 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:split-earth-44": {
@@ -86982,8 +86982,8 @@
   "n": 0,
   "recognised": 0,
   "share": 0.0,
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:mysterious-mountains-9": {
@@ -87015,8 +87015,8 @@
   "n": 1,
   "recognised": 1,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "1 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:mysterious-mountains-10": {
@@ -87048,8 +87048,8 @@
   "n": 4,
   "recognised": 4,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "4 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:wind-from-the-sea-48": {
@@ -87081,8 +87081,8 @@
   "n": 1,
   "recognised": 1,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "1 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:split-earth-9": {
@@ -87114,8 +87114,8 @@
   "n": 2,
   "recognised": 2,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "2 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:split-earth-8": {
@@ -87147,8 +87147,8 @@
   "n": 0,
   "recognised": 0,
   "share": 0.0,
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:pcg-promos-78": {
@@ -87180,8 +87180,8 @@
   "n": 0,
   "recognised": 0,
   "share": 0.0,
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:mysterious-mountains-47": {
@@ -87213,8 +87213,8 @@
   "n": 5,
   "recognised": 5,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "5 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:mysterious-mountains-74": {
@@ -87246,8 +87246,8 @@
   "n": 7,
   "recognised": 7,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "7 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:mysterious-mountains-73": {
@@ -87279,8 +87279,8 @@
   "n": 0,
   "recognised": 0,
   "share": 0.0,
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:mysterious-mountains-5": {
@@ -87312,8 +87312,8 @@
   "n": 6,
   "recognised": 6,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "6 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:mysterious-mountains-4": {
@@ -87345,8 +87345,8 @@
   "n": 0,
   "recognised": 0,
   "share": 0.0,
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:the-town-on-no-map-66": {
@@ -87378,8 +87378,8 @@
   "n": 1,
   "recognised": 1,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "1 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:the-town-on-no-map-65": {
@@ -87411,8 +87411,8 @@
   "n": 0,
   "recognised": 0,
   "share": 0.0,
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:miracle-crystal-34": {
@@ -87444,8 +87444,8 @@
   "n": 2,
   "recognised": 2,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "2 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:split-earth-7": {
@@ -87477,8 +87477,8 @@
   "n": 1,
   "recognised": 1,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "1 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:split-earth-6": {
@@ -87510,8 +87510,8 @@
   "n": 0,
   "recognised": 0,
   "share": 0.0,
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:the-town-on-no-map-26": {
@@ -87543,8 +87543,8 @@
   "n": 5,
   "recognised": 5,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "5 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:the-town-on-no-map-25": {
@@ -87576,8 +87576,8 @@
   "n": 0,
   "recognised": 0,
   "share": 0.0,
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:the-town-on-no-map-5": {
@@ -87609,8 +87609,8 @@
   "n": 5,
   "recognised": 5,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "5 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "ja:dragon-blade-51": {
@@ -87642,8 +87642,8 @@
   "n": 6,
   "recognised": 6,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "6 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-15"
  },
  "dp6-141": {
@@ -88381,8 +88381,8 @@
   "n": 7,
   "recognised": 6,
   "share": 0.857,
-  "status": "attesa_vendite",
-  "detail": "6 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-16"
  },
  "ja:s12a-218": {
@@ -88734,8 +88734,8 @@
   "n": 1,
   "recognised": 1,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "1 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-16"
  },
  "ja:the-town-on-no-map-12": {
@@ -88767,8 +88767,8 @@
   "n": 0,
   "recognised": 0,
   "share": 0.0,
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-16"
  },
  "xyp-XY95": {
@@ -94734,8 +94734,8 @@
   "n": 3,
   "recognised": 0,
   "share": 0.0,
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-20"
  },
  "ja:base-expansion-pack-123": {
@@ -94767,8 +94767,8 @@
   "n": 21,
   "recognised": 8,
   "share": 0.381,
-  "status": "attesa_vendite",
-  "detail": "8 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-20"
  },
  "ja:base-expansion-pack-98": {
@@ -94800,8 +94800,8 @@
   "n": 25,
   "recognised": 1,
   "share": 0.04,
-  "status": "attesa_vendite",
-  "detail": "1 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-20"
  },
  "ja:mysterious-mountains-53": {
@@ -95974,8 +95974,8 @@
   "n": 2,
   "recognised": 2,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "2 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-22"
  },
  "ja:southern-islands-4": {
@@ -96007,8 +96007,8 @@
   "n": 3,
   "recognised": 3,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "3 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-22"
  },
  "ja:southern-islands-11": {
@@ -96040,8 +96040,8 @@
   "n": 5,
   "recognised": 2,
   "share": 0.4,
-  "status": "attesa_vendite",
-  "detail": "2 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-22"
  },
  "ja:magma-vs-aqua-two-ambitions-26": {
@@ -96073,8 +96073,8 @@
   "n": 6,
   "recognised": 6,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "6 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-22"
  },
  "ja:earths-groudon-ex-constructed-starter-deck-8": {
@@ -96106,8 +96106,8 @@
   "n": 9,
   "recognised": 6,
   "share": 0.667,
-  "status": "attesa_vendite",
-  "detail": "6 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-22"
  },
  "ja:oceans-kyogre-ex-constructed-starter-deck-6": {
@@ -96139,8 +96139,8 @@
   "n": 9,
   "recognised": 6,
   "share": 0.667,
-  "status": "attesa_vendite",
-  "detail": "6 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-22"
  },
  "ja:base-expansion-pack-106": {
@@ -96172,8 +96172,8 @@
   "n": 39,
   "recognised": 4,
   "share": 0.103,
-  "status": "attesa_vendite",
-  "detail": "4 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-22"
  },
  "ja:base-expansion-pack-74": {
@@ -96205,8 +96205,8 @@
   "n": 8,
   "recognised": 0,
   "share": 0.0,
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-22"
  },
  "ja:the-town-on-no-map-37": {
@@ -96271,8 +96271,8 @@
   "n": 1,
   "recognised": 1,
   "share": 1.0,
-  "status": "attesa_vendite",
-  "detail": "1 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-22"
  },
  "ja:base-expansion-pack-115": {
@@ -96304,8 +96304,8 @@
   "n": 19,
   "recognised": 2,
   "share": 0.105,
-  "status": "attesa_vendite",
-  "detail": "2 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-22"
  },
  "ja:base-expansion-pack-72": {
@@ -96337,8 +96337,8 @@
   "n": 3,
   "recognised": 1,
   "share": 0.333,
-  "status": "attesa_vendite",
-  "detail": "1 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "in_valutazione",
+  "detail": "da ricontrollare con la regola del D342 (formato dei negozi giapponesi)",
   "checked": "2026-11-22"
  },
  "sm6-130": {

@@ -1197,3 +1197,15 @@ La correzione (ripresa settimana per settimana, carte base prima delle stampe) t
 **Se passa.** Lo SlabDex diventa Q (tutte le lingue) dalla settimana di adozione; la serie di prima resta com'era (indici sigillati, D265) e si concatena. L'indice di oggi resta pubblicato come "SlabDex inglese". **Se non passa**: lo SlabDex resta inglese e si guarda con Oscar quale criterio cade.
 
 **Indice Cina.** Si pubblica solo con almeno 10 stampe cinesi con prezzo nel suo paniere; sotto resta calcolato ma nascosto. Soglia fissata ora, prima di avere le cinesi nel catalogo.
+
+## 70. Il formato dei negozi giapponesi come segno di giapponese (registrato il 22 novembre 2026, prima della misura sulle carte del sito)
+
+**Domanda.** Oscar: "la ragione delle poche vendite?… proviamo i nomi". Su 64 stampe giapponesi in coda con almeno 10 vendite e meno del 60% riconosciute, la causa più grande è "nessun segno di giapponese" su titoli come `Mewtwo VSTAR SAR[s12a 221/172](High Class Pack "VSTAR Universe")`: il formato dei negozi giapponesi e delle pagine inglesi di SNKRDUNK, che vendono solo carte giapponesi, senza la parola "japanese".
+
+**Regola provata** (`SLABWISE_JA_FORMAT=1`, `_JA_STORE` in `slabwise/sources/auction_titles.py`): per una stampa giapponese vale come segno di giapponese il codice di set giapponese con numero/totale tra quadre (`[s12a 221/172]`, `[SV-P 192]`, `[e1 102/128]`) o la linea di prodotto giapponese tra tonde (`(Expansion Pack "…")`, `(High Class Pack …)`, `(… Promotional cards)`). Tutte le altre condizioni (numero, stampa, esclusioni) restano.
+
+**Già visto prima di registrare (detto apertamente).** Sui 64 in coda le vendite riconosciute passano da 1.280 a 2.639; 40 titoli nuovi presi a caso e guardati a occhio, tutti della carta giusta.
+
+**Criterio (fissato ora).** P1: sulle stampe giapponesi già sul sito, 60 titoli che la regola aggiunge, presi a caso, guardati a occhio: almeno il 95% della carta giusta (stesso Pokémon, numero e stampa). Solo riportati: vendite in più per le giapponesi del sito, e come cambiano le stime alla prima ricostruzione. **Se passa** la regola si accende; **se no** resta spenta e si guarda dove sbaglia.
+
+**Risultato (22 novembre 2026).** Sulle 217.303 vendite tcgcharts delle stampe giapponesi del sito la regola ne aggiunge **48.652** (da 117.607 a 166.259 riconosciute, +41%). P1: dei 60 titoli nuovi presi a caso (seme 7070) 59 sono della carta giusta; il sessantesimo (`Bulbasaur : Old Back [PMCG1-2] … Resale`) è dubbio e lo conto sbagliato: **98,3% ≥ 95%, passa**. La regola si accende (D342). Le stime nuove si riportano alla prima ricostruzione.
