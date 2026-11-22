@@ -11002,5 +11002,245 @@
   165,
   -1,
   "\\bpolychromatic\\W*gathering\\W*origin\\b"
+ ],
+ "ja:shiny-collection-10": [
+  "gardevoir",
+  10,
+  -1,
+  "\\bshiny\\W*collection\\b"
+ ],
+ "ja:promo-card-pack-25th-anniversary-edition-17": [
+  "luxray gl lv\\.x",
+  17,
+  -1,
+  "\\bpromo\\W*pack\\W*25th\\W*anniversary\\W*edition\\b"
+ ],
+ "ja:triplet-beat-98": [
+  "quaquaval ex",
+  98,
+  -1,
+  "\\btriplet\\W*beat\\b"
+ ],
+ "ja:mystery-of-the-fossils-79": [
+  "slowpoke",
+  79,
+  -1,
+  "(?:\\b(?:fossil|mystery\\W*fossils)\\b|化石の秘密)"
+ ],
+ "ja:clay-burst-77": [
+  "tinkatuff",
+  77,
+  -1,
+  "\\bclay\\W*burst\\b"
+ ],
+ "ja:dream-league-65": [
+  "silvally\\-gx",
+  65,
+  -1,
+  "\\bdream\\W*league\\b"
+ ],
+ "ja:crimson-haze-73": [
+  "heliolisk",
+  73,
+  -1,
+  "\\bcrimson\\W*haze\\b"
+ ],
+ "ja:generations-start-decks-38": [
+  "pikachu ex",
+  38,
+  -1,
+  "\\bgenerations\\W*start\\W*decks\\b"
+ ],
+ "ja:space-juggler-69": [
+  "beedrill v",
+  69,
+  -1,
+  "\\bspace\\W*juggler\\b"
+ ],
+ "ja:vmax-climax-75": [
+  "sylveon vmax",
+  75,
+  -1,
+  "\\bvmax\\W*climax\\b"
+ ],
+ "ja:shiny-star-v-21": [
+  "reshiram",
+  21,
+  -1,
+  "\\bshiny\\W*star\\W*v\\b"
+ ],
+ "ja:battle-region-71": [
+  "kleavor",
+  71,
+  -1,
+  "\\bbattle\\W*region\\b"
+ ],
+ "ja:pcg-promos-93": [
+  "aura's lucario",
+  93,
+  -1,
+  "\\bpcg\\W*promos\\b"
+ ],
+ "ja:violet-ex-89": [
+  "bombirdier",
+  89,
+  -1,
+  "\\bviolet\\W*ex\\b"
+ ],
+ "ja:transformation-mask-109": [
+  "timburr",
+  109,
+  -1,
+  "\\bmask\\W*change\\b"
+ ],
+ "ja:stellar-miracle-105": [
+  "turtonator",
+  105,
+  -1,
+  "\\bstellar\\W*miracle\\b"
+ ],
+ "ja:xy-p-269": [
+  "ampharos",
+  269,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:awakening-legends-189": [
+  "jumpluff",
+  189,
+  -1,
+  "(?:\\b(?:neo\\W*revelation|neo\\W*3|awakening\\W*legends)\\b|めざめる伝説)"
+ ],
+ "ja:clay-burst-78": [
+  "nacli",
+  78,
+  -1,
+  "\\bclay\\W*burst\\b"
+ ],
+ "ja:dream-league-50": [
+  "torkoal",
+  50,
+  -1,
+  "\\bdream\\W*league\\b"
+ ],
+ "ja:sm-p-322": [
+  "jirachi",
+  322,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:m-p-132": [
+  "pikachu ex",
+  132,
+  -1,
+  "\\b(?:m|mega(?:\\W*evolution)?)\\W*(?:black\\W*star\\W*)?promo|\\b(?:m|mega(?:\\W*evolution)?)\\W?p\\b"
+ ],
+ "ja:shiny-star-v-221": [
+  "suicune",
+  221,
+  -1,
+  "\\bshiny\\W*star\\W*v\\b"
+ ],
+ "ja:the-best-of-xy-43": [
+  "m mewtwo\\-ex",
+  43,
+  -1,
+  "\\bbest\\W*xy\\b"
+ ],
+ "ja:vending-machine-series-2-red-88": [
+  "grimer",
+  88,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*2\\W*red\\b"
+ ],
+ "ja:strength-expansion-pack-sun-moon-57": [
+  "sylveon\\-gx",
+  57,
+  -1,
+  "\\bstrength\\W*expansion\\W*pack\\W*sun\\W*moon\\b"
+ ],
+ "ja:ultra-sun-73": [
+  "leafeon\\-gx",
+  73,
+  -1,
+  "\\bultra\\W*sun\\b"
+ ],
+ "ja:neo-premium-file-3-243": [
+  "raikou",
+  243,
+  -1,
+  "\\bneo\\W*premium\\W*file\\W*3\\b"
+ ],
+ "ja:shiny-treasure-ex-326": [
+  "alakazam ex",
+  326,
+  -1,
+  "\\bshiny\\W*treasure\\W*ex\\b"
+ ],
+ "ja:golden-sky-silvery-ocean-25": [
+  "vaporeon",
+  25,
+  -1,
+  "(?:\\b(?:golden\\W*sky|golden\\W*sky\\W*silvery\\W*ocean)\\b|金の空、?銀の海)"
+ ],
+ "ja:transformation-mask-105": [
+  "wattrel",
+  105,
+  -1,
+  "\\bmask\\W*change\\b"
+ ],
+ "ja:tag-team-gx-tag-all-stars-55": [
+  "mew",
+  55,
+  -1,
+  "\\btag\\W*team\\W*gx\\W*tag\\W*all\\W*stars\\b"
+ ],
+ "ja:vending-machine-series-1-blue-84": [
+  "doduo",
+  84,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*1\\W*blue\\b"
+ ],
+ "ja:ultradimensional-beasts-15": [
+  "pikachu",
+  15,
+  -1,
+  "\\bultradimensional\\W*beasts\\b"
+ ],
+ "ja:super-electric-breaker-107": [
+  "vivillon",
+  107,
+  -1,
+  "\\bsuper\\W*electric\\W*breaker\\b"
+ ],
+ "ja:vmax-starter-set-blastoise-2": [
+  "blastoise vmax",
+  2,
+  -1,
+  "\\bvmax\\W*starter\\W*set\\W*blastoise\\b"
+ ],
+ "ja:paradise-dragona-75": [
+  "appletun",
+  75,
+  -1,
+  "\\bparadise\\W*dragona\\b"
+ ],
+ "ja:platinum-promos-15": [
+  "lucario",
+  15,
+  -1,
+  "\\bplatinum\\W*promos\\b"
+ ],
+ "ja:s-p-293": [
+  "dragonite vstar",
+  293,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:the-best-of-xy-177": [
+  "zygarde\\-ex",
+  177,
+  -1,
+  "\\bbest\\W*xy\\b"
  ]
 }
