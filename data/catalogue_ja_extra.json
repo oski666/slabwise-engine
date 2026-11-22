@@ -11560,5 +11560,11 @@
   3,
   -1,
   "\\bferaligatr\\W*constructed\\W*starter\\W*deck\\b"
+ ],
+ "ja:the-town-on-no-map-42": [
+  "hypno",
+  42,
+  -1,
+  "\\btown\\W*on\\W*no\\W*map\\b"
  ]
 }

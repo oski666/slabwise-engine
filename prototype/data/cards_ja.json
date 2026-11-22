@@ -37120,5 +37120,22 @@
   "set_en": "Feraligatr Constructed Starter Deck",
   "source": "TCGdex ja",
   "added": "D134"
+ },
+ {
+  "id": "ja:the-town-on-no-map-42",
+  "en": "ecard2-H12",
+  "en_same": true,
+  "en_check": "illustrazione uguale (distanza 43/256, §67 M1, ricerca dalla inglese fra le giapponesi note)",
+  "en_ext": null,
+  "lang": "ja",
+  "n": "Hypno (giapponese)",
+  "no": "42",
+  "set": "The Town on No Map",
+  "tot": null,
+  "r": null,
+  "ill": null,
+  "set_en": "The Town on No Map",
+  "source": "TCGdex ja",
+  "added": "D134"
  }
 ]
