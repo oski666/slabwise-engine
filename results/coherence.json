@@ -1,9 +1,9 @@
 {
  "asof": "2026-11-21",
- "cards": 2863,
+ "cards": 2897,
  "checks": {
   "C7": {
-   "n": 52,
+   "n": 51,
    "examples": [
     [
      "sv08.5-161",
@@ -71,7 +71,7 @@
    "n": 1,
    "examples": [
     [
-     "swsh10tg-TG23"
+     "ja:paradise-dragona-89"
     ]
    ]
   }
