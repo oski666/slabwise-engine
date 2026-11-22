@@ -11242,5 +11242,281 @@
   177,
   -1,
   "\\bbest\\W*xy\\b"
+ ],
+ "ja:mega-dream-ex-241": [
+  "mega scrafty ex",
+  241,
+  -1,
+  "(?:\\b(?:mega\\W*dream|m2a|mega\\W*dream\\W*ex)\\b)"
+ ],
+ "ja:super-electric-breaker-113": [
+  "stunfisk",
+  113,
+  -1,
+  "\\bsuper\\W*electric\\W*breaker\\b"
+ ],
+ "ja:vstar-universe-229": [
+  "hisuian samurott v",
+  229,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:wind-from-the-sea-75": [
+  "scizor",
+  75,
+  -1,
+  "(?:\\b(?:wind\\W*from\\W*the\\W*sea|wind\\W*from\\W*sea)\\b|海からの風)"
+ ],
+ "ja:holon-research-tower-42": [
+  "latios",
+  42,
+  -1,
+  "\\bholon\\W*research\\W*tower\\b"
+ ],
+ "ja:crossing-the-ruins-62": [
+  "poliwrath",
+  62,
+  -1,
+  "(?:\\b(?:neo\\W*discovery|neo\\W*2|crossing\\W*the\\W*ruins|crossing\\W*ruins)\\b|遺跡をこえて)"
+ ],
+ "ja:emerald-break-62": [
+  "m rayquaza\\-ex",
+  62,
+  -1,
+  "\\bemerald\\W*break\\b"
+ ],
+ "ja:vending-machine-series-3-green-55": [
+  "golduck",
+  55,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*3\\W*green\\b"
+ ],
+ "ja:eevee-heroes-82": [
+  "sylveon v",
+  82,
+  -1,
+  "\\beevee\\W*heroes\\b"
+ ],
+ "ja:scarlet-ex-82": [
+  "dondozo",
+  82,
+  -1,
+  "\\bscarlet\\W*ex\\b"
+ ],
+ "ja:dark-rush-42": [
+  "umbreon",
+  42,
+  -1,
+  "\\bdark\\W*rush\\b"
+ ],
+ "ja:remix-bout-69": [
+  "(?:blastoise\\s*(?:&|and)\\s*piplup\\-gx|piplup\\-gx\\s*(?:&|and)\\s*blastoise)",
+  69,
+  -1,
+  "\\bremix\\W*bout\\b"
+ ],
+ "ja:mythical-legendary-dream-shine-collection-29": [
+  "genesect",
+  29,
+  -1,
+  "\\bmythical\\W*legendary\\W*dream\\W*shine\\W*collection\\b"
+ ],
+ "ja:violet-ex-83": [
+  "clauncher",
+  83,
+  -1,
+  "\\bviolet\\W*ex\\b"
+ ],
+ "ja:vstar-universe-193": [
+  "magnezone",
+  193,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:future-flash-89": [
+  "iron valiant ex",
+  89,
+  -1,
+  "\\bfuture\\W*flash\\b"
+ ],
+ "ja:cyber-judge-83": [
+  "drampa",
+  83,
+  -1,
+  "\\bcyber\\W*judge\\b"
+ ],
+ "ja:xy-p-195": [
+  "jolteon\\-ex",
+  195,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:raging-surf-71": [
+  "yveltal",
+  71,
+  -1,
+  "\\braging\\W*surf\\b"
+ ],
+ "ja:dream-league-57": [
+  "gallade",
+  57,
+  -1,
+  "\\bdream\\W*league\\b"
+ ],
+ "ja:vmax-climax-204": [
+  "falinks",
+  204,
+  -1,
+  "\\bvmax\\W*climax\\b"
+ ],
+ "ja:vmax-climax-217": [
+  "blaziken vmax",
+  217,
+  -1,
+  "\\bvmax\\W*climax\\b"
+ ],
+ "ja:tag-bolt-111": [
+  "(?:magikarp\\s*(?:&|and)\\s*wailord\\-gx|wailord\\-gx\\s*(?:&|and)\\s*magikarp)",
+  111,
+  -1,
+  "(?:\\b(?:tag\\W*bolt|sm9\\b|tag\\W*bolt)\\b)"
+ ],
+ "ja:future-flash-74": [
+  "steelix",
+  74,
+  -1,
+  "\\bfuture\\W*flash\\b"
+ ],
+ "ja:xy-p-282": [
+  "trade please!",
+  282,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:heat-wave-arena-64": [
+  "yanma",
+  64,
+  -1,
+  "\\bhot\\W*air\\W*arena\\b"
+ ],
+ "ja:pokemon-tcg-classic-charizard-9": [
+  "raichu",
+  9,
+  -1,
+  "\\btcg\\W*classic\\W*charizard\\b"
+ ],
+ "ja:ruler-of-the-black-flame-112": [
+  "bellibolt",
+  112,
+  -1,
+  "\\bruler\\W*black\\W*flame\\b"
+ ],
+ "ja:vending-machine-series-3-green-75": [
+  "graveler",
+  75,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*3\\W*green\\b"
+ ],
+ "ja:battle-region-70": [
+  "wyrdeer",
+  70,
+  -1,
+  "\\bbattle\\W*region\\b"
+ ],
+ "ja:cyber-judge-75": [
+  "litten",
+  75,
+  -1,
+  "\\bcyber\\W*judge\\b"
+ ],
+ "ja:xy-p-225": [
+  "ho\\-oh break",
+  225,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:the-best-of-xy-29": [
+  "pikachu",
+  29,
+  -1,
+  "\\bbest\\W*xy\\b"
+ ],
+ "ja:pokemon-card-151-190": [
+  "alakazam ex",
+  190,
+  -1,
+  "\\bpok\\W*mon\\W*151\\b"
+ ],
+ "ja:start-deck-100-battle-collection-743": [
+  "erika's tangela",
+  743,
+  -1,
+  "\\bstart\\W*deck\\W*100\\W*battle\\W*collection\\b"
+ ],
+ "ja:start-deck-100-battle-collection-762": [
+  "mega emboar ex",
+  762,
+  -1,
+  "\\bstart\\W*deck\\W*100\\W*battle\\W*collection\\b"
+ ],
+ "ja:miracle-twin-107": [
+  "(?:slowpoke\\s*(?:&|and)\\s*psyduck\\-gx|psyduck\\-gx\\s*(?:&|and)\\s*slowpoke)",
+  107,
+  -1,
+  "\\bmiracle\\W*twin\\b"
+ ],
+ "ja:stevens-beldum-metagross-ex-starter-set-ex-19": [
+  "steven's beldum",
+  19,
+  -1,
+  "\\bsteven\\W*s\\W*beldum\\W*metagross\\W*ex\\W*starter\\W*set\\W*ex\\b"
+ ],
+ "ja:eevee-heroes-74": [
+  "vaporeon v",
+  74,
+  -1,
+  "\\beevee\\W*heroes\\b"
+ ],
+ "ja:dragon-selection-9": [
+  "latias",
+  9,
+  -1,
+  "\\bdragon\\W*selection\\b"
+ ],
+ "ja:vmax-climax-202": [
+  "rockruff",
+  202,
+  -1,
+  "\\bvmax\\W*climax\\b"
+ ],
+ "ja:vmax-climax-196": [
+  "gardevoir",
+  196,
+  -1,
+  "\\bvmax\\W*climax\\b"
+ ],
+ "ja:transformation-mask-129": [
+  "kieran",
+  129,
+  -1,
+  "\\bmask\\W*change\\b"
+ ],
+ "ja:triplet-beat-89": [
+  "dedenne ex",
+  89,
+  -1,
+  "\\btriplet\\W*beat\\b"
+ ],
+ "ja:neo-premium-file-3-244": [
+  "entei",
+  244,
+  -1,
+  "\\bneo\\W*premium\\W*file\\W*3\\b"
+ ],
+ "ja:mythical-legendary-dream-shine-collection-1": [
+  "celebi",
+  1,
+  -1,
+  "\\bmythical\\W*legendary\\W*dream\\W*shine\\W*collection\\b"
  ]
 }
