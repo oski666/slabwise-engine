@@ -11518,5 +11518,47 @@
   1,
   -1,
   "\\bmythical\\W*legendary\\W*dream\\W*shine\\W*collection\\b"
+ ],
+ "ja:garchomp-vs-charizard-sp-deck-kit-charizard-2": [
+  "charizard g lv\\.x",
+  2,
+  -1,
+  "\\bgarchomp\\W*vs\\W*charizard\\W*sp\\W*deck\\W*kit\\W*charizard\\b"
+ ],
+ "ja:bw-p-159": [
+  "zekrom\\-ex",
+  159,
+  -1,
+  "\\b(?:bw|black\\W*(?:&|and)?\\W*white)\\W*(?:black\\W*star\\W*)?promo|\\b(?:bw|black\\W*(?:&|and)?\\W*white)\\W?p\\b"
+ ],
+ "ja:play-promos-10": [
+  "articuno ex",
+  10,
+  -1,
+  "\\bplay\\W*promos\\b"
+ ],
+ "ja:play-promos-11": [
+  "zapdos ex",
+  11,
+  -1,
+  "\\bplay\\W*promos\\b"
+ ],
+ "ja:play-promos-9": [
+  "moltres ex",
+  9,
+  -1,
+  "\\bplay\\W*promos\\b"
+ ],
+ "ja:melee-pokemon-scramble-1": [
+  "venusaur",
+  1,
+  -1,
+  "\\bmelee\\W*scramble\\b"
+ ],
+ "ja:feraligatr-constructed-starter-deck-3": [
+  "feraligatr ex",
+  3,
+  -1,
+  "\\bferaligatr\\W*constructed\\W*starter\\W*deck\\b"
  ]
 }
