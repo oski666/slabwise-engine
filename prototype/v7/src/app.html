@@ -54,6 +54,7 @@ __SLABBY_SVG__
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <footer><div class="wrap"><span data-i="foot_build"></span><span id="foot"></span><a href="#privacy" style="color:inherit" data-i="privacy_link"></a> · <a href="#termini" style="color:inherit" data-i="terms_link"></a> · <a href="#contatti" style="color:inherit" data-i="contact_link"></a></div></footer>
 
+__GSAP__
 <script>
 const D = __DATA__;
 const $ = s => document.querySelector(s);
@@ -582,14 +583,40 @@ function chinaSection7() {
 function viewMarket() {
   return comicHero() + tickers() + erasSection() + starSection() + meterSection() + collectionSection() + japanSection7() + chinaSection7();   // D185: the week is in the studio; D194: the Slab-Meter before the catalogue
 }
-function tiles(list) {
-  const key = {cap: c => capOf(c), mcap: c => capPSA(c), ch30: c => gradeOf(c, S.g).ch30 ?? -Infinity, sales: c => gradeOf(c, S.g).sales90, sure: c => -halfw(gradeOf(c, S.g))}[S.sort] || (c => capOf(c));
-  return [...(list || D.cards)].sort((a, b) => noOwn(gradeOf(a, S.g)) - noOwn(gradeOf(b, S.g)) || key(b) - key(a)).map((c, i) => { const g = gradeOf(c, S.g), hid = noOwn(g); return `<a class="ct8 rv" href="#c-${c.id}" style="--cat:var(--cat-${catOf(c)});--i:${i % 4}">
-    <div class="ct-art">${c.thumb || c.img ? `<img src="${c.img || c.thumb}" alt="">` : `<span class="noimg">${tx("foto in arrivo", "photo coming soon")}</span>`}${hid ? "" : `<span class="ct-rank">${i + 1}</span>`}<span class="ct-grade">PSA ${S.g}</span>${g.tier ? `<span class="ct-tier ${TIER_CLS[tierK(g)]}" title="${esc(tierName(g))}"></span>` : ""}</div>
+/* 23 Nov 2026: the market page drew all ~3,000 tiles at once (82,000 elements, 3,100 images): every animation and
+   every scroll stuttered. A grid now draws the first TILE_PAGE cards and adds the next ones when you get near its end. */
+const TILE_PAGE = 48, TILE_MORE = new Map();
+let tileSeq = 0;
+function tileHTML(c, i) { const g = gradeOf(c, S.g), hid = noOwn(g); return `<a class="ct8 rv" href="#c-${c.id}" data-flip-id="${esc(c.id)}" style="--cat:var(--cat-${catOf(c)});--i:${i % 4}">
+    <div class="ct-art">${c.thumb || c.img ? `<img src="${c.img || c.thumb}" alt="" loading="lazy" decoding="async">` : `<span class="noimg">${tx("foto in arrivo", "photo coming soon")}</span>`}${hid ? "" : `<span class="ct-rank">${i + 1}</span>`}<span class="ct-grade">PSA ${S.g}</span>${g.tier ? `<span class="ct-tier ${TIER_CLS[tierK(g)]}" title="${esc(tierName(g))}"></span>` : ""}</div>
     <div class="ct-body"><h3>${esc(c.name)}</h3>${jaCap(c)}<span class="meta"><span>${esc(c.set)}</span> · #${esc(c.no)}</span>
       ${hid ? `<div class="ct-price"><b class="num">—</b></div><span class="note">${g.last && !g.off ? tx(`Poche vendite per un prezzo. Ultima vendita: ${usd(g.last[1])}, ${monthF(g.last[0])}`, `Too few sales for a price. Last sale: ${usd(g.last[1])}, ${monthF(g.last[0])}`) : noEst(S.g, g)}</span>` : `<div class="ct-price"><b class="num">${usd(g.value)}</b><span class="${g.ch30 >= 0 ? "up" : "down"}">${pct(g.ch30)}</span></div>
-      ${fork(g, true)}<span class="note">±${nf1.format(halfw(g) * 100)}% SlabRange</span>`}${capRow(c)}</div></a>`; }).join("") || `<div class="tile empty">${tx("Nessuna carta.", "No cards.")}</div>`;
+      ${fork(g, true)}<span class="note">±${nf1.format(halfw(g) * 100)}% SlabRange</span>`}${capRow(c)}</div></a>`; }
+function tiles(list) {
+  const key = {cap: c => capOf(c), mcap: c => capPSA(c), ch30: c => gradeOf(c, S.g).ch30 ?? -Infinity, sales: c => gradeOf(c, S.g).sales90, sure: c => -halfw(gradeOf(c, S.g))}[S.sort] || (c => capOf(c));
+  const all = [...(list || D.cards)].sort((a, b) => noOwn(gradeOf(a, S.g)) - noOwn(gradeOf(b, S.g)) || key(b) - key(a));
+  if (!all.length) return `<div class="tile empty">${tx("Nessuna carta.", "No cards.")}</div>`;
+  let more = "";
+  if (all.length > TILE_PAGE) { const t = "m" + (++tileSeq); TILE_MORE.set(t, {all, at: TILE_PAGE}); more = `<div class="tile-more" data-more="${t}"><button class="chip" type="button">${tx(`Mostra altre carte (${all.length - TILE_PAGE})`, `Show more cards (${all.length - TILE_PAGE})`)}</button></div>`; }
+  return all.slice(0, TILE_PAGE).map(tileHTML).join("") + more;
 }
+function moreTiles(el) {
+  const m = TILE_MORE.get(el.dataset.more);
+  if (!m) return;
+  const next = m.all.slice(m.at, m.at + 2 * TILE_PAGE);
+  el.insertAdjacentHTML("beforebegin", next.map((c, j) => tileHTML(c, m.at + j)).join(""));
+  m.at += next.length;
+  const left = m.all.length - m.at;
+  if (left <= 0) { el.remove(); TILE_MORE.delete(el.dataset.more); } else el.querySelector("button").textContent = tx(`Mostra altre carte (${left})`, `Show more cards (${left})`);
+  el.parentElement && el.parentElement.querySelectorAll(".ct8.rv:not(.in)").forEach(t => t.classList.add("in"));
+}
+let moreIO = null;
+function bindMore() {
+  if (moreIO) moreIO.disconnect();
+  moreIO = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(e => e.isIntersecting && moreTiles(e.target)), {rootMargin: "900px 0px"}) : null;
+  document.querySelectorAll(".tile-more").forEach(el => { moreIO && moreIO.observe(el); el.querySelector("button").onclick = () => moreTiles(el); });
+}
+
 /* D186: the market cap on every tile, always in the same place */
 function capRow(c) {
   const v = capPSA(c);
@@ -1810,8 +1837,8 @@ document.addEventListener("click", e => {
   if (ir) { S.ixr = ir.dataset.ixr; const y = scrollY; route(); scrollTo({top: y}); return; }
   const el = e.target.closest("[data-g],[data-sort],[data-cg],[data-min],[data-or],[data-copy],[data-copytext],#copyAll");
   if (!el) return;
-  if (el.dataset.g) { S.g = +el.dataset.g; route(); }
-  else if (el.dataset.sort) { S.sort = el.dataset.sort; route(); }
+  if (el.dataset.g) { S.g = +el.dataset.g; flipRoute(); }
+  else if (el.dataset.sort) { S.sort = el.dataset.sort; flipRoute(); }
   else if (el.dataset.cg) { S.cg = +el.dataset.cg; const y = scrollY; route(); scrollTo({top: y}); }
   else if (el.dataset.min !== undefined) { S.dealMin = +el.dataset.min; route(); }
   else if (el.dataset.or) { S.dealOrigin = el.dataset.or; route(); }
@@ -1895,7 +1922,42 @@ document.addEventListener("animationiteration", e => {
     [imgs[j], imgs[j + half]].forEach(im => { im.classList.add("swap"); setTimeout(() => { im.src = blobOf(c.img || c.thumb); im.parentNode.href = "#c-" + c.id; im.onload = () => im.classList.remove("swap"); }, 1200); });
   }
 });
+/* ---- D344: GSAP motion. Off with "reduce motion" or if GSAP did not load. It only moves values into place:
+   every number on the page is the exact value from the first frame to the last. ---- */
+const GS = !reduce && window.gsap ? window.gsap : null;
+if (GS) gsap.registerPlugin(...[window.Flip, window.ScrollTrigger].filter(Boolean));
+const onScreen = (e, pad = 300) => { const r = e.getBoundingClientRect(); return r.bottom > -pad && r.top < innerHeight + pad; };
+/* catalogue: changing order or grade makes the cards slide to their new place instead of jumping (only the cards on
+   screen, so 3,000 tiles cost nothing) */
+function flipRoute() {
+  if (!GS || !window.Flip) { route(); return; }
+  const before = [...document.querySelectorAll(".cgrid .ct8[data-flip-id]")].filter(e => onScreen(e));
+  const state = Flip.getState(before, {props: "opacity"}), ids = new Set(before.map(e => e.dataset.flipId)), y = scrollY;
+  route(); scrollTo({top: y});
+  const after = [...document.querySelectorAll(".cgrid .ct8[data-flip-id]")].filter(e => ids.has(e.dataset.flipId) || onScreen(e, 0));
+  after.forEach(e => e.classList.add("in"));
+  Flip.from(state, {targets: after, duration: .55, ease: "power3.inOut", stagger: {amount: .18}, absolute: false, prune: true,
+    onEnter: els => gsap.fromTo(els, {opacity: 0, scale: .9, y: 18}, {opacity: 1, scale: 1, y: 0, duration: .4, ease: "back.out(1.6)", stagger: .02})});
+}
+/* card page: the SlabRange opens from the Slabprice outwards and the pin lands on it */
+function motionForks() {
+  if (!GS) return;
+  if (window.ScrollTrigger) ScrollTrigger.getAll().forEach(t => { if (t.trigger && !document.body.contains(t.trigger)) t.kill(); });
+  document.querySelectorAll(".fork:not(.mini)").forEach(f => {
+    if (f.dataset.moved) return; f.dataset.moved = "1";
+    const band = f.querySelector(".band"), pin = f.querySelector(".pin");
+    if (!band || !pin) return;
+    const a = parseFloat(band.style.left) || 0, w = parseFloat(band.style.width) || 1;
+    const origin = Math.max(0, Math.min(100, (50 - a) / w * 100));
+    const tl = gsap.timeline({paused: true});
+    tl.from(band, {scaleX: 0, transformOrigin: `${origin}% 50%`, duration: .9, ease: "expo.out"})
+      .from(pin, {scale: 0, opacity: 0, duration: .6, ease: "back.out(2.2)", clearProps: "transform,opacity,transition", onStart: () => { pin.style.transition = "none"; }}, .2);   // 23 Nov: no vertical drop, it could stay up in the text
+    if (window.ScrollTrigger) ScrollTrigger.create({trigger: f, start: "top 92%", once: true, onEnter: () => tl.play()});
+    else tl.play();
+  });
+}
 function bindMotion() {
+  motionForks(); bindMore();
   const all = document.querySelectorAll(".rv, .cs");
   if (revObs) revObs.disconnect();
   if (reduce || !("IntersectionObserver" in window)) all.forEach(x => x.classList.add("in"));
