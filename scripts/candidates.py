@@ -240,7 +240,7 @@ def main():
     q_p = os.path.join(DATA, "candidates_queue.json")             # D122: one queue, kept between runs
     queue = cr_load(q_p, {})
     era_map = cr_load(os.path.join(ROOT, "data", "raw", "era_map.json"), {})
-    have_ja = {c["id"] for c in cr_load(os.path.join(DATA, "cards_ja.json"), [])}
+    have_ja = {c["id"] for c in cr_load(os.path.join(DATA, "cards_ja.json"), []) if not c.get("pending")}   # 23 Nov: a pending page (D158) has no price yet: not "aggiunta"
     for cid, r in queue.items():                                  # what happened since the last run
         st = status.get(cid if cid.startswith("ja:") else f"en:{cid}", {})    # 16 Nov: Japanese ids were looked up as en:ja:...
         if cid in have or cid in have_ja:
