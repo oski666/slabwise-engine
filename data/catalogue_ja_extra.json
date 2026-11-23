@@ -11566,5 +11566,89 @@
   42,
   -1,
   "\\btown\\W*on\\W*no\\W*map\\b"
+ ],
+ "ja:holon-research-tower-41": [
+  "latias",
+  41,
+  -1,
+  "\\bholon\\W*research\\W*tower\\b"
+ ],
+ "ja:rising-fist-100": [
+  "dragonite ex",
+  100,
+  -1,
+  "\\brising\\W*fist\\b"
+ ],
+ "ja:mysterious-mountains-10": [
+  "nidoqueen",
+  10,
+  -1,
+  "\\bmysterious\\W*mountains\\b"
+ ],
+ "ja:mysterious-mountains-74": [
+  "steelix",
+  74,
+  -1,
+  "\\bmysterious\\W*mountains\\b"
+ ],
+ "ja:mysterious-mountains-5": [
+  "beedrill",
+  5,
+  -1,
+  "\\bmysterious\\W*mountains\\b"
+ ],
+ "ja:the-town-on-no-map-66": [
+  "blissey",
+  66,
+  -1,
+  "\\btown\\W*on\\W*no\\W*map\\b"
+ ],
+ "ja:split-earth-7": [
+  "ledian",
+  7,
+  -1,
+  "\\bsplit\\W*earth\\b"
+ ],
+ "ja:the-town-on-no-map-26": [
+  "azumarill",
+  26,
+  -1,
+  "\\btown\\W*on\\W*no\\W*map\\b"
+ ],
+ "ja:the-town-on-no-map-5": [
+  "muk",
+  5,
+  -1,
+  "\\btown\\W*on\\W*no\\W*map\\b"
+ ],
+ "ja:sm5m-030": [
+  "giratina ◇|ギラティナ",
+  30,
+  66,
+  "\\bultra\\W*moon\\b"
+ ],
+ "ja:s12a-218": [
+  "raikou v|ライコウ\\s?v",
+  218,
+  172,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:s12a-222": [
+  "deoxys vmax|デオキシス\\s?vmax",
+  222,
+  172,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:sv7-130": [
+  "terapagos ex|テラパゴス\\s?ex",
+  130,
+  102,
+  "\\bstellar\\W*miracle\\b"
+ ],
+ "ja:sm10a-060": [
+  "(?:garchomp\\s*(?:&|and)\\s*giratina|giratina\\s*(?:&|and)\\s*garchomp) gx|ガブリアス\\&ギラティナ\\s?gx",
+  60,
+  54,
+  "\\bgg\\W*end\\b"
  ]
 }
