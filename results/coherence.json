@@ -3,12 +3,12 @@
  "cards": 2978,
  "checks": {
   "C7": {
-   "n": 52,
+   "n": 54,
    "examples": [
     [
      "sv08.5-161",
      "Umbreon ex",
-     "PSA 8 877 < PSA 7 877"
+     "PSA 8 876 < PSA 7 877"
     ],
     [
      "swsh7-192",
@@ -63,15 +63,7 @@
     [
      "me02-130",
      "Mega Charizard X ex",
-     "PSA 8 182 < PSA 7 190"
-    ]
-   ]
-  },
-  "C9": {
-   "n": 1,
-   "examples": [
-    [
-     "ja:triplet-beat-78"
+     "PSA 8 182 < PSA 7 189"
     ]
    ]
   }
