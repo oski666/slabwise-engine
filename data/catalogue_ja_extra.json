@@ -11836,5 +11836,101 @@
   117,
   -1,
   "\\bshiny\\W*star\\W*v\\b"
+ ],
+ "ja:neo-premium-file-1-155": [
+  "cyndaquil",
+  155,
+  -1,
+  "\\bneo\\W*premium\\W*file\\W*1\\b"
+ ],
+ "ja:double-blaze-106": [
+  "welder",
+  106,
+  -1,
+  "\\bdouble\\W*blaze\\b"
+ ],
+ "ja:golden-sky-silvery-ocean-34": [
+  "jolteon",
+  34,
+  -1,
+  "(?:\\b(?:golden\\W*sky|golden\\W*sky\\W*silvery\\W*ocean)\\b|金の空、?銀の海)"
+ ],
+ "ja:dawn-dash-161": [
+  "glaceon",
+  161,
+  -1,
+  "\\bdawn\\W*dash\\b"
+ ],
+ "ja:shiny-treasure-ex-352": [
+  "clive",
+  352,
+  -1,
+  "\\bshiny\\W*treasure\\W*ex\\b"
+ ],
+ "ja:violet-ex-88": [
+  "mabosstiff",
+  88,
+  -1,
+  "\\bviolet\\W*ex\\b"
+ ],
+ "ja:eevee-heroes-26": [
+  "pikachu",
+  26,
+  -1,
+  "\\beevee\\W*heroes\\b"
+ ],
+ "ja:xy-p-138": [
+  "m blaziken\\-ex",
+  138,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:jungle-104": [
+  "cubone",
+  104,
+  -1,
+  "(?:\\b(?:jungle|jungle)\\b|ジャングル)"
+ ],
+ "ja:the-town-on-no-map-67": [
+  "umbreon",
+  67,
+  -1,
+  "\\btown\\W*on\\W*no\\W*map\\b"
+ ],
+ "ja:intense-fight-in-the-destroyed-sky-32": [
+  "gengar",
+  32,
+  -1,
+  "\\bintense\\W*fight\\W*in\\W*destroyed\\W*sky\\b"
+ ],
+ "ja:miracle-twin-112": [
+  "dragonite\\-gx",
+  112,
+  -1,
+  "\\bmiracle\\W*twin\\b"
+ ],
+ "ja:vending-machine-series-1-blue-41": [
+  "zubat",
+  41,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*1\\W*blue\\b"
+ ],
+ "ja:violet-ex-79": [
+  "tarountula",
+  79,
+  -1,
+  "\\bviolet\\W*ex\\b"
+ ],
+ "ja:vmax-climax-208": [
+  "bronzong",
+  208,
+  -1,
+  "\\bvmax\\W*climax\\b"
+ ],
+ "ja:shining-darkness-300": [
+  "ho\\-oh",
+  300,
+  -1,
+  "\\bshining\\W*darkness\\b"
  ]
 }
