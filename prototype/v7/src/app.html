@@ -611,9 +611,11 @@ function moreTiles(el) {
   el.parentElement && el.parentElement.querySelectorAll(".ct8.rv:not(.in)").forEach(t => t.classList.add("in"));
 }
 let moreIO = null;
+let secJump = 0;
 function bindMore() {
   if (moreIO) moreIO.disconnect();
-  moreIO = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(e => e.isIntersecting && moreTiles(e.target)), {rootMargin: "900px 0px"}) : null;
+  // 23 Nov: not while the menu is gliding to a section: growing the grid on the way pushed Japan down and the jump stopped inside the catalogue
+  moreIO = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(e => e.isIntersecting && Date.now() > secJump && moreTiles(e.target)), {rootMargin: "900px 0px"}) : null;
   document.querySelectorAll(".tile-more").forEach(el => { moreIO && moreIO.observe(el); el.querySelector("button").onclick = () => moreTiles(el); });
 }
 
@@ -1860,7 +1862,10 @@ function fallback(text, msg) {
 function goSection(id) {
   if (!location.hash.startsWith("#mercato") && location.hash !== "" ) { pendingSec = id; location.hash = "#mercato"; return; }
   const el = document.getElementById("sec-" + id);
-  if (el) el.scrollIntoView({behavior: reduce ? "auto" : "smooth", block: "start"});
+  if (!el) return;
+  secJump = Date.now() + 1800;
+  el.scrollIntoView({behavior: reduce ? "auto" : "smooth", block: "start"});
+  setTimeout(() => { if (Math.abs(el.getBoundingClientRect().top) > 4) el.scrollIntoView({block: "start"}); }, 1300);   // lands exactly even if something above changed height
 }
 let pendingSec = null, secObs = null;
 function bindSections() {
