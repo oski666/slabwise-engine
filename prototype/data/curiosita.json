@@ -87,5 +87,27 @@
    "Vaporeon made its TCG debut right here in Jungle, back in 1999. And its Water Gun hits harder with every extra Water Energy!"
   ],
   "checked": "2026-11-16"
+ },
+ "col1-SL2": {
+  "it": [
+   "Il suo attacco Time Rewind fa 70 danni, ma poi rimescoli tutta la mano nel mazzo. Il tempo torna indietro anche per te!",
+   "Secondo la sua descrizione, Dialga comanda lo scorrere del tempo e salta a piacere tra passato e futuro. Altro che macchina del tempo!"
+  ],
+  "en": [
+   "Its Time Rewind attack hits for 70, then you shuffle your whole hand back into your deck. Time rewinds for you too!",
+   "According to its description, Dialga rules the flow of time and hops between past and future at will. Who needs a time machine?"
+  ],
+  "checked": "2026-11-23"
+ },
+ "basep-9": {
+  "it": [
+   "Questo Mew olografico #9 arrivava ai giocatori della Pokémon League dall'aprile 2000. A gennaio era uscito senza olografia, con il numero 8!",
+   "Il suo Devolution Beam rimanda in mano l'ultima evoluzione di un Pokémon avversario. Mew, piccolo maestro dei passi indietro!"
+  ],
+  "en": [
+   "This holo Mew #9 reached Pokémon League players starting April 2000. Back in January it had come out non-holo, as number 8!",
+   "Its Devolution Beam sends an evolved Pokémon's latest stage back to the hand. Mew: tiny master of the step back!"
+  ],
+  "checked": "2026-11-23"
  }
 }
