@@ -215,32 +215,46 @@
     let thrown = false, trail = [], flying = null;
     charBtn.style.transition = "none";            // the CSS transition on transform would drag behind the pointer
     charBtn.style.touchAction = "none";
-    const home = () => G.to(charBtn, {x: 0, y: 0, rotation: 0, duration: .8, ease: "power2.inOut", onComplete: () => {
-      const sq = charBtn.querySelector(".sb-sq");
-      sq && G.fromTo(sq, {scaleX: 1.2, scaleY: .78, transformOrigin: "50% 100%"}, {scaleX: 1, scaleY: 1, duration: .7, ease: "elastic.out(1, .35)"});
-      setPose("laugh", 2200);
-      say(pick(LINES.thrown), {ms: 3200, force: false});
-    }});
+    // 23 Nov: in flight Slabby curls into a ball and rolls (a light vector drawing, nothing to decode mid-throw);
+    // on landing he stops rolling, uncurls with a squash and walks home
+    const BALL = '<span class="sb-sq sb-ball"><svg viewBox="0 0 208 208"><g fill="#111014" stroke="#111014" stroke-linejoin="round" stroke-linecap="round" stroke-width="5"><path d="M54.3 137.6 Q36.7 132.4 20.2 123.5 L44.3 110.3Z"/><path d="M44.0 105.0 Q28.0 91.8 15.1 73.6 L49.6 78.6Z"/><path d="M51.0 75.8 Q41.9 53.5 38.2 28.7 L70.4 54.3Z"/><path d="M73.1 52.6 Q76.2 31.1 85.5 9.8 L98.8 44.2Z"/><path d="M101.9 44.0 Q116.9 24.0 137.0 7.5 L130.3 50.1Z"/><path d="M133.1 51.5 Q152.6 44.3 174.8 42.2 L153.1 69.6Z"/><path d="M156.0 74.0 Q173.1 77.6 190.3 87.0 L163.7 97.7Z"/><path d="M164.0 103.0 Q174.5 112.8 182.5 127.8 L160.0 125.5Z"/><circle cx="104" cy="104" r="60"/></g><path d="M56 120 Q104 172 156 116 Q156 150 120 162 Q78 168 56 120Z" fill="#D9D2E9"/><path d="M60 94 Q80 58 106 88 Q84 76 64 100Z" fill="#FF6A2B" stroke="#111014" stroke-width="3" stroke-linejoin="round"/><path d="M154 92 Q134 56 110 86 Q132 74 150 98Z" fill="#FF6A2B" stroke="#111014" stroke-width="3" stroke-linejoin="round"/><path d="M78 108 Q108 138 140 106 Q110 120 78 108Z" fill="#FFFFFF" stroke="#111014" stroke-width="3" stroke-linejoin="round"/></svg></span>';
+    const setX = G.quickSetter(charBtn, "x", "px"), setY = G.quickSetter(charBtn, "y", "px"), setR = G.quickSetter(charBtn, "rotation", "deg");
+    const home = () => {
+      const r = G.getProperty(charBtn, "rotation"), up = Math.round(r / 360) * 360;
+      G.timeline()
+        .to(charBtn, {rotation: up, duration: .25, ease: "power2.out"})
+        .add(() => { G.set(charBtn, {rotation: 0}); charBtn.classList.remove("fly"); root.style.zIndex = ""; setPose("laugh", 2200);
+          const sq = charBtn.querySelector(".sb-sq");
+          sq && G.fromTo(sq, {scaleX: 1.25, scaleY: .72, transformOrigin: "50% 100%"}, {scaleX: 1, scaleY: 1, duration: .7, ease: "elastic.out(1, .35)"}); })
+        .to(charBtn, {x: 0, y: 0, duration: .8, ease: "power2.inOut", onComplete: () => say(pick(LINES.thrown), {ms: 3200, force: false})}, "+=.35");
+    };
     const fly = (vx, vy) => {
+      charBtn.classList.add("fly"); root.style.zIndex = 90; charBtn.innerHTML = BALL; charBtn.dataset.pose = "ball";
       const r0 = charBtn.getBoundingClientRect(), ox = r0.left - G.getProperty(charBtn, "x"), oy = r0.top - G.getProperty(charBtn, "y");
       const minX = -ox, maxX = innerWidth - r0.width - ox, minY = -oy, maxY = innerHeight - r0.height - oy;
-      let x = G.getProperty(charBtn, "x"), y = G.getProperty(charBtn, "y"), t = 0, rot = G.getProperty(charBtn, "rotation");
-      const GRAV = 2600, BOUNCE = .55, AIR = .995;
+      const rad = Math.max(20, r0.width * .42);
+      let x = G.getProperty(charBtn, "x"), y = G.getProperty(charBtn, "y"), t = 0, rot = 0;
+      const GRAV = 2600, BOUNCE = .6, AIR = .996;
       flying = (time, dt) => {
         dt = Math.min(dt, 34) / 1000; t += dt;
-        vy += GRAV * dt; vx *= AIR; x += vx * dt; y += vy * dt; rot += vx * dt * .35;
+        vy += GRAV * dt; vx *= AIR; x += vx * dt; y += vy * dt;
         if (x < minX) { x = minX; vx = -vx * BOUNCE; } if (x > maxX) { x = maxX; vx = -vx * BOUNCE; }
         if (y < minY) { y = minY; vy = -vy * BOUNCE; }
-        if (y > maxY) { y = maxY; vy = -vy * BOUNCE; vx *= .8; if (Math.abs(vy) < 160) vy = 0; }
-        G.set(charBtn, {x, y, rotation: rot});
-        if (t > 2.4 || (y >= maxY && !vy && Math.abs(vx) < 40)) { G.ticker.remove(flying); flying = null; home(); }
+        if (y > maxY) { y = maxY; vy = -vy * BOUNCE; vx *= .85; if (Math.abs(vy) < 160) vy = 0; }
+        rot += vx * dt / rad * 57.3;                       // rolls like a ball: the turn follows the distance travelled
+        setX(x); setY(y); setR(rot);
+        if (t > 2.6 || (y >= maxY && !vy && Math.abs(vx) < 40)) { G.ticker.remove(flying); flying = null; home(); }
       };
       G.ticker.add(flying);
     };
+    // decode the poses used by the throw once, while idle, so grabbing him does not stall on a big image
+    const warm = () => { const w = document.createElement("div"); w.style.cssText = "position:fixed;left:-300px;top:0;width:84px;height:78px;opacity:.01;pointer-events:none";
+      w.innerHTML = POSE.shock + POSE.laugh; document.body.appendChild(w); setTimeout(() => w.remove(), 4000); };
+    setTimeout(() => (window.requestIdleCallback || (f => f()))(warm), 2500);
     window.Draggable.create(charBtn, {type: "x,y", dragClickables: true, minimumMovement: 6, allowContextMenu: true,
-      onPress() { if (flying) { G.ticker.remove(flying); flying = null; } G.killTweensOf(charBtn); trail = []; },
+      onPress() { if (flying) { G.ticker.remove(flying); flying = null; } G.killTweensOf(charBtn); trail = []; charBtn.style.willChange = "transform"; },
       onDragStart() { thrown = true; hush(); setPose("shock"); },
-      onDrag() { const n = performance.now(); trail.push([n, this.x, this.y]); trail = trail.filter(p => n - p[0] < 90); G.set(charBtn, {rotation: (this.deltaX || 0) * 1.5}); },
+      onDrag() { const n = performance.now(); trail.push([n, this.x, this.y]); trail = trail.filter(p => n - p[0] < 90); setR(Math.max(-25, Math.min(25, (this.deltaX || 0) * 1.5))); },
       onDragEnd() {
         const a = trail[0], b = trail[trail.length - 1], dt = a && b && b[0] > a[0] ? (b[0] - a[0]) / 1000 : 0;
         const vx = dt ? (b[1] - a[1]) / dt : 0, vy = dt ? (b[2] - a[2]) / dt : 0, cap = v => Math.max(-3200, Math.min(3200, v));

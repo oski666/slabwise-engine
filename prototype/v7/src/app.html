@@ -1951,7 +1951,7 @@ function motionForks() {
     const origin = Math.max(0, Math.min(100, (50 - a) / w * 100));
     const tl = gsap.timeline({paused: true});
     tl.from(band, {scaleX: 0, transformOrigin: `${origin}% 50%`, duration: .9, ease: "expo.out"})
-      .from(pin, {y: -26, opacity: 0, duration: .7, ease: "bounce.out"}, .15);
+      .from(pin, {scale: 0, opacity: 0, duration: .6, ease: "back.out(2.2)", clearProps: "transform,opacity,transition", onStart: () => { pin.style.transition = "none"; }}, .2);   // 23 Nov: no vertical drop, it could stay up in the text
     if (window.ScrollTrigger) ScrollTrigger.create({trigger: f, start: "top 92%", once: true, onEnter: () => tl.play()});
     else tl.play();
   });
