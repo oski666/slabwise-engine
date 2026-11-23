@@ -218,6 +218,17 @@ WINDOW_DAYS, TOLERANCE, MAX_PAGES = 365, 1.0, 6   # D232: a year of sales on eve
 
 
 _CARDOVA = None
+_HIST = None
+
+
+def _hist():
+    """D345: sales downloaded from the owner's logged-in tcgcharts tab ({card: [sale]}, env SLABWISE_TC_HIST). An anonymous
+    request sees only the last 90 days, while the admission rules (D97) count a year."""
+    global _HIST
+    if _HIST is None:
+        p = os.environ.get("SLABWISE_TC_HIST")
+        _HIST = json.load(open(p)) if p and os.path.exists(p) else {}
+    return _HIST
 
 
 def _cardova():
@@ -247,10 +258,14 @@ def measure(it, key, min_sales=None):
     need = math.ceil(min_sales * TOLERANCE)
     since = (date.today() - timedelta(days=WINDOW_DAYS)).isoformat()
     n, rec, contra, by_grade = 0, 0, 0, {}
+    local = _hist().get(key)                             # D345: the year as the owner's logged-in tab sees it, when downloaded
     for g in (10, 9, 8, 7):
         for page in range(1, MAX_PAGES + 1):
-            d = get(f"{TCG}/api/card-sales?" + urllib.parse.urlencode({"cardId": it["id"], "cardType": it["cardType"], "sort": "sold_date",
-                                                                       "order": "DESC", "page": page, "limit": 100, "company": "PSA", "grade": g}))["data"]
+            if local is not None:
+                d = {"sales": [s for s in local if s.get("tc_grade") == g], "pagination": {}}
+            else:
+                d = get(f"{TCG}/api/card-sales?" + urllib.parse.urlencode({"cardId": it["id"], "cardType": it["cardType"], "sort": "sold_date",
+                                                                           "order": "DESC", "page": page, "limit": 100, "company": "PSA", "grade": g}))["data"]
             old = False
             for s in d["sales"]:
                 if (s.get("sold_date") or "")[:10] < since:

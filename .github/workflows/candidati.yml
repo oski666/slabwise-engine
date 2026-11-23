@@ -44,6 +44,7 @@ jobs:
       - name: Update the queue
         run: |
           pip install -q numpy pandas scipy pillow
+          export SLABWISE_TC_HIST=data/raw/tcgcharts/hist_waiting.json   # D345: the year of the waiting cards, from the owner's tab
           PYTHONPATH=. python scripts/candidates.py /tmp/cand --top 2000 --checks ${{ github.event.inputs.checks || '40' }} --fill 0
       - name: One issue for the owner
         env:

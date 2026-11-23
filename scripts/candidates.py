@@ -266,12 +266,15 @@ def main():
         return dict(row, **{k: v for k, v in st.items() if k in ("status", "detail", "recognised", "share", "n")}, checked=today)
 
     for cid, r in sorted(queue.items(), key=lambda kv: kv[1].get("rank") or 9999):     # the waiting ones, once a week
-        if checks >= CHECKS // 2:
-            break
-        if r["status"] in ("attesa_vendite", "attesa_coerenza", "non_trovata", "attesa_era") and \
+        hist_now = r["status"] == "attesa_vendite" and cid in cr._hist() and r.get("checked_hist") != today   # D345: the year downloaded from the owner's tab
+        if checks >= CHECKS // 2 and not hist_now:
+            continue
+        if hist_now or r["status"] in ("attesa_vendite", "attesa_coerenza", "non_trovata", "attesa_era") and \
                 (date.fromisoformat(today) - date.fromisoformat(r["checked"])).days >= RECHECK_DAYS:
             try:
-                queue[cid] = check(cid, r)
+                queue[cid] = dict(check(cid, r), **({"checked_hist": today} if hist_now else {}))
+                if hist_now:
+                    checks -= 1                                 # no request to tcgcharts: outside the budget of the run
                 print(f"  di nuovo #{r['rank']} {cid}: {queue[cid]['status']} {queue[cid].get('detail', '')}", flush=True)
             except Exception as e:
                 print(f"  {cid}: errore {str(e)[:80]}")
