@@ -15283,18 +15283,20 @@
   "added": "2026-11-12"
  },
  "en:ex5-95": {
-  "n": 40,
-  "recognised": 40,
-  "share": 1.0,
+  "n": 45,
+  "recognised": 44,
+  "share": 0.978,
+  "contradicting": 0.022,
   "tc_id": 17257,
   "tc_set": "Hidden Legends",
   "tc_url": "/pokemon/hidden-legends/metagross-ex-95",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-12",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-23",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-23"
  },
  "en:base1-9": {
   "n": 155,
@@ -15717,16 +15719,17 @@
   "added": "2026-11-12"
  },
  "en:ex16-95": {
-  "n": 43,
-  "recognised": 43,
+  "n": 42,
+  "recognised": 42,
   "share": 1.0,
+  "contradicting": 0.0,
   "tc_id": 15937,
   "tc_set": "Power Keepers",
   "tc_url": "/pokemon/power-keepers/metagross-ex-95",
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-12",
+  "checked": "2026-11-23",
   "requests": 0,
   "source": "catalogo (D111)"
  },
