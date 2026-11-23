@@ -1,42 +1,42 @@
 {
- "monday": "2026-11-16",
- "week": "2026-11-09/2026-11-15",
+ "monday": "2026-11-23",
+ "week": "2026-11-15/2026-11-21",
  "stories": [
   {
    "kind": "mover",
    "title": "Lo slab del mese",
-   "card": "bwp-BW73",
-   "grade": 10,
-   "value": 80681.63,
-   "lo": 68286.72,
-   "hi": 95326.36,
-   "change7": 16.8009,
-   "hook": "Darkrai PSA 10: +1680% in 30 giorni",
+   "card": "col1-SL2",
+   "grade": 9,
+   "value": 6491.35,
+   "lo": 5339.13,
+   "hi": 7892.22,
+   "change7": 2.3542,
+   "hook": "Dialga PSA 9: +235% in 30 giorni",
    "reel": {
     "mode": "trend",
-    "card": "bwp-BW73",
-    "grade": 10,
-    "prev": 4101,
-    "now": 73001,
+    "card": "col1-SL2",
+    "grade": 9,
+    "prev": 1761,
+    "now": 5906,
     "days": 30
    }
   },
   {
    "kind": "mover",
    "title": "In discesa",
-   "card": "pl1-125",
-   "grade": 10,
-   "value": 27602.87,
-   "lo": 22984.74,
-   "hi": 33148.88,
-   "change7": -0.6872,
-   "hook": "Palkia G LV.X PSA 10: −69% in 30 giorni",
+   "card": "basep-9",
+   "grade": 9,
+   "value": 221.79,
+   "lo": 189.84,
+   "hi": 259.12,
+   "change7": -0.6813,
+   "hook": "Mew PSA 9: −68% in 30 giorni",
    "reel": {
     "mode": "trend",
-    "card": "pl1-125",
-    "grade": 10,
-    "prev": 79844,
-    "now": 24975,
+    "card": "basep-9",
+    "grade": 9,
+    "prev": 633,
+    "now": 202,
     "days": 30
    }
   },
@@ -48,25 +48,25 @@
    "price": 156.0,
    "pgen": 0.0,
    "why": "molto sotto il valore: possibile carta rovinata, falso o voto sbagliato",
-   "value": 37708.6,
+   "value": 35493.52,
    "hook": "Venduto a $156, ma per il nostro modello non è credibile"
   },
   {
    "kind": "ladder",
    "title": "Il salto di voto",
    "card": "base2-12",
-   "ratio": 76.28,
-   "v10": 33432.92,
-   "v9": 438.29,
-   "hook": "Vaporeon: un PSA 10 vale 76,3 volte un PSA 9"
+   "ratio": 76.24,
+   "v10": 30864.26,
+   "v9": 404.83,
+   "hook": "Vaporeon (Unlimited): un PSA 10 vale 76,2 volte un PSA 9"
   },
   {
    "kind": "era",
    "title": "L'era della settimana",
-   "series": "Di mezzo",
-   "change": -0.1679,
-   "cap": 420721737,
-   "hook": "Indice Di mezzo: −16,8% in 4 settimane"
+   "series": "Classica",
+   "change": -0.2548,
+   "cap": 1469728965,
+   "hook": "Indice Classica: −25,5% in 4 settimane"
   }
  ]
 }
