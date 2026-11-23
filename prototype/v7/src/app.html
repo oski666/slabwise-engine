@@ -24,6 +24,7 @@ __SLABBY_SVG__
     <a href="#mercato" data-sec="star" data-i="featured"></a>
     <a href="#mercato" data-sec="slab" data-i="catalog"></a>
     <a href="#mercato" data-sec="jp" data-i="japan"></a>
+    <a href="#mercato" data-sec="cn" data-i="china"></a>
     <a href="#gemme" data-nav="gemme" data-i="gems"></a>
     <a href="#deal" data-nav="deal" data-i="deals"></a>
     <a href="#metodo" data-nav="metodo" data-i="method"></a>
@@ -67,7 +68,7 @@ let LANG = (() => { let s = null; try { s = localStorage.getItem("sw-lang"); } c
 const tx = (it, en) => LANG === "it" ? it : en;
 const GLOSSARY = {
   market: ["Mercato", "Market"], eras: ["Le ere", "Eras"], featured: ["In evidenza", "Featured"], catalog: ["Catalogo", "Catalogue"], gems: ["Gemme nascoste", "Hidden Gems"],
-  japan: ["Giappone", "Japan"], week: ["Settimana", "This week"], deals: ["Occasioni", "Deals"], method: ["Metodo", "Method"],
+  japan: ["Giappone", "Japan"], china: ["Cina", "China"], week: ["Settimana", "This week"], deals: ["Occasioni", "Deals"], method: ["Metodo", "Method"],
   requests: ["Richieste", "Requests"], mine: ["Le mie carte", "My cards"], mine_short: ["Mie", "Mine"],
   card: ["carta gradata", "graded card"], cards: ["carte gradate", "graded cards"],
   range: ["SlabRange", "SlabRange"], range80: ["SlabRange", "SlabRange"],
@@ -291,10 +292,10 @@ function spark(points) {
 const corner = () => `<span class="corner" aria-hidden="true"><i></i><u></u><b></b></span>`;
 const twinkle = (x, y, k = 0, cls = "") => `<i class="twinkle ${cls}" style="left:${x}%;top:${y}%;--k:${k}" aria-hidden="true"></i>`;
 const chevron = id => `<a class="chev" href="#mercato" data-sec="${id}" aria-label="${tx("Sezione successiva", "Next section")}"><i></i><i></i></a>`;
-const SECS = ["home", "ere", "star", "meter", "slab", "jp"];
+const SECS = ["home", "ere", "star", "meter", "slab", "jp", "cn"];   // 23 Nov: China in the menu (Oscar)
 function boxTitle(title, sub, id) {
   const n = SECS.indexOf(id);
-  const kick = n > 0 ? `<span class="kick">${String(n).padStart(2, "0")} / ${String(SECS.length - 1).padStart(2, "0")} <span lang="ja">${{ere: "時代", star: "注目", meter: "温度", slab: "一覧", week: "今週", jp: "日本"}[id] || ""}</span></span>` : "";
+  const kick = n > 0 ? `<span class="kick">${String(n).padStart(2, "0")} / ${String(SECS.length - 1).padStart(2, "0")} <span lang="ja">${{ere: "時代", star: "注目", meter: "温度", slab: "一覧", week: "今週", jp: "日本", cn: "中国"}[id] || ""}</span></span>` : "";
   return `<div class="boxtitle rv">${kick}<h2>${title}</h2>${sub ? `<p>${sub}</p>` : ""}</div>`;
 }
 const words = (s, k0 = 0) => s.split(/(<br>)/).map(x => x === "<br>" ? x : x.split(" ").map((w, i) => `<span class="w" style="--i:${k0 + i}">${w}</span>`).join(" ")).join("");
@@ -390,6 +391,7 @@ function comicHero() {
       <a class="nbtn" href="#deal" style="--i:2"><b>${t("deals")}</b><small>${tx("in euro, tasse comprese", "in euros, taxes included")}</small></a>
       <a class="nbtn" href="#metodo" style="--i:3"><b>${t("method")}</b><small>${tx("come facciamo i conti", "how we do the maths")}</small></a>
       <a class="nbtn hot" href="#mercato" data-sec="jp" style="--i:4"><b>${t("japan")}</b><small>${tx("stampe giapponesi", "Japanese printings")}</small></a>
+      ${D.cards.some(c => c.lang === "zh") ? `<a class="nbtn" href="#mercato" data-sec="cn" style="--i:5"><b>${t("china")}</b><small>${tx("stampe cinesi", "Chinese printings")}</small></a>` : ""}
     </div></div>
     ${chevron("ere")}
   </section>`;
@@ -570,7 +572,7 @@ function japanSection7() {
         <div class="news-body"><b>${esc(j.name)}</b>${jaCap(j)}<span><span>${esc(j.set)}</span> · ${esc(j.no)}/${j.tot || "?"}</span>${en ? `<span class="muted">${tx("Stampa inglese", "English printing")}: ${esc(en.name)}</span>` : ""}</div>
         <span class="ntag">${soon}</span></a>`; }).join("")}</div>
     ${waiting.length > wait.length ? `<p class="note">${tx(`Altre ${waiting.length - wait.length} stampe giapponesi aspettano le vendite: le trovi nella scheda di ogni carta inglese.`, `${waiting.length - wait.length} more Japanese printings are waiting for sales: each English card's page links to its own.`)}</p>` : ""}` : ""}</div>`;
-  return sectionWrap("jp", "JAPAN", inner, null, "日本");
+  return sectionWrap("jp", "JAPAN", inner, D.cards.some(c => c.lang === "zh") ? "cn" : null, "日本");
 }
 /* D338: the Chinese (simplified) printings of the perimeter, a catalogue of their own like the Japanese one */
 function chinaSection7() {
