@@ -11650,5 +11650,107 @@
   60,
   54,
   "\\bgg\\W*end\\b"
+ ],
+ "ja:m2a-063": [
+  "team rocket's mewtwo ex|ロケット団のミュウツー\\s?ex",
+  63,
+  193,
+  "(?:\\b(?:mega\\W*dream|m2a|mega\\W*dream\\W*ex)\\b)"
+ ],
+ "ja:sm12a-102": [
+  "(?:moltres\\s*(?:&|and)\\s*zapdos \\& articuno|zapdos \\& articuno\\s*(?:&|and)\\s*moltres) gx|ファイヤー\\&サンダー\\&フリーザー\\s?gx",
+  102,
+  173,
+  "\\btag\\W*team\\W*gx\\W*tag\\W*all\\W*stars\\b"
+ ],
+ "ja:sky-splitting-charisma-66": [
+  "latias ◇",
+  66,
+  -1,
+  "\\bsky\\W*splitting\\W*charisma\\b"
+ ],
+ "ja:snow-hazard-76": [
+  "arctibax",
+  76,
+  -1,
+  "\\bsnow\\W*hazard\\b"
+ ],
+ "ja:awakening-legends-124": [
+  "jynx",
+  124,
+  -1,
+  "(?:\\b(?:neo\\W*revelation|neo\\W*3|awakening\\W*legends)\\b|めざめる伝説)"
+ ],
+ "ja:snow-hazard-90": [
+  "grusha",
+  90,
+  -1,
+  "\\bsnow\\W*hazard\\b"
+ ],
+ "ja:charizard-vstar-vs-rayquaza-vmax-special-deck-set-2": [
+  "charizard vstar",
+  2,
+  -1,
+  "\\bcharizard\\W*vstar\\W*vs\\W*rayquaza\\W*vmax\\W*special\\W*deck\\W*set\\b"
+ ],
+ "ja:rocket-gang-54": [
+  "psyduck",
+  54,
+  -1,
+  "(?:\\b(?:rocket|rocket\\W*gang)\\b|ロケット団)"
+ ],
+ "ja:mega-dream-ex-219": [
+  "canari",
+  219,
+  -1,
+  "(?:\\b(?:mega\\W*dream|m2a|mega\\W*dream\\W*ex)\\b)"
+ ],
+ "ja:cyber-judge-72": [
+  "shiftry",
+  72,
+  -1,
+  "\\bcyber\\W*judge\\b"
+ ],
+ "ja:premium-champion-pack-52": [
+  "m mewtwo\\-ex",
+  52,
+  -1,
+  "\\bpremium\\W*champion\\W*pack\\b"
+ ],
+ "ja:terastal-festival-ex-214": [
+  "iron crown ex",
+  214,
+  -1,
+  "\\bterastal\\W*festival\\W*ex\\b"
+ ],
+ "ja:gx-ultra-shiny-166": [
+  "charmander",
+  166,
+  -1,
+  "\\bgx\\W*ultra\\W*shiny\\b"
+ ],
+ "ja:dark-phantasma-86": [
+  "arezu",
+  86,
+  -1,
+  "\\bdark\\W*phantasma\\b"
+ ],
+ "ja:vstar-universe-53": [
+  "mew v",
+  53,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:30th-celebration-135": [
+  "mew ex",
+  135,
+  -1,
+  "\\b30th\\W*celebration\\b"
+ ],
+ "ja:sm-p-376": [
+  "pikachu",
+  376,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
  ]
 }
