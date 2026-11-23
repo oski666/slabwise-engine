@@ -10,6 +10,9 @@ here = os.path.dirname(os.path.abspath(__file__))
 src = open(os.path.join(here, "src", "app.html"), encoding="utf-8").read()
 css = open(os.path.join(here, "src", "base.css"), encoding="utf-8").read() + "\n" + open(os.path.join(here, "src", "comic.css"), encoding="utf-8").read()
 js = open(os.path.join(here, "src", "slabby.js"), encoding="utf-8").read()
+# D344: GSAP (vendor/gsap, unchanged files with their notices), inlined before the app and Slabby
+GSAP_FILES = ("gsap", "CustomEase", "CustomBounce", "CustomWiggle", "ScrollTrigger", "Flip", "InertiaPlugin", "Draggable")
+gsap_js = "".join("<script>" + open(os.path.join(here, "vendor", "gsap", f + ".min.js"), encoding="utf-8").read() + "</script>\n" for f in GSAP_FILES)
 sys.path.insert(0, os.path.join(here, "..", "character"))
 from load import load  # noqa: E402
 char = load(os.path.join(here, "..", "character", "slabby"))      # character.json is the only source of Slabby
@@ -199,7 +202,7 @@ for _st in ("esplode", "caldo", "tiepido", "freddo", "gelo"):
         except ImportError:
             METER_POSES[_st] = "data:image/png;base64," + base64.b64encode(open(_p, "rb").read()).decode()
 data["meter_poses"] = METER_POSES
-out = (src.replace("__CHAR_FONT__", font_link).replace("__STYLE__", css + "\n" + char["css"]).replace("__SLABBY_SVG__", char["svg"]).replace("__SLABBY__", js)
+out = (src.replace("__CHAR_FONT__", font_link).replace("__STYLE__", css + "\n" + char["css"]).replace("__SLABBY_SVG__", char["svg"]).replace("__SLABBY__", js).replace("__GSAP__", gsap_js)
        .replace("__DATA__", json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")))
 open(os.path.join(split, "index.html") if split else os.path.join(here, "slabwise.html"), "w", encoding="utf-8").write(out)
 print("slabwise.html", len(out))

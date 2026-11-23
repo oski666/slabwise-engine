@@ -54,6 +54,7 @@ __SLABBY_SVG__
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <footer><div class="wrap"><span data-i="foot_build"></span><span id="foot"></span><a href="#privacy" style="color:inherit" data-i="privacy_link"></a> · <a href="#termini" style="color:inherit" data-i="terms_link"></a> · <a href="#contatti" style="color:inherit" data-i="contact_link"></a></div></footer>
 
+__GSAP__
 <script>
 const D = __DATA__;
 const $ = s => document.querySelector(s);
@@ -584,7 +585,7 @@ function viewMarket() {
 }
 function tiles(list) {
   const key = {cap: c => capOf(c), mcap: c => capPSA(c), ch30: c => gradeOf(c, S.g).ch30 ?? -Infinity, sales: c => gradeOf(c, S.g).sales90, sure: c => -halfw(gradeOf(c, S.g))}[S.sort] || (c => capOf(c));
-  return [...(list || D.cards)].sort((a, b) => noOwn(gradeOf(a, S.g)) - noOwn(gradeOf(b, S.g)) || key(b) - key(a)).map((c, i) => { const g = gradeOf(c, S.g), hid = noOwn(g); return `<a class="ct8 rv" href="#c-${c.id}" style="--cat:var(--cat-${catOf(c)});--i:${i % 4}">
+  return [...(list || D.cards)].sort((a, b) => noOwn(gradeOf(a, S.g)) - noOwn(gradeOf(b, S.g)) || key(b) - key(a)).map((c, i) => { const g = gradeOf(c, S.g), hid = noOwn(g); return `<a class="ct8 rv" href="#c-${c.id}" data-flip-id="${esc(c.id)}" style="--cat:var(--cat-${catOf(c)});--i:${i % 4}">
     <div class="ct-art">${c.thumb || c.img ? `<img src="${c.img || c.thumb}" alt="">` : `<span class="noimg">${tx("foto in arrivo", "photo coming soon")}</span>`}${hid ? "" : `<span class="ct-rank">${i + 1}</span>`}<span class="ct-grade">PSA ${S.g}</span>${g.tier ? `<span class="ct-tier ${TIER_CLS[tierK(g)]}" title="${esc(tierName(g))}"></span>` : ""}</div>
     <div class="ct-body"><h3>${esc(c.name)}</h3>${jaCap(c)}<span class="meta"><span>${esc(c.set)}</span> · #${esc(c.no)}</span>
       ${hid ? `<div class="ct-price"><b class="num">—</b></div><span class="note">${g.last && !g.off ? tx(`Poche vendite per un prezzo. Ultima vendita: ${usd(g.last[1])}, ${monthF(g.last[0])}`, `Too few sales for a price. Last sale: ${usd(g.last[1])}, ${monthF(g.last[0])}`) : noEst(S.g, g)}</span>` : `<div class="ct-price"><b class="num">${usd(g.value)}</b><span class="${g.ch30 >= 0 ? "up" : "down"}">${pct(g.ch30)}</span></div>
@@ -1810,8 +1811,8 @@ document.addEventListener("click", e => {
   if (ir) { S.ixr = ir.dataset.ixr; const y = scrollY; route(); scrollTo({top: y}); return; }
   const el = e.target.closest("[data-g],[data-sort],[data-cg],[data-min],[data-or],[data-copy],[data-copytext],#copyAll");
   if (!el) return;
-  if (el.dataset.g) { S.g = +el.dataset.g; route(); }
-  else if (el.dataset.sort) { S.sort = el.dataset.sort; route(); }
+  if (el.dataset.g) { S.g = +el.dataset.g; flipRoute(); }
+  else if (el.dataset.sort) { S.sort = el.dataset.sort; flipRoute(); }
   else if (el.dataset.cg) { S.cg = +el.dataset.cg; const y = scrollY; route(); scrollTo({top: y}); }
   else if (el.dataset.min !== undefined) { S.dealMin = +el.dataset.min; route(); }
   else if (el.dataset.or) { S.dealOrigin = el.dataset.or; route(); }
@@ -1895,7 +1896,42 @@ document.addEventListener("animationiteration", e => {
     [imgs[j], imgs[j + half]].forEach(im => { im.classList.add("swap"); setTimeout(() => { im.src = blobOf(c.img || c.thumb); im.parentNode.href = "#c-" + c.id; im.onload = () => im.classList.remove("swap"); }, 1200); });
   }
 });
+/* ---- D344: GSAP motion. Off with "reduce motion" or if GSAP did not load. It only moves values into place:
+   every number on the page is the exact value from the first frame to the last. ---- */
+const GS = !reduce && window.gsap ? window.gsap : null;
+if (GS) gsap.registerPlugin(...[window.Flip, window.ScrollTrigger, window.CustomEase, window.CustomBounce, window.CustomWiggle].filter(Boolean));
+const onScreen = (e, pad = 300) => { const r = e.getBoundingClientRect(); return r.bottom > -pad && r.top < innerHeight + pad; };
+/* catalogue: changing order or grade makes the cards slide to their new place instead of jumping (only the cards on
+   screen, so 3,000 tiles cost nothing) */
+function flipRoute() {
+  if (!GS || !window.Flip) { route(); return; }
+  const before = [...document.querySelectorAll(".cgrid .ct8[data-flip-id]")].filter(e => onScreen(e));
+  const state = Flip.getState(before, {props: "opacity"}), ids = new Set(before.map(e => e.dataset.flipId)), y = scrollY;
+  route(); scrollTo({top: y});
+  const after = [...document.querySelectorAll(".cgrid .ct8[data-flip-id]")].filter(e => ids.has(e.dataset.flipId) || onScreen(e, 0));
+  after.forEach(e => e.classList.add("in"));
+  Flip.from(state, {targets: after, duration: .55, ease: "power3.inOut", stagger: {amount: .18}, absolute: false, prune: true,
+    onEnter: els => gsap.fromTo(els, {opacity: 0, scale: .9, y: 18}, {opacity: 1, scale: 1, y: 0, duration: .4, ease: "back.out(1.6)", stagger: .02})});
+}
+/* card page: the SlabRange opens from the Slabprice outwards and the pin lands on it */
+function motionForks() {
+  if (!GS) return;
+  if (window.ScrollTrigger) ScrollTrigger.getAll().forEach(t => { if (t.trigger && !document.body.contains(t.trigger)) t.kill(); });
+  document.querySelectorAll(".fork:not(.mini)").forEach(f => {
+    if (f.dataset.moved) return; f.dataset.moved = "1";
+    const band = f.querySelector(".band"), pin = f.querySelector(".pin");
+    if (!band || !pin) return;
+    const a = parseFloat(band.style.left) || 0, w = parseFloat(band.style.width) || 1;
+    const origin = Math.max(0, Math.min(100, (50 - a) / w * 100));
+    const tl = gsap.timeline({paused: true});
+    tl.from(band, {scaleX: 0, transformOrigin: `${origin}% 50%`, duration: .9, ease: "expo.out"})
+      .from(pin, {y: -26, opacity: 0, duration: .7, ease: "bounce.out"}, .15);
+    if (window.ScrollTrigger) ScrollTrigger.create({trigger: f, start: "top 92%", once: true, onEnter: () => tl.play()});
+    else tl.play();
+  });
+}
 function bindMotion() {
+  motionForks();
   const all = document.querySelectorAll(".rv, .cs");
   if (revObs) revObs.disconnect();
   if (reduce || !("IntersectionObserver" in window)) all.forEach(x => x.classList.add("in"));

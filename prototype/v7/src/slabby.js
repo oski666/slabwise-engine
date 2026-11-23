@@ -3,6 +3,10 @@
    con "riduci movimento" non si muove. */
 (function () {
   const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // D344: with GSAP Slabby has weight: he squashes before a hop, stretches in the air, wobbles when he lands,
+  // and can be grabbed and thrown. Without GSAP or with "reduce motion" he behaves as before.
+  const G = !RM && window.gsap ? window.gsap : null;
+  if (G && window.Draggable) G.registerPlugin(window.Draggable, ...(window.InertiaPlugin ? [window.InertiaPlugin] : []));
   // Poses come from the character sheet (prototype/character/slabby/poses.svg, injected by build.py):
   // a symbol "slabby-<pose>" for each pose. Replacing the character = replacing that file (see its README).
   const POSES = ["smug", "drool", "sleep", "laugh", "shock", "bliss", "peek"];
@@ -45,9 +49,14 @@
 
   function setPose(p, ms) {
     clearTimeout(poseT);
+    const changed = p !== pose;
     pose = p;
-    charBtn.innerHTML = POSE[p];
+    charBtn.innerHTML = G ? `<span class="sb-sq">${POSE[p]}</span>` : POSE[p];
     charBtn.dataset.pose = p;
+    if (G && changed) {               // a new pose lands with a squash and a little wobble, feet on the ground
+      const svg = charBtn.querySelector(".sb-sq");   // a wrapper: the CSS breathing stays on the svg inside
+      G.fromTo(svg, {scaleX: 1.14, scaleY: .84, transformOrigin: "50% 100%"}, {scaleX: 1, scaleY: 1, duration: .7, ease: "elastic.out(1, .38)"});
+    }
     if (ms) poseT = setTimeout(() => setPose(muted ? "peek" : "smug"), ms);
   }
   function say(text, opts = {}) {
@@ -200,6 +209,21 @@
   }
   ["pointermove", "keydown", "scroll"].forEach(ev => addEventListener(ev, wake, {passive: true}));
 
+  // D344: grab him and throw him: he flies, bounces off the edges, comes home bouncing and has something to say
+  if (G && window.Draggable) {
+    let thrown = false;
+    charBtn.style.transition = "none";   // the CSS transition on transform would drag behind the pointer
+    const home = () => G.to(charBtn, {x: 0, y: 0, rotation: 0, duration: 1.1, ease: "bounce.out", onComplete: () => {
+      setPose("laugh", 2200);
+      say(pick(LINES.thrown), {ms: 3200, force: false});
+    }});
+    window.Draggable.create(charBtn, {type: "x,y", bounds: window, inertia: !!window.InertiaPlugin, dragClickables: true, minimumMovement: 8,
+      onDragStart() { thrown = true; hush(); setPose("shock"); G.to(charBtn, {rotation: G.utils.random(-25, 25), duration: .3}); },
+      onDragEnd() { if (!window.InertiaPlugin) home(); },
+      onThrowComplete: home,
+      onClick() { thrown = false; }});
+    charBtn.addEventListener("click", e => { if (thrown) { e.stopImmediatePropagation(); e.preventDefault(); thrown = false; } }, true);
+  }
   root.classList.toggle("muted", muted);
   setPose(muted ? "peek" : "smug");
   wake();
@@ -212,6 +236,8 @@
      and butts in when you search. Never while muted, never with "reduce motion", one at a time, at
      most one every ~25 s, and he never sits on a control for more than a few seconds. ---- */
   const LINES = {
+    thrown: [["Ehi! Non sono una carta da lanciare!", "Ancora! Ancora!", "Mi sono rovinato il grading…", "Atterraggio da PSA 10!"],
+      ["Hey! I'm not a card to throw!", "Again! Again!", "There goes my grade…", "PSA 10 landing!"]],
     run: [["Scusa, passavo di qua!", "Non mi hai visto.", "Corro a controllare un prezzo!", "Più veloce del mercato!"],
       ["Sorry, just passing through!", "You didn't see me.", "Off to check a price!", "Faster than the market!"]],
     card: [["Bella eh? È mia.", "Non toccarla, l'ho vista prima io!", "Psst… guarda lo SlabRange.", "Questa la voglio in PSA 10."],
@@ -246,10 +272,26 @@
     if (!begin()) return;
     root.classList.add("away");
     const ltr = Math.random() < .5, W = innerWidth, y = 30 + Math.random() * 40;
-    const el = sprite("sb-run", "run", pick(LINES.run), !ltr);
+    const el = sprite("sb-run" + (G ? " gs" : ""), "run", pick(LINES.run), !ltr);
     el.style.top = y + "vh";
     document.body.appendChild(el);
     const from = ltr ? -220 : W + 40, mid = W * (ltr ? .44 : .5), to = ltr ? W + 40 : -220;
+    if (G) {                          // D344: he hops as he runs, brakes with a squash, looks at you, sprints off
+      const body = el.querySelector(".sb-body");
+      const hop = G.to(body, {y: -14, duration: .17, ease: "power1.out", yoyo: true, repeat: -1});
+      const tl = G.timeline({onComplete: () => { hop.kill(); el.remove(); live = live.filter(x => x !== el); end(0); }});
+      tl.set(el, {x: from})
+        .to(el, {x: mid, duration: 2.4, ease: "power1.inOut"})
+        .call(() => hop.pause())
+        .to(body, {y: 0, scaleX: 1.18, scaleY: .8, transformOrigin: "50% 100%", duration: .12, ease: "power2.out"})
+        .to(body, {scaleX: 1, scaleY: 1, duration: .6, ease: "elastic.out(1, .35)"})
+        .to({}, {duration: 1})
+        .to(body, {scaleX: .85, scaleY: 1.15, duration: .12})
+        .call(() => hop.play())
+        .to(el, {x: to, duration: 1.4, ease: "power2.in"});
+      el.addEventListener("pointerdown", () => { tl.timeScale(4); hop.timeScale(3); el.classList.add("hit"); el.querySelector(".sb-pop") && (el.querySelector(".sb-pop").textContent = tr("Ahi!", "Ouch!")); });
+      return;
+    }
     const anim = el.animate([{transform: `translateX(${from}px)`}, {transform: `translateX(${mid}px)`, offset: .4},
       {transform: `translateX(${mid}px)`, offset: .66}, {transform: `translateX(${to}px)`}], {duration: 6200, easing: "linear"});
     el.addEventListener("pointerdown", () => { anim.playbackRate = 4; el.classList.add("hit"); el.querySelector(".sb-pop") && (el.querySelector(".sb-pop").textContent = tr("Ahi!", "Ouch!")); });
