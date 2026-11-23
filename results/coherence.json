@@ -1,9 +1,9 @@
 {
  "asof": "2026-11-22",
- "cards": 2947,
+ "cards": 2948,
  "checks": {
   "C7": {
-   "n": 51,
+   "n": 52,
    "examples": [
     [
      "sv08.5-161",
@@ -33,7 +33,7 @@
     [
      "sv10.5w-173",
      "Reshiram ex",
-     "PSA 9 371 < PSA 8 373"
+     "PSA 9 370 < PSA 8 373"
     ],
     [
      "smp-SM163",
@@ -63,7 +63,7 @@
     [
      "me02-130",
      "Mega Charizard X ex",
-     "PSA 8 182 < PSA 7 190"
+     "PSA 8 182 < PSA 7 189"
     ]
    ]
   }
