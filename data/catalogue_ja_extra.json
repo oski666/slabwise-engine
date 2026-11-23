@@ -11752,5 +11752,89 @@
   376,
   -1,
   "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:violet-ex-90": [
+  "skwovet",
+  90,
+  -1,
+  "\\bviolet\\W*ex\\b"
+ ],
+ "ja:vending-machine-series-2-red-95": [
+  "onix",
+  95,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*2\\W*red\\b"
+ ],
+ "ja:vending-machine-series-2-red-105": [
+  "marowak",
+  105,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*2\\W*red\\b"
+ ],
+ "ja:wild-force-73": [
+  "snom",
+  73,
+  -1,
+  "\\bwild\\W*force\\b"
+ ],
+ "ja:darkness-and-to-light-54": [
+  "psyduck",
+  54,
+  -1,
+  "(?:\\b(?:neo\\W*destiny|neo\\W*4|darkness\\W*to\\W*light)\\b|闇、?そして光へ)"
+ ],
+ "ja:terastal-festival-ex-210": [
+  "iron hands ex",
+  210,
+  -1,
+  "\\bterastal\\W*festival\\W*ex\\b"
+ ],
+ "ja:vending-machine-series-3-green-110": [
+  "weezing",
+  110,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*3\\W*green\\b"
+ ],
+ "ja:mega-symphonia-78": [
+  "mega gardevoir ex",
+  78,
+  -1,
+  "\\bmega\\W*symphonia\\b"
+ ],
+ "ja:30th-celebration-premium-deck-set-espeon-umbreon-43": [
+  "espeon ex",
+  43,
+  -1,
+  "\\b30th\\W*celebration\\W*premium\\W*deck\\W*set\\W*espeon\\W*umbreon\\b"
+ ],
+ "ja:vending-machine-series-3-green-138": [
+  "omanyte",
+  138,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*3\\W*green\\b"
+ ],
+ "ja:clay-burst-83": [
+  "farigiraf",
+  83,
+  -1,
+  "\\bclay\\W*burst\\b"
+ ],
+ "ja:skyscraping-perfection-74": [
+  "noivern v",
+  74,
+  -1,
+  "\\bskyscraping\\W*perfection\\b"
+ ],
+ "ja:awakened-heroes-55": [
+  "gladion",
+  55,
+  -1,
+  "\\bawakened\\W*heroes\\b"
+ ],
+ "ja:shiny-star-v-117": [
+  "yveltal",
+  117,
+  -1,
+  "\\bshiny\\W*star\\W*v\\b"
  ]
 }
