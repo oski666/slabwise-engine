@@ -583,14 +583,40 @@ function chinaSection7() {
 function viewMarket() {
   return comicHero() + tickers() + erasSection() + starSection() + meterSection() + collectionSection() + japanSection7() + chinaSection7();   // D185: the week is in the studio; D194: the Slab-Meter before the catalogue
 }
-function tiles(list) {
-  const key = {cap: c => capOf(c), mcap: c => capPSA(c), ch30: c => gradeOf(c, S.g).ch30 ?? -Infinity, sales: c => gradeOf(c, S.g).sales90, sure: c => -halfw(gradeOf(c, S.g))}[S.sort] || (c => capOf(c));
-  return [...(list || D.cards)].sort((a, b) => noOwn(gradeOf(a, S.g)) - noOwn(gradeOf(b, S.g)) || key(b) - key(a)).map((c, i) => { const g = gradeOf(c, S.g), hid = noOwn(g); return `<a class="ct8 rv" href="#c-${c.id}" data-flip-id="${esc(c.id)}" style="--cat:var(--cat-${catOf(c)});--i:${i % 4}">
-    <div class="ct-art">${c.thumb || c.img ? `<img src="${c.img || c.thumb}" alt="">` : `<span class="noimg">${tx("foto in arrivo", "photo coming soon")}</span>`}${hid ? "" : `<span class="ct-rank">${i + 1}</span>`}<span class="ct-grade">PSA ${S.g}</span>${g.tier ? `<span class="ct-tier ${TIER_CLS[tierK(g)]}" title="${esc(tierName(g))}"></span>` : ""}</div>
+/* 23 Nov 2026: the market page drew all ~3,000 tiles at once (82,000 elements, 3,100 images): every animation and
+   every scroll stuttered. A grid now draws the first TILE_PAGE cards and adds the next ones when you get near its end. */
+const TILE_PAGE = 48, TILE_MORE = new Map();
+let tileSeq = 0;
+function tileHTML(c, i) { const g = gradeOf(c, S.g), hid = noOwn(g); return `<a class="ct8 rv" href="#c-${c.id}" data-flip-id="${esc(c.id)}" style="--cat:var(--cat-${catOf(c)});--i:${i % 4}">
+    <div class="ct-art">${c.thumb || c.img ? `<img src="${c.img || c.thumb}" alt="" loading="lazy" decoding="async">` : `<span class="noimg">${tx("foto in arrivo", "photo coming soon")}</span>`}${hid ? "" : `<span class="ct-rank">${i + 1}</span>`}<span class="ct-grade">PSA ${S.g}</span>${g.tier ? `<span class="ct-tier ${TIER_CLS[tierK(g)]}" title="${esc(tierName(g))}"></span>` : ""}</div>
     <div class="ct-body"><h3>${esc(c.name)}</h3>${jaCap(c)}<span class="meta"><span>${esc(c.set)}</span> · #${esc(c.no)}</span>
       ${hid ? `<div class="ct-price"><b class="num">—</b></div><span class="note">${g.last && !g.off ? tx(`Poche vendite per un prezzo. Ultima vendita: ${usd(g.last[1])}, ${monthF(g.last[0])}`, `Too few sales for a price. Last sale: ${usd(g.last[1])}, ${monthF(g.last[0])}`) : noEst(S.g, g)}</span>` : `<div class="ct-price"><b class="num">${usd(g.value)}</b><span class="${g.ch30 >= 0 ? "up" : "down"}">${pct(g.ch30)}</span></div>
-      ${fork(g, true)}<span class="note">±${nf1.format(halfw(g) * 100)}% SlabRange</span>`}${capRow(c)}</div></a>`; }).join("") || `<div class="tile empty">${tx("Nessuna carta.", "No cards.")}</div>`;
+      ${fork(g, true)}<span class="note">±${nf1.format(halfw(g) * 100)}% SlabRange</span>`}${capRow(c)}</div></a>`; }
+function tiles(list) {
+  const key = {cap: c => capOf(c), mcap: c => capPSA(c), ch30: c => gradeOf(c, S.g).ch30 ?? -Infinity, sales: c => gradeOf(c, S.g).sales90, sure: c => -halfw(gradeOf(c, S.g))}[S.sort] || (c => capOf(c));
+  const all = [...(list || D.cards)].sort((a, b) => noOwn(gradeOf(a, S.g)) - noOwn(gradeOf(b, S.g)) || key(b) - key(a));
+  if (!all.length) return `<div class="tile empty">${tx("Nessuna carta.", "No cards.")}</div>`;
+  let more = "";
+  if (all.length > TILE_PAGE) { const t = "m" + (++tileSeq); TILE_MORE.set(t, {all, at: TILE_PAGE}); more = `<div class="tile-more" data-more="${t}"><button class="chip" type="button">${tx(`Mostra altre carte (${all.length - TILE_PAGE})`, `Show more cards (${all.length - TILE_PAGE})`)}</button></div>`; }
+  return all.slice(0, TILE_PAGE).map(tileHTML).join("") + more;
 }
+function moreTiles(el) {
+  const m = TILE_MORE.get(el.dataset.more);
+  if (!m) return;
+  const next = m.all.slice(m.at, m.at + 2 * TILE_PAGE);
+  el.insertAdjacentHTML("beforebegin", next.map((c, j) => tileHTML(c, m.at + j)).join(""));
+  m.at += next.length;
+  const left = m.all.length - m.at;
+  if (left <= 0) { el.remove(); TILE_MORE.delete(el.dataset.more); } else el.querySelector("button").textContent = tx(`Mostra altre carte (${left})`, `Show more cards (${left})`);
+  el.parentElement && el.parentElement.querySelectorAll(".ct8.rv:not(.in)").forEach(t => t.classList.add("in"));
+}
+let moreIO = null;
+function bindMore() {
+  if (moreIO) moreIO.disconnect();
+  moreIO = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(e => e.isIntersecting && moreTiles(e.target)), {rootMargin: "900px 0px"}) : null;
+  document.querySelectorAll(".tile-more").forEach(el => { moreIO && moreIO.observe(el); el.querySelector("button").onclick = () => moreTiles(el); });
+}
+
 /* D186: the market cap on every tile, always in the same place */
 function capRow(c) {
   const v = capPSA(c);
@@ -1931,7 +1957,7 @@ function motionForks() {
   });
 }
 function bindMotion() {
-  motionForks();
+  motionForks(); bindMore();
   const all = document.querySelectorAll(".rv, .cs");
   if (revObs) revObs.disconnect();
   if (reduce || !("IntersectionObserver" in window)) all.forEach(x => x.classList.add("in"));

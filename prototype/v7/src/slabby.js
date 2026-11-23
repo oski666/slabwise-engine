@@ -209,19 +209,43 @@
   }
   ["pointermove", "keydown", "scroll"].forEach(ev => addEventListener(ev, wake, {passive: true}));
 
-  // D344: grab him and throw him: he flies, bounces off the edges, comes home bouncing and has something to say
+  // D344: grab him and throw him: he flies with real physics (gravity, bounces off the screen edges), then walks home
+  // with a squash and has something to say. Our own small physics, so the throw follows the finger on phones too.
   if (G && window.Draggable) {
-    let thrown = false;
-    charBtn.style.transition = "none";   // the CSS transition on transform would drag behind the pointer
-    const home = () => G.to(charBtn, {x: 0, y: 0, rotation: 0, duration: 1.1, ease: "bounce.out", onComplete: () => {
+    let thrown = false, trail = [], flying = null;
+    charBtn.style.transition = "none";            // the CSS transition on transform would drag behind the pointer
+    charBtn.style.touchAction = "none";
+    const home = () => G.to(charBtn, {x: 0, y: 0, rotation: 0, duration: .8, ease: "power2.inOut", onComplete: () => {
+      const sq = charBtn.querySelector(".sb-sq");
+      sq && G.fromTo(sq, {scaleX: 1.2, scaleY: .78, transformOrigin: "50% 100%"}, {scaleX: 1, scaleY: 1, duration: .7, ease: "elastic.out(1, .35)"});
       setPose("laugh", 2200);
       say(pick(LINES.thrown), {ms: 3200, force: false});
     }});
-    window.Draggable.create(charBtn, {type: "x,y", bounds: window, inertia: !!window.InertiaPlugin, dragClickables: true, minimumMovement: 8,
-      onDragStart() { thrown = true; hush(); setPose("shock"); G.to(charBtn, {rotation: G.utils.random(-25, 25), duration: .3}); },
-      onDragEnd() { if (!window.InertiaPlugin) home(); },
-      onThrowComplete: home,
-      onClick() { thrown = false; }});
+    const fly = (vx, vy) => {
+      const r0 = charBtn.getBoundingClientRect(), ox = r0.left - G.getProperty(charBtn, "x"), oy = r0.top - G.getProperty(charBtn, "y");
+      const minX = -ox, maxX = innerWidth - r0.width - ox, minY = -oy, maxY = innerHeight - r0.height - oy;
+      let x = G.getProperty(charBtn, "x"), y = G.getProperty(charBtn, "y"), t = 0, rot = G.getProperty(charBtn, "rotation");
+      const GRAV = 2600, BOUNCE = .55, AIR = .995;
+      flying = (time, dt) => {
+        dt = Math.min(dt, 34) / 1000; t += dt;
+        vy += GRAV * dt; vx *= AIR; x += vx * dt; y += vy * dt; rot += vx * dt * .35;
+        if (x < minX) { x = minX; vx = -vx * BOUNCE; } if (x > maxX) { x = maxX; vx = -vx * BOUNCE; }
+        if (y < minY) { y = minY; vy = -vy * BOUNCE; }
+        if (y > maxY) { y = maxY; vy = -vy * BOUNCE; vx *= .8; if (Math.abs(vy) < 160) vy = 0; }
+        G.set(charBtn, {x, y, rotation: rot});
+        if (t > 2.4 || (y >= maxY && !vy && Math.abs(vx) < 40)) { G.ticker.remove(flying); flying = null; home(); }
+      };
+      G.ticker.add(flying);
+    };
+    window.Draggable.create(charBtn, {type: "x,y", dragClickables: true, minimumMovement: 6, allowContextMenu: true,
+      onPress() { if (flying) { G.ticker.remove(flying); flying = null; } G.killTweensOf(charBtn); trail = []; },
+      onDragStart() { thrown = true; hush(); setPose("shock"); },
+      onDrag() { const n = performance.now(); trail.push([n, this.x, this.y]); trail = trail.filter(p => n - p[0] < 90); G.set(charBtn, {rotation: (this.deltaX || 0) * 1.5}); },
+      onDragEnd() {
+        const a = trail[0], b = trail[trail.length - 1], dt = a && b && b[0] > a[0] ? (b[0] - a[0]) / 1000 : 0;
+        const vx = dt ? (b[1] - a[1]) / dt : 0, vy = dt ? (b[2] - a[2]) / dt : 0, cap = v => Math.max(-3200, Math.min(3200, v));
+        fly(cap(vx), cap(vy));
+      }});
     charBtn.addEventListener("click", e => { if (thrown) { e.stopImmediatePropagation(); e.preventDefault(); thrown = false; } }, true);
   }
   root.classList.toggle("muted", muted);
