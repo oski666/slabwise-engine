@@ -11932,5 +11932,83 @@
   300,
   -1,
   "\\bshining\\W*darkness\\b"
+ ],
+ "ja:triplet-beat-81": [
+  "quaxly",
+  81,
+  -1,
+  "\\btriplet\\W*beat\\b"
+ ],
+ "ja:vstar-universe-178": [
+  "manaphy",
+  178,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:25th-anniversary-collection-5": [
+  "lugia",
+  5,
+  -1,
+  "\\b25th\\W*anniversary\\W*collection\\b"
+ ],
+ "ja:ruler-of-the-black-flame-119": [
+  "pidgeotto",
+  119,
+  -1,
+  "\\bruler\\W*black\\W*flame\\b"
+ ],
+ "ja:30th-celebration-134": [
+  "mewtwo ex",
+  134,
+  -1,
+  "\\b30th\\W*celebration\\b"
+ ],
+ "ja:shiny-treasure-ex-328": [
+  "gardevoir ex",
+  328,
+  -1,
+  "\\bshiny\\W*treasure\\W*ex\\b"
+ ],
+ "ja:vending-machine-series-1-blue-85": [
+  "dodrio",
+  85,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*1\\W*blue\\b"
+ ],
+ "ja:clay-burst-75": [
+  "sandygast",
+  75,
+  -1,
+  "\\bclay\\W*burst\\b"
+ ],
+ "ja:violet-ex-80": [
+  "toedscool",
+  80,
+  -1,
+  "\\bviolet\\W*ex\\b"
+ ],
+ "ja:vmax-climax-207": [
+  "galarian obstagoon",
+  207,
+  -1,
+  "\\bvmax\\W*climax\\b"
+ ],
+ "ja:vending-machine-series-1-blue-60": [
+  "poliwag",
+  60,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*1\\W*blue\\b"
+ ],
+ "ja:ash-vs-team-rocket-deck-kit-6": [
+  "togedemaru",
+  6,
+  -1,
+  "\\bash\\W*vs\\W*team\\W*rocket\\W*deck\\W*kit\\b"
+ ],
+ "ja:shiny-star-v-324": [
+  "ditto vmax",
+  324,
+  -1,
+  "\\bshiny\\W*star\\W*v\\b"
  ]
 }
