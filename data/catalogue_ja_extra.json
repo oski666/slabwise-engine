@@ -12088,5 +12088,95 @@
   6,
   -1,
   "\\bgreat\\W*detective\\W*pikachu\\b"
+ ],
+ "ja:crimson-haze-76": [
+  "probopass",
+  76,
+  -1,
+  "\\bcrimson\\W*haze\\b"
+ ],
+ "ja:incandescent-arcana-55": [
+  "ho\\-oh v",
+  55,
+  -1,
+  "\\bincandescent\\W*arcana\\b"
+ ],
+ "ja:stellar-miracle-103": [
+  "ledian",
+  103,
+  -1,
+  "\\bstellar\\W*miracle\\b"
+ ],
+ "ja:dream-league-16": [
+  "pikachu",
+  16,
+  -1,
+  "\\bdream\\W*league\\b"
+ ],
+ "ja:gold-silver-to-a-new-world-155": [
+  "cyndaquil",
+  155,
+  -1,
+  "(?:\\b(?:neo\\W*genesis|neo\\W*1|gold\\W*silver|gold\\W*silver\\W*to\\W*a\\W*new\\W*world)\\b|金、?・?銀、?・?新世界へ)"
+ ],
+ "ja:battle-partners-121": [
+  "iris's fighting spirit",
+  121,
+  -1,
+  "\\bbattle\\W*partners\\b"
+ ],
+ "ja:battle-region-69": [
+  "chandelure",
+  69,
+  -1,
+  "\\bbattle\\W*region\\b"
+ ],
+ "ja:30th-celebration-131": [
+  "gengar ex",
+  131,
+  -1,
+  "\\b30th\\W*celebration\\b"
+ ],
+ "ja:dp-p-075": [
+  "porygon\\-z lv\\.x",
+  75,
+  -1,
+  "\\b(?:dp|diamond\\W*(?:&|and)?\\W*pearl)\\W*(?:black\\W*star\\W*)?promo|\\b(?:dp|diamond\\W*(?:&|and)?\\W*pearl)\\W?p\\b"
+ ],
+ "ja:vstar-universe-107": [
+  "rayquaza v",
+  107,
+  -1,
+  "\\bvstar\\W*universe\\b"
+ ],
+ "ja:raging-surf-64": [
+  "mantyke",
+  64,
+  -1,
+  "\\braging\\W*surf\\b"
+ ],
+ "ja:vending-machine-series-3-green-24": [
+  "arbok",
+  24,
+  -1,
+  "\\bvending\\W*machine\\W*series\\W*3\\W*green\\b"
+ ],
+ "ja:challenge-from-the-darkness-129": [
+  "giovanni's magikarp",
+  129,
+  -1,
+  "(?:\\b(?:gym\\W*challenge|gym\\W*2|challenge\\W*from|challenge\\W*from\\W*darkness)\\b|闇からの挑戦)"
+ ],
+ "ja:scarlet-ex-79": [
+  "dolliv",
+  79,
+  -1,
+  "\\bscarlet\\W*ex\\b"
+ ],
+ "ja:triplet-beat-74": [
+  "tropius",
+  74,
+  -1,
+  "\\btriplet\\W*beat\\b"
  ]
 }
