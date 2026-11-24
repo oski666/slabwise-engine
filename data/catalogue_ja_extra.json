@@ -12190,5 +12190,95 @@
   205,
   -1,
   "(?:\\b(?:neo\\W*discovery|neo\\W*2|crossing\\W*the\\W*ruins|crossing\\W*ruins)\\b|遺跡をこえて)"
+ ],
+ "ja:sm8-100": [
+  "lugia gx|ルギア\\s?gx",
+  100,
+  -1,
+  "\\bsuper\\W*burst\\W*impact\\b"
+ ],
+ "ja:awakening-legends-245": [
+  "suicune|スイクン",
+  245,
+  -1,
+  "(?:\\b(?:neo\\W*revelation|neo\\W*3|awakening\\W*legends)\\b|めざめる伝説)"
+ ],
+ "ja:darkness-and-to-light-6": [
+  "shining charizard|ひかるリザードン",
+  6,
+  -1,
+  "(?:\\b(?:neo\\W*destiny|neo\\W*4|darkness\\W*to\\W*light)\\b|闇、?そして光へ)"
+ ],
+ "ja:pcg8-004": [
+  "celebi|セレビの星",
+  4,
+  -1,
+  "(?:\\b(?:miracle\\W*crystal|miracle\\W*crystal)\\b|きせきの結晶)"
+ ],
+ "ja:darkness-and-to-light-248": [
+  "shining tyranitar|ひかるバンギラス",
+  248,
+  -1,
+  "(?:\\b(?:neo\\W*destiny|neo\\W*4|darkness\\W*to\\W*light)\\b|闇、?そして光へ)"
+ ],
+ "ja:e3-088": [
+  "nidoking|ニドキング",
+  88,
+  -1,
+  "(?:\\b(?:wind\\W*from\\W*the\\W*sea|wind\\W*from\\W*sea)\\b|海からの風)"
+ ],
+ "ja:crossing-the-ruins-197": [
+  "umbreon|ブラッキー",
+  197,
+  -1,
+  "(?:\\b(?:neo\\W*discovery|neo\\W*2|crossing\\W*the\\W*ruins|crossing\\W*ruins)\\b|遺跡をこえて)"
+ ],
+ "ja:e4-071": [
+  "umbreon",
+  71,
+  88,
+  "\\bsplit\\W*earth\\b"
+ ],
+ "ja:e2-068": [
+  "umbreon|umbreon\\ \\-068/092",
+  68,
+  92,
+  "\\btown\\W*on\\W*no\\W*map\\b"
+ ],
+ "ja:e3-053": [
+  "slowking|スローキング",
+  53,
+  87,
+  "(?:\\b(?:wind\\W*from\\W*the\\W*sea|wind\\W*from\\W*sea)\\b|海からの風)"
+ ],
+ "ja:darkness-and-to-light-141": [
+  "shining kabutops",
+  141,
+  -1,
+  "(?:\\b(?:neo\\W*destiny|neo\\W*4|darkness\\W*to\\W*light)\\b|闇、?そして光へ)"
+ ],
+ "ja:e5-028": [
+  "gyarados|ギャラドス",
+  28,
+  88,
+  "\\bmysterious\\W*mountains\\b"
+ ],
+ "ja:darkness-and-to-light-251": [
+  "shining celebi",
+  251,
+  -1,
+  "(?:\\b(?:neo\\W*destiny|neo\\W*4|darkness\\W*to\\W*light)\\b|闇、?そして光へ)"
+ ],
+ "ja:darkness-and-to-light-26": [
+  "shining raichu",
+  26,
+  -1,
+  "(?:\\b(?:neo\\W*destiny|neo\\W*4|darkness\\W*to\\W*light)\\b|闇、?そして光へ)"
+ ],
+ "ja:pcg3-069": [
+  "rocket's suicune ex|rocket's\\ suicune\\s?ex",
+  69,
+  84,
+  "\\brocket\\W*gang\\W*strikes\\W*back\\b"
  ]
 }
