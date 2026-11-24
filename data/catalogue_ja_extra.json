@@ -12280,5 +12280,53 @@
   69,
   84,
   "\\brocket\\W*gang\\W*strikes\\W*back\\b"
+ ],
+ "ja:sm3h-058": [
+  "charizard gx|リザードン\\s?gx",
+  58,
+  -1,
+  "(?:\\b(?:battle\\W*rainbow|sm3h|to\\W*have\\W*seen\\W*battle\\W*rainbow)\\b)"
+ ],
+ "ja:e4-027": [
+  "vaporeon",
+  27,
+  88,
+  "\\bsplit\\W*earth\\b"
+ ],
+ "ja:e5-019": [
+  "moltres|モルトレス",
+  19,
+  88,
+  "\\bmysterious\\W*mountains\\b"
+ ],
+ "ja:pcg6-019": [
+  "mewtwo|mewtwo（デルタ種）",
+  19,
+  86,
+  "\\bholon\\W*research\\W*tower\\b"
+ ],
+ "ja:e3-090": [
+  "lugia|ルギア",
+  90,
+  87,
+  "(?:\\b(?:wind\\W*from\\W*the\\W*sea|wind\\W*from\\W*sea)\\b|海からの風)"
+ ],
+ "ja:pcg4-039": [
+  "raikou|ライコウスター",
+  39,
+  106,
+  "(?:\\b(?:golden\\W*sky|golden\\W*sky\\W*silvery\\W*ocean)\\b|金の空、?銀の海)"
+ ],
+ "ja:e2-070": [
+  "houndoom|猟犬\\-070/092",
+  70,
+  92,
+  "\\bmysterious\\W*mountains\\b"
+ ],
+ "ja:darkness-and-to-light-208": [
+  "shining steelix",
+  208,
+  -1,
+  "(?:\\b(?:neo\\W*destiny|neo\\W*4|darkness\\W*to\\W*light)\\b|闇、?そして光へ)"
  ]
 }
