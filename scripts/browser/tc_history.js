@@ -25,6 +25,10 @@ window.SWH = {state: "running", done: 0, total: TODO.length * 4, rows: 0, err: [
           const r = await fetch("/api/card-sales?" + q, {headers: auth()});
           if (!r.ok) throw new Error(r.status);
           const d = (await r.json()).data;
+          if (d.gate && d.gate.locked) {             // D345, 24 Nov: daily limit of the account: never store a 90-day view, wait for the reset
+            SWH.state = "paused"; SWH.resume = Date.now() + ((d.gate.resets_in_hours || 1) * 3600 + 900) * 1000;
+            await new Promise(z => setTimeout(z, SWH.resume - Date.now())); SWH.state = "running"; throw new Error("limit");
+          }
           for (const s of d.sales) { const o = {card: cid, tc_grade: g}; for (const x of KEYS) o[x] = s[x] ?? null; out.push(o); }
           await new Promise(z => setTimeout(z, 1750));
           if (!d.pagination.has_next) break;
