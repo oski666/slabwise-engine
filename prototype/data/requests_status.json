@@ -50760,5 +50760,37 @@
   "requests": 0,
   "source": "coda giapponese (D134)",
   "added": "2026-11-24"
+ },
+ "ja:clay-burst-76": {
+  "n": 42,
+  "recognised": 42,
+  "share": 1.0,
+  "contradicting": 0.0,
+  "tc_id": "114612",
+  "tc_set": "Clay Burst",
+  "tc_url": "/pokemon/clay-burst-japanese/tinkatink-76",
+  "tc_type": "base",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-24",
+  "requests": 0,
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
+ },
+ "ja:crossing-the-ruins-205": {
+  "n": 36,
+  "recognised": 36,
+  "share": 1.0,
+  "contradicting": 0.0,
+  "tc_id": "130216",
+  "tc_set": "Crossing the Ruins...",
+  "tc_url": "/pokemon/crossing-the-ruins-japanese/forretress-205",
+  "tc_type": "base",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-24",
+  "requests": 0,
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  }
 }

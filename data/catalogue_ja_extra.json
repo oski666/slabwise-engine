@@ -12178,5 +12178,17 @@
   74,
   -1,
   "\\btriplet\\W*beat\\b"
+ ],
+ "ja:clay-burst-76": [
+  "tinkatink",
+  76,
+  -1,
+  "\\bclay\\W*burst\\b"
+ ],
+ "ja:crossing-the-ruins-205": [
+  "forretress",
+  205,
+  -1,
+  "(?:\\b(?:neo\\W*discovery|neo\\W*2|crossing\\W*the\\W*ruins|crossing\\W*ruins)\\b|遺跡をこえて)"
  ]
 }

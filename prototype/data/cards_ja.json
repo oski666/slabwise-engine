@@ -40745,5 +40745,39 @@
   "set_en": "Triplet Beat",
   "source": "TCGdex ja",
   "added": "D134"
+ },
+ {
+  "id": "ja:clay-burst-76",
+  "en": null,
+  "en_same": null,
+  "en_check": null,
+  "en_ext": null,
+  "lang": "ja",
+  "n": "Tinkatink (giapponese)",
+  "no": "76",
+  "set": "Clay Burst",
+  "tot": null,
+  "r": null,
+  "ill": null,
+  "set_en": "Clay Burst",
+  "source": "TCGdex ja",
+  "added": "D134"
+ },
+ {
+  "id": "ja:crossing-the-ruins-205",
+  "en": null,
+  "en_same": null,
+  "en_check": null,
+  "en_ext": null,
+  "lang": "ja",
+  "n": "Forretress (giapponese)",
+  "no": "205",
+  "set": "Crossing the Ruins...",
+  "tot": null,
+  "r": null,
+  "ill": null,
+  "set_en": "Crossing the Ruins...",
+  "source": "TCGdex ja",
+  "added": "D134"
  }
 ]
