@@ -1,6 +1,6 @@
 {
  "asof": "2026-11-22",
- "cards": 3031,
+ "cards": 3046,
  "checks": {
   "C7": {
    "n": 54,
@@ -63,15 +63,18 @@
     [
      "me02-130",
      "Mega Charizard X ex",
-     "PSA 8 182 < PSA 7 189"
+     "PSA 8 182 < PSA 7 190"
     ]
    ]
   },
   "C9": {
-   "n": 1,
+   "n": 2,
    "examples": [
     [
-     "ja:super-electric-breaker-116"
+     "g1-RC21"
+    ],
+    [
+     "ja:vmax-climax-216"
     ]
    ]
   }
