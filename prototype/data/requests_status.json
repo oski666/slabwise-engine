@@ -23416,16 +23416,16 @@
   "added": "2026-11-18"
  },
  "ja:beat-of-the-frontier-78": {
-  "n": 23,
-  "recognised": 20,
-  "share": 0.87,
-  "contradicting": 0.13,
+  "n": 6,
+  "recognised": 6,
+  "share": 1.0,
+  "contradicting": 0.0,
   "tc_id": "126700",
   "tc_set": "Beat of the Frontier",
   "tc_url": "/pokemon/beat-of-the-frontier-japanese/rayquaza-c-78",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
+  "status": "attesa_vendite",
+  "detail": "6 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
   "checked": "2026-11-24",
   "requests": 0,
   "source": "coda giapponese (D134)"
@@ -48426,10 +48426,10 @@
   "source": "coda giapponese (D134)"
  },
  "ja:base-expansion-pack-109": {
-  "n": 30,
+  "n": 29,
   "recognised": 7,
-  "share": 0.233,
-  "contradicting": 0.767,
+  "share": 0.241,
+  "contradicting": 0.759,
   "tc_id": 129726,
   "tc_set": "Base Expansion Pack",
   "tc_url": "/pokemon/base-expansion-pack-japanese/poliwrath-109",
@@ -48486,8 +48486,8 @@
   "source": "coda giapponese (D134)"
  },
  "ja:undone-seal-38": {
-  "n": 5,
-  "recognised": 5,
+  "n": 4,
+  "recognised": 4,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": 128847,
@@ -48495,7 +48495,7 @@
   "tc_url": "/pokemon/undone-seal-japanese/regice-ex-38",
   "tc_type": "base",
   "status": "attesa_vendite",
-  "detail": "5 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "detail": "4 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
   "checked": "2026-11-24",
   "requests": 0,
   "source": "coda giapponese (D134)"
@@ -48883,8 +48883,8 @@
   "added": "2026-11-23"
  },
  "ja:dragon-blade-51": {
-  "n": 7,
-  "recognised": 7,
+  "n": 6,
+  "recognised": 6,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": 125390,
@@ -48892,7 +48892,7 @@
   "tc_url": "/pokemon/dragon-blade-japanese/ho-oh-ex-51",
   "tc_type": "base",
   "status": "attesa_vendite",
-  "detail": "7 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "detail": "6 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
   "checked": "2026-11-24",
   "requests": 0,
   "source": "coda giapponese (D134)"
