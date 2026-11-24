@@ -63,6 +63,7 @@ jobs:
         run: |
           pip install -q numpy pandas scipy pillow
           set -o pipefail                  # a crash must fail the job, not be hidden by tee (4 November)
+          export SLABWISE_TC_HIST=data/raw/tcgcharts/hist_waiting.json   # D345: same year the Candidate saw, from the owner's tab (24 Nov: without it 56 of 79 fell back to 90 days)
           PYTHONPATH=. python scripts/add_batch.py ${{ steps.ids.outputs.ids }} ${{ github.event.inputs.gate_only == 'true' && '--gate-only' || '' }} | tee /tmp/add.log
           python scripts/fetch_missing_images.py || echo "immagini: qualcuna manca ancora"     # D151: every card gets a picture
       - name: Save the private data (D163)
