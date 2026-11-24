@@ -12010,5 +12010,83 @@
   324,
   -1,
   "\\bshiny\\W*star\\W*v\\b"
+ ],
+ "ja:the-best-of-xy-102": [
+  "lugia",
+  102,
+  -1,
+  "\\bbest\\W*xy\\b"
+ ],
+ "ja:ruler-of-the-black-flame-114": [
+  "larvitar",
+  114,
+  -1,
+  "\\bruler\\W*black\\W*flame\\b"
+ ],
+ "ja:s-p-155": [
+  "cynthia",
+  155,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:forbidden-light-102": [
+  "bonnie",
+  102,
+  -1,
+  "\\bforbidden\\W*light\\b"
+ ],
+ "ja:holon-research-tower-30": [
+  "vaporeon",
+  30,
+  -1,
+  "\\bholon\\W*research\\W*tower\\b"
+ ],
+ "ja:s-p-029": [
+  "meowth vmax",
+  29,
+  -1,
+  "\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W*(?:black\\W*star\\W*)?promo|\\b(?:s|swsh|sword\\W*(?:&|and)?\\W*shield)\\W?p\\b"
+ ],
+ "ja:ruler-of-the-black-flame-111": [
+  "palafin",
+  111,
+  -1,
+  "\\bruler\\W*black\\W*flame\\b"
+ ],
+ "ja:terastal-festival-ex-215": [
+  "sandy shocks ex",
+  215,
+  -1,
+  "\\bterastal\\W*festival\\W*ex\\b"
+ ],
+ "ja:scarlet-ex-87": [
+  "sandile",
+  87,
+  -1,
+  "\\bscarlet\\W*ex\\b"
+ ],
+ "ja:shining-legends-77": [
+  "pok[eé]mon breeder",
+  77,
+  -1,
+  "(?:\\b(?:shining\\W*legends|sm3\\+|shining\\W*legends)\\b)"
+ ],
+ "ja:glory-of-team-rocket-39": [
+  "team rocket's mewtwo ex",
+  39,
+  -1,
+  "\\bglory\\W*team\\W*rocket\\b"
+ ],
+ "ja:jet-black-spirit-82": [
+  "peonia",
+  82,
+  -1,
+  "\\bjet\\W*black\\W*spirit\\b"
+ ],
+ "ja:great-detective-pikachu-6": [
+  "charizard",
+  6,
+  -1,
+  "\\bgreat\\W*detective\\W*pikachu\\b"
  ]
 }
