@@ -3768,19 +3768,20 @@
   "added": "2026-11-07"
  },
  "ja:pcg9-015": {
-  "n": 9,
-  "recognised": 9,
+  "n": 25,
+  "recognised": 25,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": 127947,
   "tc_set": "Offense and Defense of the Furthest Ends",
   "tc_url": "/pokemon/offense-and-defense-of-the-furthest-ends-japanese/mew-15",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "9 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:pcg8-004": {
   "n": 14,
@@ -3799,34 +3800,36 @@
   "added": "2026-11-24"
  },
  "ja:pcg4-019": {
-  "n": 7,
-  "recognised": 7,
-  "share": 1.0,
-  "contradicting": 0.0,
+  "n": 27,
+  "recognised": 26,
+  "share": 0.963,
+  "contradicting": 0.037,
   "tc_id": 128320,
   "tc_set": "Golden Sky, Silvery Ocean",
   "tc_url": "/pokemon/golden-sky-silvery-ocean-japanese/entei-19",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "7 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:pcg4-032": {
-  "n": 10,
-  "recognised": 9,
-  "share": 0.9,
-  "contradicting": 0.1,
+  "n": 21,
+  "recognised": 20,
+  "share": 0.952,
+  "contradicting": 0.048,
   "tc_id": 128333,
   "tc_set": "Golden Sky, Silvery Ocean",
   "tc_url": "/pokemon/golden-sky-silvery-ocean-japanese/suicune-32",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "9 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:darkness-and-to-light-248": {
   "n": 11,
@@ -4028,19 +4031,20 @@
   "added": "2026-11-12"
  },
  "ja:pcg3-033": {
-  "n": 3,
-  "recognised": 3,
-  "share": 1.0,
-  "contradicting": 0.0,
+  "n": 17,
+  "recognised": 16,
+  "share": 0.941,
+  "contradicting": 0.059,
   "tc_id": 128440,
   "tc_set": "Rocket Gang Strikes Back",
   "tc_url": "/pokemon/rocket-gang-strikes-back-japanese/mudkip-33",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "3 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:pcg7-008": {
   "n": 14,
@@ -4058,19 +4062,20 @@
   "added": "2026-11-12"
  },
  "ja:pcg3-011": {
-  "n": 4,
-  "recognised": 4,
+  "n": 17,
+  "recognised": 17,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": 128418,
   "tc_set": "Rocket Gang Strikes Back",
   "tc_url": "/pokemon/rocket-gang-strikes-back-japanese/treecko-11",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "4 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:e4-071": {
   "n": 14,
@@ -4105,19 +4110,20 @@
   "added": "2026-11-24"
  },
  "ja:pcg5-059": {
-  "n": 8,
-  "recognised": 8,
-  "share": 1.0,
-  "contradicting": 0.0,
+  "n": 20,
+  "recognised": 18,
+  "share": 0.9,
+  "contradicting": 0.1,
   "tc_id": 128274,
   "tc_set": "Mirage Forest",
   "tc_url": "/pokemon/mirage-forest-japanese/regirock-59",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "8 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:pcg8-032": {
   "n": 17,
@@ -4215,19 +4221,20 @@
   "added": "2026-11-24"
  },
  "ja:pcg9-004": {
-  "n": 8,
-  "recognised": 8,
+  "n": 24,
+  "recognised": 24,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": 127936,
   "tc_set": "Offense and Defense of the Furthest Ends",
   "tc_url": "/pokemon/offense-and-defense-of-the-furthest-ends-japanese/dragonite-ex-4",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "8 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:pcg3-069": {
   "n": 22,
@@ -5753,19 +5760,20 @@
   "added": "2026-11-12"
  },
  "ja:clash-of-the-blue-sky-67": {
-  "n": 7,
-  "recognised": 7,
+  "n": 26,
+  "recognised": 26,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": "128559",
   "tc_set": "Clash of the Blue Sky",
   "tc_url": "/pokemon/clash-of-the-blue-sky-japanese/rayquaza-67",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "7 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:xy-p-151": {
   "n": 37,
@@ -6278,19 +6286,20 @@
   "source": "coda giapponese (D134)"
  },
  "ja:p-promos-14": {
-  "n": 7,
-  "recognised": 7,
+  "n": 33,
+  "recognised": 33,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": "129960",
   "tc_set": "P Promos",
   "tc_url": "/pokemon/p-promos-japanese/charizard-14",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "7 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:mcdonalds-pokemon-e-minimum-pack-10": {
   "n": 70,
@@ -6598,19 +6607,20 @@
   "added": "2026-11-08"
  },
  "ja:play-promos-23": {
-  "n": 8,
-  "recognised": 8,
+  "n": 21,
+  "recognised": 21,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": "129220",
   "tc_set": "PLAY Promos",
   "tc_url": "/pokemon/play-promos-japanese/jolteon-23",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "8 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:sm-p-141": {
   "n": 36,
@@ -7021,19 +7031,20 @@
   "added": "2026-11-08"
  },
  "ja:mysterious-mountains-89": {
-  "n": 9,
-  "recognised": 9,
+  "n": 24,
+  "recognised": 24,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": "129318",
   "tc_set": "Mysterious Mountains",
   "tc_url": "/pokemon/mysterious-mountains-japanese/charizard-89",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "9 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:xy-p-050": {
   "n": 41,
@@ -7578,19 +7589,20 @@
   "added": "2026-11-12"
  },
  "ja:clash-of-the-blue-sky-65": {
-  "n": 8,
-  "recognised": 8,
-  "share": 1.0,
-  "contradicting": 0.0,
+  "n": 35,
+  "recognised": 32,
+  "share": 0.914,
+  "contradicting": 0.086,
   "tc_id": "128557",
   "tc_set": "Clash of the Blue Sky",
   "tc_url": "/pokemon/clash-of-the-blue-sky-japanese/latias-65",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "8 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:p-promos-25": {
   "n": 19,
@@ -9034,19 +9046,20 @@
   "source": "coda giapponese (D134)"
  },
  "ja:split-earth-91": {
-  "n": 10,
-  "recognised": 8,
-  "share": 0.8,
-  "contradicting": 0.2,
+  "n": 20,
+  "recognised": 18,
+  "share": 0.9,
+  "contradicting": 0.1,
   "tc_id": "129411",
   "tc_set": "Split Earth",
   "tc_url": "/pokemon/split-earth-japanese/ho-oh-91",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "8 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:xy-p-164": {
   "n": 92,
@@ -21348,19 +21361,20 @@
   "added": "2026-11-18"
  },
  "ja:phantom-gate-90": {
-  "n": 5,
-  "recognised": 5,
+  "n": 16,
+  "recognised": 16,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": "124177",
   "tc_set": "Phantom Gate",
   "tc_url": "/pokemon/phantom-gate-japanese/gengar-ex-90",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "5 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:pokekyun-collection-5": {
   "n": 118,
@@ -21506,19 +21520,20 @@
   "added": "2026-11-18"
  },
  "ja:holon-research-tower-56": {
-  "n": 9,
-  "recognised": 9,
-  "share": 1.0,
-  "contradicting": 0.0,
+  "n": 30,
+  "recognised": 28,
+  "share": 0.933,
+  "contradicting": 0.067,
   "tc_id": "128185",
   "tc_set": "Holon Research Tower",
   "tc_url": "/pokemon/holon-research-tower-japanese/groudon-56",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "9 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:bandit-ring-95": {
   "n": 32,
@@ -21553,19 +21568,20 @@
   "added": "2026-11-18"
  },
  "ja:pcg-promos-2": {
-  "n": 6,
-  "recognised": 6,
+  "n": 21,
+  "recognised": 21,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": "128658",
   "tc_set": "PCG Promos",
   "tc_url": "/pokemon/pcg-promos-japanese/charizard-2",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "6 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:clay-burst-74": {
   "n": 416,
@@ -22205,19 +22221,20 @@
   "added": "2026-11-18"
  },
  "ja:mysterious-mountains-91": {
-  "n": 7,
-  "recognised": 7,
+  "n": 11,
+  "recognised": 11,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": "129320",
   "tc_set": "Mysterious Mountains",
   "tc_url": "/pokemon/mysterious-mountains-japanese/celebi-91",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "7 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:star-birth-112": {
   "n": 211,
@@ -22395,19 +22412,20 @@
   "added": "2026-11-22"
  },
  "ja:holon-research-tower-75": {
-  "n": 8,
-  "recognised": 6,
-  "share": 0.75,
-  "contradicting": 0.25,
+  "n": 28,
+  "recognised": 23,
+  "share": 0.821,
+  "contradicting": 0.179,
   "tc_id": "128204",
   "tc_set": "Holon Research Tower",
   "tc_url": "/pokemon/holon-research-tower-japanese/metagross-75",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "6 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:megalo-cannon-80": {
   "n": 23,
@@ -22647,34 +22665,36 @@
   "added": "2026-11-18"
  },
  "ja:wild-blaze-81": {
-  "n": 5,
-  "recognised": 5,
-  "share": 1.0,
+  "n": 11,
+  "recognised": 10,
+  "share": 0.909,
   "contradicting": 0.0,
   "tc_id": "124370",
   "tc_set": "Wild Blaze",
   "tc_url": "/pokemon/wild-blaze-japanese/charizard-ex-81",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "5 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:beat-of-the-frontier-79": {
-  "n": 9,
-  "recognised": 9,
-  "share": 1.0,
-  "contradicting": 0.0,
+  "n": 33,
+  "recognised": 31,
+  "share": 0.939,
+  "contradicting": 0.061,
   "tc_id": "126701",
   "tc_set": "Beat of the Frontier",
   "tc_url": "/pokemon/beat-of-the-frontier-japanese/rayquaza-c-lv-x-79",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "9 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:the-town-on-no-map-17": {
   "n": 26,
@@ -22693,19 +22713,20 @@
   "added": "2026-11-18"
  },
  "ja:split-earth-90": {
-  "n": 6,
-  "recognised": 6,
+  "n": 18,
+  "recognised": 18,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": "129410",
   "tc_set": "Split Earth",
   "tc_url": "/pokemon/split-earth-japanese/kabutops-90",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "6 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:time-gazer-75": {
   "n": 124,
@@ -22756,19 +22777,20 @@
   "added": "2026-11-18"
  },
  "ja:mirage-forest-76": {
-  "n": 6,
-  "recognised": 6,
+  "n": 21,
+  "recognised": 21,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": "128291",
   "tc_set": "Mirage Forest",
   "tc_url": "/pokemon/mirage-forest-japanese/registeel-76",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "6 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:paradigm-trigger-79": {
   "n": 285,
@@ -22835,19 +22857,20 @@
   "added": "2026-11-22"
  },
  "ja:melee-pokemon-scramble-12": {
-  "n": 7,
-  "recognised": 7,
-  "share": 1.0,
-  "contradicting": 0.0,
+  "n": 15,
+  "recognised": 12,
+  "share": 0.8,
+  "contradicting": 0.2,
   "tc_id": "284632",
   "tc_set": "Melee! Pokemon Scramble",
   "tc_url": "/pokemon/melee-pokemon-scramble-japanese/lucario-12",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "7 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:battle-region-84": {
   "n": 110,
@@ -22946,19 +22969,20 @@
   "added": "2026-11-18"
  },
  "ja:offense-and-defense-of-the-furthest-ends-23": {
-  "n": 10,
-  "recognised": 10,
+  "n": 24,
+  "recognised": 24,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": "127955",
   "tc_set": "Offense and Defense of the Furthest Ends",
   "tc_url": "/pokemon/offense-and-defense-of-the-furthest-ends-japanese/latios-ex-23",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "10 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:shiny-collection-21": {
   "n": 31,
@@ -23057,19 +23081,20 @@
   "added": "2026-11-18"
  },
  "ja:bandit-ring-92": {
-  "n": 9,
-  "recognised": 8,
-  "share": 0.889,
-  "contradicting": 0.111,
+  "n": 38,
+  "recognised": 37,
+  "share": 0.974,
+  "contradicting": 0.026,
   "tc_id": "123797",
   "tc_set": "Bandit Ring",
   "tc_url": "/pokemon/bandit-ring-japanese/lugia-ex-92",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "8 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:rocket-gang-strikes-back-66": {
   "n": 14,
@@ -23104,19 +23129,20 @@
   "added": "2026-11-18"
  },
  "ja:hail-blizzard-54": {
-  "n": 8,
-  "recognised": 8,
+  "n": 28,
+  "recognised": 28,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": "125599",
   "tc_set": "Hail Blizzard",
   "tc_url": "/pokemon/hail-blizzard-japanese/groudon-ex-54",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "8 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:amazing-volt-tackle-31": {
   "n": 220,
@@ -23198,19 +23224,20 @@
   "added": "2026-11-18"
  },
  "ja:megalo-cannon-81": {
-  "n": 6,
-  "recognised": 6,
-  "share": 1.0,
-  "contradicting": 0.0,
+  "n": 29,
+  "recognised": 28,
+  "share": 0.966,
+  "contradicting": 0.034,
   "tc_id": "124984",
   "tc_set": "Megalo Cannon",
   "tc_url": "/pokemon/megalo-cannon-japanese/palkia-ex-81",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "6 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:double-blaze-96": {
   "n": 28,
@@ -23293,19 +23320,20 @@
   "added": "2026-11-18"
  },
  "ja:plasma-gale-78": {
-  "n": 7,
-  "recognised": 7,
-  "share": 1.0,
-  "contradicting": 0.0,
+  "n": 20,
+  "recognised": 18,
+  "share": 0.9,
+  "contradicting": 0.1,
   "tc_id": "125208",
   "tc_set": "Plasma Gale",
   "tc_url": "/pokemon/plasma-gale-japanese/blastoise-78",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "7 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:bandit-ring-94": {
   "n": 28,
@@ -23324,19 +23352,20 @@
   "added": "2026-11-18"
  },
  "ja:dragon-blast-53": {
-  "n": 6,
-  "recognised": 6,
+  "n": 14,
+  "recognised": 14,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": "125447",
   "tc_set": "Dragon Blast",
   "tc_url": "/pokemon/dragon-blast-japanese/giratina-ex-53",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "6 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:psycho-drive-55": {
   "n": 20,
@@ -23387,16 +23416,16 @@
   "added": "2026-11-18"
  },
  "ja:beat-of-the-frontier-78": {
-  "n": 6,
-  "recognised": 6,
-  "share": 1.0,
-  "contradicting": 0.0,
+  "n": 23,
+  "recognised": 20,
+  "share": 0.87,
+  "contradicting": 0.13,
   "tc_id": "126700",
   "tc_set": "Beat of the Frontier",
   "tc_url": "/pokemon/beat-of-the-frontier-japanese/rayquaza-c-78",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "6 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "attesa_motore",
+  "detail": "i controlli del motore non tornano ancora",
   "checked": "2026-11-24",
   "requests": 0,
   "source": "coda giapponese (D134)"
@@ -23545,19 +23574,20 @@
   "added": "2026-11-18"
  },
  "ja:rage-of-the-broken-heavens-89": {
-  "n": 6,
-  "recognised": 6,
-  "share": 1.0,
-  "contradicting": 0.0,
+  "n": 20,
+  "recognised": 15,
+  "share": 0.75,
+  "contradicting": 0.25,
   "tc_id": "123548",
   "tc_set": "Rage of the Broken Heavens",
   "tc_url": "/pokemon/rage-of-the-broken-heavens-japanese/gyarados-ex-89",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "6 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:wind-from-the-sea-23": {
   "n": 28,
@@ -23624,19 +23654,20 @@
   "added": "2026-11-18"
  },
  "ja:plasma-gale-72": {
-  "n": 3,
-  "recognised": 3,
+  "n": 20,
+  "recognised": 20,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": "125202",
   "tc_set": "Plasma Gale",
   "tc_url": "/pokemon/plasma-gale-japanese/articuno-ex-72",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "3 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:bandit-ring-91": {
   "n": 11,
@@ -23687,19 +23718,20 @@
   "added": "2026-11-18"
  },
  "ja:offense-and-defense-of-the-furthest-ends-22": {
-  "n": 10,
-  "recognised": 9,
-  "share": 0.9,
-  "contradicting": 0.1,
+  "n": 16,
+  "recognised": 15,
+  "share": 0.938,
+  "contradicting": 0.062,
   "tc_id": "127954",
   "tc_set": "Offense and Defense of the Furthest Ends",
   "tc_url": "/pokemon/offense-and-defense-of-the-furthest-ends-japanese/salamence-ex-22",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "9 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:vmax-starter-set-2-charizard-2": {
   "n": 0,
@@ -23765,19 +23797,20 @@
   "added": "2026-11-18"
  },
  "ja:bandit-ring-89": {
-  "n": 6,
-  "recognised": 6,
+  "n": 19,
+  "recognised": 19,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": "123794",
   "tc_set": "Bandit Ring",
   "tc_url": "/pokemon/bandit-ring-japanese/tyranitar-ex-89",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "6 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:dragon-blast-51": {
   "n": 3,
@@ -23842,19 +23875,20 @@
   "added": "2026-11-18"
  },
  "ja:blue-shock-65": {
-  "n": 2,
-  "recognised": 2,
-  "share": 1.0,
-  "contradicting": 0.0,
+  "n": 18,
+  "recognised": 17,
+  "share": 0.944,
+  "contradicting": 0.056,
   "tc_id": "123678",
   "tc_set": "Blue Shock",
   "tc_url": "/pokemon/blue-shock-japanese/mewtwo-ex-65",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "2 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:the-town-on-no-map-62": {
   "n": 19,
@@ -23936,19 +23970,20 @@
   "added": "2026-11-18"
  },
  "ja:megalo-cannon-79": {
-  "n": 3,
-  "recognised": 3,
-  "share": 1.0,
-  "contradicting": 0.0,
+  "n": 20,
+  "recognised": 19,
+  "share": 0.95,
+  "contradicting": 0.05,
   "tc_id": "124982",
   "tc_set": "Megalo Cannon",
   "tc_url": "/pokemon/megalo-cannon-japanese/jirachi-ex-79",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "3 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:mysterious-mountains-43": {
   "n": 10,
@@ -24127,34 +24162,36 @@
   "added": "2026-11-18"
  },
  "ja:miracle-crystal-41": {
-  "n": 7,
-  "recognised": 7,
+  "n": 16,
+  "recognised": 16,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": "128041",
   "tc_set": "Miracle Crystal",
   "tc_url": "/pokemon/miracle-crystal-japanese/jirachi-ex-41",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "7 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:split-earth-31": {
-  "n": 10,
-  "recognised": 10,
+  "n": 21,
+  "recognised": 21,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": "129351",
   "tc_set": "Split Earth",
   "tc_url": "/pokemon/split-earth-japanese/politoed-31",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "10 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:tag-team-gx-tag-all-stars-53": {
   "n": 44,
@@ -24205,19 +24242,20 @@
   "added": "2026-11-18"
  },
  "ja:clash-of-the-blue-sky-64": {
-  "n": 9,
-  "recognised": 8,
-  "share": 0.889,
-  "contradicting": 0.0,
+  "n": 32,
+  "recognised": 30,
+  "share": 0.938,
+  "contradicting": 0.031,
   "tc_id": "128556",
   "tc_set": "Clash of the Blue Sky",
   "tc_url": "/pokemon/clash-of-the-blue-sky-japanese/salamence-ex-64",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "8 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:to-have-seen-the-battle-rainbow-11": {
   "n": 55,
@@ -26358,19 +26396,20 @@
   "added": "2026-11-18"
  },
  "ja:pcg-promos-94": {
-  "n": 5,
-  "recognised": 5,
+  "n": 30,
+  "recognised": 30,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": "128750",
   "tc_set": "PCG Promos",
   "tc_url": "/pokemon/pcg-promos-japanese/rayquaza-94",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "5 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:pokemon-card-151-6": {
   "n": 162,
@@ -32237,19 +32276,20 @@
   "added": "2026-11-19"
  },
  "ja:emerald-gift-box-deoxys-19": {
-  "n": 4,
-  "recognised": 4,
-  "share": 1.0,
-  "contradicting": 0.0,
+  "n": 13,
+  "recognised": 12,
+  "share": 0.923,
+  "contradicting": 0.077,
   "tc_id": "233407",
   "tc_set": "Emerald Gift Box (Deoxys)",
   "tc_url": "/pokemon/emerald-gift-box-deoxys-japanese/deoxys-ex-19",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "4 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:pcg-promos-84": {
   "n": 17,
@@ -33142,19 +33182,20 @@
   "added": "2026-11-19"
  },
  "ja:mirage-forest-33": {
-  "n": 2,
-  "recognised": 2,
+  "n": 14,
+  "recognised": 14,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": "128248",
   "tc_set": "Mirage Forest",
   "tc_url": "/pokemon/mirage-forest-japanese/regice-33",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "2 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:pokemon-go-28": {
   "n": 926,
@@ -34598,19 +34639,20 @@
   "source": "coda giapponese (D134)"
  },
  "ja:mysterious-mountains-90": {
-  "n": 5,
-  "recognised": 5,
+  "n": 11,
+  "recognised": 11,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": "129319",
   "tc_set": "Mysterious Mountains",
   "tc_url": "/pokemon/mysterious-mountains-japanese/crobat-90",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "5 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:bw-p-186": {
   "n": 15,
@@ -38682,19 +38724,20 @@
   "source": "coda giapponese (D134)"
  },
  "ja:blue-shock-62": {
-  "n": 8,
-  "recognised": 8,
+  "n": 10,
+  "recognised": 10,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": 123675,
   "tc_set": "Blue Shock",
   "tc_url": "/pokemon/blue-shock-japanese/mewtwo-ex-62",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "8 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:rage-of-the-broken-heavens-85": {
   "n": 2,
@@ -38712,19 +38755,20 @@
   "source": "coda giapponese (D134)"
  },
  "ja:xy-promos-140": {
-  "n": 5,
-  "recognised": 5,
+  "n": 14,
+  "recognised": 14,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": 124645,
   "tc_set": "XY Promos",
   "tc_url": "/pokemon/xy-promos-japanese/umbreon-140",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "5 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:bonds-to-the-end-of-time-90": {
   "n": 5,
@@ -38802,19 +38846,20 @@
   "source": "coda giapponese (D134)"
  },
  "ja:magma-vs-aqua-two-ambitions-55": {
-  "n": 7,
-  "recognised": 7,
+  "n": 16,
+  "recognised": 16,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": 128947,
   "tc_set": "Magma vs Aqua: Two Ambitions",
   "tc_url": "/pokemon/magma-vs-aqua-two-ambitions-japanese/aerodactyl-ex-55",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "7 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:awakening-psychic-king-59": {
   "n": 30,
@@ -38848,19 +38893,20 @@
   "source": "coda giapponese (D134)"
  },
  "ja:miracle-of-the-desert-21": {
-  "n": 7,
-  "recognised": 7,
-  "share": 1.0,
-  "contradicting": 0.0,
+  "n": 18,
+  "recognised": 16,
+  "share": 0.889,
+  "contradicting": 0.111,
   "tc_id": 129047,
   "tc_set": "Miracle of the Desert",
   "tc_url": "/pokemon/miracle-of-the-desert-japanese/wailord-ex-21",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "7 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:beat-of-the-frontier-98": {
   "n": 3,
@@ -38924,19 +38970,20 @@
   "source": "coda giapponese (D134)"
  },
  "ja:beat-of-the-frontier-20": {
-  "n": 8,
-  "recognised": 7,
-  "share": 0.875,
-  "contradicting": 0.125,
+  "n": 23,
+  "recognised": 20,
+  "share": 0.87,
+  "contradicting": 0.13,
   "tc_id": 126642,
   "tc_set": "Beat of the Frontier",
   "tc_url": "/pokemon/beat-of-the-frontier-japanese/blaziken-fb-lv-x-20",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "7 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:pcg-promos-36": {
   "n": 8,
@@ -38969,19 +39016,20 @@
   "source": "coda giapponese (D134)"
  },
  "ja:split-earth-16": {
-  "n": 8,
-  "recognised": 7,
-  "share": 0.875,
-  "contradicting": 0.125,
+  "n": 15,
+  "recognised": 13,
+  "share": 0.867,
+  "contradicting": 0.133,
   "tc_id": 129336,
   "tc_set": "Split Earth",
   "tc_url": "/pokemon/split-earth-japanese/flareon-16",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "7 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:bw8a-056": {
   "n": 2,
@@ -46549,19 +46597,20 @@
   "source": "coda giapponese (D134)"
  },
  "ja:flight-of-legends-24": {
-  "n": 5,
-  "recognised": 5,
+  "n": 20,
+  "recognised": 20,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": "128598",
   "tc_set": "Flight of Legends",
   "tc_url": "/pokemon/flight-of-legends-japanese/moltres-ex-24",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "5 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:mcdonalds-pokemon-e-minimum-pack-5": {
   "n": 13,
@@ -48268,19 +48317,20 @@
   "added": "2026-11-22"
  },
  "ja:pcg-promos-80": {
-  "n": 8,
-  "recognised": 8,
-  "share": 1.0,
-  "contradicting": 0.0,
+  "n": 19,
+  "recognised": 18,
+  "share": 0.947,
+  "contradicting": 0.053,
   "tc_id": "128736",
   "tc_set": "PCG Promos",
   "tc_url": "/pokemon/pcg-promos-japanese/mew-80",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "8 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:the-town-on-no-map-42": {
   "n": 20,
@@ -50817,78 +50867,83 @@
   "added": "2026-11-24"
  },
  "zh:gem-pack-vol-1-709": {
-  "n": 1,
-  "recognised": 1,
+  "n": 18,
+  "recognised": 18,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": "246060",
   "tc_set": "Gem Pack Vol. 1",
   "tc_url": "/pokemon/gem-pack-vol-1-chinese/captain-pikachu-709",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "1 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "catalogo cinese (D338)"
+  "source": "catalogo cinese (D338)",
+  "added": "2026-11-24"
  },
  "zh:gem-pack-vol-3-307": {
-  "n": 0,
-  "recognised": 0,
-  "share": 0.0,
-  "contradicting": 0.0,
+  "n": 41,
+  "recognised": 36,
+  "share": 0.878,
+  "contradicting": 0.122,
   "tc_id": "247292",
   "tc_set": "Gem Pack Vol. 3",
   "tc_url": "/pokemon/gem-pack-vol-3-chinese/gengar-307",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "catalogo cinese (D338)"
+  "source": "catalogo cinese (D338)",
+  "added": "2026-11-24"
  },
  "zh:gem-pack-vol-2-615": {
-  "n": 0,
-  "recognised": 0,
-  "share": 0.0,
+  "n": 32,
+  "recognised": 32,
+  "share": 1.0,
   "contradicting": 0.0,
   "tc_id": "246822",
   "tc_set": "Gem Pack Vol. 2",
   "tc_url": "/pokemon/gem-pack-vol-2-chinese/umbreon-615",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "catalogo cinese (D338)"
+  "source": "catalogo cinese (D338)",
+  "added": "2026-11-24"
  },
  "ja:the-town-on-no-map-37": {
-  "n": 3,
-  "recognised": 3,
+  "n": 10,
+  "recognised": 10,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": 129538,
   "tc_set": "The Town on No Map",
   "tc_url": "/pokemon/the-town-on-no-map-japanese/zapdos-37",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "3 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  },
  "ja:magma-vs-aqua-two-ambitions-20": {
-  "n": 9,
-  "recognised": 9,
+  "n": 27,
+  "recognised": 27,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": 128912,
   "tc_set": "Magma vs Aqua: Two Ambitions",
   "tc_url": "/pokemon/magma-vs-aqua-two-ambitions-japanese/team-magmas-houndoom-20",
   "tc_type": "base",
-  "status": "attesa_vendite",
-  "detail": "9 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "status": "aggiunta",
+  "detail": "",
   "checked": "2026-11-24",
   "requests": 0,
-  "source": "coda giapponese (D134)"
+  "source": "coda giapponese (D134)",
+  "added": "2026-11-24"
  }
 }

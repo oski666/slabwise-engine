@@ -12328,5 +12328,335 @@
   208,
   -1,
   "(?:\\b(?:neo\\W*destiny|neo\\W*4|darkness\\W*to\\W*light)\\b|闇、?そして光へ)"
+ ],
+ "ja:bandit-ring-89": [
+  "tyranitar\\-ex",
+  89,
+  -1,
+  "\\bbandit\\W*ring\\b"
+ ],
+ "ja:bandit-ring-92": [
+  "lugia\\-ex",
+  92,
+  -1,
+  "\\bbandit\\W*ring\\b"
+ ],
+ "ja:beat-of-the-frontier-20": [
+  "blaziken fb lv\\.x",
+  20,
+  -1,
+  "\\bbeat\\W*frontier\\b"
+ ],
+ "ja:beat-of-the-frontier-79": [
+  "rayquaza c lv\\.x",
+  79,
+  -1,
+  "\\bbeat\\W*frontier\\b"
+ ],
+ "ja:blue-shock-62": [
+  "mewtwo ex",
+  62,
+  -1,
+  "\\bblue\\W*shock\\b"
+ ],
+ "ja:blue-shock-65": [
+  "mewtwo\\-ex",
+  65,
+  -1,
+  "\\bblue\\W*shock\\b"
+ ],
+ "ja:clash-of-the-blue-sky-64": [
+  "salamence ex",
+  64,
+  -1,
+  "\\bclash\\W*blue\\W*sky\\b"
+ ],
+ "ja:clash-of-the-blue-sky-65": [
+  "latias",
+  65,
+  -1,
+  "\\bclash\\W*blue\\W*sky\\b"
+ ],
+ "ja:clash-of-the-blue-sky-67": [
+  "rayquaza",
+  67,
+  -1,
+  "\\bclash\\W*blue\\W*sky\\b"
+ ],
+ "ja:dragon-blast-53": [
+  "giratina\\-ex",
+  53,
+  -1,
+  "\\bdragon\\W*blast\\b"
+ ],
+ "ja:emerald-gift-box-deoxys-19": [
+  "deoxys ex",
+  19,
+  -1,
+  "\\bemerald\\W*gift\\W*box\\W*deoxys\\b"
+ ],
+ "ja:flight-of-legends-24": [
+  "moltres ex",
+  24,
+  -1,
+  "\\bflight\\W*legends\\b"
+ ],
+ "ja:hail-blizzard-54": [
+  "groudon\\-ex",
+  54,
+  -1,
+  "\\bhail\\W*blizzard\\b"
+ ],
+ "ja:holon-research-tower-56": [
+  "groudon",
+  56,
+  -1,
+  "\\bholon\\W*research\\W*tower\\b"
+ ],
+ "ja:holon-research-tower-75": [
+  "metagross",
+  75,
+  -1,
+  "\\bholon\\W*research\\W*tower\\b"
+ ],
+ "ja:magma-vs-aqua-two-ambitions-20": [
+  "team magma's houndoom",
+  20,
+  -1,
+  "\\bmagma\\W*vs\\W*aqua\\W*two\\W*ambitions\\b"
+ ],
+ "ja:magma-vs-aqua-two-ambitions-55": [
+  "aerodactyl ex",
+  55,
+  -1,
+  "\\bmagma\\W*vs\\W*aqua\\W*two\\W*ambitions\\b"
+ ],
+ "ja:megalo-cannon-79": [
+  "jirachi\\-ex",
+  79,
+  -1,
+  "\\bmegalo\\W*cannon\\b"
+ ],
+ "ja:megalo-cannon-81": [
+  "palkia\\-ex",
+  81,
+  -1,
+  "\\bmegalo\\W*cannon\\b"
+ ],
+ "ja:melee-pokemon-scramble-12": [
+  "lucario",
+  12,
+  -1,
+  "\\bmelee\\W*scramble\\b"
+ ],
+ "ja:miracle-crystal-41": [
+  "jirachi ex",
+  41,
+  -1,
+  "(?:\\b(?:miracle\\W*crystal|miracle\\W*crystal)\\b|きせきの結晶)"
+ ],
+ "ja:miracle-of-the-desert-21": [
+  "wailord ex",
+  21,
+  -1,
+  "\\bmiracle\\W*desert\\b"
+ ],
+ "ja:mirage-forest-33": [
+  "regice",
+  33,
+  -1,
+  "\\bmirage\\W*forest\\b"
+ ],
+ "ja:mirage-forest-76": [
+  "registeel",
+  76,
+  -1,
+  "\\bmirage\\W*forest\\b"
+ ],
+ "ja:mysterious-mountains-89": [
+  "charizard",
+  89,
+  -1,
+  "\\bmysterious\\W*mountains\\b"
+ ],
+ "ja:mysterious-mountains-90": [
+  "crobat",
+  90,
+  -1,
+  "\\bmysterious\\W*mountains\\b"
+ ],
+ "ja:mysterious-mountains-91": [
+  "celebi",
+  91,
+  -1,
+  "\\bmysterious\\W*mountains\\b"
+ ],
+ "ja:offense-and-defense-of-the-furthest-ends-22": [
+  "salamence ex",
+  22,
+  -1,
+  "(?:\\b(?:dragon\\W*frontiers|furthest\\W*ends|offense\\W*defense\\W*furthest\\W*ends)\\b|さいはての攻防)"
+ ],
+ "ja:offense-and-defense-of-the-furthest-ends-23": [
+  "latios ex",
+  23,
+  -1,
+  "(?:\\b(?:dragon\\W*frontiers|furthest\\W*ends|offense\\W*defense\\W*furthest\\W*ends)\\b|さいはての攻防)"
+ ],
+ "ja:p-promos-14": [
+  "charizard",
+  14,
+  -1,
+  "\\bp\\W*promos\\b"
+ ],
+ "ja:pcg-promos-2": [
+  "charizard",
+  2,
+  -1,
+  "\\bpcg\\W*promos\\b"
+ ],
+ "ja:pcg-promos-80": [
+  "mew",
+  80,
+  -1,
+  "\\bpcg\\W*promos\\b"
+ ],
+ "ja:pcg-promos-94": [
+  "rayquaza",
+  94,
+  -1,
+  "\\bpcg\\W*promos\\b"
+ ],
+ "ja:pcg3-011": [
+  "treecko|treecko\\ star",
+  11,
+  84,
+  "\\brocket\\W*gang\\W*strikes\\W*back\\b"
+ ],
+ "ja:pcg3-033": [
+  "mudkip|マッドキップスター",
+  33,
+  84,
+  "\\brocket\\W*gang\\W*strikes\\W*back\\b"
+ ],
+ "ja:pcg4-019": [
+  "entei|entei\\ star",
+  19,
+  -1,
+  "(?:\\b(?:golden\\W*sky|golden\\W*sky\\W*silvery\\W*ocean)\\b|金の空、?銀の海)"
+ ],
+ "ja:pcg4-032": [
+  "suicune|suicune\\ star",
+  32,
+  -1,
+  "(?:\\b(?:golden\\W*sky|golden\\W*sky\\W*silvery\\W*ocean)\\b|金の空、?銀の海)"
+ ],
+ "ja:pcg5-059": [
+  "regirock|レジロックスター",
+  59,
+  86,
+  "\\bmirage\\W*forest\\b"
+ ],
+ "ja:pcg9-004": [
+  "dragonite ex|ドラゴナイトex（デルタ種）",
+  4,
+  68,
+  "(?:\\b(?:dragon\\W*frontiers|furthest\\W*ends|offense\\W*defense\\W*furthest\\W*ends)\\b|さいはての攻防)"
+ ],
+ "ja:pcg9-015": [
+  "mew|ミュースター（デルタ種）",
+  15,
+  -1,
+  "(?:\\b(?:dragon\\W*frontiers|furthest\\W*ends|offense\\W*defense\\W*furthest\\W*ends)\\b|さいはての攻防)"
+ ],
+ "ja:phantom-gate-90": [
+  "gengar\\-ex",
+  90,
+  -1,
+  "\\bphantom\\W*gate\\b"
+ ],
+ "ja:plasma-gale-72": [
+  "articuno\\-ex",
+  72,
+  -1,
+  "\\bplasma\\W*gale\\b"
+ ],
+ "ja:plasma-gale-78": [
+  "blastoise",
+  78,
+  -1,
+  "\\bplasma\\W*gale\\b"
+ ],
+ "ja:play-promos-23": [
+  "jolteon",
+  23,
+  -1,
+  "\\bplay\\W*promos\\b"
+ ],
+ "ja:rage-of-the-broken-heavens-89": [
+  "gyarados\\-ex",
+  89,
+  -1,
+  "\\brage\\W*broken\\W*heavens\\b"
+ ],
+ "ja:split-earth-16": [
+  "flareon",
+  16,
+  -1,
+  "\\bsplit\\W*earth\\b"
+ ],
+ "ja:split-earth-31": [
+  "politoed",
+  31,
+  -1,
+  "\\bsplit\\W*earth\\b"
+ ],
+ "ja:split-earth-90": [
+  "kabutops",
+  90,
+  -1,
+  "\\bsplit\\W*earth\\b"
+ ],
+ "ja:split-earth-91": [
+  "ho\\-oh",
+  91,
+  -1,
+  "\\bsplit\\W*earth\\b"
+ ],
+ "ja:the-town-on-no-map-37": [
+  "zapdos",
+  37,
+  -1,
+  "\\btown\\W*on\\W*no\\W*map\\b"
+ ],
+ "ja:wild-blaze-81": [
+  "charizard\\-ex",
+  81,
+  -1,
+  "\\bwild\\W*blaze\\b"
+ ],
+ "ja:xy-promos-140": [
+  "umbreon",
+  140,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "zh:gem-pack-vol-1-709": [
+  "captain pikachu",
+  709,
+  -1,
+  "\\bgem\\W*pack\\W*vol\\W*1\\b"
+ ],
+ "zh:gem-pack-vol-2-615": [
+  "umbreon",
+  615,
+  -1,
+  "\\bgem\\W*pack\\W*vol\\W*2\\b"
+ ],
+ "zh:gem-pack-vol-3-307": [
+  "gengar",
+  307,
+  -1,
+  "\\bgem\\W*pack\\W*vol\\W*3\\b"
  ]
 }
