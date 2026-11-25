@@ -19,7 +19,11 @@ week = str(datetime.date.today() - datetime.timedelta(days=7))
 _en0 = {c["id"] for c in json.load(open(os.path.join(DATA, "cards.json")))}
 _tw0 = {c.get("en") for c in json.load(open(os.path.join(DATA, "cards_ja.json"))) if not c.get("pending") and c.get("en")}
 if "--recheck" not in sys.argv:   # 22 Nov: the twin of an English card still without one is never held back by the 7 days
-    ids = [k for k in ids if not ((st.get(k) or {}).get("checked", "") >= week) or (q[k].get("en") in _en0 and q[k].get("en") not in _tw0)]
+    # 25 Nov: the twin exception waits one day: with nothing new to price, the chain looped every 15 minutes on the same 44 twins
+    # (all short of sales in the 90 days an anonymous request sees, D345), spending requests for nothing
+    day = str(datetime.date.today() - datetime.timedelta(days=1))
+    ids = [k for k in ids if not ((st.get(k) or {}).get("checked", "") >= week) or
+           (q[k].get("en") in _en0 and q[k].get("en") not in _tw0 and not ((st.get(k) or {}).get("checked", "") >= day))]
 # 18 Nov 2026: the twins of English cards already on the site first (they complete a card page and the Japanese
 # index), then by tcgcharts rank; before, queue order left the twins behind 1.500 Japanese-only cards
 _en = {c["id"] for c in json.load(open(os.path.join(DATA, "cards.json")))}
