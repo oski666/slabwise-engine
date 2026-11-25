@@ -1,6 +1,6 @@
 {
  "asof": "2026-11-24",
- "cards": 3128,
+ "cards": 3162,
  "checks": {
   "C7": {
    "n": 53,
@@ -13,17 +13,17 @@
     [
      "swsh7-192",
      "Dragonite V",
-     "PSA 9 385 < PSA 8 391"
+     "PSA 9 397 < PSA 8 402"
     ],
     [
      "swsh3.5-79",
      "Charizard V",
-     "PSA 9 185 < PSA 8 203"
+     "PSA 9 190 < PSA 8 208"
     ],
     [
      "swsh7-212",
      "Sylveon VMAX",
-     "PSA 9 282 < PSA 8 300"
+     "PSA 9 288 < PSA 8 307"
     ],
     [
      "me02.5-290",
@@ -38,7 +38,7 @@
     [
      "smp-SM163",
      "Mimikyu",
-     "PSA 8 74 < PSA 7 88"
+     "PSA 8 77 < PSA 7 90"
     ],
     [
      "sv03-228",
@@ -71,7 +71,7 @@
    "n": 1,
    "examples": [
     [
-     "ja:split-earth-45"
+     "ja:vending-machine-series-2-red-125"
     ]
    ]
   }
