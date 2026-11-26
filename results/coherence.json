@@ -1,6 +1,6 @@
 {
- "asof": "2026-11-24",
- "cards": 3162,
+ "asof": "2026-11-25",
+ "cards": 3173,
  "checks": {
   "C7": {
    "n": 53,
@@ -64,14 +64,6 @@
      "me02-130",
      "Mega Charizard X ex",
      "PSA 8 184 < PSA 7 193"
-    ]
-   ]
-  },
-  "C9": {
-   "n": 1,
-   "examples": [
-    [
-     "ja:vending-machine-series-2-red-125"
     ]
    ]
   }
