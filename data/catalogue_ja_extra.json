@@ -12658,5 +12658,71 @@
   307,
   -1,
   "\\bgem\\W*pack\\W*vol\\W*3\\b"
+ ],
+ "ja:mcdonalds-pokemon-e-minimum-pack-18": [
+  "larvitar",
+  18,
+  -1,
+  "\\bmcdonald\\W*s\\W*pok\\W*mon\\W*e\\W*minimum\\W*pack\\b"
+ ],
+ "ja:mcdonalds-pokemon-e-minimum-pack-3": [
+  "chikorita",
+  3,
+  -1,
+  "\\bmcdonald\\W*s\\W*pok\\W*mon\\W*e\\W*minimum\\W*pack\\b"
+ ],
+ "ja:ash-vs-team-rocket-deck-kit-10": [
+  "team rocket's mimikyu gx",
+  10,
+  -1,
+  "\\bash\\W*vs\\W*team\\W*rocket\\W*deck\\W*kit\\b"
+ ],
+ "ja:xy-p-030": [
+  "charizard\\-ex",
+  30,
+  -1,
+  "\\bxy\\W*(?:black\\W*star\\W*)?promo|\\bxy\\W?p\\b"
+ ],
+ "ja:play-promos-19": [
+  "_____'s kyogre",
+  19,
+  -1,
+  "\\bplay\\W*promos\\b"
+ ],
+ "ja:t-promos-2": [
+  "vaporeon",
+  2,
+  -1,
+  "\\bt\\W*promos\\b"
+ ],
+ "ja:play-promos-20": [
+  "_____'s groudon",
+  20,
+  -1,
+  "\\bplay\\W*promos\\b"
+ ],
+ "ja:leaders-stadium-129": [
+  "misty's magikarp",
+  129,
+  -1,
+  "(?:\\b(?:gym\\W*heroes|gym\\W*1|leaders?\\W*stadium|leaders\\W*stadium)\\b|リーダーズスタジアム)"
+ ],
+ "ja:pokepark-forest-8": [
+  "pokepark's munchlax",
+  8,
+  -1,
+  "\\bpokepark\\W*forest\\b"
+ ],
+ "ja:dark-rush-70": [
+  "entei\\-ex",
+  70,
+  -1,
+  "\\bdark\\W*rush\\b"
+ ],
+ "ja:mcdonalds-pokemon-e-minimum-pack-1": [
+  "bulbasaur",
+  1,
+  -1,
+  "\\bmcdonald\\W*s\\W*pok\\W*mon\\W*e\\W*minimum\\W*pack\\b"
  ]
 }
