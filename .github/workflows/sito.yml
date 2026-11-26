@@ -241,6 +241,7 @@ jobs:
           fi
       - name: Page audit, after publishing so it never delays the site (D242)
         continue-on-error: true
+        timeout-minutes: 15         # 26 Nov: it hung 90 minutes from 25 Nov, the job hit its 210 and was cancelled before saving the engine states, so every build refitted again
         run: |
           npm install --no-save --silent playwright@1.49.1
           npx playwright install --with-deps chromium > /dev/null
