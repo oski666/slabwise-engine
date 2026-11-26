@@ -28518,17 +28518,17 @@
   "added": "2026-11-18"
  },
  "ja:pokekyun-collection-3": {
-  "n": 70,
-  "recognised": 39,
-  "share": 0.557,
-  "contradicting": 0.443,
+  "n": 65,
+  "recognised": 30,
+  "share": 0.462,
+  "contradicting": 0.538,
   "tc_id": "123430",
   "tc_set": "PokéKyun Collection",
   "tc_url": "/pokemon/pokekyun-collection-japanese/charmander-3",
   "tc_type": "base",
   "status": "attesa_coerenza",
-  "detail": "44% dei titoli contraddice la carta (al massimo il 40%)",
-  "checked": "2026-11-18",
+  "detail": "54% dei titoli contraddice la carta (al massimo il 40%)",
+  "checked": "2026-11-26",
   "requests": 0,
   "source": "coda giapponese (D134)"
  },
@@ -28725,17 +28725,17 @@
   "added": "2026-11-18"
  },
  "ja:movie-commemoration-random-pack-11": {
-  "n": 29,
-  "recognised": 10,
-  "share": 0.345,
-  "contradicting": 0.655,
+  "n": 32,
+  "recognised": 17,
+  "share": 0.531,
+  "contradicting": 0.469,
   "tc_id": "237442",
   "tc_set": "Movie Commemoration Random Pack",
   "tc_url": "/pokemon/movie-commemoration-random-pack-japanese/spiky-eared-pichu-m-11",
   "tc_type": "base",
   "status": "attesa_coerenza",
-  "detail": "66% dei titoli contraddice la carta (al massimo il 40%)",
-  "checked": "2026-11-18",
+  "detail": "47% dei titoli contraddice la carta (al massimo il 40%)",
+  "checked": "2026-11-26",
   "requests": 0,
   "source": "coda giapponese (D134)"
  },
@@ -50956,5 +50956,20 @@
   "requests": 0,
   "source": "coda giapponese (D134)",
   "added": "2026-11-24"
+ },
+ "ja:play-promos-26": {
+  "n": 0,
+  "recognised": 0,
+  "share": 0.0,
+  "contradicting": 0.0,
+  "tc_id": "129223",
+  "tc_set": "PLAY Promos",
+  "tc_url": "/pokemon/play-promos-japanese/umbreon-26",
+  "tc_type": "base",
+  "status": "attesa_vendite",
+  "detail": "0 vendite PSA riconosciute in un anno (ne servono 10, con almeno 5 in 1 voto)",
+  "checked": "2026-11-26",
+  "requests": 0,
+  "source": "coda giapponese (D134)"
  }
 }
