@@ -1,14 +1,14 @@
 {
  "asof": "2026-11-26",
- "cards": 3178,
+ "cards": 3179,
  "checks": {
   "C7": {
-   "n": 54,
+   "n": 53,
    "examples": [
     [
      "sv08.5-161",
      "Umbreon ex",
-     "PSA 8 886 < PSA 7 888"
+     "PSA 8 888 < PSA 7 890"
     ],
     [
      "swsh7-192",
@@ -28,12 +28,12 @@
     [
      "me02.5-290",
      "Mega Dragonite ex",
-     "PSA 9 338 < PSA 8 350"
+     "PSA 9 339 < PSA 8 351"
     ],
     [
      "sv10.5w-173",
      "Reshiram ex",
-     "PSA 9 374 < PSA 8 376"
+     "PSA 9 375 < PSA 8 377"
     ],
     [
      "smp-SM163",
@@ -53,17 +53,25 @@
     [
      "me01-188",
      "Mega Lucario ex",
-     "PSA 8 154 < PSA 7 157"
+     "PSA 8 155 < PSA 7 158"
     ],
     [
      "me02.5-277",
      "Pikachu ex",
-     "PSA 9 210 < PSA 8 219"
+     "PSA 9 211 < PSA 8 220"
     ],
     [
      "me02-130",
      "Mega Charizard X ex",
      "PSA 8 184 < PSA 7 192"
+    ]
+   ]
+  },
+  "C9": {
+   "n": 1,
+   "examples": [
+    [
+     "ja:vending-machine-series-2-red-100"
     ]
    ]
   }
