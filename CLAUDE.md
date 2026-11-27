@@ -8,3 +8,4 @@
 6. Mai presentare risultati del mercato simulato come risultati reali (P14).
 7. Fonti di dati: ognuna registrata in `docs/DATA_SOURCES.md` con provenienza e rischi (P18 rimosso, D26); nessuna spesa senza decisione nel registro (P19).
 8. Il proprietario del progetto è Oscar: comunica in italiano.
+9. Lavori grossi: prima la scheda in `docs/specs/` (modello in `docs/specs/README.md`) mostrata a Oscar, alla fine la verifica punto per punto scritta nella scheda (D346).
