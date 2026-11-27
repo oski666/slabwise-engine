@@ -12730,5 +12730,59 @@
   3,
   -1,
   "\\bpokepark\\W*forest\\b"
+ ],
+ "ja:southern-islands-14": [
+  "slowking",
+  14,
+  -1,
+  "\\bsouthern\\W*islands\\b"
+ ],
+ "ja:southern-islands-4": [
+  "togepi",
+  4,
+  -1,
+  "\\bsouthern\\W*islands\\b"
+ ],
+ "ja:southern-islands-11": [
+  "marill",
+  11,
+  -1,
+  "\\bsouthern\\W*islands\\b"
+ ],
+ "ja:theater-limited-vs-pack-7": [
+  "annie's espeon",
+  7,
+  -1,
+  "\\btheater\\W*limited\\W*vs\\W*pack\\b"
+ ],
+ "ja:silver-deck-kit-14": [
+  "dark dragonite",
+  14,
+  -1,
+  "\\bsilver\\W*deck\\W*kit\\b"
+ ],
+ "ja:t-promos-12": [
+  "wartortle",
+  12,
+  -1,
+  "\\bt\\W*promos\\b"
+ ],
+ "ja:t-promos-6": [
+  "slowking",
+  6,
+  -1,
+  "\\bt\\W*promos\\b"
+ ],
+ "ja:play-promos-1": [
+  "regice ex",
+  1,
+  -1,
+  "\\bplay\\W*promos\\b"
+ ],
+ "ja:super-burst-impact-102": [
+  "professor elm's lecture",
+  102,
+  -1,
+  "\\bsuper\\W*burst\\W*impact\\b"
  ]
 }
