@@ -3,12 +3,12 @@
  "cards": 3172,
  "checks": {
   "C7": {
-   "n": 55,
+   "n": 53,
    "examples": [
     [
      "sv08.5-161",
      "Umbreon ex",
-     "PSA 8 878 < PSA 7 880"
+     "PSA 8 886 < PSA 7 888"
     ],
     [
      "swsh7-192",
@@ -28,12 +28,12 @@
     [
      "me02.5-290",
      "Mega Dragonite ex",
-     "PSA 9 335 < PSA 8 346"
+     "PSA 9 338 < PSA 8 350"
     ],
     [
      "sv10.5w-173",
      "Reshiram ex",
-     "PSA 9 371 < PSA 8 373"
+     "PSA 9 374 < PSA 8 376"
     ],
     [
      "smp-SM163",
@@ -43,7 +43,7 @@
     [
      "sv03-228",
      "Charizard ex",
-     "PSA 8 40 < PSA 7 45"
+     "PSA 8 41 < PSA 7 45"
     ],
     [
      "me02-109",
@@ -53,17 +53,17 @@
     [
      "me01-188",
      "Mega Lucario ex",
-     "PSA 8 153 < PSA 7 156"
+     "PSA 8 154 < PSA 7 157"
     ],
     [
      "me02.5-277",
      "Pikachu ex",
-     "PSA 9 208 < PSA 8 217"
+     "PSA 9 210 < PSA 8 219"
     ],
     [
      "me02-130",
      "Mega Charizard X ex",
-     "PSA 8 182 < PSA 7 190"
+     "PSA 8 184 < PSA 7 192"
     ]
    ]
   }
