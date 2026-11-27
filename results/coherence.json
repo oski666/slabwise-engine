@@ -1,49 +1,49 @@
 {
- "asof": "2026-11-25",
+ "asof": "2026-11-26",
  "cards": 3172,
  "checks": {
   "C7": {
-   "n": 50,
+   "n": 55,
    "examples": [
     [
      "sv08.5-161",
      "Umbreon ex",
-     "PSA 8 889 < PSA 7 892"
+     "PSA 8 878 < PSA 7 880"
     ],
     [
      "swsh7-192",
      "Dragonite V",
-     "PSA 9 397 < PSA 8 402"
+     "PSA 9 392 < PSA 8 398"
     ],
     [
      "swsh3.5-79",
      "Charizard V",
-     "PSA 9 190 < PSA 8 208"
+     "PSA 9 188 < PSA 8 206"
     ],
     [
      "swsh7-212",
      "Sylveon VMAX",
-     "PSA 9 288 < PSA 8 307"
+     "PSA 9 285 < PSA 8 304"
     ],
     [
      "me02.5-290",
      "Mega Dragonite ex",
-     "PSA 9 340 < PSA 8 351"
+     "PSA 9 335 < PSA 8 346"
     ],
     [
      "sv10.5w-173",
      "Reshiram ex",
-     "PSA 9 375 < PSA 8 378"
+     "PSA 9 371 < PSA 8 373"
     ],
     [
      "smp-SM163",
      "Mimikyu",
-     "PSA 8 77 < PSA 7 90"
+     "PSA 8 76 < PSA 7 89"
     ],
     [
      "sv03-228",
      "Charizard ex",
-     "PSA 8 41 < PSA 7 45"
+     "PSA 8 40 < PSA 7 45"
     ],
     [
      "me02-109",
@@ -53,17 +53,17 @@
     [
      "me01-188",
      "Mega Lucario ex",
-     "PSA 8 155 < PSA 7 158"
+     "PSA 8 153 < PSA 7 156"
     ],
     [
      "me02.5-277",
      "Pikachu ex",
-     "PSA 9 211 < PSA 8 220"
+     "PSA 9 208 < PSA 8 217"
     ],
     [
      "me02-130",
      "Mega Charizard X ex",
-     "PSA 8 184 < PSA 7 193"
+     "PSA 8 182 < PSA 7 190"
     ]
    ]
   }
