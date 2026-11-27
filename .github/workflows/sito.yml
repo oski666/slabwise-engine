@@ -245,7 +245,7 @@ jobs:
         run: |
           npm install --no-save --silent playwright@1.49.1
           npx playwright install --with-deps chromium > /dev/null
-          node scripts/page_audit.js site results/page_audit.json
+          node scripts/page_audit.js site results/page_audit.json 400   # 27 Nov: 3.000+ cards no longer fit in 15 minutes; the first 400 (by market cap) every build
       - name: Coherence report (D211, D242)
         if: github.ref_name == 'main'
         continue-on-error: true
