@@ -8548,5 +8548,59 @@
    2004,
    2005
   ]
+ ],
+ "base4-10": [
+  "mewtwo",
+  "\\bbase\\W*(?:(?:of|the|and)\\W*)?set\\W*(?:(?:of|the|and)\\W*)?2\\b",
+  10,
+  [
+   2000,
+   2001
+  ]
+ ],
+ "basep-1": [
+  "pikachu",
+  "\\bpromo",
+  1,
+  [
+   1999,
+   2000
+  ]
+ ],
+ "dp3-10": [
+  "ho\\-oh",
+  "\\bsecret\\W*(?:(?:of|the|and)\\W*)?wonders\\b",
+  10,
+  [
+   2007,
+   2008
+  ]
+ ],
+ "dpp-DP45": [
+  "charizard g",
+  "\\bpromo",
+  "dp45",
+  [
+   2007,
+   2008
+  ]
+ ],
+ "ecard2-H18": [
+  "nidoking",
+  "\\baquapolis\\b",
+  "h18",
+  [
+   2003,
+   2004
+  ]
+ ],
+ "ex1-102": [
+  "scyther ex",
+  "\\bruby\\W*(?:(?:of|the|and)\\W*)?sapphire\\b",
+  102,
+  [
+   2003,
+   2004
+  ]
  ]
 }

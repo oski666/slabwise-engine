@@ -2983,19 +2983,20 @@
   "source": "catalogo (D111)"
  },
  "en:dpp-DP45": {
-  "n": 98,
-  "recognised": 95,
-  "share": 0.969,
-  "contradicting": 0.0,
+  "n": 93,
+  "recognised": 86,
+  "share": 0.925,
+  "contradicting": 0.011,
   "tc_id": 15805,
   "tc_set": "DP Black Star Promos",
   "tc_url": "/pokemon/dp-black-star-promos/charizard-g-lv-x-dp45",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-14",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-27",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-27"
  },
  "en:col1-20": {
   "n": 54,
@@ -4690,19 +4691,20 @@
   "added": "2026-11-06"
  },
  "en:dp3-10": {
-  "n": 53,
-  "recognised": 52,
-  "share": 0.981,
-  "contradicting": 0.0,
+  "n": 52,
+  "recognised": 49,
+  "share": 0.942,
+  "contradicting": 0.038,
   "tc_id": 15359,
   "tc_set": "Secret Wonders",
   "tc_url": "/pokemon/secret-wonders/ho-oh-10",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-14",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-27",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-27"
  },
  "en:sm10-20": {
   "n": 186,
@@ -5246,19 +5248,20 @@
   "added": "2026-11-07"
  },
  "en:ex1-102": {
-  "n": 83,
-  "recognised": 82,
-  "share": 0.988,
-  "contradicting": 0.0,
+  "n": 84,
+  "recognised": 81,
+  "share": 0.964,
+  "contradicting": 0.012,
   "tc_id": 17603,
   "tc_set": "Ruby & Sapphire",
   "tc_url": "/pokemon/ruby-sapphire/scyther-ex-102",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-14",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-27",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-27"
  },
  "en:me04-116": {
   "n": 217,
@@ -12463,17 +12466,17 @@
   "added": "2026-11-08"
  },
  "en:ecard1-12": {
-  "n": 49,
-  "recognised": 48,
-  "share": 0.98,
-  "contradicting": 0.02,
+  "n": 46,
+  "recognised": 45,
+  "share": 0.978,
+  "contradicting": 0.022,
   "tc_id": 18104,
   "tc_set": "Expedition Base Set",
   "tc_url": "/pokemon/expedition-base-set/feraligatr-12",
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-14",
+  "checked": "2026-11-27",
   "requests": 0,
   "source": "catalogo (D111)"
  },
@@ -12510,17 +12513,17 @@
   "added": "2026-11-14"
  },
  "en:ecard1-29": {
-  "n": 67,
-  "recognised": 66,
-  "share": 0.985,
-  "contradicting": 0.015,
+  "n": 63,
+  "recognised": 61,
+  "share": 0.968,
+  "contradicting": 0.032,
   "tc_id": 18168,
   "tc_set": "Expedition Base Set",
   "tc_url": "/pokemon/expedition-base-set/tyranitar-29",
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-14",
+  "checked": "2026-11-27",
   "requests": 0,
   "source": "catalogo (D111)"
  },
@@ -17942,19 +17945,20 @@
   "added": "2026-11-14"
  },
  "en:ecard2-H18": {
-  "n": 36,
-  "recognised": 36,
+  "n": 37,
+  "recognised": 37,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": 18049,
   "tc_set": "Aquapolis",
   "tc_url": "/pokemon/aquapolis/nidoking-h18",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-14",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-27",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-27"
  },
  "en:xy10-55": {
   "n": 133,
@@ -19168,19 +19172,20 @@
   "added": "2026-11-14"
  },
  "en:base4-10": {
-  "n": 92,
-  "recognised": 90,
-  "share": 0.978,
-  "contradicting": 0.022,
+  "n": 80,
+  "recognised": 72,
+  "share": 0.9,
+  "contradicting": 0.087,
   "tc_id": 19087,
   "tc_set": "Base Set 2",
   "tc_url": "/pokemon/base-set-2/mewtwo-10",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-14",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-27",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-27"
  },
  "en:xy12-12": {
   "n": 227,
@@ -19787,19 +19792,20 @@
   "added": "2026-11-14"
  },
  "en:basep-1": {
-  "n": 122,
-  "recognised": 115,
-  "share": 0.943,
-  "contradicting": 0.057,
+  "n": 97,
+  "recognised": 89,
+  "share": 0.918,
+  "contradicting": 0.072,
   "tc_id": 19278,
   "tc_set": "Wizards Black Star Promos",
   "tc_url": "/pokemon/wizards-black-star-promos/pikachu-1",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-14",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-27",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-27"
  },
  "en:sv10-194": {
   "n": 273,
