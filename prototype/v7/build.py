@@ -36,8 +36,10 @@ tcd = os.path.join(here, "..", "..", "data", "raw", "tcgcharts")    # D115: last
 if which == "real" and os.path.exists(os.path.join(tcd, "sales.json")):
     import gzip
     allsales = json.load(open(os.path.join(tcd, "sales.json"), encoding="utf-8"))
-    if os.path.exists(os.path.join(tcd, "history.json.gz")):
-        allsales += json.load(gzip.open(os.path.join(tcd, "history.json.gz"), "rt", encoding="utf-8"))
+    import sys
+    sys.path.insert(0, os.path.join(here, "..", ".."))
+    from slabwise.sources import tc_history                     # 27 Nov 2026: year shards (D345)
+    allsales += tc_history.load(tcd)
     last = {}
     for s in allsales:
         if s.get("is_excluded") or (s.get("grading_service") or "").upper() != "PSA" or not s.get("price_cents"):

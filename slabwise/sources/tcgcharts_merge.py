@@ -42,9 +42,9 @@ def tcgcharts_rows(tc_dir, have_ebay, have_auction=(), ja=False):
     for card, grade, day, price in have_auction:
         auc.setdefault((card, int(grade)), []).append((day[:10], float(price)))
     sales = json.load(open(os.path.join(tc_dir, "sales.json")))
-    hist = os.path.join(tc_dir, "history.json.gz")   # D80: full history read once with Oscar's account
-    if os.path.exists(hist) and os.environ.get("SLABWISE_TC_HISTORY") == "1":   # D83: only once H1-H4 pass
-        sales += [s for s in json.load(gzip.open(hist, "rt")) if (s.get("sold_date") or "") >= "2022-07-01"]   # D85
+    if os.environ.get("SLABWISE_TC_HISTORY") == "1":   # D80 full history read with Oscar's account; D83 only once H1-H4 pass
+        from slabwise.sources import tc_history          # 27 Nov 2026: year shards (D345)
+        sales += [s for s in tc_history.load(tc_dir) if (s.get("sold_date") or "") >= "2022-07-01"]   # D85
     for s in sales:
         plat = (s.get("platform") or "").lower()
         if plat == "snkrdunk":                                   # D302
