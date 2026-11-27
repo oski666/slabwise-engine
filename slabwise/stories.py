@@ -225,7 +225,7 @@ def jumps(cards, rate, asof):
             if len(new) < 3 or len(old) < 3:
                 continue
             med_old = old[len(old) // 2]
-            check = max(new) > 3 * med_old or (g.get("pop") or 999) <= 50 and max(new) > 2 * med_old
+            check = max(new) > 3 * med_old or (g.get("pop") or 999) <= 50 and max(new) > 2 * med_old or abs(ch) >= 1   # 27 Nov: a doubling is always checked
             prev = g["value"] / (1 + ch)
             up = ch > 0
             hook = (f"{_label(c)} PSA {g['grade']} si vendeva a {eur(prev, rate)}. Oggi a {eur(g['value'], rate)}.")
@@ -256,6 +256,7 @@ def new_highs(cards, rate, asof):
             past = max(r[1] for r in h[:-4])
             if g["value"] <= past * 1.05:
                 continue
+            check = g["value"] > 2 * past               # 27 Nov: far above the old high is a jump to check by hand first
             first = h[0]
             y = first[0][:4]
             hook = f"{_label(c)} PSA {g['grade']} non è mai costato così tanto."
@@ -268,8 +269,8 @@ def new_highs(cards, rate, asof):
                                                         b=dict(label="Oggi", val=eur(g["value"], rate)))]),
                       dict(t="statement", big=eur(g["value"], rate), small=f"prima il massimo era {eur(past, rate)}"),
                       dict(t="question", text=close)]
-            out.append(_story("high", "Nuovo massimo storico", math.log(g["value"] / past) * 4 + 0.3, hook, numbers, why, close,
-                              scenes, [c["id"]], grade=g["grade"]))
+            out.append(_story("high", "Nuovo massimo storico", math.log(g["value"] / past) * 4 * (0.4 if check else 1) + 0.3, hook,
+                              numbers, why, close, scenes, [c["id"]], check=check, grade=g["grade"]))
     return out
 
 
