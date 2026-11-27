@@ -68,5 +68,329 @@
    "cap": 1469728965,
    "hook": "Indice Classica: −25,5% in 4 settimane"
   }
+ ],
+ "reels": [
+  {
+   "kind": "high",
+   "title": "Nuovo massimo storico",
+   "score": 5.6468,
+   "hook": "Scyther ex PSA 10 non è mai costato così tanto.",
+   "numbers": "Scyther ex di Ruby & Sapphire, PSA 10: Slabprice 9.569 €, sopra il massimo di sempre (2.514 €). Nel 2023 valeva 217 €.",
+   "why": "Un massimo storico con tante vendite vere non è un caso: chi vendeva al vecchio prezzo ha smesso.",
+   "close": "Lo terresti o venderesti adesso?",
+   "voice": "Scyther ex PSA 10 non è mai costato così tanto. Scyther ex di Ruby & Sapphire, PSA 10: Slabprice 9.569 €, sopra il massimo di sempre (2.514 €). Nel 2023 valeva 217 €. Un massimo storico con tante vendite vere non è un caso: chi vendeva al vecchio prezzo ha smesso. Lo terresti o venderesti adesso?",
+   "scenes": [
+    {
+     "t": "statement",
+     "big": "Massimo storico",
+     "small": "Scyther ex · PSA 10"
+    },
+    {
+     "t": "beforeafter",
+     "items": [
+      {
+       "card": "ex1-102",
+       "label": "Scyther ex",
+       "a": {
+        "label": "Nel 2023",
+        "val": "217 €"
+       },
+       "b": {
+        "label": "Oggi",
+        "val": "9.569 €"
+       }
+      }
+     ]
+    },
+    {
+     "t": "statement",
+     "big": "9.569 €",
+     "small": "prima il massimo era 2.514 €"
+    },
+    {
+     "t": "question",
+     "text": "Lo terresti o venderesti adesso?"
+    }
+   ],
+   "cards": [
+    "ex1-102"
+   ],
+   "check": false,
+   "grade": 10
+  },
+  {
+   "kind": "high",
+   "title": "Nuovo massimo storico",
+   "score": 5.5099,
+   "hook": "Dialga PSA 9 non è mai costato così tanto.",
+   "numbers": "Dialga di Call of Legends, PSA 9: Slabprice 6.664 €, sopra il massimo di sempre (1.812 €). Nel 2022 valeva 274 €.",
+   "why": "Un massimo storico con tante vendite vere non è un caso: chi vendeva al vecchio prezzo ha smesso.",
+   "close": "Lo terresti o venderesti adesso?",
+   "voice": "Dialga PSA 9 non è mai costato così tanto. Dialga di Call of Legends, PSA 9: Slabprice 6.664 €, sopra il massimo di sempre (1.812 €). Nel 2022 valeva 274 €. Un massimo storico con tante vendite vere non è un caso: chi vendeva al vecchio prezzo ha smesso. Lo terresti o venderesti adesso?",
+   "scenes": [
+    {
+     "t": "statement",
+     "big": "Massimo storico",
+     "small": "Dialga · PSA 9"
+    },
+    {
+     "t": "beforeafter",
+     "items": [
+      {
+       "card": "col1-SL2",
+       "label": "Dialga",
+       "a": {
+        "label": "Nel 2022",
+        "val": "274 €"
+       },
+       "b": {
+        "label": "Oggi",
+        "val": "6.664 €"
+       }
+      }
+     ]
+    },
+    {
+     "t": "statement",
+     "big": "6.664 €",
+     "small": "prima il massimo era 1.812 €"
+    },
+    {
+     "t": "question",
+     "text": "Lo terresti o venderesti adesso?"
+    }
+   ],
+   "cards": [
+    "col1-SL2"
+   ],
+   "check": false,
+   "grade": 9
+  },
+  {
+   "kind": "twin",
+   "title": "Giapponese contro inglese",
+   "score": 2.8622,
+   "hook": "Stessa illustrazione, stesso Magikarp. Uno vale 184 €, l'altro 3.226 €.",
+   "numbers": "Magikarp di Paldea Evolved, PSA 10: inglese 3.226 €, giapponese (Triplet Beat) 184 €. In PSA 10 ci sono 60.165 copie giapponesi e 4.010 inglesi.",
+   "why": "Il prezzo non lo fa l'illustrazione, lo fa quante copie perfette esistono: 15 volte tante, 18 volte meno care.",
+   "close": "Tu quale terresti in vetrina?",
+   "voice": "Stessa illustrazione, stesso Magikarp. Uno vale 184 €, l'altro 3.226 €. Magikarp di Paldea Evolved, PSA 10: inglese 3.226 €, giapponese (Triplet Beat) 184 €. In PSA 10 ci sono 60.165 copie giapponesi e 4.010 inglesi. Il prezzo non lo fa l'illustrazione, lo fa quante copie perfette esistono: 15 volte tante, 18 volte meno care. Tu quale terresti in vetrina?",
+   "scenes": [
+    {
+     "t": "statement",
+     "big": "184 € contro 3.226 €",
+     "small": "Stesso Magikarp."
+    },
+    {
+     "t": "vs",
+     "a": {
+      "card": "ja:sv1a-080",
+      "label": "Giapponese",
+      "sub": "Triplet Beat · PSA 10",
+      "value": "184 €"
+     },
+     "b": {
+      "card": "sv02-203",
+      "label": "Inglese",
+      "sub": "Paldea Evolved · PSA 10",
+      "value": "3.226 €"
+     },
+     "tag": "18 volte il prezzo"
+    },
+    {
+     "t": "bars",
+     "title": "Copie in PSA 10",
+     "items": [
+      {
+       "label": "Giapponese",
+       "value": 60165,
+       "text": "60.165"
+      },
+      {
+       "label": "Inglese",
+       "value": 4010,
+       "text": "4.010"
+      }
+     ]
+    },
+    {
+     "t": "statement",
+     "big": "Lo fa quante copie perfette esistono.",
+     "small": "Il prezzo non lo fa il disegno."
+    },
+    {
+     "t": "question",
+     "text": "Tu quale terresti in vetrina?"
+    }
+   ],
+   "cards": [
+    "ja:sv1a-080",
+    "sv02-203"
+   ],
+   "check": false,
+   "ja_more": false
+  },
+  {
+   "kind": "twin",
+   "title": "Giapponese contro inglese",
+   "score": 2.7802,
+   "hook": "Stessa illustrazione, stesso Drowzee. Uno vale 57,1 €, l'altro 921 €.",
+   "numbers": "Drowzee di Scarlet & Violet, PSA 10: inglese 921 €, giapponese (set giapponese) 57,1 €. In PSA 10 ci sono 10.852 copie giapponesi e 1.738 inglesi.",
+   "why": "Il prezzo non lo fa l'illustrazione, lo fa quante copie perfette esistono: 6 volte tante, 16 volte meno care.",
+   "close": "Tu quale terresti in vetrina?",
+   "voice": "Stessa illustrazione, stesso Drowzee. Uno vale 57,1 €, l'altro 921 €. Drowzee di Scarlet & Violet, PSA 10: inglese 921 €, giapponese (set giapponese) 57,1 €. In PSA 10 ci sono 10.852 copie giapponesi e 1.738 inglesi. Il prezzo non lo fa l'illustrazione, lo fa quante copie perfette esistono: 6 volte tante, 16 volte meno care. Tu quale terresti in vetrina?",
+   "scenes": [
+    {
+     "t": "statement",
+     "big": "57,1 € contro 921 €",
+     "small": "Stesso Drowzee."
+    },
+    {
+     "t": "vs",
+     "a": {
+      "card": "ja:sv1v-086",
+      "label": "Giapponese",
+      "sub": "set giapponese · PSA 10",
+      "value": "57,1 €"
+     },
+     "b": {
+      "card": "sv01-210",
+      "label": "Inglese",
+      "sub": "Scarlet & Violet · PSA 10",
+      "value": "921 €"
+     },
+     "tag": "16 volte il prezzo"
+    },
+    {
+     "t": "bars",
+     "title": "Copie in PSA 10",
+     "items": [
+      {
+       "label": "Giapponese",
+       "value": 10852,
+       "text": "10.852"
+      },
+      {
+       "label": "Inglese",
+       "value": 1738,
+       "text": "1.738"
+      }
+     ]
+    },
+    {
+     "t": "statement",
+     "big": "Lo fa quante copie perfette esistono.",
+     "small": "Il prezzo non lo fa il disegno."
+    },
+    {
+     "t": "question",
+     "text": "Tu quale terresti in vetrina?"
+    }
+   ],
+   "cards": [
+    "ja:sv1v-086",
+    "sv01-210"
+   ],
+   "check": false,
+   "ja_more": false
+  },
+  {
+   "kind": "era_share",
+   "title": "Il PSA 10 per era",
+   "score": 2.37,
+   "hook": "Mandi a gradare una carta dell'era Di mezzo: quante possibilità hai di prendere 10? Una su 132.",
+   "numbers": "Era Di mezzo: nel 2021–22 prendeva PSA 10 l'8,1% delle carte gradate, un anno fa il 1,3%, negli ultimi sei mesi il 0,8%.",
+   "why": "Le copie perfette delle carte vecchie sono già state gradate: quello che arriva oggi è il resto. Prima di spedire, conta sul 9.",
+   "close": "Hai mai preso un 10 su una carta più vecchia di te?",
+   "voice": "Mandi a gradare una carta dell'era Di mezzo: quante possibilità hai di prendere 10? Una su 132. Era Di mezzo: nel 2021–22 prendeva PSA 10 l'8,1% delle carte gradate, un anno fa il 1,3%, negli ultimi sei mesi il 0,8%. Le copie perfette delle carte vecchie sono già state gradate: quello che arriva oggi è il resto. Prima di spedire, conta sul 9. Hai mai preso un 10 su una carta più vecchia di te?",
+   "scenes": [
+    {
+     "t": "statement",
+     "big": "1 su 132",
+     "small": "prende PSA 10 oggi · era Di mezzo"
+    },
+    {
+     "t": "bars",
+     "title": "Quota di PSA 10 · Di mezzo",
+     "items": [
+      {
+       "label": "2021–22",
+       "value": 0.0813,
+       "text": "8,1%"
+      },
+      {
+       "label": "un anno fa",
+       "value": 0.0126,
+       "text": "1,3%"
+      },
+      {
+       "label": "ultimi 6 mesi",
+       "value": 0.0076,
+       "text": "0,8%"
+      }
+     ]
+    },
+    {
+     "t": "statement",
+     "big": "Sul vintage conta sul 9.",
+     "small": "Le copie perfette sono già state gradate."
+    },
+    {
+     "t": "question",
+     "text": "Hai mai preso un 10 su una carta più vecchia di te?"
+    }
+   ],
+   "cards": [],
+   "check": false,
+   "era": "Di mezzo"
+  },
+  {
+   "kind": "jump",
+   "title": "Il salto",
+   "score": 1.3797,
+   "hook": "Typhlosion giapponese PSA 10 si vendeva a 368 €. Oggi a 1.462 €.",
+   "numbers": "Typhlosion giapponese di Gold, Silver, to a New World..., PSA 10: Slabprice 1.462 €, +297% in 30 giorni, 7 vendite negli ultimi due mesi. In PSA 10 ne esistono 1.441.",
+   "why": "Con poche copie bastano due compratori decisi per spostare il prezzo: la prossima vendita dirà se è un nuovo livello.",
+   "close": "Nuovo prezzo o bolla?",
+   "voice": "Typhlosion giapponese PSA 10 si vendeva a 368 €. Oggi a 1.462 €. Typhlosion giapponese di Gold, Silver, to a New World..., PSA 10: Slabprice 1.462 €, +297% in 30 giorni, 7 vendite negli ultimi due mesi. In PSA 10 ne esistono 1.441. Con poche copie bastano due compratori decisi per spostare il prezzo: la prossima vendita dirà se è un nuovo livello. Nuovo prezzo o bolla?",
+   "scenes": [
+    {
+     "t": "statement",
+     "big": "368 € → 1.462 €",
+     "small": "Typhlosion giapponese · PSA 10"
+    },
+    {
+     "t": "beforeafter",
+     "items": [
+      {
+       "card": "ja:gold-silver-to-a-new-world-157",
+       "label": "Typhlosion giapponese",
+       "a": {
+        "label": "Un mese fa",
+        "val": "368 €"
+       },
+       "b": {
+        "label": "Oggi",
+        "val": "1.462 €"
+       }
+      }
+     ]
+    },
+    {
+     "t": "statement",
+     "big": "Nuovo prezzo o bolla?",
+     "small": "7 vendite in due mesi"
+    },
+    {
+     "t": "question",
+     "text": "Nuovo prezzo o bolla?"
+    }
+   ],
+   "cards": [
+    "ja:gold-silver-to-a-new-world-157"
+   ],
+   "check": false,
+   "grade": 10
+  }
  ]
 }
