@@ -1061,6 +1061,20 @@ if os.path.exists(_sev_p):
                            eras={e: dict(now=_share(e, _last), y1=_share(e, _prev), start=_share(e, _first)) for e in _sev})
     except Exception as _e:
         print(f"quota di PSA 10 non calcolata: {_e}", flush=True)
+# D347: the stories of the week for the creators' reels (docs/specs/2026-11-reel-scene.md), chosen once a week like the
+# other stories; prices in euros at the day's rate
+try:
+    from slabwise import stories as _stories
+    if _old and _old.get("monday") == str(_monday) and _old.get("reels") is not None:
+        pulse["reels"] = _old["reels"]
+    else:
+        _ph_p = os.path.join(HERE, "..", "data", "raw", "gemrate", "pop_history.json")
+        _ph = json.load(open(_ph_p)) if os.path.exists(_ph_p) else {}
+        pulse["reels"] = _stories.week_stories(out_cards, psa10_share, _ph, EUR, asof)
+        json.dump(dict(monday=str(_monday), **pulse), open(_pp, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    print("storie per i reel (D347):", [x["kind"] for x in pulse["reels"]], flush=True)
+except Exception as _e:
+    print(f"storie per i reel non calcolate: {_e}", flush=True)
 res = dict(real=True, psa10_share=psa10_share, indexes_grade=indexes_grade, index_margin=index_margin, rarity_fit=rarity_fit, engine=ENGINE, deals_asof=deals_asof, deal_stats=deal_stats, ja_pending=ja_pending, indexes=indexes, index_history=index_history, index_all=index_all, index_sets=index_sets, index_pokemon=index_pokemon, index_base=(index_source["base"] if index_source else wk(index_base_w)), index_source=index_source, asof=str(asof), eur_rate=EUR, eur_rate_date=rate_date, cards=out_cards, rollups=rollups, pulse=pulse, slabmeter=slabmeter, tap=tap,
            params={k: v for k, v in params.__dict__.items()}, n_sales=int(len(clean)), n_removed=int(len(removed)), venues=venues,
            venue_gaps={v: round(float(lvm.offs[k]), 4) for k, v in enumerate(("ebay", "auction", "fixed"))},

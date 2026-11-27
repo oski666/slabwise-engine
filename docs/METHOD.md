@@ -174,6 +174,17 @@ Il costo finale in Italia (IVA, dogana, spedizione, cambio BCE) si applica al pr
 - **Slab-Meter** (`prototype/build_real_data.py`, `slabmeter`): media di quattro punteggi da 0 a 100. (1) Quota di carte inglesi in rialzo tra quelle che si muovono più di ±0,5% in 30 giorni, sul voto con più vendite in 90 giorni tra quelli con variazione mostrata (D161), non in revisione; (2) vendite pulite dell'ultima settimana completa contro la media delle 8 prima: 50 + 50·clip((r − 1)/0,5); (3) carte al massimo contro carte al minimo delle ultime 52 settimane di Slabprice (stesso voto; 50 se nessuna); (4) SlabDex in 4 settimane: 50 + 50·clip(Δ/0,10). Gradi = 33 + 0,09 × punteggio. Stati: ≥80 esplode, 60–80 caldo, 40–60 tiepido, 20–40 freddo, <20 gelo.
 - **Copie nuove della Slabvalve, dati** (prima Rubinetto; `scripts/gemrate_tap.py`, D309): dalle pagine dei set di GemRate (D189), per ogni carta abbinata per numero, nome e stampa: nuovi PSA 10 negli ultimi 30 giorni (`c10_diff_p1`) contro PSA 10 venduti in 30 giorni nei nostri dati (media delle ultime 13 settimane × 30/7). Rapporto > 1,5 aperto, 0,67–1,5 in equilibrio, < 0,67 chiuso; senza PSA 10 venduti non si calcola. Dal D225 la pagina mostra solo i nuovi PSA 10 del mese e il grafico delle copie gradate a settimana (tutti i voti, ultime 52 settimane), dentro la sezione della Slabvalve; lo stato aperto/chiuso resta nei dati.
 
+## 8c. Storie della settimana per i reel (D347)
+
+Fuori dai prezzi: notizie trovate nei nostri dati, scelte una volta a settimana (`slabwise/stories.py`, `pulse.reels`). Cinque tipi:
+- **Giapponese contro inglese**: stampa giapponese e inglese della stessa carta (`en_same`), PSA 10 con almeno 8 vendite in 90 giorni ciascuna, almeno 100 copie in PSA 10 ciascuna, rapporto di prezzo tra 2,5 e 25, niente promo (oltre è più spesso un abbinamento sbagliato); punteggio log(rapporto), +0,7 se costa di più la giapponese, ridotto se le vendite sono meno di 20.
+- **Il PSA 10 per era**: la quota di PSA 10 della sezione 8b; l'era che ha perso di più tra 2021–22 e gli ultimi sei mesi, se è scesa almeno del 40%; punteggio −log(oggi/inizio).
+- **Offerta contro prezzo**: dalle letture settimanali delle popolazioni, carte con almeno l'8% e 500 PSA 10 in più in 25–40 giorni e Slabprice PSA 10 sceso almeno del 10% in 30 giorni; se nello stesso set una carta con la stessa ondata è salita almeno del 10%, la storia le mette a confronto.
+- **Il salto / La caduta**: variazione a 30 giorni di almeno il 30% con SlabRange stretto (alto/basso < 1,6), almeno 3 vendite negli ultimi 60 giorni e 3 nell'anno prima; se una vendita recente supera 3 volte la mediana dell'anno prima (2 volte con 50 copie o meno) la storia porta l'avviso "da controllare" e il reel aspetta Oscar.
+- **Nuovo massimo storico**: Slabprice oltre il 5% sopra il massimo delle settimane precedenti, con almeno due anni di storia e 8 vendite in 90 giorni.
+
+Al massimo 6 storie, 2 per tipo (salto e caduta contano insieme), mai la stessa carta due volte, in ordine di punteggio. Prezzi in euro al cambio del giorno.
+
 ## 9. Limiti noti (P17)
 
 - Testato finora solo su un mercato simulato. La fase con dati reali è obbligatoria prima di qualsiasi uso pubblico (P14).
