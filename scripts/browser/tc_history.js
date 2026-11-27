@@ -25,6 +25,9 @@ window.SWH = {state: "running", done: 0, total: TODO.length * 4, rows: 0, err: [
           const r = await fetch("/api/card-sales?" + q, {headers: auth()});
           if (!r.ok) throw new Error(r.status);
           const d = (await r.json()).data;
+          if (d.gate && d.gate.locked && d.gate.reason === "signup") {   // 27 Nov: the owner's session expired: stop, he signs in again
+            SWH.state = "login"; throw new Error("login");
+          }
           if (d.gate && d.gate.locked) {             // D345, 24 Nov: daily limit of the account: never store a 90-day view, wait for the reset
             SWH.state = "paused"; SWH.resume = Date.now() + ((d.gate.resets_in_hours || 1) * 3600 + 900) * 1000;
             await new Promise(z => setTimeout(z, SWH.resume - Date.now())); SWH.state = "running"; throw new Error("limit");
@@ -34,7 +37,7 @@ window.SWH = {state: "running", done: 0, total: TODO.length * 4, rows: 0, err: [
           if (!d.pagination.has_next) break;
         }
         await put(k, out); SWH.done++; SWH.rows += out.length; ok = true;
-      } catch (e) { SWH.last_err = k + " " + e.message; await new Promise(z => setTimeout(z, 60000)); }
+      } catch (e) { SWH.last_err = k + " " + e.message; if (e.message === "login") return; await new Promise(z => setTimeout(z, 60000)); }
     }
     if (!ok) SWH.err.push(k);
   }
