@@ -12724,5 +12724,11 @@
   1,
   -1,
   "\\bmcdonald\\W*s\\W*pok\\W*mon\\W*e\\W*minimum\\W*pack\\b"
+ ],
+ "ja:pokepark-forest-3": [
+  "pokepark's mudkip",
+  3,
+  -1,
+  "\\bpokepark\\W*forest\\b"
  ]
 }
