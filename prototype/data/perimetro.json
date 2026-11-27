@@ -1,49 +1,49 @@
 {
- "data": "2026-11-26",
+ "data": "2026-11-27",
  "posizioni": 2000,
- "copertura": 0.8462,
+ "copertura": 0.8456,
  "parti": {
   "EN variante": {
    "carte": 287,
    "dentro": 96,
-   "cap": 1943152070.2200012,
-   "cap_dentro": 1246357302.2099996,
-   "copertura": 0.6414
+   "cap": 1940243002.9200013,
+   "cap_dentro": 1245193414.4700005,
+   "copertura": 0.6418
   },
   "EN": {
-   "carte": 873,
-   "dentro": 803,
-   "cap": 5854312231.919999,
-   "cap_dentro": 5516690567.979998,
-   "copertura": 0.9423
+   "carte": 869,
+   "dentro": 800,
+   "cap": 5830172127.569994,
+   "cap_dentro": 5494406722.359992,
+   "copertura": 0.9424
   },
   "JA": {
-   "carte": 653,
-   "dentro": 568,
-   "cap": 4351685746.060004,
-   "cap_dentro": 3886255752.680003,
-   "copertura": 0.893
+   "carte": 657,
+   "dentro": 571,
+   "cap": 4368370755.719997,
+   "cap_dentro": 3895445514.349998,
+   "copertura": 0.8917
   },
   "JA variante": {
    "carte": 114,
    "dentro": 10,
-   "cap": 514868414.63,
-   "cap_dentro": 60368217.57,
+   "cap": 515935803.3199999,
+   "cap_dentro": 60486712.56999999,
    "copertura": 0.1172
   },
   "altre varianti (fuori, da decidere)": {
    "carte": 45,
    "dentro": 2,
-   "cap": 157871762.41,
+   "cap": 157238913.66999996,
    "cap_dentro": 6479063.12,
-   "copertura": 0.041
+   "copertura": 0.0412
   },
   "ZH-CN": {
-   "carte": 23,
+   "carte": 24,
    "dentro": 17,
-   "cap": 130168522.58999999,
-   "cap_dentro": 116249877.28999999,
-   "copertura": 0.8931
+   "cap": 131221609.98,
+   "cap_dentro": 115951225.87,
+   "copertura": 0.8836
   }
  },
  "mancanti": [
@@ -53,7 +53,7 @@
    "nome": "Charizard",
    "set": "Legendary Collection",
    "variante": "Reverse Foil",
-   "cap": 85583894
+   "cap": 85285417
   },
   {
    "pos": 39,
@@ -61,15 +61,15 @@
    "nome": "Charizard",
    "set": "Expansion Pack",
    "variante": "No Rarity Symbol",
-   "cap": 41562402
+   "cap": 41567781
   },
   {
-   "pos": 40,
+   "pos": 41,
    "lingua": "EN",
    "nome": "Umbreon ☆",
    "set": "POP Series 5",
    "variante": null,
-   "cap": 41220523
+   "cap": 40774214
   },
   {
    "pos": 42,
@@ -80,7 +80,7 @@
    "cap": 40000750
   },
   {
-   "pos": 47,
+   "pos": 46,
    "lingua": "EN",
    "nome": "Espeon ☆",
    "set": "POP Series 5",
@@ -93,15 +93,15 @@
    "nome": "Charizard-EX",
    "set": "XY Promos",
    "variante": null,
-   "cap": 29728350
+   "cap": 29500720
   },
   {
-   "pos": 74,
+   "pos": 70,
    "lingua": "JA",
    "nome": "Karen's Umbreon",
    "set": "Pokémon VS",
    "variante": null,
-   "cap": 25288180
+   "cap": 26149909
   },
   {
    "pos": 76,
@@ -120,31 +120,31 @@
    "cap": 24882903
   },
   {
-   "pos": 86,
+   "pos": 89,
    "lingua": "EN",
    "nome": "Charizard",
    "set": "Celebrations: Classic Collection",
    "variante": null,
-   "cap": 23460348
+   "cap": 23058468
   },
   {
-   "pos": 89,
+   "pos": 91,
    "lingua": "JA",
    "nome": "Lugia",
    "set": "Wind from the Sea",
    "variante": "1st Edition",
-   "cap": 22870919
+   "cap": 22921319
   },
   {
-   "pos": 93,
+   "pos": 96,
    "lingua": "EN",
    "nome": "Mewtwo",
    "set": "Legendary Collection",
    "variante": "Reverse Foil",
-   "cap": 22079457
+   "cap": 22043592
   },
   {
-   "pos": 96,
+   "pos": 99,
    "lingua": "EN",
    "nome": "Mew",
    "set": "Expedition Base Set",
@@ -157,7 +157,7 @@
    "nome": "Charizard δ",
    "set": "Crystal Guardians",
    "variante": "Reverse Foil",
-   "cap": 21078244
+   "cap": 21136603
   },
   {
    "pos": 105,
@@ -173,7 +173,7 @@
    "nome": "Charizard",
    "set": "Mysterious Mountains",
    "variante": "1st Edition",
-   "cap": 20030150
+   "cap": 20037650
   },
   {
    "pos": 118,
@@ -189,7 +189,7 @@
    "nome": "Squirtle",
    "set": "McDonald's Pokémon-e Minimum Pack",
    "variante": null,
-   "cap": 19372858
+   "cap": 19372364
   },
   {
    "pos": 157,
@@ -197,39 +197,47 @@
    "nome": "Pikachu",
    "set": "Expansion Pack",
    "variante": "No Rarity Symbol",
-   "cap": 16186281
+   "cap": 16321887
   },
   {
-   "pos": 162,
+   "pos": 160,
    "lingua": "JA",
    "nome": "Shining Magikarp",
    "set": "Awakening Legends",
    "variante": null,
-   "cap": 15829791
+   "cap": 16138194
   },
   {
-   "pos": 168,
+   "pos": 164,
    "lingua": "JA",
    "nome": "Rayquaza-EX",
    "set": "Black & White Promos",
    "variante": null,
-   "cap": 15445751
+   "cap": 15770851
   },
   {
-   "pos": 177,
+   "pos": 170,
+   "lingua": "JA",
+   "nome": "Gengar",
+   "set": "Pokémon Web",
+   "variante": "1st Edition",
+   "cap": 15318417
+  },
+  {
+   "pos": 176,
    "lingua": "JA",
    "nome": "Gengar",
    "set": "Mysterious Mountains",
    "variante": "1st Edition",
-   "cap": 14865136
+   "cap": 14874040
   },
   {
-   "pos": 178,
+   "pos": 179,
    "lingua": "EN",
    "nome": "Special Delivery Charizard",
    "set": "SWSH Black Star Promos",
    "variante": null,
-   "cap": 14790540
+   "cap": 14799644
   },
   {
    "pos": 180,
@@ -240,31 +248,23 @@
    "cap": 14632027
   },
   {
-   "pos": 182,
-   "lingua": "JA",
-   "nome": "Gengar",
-   "set": "Pokémon Web",
-   "variante": "1st Edition",
-   "cap": 14572817
-  },
-  {
-   "pos": 186,
+   "pos": 187,
    "lingua": "EN",
    "nome": "Dark Dragonite",
    "set": "Legendary Collection",
    "variante": "Reverse Foil",
-   "cap": 14204232
+   "cap": 14145786
   },
   {
-   "pos": 189,
+   "pos": 190,
    "lingua": "EN",
    "nome": "Dark Dragonite",
    "set": "Team Rocket Returns",
    "variante": "Reverse Foil",
-   "cap": 13987098
+   "cap": 13940570
   },
   {
-   "pos": 205,
+   "pos": 204,
    "lingua": "JA",
    "nome": "Mudkip (Art Academy, Daisuke Ochiai)",
    "set": "XY Promos",
@@ -272,7 +272,7 @@
    "cap": 12900000
   },
   {
-   "pos": 206,
+   "pos": 205,
    "lingua": "JA",
    "nome": "Mudkip ☆",
    "set": "Rocket Gang Strikes Back",
@@ -280,7 +280,7 @@
    "cap": 12871285
   },
   {
-   "pos": 221,
+   "pos": 220,
    "lingua": "JA",
    "nome": "Torchic ☆",
    "set": "Rocket Gang Strikes Back",
@@ -288,47 +288,47 @@
    "cap": 12109000
   },
   {
-   "pos": 245,
+   "pos": 231,
    "lingua": "EN",
    "nome": "Mega Charizard X ex",
    "set": "Mega Evolution Black Star Promos",
    "variante": null,
-   "cap": 10861985
+   "cap": 11390750
   },
   {
-   "pos": 247,
+   "pos": 246,
    "lingua": "EN",
    "nome": "Gyarados",
    "set": "Legendary Collection",
    "variante": "Reverse Foil",
-   "cap": 10824097
+   "cap": 10873380
   },
   {
-   "pos": 263,
+   "pos": 262,
    "lingua": "JA",
    "nome": "Gengar-EX",
    "set": "Phantom Gate",
    "variante": "1st Edition",
-   "cap": 10384311
+   "cap": 10404073
   },
   {
-   "pos": 269,
-   "lingua": "EN",
-   "nome": "_____'s Pikachu",
-   "set": "Wizards Black Star Promos",
-   "variante": null,
-   "cap": 10143779
-  },
-  {
-   "pos": 270,
+   "pos": 268,
    "lingua": "JA",
    "nome": "Giratina-EX",
    "set": "Black & White Promos",
    "variante": null,
-   "cap": 10131076
+   "cap": 10145577
   },
   {
-   "pos": 277,
+   "pos": 273,
+   "lingua": "EN",
+   "nome": "_____'s Pikachu",
+   "set": "Wizards Black Star Promos",
+   "variante": null,
+   "cap": 10062451
+  },
+  {
+   "pos": 276,
    "lingua": "EN",
    "nome": "Charizard",
    "set": "Skyridge",
@@ -336,12 +336,12 @@
    "cap": 10018554
   },
   {
-   "pos": 284,
+   "pos": 281,
    "lingua": "JA",
    "nome": "Rayquaza",
    "set": "LEGEND Promos",
    "variante": null,
-   "cap": 9564335
+   "cap": 9835172
   },
   {
    "pos": 300,
@@ -349,10 +349,10 @@
    "nome": "Mewtwo",
    "set": "Expansion Pack",
    "variante": "No Rarity Symbol",
-   "cap": 9249735
+   "cap": 9249985
   },
   {
-   "pos": 308,
+   "pos": 305,
    "lingua": "JA",
    "nome": "Flareon ☆",
    "set": "PLAY Promos",
@@ -360,15 +360,15 @@
    "cap": 9133905
   },
   {
-   "pos": 316,
+   "pos": 313,
    "lingua": "JA",
    "nome": "Umbreon",
    "set": "The Town on No Map",
    "variante": "1st Edition",
-   "cap": 8863624
+   "cap": 8872152
   },
   {
-   "pos": 320,
+   "pos": 317,
    "lingua": "JA",
    "nome": "Acerola",
    "set": "Sun & Moon Promos",
@@ -376,23 +376,23 @@
    "cap": 8814572
   },
   {
-   "pos": 323,
+   "pos": 321,
    "lingua": "EN",
    "nome": "Charizard",
    "set": "Evolutions",
    "variante": "Reverse Foil",
-   "cap": 8738808
+   "cap": 8739765
   },
   {
-   "pos": 335,
+   "pos": 331,
    "lingua": "JA",
    "nome": "Pikachu",
    "set": "Pokémon Card 151",
    "variante": "Master Ball Reverse Holo",
-   "cap": 8459095
+   "cap": 8478498
   },
   {
-   "pos": 336,
+   "pos": 334,
    "lingua": "JA",
    "nome": "Gengar",
    "set": "Pokémon Card 151",
@@ -400,31 +400,31 @@
    "cap": 8430606
   },
   {
-   "pos": 337,
+   "pos": 335,
    "lingua": "JA",
    "nome": "Mew",
    "set": "Base Expansion Pack",
    "variante": "1st Edition",
-   "cap": 8406853
+   "cap": 8413200
   },
   {
-   "pos": 350,
+   "pos": 342,
    "lingua": "EN",
    "nome": "Misdreavus",
    "set": "Neo Revelation",
    "variante": "1st Edition",
-   "cap": 8078112
+   "cap": 8198441
   },
   {
-   "pos": 364,
-   "lingua": "EN",
-   "nome": "Venusaur",
-   "set": "Legendary Collection",
-   "variante": "Reverse Foil",
-   "cap": 7898150
+   "pos": 353,
+   "lingua": "JA",
+   "nome": "Charmander",
+   "set": "McDonald's Pokémon-e Minimum Pack",
+   "variante": null,
+   "cap": 7971425
   },
   {
-   "pos": 370,
+   "pos": 367,
    "lingua": "JA",
    "nome": "Master's Scroll",
    "set": "LEGEND Promos",
@@ -432,23 +432,23 @@
    "cap": 7817204
   },
   {
-   "pos": 377,
-   "lingua": "JA",
-   "nome": "Charmander",
-   "set": "McDonald's Pokémon-e Minimum Pack",
-   "variante": null,
-   "cap": 7748625
+   "pos": 368,
+   "lingua": "EN",
+   "nome": "Venusaur",
+   "set": "Legendary Collection",
+   "variante": "Reverse Foil",
+   "cap": 7803636
   },
   {
-   "pos": 382,
+   "pos": 378,
    "lingua": "EN",
    "nome": "Umbreon ☆",
    "set": "Celebrations: Classic Collection",
    "variante": null,
-   "cap": 7649324
+   "cap": 7621964
   },
   {
-   "pos": 387,
+   "pos": 382,
    "lingua": "EN",
    "nome": "Magikarp",
    "set": "Legendary Collection",
@@ -456,23 +456,23 @@
    "cap": 7507606
   },
   {
-   "pos": 391,
+   "pos": 387,
    "lingua": "JA",
    "nome": "Rayquaza ☆",
    "set": "Clash of the Blue Sky",
    "variante": "1st Edition",
-   "cap": 7392129
+   "cap": 7398889
   },
   {
-   "pos": 394,
+   "pos": 389,
    "lingua": "EN",
    "nome": "Feraligatr",
    "set": "Neo Genesis",
    "variante": "1st Edition",
-   "cap": 7340535
+   "cap": 7342164
   },
   {
-   "pos": 401,
+   "pos": 396,
    "lingua": "EN",
    "nome": "Squirtle",
    "set": "Legendary Collection",
@@ -480,7 +480,7 @@
    "cap": 7277116
   },
   {
-   "pos": 402,
+   "pos": 397,
    "lingua": "JA",
    "nome": "Alto Mare's Latios",
    "set": "Theater Limited VS Pack",
@@ -488,15 +488,23 @@
    "cap": 7270878
   },
   {
-   "pos": 403,
+   "pos": 398,
    "lingua": "JA",
    "nome": "Gengar",
    "set": "Base Expansion Pack",
    "variante": "1st Edition",
-   "cap": 7251309
+   "cap": 7266669
   },
   {
-   "pos": 411,
+   "pos": 405,
+   "lingua": "JA",
+   "nome": "Mew",
+   "set": "Southern Islands",
+   "variante": null,
+   "cap": 7174608
+  },
+  {
+   "pos": 407,
    "lingua": "EN",
    "nome": "Psyduck",
    "set": "Legendary Collection",
@@ -504,36 +512,20 @@
    "cap": 7166557
   },
   {
-   "pos": 416,
-   "lingua": "JA",
-   "nome": "Mew",
-   "set": "Southern Islands",
-   "variante": null,
-   "cap": 7130125
-  },
-  {
-   "pos": 425,
+   "pos": 421,
    "lingua": "JA",
    "nome": "Ho-oh",
    "set": "Split Earth",
    "variante": "1st Edition",
-   "cap": 7032896
+   "cap": 7036956
   },
   {
-   "pos": 432,
+   "pos": 430,
    "lingua": "JA",
    "nome": "Gengar",
    "set": "Pokémon Web",
    "variante": null,
-   "cap": 6933807
-  },
-  {
-   "pos": 440,
-   "lingua": "EN",
-   "nome": "Charmander",
-   "set": "Legendary Collection",
-   "variante": "Reverse Foil",
-   "cap": 6821024
+   "cap": 6948807
   },
   {
    "pos": 448,
@@ -544,6 +536,14 @@
    "cap": 6647248
   },
   {
+   "pos": 449,
+   "lingua": "EN",
+   "nome": "Charmander",
+   "set": "Legendary Collection",
+   "variante": "Reverse Foil",
+   "cap": 6628468
+  },
+  {
    "pos": 450,
    "lingua": "JA",
    "nome": "Giovanni's Scheme",
@@ -552,23 +552,15 @@
    "cap": 6618400
   },
   {
-   "pos": 453,
-   "lingua": "EN",
-   "nome": "Machamp",
-   "set": "Base Set",
-   "variante": "1st Edition",
-   "cap": 6599565
-  },
-  {
-   "pos": 454,
+   "pos": 451,
    "lingua": "EN",
    "nome": "_____'s Pikachu",
    "set": "Celebrations: Classic Collection",
    "variante": null,
-   "cap": 6584852
+   "cap": 6586826
   },
   {
-   "pos": 456,
+   "pos": 453,
    "lingua": "JA",
    "nome": "Sylveon-EX",
    "set": "PokéKyun Collection",
@@ -576,15 +568,23 @@
    "cap": 6567823
   },
   {
-   "pos": 471,
+   "pos": 454,
    "lingua": "EN",
-   "nome": "Charizard",
-   "set": "Expedition Base Set",
-   "variante": "Reverse Foil",
-   "cap": 6312823
+   "nome": "Machamp",
+   "set": "Base Set",
+   "variante": "1st Edition",
+   "cap": 6566402
   },
   {
-   "pos": 473,
+   "pos": 458,
+   "lingua": "JA",
+   "nome": "Alto Mare's Latias",
+   "set": "Theater Limited VS Pack",
+   "variante": null,
+   "cap": 6544107
+  },
+  {
+   "pos": 472,
    "lingua": "JA",
    "nome": "Latias ☆",
    "set": "Clash of the Blue Sky",
@@ -592,23 +592,31 @@
    "cap": 6272666
   },
   {
-   "pos": 475,
+   "pos": 474,
    "lingua": "JA",
    "nome": "Lance's Charizard",
    "set": "Pokémon VS",
    "variante": null,
-   "cap": 6229164
+   "cap": 6265841
   },
   {
-   "pos": 482,
+   "pos": 476,
    "lingua": "ZH-CN",
    "nome": "Cubone",
    "set": "Gem Pack Vol. 3",
    "variante": null,
-   "cap": 6178402
+   "cap": 6220415
   },
   {
-   "pos": 483,
+   "pos": 479,
+   "lingua": "EN",
+   "nome": "Charizard",
+   "set": "Expedition Base Set",
+   "variante": "Reverse Foil",
+   "cap": 6195677
+  },
+  {
+   "pos": 482,
    "lingua": "JA",
    "nome": "Here Comes Team Rocket!",
    "set": "XY Promos",
@@ -616,7 +624,7 @@
    "cap": 6162784
   },
   {
-   "pos": 492,
+   "pos": 490,
    "lingua": "EN",
    "nome": "Blissey",
    "set": "Neo Revelation",
@@ -624,23 +632,23 @@
    "cap": 6024067
   },
   {
-   "pos": 494,
+   "pos": 493,
    "lingua": "EN",
    "nome": "Dark Raichu",
    "set": "Legendary Collection",
    "variante": "Reverse Foil",
-   "cap": 5975911
+   "cap": 5978796
   },
   {
-   "pos": 501,
+   "pos": 499,
    "lingua": "JA",
    "nome": "Vaporeon ☆",
    "set": "PLAY Promos",
    "variante": null,
-   "cap": 5870010
+   "cap": 5871910
   },
   {
-   "pos": 503,
+   "pos": 501,
    "lingua": "EN",
    "nome": "Rayquaza δ",
    "set": "Holon Phantoms",
@@ -648,15 +656,7 @@
    "cap": 5827980
   },
   {
-   "pos": 504,
-   "lingua": "JA",
-   "nome": "Alto Mare's Latias",
-   "set": "Theater Limited VS Pack",
-   "variante": null,
-   "cap": 5816977
-  },
-  {
-   "pos": 509,
+   "pos": 506,
    "lingua": "JA",
    "nome": "Umbreon ☆",
    "set": "PLAY Promos",
@@ -664,63 +664,63 @@
    "cap": 5761270
   },
   {
-   "pos": 520,
+   "pos": 518,
    "lingua": "EN",
    "nome": "Gengar",
    "set": "Lost Origin Trainer Gallery",
    "variante": null,
-   "cap": 5582610
+   "cap": 5586037
   },
   {
-   "pos": 525,
-   "lingua": "EN",
-   "nome": "Alakazam",
-   "set": "Legendary Collection",
-   "variante": "Reverse Foil",
-   "cap": 5561607
-  },
-  {
-   "pos": 532,
-   "lingua": "EN",
-   "nome": "Rayquaza",
-   "set": "Emerald",
-   "variante": "Reverse Foil",
-   "cap": 5527993
-  },
-  {
-   "pos": 537,
+   "pos": 521,
    "lingua": "EN",
    "nome": "Deoxys",
    "set": "Call of Legends",
    "variante": null,
-   "cap": 5449198
+   "cap": 5556120
   },
   {
-   "pos": 538,
+   "pos": 532,
    "lingua": "JA",
    "nome": "Treecko ☆",
    "set": "Rocket Gang Strikes Back",
    "variante": "1st Edition",
-   "cap": 5445815
+   "cap": 5450495
   },
   {
-   "pos": 546,
+   "pos": 533,
+   "lingua": "EN",
+   "nome": "Rayquaza",
+   "set": "Emerald",
+   "variante": "Reverse Foil",
+   "cap": 5443982
+  },
+  {
+   "pos": 536,
+   "lingua": "EN",
+   "nome": "Alakazam",
+   "set": "Legendary Collection",
+   "variante": "Reverse Foil",
+   "cap": 5437997
+  },
+  {
+   "pos": 542,
    "lingua": "JA",
    "nome": "Kyogre ☆",
    "set": "Holon Research Tower",
    "variante": "1st Edition",
-   "cap": 5368804
+   "cap": 5370529
   },
   {
-   "pos": 547,
+   "pos": 544,
    "lingua": "EN",
    "nome": "Dark Vaporeon",
    "set": "Legendary Collection",
    "variante": "Reverse Foil",
-   "cap": 5361931
+   "cap": 5357856
   },
   {
-   "pos": 559,
+   "pos": 558,
    "lingua": "EN",
    "nome": "Rayquaza δ",
    "set": "Holon Phantoms",
@@ -728,20 +728,20 @@
    "cap": 5266677
   },
   {
-   "pos": 567,
+   "pos": 564,
    "lingua": "JA",
    "nome": "Blastoise",
    "set": "Expansion Pack",
    "variante": "No Rarity Symbol",
-   "cap": 5188445
+   "cap": 5189908
   },
   {
-   "pos": 582,
+   "pos": 579,
    "lingua": "JA",
-   "nome": "Mewtwo",
-   "set": "Base Expansion Pack",
-   "variante": "1st Edition",
-   "cap": 5054053
+   "nome": "Pikachu",
+   "set": "Expansion Pack",
+   "variante": null,
+   "cap": 5054919
   },
   {
    "pos": 593,
@@ -749,7 +749,7 @@
    "nome": "Groudon ☆",
    "set": "Holon Research Tower",
    "variante": "1st Edition",
-   "cap": 4966671
+   "cap": 4973371
   },
   {
    "pos": 597,
@@ -760,47 +760,47 @@
    "cap": 4943303
   },
   {
-   "pos": 605,
+   "pos": 603,
+   "lingua": "JA",
+   "nome": "Mewtwo",
+   "set": "Base Expansion Pack",
+   "variante": "1st Edition",
+   "cap": 4870848
+  },
+  {
+   "pos": 608,
    "lingua": "EN",
    "nome": "Zapdos",
    "set": "Fossil",
    "variante": "1st Edition",
-   "cap": 4824307
+   "cap": 4814342
   },
   {
-   "pos": 622,
+   "pos": 617,
    "lingua": "JA",
    "nome": "Flareon ☆",
    "set": "World Champions Pack",
    "variante": "1st Edition",
-   "cap": 4737581
+   "cap": 4740331
   },
   {
-   "pos": 627,
-   "lingua": "JA",
-   "nome": "Pikachu",
-   "set": "Expansion Pack",
-   "variante": null,
-   "cap": 4697975
-  },
-  {
-   "pos": 635,
+   "pos": 636,
    "lingua": "JA",
    "nome": "M Rayquaza-EX",
    "set": "Bandit Ring",
    "variante": "1st Edition",
-   "cap": 4617999
+   "cap": 4625814
   },
   {
-   "pos": 637,
+   "pos": 638,
    "lingua": "JA",
    "nome": "Morty's Gengar",
    "set": "Pokémon VS",
    "variante": null,
-   "cap": 4598546
+   "cap": 4611828
   },
   {
-   "pos": 638,
+   "pos": 639,
    "lingua": "JA",
    "nome": "Raichu Prime",
    "set": "LEGEND Promos",
@@ -808,71 +808,55 @@
    "cap": 4592183
   },
   {
-   "pos": 645,
-   "lingua": "EN",
-   "nome": "Gyarados δ",
-   "set": "Holon Phantoms",
-   "variante": "Reverse Foil",
-   "cap": 4566117
-  },
-  {
-   "pos": 660,
-   "lingua": "JA",
-   "nome": "Celebi",
-   "set": "Mysterious Mountains",
-   "variante": "1st Edition",
-   "cap": 4480399
-  },
-  {
-   "pos": 668,
-   "lingua": "EN",
-   "nome": "Haunter",
-   "set": "Fossil",
-   "variante": "1st Edition",
-   "cap": 4449449
-  },
-  {
-   "pos": 674,
-   "lingua": "EN",
-   "nome": "Entei",
-   "set": "Wizards Black Star Promos",
-   "variante": null,
-   "cap": 4421654
-  },
-  {
-   "pos": 678,
-   "lingua": "JA",
-   "nome": "Gengar LV.X",
-   "set": "Advent of Arceus",
-   "variante": "1st Edition",
-   "cap": 4419191
-  },
-  {
-   "pos": 679,
+   "pos": 640,
    "lingua": "EN",
    "nome": "Oricorio ex",
    "set": "Mega Evolution Black Star Promos",
    "variante": null,
-   "cap": 4411188
+   "cap": 4589612
+  },
+  {
+   "pos": 662,
+   "lingua": "JA",
+   "nome": "Celebi",
+   "set": "Mysterious Mountains",
+   "variante": "1st Edition",
+   "cap": 4485049
+  },
+  {
+   "pos": 665,
+   "lingua": "EN",
+   "nome": "Haunter",
+   "set": "Fossil",
+   "variante": "1st Edition",
+   "cap": 4467909
+  },
+  {
+   "pos": 672,
+   "lingua": "JA",
+   "nome": "Gengar LV.X",
+   "set": "Advent of Arceus",
+   "variante": "1st Edition",
+   "cap": 4423737
+  },
+  {
+   "pos": 678,
+   "lingua": "EN",
+   "nome": "Entei",
+   "set": "Wizards Black Star Promos",
+   "variante": null,
+   "cap": 4405595
   },
   {
    "pos": 681,
-   "lingua": "EN",
-   "nome": "Pikachu",
-   "set": "Lost Origin Trainer Gallery",
-   "variante": null,
-   "cap": 4402625
-  },
-  {
-   "pos": 684,
    "lingua": "JA",
    "nome": "Lugia",
    "set": "Unnumbered Promos",
    "variante": null,
-   "cap": 4393560
+   "cap": 4399200
   },
   {
-   "pos": 694,
+   "pos": 693,
    "lingua": "EN",
    "nome": "Pikachu δ",
    "set": "Legend Maker",
@@ -880,7 +864,15 @@
    "cap": 4338905
   },
   {
-   "pos": 697,
+   "pos": 695,
+   "lingua": "EN",
+   "nome": "Pikachu",
+   "set": "Lost Origin Trainer Gallery",
+   "variante": null,
+   "cap": 4332668
+  },
+  {
+   "pos": 696,
    "lingua": "EN",
    "nome": "Gengar",
    "set": "Legend Maker",
@@ -888,12 +880,12 @@
    "cap": 4330653
   },
   {
-   "pos": 698,
+   "pos": 705,
    "lingua": "EN",
    "nome": "Flareon",
    "set": "Legendary Collection",
    "variante": "Reverse Foil",
-   "cap": 4322074
+   "cap": 4291449
   },
   {
    "pos": 716,
@@ -901,10 +893,10 @@
    "nome": "Blastoise",
    "set": "Celebrations: Classic Collection",
    "variante": null,
-   "cap": 4257597
+   "cap": 4228354
   },
   {
-   "pos": 729,
+   "pos": 730,
    "lingua": "EN",
    "nome": "Umbreon δ",
    "set": "Delta Species",
@@ -912,28 +904,12 @@
    "cap": 4130920
   },
   {
-   "pos": 731,
+   "pos": 733,
    "lingua": "EN",
    "nome": "Gengar",
    "set": "Legend Maker",
    "variante": null,
-   "cap": 4117639
-  },
-  {
-   "pos": 733,
-   "lingua": "EN",
-   "nome": "Pikachu",
-   "set": "Emerald",
-   "variante": "Reverse Foil",
-   "cap": 4108225
-  },
-  {
-   "pos": 734,
-   "lingua": "JA",
-   "nome": "Kabutops",
-   "set": "Split Earth",
-   "variante": "1st Edition",
-   "cap": 4107225
+   "cap": 4112158
   },
   {
    "pos": 736,
@@ -944,12 +920,28 @@
    "cap": 4101000
   },
   {
-   "pos": 740,
+   "pos": 738,
    "lingua": "EN",
    "nome": "Yanma",
    "set": "Neo Discovery",
    "variante": "1st Edition",
    "cap": 4091705
+  },
+  {
+   "pos": 740,
+   "lingua": "JA",
+   "nome": "Kabutops",
+   "set": "Split Earth",
+   "variante": "1st Edition",
+   "cap": 4088701
+  },
+  {
+   "pos": 742,
+   "lingua": "JA",
+   "nome": "Dragonite",
+   "set": "Base Expansion Pack",
+   "variante": "1st Edition",
+   "cap": 4078226
   },
   {
    "pos": 743,
@@ -968,15 +960,7 @@
    "cap": 4065810
   },
   {
-   "pos": 746,
-   "lingua": "JA",
-   "nome": "Dragonite",
-   "set": "Base Expansion Pack",
-   "variante": "1st Edition",
-   "cap": 4064750
-  },
-  {
-   "pos": 749,
+   "pos": 747,
    "lingua": "JA",
    "nome": "Celebi ☆",
    "set": "Miracle Crystal",
@@ -984,7 +968,7 @@
    "cap": 4047703
   },
   {
-   "pos": 752,
+   "pos": 749,
    "lingua": "EN",
    "nome": "Rayquaza δ",
    "set": "Delta Species",
@@ -992,15 +976,23 @@
    "cap": 4038567
   },
   {
-   "pos": 757,
+   "pos": 754,
    "lingua": "JA",
    "nome": "Rayquaza",
    "set": "Dragon Blast",
    "variante": "1st Edition",
-   "cap": 4011695
+   "cap": 4014353
   },
   {
-   "pos": 772,
+   "pos": 766,
+   "lingua": "EN",
+   "nome": "Pikachu",
+   "set": "Emerald",
+   "variante": "Reverse Foil",
+   "cap": 3946000
+  },
+  {
+   "pos": 771,
    "lingua": "EN",
    "nome": "Rayquaza",
    "set": "Deoxys",
@@ -1008,15 +1000,15 @@
    "cap": 3926905
   },
   {
-   "pos": 773,
+   "pos": 772,
    "lingua": "EN",
    "nome": "Charmander",
    "set": "Mega Evolution Black Star Promos",
    "variante": null,
-   "cap": 3923813
+   "cap": 3925825
   },
   {
-   "pos": 779,
+   "pos": 778,
    "lingua": "JA",
    "nome": "Sableye (Art Academy, Iwaiya)",
    "set": "XY Promos",
@@ -1024,12 +1016,12 @@
    "cap": 3904000
   },
   {
-   "pos": 789,
+   "pos": 787,
    "lingua": "JA",
    "nome": "Charizard",
    "set": "Intense Fight in the Destroyed Sky",
    "variante": "1st Edition",
-   "cap": 3814973
+   "cap": 3824921
   },
   {
    "pos": 793,
@@ -1037,7 +1029,7 @@
    "nome": "Mew",
    "set": "Legend Maker",
    "variante": "Reverse Foil",
-   "cap": 3797335
+   "cap": 3798134
   },
   {
    "pos": 797,
@@ -1045,10 +1037,18 @@
    "nome": "Charizard",
    "set": "Pokémon TCG Classic - Charizard",
    "variante": null,
-   "cap": 3788729
+   "cap": 3786937
   },
   {
-   "pos": 822,
+   "pos": 806,
+   "lingua": "EN",
+   "nome": "Gyarados δ",
+   "set": "Holon Phantoms",
+   "variante": "Reverse Foil",
+   "cap": 3755147
+  },
+  {
+   "pos": 819,
    "lingua": "JA",
    "nome": "Latios ☆",
    "set": "Clash of the Blue Sky",
@@ -1056,7 +1056,7 @@
    "cap": 3666494
   },
   {
-   "pos": 828,
+   "pos": 824,
    "lingua": "EN",
    "nome": "Bulbasaur",
    "set": "Legendary Collection",
@@ -1064,23 +1064,23 @@
    "cap": 3640048
   },
   {
-   "pos": 834,
-   "lingua": "JA",
-   "nome": "Sabrina's Gengar",
-   "set": "Yamabuki City Gym",
-   "variante": null,
-   "cap": 3613844
-  },
-  {
-   "pos": 843,
+   "pos": 837,
    "lingua": "EN",
    "nome": "Raichu",
    "set": "Fossil",
    "variante": "1st Edition",
-   "cap": 3582821
+   "cap": 3589912
   },
   {
-   "pos": 846,
+   "pos": 842,
+   "lingua": "JA",
+   "nome": "Sabrina's Gengar",
+   "set": "Yamabuki City Gym",
+   "variante": null,
+   "cap": 3574262
+  },
+  {
+   "pos": 843,
    "lingua": "JA",
    "nome": "The Masked Royal",
    "set": "Sun & Moon Promos",
@@ -1088,7 +1088,7 @@
    "cap": 3566071
   },
   {
-   "pos": 847,
+   "pos": 844,
    "lingua": "EN",
    "nome": "Zapdos",
    "set": "Legendary Collection",
@@ -1096,15 +1096,15 @@
    "cap": 3565707
   },
   {
-   "pos": 849,
+   "pos": 847,
    "lingua": "JA",
    "nome": "Nidoking",
    "set": "Wind from the Sea",
    "variante": "1st Edition",
-   "cap": 3564403
+   "cap": 3544245
   },
   {
-   "pos": 854,
+   "pos": 848,
    "lingua": "EN",
    "nome": "Dark Alakazam",
    "set": "Team Rocket",
@@ -1112,15 +1112,15 @@
    "cap": 3539235
   },
   {
-   "pos": 856,
+   "pos": 850,
    "lingua": "JA",
    "nome": "Charizard",
    "set": "Plasma Gale",
    "variante": "1st Edition",
-   "cap": 3529311
+   "cap": 3531321
   },
   {
-   "pos": 858,
+   "pos": 853,
    "lingua": "JA",
    "nome": "Jolteon ☆",
    "set": "World Champions Pack",
@@ -1128,7 +1128,7 @@
    "cap": 3516667
   },
   {
-   "pos": 863,
+   "pos": 862,
    "lingua": "EN",
    "nome": "Moltres",
    "set": "Legendary Collection",
@@ -1141,10 +1141,10 @@
    "nome": "Deoxys",
    "set": "LEGEND Promos",
    "variante": null,
-   "cap": 3435631
+   "cap": 3437589
   },
   {
-   "pos": 866,
+   "pos": 867,
    "lingua": "EN",
    "nome": "Jolteon",
    "set": "Legendary Collection",
@@ -1152,15 +1152,15 @@
    "cap": 3434431
   },
   {
-   "pos": 879,
+   "pos": 881,
    "lingua": "EN",
    "nome": "Rocket's Scyther",
    "set": "Gym Heroes",
    "variante": "1st Edition",
-   "cap": 3373289
+   "cap": 3348219
   },
   {
-   "pos": 885,
+   "pos": 884,
    "lingua": "JA",
    "nome": "Poncho-wearing Pikachu",
    "set": "XY Promos",
@@ -1168,23 +1168,31 @@
    "cap": 3335014
   },
   {
-   "pos": 888,
+   "pos": 887,
    "lingua": "EN",
    "nome": "Lugia",
    "set": "Unseen Forces",
    "variante": "Reverse Foil",
-   "cap": 3313735
+   "cap": 3316152
   },
   {
-   "pos": 890,
+   "pos": 889,
    "lingua": "JA",
    "nome": "Alakazam ☆",
    "set": "Miracle Crystal",
    "variante": "1st Edition",
-   "cap": 3310979
+   "cap": 3311125
   },
   {
-   "pos": 898,
+   "pos": 891,
+   "lingua": "JA",
+   "nome": "Slowpoke",
+   "set": "McDonald's Pokémon-e Minimum Pack",
+   "variante": null,
+   "cap": 3296438
+  },
+  {
+   "pos": 894,
    "lingua": "EN",
    "nome": "Dark Dragonair",
    "set": "Legendary Collection",
@@ -1192,7 +1200,7 @@
    "cap": 3291057
   },
   {
-   "pos": 899,
+   "pos": 895,
    "lingua": "JA",
    "nome": "Regirock ☆",
    "set": "Mirage Forest",
@@ -1200,52 +1208,44 @@
    "cap": 3290075
   },
   {
-   "pos": 901,
-   "lingua": "JA",
-   "nome": "Slowpoke",
-   "set": "McDonald's Pokémon-e Minimum Pack",
-   "variante": null,
-   "cap": 3280255
-  },
-  {
-   "pos": 903,
+   "pos": 902,
    "lingua": "JA",
    "nome": "Metagross ☆",
    "set": "Holon Research Tower",
    "variante": "1st Edition",
-   "cap": 3268859
+   "cap": 3269519
   },
   {
-   "pos": 909,
+   "pos": 906,
    "lingua": "JA",
    "nome": "Rayquaza-EX",
    "set": "Dragon Blade",
    "variante": "1st Edition",
-   "cap": 3251492
+   "cap": 3256052
   },
   {
-   "pos": 914,
-   "lingua": "JA",
-   "nome": "Squirtle",
-   "set": "Rocket Gang",
-   "variante": null,
-   "cap": 3234449
-  },
-  {
-   "pos": 919,
+   "pos": 917,
    "lingua": "JA",
    "nome": "Dark Charizard",
    "set": "Pokémon Web",
    "variante": "1st Edition",
-   "cap": 3221904
+   "cap": 3227397
   },
   {
-   "pos": 922,
+   "pos": 923,
    "lingua": "EN",
    "nome": "Dragonite δ",
    "set": "Delta Species",
    "variante": "Reverse Foil",
-   "cap": 3215128
+   "cap": 3214019
+  },
+  {
+   "pos": 924,
+   "lingua": "JA",
+   "nome": "Mew (Battle Festa)",
+   "set": "XY Promos",
+   "variante": null,
+   "cap": 3211252
   },
   {
    "pos": 925,
@@ -1256,7 +1256,7 @@
    "cap": 3210779
   },
   {
-   "pos": 928,
+   "pos": 927,
    "lingua": "EN",
    "nome": "Wartortle",
    "set": "Base Set",
@@ -1264,39 +1264,39 @@
    "cap": 3199939
   },
   {
-   "pos": 933,
+   "pos": 930,
    "lingua": "JA",
    "nome": "Houndoom",
    "set": "The Town on No Map",
    "variante": "1st Edition",
-   "cap": 3177262
+   "cap": 3186134
   },
   {
-   "pos": 935,
+   "pos": 933,
    "lingua": "EN",
    "nome": "Clefable",
    "set": "Jungle",
    "variante": "1st Edition",
-   "cap": 3173773
+   "cap": 3173501
   },
   {
-   "pos": 941,
+   "pos": 945,
    "lingua": "EN",
    "nome": "Dark Slowbro",
    "set": "Team Rocket",
    "variante": "1st Edition",
-   "cap": 3152928
+   "cap": 3143543
   },
   {
-   "pos": 950,
+   "pos": 949,
    "lingua": "EN",
    "nome": "Gengar",
    "set": "Fossil",
    "variante": "1st Edition",
-   "cap": 3134000
+   "cap": 3134325
   },
   {
-   "pos": 953,
+   "pos": 951,
    "lingua": "JA",
    "nome": "Mew ex",
    "set": "Gift Box Mew - Lucario (Mew Quarter Deck)",
@@ -1304,7 +1304,7 @@
    "cap": 3127676
   },
   {
-   "pos": 960,
+   "pos": 955,
    "lingua": "EN",
    "nome": "Houndour",
    "set": "Neo Discovery",
@@ -1312,76 +1312,84 @@
    "cap": 3105105
   },
   {
-   "pos": 961,
-   "lingua": "EN",
-   "nome": "Squirtle",
-   "set": "Mega Evolution Black Star Promos",
-   "variante": null,
-   "cap": 3100437
-  },
-  {
-   "pos": 963,
+   "pos": 956,
    "lingua": "JA",
    "nome": "Gyarados",
    "set": "Mysterious Mountains",
    "variante": "1st Edition",
-   "cap": 3093051
+   "cap": 3101862
   },
   {
-   "pos": 965,
+   "pos": 958,
+   "lingua": "EN",
+   "nome": "Squirtle",
+   "set": "Mega Evolution Black Star Promos",
+   "variante": null,
+   "cap": 3096542
+  },
+  {
+   "pos": 963,
    "lingua": "EN",
    "nome": "Mewtwo δ",
    "set": "Delta Species",
    "variante": "Reverse Foil",
-   "cap": 3091767
+   "cap": 3089240
   },
   {
-   "pos": 971,
+   "pos": 965,
    "lingua": "JA",
    "nome": "Lugia LEGEND",
    "set": "SoulSilver Collection",
    "variante": null,
-   "cap": 3077724
+   "cap": 3081118
   },
   {
-   "pos": 972,
+   "pos": 971,
    "lingua": "EN",
    "nome": "Pichu",
    "set": "Wizards Black Star Promos",
    "variante": null,
-   "cap": 3059942
+   "cap": 3046190
   },
   {
-   "pos": 975,
-   "lingua": "JA",
-   "nome": "Ho-Oh",
-   "set": "LEGEND Promos",
-   "variante": null,
-   "cap": 3041828
-  },
-  {
-   "pos": 976,
+   "pos": 973,
    "lingua": "JA",
    "nome": "Kingdra",
    "set": "Wind from the Sea",
    "variante": "1st Edition",
-   "cap": 3041131
+   "cap": 3042788
   },
   {
-   "pos": 977,
-   "lingua": "EN",
-   "nome": "Articuno",
-   "set": "Legendary Collection",
-   "variante": "Reverse Foil",
-   "cap": 3037707
-  },
-  {
-   "pos": 982,
+   "pos": 976,
    "lingua": "EN",
    "nome": "Venusaur",
    "set": "Celebrations: Classic Collection",
    "variante": null,
-   "cap": 3015760
+   "cap": 3030096
+  },
+  {
+   "pos": 983,
+   "lingua": "JA",
+   "nome": "Ho-Oh",
+   "set": "LEGEND Promos",
+   "variante": null,
+   "cap": 3002879
+  },
+  {
+   "pos": 988,
+   "lingua": "EN",
+   "nome": "Articuno",
+   "set": "Legendary Collection",
+   "variante": "Reverse Foil",
+   "cap": 2988387
+  },
+  {
+   "pos": 990,
+   "lingua": "EN",
+   "nome": "Giovanni's Persian",
+   "set": "Gym Challenge",
+   "variante": "1st Edition",
+   "cap": 2980968
   },
   {
    "pos": 994,
@@ -1393,46 +1401,46 @@
   },
   {
    "pos": 996,
-   "lingua": "EN",
-   "nome": "Giovanni's Persian",
-   "set": "Gym Challenge",
-   "variante": "1st Edition",
-   "cap": 2957663
-  },
-  {
-   "pos": 998,
-   "lingua": "EN",
-   "nome": "Dark Machamp",
-   "set": "Team Rocket",
-   "variante": "1st Edition",
-   "cap": 2953072
-  },
-  {
-   "pos": 1000,
    "lingua": "JA",
    "nome": "Misty's Tears",
    "set": "Leaders' Stadium",
    "variante": null,
-   "cap": 2949004
+   "cap": 2965219
   },
   {
    "pos": 1001,
    "lingua": "JA",
-   "nome": "Espeon",
-   "set": "The Town on No Map",
+   "nome": "Charizard-EX",
+   "set": "Wild Blaze",
    "variante": "1st Edition",
-   "cap": 2944435
+   "cap": 2955744
   },
   {
-   "pos": 1003,
+   "pos": 1004,
    "lingua": "EN",
-   "nome": "Kangaskhan",
-   "set": "Jungle",
+   "nome": "Dark Machamp",
+   "set": "Team Rocket",
    "variante": "1st Edition",
-   "cap": 2941766
+   "cap": 2953206
   },
   {
    "pos": 1005,
+   "lingua": "JA",
+   "nome": "Espeon",
+   "set": "The Town on No Map",
+   "variante": "1st Edition",
+   "cap": 2948058
+  },
+  {
+   "pos": 1007,
+   "lingua": "JA",
+   "nome": "Blastoise",
+   "set": "Base Expansion Pack",
+   "variante": "1st Edition",
+   "cap": 2934920
+  },
+  {
+   "pos": 1008,
    "lingua": "JA",
    "nome": "Mewtwo-GX",
    "set": "Sun & Moon Promos",
@@ -1440,7 +1448,7 @@
    "cap": 2929325
   },
   {
-   "pos": 1007,
+   "pos": 1009,
    "lingua": "JA",
    "nome": "Goomy (Art Academy, Mio Muroi)",
    "set": "XY Promos",
@@ -1448,15 +1456,7 @@
    "cap": 2928000
   },
   {
-   "pos": 1008,
-   "lingua": "JA",
-   "nome": "Blastoise",
-   "set": "Base Expansion Pack",
-   "variante": "1st Edition",
-   "cap": 2927979
-  },
-  {
-   "pos": 1012,
+   "pos": 1010,
    "lingua": "EN",
    "nome": "Dark Magneton",
    "set": "Team Rocket",
@@ -1464,28 +1464,20 @@
    "cap": 2916809
   },
   {
-   "pos": 1018,
-   "lingua": "JA",
-   "nome": "Charizard-EX",
-   "set": "Wild Blaze",
+   "pos": 1015,
+   "lingua": "EN",
+   "nome": "Kangaskhan",
+   "set": "Jungle",
    "variante": "1st Edition",
-   "cap": 2908031
+   "cap": 2906422
   },
   {
    "pos": 1022,
-   "lingua": "JA",
-   "nome": "Squirtle",
-   "set": "Expansion Pack",
-   "variante": "No Rarity Symbol",
-   "cap": 2893052
-  },
-  {
-   "pos": 1025,
    "lingua": "EN",
    "nome": "Bulbasaur",
    "set": "Mega Evolution Black Star Promos",
    "variante": null,
-   "cap": 2882727
+   "cap": 2886060
   },
   {
    "pos": 1027,
@@ -1496,23 +1488,31 @@
    "cap": 2874689
   },
   {
-   "pos": 1034,
+   "pos": 1032,
    "lingua": "JA",
-   "nome": "Tyranitar",
-   "set": "Wind from the Sea",
-   "variante": "1st Edition",
-   "cap": 2849441
+   "nome": "Squirtle",
+   "set": "Expansion Pack",
+   "variante": "No Rarity Symbol",
+   "cap": 2863292
   },
   {
-   "pos": 1035,
+   "pos": 1034,
    "lingua": "JA",
    "nome": "Rayquaza C LV.X",
    "set": "Beat of the Frontier",
    "variante": "1st Edition",
-   "cap": 2847707
+   "cap": 2854083
   },
   {
-   "pos": 1036,
+   "pos": 1035,
+   "lingua": "JA",
+   "nome": "Tyranitar",
+   "set": "Wind from the Sea",
+   "variante": "1st Edition",
+   "cap": 2853891
+  },
+  {
+   "pos": 1037,
    "lingua": "EN",
    "nome": "Haunter",
    "set": "Legendary Collection",
@@ -1520,31 +1520,39 @@
    "cap": 2842426
   },
   {
-   "pos": 1043,
+   "pos": 1042,
    "lingua": "JA",
    "nome": "Mew",
    "set": "Lost Link",
    "variante": null,
-   "cap": 2826931
+   "cap": 2828751
   },
   {
-   "pos": 1045,
-   "lingua": "EN",
-   "nome": "Charizard",
-   "set": "Lost Origin Trainer Gallery",
+   "pos": 1043,
+   "lingua": "JA",
+   "nome": "Psyduck (Pokémon Center Booster Pack)",
+   "set": "XY Promos",
    "variante": null,
-   "cap": 2811220
+   "cap": 2819712
   },
   {
    "pos": 1046,
    "lingua": "EN",
-   "nome": "Articuno ex",
-   "set": "FireRed & LeafGreen",
+   "nome": "Charizard",
+   "set": "Lost Origin Trainer Gallery",
    "variante": null,
-   "cap": 2810547
+   "cap": 2811429
   },
   {
    "pos": 1047,
+   "lingua": "EN",
+   "nome": "Articuno ex",
+   "set": "FireRed & LeafGreen",
+   "variante": null,
+   "cap": 2810823
+  },
+  {
+   "pos": 1048,
    "lingua": "EN",
    "nome": "Erika's Dragonair",
    "set": "Gym Heroes",
@@ -1552,7 +1560,7 @@
    "cap": 2810213
   },
   {
-   "pos": 1056,
+   "pos": 1059,
    "lingua": "EN",
    "nome": "Pikachu",
    "set": "Skyridge",
@@ -1560,12 +1568,12 @@
    "cap": 2788460
   },
   {
-   "pos": 1069,
+   "pos": 1066,
    "lingua": "JA",
    "nome": "Umbreon",
    "set": "Reviving Legends",
    "variante": "1st Edition",
-   "cap": 2763264
+   "cap": 2769488
   },
   {
    "pos": 1070,
@@ -1576,7 +1584,7 @@
    "cap": 2763149
   },
   {
-   "pos": 1072,
+   "pos": 1073,
    "lingua": "EN",
    "nome": "Scizor",
    "set": "Neo Discovery",
@@ -1589,26 +1597,34 @@
    "nome": "Kabutops",
    "set": "Fossil",
    "variante": "1st Edition",
-   "cap": 2743798
+   "cap": 2738570
   },
   {
-   "pos": 1083,
+   "pos": 1084,
    "lingua": "EN",
    "nome": "Heracross",
    "set": "Neo Genesis",
    "variante": "1st Edition",
-   "cap": 2707196
+   "cap": 2707266
   },
   {
-   "pos": 1089,
+   "pos": 1091,
    "lingua": "JA",
    "nome": "Umbreon-EX",
    "set": "Awakening Psychic King",
    "variante": "1st Edition",
-   "cap": 2673716
+   "cap": 2678798
   },
   {
-   "pos": 1100,
+   "pos": 1096,
+   "lingua": "EN",
+   "nome": "Gengar",
+   "set": "SWSH Black Star Promos",
+   "variante": null,
+   "cap": 2647594
+  },
+  {
+   "pos": 1097,
    "lingua": "EN",
    "nome": "Dark Gyarados",
    "set": "Team Rocket Returns",
@@ -1616,7 +1632,7 @@
    "cap": 2640000
   },
   {
-   "pos": 1101,
+   "pos": 1098,
    "lingua": "EN",
    "nome": "Snorlax",
    "set": "Skyridge",
@@ -1624,15 +1640,15 @@
    "cap": 2638253
   },
   {
-   "pos": 1104,
+   "pos": 1101,
    "lingua": "JA",
    "nome": "Tyranitar",
    "set": "Base Expansion Pack",
    "variante": "1st Edition",
-   "cap": 2629622
+   "cap": 2631093
   },
   {
-   "pos": 1111,
+   "pos": 1109,
    "lingua": "EN",
    "nome": "Misty's Golduck",
    "set": "Gym Challenge",
@@ -1640,7 +1656,7 @@
    "cap": 2613267
   },
   {
-   "pos": 1115,
+   "pos": 1113,
    "lingua": "JA",
    "nome": "M Sachiko-EX",
    "set": "XY Promos",
@@ -1648,31 +1664,23 @@
    "cap": 2606546
   },
   {
-   "pos": 1116,
+   "pos": 1115,
    "lingua": "EN",
    "nome": "Iono",
    "set": "Scarlet & Violet Black Star Promos",
    "variante": null,
-   "cap": 2603993
+   "cap": 2603783
   },
   {
-   "pos": 1118,
-   "lingua": "EN",
-   "nome": "Gengar",
-   "set": "SWSH Black Star Promos",
-   "variante": null,
-   "cap": 2601558
-  },
-  {
-   "pos": 1139,
+   "pos": 1140,
    "lingua": "EN",
    "nome": "Steelix",
    "set": "Neo Genesis",
    "variante": "1st Edition",
-   "cap": 2518422
+   "cap": 2524174
   },
   {
-   "pos": 1147,
+   "pos": 1150,
    "lingua": "EN",
    "nome": "Espeon δ",
    "set": "Delta Species",
@@ -1680,15 +1688,15 @@
    "cap": 2510126
   },
   {
-   "pos": 1148,
+   "pos": 1151,
    "lingua": "EN",
    "nome": "Dark Wartortle",
    "set": "Legendary Collection",
    "variante": "Reverse Foil",
-   "cap": 2501580
+   "cap": 2502380
   },
   {
-   "pos": 1149,
+   "pos": 1152,
    "lingua": "EN",
    "nome": "Charizard",
    "set": "Expedition Base Set",
@@ -1696,44 +1704,36 @@
    "cap": 2500539
   },
   {
-   "pos": 1170,
-   "lingua": "EN",
-   "nome": "Pikachu",
-   "set": "SWSH Black Star Promos",
-   "variante": null,
-   "cap": 2466156
-  },
-  {
-   "pos": 1171,
+   "pos": 1174,
    "lingua": "EN",
    "nome": "Ditto",
    "set": "Fossil",
    "variante": "1st Edition",
-   "cap": 2465953
+   "cap": 2464881
   },
   {
-   "pos": 1177,
+   "pos": 1175,
    "lingua": "EN",
    "nome": "Dark Tyranitar",
    "set": "Neo Destiny",
    "variante": "1st Edition",
-   "cap": 2451947
+   "cap": 2456532
   },
   {
-   "pos": 1190,
+   "pos": 1176,
    "lingua": "EN",
-   "nome": "Slowpoke",
+   "nome": "Dark Dragonite",
    "set": "Legendary Collection",
-   "variante": "Reverse Foil",
-   "cap": 2424462
+   "variante": null,
+   "cap": 2455314
   },
   {
-   "pos": 1193,
+   "pos": 1194,
    "lingua": "JA",
    "nome": "Chansey",
    "set": "Expansion Pack",
    "variante": "No Rarity Symbol",
-   "cap": 2420724
+   "cap": 2421224
   },
   {
    "pos": 1197,
@@ -1741,58 +1741,66 @@
    "nome": "Gengar",
    "set": "Expedition Base Set",
    "variante": "Reverse Foil",
-   "cap": 2415895
+   "cap": 2415555
   },
   {
-   "pos": 1204,
+   "pos": 1203,
    "lingua": "EN",
    "nome": "Azumarill",
    "set": "Neo Genesis",
    "variante": "1st Edition",
-   "cap": 2407398
-  },
-  {
-   "pos": 1209,
-   "lingua": "EN",
-   "nome": "Ivysaur",
-   "set": "Legendary Collection",
-   "variante": "Reverse Foil",
-   "cap": 2402406
+   "cap": 2407820
   },
   {
    "pos": 1214,
    "lingua": "EN",
-   "nome": "Ampharos",
-   "set": "Neo Genesis",
-   "variante": "1st Edition",
-   "cap": 2388775
+   "nome": "Slowpoke",
+   "set": "Legendary Collection",
+   "variante": "Reverse Foil",
+   "cap": 2396274
   },
   {
    "pos": 1215,
-   "lingua": "EN",
-   "nome": "Snorlax δ",
-   "set": "Dragon Frontiers",
-   "variante": "Reverse Foil",
-   "cap": 2387572
+   "lingua": "JA",
+   "nome": "Squirtle",
+   "set": "Rocket Gang",
+   "variante": null,
+   "cap": 2394326
   },
   {
    "pos": 1216,
+   "lingua": "JA",
+   "nome": "Venusaur",
+   "set": "Expansion Pack",
+   "variante": "No Rarity Symbol",
+   "cap": 2392223
+  },
+  {
+   "pos": 1217,
    "lingua": "EN",
    "nome": "Dark Hypno",
    "set": "Team Rocket",
    "variante": "1st Edition",
-   "cap": 2385689
+   "cap": 2391674
   },
   {
-   "pos": 1217,
+   "pos": 1219,
    "lingua": "JA",
    "nome": "Rocket's Snorlax ex",
    "set": "Rocket Gang Strikes Back",
    "variante": "1st Edition",
-   "cap": 2377961
+   "cap": 2390561
   },
   {
-   "pos": 1219,
+   "pos": 1220,
+   "lingua": "EN",
+   "nome": "Ampharos",
+   "set": "Neo Genesis",
+   "variante": "1st Edition",
+   "cap": 2389017
+  },
+  {
+   "pos": 1223,
    "lingua": "JA",
    "nome": "Jirachi",
    "set": "XY Promos",
@@ -1800,12 +1808,20 @@
    "cap": 2372852
   },
   {
-   "pos": 1223,
-   "lingua": "JA",
-   "nome": "Venusaur",
-   "set": "Expansion Pack",
-   "variante": "No Rarity Symbol",
-   "cap": 2363501
+   "pos": 1224,
+   "lingua": "EN",
+   "nome": "Pikachu",
+   "set": "SWSH Black Star Promos",
+   "variante": null,
+   "cap": 2371330
+  },
+  {
+   "pos": 1226,
+   "lingua": "EN",
+   "nome": "Snorlax δ",
+   "set": "Dragon Frontiers",
+   "variante": "Reverse Foil",
+   "cap": 2369429
   },
   {
    "pos": 1232,
@@ -1813,10 +1829,18 @@
    "nome": "Rayquaza δ",
    "set": "Holon Phantom",
    "variante": "1st Edition",
-   "cap": 2340893
+   "cap": 2345766
   },
   {
-   "pos": 1237,
+   "pos": 1240,
+   "lingua": "EN",
+   "nome": "Ivysaur",
+   "set": "Legendary Collection",
+   "variante": "Reverse Foil",
+   "cap": 2332908
+  },
+  {
+   "pos": 1242,
    "lingua": "JA",
    "nome": "Lugia",
    "set": "LEGEND Promos",
@@ -1824,23 +1848,15 @@
    "cap": 2331026
   },
   {
-   "pos": 1241,
+   "pos": 1246,
    "lingua": "EN",
    "nome": "Raikou ex",
    "set": "Team Magma vs Team Aqua",
    "variante": null,
-   "cap": 2319423
+   "cap": 2319484
   },
   {
-   "pos": 1246,
-   "lingua": "EN",
-   "nome": "Celebi",
-   "set": "Neo Revelation",
-   "variante": "1st Edition",
-   "cap": 2306659
-  },
-  {
-   "pos": 1247,
+   "pos": 1251,
    "lingua": "JA",
    "nome": "Umbreon",
    "set": "Terastal Festival ex",
@@ -1848,7 +1864,15 @@
    "cap": 2306509
   },
   {
-   "pos": 1248,
+   "pos": 1253,
+   "lingua": "EN",
+   "nome": "Celebi",
+   "set": "Neo Revelation",
+   "variante": "1st Edition",
+   "cap": 2304666
+  },
+  {
+   "pos": 1255,
    "lingua": "EN",
    "nome": "Squirtle",
    "set": "FireRed & LeafGreen",
@@ -1856,31 +1880,23 @@
    "cap": 2297796
   },
   {
-   "pos": 1250,
-   "lingua": "EN",
-   "nome": "Pikachu on the Ball",
-   "set": "Pokémon Futsal Collection",
-   "variante": null,
-   "cap": 2294745
-  },
-  {
-   "pos": 1251,
+   "pos": 1256,
    "lingua": "JA",
    "nome": "Mew-EX",
    "set": "Dragon Blast",
    "variante": "1st Edition",
-   "cap": 2290851
+   "cap": 2293357
   },
   {
-   "pos": 1255,
+   "pos": 1257,
    "lingua": "EN",
    "nome": "Feraligatr",
    "set": "Neo Genesis",
    "variante": "1st Edition",
-   "cap": 2286879
+   "cap": 2288699
   },
   {
-   "pos": 1257,
+   "pos": 1260,
    "lingua": "EN",
    "nome": "Rayquaza-GX",
    "set": "Celestial Storm",
@@ -1888,7 +1904,7 @@
    "cap": 2282787
   },
   {
-   "pos": 1258,
+   "pos": 1261,
    "lingua": "EN",
    "nome": "Scyther",
    "set": "Jungle",
@@ -1896,7 +1912,7 @@
    "cap": 2281786
   },
   {
-   "pos": 1259,
+   "pos": 1262,
    "lingua": "EN",
    "nome": "Arcanine",
    "set": "Legendary Collection",
@@ -1904,15 +1920,31 @@
    "cap": 2279416
   },
   {
-   "pos": 1260,
+   "pos": 1266,
    "lingua": "EN",
    "nome": "M Rayquaza-EX",
    "set": "Celebrations: Classic Collection",
    "variante": null,
-   "cap": 2277993
+   "cap": 2270735
   },
   {
-   "pos": 1267,
+   "pos": 1269,
+   "lingua": "EN",
+   "nome": "Pikachu on the Ball",
+   "set": "Pokémon Futsal Collection",
+   "variante": null,
+   "cap": 2254802
+  },
+  {
+   "pos": 1271,
+   "lingua": "EN",
+   "nome": "Mewtwo δ",
+   "set": "Holon Phantoms",
+   "variante": "Reverse Foil",
+   "cap": 2253451
+  },
+  {
+   "pos": 1272,
    "lingua": "EN",
    "nome": "Lt. Surge's Raichu",
    "set": "Gym Challenge",
@@ -1920,55 +1952,47 @@
    "cap": 2252336
   },
   {
-   "pos": 1272,
-   "lingua": "EN",
-   "nome": "Mewtwo δ",
-   "set": "Holon Phantoms",
-   "variante": "Reverse Foil",
-   "cap": 2241418
-  },
-  {
-   "pos": 1277,
-   "lingua": "EN",
-   "nome": "Blastoise δ",
-   "set": "Crystal Guardians",
-   "variante": "Reverse Foil",
-   "cap": 2229963
-  },
-  {
-   "pos": 1278,
+   "pos": 1280,
    "lingua": "JA",
    "nome": "Karen's Tyranitar",
    "set": "Pokémon VS",
    "variante": null,
-   "cap": 2228088
+   "cap": 2231750
   },
   {
-   "pos": 1291,
+   "pos": 1281,
    "lingua": "EN",
-   "nome": "Dark Slowbro",
-   "set": "Legendary Collection",
+   "nome": "Blastoise δ",
+   "set": "Crystal Guardians",
    "variante": "Reverse Foil",
-   "cap": 2197247
+   "cap": 2230363
   },
   {
    "pos": 1293,
    "lingua": "EN",
+   "nome": "Dark Slowbro",
+   "set": "Legendary Collection",
+   "variante": "Reverse Foil",
+   "cap": 2200367
+  },
+  {
+   "pos": 1295,
+   "lingua": "EN",
    "nome": "Charizard",
    "set": "SM Black Star Promos",
    "variante": null,
-   "cap": 2196531
+   "cap": 2194681
+  },
+  {
+   "pos": 1299,
+   "lingua": "JA",
+   "nome": "Groudon",
+   "set": "LEGEND Promos",
+   "variante": null,
+   "cap": 2185996
   },
   {
    "pos": 1301,
-   "lingua": "EN",
-   "nome": "Rocket's Moltres",
-   "set": "Gym Heroes",
-   "variante": "1st Edition",
-   "cap": 2180102
-  },
-  {
-   "pos": 1302,
    "lingua": "EN",
    "nome": "Charmeleon",
    "set": "Legendary Collection",
@@ -1977,22 +2001,30 @@
   },
   {
    "pos": 1304,
-   "lingua": "JA",
-   "nome": "Groudon",
-   "set": "LEGEND Promos",
-   "variante": null,
-   "cap": 2171988
+   "lingua": "EN",
+   "nome": "Rocket's Moltres",
+   "set": "Gym Heroes",
+   "variante": "1st Edition",
+   "cap": 2174144
   },
   {
-   "pos": 1317,
+   "pos": 1314,
+   "lingua": "EN",
+   "nome": "Charizard G",
+   "set": "Supreme Victors",
+   "variante": "Reverse Foil",
+   "cap": 2158837
+  },
+  {
+   "pos": 1318,
    "lingua": "JA",
    "nome": "M Charizard-EX",
    "set": "Wild Blaze",
    "variante": "1st Edition",
-   "cap": 2142624
+   "cap": 2146708
   },
   {
-   "pos": 1321,
+   "pos": 1325,
    "lingua": "JA",
    "nome": "Dark Charizard",
    "set": "Pokémon Web",
@@ -2000,7 +2032,15 @@
    "cap": 2135407
   },
   {
-   "pos": 1322,
+   "pos": 1327,
+   "lingua": "JA",
+   "nome": "Lance's Dragonite",
+   "set": "Pokémon VS",
+   "variante": null,
+   "cap": 2132640
+  },
+  {
+   "pos": 1328,
    "lingua": "EN",
    "nome": "Gengar",
    "set": "SWSH Black Star Promos",
@@ -2008,63 +2048,47 @@
    "cap": 2129500
   },
   {
-   "pos": 1323,
-   "lingua": "JA",
-   "nome": "Lance's Dragonite",
-   "set": "Pokémon VS",
-   "variante": null,
-   "cap": 2127401
-  },
-  {
-   "pos": 1325,
-   "lingua": "EN",
-   "nome": "Mudkip",
-   "set": "Nintendo Black Star Promos",
-   "variante": null,
-   "cap": 2127013
-  },
-  {
-   "pos": 1326,
-   "lingua": "JA",
-   "nome": "Mewtwo δ",
-   "set": "Holon Research Tower",
-   "variante": "1st Edition",
-   "cap": 2126189
-  },
-  {
-   "pos": 1327,
+   "pos": 1330,
    "lingua": "JA",
    "nome": "Entei ☆",
    "set": "Golden Sky, Silvery Ocean",
    "variante": "1st Edition",
-   "cap": 2124910
+   "cap": 2126230
   },
   {
-   "pos": 1330,
+   "pos": 1332,
    "lingua": "EN",
    "nome": "Pidgeot",
    "set": "Jungle",
    "variante": "1st Edition",
-   "cap": 2119911
+   "cap": 2119043
   },
   {
    "pos": 1333,
    "lingua": "JA",
-   "nome": "Umbreon δ",
-   "set": "Holon Research Tower",
-   "variante": "1st Edition",
-   "cap": 2112401
-  },
-  {
-   "pos": 1334,
-   "lingua": "EN",
-   "nome": "Dark Dragonite",
-   "set": "Legendary Collection",
+   "nome": "Gyarados (Pokémon Center Hiroshima)",
+   "set": "XY Promos",
    "variante": null,
-   "cap": 2112205
+   "cap": 2116740
   },
   {
    "pos": 1335,
+   "lingua": "JA",
+   "nome": "Umbreon δ",
+   "set": "Holon Research Tower",
+   "variante": "1st Edition",
+   "cap": 2113323
+  },
+  {
+   "pos": 1336,
+   "lingua": "JA",
+   "nome": "Mewtwo δ",
+   "set": "Holon Research Tower",
+   "variante": "1st Edition",
+   "cap": 2112117
+  },
+  {
+   "pos": 1337,
    "lingua": "EN",
    "nome": "Giratina LV.X",
    "set": "Platinum",
@@ -2072,7 +2096,7 @@
    "cap": 2112081
   },
   {
-   "pos": 1354,
+   "pos": 1353,
    "lingua": "EN",
    "nome": "Togetic",
    "set": "Neo Genesis",
@@ -2080,23 +2104,31 @@
    "cap": 2069070
   },
   {
-   "pos": 1358,
+   "pos": 1354,
    "lingua": "EN",
    "nome": "Eevee",
    "set": "Jungle",
    "variante": "1st Edition",
-   "cap": 2063156
+   "cap": 2068350
   },
   {
-   "pos": 1364,
+   "pos": 1357,
+   "lingua": "EN",
+   "nome": "Mudkip",
+   "set": "Nintendo Black Star Promos",
+   "variante": null,
+   "cap": 2064013
+  },
+  {
+   "pos": 1362,
    "lingua": "JA",
    "nome": "Golem",
    "set": "Split Earth",
    "variante": "1st Edition",
-   "cap": 2046364
+   "cap": 2046964
   },
   {
-   "pos": 1366,
+   "pos": 1363,
    "lingua": "JA",
    "nome": "Registeel ☆",
    "set": "Mirage Forest",
@@ -2104,7 +2136,7 @@
    "cap": 2043122
   },
   {
-   "pos": 1380,
+   "pos": 1374,
    "lingua": "EN",
    "nome": "Deoxys",
    "set": "Deoxys",
@@ -2112,31 +2144,31 @@
    "cap": 2016320
   },
   {
+   "pos": 1380,
+   "lingua": "EN",
+   "nome": "Shining Magikarp",
+   "set": "Celebrations: Classic Collection",
+   "variante": null,
+   "cap": 1997974
+  },
+  {
    "pos": 1383,
    "lingua": "EN",
    "nome": "Meganium",
    "set": "Neo Genesis",
    "variante": "1st Edition",
-   "cap": 2009526
+   "cap": 1995485
   },
   {
-   "pos": 1386,
-   "lingua": "EN",
-   "nome": "Shining Magikarp",
-   "set": "Celebrations: Classic Collection",
-   "variante": null,
-   "cap": 1997671
-  },
-  {
-   "pos": 1388,
+   "pos": 1385,
    "lingua": "JA",
    "nome": "Mew ex",
    "set": "Mirage Forest",
    "variante": "1st Edition",
-   "cap": 1991344
+   "cap": 1993346
   },
   {
-   "pos": 1393,
+   "pos": 1389,
    "lingua": "JA",
    "nome": "Burned Tower",
    "set": "LEGEND Promos",
@@ -2144,39 +2176,31 @@
    "cap": 1987920
   },
   {
-   "pos": 1400,
-   "lingua": "EN",
-   "nome": "Tropical Beach",
-   "set": "BW Black Star Promos",
-   "variante": null,
-   "cap": 1978203
-  },
-  {
-   "pos": 1402,
+   "pos": 1398,
    "lingua": "JA",
    "nome": "Alakazam-EX",
    "set": "Awakening Psychic King",
    "variante": "1st Edition",
-   "cap": 1969383
+   "cap": 1973162
   },
   {
-   "pos": 1405,
+   "pos": 1399,
    "lingua": "EN",
    "nome": "Charmander",
    "set": "Team Rocket",
    "variante": "1st Edition",
-   "cap": 1967982
+   "cap": 1968064
   },
   {
-   "pos": 1411,
+   "pos": 1405,
    "lingua": "JA",
    "nome": "Pikachu",
    "set": "LEGEND Promos",
    "variante": null,
-   "cap": 1960810
+   "cap": 1962227
   },
   {
-   "pos": 1412,
+   "pos": 1407,
    "lingua": "EN",
    "nome": "Ampharos",
    "set": "Neo Revelation",
@@ -2184,15 +2208,15 @@
    "cap": 1959981
   },
   {
-   "pos": 1413,
+   "pos": 1409,
    "lingua": "JA",
    "nome": "Vaporeon ☆",
    "set": "World Champions Pack",
    "variante": "1st Edition",
-   "cap": 1957235
+   "cap": 1958260
   },
   {
-   "pos": 1418,
+   "pos": 1415,
    "lingua": "EN",
    "nome": "Charizard",
    "set": "Expedition Base Set",
@@ -2200,31 +2224,23 @@
    "cap": 1952753
   },
   {
-   "pos": 1423,
+   "pos": 1418,
    "lingua": "EN",
    "nome": "Meowth",
    "set": "Legendary Collection",
    "variante": "Reverse Foil",
-   "cap": 1945182
+   "cap": 1945557
   },
   {
-   "pos": 1427,
-   "lingua": "JA",
-   "nome": "Kyogre",
-   "set": "LEGEND Promos",
-   "variante": null,
-   "cap": 1935498
-  },
-  {
-   "pos": 1434,
+   "pos": 1430,
    "lingua": "EN",
    "nome": "Snorlax",
    "set": "Jungle",
    "variante": "1st Edition",
-   "cap": 1927052
+   "cap": 1927115
   },
   {
-   "pos": 1435,
+   "pos": 1431,
    "lingua": "JA",
    "nome": "Mewtwo-EX (Battle Festa)",
    "set": "XY Promos",
@@ -2232,23 +2248,15 @@
    "cap": 1926960
   },
   {
-   "pos": 1438,
+   "pos": 1434,
    "lingua": "JA",
    "nome": "Charizard",
    "set": "Plasma Gale",
    "variante": null,
-   "cap": 1920249
+   "cap": 1920949
   },
   {
-   "pos": 1439,
-   "lingua": "EN",
-   "nome": "Butterfree",
-   "set": "Legendary Collection",
-   "variante": "Reverse Foil",
-   "cap": 1919847
-  },
-  {
-   "pos": 1445,
+   "pos": 1440,
    "lingua": "EN",
    "nome": "Deoxys",
    "set": "Deoxys",
@@ -2256,23 +2264,31 @@
    "cap": 1912427
   },
   {
-   "pos": 1447,
+   "pos": 1441,
+   "lingua": "JA",
+   "nome": "Charizard",
+   "set": "PokéKyun Collection",
+   "variante": null,
+   "cap": 1911976
+  },
+  {
+   "pos": 1442,
    "lingua": "EN",
    "nome": "Hitmonlee",
    "set": "Fossil",
    "variante": "1st Edition",
-   "cap": 1908463
+   "cap": 1908363
   },
   {
-   "pos": 1449,
+   "pos": 1443,
    "lingua": "JA",
    "nome": "Rocket's Tyranitar",
    "set": "Pokémon VS",
    "variante": null,
-   "cap": 1904613
+   "cap": 1907589
   },
   {
-   "pos": 1450,
+   "pos": 1444,
    "lingua": "EN",
    "nome": "Torchic",
    "set": "Nintendo Black Star Promos",
@@ -2280,12 +2296,20 @@
    "cap": 1904257
   },
   {
-   "pos": 1455,
+   "pos": 1454,
+   "lingua": "EN",
+   "nome": "Butterfree",
+   "set": "Legendary Collection",
+   "variante": "Reverse Foil",
+   "cap": 1892710
+  },
+  {
+   "pos": 1469,
    "lingua": "JA",
-   "nome": "Charizard",
-   "set": "PokéKyun Collection",
-   "variante": null,
-   "cap": 1895766
+   "nome": "Crobat",
+   "set": "Mysterious Mountains",
+   "variante": "1st Edition",
+   "cap": 1870053
   },
   {
    "pos": 1470,
@@ -2293,15 +2317,7 @@
    "nome": "Blastoise",
    "set": "Crystal Guardians",
    "variante": "Reverse Foil",
-   "cap": 1870505
-  },
-  {
-   "pos": 1471,
-   "lingua": "JA",
-   "nome": "Crobat",
-   "set": "Mysterious Mountains",
-   "variante": "1st Edition",
-   "cap": 1870053
+   "cap": 1869252
   },
   {
    "pos": 1472,
@@ -2312,7 +2328,7 @@
    "cap": 1867927
   },
   {
-   "pos": 1475,
+   "pos": 1474,
    "lingua": "JA",
    "nome": "Meowth",
    "set": "Red Collection",
@@ -2320,47 +2336,47 @@
    "cap": 1865060
   },
   {
-   "pos": 1478,
-   "lingua": "EN",
-   "nome": "Dragonite",
-   "set": "Fossil",
-   "variante": "1st Edition",
-   "cap": 1855815
-  },
-  {
-   "pos": 1482,
+   "pos": 1480,
    "lingua": "JA",
    "nome": "Moltres",
    "set": "Vending Machine Series 2 (Red)",
    "variante": null,
-   "cap": 1844245
+   "cap": 1845670
   },
   {
-   "pos": 1489,
+   "pos": 1482,
    "lingua": "EN",
-   "nome": "Dark Typhlosion",
-   "set": "Neo Destiny",
+   "nome": "Dragonite",
+   "set": "Fossil",
    "variante": "1st Edition",
-   "cap": 1831208
+   "cap": 1840149
   },
   {
-   "pos": 1491,
+   "pos": 1486,
    "lingua": "JA",
    "nome": "Mewtwo ex",
    "set": "ADV Expansion Pack",
    "variante": "1st Edition",
-   "cap": 1829693
+   "cap": 1831851
   },
   {
-   "pos": 1497,
+   "pos": 1491,
    "lingua": "ZH-CN",
    "nome": "Sylveon",
    "set": "Gem Pack Vol. 2",
    "variante": null,
-   "cap": 1823016
+   "cap": 1823077
   },
   {
-   "pos": 1500,
+   "pos": 1494,
+   "lingua": "JA",
+   "nome": "Kyogre",
+   "set": "LEGEND Promos",
+   "variante": null,
+   "cap": 1820898
+  },
+  {
+   "pos": 1495,
    "lingua": "EN",
    "nome": "Ho-oh",
    "set": "Skyridge",
@@ -2368,55 +2384,47 @@
    "cap": 1820722
   },
   {
-   "pos": 1502,
+   "pos": 1501,
    "lingua": "EN",
    "nome": "Giovanni's Nidoking",
    "set": "Gym Challenge",
    "variante": "1st Edition",
-   "cap": 1813353
+   "cap": 1812144
   },
   {
-   "pos": 1504,
+   "pos": 1502,
    "lingua": "JA",
    "nome": "Gyarados-EX",
    "set": "Rage of the Broken Heavens",
    "variante": "1st Edition",
-   "cap": 1810806
+   "cap": 1811313
   },
   {
-   "pos": 1507,
+   "pos": 1505,
    "lingua": "EN",
    "nome": "Dark Tyranitar",
    "set": "Team Rocket Returns",
    "variante": "Reverse Foil",
-   "cap": 1806037
+   "cap": 1806440
   },
   {
-   "pos": 1508,
-   "lingua": "EN",
-   "nome": "Dark Dragonite",
-   "set": "Team Rocket",
-   "variante": "1st Edition",
-   "cap": 1804061
-  },
-  {
-   "pos": 1509,
+   "pos": 1506,
    "lingua": "EN",
    "nome": "Venusaur",
    "set": "Crystal Guardians",
    "variante": "Reverse Foil",
-   "cap": 1801726
+   "cap": 1803596
   },
   {
-   "pos": 1513,
+   "pos": 1510,
    "lingua": "EN",
    "nome": "Dark Dugtrio",
    "set": "Team Rocket",
    "variante": "1st Edition",
-   "cap": 1797893
+   "cap": 1797738
   },
   {
-   "pos": 1514,
+   "pos": 1511,
    "lingua": "JA",
    "nome": "Rayquaza ex",
    "set": "Emerald Gift Box (Rayquaza)",
@@ -2424,12 +2432,12 @@
    "cap": 1797215
   },
   {
-   "pos": 1517,
+   "pos": 1515,
    "lingua": "EN",
    "nome": "Bill",
    "set": "Legendary Collection",
    "variante": "Reverse Foil",
-   "cap": 1791007
+   "cap": 1791727
   },
   {
    "pos": 1519,
@@ -2440,23 +2448,15 @@
    "cap": 1787913
   },
   {
-   "pos": 1524,
+   "pos": 1522,
    "lingua": "EN",
    "nome": "Meganium",
    "set": "Neo Genesis",
    "variante": "1st Edition",
-   "cap": 1778943
+   "cap": 1773413
   },
   {
-   "pos": 1527,
-   "lingua": "JA",
-   "nome": "Arcanine",
-   "set": "The Town on No Map",
-   "variante": "1st Edition",
-   "cap": 1772595
-  },
-  {
-   "pos": 1529,
+   "pos": 1526,
    "lingua": "EN",
    "nome": "Umbreon",
    "set": "Skyridge",
@@ -2464,15 +2464,15 @@
    "cap": 1769267
   },
   {
-   "pos": 1534,
+   "pos": 1528,
    "lingua": "EN",
    "nome": "Muk",
    "set": "Fossil",
    "variante": "1st Edition",
-   "cap": 1764198
+   "cap": 1764248
   },
   {
-   "pos": 1537,
+   "pos": 1533,
    "lingua": "EN",
    "nome": "Arcanine",
    "set": "Base Set",
@@ -2480,15 +2480,23 @@
    "cap": 1760451
   },
   {
-   "pos": 1546,
+   "pos": 1537,
    "lingua": "EN",
    "nome": "Wigglytuff",
    "set": "Jungle",
    "variante": "1st Edition",
-   "cap": 1752787
+   "cap": 1754008
   },
   {
-   "pos": 1550,
+   "pos": 1545,
+   "lingua": "EN",
+   "nome": "Deoxys",
+   "set": "Emerald",
+   "variante": "Reverse Foil",
+   "cap": 1746430
+  },
+  {
+   "pos": 1546,
    "lingua": "EN",
    "nome": "Charizard",
    "set": "SWSH Black Star Promos",
@@ -2496,31 +2504,23 @@
    "cap": 1745071
   },
   {
-   "pos": 1552,
+   "pos": 1551,
    "lingua": "EN",
    "nome": "Dark Vileplume",
    "set": "Team Rocket",
    "variante": "1st Edition",
-   "cap": 1742961
+   "cap": 1742914
   },
   {
-   "pos": 1559,
-   "lingua": "EN",
-   "nome": "Deoxys",
-   "set": "Emerald",
-   "variante": "Reverse Foil",
-   "cap": 1737250
-  },
-  {
-   "pos": 1566,
+   "pos": 1554,
    "lingua": "JA",
    "nome": "Pichu",
    "set": "Base Expansion Pack",
    "variante": "1st Edition",
-   "cap": 1730433
+   "cap": 1736959
   },
   {
-   "pos": 1567,
+   "pos": 1561,
    "lingua": "EN",
    "nome": "Mew",
    "set": "Expedition Base Set",
@@ -2528,7 +2528,31 @@
    "cap": 1726852
   },
   {
-   "pos": 1570,
+   "pos": 1564,
+   "lingua": "JA",
+   "nome": "Arcanine",
+   "set": "The Town on No Map",
+   "variante": "1st Edition",
+   "cap": 1726120
+  },
+  {
+   "pos": 1565,
+   "lingua": "JA",
+   "nome": "Lugia",
+   "set": "LEGEND Promos",
+   "variante": null,
+   "cap": 1725686
+  },
+  {
+   "pos": 1567,
+   "lingua": "EN",
+   "nome": "Dark Dragonite",
+   "set": "Team Rocket",
+   "variante": "1st Edition",
+   "cap": 1723965
+  },
+  {
+   "pos": 1568,
    "lingua": "EN",
    "nome": "Gengar",
    "set": "Expedition Base Set",
@@ -2536,7 +2560,7 @@
    "cap": 1723739
   },
   {
-   "pos": 1575,
+   "pos": 1577,
    "lingua": "EN",
    "nome": "Lucario-EX",
    "set": "Furious Fists",
@@ -2544,7 +2568,7 @@
    "cap": 1716322
   },
   {
-   "pos": 1580,
+   "pos": 1582,
    "lingua": "JA",
    "nome": "Deoxys-EX",
    "set": "Spiral Force",
@@ -2552,63 +2576,47 @@
    "cap": 1712911
   },
   {
-   "pos": 1582,
-   "lingua": "JA",
-   "nome": "Rocket's Entei",
-   "set": "Pokémon VS",
-   "variante": null,
-   "cap": 1710331
-  },
-  {
    "pos": 1583,
-   "lingua": "EN",
-   "nome": "Mr. Mime",
-   "set": "Jungle",
-   "variante": "1st Edition",
-   "cap": 1709165
-  },
-  {
-   "pos": 1586,
-   "lingua": "JA",
-   "nome": "Tyranitar",
-   "set": "Reviving Legends",
-   "variante": "1st Edition",
-   "cap": 1707959
-  },
-  {
-   "pos": 1587,
    "lingua": "JA",
    "nome": "Raikou ☆",
    "set": "Golden Sky, Silvery Ocean",
    "variante": "1st Edition",
-   "cap": 1707290
+   "cap": 1708270
   },
   {
-   "pos": 1589,
+   "pos": 1585,
+   "lingua": "EN",
+   "nome": "Mr. Mime",
+   "set": "Jungle",
+   "variante": "1st Edition",
+   "cap": 1704744
+  },
+  {
+   "pos": 1587,
+   "lingua": "JA",
+   "nome": "Tyranitar",
+   "set": "Reviving Legends",
+   "variante": "1st Edition",
+   "cap": 1696726
+  },
+  {
+   "pos": 1588,
    "lingua": "JA",
    "nome": "Misty's Gyarados",
    "set": "Leaders' Stadium",
    "variante": null,
-   "cap": 1693721
+   "cap": 1695556
   },
   {
-   "pos": 1593,
+   "pos": 1592,
    "lingua": "EN",
    "nome": "Nidoqueen",
    "set": "Jungle",
    "variante": "1st Edition",
-   "cap": 1689966
+   "cap": 1689254
   },
   {
-   "pos": 1594,
-   "lingua": "JA",
-   "nome": "Lugia",
-   "set": "LEGEND Promos",
-   "variante": null,
-   "cap": 1689098
-  },
-  {
-   "pos": 1596,
+   "pos": 1598,
    "lingua": "EN",
    "nome": "Koga's Ditto",
    "set": "Gym Challenge",
@@ -2616,39 +2624,31 @@
    "cap": 1685552
   },
   {
-   "pos": 1604,
+   "pos": 1600,
+   "lingua": "JA",
+   "nome": "Rocket's Entei",
+   "set": "Pokémon VS",
+   "variante": null,
+   "cap": 1682402
+  },
+  {
+   "pos": 1601,
    "lingua": "JA",
    "nome": "M Charizard-EX",
    "set": "Wild Blaze",
    "variante": "1st Edition",
-   "cap": 1678831
+   "cap": 1681098
   },
   {
-   "pos": 1605,
-   "lingua": "EN",
-   "nome": "Vaporeon",
-   "set": "Brilliant Stars Trainer Gallery",
-   "variante": null,
-   "cap": 1678540
-  },
-  {
-   "pos": 1606,
+   "pos": 1602,
    "lingua": "JA",
    "nome": "Mew δ",
    "set": "PCG Promos",
    "variante": null,
-   "cap": 1678376
+   "cap": 1680926
   },
   {
-   "pos": 1610,
-   "lingua": "JA",
-   "nome": "Psyduck",
-   "set": "The Town on No Map",
-   "variante": "1st Edition",
-   "cap": 1674081
-  },
-  {
-   "pos": 1612,
+   "pos": 1609,
    "lingua": "EN",
    "nome": "Mew",
    "set": "Evolutions",
@@ -2656,7 +2656,7 @@
    "cap": 1671980
   },
   {
-   "pos": 1613,
+   "pos": 1610,
    "lingua": "EN",
    "nome": "Hypno",
    "set": "Fossil",
@@ -2664,12 +2664,28 @@
    "cap": 1669604
   },
   {
+   "pos": 1613,
+   "lingua": "EN",
+   "nome": "Charmeleon",
+   "set": "Base Set",
+   "variante": "1st Edition",
+   "cap": 1665250
+  },
+  {
    "pos": 1614,
    "lingua": "EN",
-   "nome": "Mega Lucario ex",
-   "set": "Mega Evolution Black Star Promos",
+   "nome": "Lucario & Melmetal-GX",
+   "set": "SM Black Star Promos",
    "variante": null,
-   "cap": 1665572
+   "cap": 1664668
+  },
+  {
+   "pos": 1616,
+   "lingua": "EN",
+   "nome": "Vaporeon",
+   "set": "Brilliant Stars Trainer Gallery",
+   "variante": null,
+   "cap": 1664421
   },
   {
    "pos": 1618,
@@ -2680,23 +2696,31 @@
    "cap": 1662301
   },
   {
-   "pos": 1620,
-   "lingua": "JA",
-   "nome": "Alakazam",
-   "set": "Base Expansion Pack",
-   "variante": "1st Edition",
-   "cap": 1661326
+   "pos": 1622,
+   "lingua": "EN",
+   "nome": "Mega Lucario ex",
+   "set": "Mega Evolution Black Star Promos",
+   "variante": null,
+   "cap": 1651025
   },
   {
-   "pos": 1627,
+   "pos": 1624,
+   "lingua": "EN",
+   "nome": "Dark Typhlosion",
+   "set": "Neo Destiny",
+   "variante": "1st Edition",
+   "cap": 1648508
+  },
+  {
+   "pos": 1626,
    "lingua": "EN",
    "nome": "Magikarp",
    "set": "Base Set",
    "variante": "1st Edition",
-   "cap": 1639967
+   "cap": 1645719
   },
   {
-   "pos": 1628,
+   "pos": 1629,
    "lingua": "JA",
    "nome": "Blastoise",
    "set": "P Promos",
@@ -2704,7 +2728,7 @@
    "cap": 1639866
   },
   {
-   "pos": 1629,
+   "pos": 1630,
    "lingua": "EN",
    "nome": "Houndoom",
    "set": "Neo Discovery",
@@ -2712,23 +2736,15 @@
    "cap": 1639569
   },
   {
-   "pos": 1633,
-   "lingua": "EN",
-   "nome": "Charmeleon",
-   "set": "Base Set",
-   "variante": "1st Edition",
-   "cap": 1630270
-  },
-  {
    "pos": 1635,
    "lingua": "JA",
    "nome": "Rocket's Suicune",
    "set": "Pokémon VS",
    "variante": null,
-   "cap": 1628537
+   "cap": 1629297
   },
   {
-   "pos": 1638,
+   "pos": 1637,
    "lingua": "EN",
    "nome": "Dark Houndoom",
    "set": "Neo Destiny",
@@ -2736,7 +2752,7 @@
    "cap": 1626108
   },
   {
-   "pos": 1639,
+   "pos": 1638,
    "lingua": "EN",
    "nome": "Feraligatr",
    "set": "Unseen Forces",
@@ -2744,55 +2760,31 @@
    "cap": 1625183
   },
   {
-   "pos": 1641,
-   "lingua": "EN",
-   "nome": "Charizard G",
-   "set": "Supreme Victors",
-   "variante": "Reverse Foil",
-   "cap": 1622837
-  },
-  {
-   "pos": 1643,
-   "lingua": "EN",
-   "nome": "Lucario & Melmetal-GX",
-   "set": "SM Black Star Promos",
-   "variante": null,
-   "cap": 1622729
-  },
-  {
-   "pos": 1650,
+   "pos": 1644,
    "lingua": "EN",
    "nome": "Dark Blastoise",
    "set": "Team Rocket",
    "variante": "1st Edition",
-   "cap": 1614948
+   "cap": 1620570
   },
   {
-   "pos": 1653,
+   "pos": 1649,
    "lingua": "JA",
    "nome": "Togepi",
    "set": "Southern Islands",
    "variante": null,
-   "cap": 1612852
+   "cap": 1614553
   },
   {
-   "pos": 1656,
-   "lingua": "JA",
-   "nome": "Pikachu",
-   "set": "ADV Promos",
-   "variante": null,
-   "cap": 1608615
-  },
-  {
-   "pos": 1661,
+   "pos": 1657,
    "lingua": "JA",
    "nome": "Warm Pikachu",
    "set": "XY Promos",
    "variante": null,
-   "cap": 1602312
+   "cap": 1602867
   },
   {
-   "pos": 1663,
+   "pos": 1659,
    "lingua": "EN",
    "nome": "Ninetales",
    "set": "Legendary Collection",
@@ -2800,7 +2792,15 @@
    "cap": 1602220
   },
   {
-   "pos": 1670,
+   "pos": 1663,
+   "lingua": "JA",
+   "nome": "Alakazam",
+   "set": "Base Expansion Pack",
+   "variante": "1st Edition",
+   "cap": 1597270
+  },
+  {
+   "pos": 1667,
    "lingua": "EN",
    "nome": "Rayquaza",
    "set": "XY Black Star Promos",
@@ -2808,20 +2808,12 @@
    "cap": 1587401
   },
   {
-   "pos": 1671,
-   "lingua": "EN",
-   "nome": "Dark Arbok",
-   "set": "Team Rocket",
-   "variante": "1st Edition",
-   "cap": 1585919
-  },
-  {
-   "pos": 1672,
+   "pos": 1670,
    "lingua": "EN",
    "nome": "Giovanni's Machamp",
    "set": "Gym Challenge",
    "variante": "1st Edition",
-   "cap": 1583205
+   "cap": 1582183
   },
   {
    "pos": 1675,
@@ -2837,7 +2829,7 @@
    "nome": "Typhlosion ex",
    "set": "Unseen Forces",
    "variante": null,
-   "cap": 1576608
+   "cap": 1576806
   },
   {
    "pos": 1677,
@@ -2845,23 +2837,39 @@
    "nome": "Pikachu",
    "set": "Neo Genesis",
    "variante": "1st Edition",
-   "cap": 1576110
+   "cap": 1576732
+  },
+  {
+   "pos": 1678,
+   "lingua": "EN",
+   "nome": "Dark Arbok",
+   "set": "Team Rocket",
+   "variante": "1st Edition",
+   "cap": 1576570
   },
   {
    "pos": 1681,
    "lingua": "JA",
-   "nome": "M Gengar-EX",
-   "set": "Phantom Gate",
+   "nome": "Iris",
+   "set": "Megalo Cannon",
    "variante": "1st Edition",
-   "cap": 1568191
+   "cap": 1571783
   },
   {
    "pos": 1682,
    "lingua": "JA",
-   "nome": "Iris",
-   "set": "Megalo Cannon",
+   "nome": "M Gengar-EX",
+   "set": "Phantom Gate",
    "variante": "1st Edition",
-   "cap": 1567264
+   "cap": 1569306
+  },
+  {
+   "pos": 1684,
+   "lingua": "JA",
+   "nome": "Psyduck",
+   "set": "The Town on No Map",
+   "variante": "1st Edition",
+   "cap": 1563277
   },
   {
    "pos": 1685,
@@ -2869,26 +2877,42 @@
    "nome": "Cubone",
    "set": "Jungle",
    "variante": "1st Edition",
-   "cap": 1562170
+   "cap": 1561238
   },
   {
-   "pos": 1689,
+   "pos": 1686,
    "lingua": "EN",
    "nome": "Kabutops",
    "set": "Legendary Collection",
    "variante": "Reverse Foil",
-   "cap": 1557325
+   "cap": 1560700
   },
   {
-   "pos": 1690,
+   "pos": 1688,
    "lingua": "JA",
    "nome": "Umbreon",
    "set": "Magma vs Aqua: Two Ambitions",
    "variante": "1st Edition",
-   "cap": 1556551
+   "cap": 1559875
   },
   {
    "pos": 1691,
+   "lingua": "JA",
+   "nome": "Charmander",
+   "set": "Expansion Pack",
+   "variante": "No Rarity Symbol",
+   "cap": 1557640
+  },
+  {
+   "pos": 1693,
+   "lingua": "JA",
+   "nome": "Warm Pikachu",
+   "set": "XY Promos",
+   "variante": null,
+   "cap": 1556612
+  },
+  {
+   "pos": 1694,
    "lingua": "EN",
    "nome": "Latios δ",
    "set": "Delta Species",
@@ -2896,39 +2920,7 @@
    "cap": 1556314
   },
   {
-   "pos": 1692,
-   "lingua": "JA",
-   "nome": "Charmander",
-   "set": "Expansion Pack",
-   "variante": "No Rarity Symbol",
-   "cap": 1553946
-  },
-  {
-   "pos": 1694,
-   "lingua": "JA",
-   "nome": "Charmander",
-   "set": "Expansion Pack",
-   "variante": null,
-   "cap": 1553048
-  },
-  {
-   "pos": 1696,
-   "lingua": "EN",
-   "nome": "Vileplume",
-   "set": "Jungle",
-   "variante": "1st Edition",
-   "cap": 1551224
-  },
-  {
-   "pos": 1698,
-   "lingua": "EN",
-   "nome": "Dark Vaporeon",
-   "set": "Legendary Collection",
-   "variante": null,
-   "cap": 1551025
-  },
-  {
-   "pos": 1701,
+   "pos": 1702,
    "lingua": "JA",
    "nome": "Lugia-EX",
    "set": "Bandit Ring",
@@ -2936,23 +2928,15 @@
    "cap": 1549723
   },
   {
-   "pos": 1702,
-   "lingua": "JA",
-   "nome": "Warm Pikachu",
-   "set": "XY Promos",
-   "variante": null,
-   "cap": 1546510
-  },
-  {
-   "pos": 1705,
+   "pos": 1704,
    "lingua": "EN",
    "nome": "Haunter",
    "set": "Mega Evolution Black Star Promos",
    "variante": null,
-   "cap": 1544675
+   "cap": 1545198
   },
   {
-   "pos": 1706,
+   "pos": 1705,
    "lingua": "EN",
    "nome": "Gyarados",
    "set": "Deoxys",
@@ -2960,15 +2944,23 @@
    "cap": 1544271
   },
   {
+   "pos": 1706,
+   "lingua": "EN",
+   "nome": "Wobbuffet",
+   "set": "Neo Discovery",
+   "variante": "1st Edition",
+   "cap": 1543921
+  },
+  {
    "pos": 1707,
    "lingua": "JA",
    "nome": "Feraligatr",
    "set": "Base Expansion Pack",
    "variante": "1st Edition",
-   "cap": 1543659
+   "cap": 1543867
   },
   {
-   "pos": 1713,
+   "pos": 1711,
    "lingua": "EN",
    "nome": "Dark Blastoise",
    "set": "Legendary Collection",
@@ -2976,15 +2968,7 @@
    "cap": 1537801
   },
   {
-   "pos": 1714,
-   "lingua": "EN",
-   "nome": "Wobbuffet",
-   "set": "Neo Discovery",
-   "variante": "1st Edition",
-   "cap": 1535471
-  },
-  {
-   "pos": 1720,
+   "pos": 1717,
    "lingua": "EN",
    "nome": "Gastly",
    "set": "Legendary Collection",
@@ -2992,20 +2976,44 @@
    "cap": 1531510
   },
   {
-   "pos": 1722,
+   "pos": 1720,
+   "lingua": "EN",
+   "nome": "Vileplume",
+   "set": "Jungle",
+   "variante": "1st Edition",
+   "cap": 1530568
+  },
+  {
+   "pos": 1721,
+   "lingua": "EN",
+   "nome": "Dark Vaporeon",
+   "set": "Legendary Collection",
+   "variante": null,
+   "cap": 1529911
+  },
+  {
+   "pos": 1723,
    "lingua": "EN",
    "nome": "Kyogre-EX",
    "set": "Primal Clash",
    "variante": null,
-   "cap": 1527582
+   "cap": 1529052
   },
   {
-   "pos": 1727,
+   "pos": 1725,
    "lingua": "JA",
    "nome": "Vaporeon",
    "set": "Split Earth",
    "variante": "1st Edition",
-   "cap": 1520277
+   "cap": 1527902
+  },
+  {
+   "pos": 1727,
+   "lingua": "JA",
+   "nome": "Pikachu",
+   "set": "ADV Promos",
+   "variante": null,
+   "cap": 1523098
   },
   {
    "pos": 1732,
@@ -3013,18 +3021,26 @@
    "nome": "Meowth",
    "set": "Gem Pack Vol. 3",
    "variante": null,
-   "cap": 1511185
+   "cap": 1517924
   },
   {
-   "pos": 1735,
+   "pos": 1734,
    "lingua": "EN",
-   "nome": "Absol",
-   "set": "Team Magma vs Team Aqua",
+   "nome": "Palkia & Dialga LEGEND",
+   "set": "HS—Triumphant",
    "variante": null,
-   "cap": 1508592
+   "cap": 1514616
   },
   {
-   "pos": 1736,
+   "pos": 1738,
+   "lingua": "JA",
+   "nome": "Gyarados",
+   "set": "LEGEND Promos",
+   "variante": null,
+   "cap": 1510977
+  },
+  {
+   "pos": 1740,
    "lingua": "EN",
    "nome": "Latias δ",
    "set": "Delta Species",
@@ -3032,31 +3048,47 @@
    "cap": 1508510
   },
   {
-   "pos": 1737,
-   "lingua": "JA",
-   "nome": "Gyarados",
-   "set": "LEGEND Promos",
-   "variante": null,
-   "cap": 1508355
-  },
-  {
-   "pos": 1739,
+   "pos": 1741,
    "lingua": "EN",
    "nome": "Pinsir",
    "set": "Jungle",
    "variante": "1st Edition",
-   "cap": 1507694
+   "cap": 1508283
+  },
+  {
+   "pos": 1742,
+   "lingua": "EN",
+   "nome": "Absol",
+   "set": "Team Magma vs Team Aqua",
+   "variante": null,
+   "cap": 1507514
   },
   {
    "pos": 1743,
    "lingua": "EN",
+   "nome": "Dark Weezing",
+   "set": "Team Rocket",
+   "variante": "1st Edition",
+   "cap": 1504404
+  },
+  {
+   "pos": 1745,
+   "lingua": "EN",
    "nome": "Psyduck",
    "set": "Fossil",
    "variante": "1st Edition",
-   "cap": 1502879
+   "cap": 1502921
   },
   {
-   "pos": 1746,
+   "pos": 1747,
+   "lingua": "JA",
+   "nome": "Charmander",
+   "set": "Expansion Pack",
+   "variante": null,
+   "cap": 1501571
+  },
+  {
+   "pos": 1750,
    "lingua": "EN",
    "nome": "Jolteon δ",
    "set": "Delta Species",
@@ -3064,7 +3096,15 @@
    "cap": 1498840
   },
   {
-   "pos": 1748,
+   "pos": 1751,
+   "lingua": "JA",
+   "nome": "Mew",
+   "set": "PCG Promos",
+   "variante": null,
+   "cap": 1498266
+  },
+  {
+   "pos": 1754,
    "lingua": "ZH-CN",
    "nome": "Leafeon",
    "set": "Gem Pack Vol. 2",
@@ -3072,7 +3112,7 @@
    "cap": 1496135
   },
   {
-   "pos": 1751,
+   "pos": 1757,
    "lingua": "EN",
    "nome": "Misty",
    "set": "Gym Heroes",
@@ -3080,7 +3120,7 @@
    "cap": 1495063
   },
   {
-   "pos": 1752,
+   "pos": 1758,
    "lingua": "EN",
    "nome": "Psyduck",
    "set": "Aquapolis",
@@ -3088,15 +3128,7 @@
    "cap": 1494849
   },
   {
-   "pos": 1755,
-   "lingua": "JA",
-   "nome": "Mew",
-   "set": "PCG Promos",
-   "variante": null,
-   "cap": 1493716
-  },
-  {
-   "pos": 1758,
+   "pos": 1759,
    "lingua": "EN",
    "nome": "Machamp",
    "set": "Legendary Collection",
@@ -3104,12 +3136,12 @@
    "cap": 1490585
   },
   {
-   "pos": 1766,
-   "lingua": "EN",
-   "nome": "Dark Weezing",
-   "set": "Team Rocket",
-   "variante": "1st Edition",
-   "cap": 1481398
+   "pos": 1760,
+   "lingua": "ZH-CN",
+   "nome": "Sylveon ex",
+   "set": "Terastal Gathering",
+   "variante": null,
+   "cap": 1489013
   },
   {
    "pos": 1775,
@@ -3117,10 +3149,10 @@
    "nome": "Gengar",
    "set": "Mirage Forest",
    "variante": "1st Edition",
-   "cap": 1468772
+   "cap": 1470154
   },
   {
-   "pos": 1776,
+   "pos": 1777,
    "lingua": "EN",
    "nome": "Sneasel ex",
    "set": "Ruby & Sapphire",
@@ -3128,7 +3160,7 @@
    "cap": 1468386
   },
   {
-   "pos": 1779,
+   "pos": 1780,
    "lingua": "EN",
    "nome": "Light Togetic",
    "set": "Neo Destiny",
@@ -3136,39 +3168,47 @@
    "cap": 1466074
   },
   {
-   "pos": 1780,
+   "pos": 1781,
    "lingua": "ZH-CN",
    "nome": "Eevee",
    "set": "Gem Pack Vol. 2",
    "variante": null,
-   "cap": 1465198
+   "cap": 1465263
   },
   {
-   "pos": 1790,
+   "pos": 1789,
    "lingua": "EN",
    "nome": "Brock's Rhydon",
    "set": "Gym Heroes",
    "variante": "1st Edition",
-   "cap": 1453769
+   "cap": 1453874
   },
   {
-   "pos": 1793,
+   "pos": 1792,
    "lingua": "EN",
    "nome": "Ninetales δ",
    "set": "Dragon Frontiers",
    "variante": "Reverse Foil",
-   "cap": 1451044
+   "cap": 1451344
   },
   {
-   "pos": 1794,
+   "pos": 1795,
    "lingua": "EN",
    "nome": "Magikarp",
    "set": "Deoxys",
    "variante": "Reverse Foil",
-   "cap": 1450967
+   "cap": 1451032
   },
   {
-   "pos": 1796,
+   "pos": 1797,
+   "lingua": "JA",
+   "nome": "Rayquaza ex",
+   "set": "Rayquaza Constructed Starter Deck",
+   "variante": "1st Edition",
+   "cap": 1449000
+  },
+  {
+   "pos": 1799,
    "lingua": "EN",
    "nome": "Latias ex δ",
    "set": "Dragon Frontiers",
@@ -3176,7 +3216,7 @@
    "cap": 1447782
   },
   {
-   "pos": 1797,
+   "pos": 1801,
    "lingua": "JA",
    "nome": "Hitmonchan",
    "set": "Expansion Pack",
@@ -3184,7 +3224,7 @@
    "cap": 1446049
   },
   {
-   "pos": 1798,
+   "pos": 1802,
    "lingua": "JA",
    "nome": "Venusaur",
    "set": "P Promos",
@@ -3192,15 +3232,15 @@
    "cap": 1445559
   },
   {
-   "pos": 1799,
-   "lingua": "ZH-CN",
-   "nome": "Sylveon ex",
-   "set": "Terastal Gathering",
-   "variante": null,
-   "cap": 1444709
+   "pos": 1805,
+   "lingua": "EN",
+   "nome": "Ivysaur",
+   "set": "Base Set",
+   "variante": "1st Edition",
+   "cap": 1441780
   },
   {
-   "pos": 1807,
+   "pos": 1810,
    "lingua": "EN",
    "nome": "Flareon",
    "set": "Brilliant Stars Trainer Gallery",
@@ -3208,15 +3248,7 @@
    "cap": 1436609
   },
   {
-   "pos": 1812,
-   "lingua": "EN",
-   "nome": "Pikachu",
-   "set": "SWSH Black Star Promos",
-   "variante": null,
-   "cap": 1433520
-  },
-  {
-   "pos": 1816,
+   "pos": 1818,
    "lingua": "JA",
    "nome": "Regice ☆",
    "set": "Mirage Forest",
@@ -3224,7 +3256,7 @@
    "cap": 1428070
   },
   {
-   "pos": 1817,
+   "pos": 1819,
    "lingua": "EN",
    "nome": "Jolteon ex",
    "set": "Delta Species",
@@ -3232,7 +3264,7 @@
    "cap": 1427432
   },
   {
-   "pos": 1818,
+   "pos": 1820,
    "lingua": "EN",
    "nome": "Rocket's Hitmonchan",
    "set": "Gym Heroes",
@@ -3240,47 +3272,47 @@
    "cap": 1426029
   },
   {
-   "pos": 1820,
+   "pos": 1822,
    "lingua": "JA",
    "nome": "Kyogre EX",
    "set": "ADV Promos",
    "variante": null,
-   "cap": 1423053
+   "cap": 1424858
   },
   {
-   "pos": 1824,
+   "pos": 1826,
    "lingua": "EN",
    "nome": "Psyduck δ",
    "set": "Holon Phantoms",
    "variante": "Reverse Foil",
-   "cap": 1418355
+   "cap": 1418487
   },
   {
-   "pos": 1825,
+   "pos": 1828,
    "lingua": "EN",
-   "nome": "Ivysaur",
-   "set": "Base Set",
-   "variante": "1st Edition",
-   "cap": 1417964
+   "nome": "Pikachu",
+   "set": "SWSH Black Star Promos",
+   "variante": null,
+   "cap": 1414138
   },
   {
-   "pos": 1831,
+   "pos": 1832,
    "lingua": "EN",
-   "nome": "Kingdra",
-   "set": "Neo Genesis",
-   "variante": "1st Edition",
-   "cap": 1402418
+   "nome": "Pidgeot",
+   "set": "Legendary Collection",
+   "variante": "Reverse Foil",
+   "cap": 1405485
   },
   {
-   "pos": 1833,
+   "pos": 1834,
    "lingua": "JA",
    "nome": "Houndoom",
    "set": "Mysterious Mountains",
    "variante": "1st Edition",
-   "cap": 1400542
+   "cap": 1403946
   },
   {
-   "pos": 1835,
+   "pos": 1840,
    "lingua": "EN",
    "nome": "Nidoking",
    "set": "Legendary Collection",
@@ -3288,23 +3320,15 @@
    "cap": 1398031
   },
   {
-   "pos": 1836,
+   "pos": 1843,
    "lingua": "EN",
-   "nome": "Pidgeot",
-   "set": "Legendary Collection",
-   "variante": "Reverse Foil",
-   "cap": 1397767
+   "nome": "Kingdra",
+   "set": "Neo Genesis",
+   "variante": "1st Edition",
+   "cap": 1396201
   },
   {
-   "pos": 1840,
-   "lingua": "EN",
-   "nome": "Scyther",
-   "set": "Jungle",
-   "variante": null,
-   "cap": 1396317
-  },
-  {
-   "pos": 1844,
+   "pos": 1846,
    "lingua": "EN",
    "nome": "Beedrill",
    "set": "Base Set",
@@ -3312,20 +3336,12 @@
    "cap": 1395293
   },
   {
-   "pos": 1848,
+   "pos": 1850,
    "lingua": "JA",
    "nome": "Oricorio ex",
    "set": "Inferno X",
    "variante": null,
-   "cap": 1392688
-  },
-  {
-   "pos": 1850,
-   "lingua": "EN",
-   "nome": "Pikachu",
-   "set": "Power Keepers",
-   "variante": "Reverse Foil",
-   "cap": 1391782
+   "cap": 1393148
   },
   {
    "pos": 1854,
@@ -3333,10 +3349,18 @@
    "nome": "Raichu",
    "set": "Base Expansion Pack",
    "variante": "1st Edition",
-   "cap": 1385518
+   "cap": 1387283
   },
   {
    "pos": 1855,
+   "lingua": "JA",
+   "nome": "Raikou",
+   "set": "LEGEND Promos",
+   "variante": null,
+   "cap": 1386750
+  },
+  {
+   "pos": 1857,
    "lingua": "EN",
    "nome": "Psyduck",
    "set": "Team Rocket Returns",
@@ -3344,7 +3368,7 @@
    "cap": 1385284
   },
   {
-   "pos": 1857,
+   "pos": 1858,
    "lingua": "JA",
    "nome": "Clefairy",
    "set": "Expansion Pack",
@@ -3352,15 +3376,7 @@
    "cap": 1383552
   },
   {
-   "pos": 1858,
-   "lingua": "JA",
-   "nome": "Raikou",
-   "set": "LEGEND Promos",
-   "variante": null,
-   "cap": 1383500
-  },
-  {
-   "pos": 1860,
+   "pos": 1859,
    "lingua": "EN",
    "nome": "Mudkip",
    "set": "Crystal Guardians",
@@ -3368,7 +3384,7 @@
    "cap": 1382864
   },
   {
-   "pos": 1861,
+   "pos": 1860,
    "lingua": "EN",
    "nome": "Dragonite",
    "set": "Expedition Base Set",
@@ -3376,7 +3392,7 @@
    "cap": 1382538
   },
   {
-   "pos": 1862,
+   "pos": 1861,
    "lingua": "EN",
    "nome": "Chansey ex",
    "set": "Ruby & Sapphire",
@@ -3384,15 +3400,7 @@
    "cap": 1381826
   },
   {
-   "pos": 1863,
-   "lingua": "JA",
-   "nome": "Lance's Gyarados",
-   "set": "Pokémon VS",
-   "variante": null,
-   "cap": 1381791
-  },
-  {
-   "pos": 1866,
+   "pos": 1865,
    "lingua": "JA",
    "nome": "Mewtwo",
    "set": "Pokémon Card 151",
@@ -3400,28 +3408,36 @@
    "cap": 1379442
   },
   {
-   "pos": 1870,
+   "pos": 1868,
    "lingua": "EN",
-   "nome": "Deoxys δ",
-   "set": "Holon Phantoms",
-   "variante": "Reverse Foil",
-   "cap": 1376571
+   "nome": "Scyther",
+   "set": "Jungle",
+   "variante": null,
+   "cap": 1377819
   },
   {
-   "pos": 1874,
+   "pos": 1870,
+   "lingua": "EN",
+   "nome": "Pikachu",
+   "set": "Power Keepers",
+   "variante": "Reverse Foil",
+   "cap": 1377179
+  },
+  {
+   "pos": 1873,
    "lingua": "EN",
    "nome": "Charizard-EX",
    "set": "XY Black Star Promos",
    "variante": null,
-   "cap": 1374068
+   "cap": 1376134
   },
   {
-   "pos": 1890,
-   "lingua": "EN",
-   "nome": "Abra",
-   "set": "Legendary Collection",
-   "variante": "Reverse Foil",
-   "cap": 1359200
+   "pos": 1874,
+   "lingua": "JA",
+   "nome": "Lance's Gyarados",
+   "set": "Pokémon VS",
+   "variante": null,
+   "cap": 1375882
   },
   {
    "pos": 1891,
@@ -3432,15 +3448,23 @@
    "cap": 1359058
   },
   {
-   "pos": 1893,
+   "pos": 1892,
+   "lingua": "EN",
+   "nome": "Abra",
+   "set": "Legendary Collection",
+   "variante": "Reverse Foil",
+   "cap": 1358303
+  },
+  {
+   "pos": 1897,
    "lingua": "EN",
    "nome": "Erika's Clefable",
    "set": "Gym Heroes",
    "variante": "1st Edition",
-   "cap": 1353064
+   "cap": 1352809
   },
   {
-   "pos": 1900,
+   "pos": 1902,
    "lingua": "JA",
    "nome": "Reshiram",
    "set": "EX Battle Boost",
@@ -3448,15 +3472,23 @@
    "cap": 1348614
   },
   {
-   "pos": 1905,
+   "pos": 1904,
    "lingua": "JA",
    "nome": "Slowking",
    "set": "Wind from the Sea",
    "variante": "1st Edition",
-   "cap": 1344094
+   "cap": 1344886
   },
   {
-   "pos": 1907,
+   "pos": 1908,
+   "lingua": "EN",
+   "nome": "Deoxys δ",
+   "set": "Holon Phantoms",
+   "variante": "Reverse Foil",
+   "cap": 1340571
+  },
+  {
+   "pos": 1909,
    "lingua": "EN",
    "nome": "Politoed",
    "set": "Neo Discovery",
@@ -3464,7 +3496,7 @@
    "cap": 1340406
   },
   {
-   "pos": 1908,
+   "pos": 1912,
    "lingua": "EN",
    "nome": "Magikarp",
    "set": "Team Rocket Returns",
@@ -3472,39 +3504,31 @@
    "cap": 1338557
   },
   {
-   "pos": 1915,
-   "lingua": "EN",
-   "nome": "Latias & Latios-GX",
-   "set": "Team Up",
-   "variante": null,
-   "cap": 1333681
-  },
-  {
-   "pos": 1916,
-   "lingua": "JA",
-   "nome": "Alakazam",
-   "set": "Split Earth",
-   "variante": "1st Edition",
-   "cap": 1333133
-  },
-  {
-   "pos": 1918,
+   "pos": 1917,
    "lingua": "EN",
    "nome": "Electrode",
    "set": "Jungle",
    "variante": "1st Edition",
-   "cap": 1332413
+   "cap": 1335507
   },
   {
-   "pos": 1926,
+   "pos": 1919,
+   "lingua": "JA",
+   "nome": "Alakazam",
+   "set": "Split Earth",
+   "variante": "1st Edition",
+   "cap": 1334133
+  },
+  {
+   "pos": 1928,
    "lingua": "JA",
    "nome": "Marill",
    "set": "Southern Islands",
    "variante": null,
-   "cap": 1328499
+   "cap": 1328614
   },
   {
-   "pos": 1927,
+   "pos": 1929,
    "lingua": "JA",
    "nome": "Suicune ☆",
    "set": "Golden Sky, Silvery Ocean",
@@ -3512,68 +3536,68 @@
    "cap": 1328485
   },
   {
-   "pos": 1929,
-   "lingua": "JA",
-   "nome": "Pikachu",
-   "set": "Scarlet & Violet Promos",
+   "pos": 1930,
+   "lingua": "EN",
+   "nome": "Latias & Latios-GX",
+   "set": "Team Up",
    "variante": null,
-   "cap": 1326650
+   "cap": 1327584
   },
   {
-   "pos": 1933,
+   "pos": 1932,
    "lingua": "EN",
    "nome": "Lt. Surge's Electabuzz",
    "set": "Gym Heroes",
    "variante": "1st Edition",
-   "cap": 1324021
+   "cap": 1323992
+  },
+  {
+   "pos": 1935,
+   "lingua": "EN",
+   "nome": "Kyogre ex",
+   "set": "Nintendo Black Star Promos",
+   "variante": null,
+   "cap": 1321680
   },
   {
    "pos": 1938,
    "lingua": "JA",
-   "nome": "Zekrom",
-   "set": "EX Battle Boost",
-   "variante": "1st Edition",
-   "cap": 1316180
-  },
-  {
-   "pos": 1939,
-   "lingua": "EN",
-   "nome": "Dark Scizor",
-   "set": "Neo Destiny",
-   "variante": "1st Edition",
-   "cap": 1314399
-  },
-  {
-   "pos": 1940,
-   "lingua": "JA",
    "nome": "Mewtwo-EX",
    "set": "Blue Shock",
    "variante": "1st Edition",
-   "cap": 1313409
+   "cap": 1318805
   },
   {
-   "pos": 1945,
+   "pos": 1944,
    "lingua": "JA",
    "nome": "Indigo Plateau",
    "set": "LEGEND Promos",
    "variante": null,
-   "cap": 1310242
+   "cap": 1310943
   },
   {
-   "pos": 1947,
+   "pos": 1946,
+   "lingua": "EN",
+   "nome": "Dark Scizor",
+   "set": "Neo Destiny",
+   "variante": "1st Edition",
+   "cap": 1310037
+  },
+  {
+   "pos": 1948,
    "lingua": "EN",
    "nome": "Growlithe",
    "set": "Legendary Collection",
    "variante": "Reverse Foil",
-   "cap": 1308258
+   "cap": 1308307
   },
   {
-   "pos": 1951,
+   "pos": 1950,
    "lingua": "EN",
    "nome": "Mewtwo",
    "set": "Expedition Base Set",
    "variante": "Reverse Foil",
-   "cap": 1303263
+   "cap": 1303515
   },
   {
    "pos": 1953,
@@ -3592,55 +3616,47 @@
    "cap": 1301542
   },
   {
-   "pos": 1955,
+   "pos": 1959,
    "lingua": "EN",
-   "nome": "Kyogre ex",
-   "set": "Nintendo Black Star Promos",
-   "variante": null,
-   "cap": 1301233
-  },
-  {
-   "pos": 1956,
-   "lingua": "JA",
-   "nome": "Kyogre-EX",
-   "set": "Psycho Drive",
+   "nome": "Victreebel",
+   "set": "Jungle",
    "variante": "1st Edition",
-   "cap": 1300875
+   "cap": 1296102
   },
   {
-   "pos": 1960,
-   "lingua": "EN",
-   "nome": "Rayquaza",
-   "set": "Dragon Vault",
-   "variante": null,
-   "cap": 1298355
+   "pos": 1962,
+   "lingua": "JA",
+   "nome": "Zekrom",
+   "set": "EX Battle Boost",
+   "variante": "1st Edition",
+   "cap": 1294717
   },
   {
-   "pos": 1965,
+   "pos": 1964,
    "lingua": "EN",
    "nome": "Zekrom",
    "set": "Celebrations: Classic Collection",
    "variante": null,
-   "cap": 1288387
+   "cap": 1287973
   },
   {
-   "pos": 1969,
+   "pos": 1973,
    "lingua": "JA",
    "nome": "Suicune",
    "set": "The Town on No Map",
    "variante": "1st Edition",
-   "cap": 1282374
+   "cap": 1280355
   },
   {
-   "pos": 1972,
+   "pos": 1976,
    "lingua": "EN",
    "nome": "Togetic",
    "set": "Team Rocket Returns",
    "variante": "Reverse Foil",
-   "cap": 1278090
+   "cap": 1278330
   },
   {
-   "pos": 1980,
+   "pos": 1983,
    "lingua": "EN",
    "nome": "Torchic",
    "set": "Emerald",
@@ -3648,28 +3664,20 @@
    "cap": 1271654
   },
   {
-   "pos": 1988,
+   "pos": 1989,
    "lingua": "EN",
    "nome": "Tyranitar",
    "set": "Mysterious Treasures",
    "variante": null,
-   "cap": 1261868
+   "cap": 1262013
   },
   {
-   "pos": 1992,
-   "lingua": "EN",
-   "nome": "Kyurem-EX",
-   "set": "Next Destinies",
+   "pos": 1994,
+   "lingua": "ZH-CN",
+   "nome": "Gengar VMAX",
+   "set": "S-P Promotional Cards",
    "variante": null,
-   "cap": 1257192
-  },
-  {
-   "pos": 1993,
-   "lingua": "EN",
-   "nome": "Kabutops",
-   "set": "Neo Discovery",
-   "variante": "1st Edition",
-   "cap": 1256260
+   "cap": 1258556
   },
   {
    "pos": 1995,
@@ -3677,23 +3685,23 @@
    "nome": "Mewtwo-EX",
    "set": "Red Flash",
    "variante": "1st Edition",
-   "cap": 1253120
+   "cap": 1257704
   },
   {
-   "pos": 1998,
+   "pos": 1996,
    "lingua": "EN",
-   "nome": "Victreebel",
-   "set": "Jungle",
-   "variante": "1st Edition",
-   "cap": 1251967
+   "nome": "Kyurem-EX",
+   "set": "Next Destinies",
+   "variante": null,
+   "cap": 1257192
   },
   {
-   "pos": 2000,
-   "lingua": "JA",
-   "nome": "Pikachu",
-   "set": "P Promos",
-   "variante": null,
-   "cap": 1250825
+   "pos": 1997,
+   "lingua": "EN",
+   "nome": "Kabutops",
+   "set": "Neo Discovery",
+   "variante": "1st Edition",
+   "cap": 1256260
   }
  ]
 }
