@@ -18,7 +18,7 @@ def eur(v, rate):
     """1.234 € / 12,5 € (Italian separators)."""
     x = v * rate
     s = f"{x:,.0f}" if x >= 100 else f"{x:,.1f}"
-    return s.replace(",", "§").replace(".", ",").replace("§", ".") + " €"
+    return s.replace(",", "§").replace(".", ",").replace("§", ".") + "\u00a0€"       # no line break before the sign
 
 
 def num(n):
@@ -50,6 +50,12 @@ def _ok(g, n=8):
     return g and g.get("value") and (g.get("sales90") or 0) >= n and not g.get("off") and not g.get("stale")
 
 
+def _set(c):
+    """The set as a reel can show it: a Japanese set name in katakana becomes "set giapponese" (no katakana in hooks)."""
+    st = c.get("set") or ""
+    return st if all(ord(ch) < 0x2E80 for ch in st) else "set giapponese"
+
+
 def _label(c):
     return c["name"] + (" giapponese" if c.get("lang") == "ja" else "") + (" cinese" if c.get("lang") == "zh" else "")
 
@@ -75,13 +81,13 @@ def twin_gap(cards, rate):
         hi, lo = (e, j) if r >= 1 else (j, e)
         gh, gl = (b, a) if r >= 1 else (a, b)
         rr = max(r, 1 / r)
-        if rr < 2.5 or rr > 25 or min(a["pop"], b["pop"]) < 100 or "promo" in (e["set"] + j["set"]).lower():
+        if rr < 2.5 or rr > 25 or min(a["pop"], b["pop"]) < 100 or "promo" in (_set(e) + _set(j)).lower():
             continue                                     # a gap beyond 25 or a promo is more often a wrong pairing than a story
         popr = gl["pop"] / gh["pop"] if gh["pop"] else None
         ja_more = r < 1
         hook = (f"Di solito la carta giapponese costa meno dell'inglese. {e['name']} fa il contrario." if ja_more else
                 f"Stessa illustrazione, stesso {e['name']}. Uno vale {eur(gl['value'], rate)}, l'altro {eur(gh['value'], rate)}.")
-        numbers = (f"{e['name']} di {e['set']}, PSA 10: inglese {eur(b['value'], rate)}, giapponese ({j['set']}) {eur(a['value'], rate)}. "
+        numbers = (f"{e['name']} di {_set(e)}, PSA 10: inglese {eur(b['value'], rate)}, giapponese ({_set(j)}) {eur(a['value'], rate)}. "
                    f"In PSA 10 ci sono {num(a['pop'])} copie giapponesi e {num(b['pop'])} inglesi.")
         if ja_more:
             why = "Qui l'offerta non spiega il prezzo: lo spiega chi compra. Prima di dire «la giapponese costa meno», controlla la carta."
@@ -93,8 +99,8 @@ def twin_gap(cards, rate):
         close = "Tu quale terresti in vetrina?" if not ja_more else "Conosci un'altra carta dove la giapponese vale di più?"
         scenes = [
             dict(t="statement", big=f"{eur(gl['value'], rate)} contro {eur(gh['value'], rate)}", small=f"Stesso {e['name']}."),
-            dict(t="vs", a=dict(card=j["id"], label="Giapponese", sub=f"{j['set']} · PSA 10", value=eur(a["value"], rate)),
-                 b=dict(card=e["id"], label="Inglese", sub=f"{e['set']} · PSA 10", value=eur(b["value"], rate)),
+            dict(t="vs", a=dict(card=j["id"], label="Giapponese", sub=f"{_set(j)} · PSA 10", value=eur(a["value"], rate)),
+                 b=dict(card=e["id"], label="Inglese", sub=f"{_set(e)} · PSA 10", value=eur(b["value"], rate)),
                  tag=f"{rr:.0f} volte il prezzo".replace(".", ",")),
             dict(t="bars", title="Copie in PSA 10", items=[dict(label="Giapponese", value=a["pop"], text=num(a["pop"])),
                                                          dict(label="Inglese", value=b["pop"], text=num(b["pop"]))]),
@@ -176,7 +182,7 @@ def supply_price(cards, pop_history, rate, asof):
         twin = max((r for r in big if r[3]["set"] == c["set"] and r[2] >= 0.1 and r[3]["id"] != c["id"]), key=lambda r: r[2], default=None)
         g = _g(c)
         hook = f"In un mese sono arrivati {num(round(add, -2))} PSA 10 nuovi di {_label(c)}. Il prezzo? {pct(ch)}."
-        numbers = (f"{_label(c)} ({c['set']}): da {num(s[1])} a {num(e[1])} copie in PSA 10 in 30 giorni, Slabprice PSA 10 "
+        numbers = (f"{_label(c)} ({_set(c)}): da {num(s[1])} a {num(e[1])} copie in PSA 10 in 30 giorni, Slabprice PSA 10 "
                    f"{eur(g['value'], rate)}, {pct(ch)} nel mese.")
         if twin:
             tg = _g(twin[3])
@@ -223,7 +229,7 @@ def jumps(cards, rate, asof):
             prev = g["value"] / (1 + ch)
             up = ch > 0
             hook = (f"{_label(c)} PSA {g['grade']} si vendeva a {eur(prev, rate)}. Oggi a {eur(g['value'], rate)}.")
-            numbers = (f"{_label(c)} di {c['set']}, PSA {g['grade']}: Slabprice {eur(g['value'], rate)}, {pct(ch)} in 30 giorni, "
+            numbers = (f"{_label(c)} di {_set(c)}, PSA {g['grade']}: Slabprice {eur(g['value'], rate)}, {pct(ch)} in 30 giorni, "
                        f"{len(new)} vendite negli ultimi due mesi." + (f" In PSA {g['grade']} ne esistono {num(g['pop'])}." if g.get("pop") else ""))
             why = ("Con poche copie bastano due compratori decisi per spostare il prezzo: la prossima vendita dirà se è un nuovo livello."
                    if up else "Tante vendite, tutte vere: non è un errore, è il mercato che si è riposizionato.")
@@ -253,7 +259,7 @@ def new_highs(cards, rate, asof):
             first = h[0]
             y = first[0][:4]
             hook = f"{_label(c)} PSA {g['grade']} non è mai costato così tanto."
-            numbers = (f"{_label(c)} di {c['set']}, PSA {g['grade']}: Slabprice {eur(g['value'], rate)}, sopra il massimo di sempre "
+            numbers = (f"{_label(c)} di {_set(c)}, PSA {g['grade']}: Slabprice {eur(g['value'], rate)}, sopra il massimo di sempre "
                        f"({eur(past, rate)}). Nel {y} valeva {eur(first[1], rate)}.")
             why = "Un massimo storico con tante vendite vere non è un caso: chi vendeva al vecchio prezzo ha smesso."
             close = "Lo terresti o venderesti adesso?"

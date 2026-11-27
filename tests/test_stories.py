@@ -12,7 +12,7 @@ def test_twin_gap_finds_the_cheaper_japanese_and_says_it_in_euros():
              _c("ja:j1", "Magikarp", "Triplet Beat", lang="ja", en="e1", value=200, pop=60000)]
     st = S.twin_gap(cards, 0.9)
     assert len(st) == 1 and st[0]["kind"] == "twin" and not st[0]["ja_more"]
-    assert "3.150 €" in st[0]["numbers"] and "180 €" in st[0]["numbers"]
+    assert "3.150\u00a0€" in st[0]["numbers"] and "180\u00a0€" in st[0]["numbers"]
     assert [x["t"] for x in st[0]["scenes"]] == ["statement", "vs", "bars", "statement", "question"]
 
 

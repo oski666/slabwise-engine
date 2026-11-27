@@ -29,6 +29,21 @@ try:
             real[c["id"]] = dict(asof=r.get("asof") or r.get("date"), grades=gs, eur=eur)
 except (OSError, KeyError, ValueError):
     pass
+# D347: the stories of the week for the reels, with the site image of every card they show
+reels, reel_img = [], {}
+try:
+    r = json.load(open(os.path.join(data, "real.json")))
+    reels = (r.get("pulse") or {}).get("reels") or []
+    by = {c["id"]: c for c in r["cards"]}
+    for st in reels:
+        for sc in st.get("scenes", []):
+            for k in [x.get("card") for x in [sc.get("a") or {}, sc.get("b") or {}] + list(sc.get("items") or [])]:
+                if k and k in by and by[k].get("img"):
+                    im = by[k]["img"]
+                    reel_img[k] = im if im.startswith(("http", "data:", "/")) else "/" + im
+    reels = dict(asof=r.get("asof"), eur_date=r.get("eur_rate_date"), stories=reels)
+except (OSError, KeyError, ValueError):
+    reels = dict(stories=[])
 # With an output folder (the site build), the images become separate files next to the page:
 # Cloudflare Pages refuses files over 25 MiB and the inlined images passed that on 8 Nov 2026.
 if len(sys.argv) > 1:
@@ -43,6 +58,7 @@ if len(sys.argv) > 1:
         urls[k] = "/studio-img/" + name        # the page is served at /studio, and /x/ is closed (functions/x)
     img = urls
 out = (src.replace("__IMG__", json.dumps(img)).replace("__META__", json.dumps(meta, ensure_ascii=False))
-       .replace("__REAL__", json.dumps(real, ensure_ascii=False)))
+       .replace("__REAL__", json.dumps(real, ensure_ascii=False))
+       .replace("__REELS__", json.dumps(reels, ensure_ascii=False)).replace("__REELIMG__", json.dumps(reel_img)))
 open(os.path.join(here, "studio.html"), "w").write(out)
 print("studio.html", len(out))
