@@ -1,69 +1,77 @@
 {
  "asof": "2026-11-28",
- "cards": 3201,
+ "cards": 3205,
  "checks": {
   "C7": {
-   "n": 55,
+   "n": 56,
    "examples": [
     [
      "base1-4",
      "Charizard (Unlimited)",
-     "PSA 10 163 < PSA 9 3328"
+     "PSA 10 161 < PSA 9 3279"
     ],
     [
      "swsh3.5-79",
      "Charizard V",
-     "PSA 9 182 < PSA 8 205"
+     "PSA 9 185 < PSA 8 208"
     ],
     [
      "swsh7-212",
      "Sylveon VMAX",
-     "PSA 9 279 < PSA 8 297"
+     "PSA 9 276 < PSA 8 291"
     ],
     [
-     "me02.5-290",
-     "Mega Dragonite ex",
-     "PSA 9 321 < PSA 8 332"
+     "sv03.5-198",
+     "Venusaur ex",
+     "PSA 8 74 < PSA 7 83"
     ],
     [
-     "sv10.5w-173",
-     "Reshiram ex",
-     "PSA 9 360 < PSA 8 362"
+     "dc1-6",
+     "Team Aqua's Kyogre EX",
+     "PSA 10 4210 < PSA 9 4355"
+    ],
+    [
+     "me01-187",
+     "Mega Gardevoir ex",
+     "PSA 8 163 < PSA 7 200"
+    ],
+    [
+     "sv03.5-202",
+     "Zapdos ex",
+     "PSA 8 60 < PSA 7 67"
+    ],
+    [
+     "swsh3-20",
+     "Charizard VMAX",
+     "PSA 9 51 < PSA 8 52"
+    ],
+    [
+     "me03-094",
+     "Clefairy",
+     "PSA 8 15 < PSA 7 18"
     ],
     [
      "smp-SM163",
      "Mimikyu",
-     "PSA 8 73 < PSA 7 86"
+     "PSA 8 79 < PSA 7 84"
     ],
     [
      "sv03-228",
      "Charizard ex",
-     "PSA 8 39 < PSA 7 44"
+     "PSA 8 40 < PSA 7 44"
     ],
     [
      "me02-109",
      "Mega Charizard X ex",
-     "PSA 9 32 < PSA 8 33"
-    ],
+     "PSA 9 33 < PSA 8 33"
+    ]
+   ]
+  },
+  "C9": {
+   "n": 1,
+   "examples": [
     [
-     "me01-188",
-     "Mega Lucario ex",
-     "PSA 8 149 < PSA 7 151"
-    ],
-    [
-     "me02.5-277",
-     "Pikachu ex",
-     "PSA 9 201 < PSA 8 209"
-    ],
-    [
-     "me02-130",
-     "Mega Charizard X ex",
-     "PSA 8 176 < PSA 7 183"
-    ],
-    [
-     "me03-121",
-     "Meowth ex",
-     "PSA 9 71 < PSA 8 74"
+     "ja:darkness-that-consumes-light-57"
     ]
    ]
   }
