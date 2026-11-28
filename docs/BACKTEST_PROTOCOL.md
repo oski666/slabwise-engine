@@ -1209,3 +1209,13 @@ La correzione (ripresa settimana per settimana, carte base prima delle stampe) t
 **Criterio (fissato ora).** P1: sulle stampe giapponesi già sul sito, 60 titoli che la regola aggiunge, presi a caso, guardati a occhio: almeno il 95% della carta giusta (stesso Pokémon, numero e stampa). Solo riportati: vendite in più per le giapponesi del sito, e come cambiano le stime alla prima ricostruzione. **Se passa** la regola si accende; **se no** resta spenta e si guarda dove sbaglia.
 
 **Risultato (22 novembre 2026).** Sulle 217.303 vendite tcgcharts delle stampe giapponesi del sito la regola ne aggiunge **48.652** (da 117.607 a 166.259 riconosciute, +41%). P1: dei 60 titoli nuovi presi a caso (seme 7070) 59 sono della carta giusta; il sessantesimo (`Bulbasaur : Old Back [PMCG1-2] … Resale`) è dubbio e lo conto sbagliato: **98,3% ≥ 95%, passa**. La regola si accende (D342). Le stime nuove si riportano alla prima ricostruzione.
+
+## §71 (registrato il 28 novembre 2026, prima della misura). Titoli di altri prodotti: "Ancient Mew" e i libretti
+
+**Perché.** Il 28/11 la caduta di Mewtwo di Base Set 2 PSA 10 (Slabprice da 7.473 a 2.069 €) veniva da vendite assegnate dalla fonte che erano l'Ancient Mew promo del film ("PSA 10 ANCIENT MEW | Game Movie Pokemon 2000") e un libretto JR East. La regola generale sul nome (§63, §63b) non ha passato N1 e resta spenta; questa è più stretta.
+
+**Già visto prima di registrare (detto apertamente).** Le 3 vendite del Mewtwo qui sopra; nessun'altra misura.
+
+**Regola.** Per le carte inglesi, un titolo con "ancient mew", "booklet" o "insert" (parola intera) è escluso come gli altri prodotti dell'elenco EXCLUDE. Nel catalogo non c'è nessuna carta Ancient Mew.
+
+**Criteri.** Q1: delle vendite tolte (tutte se sono al massimo 60, altrimenti 60 a caso), lette a mano, almeno il 95% non è della carta a cui erano assegnate. Q2: nessuna carta del sito perde più del 20% delle sue vendite PSA dell'ultimo anno.
