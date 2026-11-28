@@ -12820,5 +12820,53 @@
   12,
   -1,
   "\\bsuper\\W*legend\\W*set\\W*xerneas\\W*ex\\W*yveltal\\W*ex\\b"
+ ],
+ "ja:tidal-storm-73": [
+  "primal kyogre\\-ex",
+  73,
+  -1,
+  "\\btidal\\W*storm\\b"
+ ],
+ "ja:sm-p-009": [
+  "mimikyu",
+  9,
+  -1,
+  "\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W*(?:black\\W*star\\W*)?promo|\\b(?:sm|sun\\W*(?:&|and)?\\W*moon)\\W?p\\b"
+ ],
+ "ja:pokepark-forest-5": [
+  "pokepark's latias",
+  5,
+  -1,
+  "\\bpokepark\\W*forest\\b"
+ ],
+ "ja:leaders-stadium-22": [
+  "lt\\. surge's fearow",
+  22,
+  -1,
+  "(?:\\b(?:gym\\W*heroes|gym\\W*1|leaders?\\W*stadium|leaders\\W*stadium)\\b|リーダーズスタジアム)"
+ ],
+ "ja:theater-limited-vs-pack-9": [
+  "alto mare's aerodactyl",
+  9,
+  -1,
+  "\\btheater\\W*limited\\W*vs\\W*pack\\b"
+ ],
+ "ja:mcdonalds-pokemon-e-minimum-pack-8": [
+  "totodile",
+  8,
+  -1,
+  "\\bmcdonald\\W*s\\W*pok\\W*mon\\W*e\\W*minimum\\W*pack\\b"
+ ],
+ "ja:t-promos-10": [
+  "ivysaur",
+  10,
+  -1,
+  "\\bt\\W*promos\\b"
+ ],
+ "ja:pcg-promos-1": [
+  "blastoise",
+  1,
+  -1,
+  "\\bpcg\\W*promos\\b"
  ]
 }
