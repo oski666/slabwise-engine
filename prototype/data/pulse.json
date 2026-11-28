@@ -68,5 +68,329 @@
    "cap": 1469728965,
    "hook": "Indice Classica: −25,5% in 4 settimane"
   }
+ ],
+ "reels": [
+  {
+   "kind": "high",
+   "title": "Nuovo massimo storico",
+   "score": 4.681,
+   "hook": "Charizard G PSA 9 non è mai costato così tanto.",
+   "numbers": "Charizard G di DP Black Star Promos, PSA 9: Slabprice 10.035 €, sopra il massimo di sempre (649 €). Nel 2024 valeva 219 €.",
+   "why": "Un massimo storico con tante vendite vere non è un caso: chi vendeva al vecchio prezzo ha smesso.",
+   "close": "Lo terresti o venderesti adesso?",
+   "voice": "Charizard G PSA 9 non è mai costato così tanto. Charizard G di DP Black Star Promos, PSA 9: Slabprice 10.035 €, sopra il massimo di sempre (649 €). Nel 2024 valeva 219 €. Un massimo storico con tante vendite vere non è un caso: chi vendeva al vecchio prezzo ha smesso. Lo terresti o venderesti adesso?",
+   "scenes": [
+    {
+     "t": "statement",
+     "big": "Massimo storico",
+     "small": "Charizard G · PSA 9"
+    },
+    {
+     "t": "beforeafter",
+     "items": [
+      {
+       "card": "dpp-DP45",
+       "label": "Charizard G",
+       "a": {
+        "label": "Nel 2024",
+        "val": "219 €"
+       },
+       "b": {
+        "label": "Oggi",
+        "val": "10.035 €"
+       }
+      }
+     ]
+    },
+    {
+     "t": "statement",
+     "big": "10.035 €",
+     "small": "prima il massimo era 649 €"
+    },
+    {
+     "t": "question",
+     "text": "Lo terresti o venderesti adesso?"
+    }
+   ],
+   "cards": [
+    "dpp-DP45"
+   ],
+   "check": true,
+   "grade": 9
+  },
+  {
+   "kind": "high",
+   "title": "Nuovo massimo storico",
+   "score": 3.0428,
+   "hook": "Gyarados PSA 9 non è mai costato così tanto.",
+   "numbers": "Gyarados di HeartGold SoulSilver, PSA 9: Slabprice 5.141 €, sopra il massimo di sempre (2.590 €). Nel 2022 valeva 182 €.",
+   "why": "Un massimo storico con tante vendite vere non è un caso: chi vendeva al vecchio prezzo ha smesso.",
+   "close": "Lo terresti o venderesti adesso?",
+   "voice": "Gyarados PSA 9 non è mai costato così tanto. Gyarados di HeartGold SoulSilver, PSA 9: Slabprice 5.141 €, sopra il massimo di sempre (2.590 €). Nel 2022 valeva 182 €. Un massimo storico con tante vendite vere non è un caso: chi vendeva al vecchio prezzo ha smesso. Lo terresti o venderesti adesso?",
+   "scenes": [
+    {
+     "t": "statement",
+     "big": "Massimo storico",
+     "small": "Gyarados · PSA 9"
+    },
+    {
+     "t": "beforeafter",
+     "items": [
+      {
+       "card": "hgss1-123",
+       "label": "Gyarados",
+       "a": {
+        "label": "Nel 2022",
+        "val": "182 €"
+       },
+       "b": {
+        "label": "Oggi",
+        "val": "5.141 €"
+       }
+      }
+     ]
+    },
+    {
+     "t": "statement",
+     "big": "5.141 €",
+     "small": "prima il massimo era 2.590 €"
+    },
+    {
+     "t": "question",
+     "text": "Lo terresti o venderesti adesso?"
+    }
+   ],
+   "cards": [
+    "hgss1-123"
+   ],
+   "check": false,
+   "grade": 9
+  },
+  {
+   "kind": "twin",
+   "title": "Giapponese contro inglese",
+   "score": 2.8619,
+   "hook": "Stessa illustrazione, stesso Magikarp. Uno vale 179 €, l'altro 3.124 €.",
+   "numbers": "Magikarp di Paldea Evolved, PSA 10: inglese 3.124 €, giapponese (Triplet Beat) 179 €. In PSA 10 ci sono 60.165 copie giapponesi e 4.010 inglesi.",
+   "why": "Il prezzo non lo fa l'illustrazione, lo fa quante copie perfette esistono: 15 volte tante, 17 volte meno care.",
+   "close": "Tu quale terresti in vetrina?",
+   "voice": "Stessa illustrazione, stesso Magikarp. Uno vale 179 €, l'altro 3.124 €. Magikarp di Paldea Evolved, PSA 10: inglese 3.124 €, giapponese (Triplet Beat) 179 €. In PSA 10 ci sono 60.165 copie giapponesi e 4.010 inglesi. Il prezzo non lo fa l'illustrazione, lo fa quante copie perfette esistono: 15 volte tante, 17 volte meno care. Tu quale terresti in vetrina?",
+   "scenes": [
+    {
+     "t": "statement",
+     "big": "179 € contro 3.124 €",
+     "small": "Stesso Magikarp."
+    },
+    {
+     "t": "vs",
+     "a": {
+      "card": "ja:sv1a-080",
+      "label": "Giapponese",
+      "sub": "Triplet Beat · PSA 10",
+      "value": "179 €"
+     },
+     "b": {
+      "card": "sv02-203",
+      "label": "Inglese",
+      "sub": "Paldea Evolved · PSA 10",
+      "value": "3.124 €"
+     },
+     "tag": "17 volte il prezzo"
+    },
+    {
+     "t": "bars",
+     "title": "Copie in PSA 10",
+     "items": [
+      {
+       "label": "Giapponese",
+       "value": 60165,
+       "text": "60.165"
+      },
+      {
+       "label": "Inglese",
+       "value": 4010,
+       "text": "4.010"
+      }
+     ]
+    },
+    {
+     "t": "statement",
+     "big": "Lo fa quante copie perfette esistono.",
+     "small": "Il prezzo non lo fa il disegno."
+    },
+    {
+     "t": "question",
+     "text": "Tu quale terresti in vetrina?"
+    }
+   ],
+   "cards": [
+    "ja:sv1a-080",
+    "sv02-203"
+   ],
+   "check": false,
+   "ja_more": false
+  },
+  {
+   "kind": "twin",
+   "title": "Giapponese contro inglese",
+   "score": 2.7877,
+   "hook": "Stessa illustrazione, stesso Drowzee. Uno vale 54,9 €, l'altro 893 €.",
+   "numbers": "Drowzee di Scarlet & Violet, PSA 10: inglese 893 €, giapponese (set giapponese) 54,9 €. In PSA 10 ci sono 10.852 copie giapponesi e 1.738 inglesi.",
+   "why": "Il prezzo non lo fa l'illustrazione, lo fa quante copie perfette esistono: 6 volte tante, 16 volte meno care.",
+   "close": "Tu quale terresti in vetrina?",
+   "voice": "Stessa illustrazione, stesso Drowzee. Uno vale 54,9 €, l'altro 893 €. Drowzee di Scarlet & Violet, PSA 10: inglese 893 €, giapponese (set giapponese) 54,9 €. In PSA 10 ci sono 10.852 copie giapponesi e 1.738 inglesi. Il prezzo non lo fa l'illustrazione, lo fa quante copie perfette esistono: 6 volte tante, 16 volte meno care. Tu quale terresti in vetrina?",
+   "scenes": [
+    {
+     "t": "statement",
+     "big": "54,9 € contro 893 €",
+     "small": "Stesso Drowzee."
+    },
+    {
+     "t": "vs",
+     "a": {
+      "card": "ja:sv1v-086",
+      "label": "Giapponese",
+      "sub": "set giapponese · PSA 10",
+      "value": "54,9 €"
+     },
+     "b": {
+      "card": "sv01-210",
+      "label": "Inglese",
+      "sub": "Scarlet & Violet · PSA 10",
+      "value": "893 €"
+     },
+     "tag": "16 volte il prezzo"
+    },
+    {
+     "t": "bars",
+     "title": "Copie in PSA 10",
+     "items": [
+      {
+       "label": "Giapponese",
+       "value": 10852,
+       "text": "10.852"
+      },
+      {
+       "label": "Inglese",
+       "value": 1738,
+       "text": "1.738"
+      }
+     ]
+    },
+    {
+     "t": "statement",
+     "big": "Lo fa quante copie perfette esistono.",
+     "small": "Il prezzo non lo fa il disegno."
+    },
+    {
+     "t": "question",
+     "text": "Tu quale terresti in vetrina?"
+    }
+   ],
+   "cards": [
+    "ja:sv1v-086",
+    "sv01-210"
+   ],
+   "check": false,
+   "ja_more": false
+  },
+  {
+   "kind": "era_share",
+   "title": "Il PSA 10 per era",
+   "score": 2.37,
+   "hook": "Mandi a gradare una carta dell'era Di mezzo: quante possibilità hai di prendere 10? Una su 132.",
+   "numbers": "Era Di mezzo: nel 2021–22 prendeva PSA 10 l'8,1% delle carte gradate, un anno fa il 1,3%, negli ultimi sei mesi il 0,8%.",
+   "why": "Le copie perfette delle carte vecchie sono già state gradate: quello che arriva oggi è il resto. Prima di spedire, conta sul 9.",
+   "close": "Hai mai preso un 10 su una carta più vecchia di te?",
+   "voice": "Mandi a gradare una carta dell'era Di mezzo: quante possibilità hai di prendere 10? Una su 132. Era Di mezzo: nel 2021–22 prendeva PSA 10 l'8,1% delle carte gradate, un anno fa il 1,3%, negli ultimi sei mesi il 0,8%. Le copie perfette delle carte vecchie sono già state gradate: quello che arriva oggi è il resto. Prima di spedire, conta sul 9. Hai mai preso un 10 su una carta più vecchia di te?",
+   "scenes": [
+    {
+     "t": "statement",
+     "big": "1 su 132",
+     "small": "prende PSA 10 oggi · era Di mezzo"
+    },
+    {
+     "t": "bars",
+     "title": "Quota di PSA 10 · Di mezzo",
+     "items": [
+      {
+       "label": "2021–22",
+       "value": 0.0813,
+       "text": "8,1%"
+      },
+      {
+       "label": "un anno fa",
+       "value": 0.0126,
+       "text": "1,3%"
+      },
+      {
+       "label": "ultimi 6 mesi",
+       "value": 0.0076,
+       "text": "0,8%"
+      }
+     ]
+    },
+    {
+     "t": "statement",
+     "big": "Sul vintage conta sul 9.",
+     "small": "Le copie perfette sono già state gradate."
+    },
+    {
+     "t": "question",
+     "text": "Hai mai preso un 10 su una carta più vecchia di te?"
+    }
+   ],
+   "cards": [],
+   "check": false,
+   "era": "Di mezzo"
+  },
+  {
+   "kind": "fall",
+   "title": "La caduta",
+   "score": 1.2866,
+   "hook": "Togepi giapponese PSA 9 si vendeva a 1.204 €. Oggi a 333 €.",
+   "numbers": "Togepi giapponese di Southern Islands, PSA 9: Slabprice 333 €, −72% in 30 giorni, 4 vendite negli ultimi due mesi. In PSA 9 ne esistono 619.",
+   "why": "Tante vendite, tutte vere: non è un errore, è il mercato che si è riposizionato.",
+   "close": "È il momento di comprare o scende ancora?",
+   "voice": "Togepi giapponese PSA 9 si vendeva a 1.204 €. Oggi a 333 €. Togepi giapponese di Southern Islands, PSA 9: Slabprice 333 €, −72% in 30 giorni, 4 vendite negli ultimi due mesi. In PSA 9 ne esistono 619. Tante vendite, tutte vere: non è un errore, è il mercato che si è riposizionato. È il momento di comprare o scende ancora?",
+   "scenes": [
+    {
+     "t": "statement",
+     "big": "1.204 € → 333 €",
+     "small": "Togepi giapponese · PSA 9"
+    },
+    {
+     "t": "beforeafter",
+     "items": [
+      {
+       "card": "ja:southern-islands-4",
+       "label": "Togepi giapponese",
+       "a": {
+        "label": "Un mese fa",
+        "val": "1.204 €"
+       },
+       "b": {
+        "label": "Oggi",
+        "val": "333 €"
+       }
+      }
+     ]
+    },
+    {
+     "t": "statement",
+     "big": "Il mercato si è riposizionato.",
+     "small": "4 vendite in due mesi"
+    },
+    {
+     "t": "question",
+     "text": "È il momento di comprare o scende ancora?"
+    }
+   ],
+   "cards": [
+    "ja:southern-islands-4"
+   ],
+   "check": false,
+   "grade": 9
+  }
  ]
 }
