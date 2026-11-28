@@ -8602,5 +8602,41 @@
    2003,
    2004
   ]
+ ],
+ "ex10-110": [
+  "typhlosion ex",
+  "\\bunseen\\W*(?:(?:of|the|and)\\W*)?forces\\b",
+  110,
+  [
+   2005,
+   2006
+  ]
+ ],
+ "ex12-5": [
+  "gengar",
+  "\\blegend\\W*(?:(?:of|the|and)\\W*)?maker\\b",
+  5,
+  [
+   2006,
+   2007
+  ]
+ ],
+ "ex4-96": [
+  "absol",
+  "\\bteam\\W*(?:(?:of|the|and)\\W*)?magma\\W*(?:(?:of|the|and)\\W*)?vs\\W*(?:(?:of|the|and)\\W*)?team\\W*(?:(?:of|the|and)\\W*)?aqua\\b",
+  96,
+  [
+   2004,
+   2005
+  ]
+ ],
+ "sm7-177": [
+  "rayquaza gx",
+  "\\bcelestial\\W*(?:(?:of|the|and)\\W*)?storm\\b",
+  177,
+  [
+   2018,
+   2019
+  ]
  ]
 }

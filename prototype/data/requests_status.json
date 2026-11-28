@@ -1784,19 +1784,20 @@
   "added": "2026-11-04"
  },
  "en:ex12-5": {
-  "n": 121,
-  "recognised": 116,
-  "share": 0.959,
-  "contradicting": 0.017,
+  "n": 130,
+  "recognised": 125,
+  "share": 0.962,
+  "contradicting": 0.008,
   "tc_id": 16356,
   "tc_set": "Legend Maker",
   "tc_url": "/pokemon/legend-maker/gengar-5",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-14",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-28",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-28"
  },
  "en:bw11-RC7": {
   "n": 69,
@@ -3437,8 +3438,8 @@
   "added": "2026-11-07"
  },
  "en:ex12-93": {
-  "n": 46,
-  "recognised": 46,
+  "n": 51,
+  "recognised": 51,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": 16404,
@@ -3447,7 +3448,7 @@
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-14",
+  "checked": "2026-11-28",
   "requests": 0,
   "source": "catalogo (D111)"
  },
@@ -18447,11 +18448,12 @@
   "tc_set": "Unseen Forces",
   "tc_url": "/pokemon/unseen-forces/typhlosion-ex-110",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-14",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-28",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-28"
  },
  "en:sv04.5-216": {
   "n": 208,
@@ -18758,8 +18760,8 @@
   "added": "2026-11-14"
  },
  "en:ex4-95": {
-  "n": 37,
-  "recognised": 37,
+  "n": 36,
+  "recognised": 36,
   "share": 1.0,
   "contradicting": 0.0,
   "tc_id": 17356,
@@ -18768,7 +18770,7 @@
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-14",
+  "checked": "2026-11-28",
   "requests": 0,
   "source": "catalogo (D111)"
  },
@@ -18781,11 +18783,12 @@
   "tc_set": "Team Magma vs Team Aqua",
   "tc_url": "/pokemon/team-magma-vs-team-aqua/absol-96",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-14",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-28",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-28"
  },
  "en:ex8-103": {
   "n": 24,
@@ -19684,19 +19687,20 @@
   "added": "2026-11-14"
  },
  "en:sm7-177": {
-  "n": 74,
-  "recognised": 73,
-  "share": 0.986,
+  "n": 61,
+  "recognised": 59,
+  "share": 0.967,
   "contradicting": 0.0,
   "tc_id": 8922,
   "tc_set": "Celestial Storm",
   "tc_url": "/pokemon/celestial-storm/rayquaza-gx-177",
   "tc_type": "base",
-  "status": "attesa_motore",
-  "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-14",
+  "status": "aggiunta",
+  "detail": "",
+  "checked": "2026-11-28",
   "requests": 0,
-  "source": "catalogo (D111)"
+  "source": "catalogo (D111)",
+  "added": "2026-11-28"
  },
  "en:xy3-107": {
   "n": 39,
@@ -19714,9 +19718,9 @@
   "source": "catalogo (D111)"
  },
  "en:ex11-109": {
-  "n": 48,
-  "recognised": 47,
-  "share": 0.979,
+  "n": 43,
+  "recognised": 42,
+  "share": 0.977,
   "contradicting": 0.0,
   "tc_id": 16416,
   "tc_set": "Delta Species",
@@ -19724,7 +19728,7 @@
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-14",
+  "checked": "2026-11-28",
   "requests": 0,
   "source": "catalogo (D111)"
  },
@@ -19745,17 +19749,17 @@
   "added": "2026-11-14"
  },
  "en:ex1-103": {
-  "n": 59,
-  "recognised": 59,
-  "share": 1.0,
-  "contradicting": 0.0,
+  "n": 62,
+  "recognised": 61,
+  "share": 0.984,
+  "contradicting": 0.016,
   "tc_id": 17604,
   "tc_set": "Ruby & Sapphire",
   "tc_url": "/pokemon/ruby-sapphire/sneasel-ex-103",
   "tc_type": "base",
   "status": "attesa_motore",
   "detail": "i controlli del motore non tornano ancora",
-  "checked": "2026-11-14",
+  "checked": "2026-11-28",
   "requests": 0,
   "source": "catalogo (D111)"
  },
