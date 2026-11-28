@@ -12784,5 +12784,41 @@
   102,
   -1,
   "\\bsuper\\W*burst\\W*impact\\b"
+ ],
+ "ja:p-promos-2": [
+  "rocket's scizor",
+  2,
+  -1,
+  "\\bp\\W*promos\\b"
+ ],
+ "ja:gold-silver-to-a-new-world-175": [
+  "togepi",
+  175,
+  -1,
+  "(?:\\b(?:neo\\W*genesis|neo\\W*1|gold\\W*silver|gold\\W*silver\\W*to\\W*a\\W*new\\W*world)\\b|金、?・?銀、?・?新世界へ)"
+ ],
+ "ja:super-legend-set-xerneas-ex-yveltal-ex-6": [
+  "yveltal ex",
+  6,
+  -1,
+  "\\bsuper\\W*legend\\W*set\\W*xerneas\\W*ex\\W*yveltal\\W*ex\\b"
+ ],
+ "ja:intro-pack-bulbasaur-18": [
+  "bulbasaur",
+  18,
+  -1,
+  "\\bintro\\W*pack\\W*bulbasaur\\b"
+ ],
+ "ja:gold-silver-to-a-new-world-191": [
+  "sunkern",
+  191,
+  -1,
+  "(?:\\b(?:neo\\W*genesis|neo\\W*1|gold\\W*silver|gold\\W*silver\\W*to\\W*a\\W*new\\W*world)\\b|金、?・?銀、?・?新世界へ)"
+ ],
+ "ja:super-legend-set-xerneas-ex-yveltal-ex-12": [
+  "xerneas ex",
+  12,
+  -1,
+  "\\bsuper\\W*legend\\W*set\\W*xerneas\\W*ex\\W*yveltal\\W*ex\\b"
  ]
 }
