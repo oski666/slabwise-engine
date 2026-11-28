@@ -12868,5 +12868,77 @@
   1,
   -1,
   "\\bpcg\\W*promos\\b"
+ ],
+ "ja:megalo-cannon-78": [
+  "genesect\\-ex",
+  78,
+  -1,
+  "\\bmegalo\\W*cannon\\b"
+ ],
+ "ja:intro-pack-squirtle-3": [
+  "wartortle",
+  3,
+  -1,
+  "\\bintro\\W*pack\\W*squirtle\\b"
+ ],
+ "ja:mcdonalds-pokemon-e-minimum-pack-9": [
+  "marill",
+  9,
+  -1,
+  "\\bmcdonald\\W*s\\W*pok\\W*mon\\W*e\\W*minimum\\W*pack\\b"
+ ],
+ "ja:expansion-pack-83": [
+  "farfetch'd",
+  83,
+  -1,
+  "(?:\\b(?:base\\W*set|basic|expansion\\W*pack)\\b|拡張パック)"
+ ],
+ "ja:p-promos-7": [
+  "celebi",
+  7,
+  -1,
+  "\\bp\\W*promos\\b"
+ ],
+ "ja:pokepark-forest-1": [
+  "pokepark's celebi",
+  1,
+  -1,
+  "\\bpokepark\\W*forest\\b"
+ ],
+ "ja:secret-of-the-lakes-154": [
+  "gyarados",
+  154,
+  -1,
+  "\\bsecret\\W*lakes\\b"
+ ],
+ "ja:melee-pokemon-scramble-5": [
+  "starmie",
+  5,
+  -1,
+  "\\bmelee\\W*scramble\\b"
+ ],
+ "ja:p-promos-32": [
+  "pichu",
+  32,
+  -1,
+  "\\bp\\W*promos\\b"
+ ],
+ "ja:pcg-promos-40": [
+  "pok[eé]park's munchlax",
+  40,
+  -1,
+  "\\bpcg\\W*promos\\b"
+ ],
+ "ja:p-promos-24": [
+  "zapdos",
+  24,
+  -1,
+  "\\bp\\W*promos\\b"
+ ],
+ "ja:flight-of-legends-74": [
+  "snorlax",
+  74,
+  -1,
+  "\\bflight\\W*legends\\b"
  ]
 }
