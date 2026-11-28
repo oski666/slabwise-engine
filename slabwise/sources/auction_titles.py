@@ -86,6 +86,7 @@ def en_exclude(fix):
         r"|\blot\b|collection \(|" + (r"\((?!(?:199\d|20[0-2]\d)\))\d+\)" if fix else r"\(\d+\)") + r"|\bset of\b|complete set|sealed|unopened|booster|\bpack\b|" + (r"(?<!elite trainer )\bbox\b" if fix else r"\bbox\b") + r""
         r"|jumbo|oversize|celebrations|classic collection|" + (r"(?<!prismatic )(?<!mega )evolutions" if fix else r"(?<!prismatic )evolutions") + r"|expedition|base set 2|base set ii\b|base ii\b|legendary collection"
         r"|signed|sketch|autograph|psa/dna|authentic|\bauto\b|topps|sticker|bandai|metal|\bgold\b(?! star)|staff|prerelease"
+        r"|ancient mew|\bbooklet\b|\binsert\b"   # protocol §71 (D348): the movie's Ancient Mew promo and the booklets
         r"|stamp|\berror\b|misprint|miscut|no set symbol|no symbol|\bproof\b|test print|\bdeck\b|reverse|cosmos|trainer kit|\bbgs\b|\bcgc\b|\bsgc\b"
         r"|\bpsa\s*(?:10|[1-9](?:\.5)?)\s*\(?\s*(?:oc|mk|st|pd|mc)\b")   # D221: qualified grades (off-centre, marks, stain...) are not the grade
 
