@@ -225,7 +225,8 @@ def jumps(cards, rate, asof):
             if len(new) < 3 or len(old) < 3:
                 continue
             med_old = old[len(old) // 2]
-            check = max(new) > 3 * med_old or (g.get("pop") or 999) <= 50 and max(new) > 2 * med_old or abs(ch) >= 1   # 27 Nov: a doubling is always checked
+            check = max(new) > 3 * med_old or (g.get("pop") or 999) <= 50 and max(new) > 2 * med_old or abs(ch) >= 1 \
+                or max(new) > 3 * min(new)              # 28 Nov: recent sales three times apart (Mewtwo Base Set 2: 1.665–8.700 $) are two kinds of sale
             prev = g["value"] / (1 + ch)
             up = ch > 0
             hook = (f"{_label(c)} PSA {g['grade']} si vendeva a {eur(prev, rate)}. Oggi a {eur(g['value'], rate)}.")
